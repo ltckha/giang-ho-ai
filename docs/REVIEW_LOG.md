@@ -44,3 +44,24 @@ NAMES: ĐỒNG Ý
 2. Ghi docs/PROGRESS.md + ảnh chụp trong docs/screenshots/ khi có bản chơi được; thêm CREDITS.md khi có hình / âm thanh.
 3. Tiêu đề index.html đang là "Giang Hồ AI — Mộc Cơ Giang Hồ": anh Kha chưa chọn tên game, để "Giang Hồ AI" cho tới khi chốt.
 4. Cần thêm 1 test: người chơi phái Hỏa Ấn Môn (có ngọc đổi hệ) hạ được trùm Sơ Giác ở cấp đề xuất (ghi chú 2 lần trước).
+
+---
+
+## 22/11/2026 — Rà bản "GĐ1 XONG" (commit ed44c44)
+
+**Kết luận:** ĐẠT — có bản chơi được. Chấp nhận Giai đoạn 1, kèm 3 việc nhỏ dưới đây (không chặn).
+
+**Đã chạy thử (máy phiên cloud):**
+- `npm ci`, `npm test`: 26/26 test qua (có test phái Hỏa Ấn Môn hạ Sơ Giác ở cấp 4).
+- `npm run build`: được, ra dist/ (~1,6 MB JS, ~376 KB nén).
+- Mở bản build bằng trình duyệt tự động, chặn mọi mạng ngoài: máy tính 1280×720, iPhone dọc, iPhone ngang. Không lỗi console, không gọi mạng ngoài.
+- Chơi thử: chọn Hỏa Ấn Môn → vào Thành Lam Lư, 3 khôi lỗi đi theo, đi bằng WASD, dùng chiêu, mở túi đồ; tự lưu có dữ liệu trong localStorage. Giao diện chạm (cần ảo + 4 nút chiêu + 2 nút bình) hiện đủ trên điện thoại.
+- Rừng, hang, trùm: Claude chưa tự đi tới; chỉ xem qua ảnh chụp của Antigravity (docs/screenshots/04, 05) và test tự động.
+- CREDITS.md có; hình và âm thanh đều sinh bằng code, không tải file ngoài.
+
+**Việc nhỏ cho lần sau (không chặn):**
+1. Điện thoại cầm dọc: bảng tổ đội và nút trên cùng che gần nửa bản đồ; thông báo "Đã đến…" đè lên nút Linh Dịch / Dầu Chốt. Nên thu gọn bảng tổ đội khi màn hình hẹp và đẩy thông báo lên trên.
+2. Mở thẳng file dist/index.html (bấm đúp) không chạy (trình duyệt chặn script từ file). Không sao nếu xem qua link web; nếu cần mở file trực tiếp thì gộp JS/CSS vào index.html.
+3. Nên thêm 1 test chơi tự động trong trình duyệt (đi từ thành → rừng → hang) để lần sau rà nhanh hơn.
+
+**Chờ anh Kha:** chọn chỗ xem bản chơi (theo PLAN mục "Anh thấy gì").
