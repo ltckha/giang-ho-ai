@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { ATLAS_KEY, STAGE1_MAP_KEY, STAGE2_MAP_KEY, STAGE3_MAP_KEY } from '../game/atlasIcons';
+import { ATLAS_KEY, GEAR_ATLAS_KEY, STAGE1_MAP_KEY, STAGE2_MAP_KEY, STAGE3_MAP_KEY } from '../game/atlasIcons';
 import { SCENE_KEYS } from '../game/sceneKeys';
 import { generateGameTextures } from '../game/textures';
 
@@ -65,6 +65,7 @@ export class BootScene extends Phaser.Scene {
       .setOrigin(0.5);
 
     this.load.atlas(ATLAS_KEY, './assets/gon_tiem_atlas.webp', './assets/gon_tiem_atlas.json');
+    this.load.atlas(GEAR_ATLAS_KEY, './assets/gear_atlas.webp', './assets/gear_atlas.json');
     this.load.image(STAGE1_MAP_KEY, './assets/map_man1_tiem_giay.webp');
     this.load.image(STAGE2_MAP_KEY, './assets/map_man2_tiem_banh.webp');
     this.load.image(STAGE3_MAP_KEY, './assets/map_man3_tiem_hoa.webp');
