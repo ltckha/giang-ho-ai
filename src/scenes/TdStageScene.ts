@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import { ELEMENT_INFO } from '../core/elements';
 import { getGearBonus, grantStageDrops, loadTdSave, saveTdProgress } from '../core/saveSystem';
 import { RARITY_LABEL, statText, type GearItem } from '../core/equipment';
-import { ULTIMATE_MIN_STAGE, ULTIMATE_NAMES, ULTIMATE_ROLE_TEXT } from '../core/ultimates';
+import { ULTIMATE_COOLDOWN_SEC, ULTIMATE_MIN_STAGE, ULTIMATE_NAMES, ULTIMATE_ROLE_TEXT } from '../core/ultimates';
 import { runBotTurn } from '../core/tdBot';
 import {
   ALL_ENEMY_DEFINITIONS as ENEMY_DEFINITIONS,
@@ -20,6 +20,7 @@ import type {
   EnemyId,
   TowerBranch,
   TowerId,
+  TowerRole,
 } from '../core/types';
 import {
   ATLAS_KEY,
@@ -70,10 +71,25 @@ interface AreaEffectVisual {
     | 'frost'
     | 'lime'
     | 'boss_shift'
-    | 'heal';
+    | 'heal'
+    | 'ult_rapid'
+    | 'ult_slam'
+    | 'ult_lock'
+    | 'ult_nova'
+    | 'ult_support';
   x: number;
   y: number;
   radius: number;
+  color: number;
+  life: number;
+  maxLife: number;
+}
+
+interface UltimateBeamVisual {
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
   color: number;
   life: number;
   maxLife: number;
@@ -171,6 +187,7 @@ export class TdStageScene extends Phaser.Scene {
   private enemySprites = new Map<string, EnemyVisualRecord>();
 
   private hudRoot: HTMLDivElement | null = null;
+  private ultButtonsRoot: HTMLDivElement | null = null;
   private modalRoot: HTMLDivElement | null = null;
   private synergyTooltipRoot: HTMLDivElement | null = null;
   private bossBannerRoot: HTMLDivElement | null = null;
@@ -179,6 +196,11 @@ export class TdStageScene extends Phaser.Scene {
   private resultShown = false;
   private lastDrops: GearItem[] = [];
   private lastUpcomingWaveNum = -999;
+
+  private floatingUltEls = new Map<string, HTMLButtonElement>();
+  private towerUltMaxCd = new Map<string, number>();
+  private ultSupportBeams: UltimateBeamVisual[] = [];
+  private lastModalUltCdSec = -1;
 
   private projectiles: ProjectileVisual[] = [];
   private areaEffects: AreaEffectVisual[] = [];
@@ -224,6 +246,11 @@ export class TdStageScene extends Phaser.Scene {
     this.bossBannerTimer = 0;
     this.resultShown = false;
     this.lastUpcomingWaveNum = -999;
+
+    this.floatingUltEls.clear();
+    this.towerUltMaxCd.clear();
+    this.ultSupportBeams = [];
+    this.lastModalUltCdSec = -1;
 
     this.projectiles = [];
     this.areaEffects = [];
@@ -551,6 +578,7 @@ export class TdStageScene extends Phaser.Scene {
     this.drawPadHighlightsAndOverlays();
     this.drawFxAndWeather(rawDt);
     this.refreshHud();
+    this.refreshUltimateButtons();
 
     if (this.engine.status !== 'playing' && !this.resultShown) {
       this.resultShown = true;
@@ -1250,9 +1278,149 @@ export class TdStageScene extends Phaser.Scene {
           this.spawnFloatingLabel(sPos.x + 26, sPos.y + 14, `Gọi sớm +${ev.reward} xu`, '#ffe066', 13, true);
         }
       } else if (ev.type === 'ultimate') {
-        // Tuyệt chiêu bậc 4 (hình tạm: chữ lớn; Antigravity làm hiệu ứng riêng)
         const up = this.toScreen(ev.x, ev.y);
-        this.spawnFloatingLabel(up.x, up.y - 30, `★ ${ev.text ?? 'Tuyệt chiêu'}!`, '#ffd166', 16, true);
+        const def = ev.towerDefId ? TOWER_DEFINITIONS[ev.towerDefId] : undefined;
+        const role: TowerRole = def?.role ?? 'single_far';
+        const el = ev.element ?? def?.element ?? 'hoa';
+        const elInfo = ELEMENT_INFO[el];
+        const radiusPx = Math.max(48, (ev.splashRadius ?? 95) * this.mapScale);
+        const ultTitle = ev.text ?? (ev.towerDefId ? ULTIMATE_NAMES[ev.towerDefId] : 'Tuyệt chiêu');
+
+        sound.playUltimate(role);
+
+        if (ev.towerUid) {
+          const trec = this.towerSprites.get(ev.towerUid);
+          if (trec) {
+            trec.recoilTimer = 0.28;
+            trec.flashTimer = 0.24;
+          }
+          const srcTower = this.engine.towers.find((t) => t.uid === ev.towerUid);
+          if (srcTower && (srcTower.ultimateCooldownRemaining ?? 0) > 0) {
+            this.towerUltMaxCd.set(srcTower.uid, srcTower.ultimateCooldownRemaining!);
+          }
+        }
+
+        if (role === 'single_far') {
+          // Bắn nhanh ×2.5 trong 5s: vòng sao tăng tốc & tia chớp vàng bung tỏa
+          this.areaEffects.push({
+            kind: 'ult_rapid',
+            x: up.x,
+            y: up.y,
+            radius: 56 * this.mapScale,
+            color: elInfo.colorInt,
+            life: 0.72,
+            maxLife: 0.72,
+          });
+          this.spawnDustBurst(up.x, up.y, 0xffe066, this.reduceMotion ? 5 : 14);
+          this.spawnDustBurst(up.x, up.y, elInfo.colorInt, this.reduceMotion ? 4 : 10);
+        } else if (role === 'heavy_slow') {
+          // Đập cả vùng ×3 sức + choáng: sóng địa chấn kép phủ trọn tầm + tia sét va đập + rung
+          this.areaEffects.push({
+            kind: 'ult_slam',
+            x: up.x,
+            y: up.y,
+            radius: radiusPx,
+            color: elInfo.colorInt,
+            life: 0.78,
+            maxLife: 0.78,
+          });
+          this.spawnDustBurst(up.x, up.y, 0xffd43b, this.reduceMotion ? 6 : 16);
+          this.spawnDustBurst(up.x, up.y, elInfo.colorInt, this.reduceMotion ? 5 : 12);
+          if (!this.reduceMotion) {
+            this.cameras.main.shake(220, 0.0065);
+          }
+        } else if (role === 'slow_aura') {
+          // Giữ chân mọi quái kể cả con bay 2s: vòng xoáy khóa băng/gió/vôi phủ trọn tầm
+          this.areaEffects.push({
+            kind: 'ult_lock',
+            x: up.x,
+            y: up.y,
+            radius: radiusPx,
+            color: elInfo.colorInt,
+            life: 0.88,
+            maxLife: 0.88,
+          });
+          const ringParticles = this.reduceMotion ? 6 : 18;
+          for (let k = 0; k < ringParticles; k += 1) {
+            const ang = (Math.PI * 2 * k) / ringParticles;
+            const dist = radiusPx * (0.4 + Math.random() * 0.55);
+            this.particles.push({
+              x: up.x + Math.cos(ang) * dist,
+              y: up.y + Math.sin(ang) * dist,
+              vx: -Math.sin(ang) * 28,
+              vy: Math.cos(ang) * 28 - 10,
+              gravity: 0,
+              color: k % 2 === 0 ? 0xe0f2fe : elInfo.colorInt,
+              life: 0.65,
+              maxLife: 0.65,
+              size: 5.4,
+              shape: 'square',
+            });
+          }
+        } else if (role === 'aoe_splash') {
+          // Nổ cả vùng ×2.5 + đốt 4s: vụ nổ rực lửa lan rộng + mưa tàn lửa + rung mạnh
+          this.areaEffects.push({
+            kind: 'ult_nova',
+            x: up.x,
+            y: up.y,
+            radius: radiusPx,
+            color: elInfo.colorInt,
+            life: 0.82,
+            maxLife: 0.82,
+          });
+          const emberCount = this.reduceMotion ? 7 : 22;
+          for (let k = 0; k < emberCount; k += 1) {
+            const ang = (Math.PI * 2 * k) / emberCount + Math.random() * 0.25;
+            const spd = 48 + Math.random() * 88;
+            this.particles.push({
+              x: up.x,
+              y: up.y,
+              vx: Math.cos(ang) * spd,
+              vy: Math.sin(ang) * spd - 16,
+              gravity: 65,
+              color: k % 3 === 0 ? 0xffe066 : k % 3 === 1 ? 0xff6b4a : elInfo.colorInt,
+              life: 0.68,
+              maxLife: 0.68,
+              size: 5.5,
+              shape: 'circle',
+            });
+          }
+          if (!this.reduceMotion) {
+            this.cameras.main.shake(240, 0.0072);
+          }
+        } else {
+          // Hỗ trợ: món quanh nó +60% tốc độ trong 6s + gỡ đứng im — sóng cộng hưởng + tia sáng nối tới từng đồng đội!
+          this.areaEffects.push({
+            kind: 'ult_support',
+            x: up.x,
+            y: up.y,
+            radius: radiusPx,
+            color: elInfo.colorInt,
+            life: 0.9,
+            maxLife: 0.9,
+          });
+          const rangeLogical = ev.splashRadius ?? 95;
+          for (const ally of this.engine.towers) {
+            if (ally.uid === ev.towerUid) continue;
+            if (Math.hypot(ally.x - ev.x, ally.y - ev.y) <= rangeLogical) {
+              const ap = this.toScreen(ally.x, ally.y);
+              this.ultSupportBeams.push({
+                x1: up.x,
+                y1: up.y,
+                x2: ap.x,
+                y2: ap.y,
+                color: 0xffd43b,
+                life: 0.85,
+                maxLife: 0.85,
+              });
+              this.spawnDustBurst(ap.x, ap.y, 0xffe066, this.reduceMotion ? 3 : 6);
+            }
+          }
+          this.spawnDustBurst(up.x, up.y, 0xffe066, this.reduceMotion ? 5 : 14);
+        }
+
+        this.spawnFloatingLabel(up.x, up.y - 32 * this.mapScale, `★ ${ultTitle}!`, '#ffe066', 17, true);
+        this.showUltimateCastBanner(ultTitle, role, el);
       } else if (ev.type === 'wave_clear') {
         this.spawnFloatingLabel(
           this.scale.width * 0.5,
@@ -1633,10 +1801,15 @@ export class TdStageScene extends Phaser.Scene {
       return true;
     });
 
-    // 2. Vùng hiệu ứng (đạp bốt, sương lạnh, hạt hút ẩm, hơi ấm, tắt nắng)
+    // 2. Vùng hiệu ứng (đạp bốt, sương lạnh, hạt hút ẩm, hơi ấm, tắt nắng, tuyệt chiêu bậc 4)
     this.areaEffects = this.areaEffects.filter((ef) => {
       ef.life -= dt;
       return ef.life > 0;
+    });
+
+    this.ultSupportBeams = this.ultSupportBeams.filter((bm) => {
+      bm.life -= dt;
+      return bm.life > 0;
     });
 
     // 3. Hạt hiệu ứng & pháo hoa
@@ -1766,25 +1939,78 @@ export class TdStageScene extends Phaser.Scene {
       pg.strokeCircle(sx, sy, rangePx);
     }
 
+    // Vòng hào quang vàng kim rực rỡ cho món đã lên Bậc 4 tuyệt chiêu
+    if (tower.hasUltimate) {
+      const ultReady = this.engine.canActivateUltimate(tower.padId);
+      const ultActive = (tower.ultimateActiveRemaining ?? 0) > 0;
+      const pulse = this.reduceMotion ? 0.5 : 0.5 + 0.5 * Math.sin(this.animTimeSec * (ultActive ? 8 : 4.2));
+      const haloR = r + (ultActive ? 6.5 : 4.5) * this.mapScale + (this.reduceMotion ? 0 : pulse * 2 * this.mapScale);
+
+      pg.fillStyle(0xfbbf24, ultActive ? 0.24 : ultReady ? 0.14 + pulse * 0.08 : 0.08);
+      pg.fillCircle(sx, sy + 2 * this.mapScale, haloR);
+      pg.lineStyle((ultActive ? 3.2 : 2.4) * this.mapScale, 0xfbbf24, ultReady || ultActive ? 0.92 : 0.58);
+      pg.strokeCircle(sx, sy + 2 * this.mapScale, haloR);
+
+      // 4 hạt sáng vàng xoay quanh viền Bậc 4
+      const spin = this.reduceMotion ? 0.4 : this.animTimeSec * (ultActive ? 3.2 : 1.15);
+      for (let k = 0; k < 4; k += 1) {
+        const ang = spin + (k * Math.PI) / 2;
+        const gx = sx + Math.cos(ang) * haloR;
+        const gy = sy + 2 * this.mapScale + Math.sin(ang) * haloR;
+        pg.fillStyle(0xfffbeb, ultReady || ultActive ? 0.95 : 0.55);
+        pg.fillCircle(gx, gy, (ultActive ? 3.1 : 2.3) * this.mapScale);
+      }
+
+      // Vòng cung hồi chiêu trên chân món khi đang chờ (30s)
+      const cdRem = tower.ultimateCooldownRemaining ?? 0;
+      if (cdRem > 0) {
+        const maxCd = Math.max(cdRem, this.towerUltMaxCd.get(tower.uid) ?? ULTIMATE_COOLDOWN_SEC);
+        const progress = Math.max(0, Math.min(1, 1 - cdRem / maxCd));
+        const arcR = r + 3.2 * this.mapScale;
+        og.lineStyle(2.8 * this.mapScale, 0x2b1a12, 0.55);
+        og.strokeCircle(sx, sy + 2 * this.mapScale, arcR);
+        og.lineStyle(2.6 * this.mapScale, 0xfde047, 0.92);
+        og.beginPath();
+        og.arc(
+          sx,
+          sy + 2 * this.mapScale,
+          arcR,
+          -Math.PI / 2,
+          -Math.PI / 2 + progress * Math.PI * 2,
+          false,
+        );
+        og.strokePath();
+      }
+    }
+
+    // Vòng tăng tốc vàng khi đang được đồng đội hỗ trợ bằng tuyệt chiêu Bậc 4
+    if ((tower.ultimateHasteRemaining ?? 0) > 0) {
+      const hpulse = this.reduceMotion ? 0 : Math.sin(this.animTimeSec * 9) * 1.8 * this.mapScale;
+      pg.lineStyle(2.2 * this.mapScale, 0xffe066, 0.85);
+      pg.strokeCircle(sx, sy + 2 * this.mapScale, r + 5.2 * this.mapScale + hpulse);
+    }
+
     // Vòng màu hành mảnh dưới chân món giúp nhận ra hành ngay lập tức
     pg.lineStyle(2.2, elInfo.colorInt, 0.92);
     pg.strokeCircle(sx, sy + 2 * this.mapScale, r);
 
     // Vòng hào quang ấm nếu đang được Máy Sấy Giày sấy khỏe
-    if (tower.buffDamageMultiplier > 1.01) {
+    if (tower.buffDamageMultiplier > 1.01 && !tower.hasUltimate) {
       const auraPulse = this.reduceMotion ? 0 : Math.sin(this.animTimeSec * 4) * 1.5;
       pg.lineStyle(1.8, 0xffa94d, 0.75);
       pg.strokeCircle(sx, sy + 2 * this.mapScale, r + 3.2 * this.mapScale + auraPulse);
     }
 
-    // Chấm sao vàng chỉ bậc (1..3) ở mép dưới thảm
-    for (let i = 0; i < tower.tier; i += 1) {
-      const dotX = sx + (i - (tower.tier - 1) * 0.5) * 7 * this.mapScale;
-      const dotY = sy + r + 1 * this.mapScale;
+    // Chấm sao vàng chỉ bậc (1..3, hoặc 4 với viên kim cương Bậc 4) ở mép dưới thảm
+    const pipCount = tower.hasUltimate ? 4 : tower.tier;
+    for (let i = 0; i < pipCount; i += 1) {
+      const dotX = sx + (i - (pipCount - 1) * 0.5) * 6.8 * this.mapScale;
+      const dotY = sy + r + 1.5 * this.mapScale;
+      const isFourth = tower.hasUltimate && i === 3;
       og.fillStyle(0x2b1a12, 1);
-      og.fillCircle(dotX, dotY, 3.6 * this.mapScale);
-      og.fillStyle(0xffd43b, 1);
-      og.fillCircle(dotX, dotY, 2.4 * this.mapScale);
+      og.fillCircle(dotX, dotY, (isFourth ? 4.3 : 3.5) * this.mapScale);
+      og.fillStyle(isFourth ? 0xfff3b0 : 0xffd43b, 1);
+      og.fillCircle(dotX, dotY, (isFourth ? 3.0 : 2.3) * this.mapScale);
     }
 
     // Vòng báo hiệu đang bị Chuột gặm đứng im
@@ -1850,6 +2076,34 @@ export class TdStageScene extends Phaser.Scene {
         <div class="td-boss-shift-text">
           <div class="td-boss-shift-title" style="color:${elInfo.colorHex}">Đổi hành! • ${elInfo.label}</div>
           <div class="td-boss-shift-sub">${counterTip}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  private showUltimateCastBanner(ultName: string, role: TowerRole, element: ElementType): void {
+    if (!this.bossBannerRoot) return;
+    const elInfo = ELEMENT_INFO[element];
+    const iconUrl = getAtlasFrameDataUrl(this, `el_${element}`);
+    const roleShort: Record<TowerRole, string> = {
+      single_far: 'Bắn nhanh ×2,5 (5 giây)!',
+      heavy_slow: 'Đập cả vùng ×3 + Choáng!',
+      slow_aura: 'Khóa chặt mọi quái 2 giây!',
+      aoe_splash: 'Nổ cả tầm ×2,5 + Đốt 4 giây!',
+      support_buff: 'Đồng đội quanh đây +60% tốc độ!',
+    };
+    this.bossBannerTimer = 2.2;
+    this.bossBannerRoot.innerHTML = `
+      <div
+        class="td-boss-shift-banner td-ult-cast-banner ${this.reduceMotion ? 'no-anim' : ''}"
+        data-testid="td-ult-banner"
+        data-role="${role}"
+        style="border-color:${elInfo.colorHex}"
+      >
+        ${iconUrl ? `<img class="td-boss-shift-icon" src="${iconUrl}" alt="${elInfo.label}" />` : ''}
+        <div class="td-boss-shift-text">
+          <div class="td-boss-shift-title" style="color:#ffe066">★ ${ultName}!</div>
+          <div class="td-boss-shift-sub">${roleShort[role]}</div>
         </div>
       </div>
     `;
@@ -2071,7 +2325,89 @@ export class TdStageScene extends Phaser.Scene {
       } else if (ef.kind === 'snuff') {
         fx.fillStyle(ef.color, alpha * 0.7);
         fx.fillCircle(ef.x, ef.y, ef.radius * (1 - t * 0.85));
+      } else if (ef.kind === 'ult_rapid') {
+        // Bắn nhanh: 8 tia chớp tăng tốc bung tỏa + vòng sao vàng sáng chói
+        const curR = ef.radius * (0.35 + t * 0.85);
+        fx.fillStyle(0xffe066, alpha * 0.22);
+        fx.fillCircle(ef.x, ef.y, curR * 0.75);
+        fx.lineStyle(3.2 * this.mapScale, 0xffe066, alpha);
+        fx.strokeCircle(ef.x, ef.y, curR);
+        fx.lineStyle(2.4 * this.mapScale, ef.color, alpha * 0.9);
+        for (let k = 0; k < 8; k += 1) {
+          const ang = (Math.PI * 2 * k) / 8 + t * 0.8;
+          fx.lineBetween(
+            ef.x + Math.cos(ang) * curR * 0.35,
+            ef.y + Math.sin(ang) * curR * 0.35,
+            ef.x + Math.cos(ang) * curR * 1.15,
+            ef.y + Math.sin(ang) * curR * 1.15,
+          );
+        }
+      } else if (ef.kind === 'ult_slam') {
+        // Đập cả vùng: sóng địa chấn kép + 6 tia sét chấn động mạnh
+        const curR = ef.radius * (0.22 + t * 0.82);
+        fx.fillStyle(ef.color, alpha * 0.22);
+        fx.fillCircle(ef.x, ef.y, curR);
+        fx.lineStyle(4.5 * this.mapScale, 0xffd43b, alpha);
+        fx.strokeCircle(ef.x, ef.y, curR);
+        fx.lineStyle(2.5 * this.mapScale, 0xffffff, alpha * 0.85);
+        fx.strokeCircle(ef.x, ef.y, curR * 0.65);
+        fx.lineStyle(2.8 * this.mapScale, 0xfff3b0, alpha * 0.9);
+        for (let k = 0; k < 6; k += 1) {
+          const ang = (Math.PI * 2 * k) / 6;
+          const midR = curR * 0.55;
+          fx.lineBetween(ef.x, ef.y, ef.x + Math.cos(ang + 0.14) * midR, ef.y + Math.sin(ang + 0.14) * midR);
+          fx.lineBetween(
+            ef.x + Math.cos(ang + 0.14) * midR,
+            ef.y + Math.sin(ang + 0.14) * midR,
+            ef.x + Math.cos(ang) * curR,
+            ef.y + Math.sin(ang) * curR,
+          );
+        }
+      } else if (ef.kind === 'ult_lock') {
+        // Giữ chân: vòm khóa xoáy đồng tâm màu hành + băng/gió sáng
+        const curR = ef.radius * (0.3 + t * 0.72);
+        fx.fillStyle(ef.color, alpha * 0.2);
+        fx.fillCircle(ef.x, ef.y, curR);
+        fx.lineStyle(3.2 * this.mapScale, 0xe0f2fe, alpha);
+        fx.strokeCircle(ef.x, ef.y, curR);
+        fx.lineStyle(2.2 * this.mapScale, ef.color, alpha * 0.9);
+        fx.strokeCircle(ef.x, ef.y, curR * 0.7);
+        for (let k = 0; k < 4; k += 1) {
+          const ang = t * 3.5 + (Math.PI * 2 * k) / 4;
+          fx.beginPath();
+          fx.arc(ef.x, ef.y, curR * 0.85, ang, ang + 0.8, false);
+          fx.strokePath();
+        }
+      } else if (ef.kind === 'ult_nova') {
+        // Nổ cả vùng + đốt: quả cầu lửa / hạt nổ rực cháy lan trọn tầm
+        const curR = ef.radius * (0.25 + t * 0.8);
+        fx.fillStyle(0xff6b4a, alpha * 0.26);
+        fx.fillCircle(ef.x, ef.y, curR);
+        fx.fillStyle(0xffe066, alpha * 0.22);
+        fx.fillCircle(ef.x, ef.y, curR * 0.55);
+        fx.lineStyle(4.2 * this.mapScale, 0xff922b, alpha);
+        fx.strokeCircle(ef.x, ef.y, curR);
+        fx.lineStyle(2.2 * this.mapScale, 0xfff3bf, alpha * 0.9);
+        fx.strokeCircle(ef.x, ef.y, curR * 0.82);
+      } else if (ef.kind === 'ult_support') {
+        // Hỗ trợ: sóng cộng hưởng vàng-lục lan tỏa toàn vùng
+        const curR = ef.radius * (0.28 + t * 0.76);
+        fx.fillStyle(0xffe066, alpha * 0.16);
+        fx.fillCircle(ef.x, ef.y, curR);
+        fx.lineStyle(3.4 * this.mapScale, 0xffe066, alpha);
+        fx.strokeCircle(ef.x, ef.y, curR);
+        fx.lineStyle(2.2 * this.mapScale, ef.color, alpha * 0.85);
+        fx.strokeCircle(ef.x, ef.y, curR * 0.62);
       }
+    }
+
+    // Tia sáng hỗ trợ nối từ món Bậc 4 hỗ trợ sang đồng đội quanh nó
+    for (const bm of this.ultSupportBeams) {
+      const alpha = Math.max(0, bm.life / bm.maxLife);
+      fx.lineStyle(6 * this.mapScale, bm.color, alpha * 0.32);
+      fx.lineBetween(bm.x1, bm.y1, bm.x2, bm.y2);
+      fx.lineStyle(2.4 * this.mapScale, 0xfffbeb, alpha * 0.92);
+      fx.lineBetween(bm.x1, bm.y1, bm.x2, bm.y2);
     }
 
     // Hạt nổ / giọt nước / mảnh bùn / pháo sáng
@@ -2240,6 +2576,12 @@ export class TdStageScene extends Phaser.Scene {
       </div>
     `;
 
+    const ultLayer = document.createElement('div');
+    ultLayer.className = 'td-ult-layer';
+    ultLayer.id = 'td-ult-layer';
+    container.appendChild(ultLayer);
+    this.ultButtonsRoot = ultLayer;
+
     container.appendChild(hud);
     this.hudRoot = hud;
 
@@ -2393,6 +2735,117 @@ export class TdStageScene extends Phaser.Scene {
     }
   }
 
+  private refreshUltimateButtons(): void {
+    if (!this.ultButtonsRoot) return;
+    const hideAll = this.engine.status !== 'playing';
+    const activePadIds = new Set<string>();
+
+    if (!hideAll) {
+      for (const tower of this.engine.towers) {
+        if (!tower.hasUltimate) continue;
+        activePadIds.add(tower.padId);
+
+        const cdRem = tower.ultimateCooldownRemaining ?? 0;
+        if (cdRem > 0) {
+          const prevMax = this.towerUltMaxCd.get(tower.uid) ?? ULTIMATE_COOLDOWN_SEC;
+          if (cdRem > prevMax) this.towerUltMaxCd.set(tower.uid, cdRem);
+        } else {
+          this.towerUltMaxCd.delete(tower.uid);
+        }
+
+        const isReady = this.engine.canActivateUltimate(tower.padId);
+        const cdSec = Math.ceil(cdRem);
+        const maxCd = Math.max(cdRem, this.towerUltMaxCd.get(tower.uid) ?? ULTIMATE_COOLDOWN_SEC);
+        const ratio = cdRem > 0 ? Math.max(0, Math.min(1, 1 - cdRem / maxCd)) : 1;
+        const ultName = ULTIMATE_NAMES[tower.defId];
+        const elInfo = ELEMENT_INFO[tower.element];
+
+        let btn = this.floatingUltEls.get(tower.padId);
+        if (!btn) {
+          btn = document.createElement('button');
+          btn.type = 'button';
+          btn.dataset.testid = `btn-floating-ult-${tower.padId}`;
+          btn.dataset.padId = tower.padId;
+          const targetPadId = tower.padId;
+          btn.addEventListener('click', (ev) => {
+            ev.stopPropagation();
+            if (this.engine.activateUltimate(targetPadId)) {
+              this.closeSynergyTooltip();
+              if (this.selectedPadId) {
+                this.selectedPadId = null;
+                this.closePadModal();
+              }
+              this.refreshUltimateButtons();
+            }
+          });
+          this.ultButtonsRoot.appendChild(btn);
+          this.floatingUltEls.set(tower.padId, btn);
+        }
+
+        const sp = this.toScreen(tower.x, tower.y - 25);
+        const clampedY = Math.max(66, sp.y);
+        btn.style.left = `${Math.round(sp.x)}px`;
+        btn.style.top = `${Math.round(clampedY)}px`;
+        btn.style.setProperty('--ult-el', elInfo.colorHex);
+        btn.title = isReady ? `Bấm dùng tuyệt chiêu: ${ultName}` : `${ultName} — hồi chiêu ${cdSec}s`;
+
+        const stateKey = isReady ? 'ready' : `cd:${cdSec}:${Math.round(ratio * 24)}`;
+        if (btn.dataset.renderKey !== stateKey) {
+          btn.dataset.renderKey = stateKey;
+          btn.dataset.state = isReady ? 'ready' : 'cooling';
+          if (isReady) {
+            btn.className = `td-floating-ult-btn ready ${this.reduceMotion ? 'no-anim' : ''}`;
+            btn.disabled = false;
+            btn.innerHTML = `<span class="td-fult-star">★</span><span class="td-fult-txt">CHIÊU</span>`;
+          } else {
+            const circum = 69.12; // 2 * PI * 11
+            const offset = (circum * (1 - ratio)).toFixed(1);
+            btn.className = `td-floating-ult-btn cooling ${this.reduceMotion ? 'no-anim' : ''}`;
+            btn.disabled = true;
+            btn.innerHTML = `
+              <svg class="td-fult-ring" viewBox="0 0 28 28" aria-hidden="true">
+                <circle class="td-fult-track" cx="14" cy="14" r="11"/>
+                <circle class="td-fult-prog" cx="14" cy="14" r="11" stroke-dasharray="${circum}" stroke-dashoffset="${offset}"/>
+              </svg>
+              <span class="td-fult-cd-num">${cdSec}s</span>
+            `;
+          }
+        }
+      }
+    }
+
+    for (const [padId, btn] of this.floatingUltEls.entries()) {
+      if (!activePadIds.has(padId)) {
+        btn.remove();
+        this.floatingUltEls.delete(padId);
+      }
+    }
+
+    // Nếu bảng nâng cấp của món Bậc 4 đang mở, cập nhật đếm ngược nút btn-use-ultimate mỗi giây
+    if (this.selectedPadId && this.modalRoot) {
+      const selTower = this.engine.getTowerAtPad(this.selectedPadId);
+      if (selTower?.hasUltimate) {
+        const curCd = Math.ceil(selTower.ultimateCooldownRemaining ?? 0);
+        if (curCd !== this.lastModalUltCdSec) {
+          this.lastModalUltCdSec = curCd;
+          const useBtn = this.modalRoot.querySelector<HTMLButtonElement>('#btn-use-ultimate');
+          if (useBtn) {
+            useBtn.classList.toggle('disabled', curCd > 0);
+            useBtn.classList.toggle('ready', curCd <= 0);
+            const tag = useBtn.querySelector<HTMLElement>('.td-ult-status-pill');
+            if (tag) tag.textContent = curCd > 0 ? `Hồi ${curCd}s` : '★ Sẵn sàng!';
+            const bar = useBtn.querySelector<HTMLElement>('.td-ult-cd-bar-fill');
+            if (bar) {
+              const maxCd = Math.max(curCd, this.towerUltMaxCd.get(selTower.uid) ?? ULTIMATE_COOLDOWN_SEC);
+              const pct = curCd > 0 ? Math.max(0, Math.min(100, Math.round((1 - curCd / maxCd) * 100))) : 100;
+              bar.style.width = `${pct}%`;
+            }
+          }
+        }
+      }
+    }
+  }
+
   private renderPadModal(padId: string): void {
     if (!this.modalRoot) return;
     const existingTower = this.engine.getTowerAtPad(padId);
@@ -2533,34 +2986,57 @@ export class TdStageScene extends Phaser.Scene {
           </div>
         `;
       } else {
-        // Bậc 4 tuyệt chiêu (Claude) — mở từ Màn 2
+        // Bậc 4 tuyệt chiêu — mở từ Màn 2
         const ultName = ULTIMATE_NAMES[existingTower.defId];
         const ultText = ULTIMATE_ROLE_TEXT[def.role];
+        const roleEmblem: Record<TowerRole, string> = {
+          single_far: '⚡',
+          heavy_slow: '💥',
+          slow_aura: '❄️',
+          aoe_splash: '🔥',
+          support_buff: '✨',
+        };
         if (this.engine.stage.stageNumber < ULTIMATE_MIN_STAGE) {
           upgradeSectionHtml = `<div class="td-max-tier">★ Đã đạt Bậc 3 (Nhánh ${existingTower.branch}). Bậc 4 tuyệt chiêu mở từ Màn 2.</div>`;
         } else if (!existingTower.hasUltimate) {
           const ultCost = this.engine.getUltimateCost();
           const canU = this.engine.essence >= ultCost;
           upgradeSectionHtml = `
-            <button class="td-upgrade-btn ${canU ? '' : 'disabled'}" id="btn-unlock-ultimate" data-testid="btn-unlock-ultimate">
+            <button class="td-upgrade-btn td-ult-card td-ult-unlock ${canU ? '' : 'disabled'}" id="btn-unlock-ultimate" data-testid="btn-unlock-ultimate" style="--ult-el:${elInfo.colorHex}">
+              <div class="td-ult-crest">
+                <span class="td-ult-crest-tier">IV</span>
+                <span class="td-ult-crest-ico" aria-hidden="true">${roleEmblem[def.role]}</span>
+              </div>
               <div class="td-opt-body">
                 <div class="td-opt-head">
-                  <strong>Lên Bậc 4: tuyệt chiêu "${ultName}"</strong>
-                  <span class="td-price-tag">${ultCost}${coinImgHtml}</span>
+                  <strong>Bậc 4: ${ultName}</strong>
+                  <span class="td-price-tag td-ult-price">${ultCost}${coinImgHtml}</span>
                 </div>
-                <div class="td-opt-role">+20% sức luôn luôn. Bấm dùng: ${ultText} Hồi chiêu 30 giây.</div>
+                <div class="td-ult-passive-pill">★ +20% sức đánh vĩnh viễn • Hồi 30s</div>
+                <div class="td-opt-role">${ultText}</div>
               </div>
             </button>`;
         } else {
-          const cd = Math.ceil(existingTower.ultimateCooldownRemaining ?? 0);
+          const cdRem = existingTower.ultimateCooldownRemaining ?? 0;
+          const cd = Math.ceil(cdRem);
+          const maxCd = Math.max(cdRem, this.towerUltMaxCd.get(existingTower.uid) ?? ULTIMATE_COOLDOWN_SEC);
+          const fillPct = cd > 0 ? Math.max(0, Math.min(100, Math.round((1 - cdRem / maxCd) * 100))) : 100;
+          this.lastModalUltCdSec = cd;
           upgradeSectionHtml = `
-            <button class="td-upgrade-btn ${cd > 0 ? 'disabled' : ''}" id="btn-use-ultimate" data-testid="btn-use-ultimate">
+            <button class="td-upgrade-btn td-ult-card td-ult-use ${cd > 0 ? 'disabled' : 'ready'} ${this.reduceMotion ? 'no-anim' : ''}" id="btn-use-ultimate" data-testid="btn-use-ultimate" style="--ult-el:${elInfo.colorHex}">
+              <div class="td-ult-crest active">
+                <span class="td-ult-crest-tier">★</span>
+                <span class="td-ult-crest-ico" aria-hidden="true">${roleEmblem[def.role]}</span>
+              </div>
               <div class="td-opt-body">
                 <div class="td-opt-head">
-                  <strong>★ Dùng "${ultName}"</strong>
-                  <span class="td-price-tag">${cd > 0 ? `chờ ${cd}s` : 'Sẵn sàng'}</span>
+                  <strong>Tuyệt chiêu: ${ultName}</strong>
+                  <span class="td-ult-status-pill">${cd > 0 ? `Hồi ${cd}s` : '★ Sẵn sàng!'}</span>
                 </div>
                 <div class="td-opt-role">${ultText}</div>
+                <div class="td-ult-cd-bar" aria-hidden="true">
+                  <div class="td-ult-cd-bar-fill" style="width:${fillPct}%"></div>
+                </div>
               </div>
             </button>`;
         }
@@ -2590,7 +3066,7 @@ export class TdStageScene extends Phaser.Scene {
                 ${elIconUrl ? `<img class="td-badge-el-icon" src="${elIconUrl}" alt="" />` : ''}
                 ${elInfo.label}
               </span>
-              <strong>${curStats.name}</strong>
+              <strong>${curStats.name}${existingTower.hasUltimate ? ' ★IV' : ''}</strong>
             </div>
             <button class="td-close-btn" id="btn-close-sheet" aria-label="Đóng">✕</button>
           </div>
@@ -2633,17 +3109,18 @@ export class TdStageScene extends Phaser.Scene {
 
       this.modalRoot.querySelector('#btn-unlock-ultimate')?.addEventListener('click', () => {
         if (this.engine.unlockUltimate(padId)) {
-          sound.playBuildOrUpgrade();
+          sound.playUltimateUnlock();
           this.renderPadModal(padId);
           this.refreshHud();
+          this.refreshUltimateButtons();
         }
       });
 
       this.modalRoot.querySelector('#btn-use-ultimate')?.addEventListener('click', () => {
         if (this.engine.activateUltimate(padId)) {
-          sound.playBuildOrUpgrade();
           this.selectedPadId = null;
           this.closePadModal();
+          this.refreshUltimateButtons();
         }
       });
 
@@ -2829,6 +3306,11 @@ export class TdStageScene extends Phaser.Scene {
   }
 
   private unmountDom(): void {
+    if (this.ultButtonsRoot) {
+      this.ultButtonsRoot.remove();
+      this.ultButtonsRoot = null;
+    }
+    this.floatingUltEls.clear();
     if (this.hudRoot) {
       this.hudRoot.remove();
       this.hudRoot = null;

@@ -122,6 +122,44 @@ class SoundManager {
     });
   }
 
+  public playUltimateUnlock(): void {
+    const notes = [440, 554, 659, 880, 1108];
+    notes.forEach((n, idx) => {
+      this.playTone(n, 0.18, 'triangle', 0.11, n * 1.02, idx * 0.055);
+    });
+  }
+
+  public playUltimate(
+    role: 'single_far' | 'heavy_slow' | 'slow_aura' | 'aoe_splash' | 'support_buff',
+  ): void {
+    if (role === 'single_far') {
+      // Bắn nhanh liên hồi
+      [523, 659, 784, 1046, 1318].forEach((n, i) => {
+        this.playTone(n, 0.09, 'triangle', 0.1, n * 1.08, i * 0.04);
+      });
+    } else if (role === 'heavy_slow') {
+      // Cú đập sấm nặng cả vùng
+      this.playTone(165, 0.34, 'sawtooth', 0.16, 48);
+      this.playTone(330, 0.22, 'square', 0.09, 110, 0.03);
+      this.playTone(660, 0.18, 'triangle', 0.08, 440, 0.06);
+    } else if (role === 'slow_aura') {
+      // Giữ chân / khóa chặt
+      [880, 784, 659, 988].forEach((n, i) => {
+        this.playTone(n, 0.22, 'sine', 0.1, n * 0.96, i * 0.05);
+      });
+    } else if (role === 'aoe_splash') {
+      // Nổ cả tầm + đốt
+      this.playTone(220, 0.28, 'sawtooth', 0.15, 62);
+      this.playTone(440, 0.22, 'triangle', 0.12, 160, 0.04);
+      this.playTone(740, 0.16, 'sine', 0.08, 520, 0.09);
+    } else {
+      // Hỗ trợ tăng tốc toàn đồng đội
+      [440, 587, 659, 880, 1175].forEach((n, i) => {
+        this.playTone(n, 0.22, 'sine', 0.1, n * 1.02, i * 0.055);
+      });
+    }
+  }
+
   public playUiClick(): void {
     this.playTone(587, 0.05, 'sine', 0.06, 659);
   }
