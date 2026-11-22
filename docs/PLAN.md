@@ -9,6 +9,13 @@ Soạn: Điều phối, 22/11/2026. Anh Kha nói "làm" 22/11. Phiên cloud Gian
 - Làm đẹp (anh Kha chốt 22/11): sau khi Màn 1 đạt vui; thử 3 hình mẫu bằng công cụ vẽ của Antigravity, anh duyệt nét rồi mới vẽ đủ bộ; thêm hiệu ứng và giao diện gỗ-đồng; bản build ≤ 5 MB. Lời giao: docs/ANTIGRAVITY_BRIEF_LAM_DEP.md.
 - Các mục Giai đoạn 1–3 bên dưới là kế hoạch nhập vai cũ, chỉ để tham khảo.
 
+## Lộ trình dài hạn (anh Kha nêu 22/11, làm dần — chưa làm ngay)
+Nguyên tắc: game vui trước, có người chơi rồi mới gắn bản đồ và quảng cáo.
+1. **Đang làm:** game thủ thành vui + đẹp, chủ đề phố nhiều tiệm (bản đầu 3 tiệm: giày, bánh, hoa; trùm chung Mùa Nồm).
+2. **Màn theo phố Đà Lạt thật:** dùng dữ liệu OpenStreetMap (miễn phí, giấy phép ODbL, phải ghi "© OpenStreetMap contributors"), lấy hình dạng đường phố thật làm đường đi của quái, dữ liệu đóng gói sẵn để chơi offline. Không dùng Google Maps lúc này (cần khoá API, tài khoản thanh toán, có thể tốn tiền, cần mạng).
+3. **Món là sản phẩm thật + link tiếp thị liên kết Shopee của anh Kha:** chạm món → nút "Xem món này" mở link. Trước khi làm phải: đọc điều khoản Shopee Affiliate (có cho đặt link trong game không), kiểm quy định ghi nhãn quảng cáo ở Việt Nam, và anh Kha quyết bỏ nguyên tắc "không quảng cáo".
+4. **Người chơi tự chọn phố / thành phố của mình** để game dựng màn (dùng OpenStreetMap; xin quyền vị trí chỉ khi người chơi đồng ý). **Thương hiệu tài trợ** đặt món / tiệm vào màn — khi đã có người chơi thật, có hợp đồng và được phép dùng tên / hình.
+
 ## Kết luận (kế hoạch nhập vai cũ)
 - Game kiếm hiệp hoàn toàn mới, không chép Võ Lâm Truyền Kỳ. 2D nhìn từ trên xuống, chơi trên trình duyệt (điện thoại + máy tính), không cần mạng, 0 đồng.
 - Đồng đội và đối thủ là nhân vật AI: tự đánh, tự nhặt đồ, theo tổ đội, có tính cách riêng.
