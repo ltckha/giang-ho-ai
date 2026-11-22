@@ -92,7 +92,7 @@ test.describe('Gọn Tiệm, Sạch Phố — Kiểm thử trình duyệt (Đi�
     await expect(page.locator('.td-title-heading')).toHaveText('Gọn Tiệm, Sạch Phố');
     await expect(page.locator('.td-stage-name').first()).toHaveText('Tiệm Giày Hẻm Dốc');
     await page.waitForTimeout(350);
-    await page.screenshot({ path: 'docs/screenshots/dep_01_sau_title.png' });
+    await page.screenshot({ path: 'docs/screenshots/man1v2_01_sau_title.png' });
     await page.screenshot({ path: 'docs/screenshots/td_01_title_portrait.png' });
 
     await startBtn.click();
@@ -123,7 +123,7 @@ test.describe('Gọn Tiệm, Sạch Phố — Kiểm thử trình duyệt (Đi�
     await expect(buildSheet).toBeVisible();
     await expect(buildSheet).toContainText('Dép Tông');
     await expect(buildSheet).toContainText('Túi Hút Ẩm');
-    await page.screenshot({ path: 'docs/screenshots/dep_02_sau_build.png' });
+    await page.screenshot({ path: 'docs/screenshots/man1v2_02_sau_build.png' });
     await page.screenshot({ path: 'docs/screenshots/td_02_build_menu_portrait.png' });
 
     // Đặt Túi Hút Ẩm (Thổ — khắc Giọt Mưa Thủy ở Đợt 1)
@@ -140,7 +140,7 @@ test.describe('Gọn Tiệm, Sạch Phố — Kiểm thử trình duyệt (Đi�
     await page.getByTestId('btn-bot-toggle').click();
 
     await page.waitForTimeout(1900);
-    await page.screenshot({ path: 'docs/screenshots/dep_03_sau_combat.png' });
+    await page.screenshot({ path: 'docs/screenshots/man1v2_03_sau_combat.png' });
     await page.screenshot({ path: 'docs/screenshots/td_03_combat_portrait.png' });
 
     // 5. Chạy hết 9 đợt bằng tickSimulation và kiểm tra thắng màn + hộp kết quả
@@ -167,7 +167,7 @@ test.describe('Gọn Tiệm, Sạch Phố — Kiểm thử trình duyệt (Đi�
     await expect(resultModal).toBeVisible();
     await expect(resultModal).toContainText('Giữ Tiệm Thành Công!');
     await page.waitForTimeout(950);
-    await page.screenshot({ path: 'docs/screenshots/dep_04_sau_victory.png' });
+    await page.screenshot({ path: 'docs/screenshots/man1v2_04_sau_victory.png' });
     await page.screenshot({ path: 'docs/screenshots/td_04_victory_portrait.png' });
 
     expect(consoleErrors).toEqual([]);

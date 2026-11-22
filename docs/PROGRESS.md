@@ -1,10 +1,36 @@
+MÀN 1 VẼ LẠI XONG
 MÀN 3 VẼ XONG
 MÀN 2 VẼ XONG
 LÀM ĐẸP XONG
 
 # Tiến độ phát triển — Gọn Tiệm, Sạch Phố ("Ngũ hành giữ tiệm")
 
-Cập nhật: 22/11/2026 • Nhánh: `main` • Trạng thái hiện tại: **Đã hoàn thành vẽ & gắn toàn bộ đồ họa, Trùm Mùa Nồm 3 màu + hiệu ứng "Đổi hành!", khoá màn cho Màn 3 "Tiệm Hoa Cuối Dốc" (theo `docs/YEU_CAU.md`), giữ nguyên 100% số liệu trong `src/core/`.**
+Cập nhật: 22/11/2026 • Nhánh: `main` • Trạng thái hiện tại: **Đã hoàn thành vẽ Màn 3 "Tiệm Hoa Cuối Dốc" (`MÀN 3 VẼ XONG`) và vẽ lại toàn bộ Màn 1 "Tiệm Giày Hẻm Dốc" theo đúng cách Màn 2 (`MÀN 1 VẼ LẠI XONG`), giữ nguyên 100% tên khung atlas & số liệu trong `src/core/`.**
+
+---
+
+## 0B. Vẽ lại Màn 1 "Tiệm Giày Hẻm Dốc" theo cách Màn 2 — Đã hoàn thành (Antigravity)
+
+- **Nền bản đồ vector vẽ mới hoàn toàn `public/assets/map_man1_tiem_giay.webp` (`720×960` = 2× khung logic `360×480`, 47 KB — `scripts/build_stage1_v2_map.py`):**
+  - Vẽ mới 100% dạng vector SVG (render qua `scripts/render_svgs.mjs` + ghép Pillow alpha-composite chuẩn), không còn cắt ghép từ ảnh mẫu cũ.
+  - Khớp 100% đường chữ S qua 2 khúc cua chữ U và đúng vị trí **9 thảm cói tròn** trong `STAGE_1_DEFINITION`.
+  - Sàn gỗ thông ấm, cửa kính mưa đầu đường `(48, 24)` với mái hiên sọc đỏ-kem & thảm sọc nâu sạch (không chữ nước ngoài), 2 cửa sổ mưa trên tường, ghế thử giày bọc đệm, giỏ ô dù, bàn hộp giày & hộp xi, ghế dài trên thảm xanh góc dưới trái, và **kệ giày gỗ 3 tầng đèn vàng ấm** ở cuối đường `(304, 455)`.
+- **5 món × 4 bậc vẽ RIÊNG TỪNG HÌNH (20 hình gốc khác biệt rõ ràng, không dùng overlay PIL chồng từ 1 ảnh) × 3 khung đánh (60 khung, giữ nguyên 100% tên khung trong atlas):**
+  - `wood_tower`: *Dép Tông* → *Dép Tông Đế Dày* → *Dép Tông Kép* (3A, hai dép bắt chéo) / *Dép Tông Gai Bám* (3B, dép đinh gai bùn).
+  - `metal_tower`: *Bốt Đế Đinh* → *Bốt Đinh Thép* → *Bốt Chốt Chì* (3A, bốt thép bọc chốt chì nặng) / *Bốt Đinh Quét Dọc* (3B, bốt hàng gai bạc quét dọc).
+  - `water_tower`: *Xịt Dưỡng Da* → *Bình Xịt Áp Lực* → *Xịt Bọt Tuyết Lạnh* (3A, bình phủ bọt tuyết & bông băng) / *Xịt Vòi Xoáy* (3B, vòi đôi phun xoáy nước).
+  - `fire_tower`: *Túi Hút Ẩm* → *Giỏ Hút Ẩm Cỡ Đại* → *Thảm Hạt Hút Khô* (3A, thảm dệt phủ hạt hút ẩm) / *Chùm Túi Nổ Liên Hoàn* (3B, chùm 3 túi nổ hạt).
+  - `earth_tower`: *Máy Sấy Giày* → *Máy Sấy Hai Vòi* → *Máy Sấy Khử Khuẩn* (3A, vòm sấy vàng lấp lánh) / *Máy Sấy Gió Nhiệt Cao* (3B, động cơ thổi luồng nhiệt đỏ cam).
+- **7 quái Màn 1 vẽ lại riêng từng con × 4 khung đi (giữ nguyên tên khung):** *Giọt Mưa* (`fast_metal`), *Cục Bùn* (`tank_earth`), *Gián* (`split_fire` — dáng gián thân dẹt 2 râu dài), *Gián Con* (`split_fire_mini`), *Nấm Mốc* (`healer_wood`), **Chuột** (`disrupt_water` — vẽ kỹ, dùng chung Màn 2), **Nắng Gắt** (`fly_wood` — vẽ kỹ, dùng chung Màn 3) + đồng bộ lại `boss_water`.
+- **Toàn bộ biểu tượng vẽ lại cùng nét hoạt hình (xoá sạch toàn bộ hình vẽ khối PIL):** 5 hành (`el_kim`, `el_moc`, `el_thuy`, `el_hoa`, `el_tho`), xu (`icon_coin`), ví (`icon_wallet`), đôi giày (`icon_shoe_life`), đạn dép tông (`proj_dep_tong`), đạn gói hút ẩm (`proj_silica`), thảm cói (`prop_pad_rug`) và kệ giày gỗ (`prop_shoe_shelf`).
+- **Kiểm chứng:** `npm test` **35/35** qua, `npm run test:e2e` **6/6** qua (0 lỗi console, 0 gọi mạng ngoài), tổng `dist/` = **2.8 MB** (≤ 5 MB), **giữ nguyên toàn bộ 288 tên khung atlas** (Màn 2 và Màn 3 nguyên vẹn 100%), **không sửa bất kỳ tệp nào trong `src/core/`**.
+
+| Cảnh Màn 1 (`390×844`) | Trước khi vẽ lại (`man1v2_*_truoc_*.png`) | Sau khi vẽ lại (`man1v2_*_sau_*.png`) |
+|---|---|---|
+| **1. Màn hình chính & Biểu tượng** | ![Trước — Màn hình chính](screenshots/man1v2_01_truoc_title.png) | ![Sau — Màn hình chính](screenshots/man1v2_01_sau_title.png) |
+| **2. Nền vector & Bảng đặt 5 món** | ![Trước — Bảng đặt món](screenshots/man1v2_02_truoc_build.png) | ![Sau — Bảng đặt món](screenshots/man1v2_02_sau_build.png) |
+| **3. Giao tranh đường chữ S** | ![Trước — Giao tranh](screenshots/man1v2_03_truoc_combat.png) | ![Sau — Giao tranh](screenshots/man1v2_03_sau_combat.png) |
+| **4. Thắng màn & Tháp Bậc 2–3 mới** | ![Trước — Thắng màn](screenshots/man1v2_04_truoc_victory.png) | ![Sau — Thắng màn](screenshots/man1v2_04_sau_victory.png) |
 
 ---
 
