@@ -255,3 +255,9 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 ## 22/11/2026 — Rà "MÀN 1 VẼ LẠI XONG" (02f4cd8 → 8733626)
 
 **Kết luận:** ĐẠT. Không đụng `src/core/`, giữ tên khung atlas. Nền vector mới khớp đường chữ S và 9 ô, món / quái vẽ riêng từng bậc, cùng nét Màn 2–3. `npm test` 37/37, e2e 6/6, build 2,8 MB. Chơi thử điện thoại dọc không lỗi, không gọi mạng ngoài.
+
+---
+
+## 22/11/2026 — Rà "TRANG BỊ VẼ XONG" (75bbe41 → b8a1e50)
+
+**Kết luận:** ĐẠT. Không đụng `src/core/`. Hình chủ tiệm mặc đúng đồ, 10 ô xếp vòng quanh người có đường chống lưng, 50 biểu tượng đồ, huy hiệu 4 bộ, thẻ đồ rơi mở rương, tuyệt chiêu bậc 4 có nút nổi + vòng hồi chiêu + 5 hiệu ứng. `npm test` 37/37, e2e 8/8, build 3,0 MB (≤ 5 MB). Mở trên điện thoại dọc không lỗi, không gọi mạng ngoài.
