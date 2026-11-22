@@ -46,10 +46,43 @@ export interface BaseStats {
   moveSpeed: number;
 }
 
+export type EquipmentRarity = 'common' | 'fine' | 'rare' | 'epic';
+
+export type AffixType =
+  | 'atk_flat'
+  | 'def_flat'
+  | 'hp_flat'
+  | 'crit_chance'
+  | 'armor_pierce'
+  | 'move_speed'
+  | 'elem_resist'
+  | 'ally_atk_pct';
+
+export interface EquipmentAffix {
+  type: AffixType;
+  value: number;
+  element?: ElementType;
+}
+
+export interface EquipmentInstance {
+  uid: string;
+  baseItemId: string;
+  slot: EquipmentSlot;
+  rarity: EquipmentRarity;
+  itemLevel: number;
+  affixes: EquipmentAffix[];
+  seed: number;
+  crafted?: boolean;
+}
+
 export interface EffectiveStats extends BaseStats {
   resistElement?: ElementType;
   resistBonus: number;
   imbueElement?: ElementType;
+  critChanceBonus?: number;
+  armorPierceBonus?: number;
+  allyAtkBonus?: number;
+  elementResists?: Partial<Record<ElementType, number>>;
 }
 
 export interface SkillDef {
@@ -111,6 +144,12 @@ export interface EquipmentState {
   weapon: string | null;
   armor: string | null;
   charm: string | null;
+}
+
+export interface EquippedInstancesState {
+  weapon: EquipmentInstance | null;
+  armor: EquipmentInstance | null;
+  charm: EquipmentInstance | null;
 }
 
 export interface QuestProgress {

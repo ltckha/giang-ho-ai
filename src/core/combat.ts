@@ -1,5 +1,14 @@
 import { getElementMultiplier, getElementRelation, type ElementRelation } from './elements';
-import type { BaseStats, EffectiveStats, ElementType, EquipmentState, ItemDef } from './types';
+import { summarizeAffixes } from './equipmentGen';
+import type {
+  BaseStats,
+  EffectiveStats,
+  ElementType,
+  EquipmentSlot,
+  EquipmentState,
+  EquippedInstancesState,
+  ItemDef,
+} from './types';
 
 export interface DamageInput {
   attackerAtk: number;
@@ -109,28 +118,65 @@ export function computeEffectiveStats(
   scaledBase: BaseStats,
   equipment: EquipmentState,
   itemsById: Record<string, ItemDef>,
+  equippedInstances?: Partial<EquippedInstancesState>,
 ): EffectiveStats {
   let maxHp = scaledBase.maxHp;
   let atk = scaledBase.atk;
   let def = scaledBase.def;
+  let moveSpeed = scaledBase.moveSpeed;
   let resistElement: ElementType | undefined;
   let resistBonus = 0;
   let imbueElement: ElementType | undefined;
+  let critChanceBonus = 0;
+  let armorPierceBonus = 0;
+  let allyAtkBonus = 0;
+  const elementResists: Partial<Record<ElementType, number>> = {};
 
-  const equippedIds = [equipment.weapon, equipment.armor, equipment.charm];
-  for (const id of equippedIds) {
-    if (!id) continue;
-    const item = itemsById[id];
-    if (!item) continue;
-    maxHp += item.hpBonus ?? 0;
-    atk += item.atkBonus ?? 0;
-    def += item.defBonus ?? 0;
-    if (item.resistElement && item.resistBonus) {
-      resistElement = item.resistElement;
-      resistBonus = item.resistBonus;
+  const slots: EquipmentSlot[] = ['weapon', 'armor', 'charm'];
+  for (const slot of slots) {
+    const inst = equippedInstances?.[slot] ?? null;
+    const itemId = inst ? inst.baseItemId : equipment[slot];
+    if (itemId) {
+      const item = itemsById[itemId];
+      if (item) {
+        maxHp += item.hpBonus ?? 0;
+        atk += item.atkBonus ?? 0;
+        def += item.defBonus ?? 0;
+        if (item.resistElement && item.resistBonus) {
+          resistElement = item.resistElement;
+          resistBonus = item.resistBonus;
+          elementResists[item.resistElement] = Math.min(
+            0.5,
+            (elementResists[item.resistElement] ?? 0) + item.resistBonus,
+          );
+        }
+        if (item.imbueElement) {
+          imbueElement = item.imbueElement;
+        }
+      }
     }
-    if (item.imbueElement) {
-      imbueElement = item.imbueElement;
+
+    if (inst && inst.affixes.length > 0) {
+      const affixSum = summarizeAffixes(inst.affixes);
+      maxHp += affixSum.hp;
+      atk += affixSum.atk;
+      def += affixSum.def;
+      moveSpeed += affixSum.moveSpeed;
+      critChanceBonus = Math.min(0.45, Math.round((critChanceBonus + affixSum.critChance) * 100) / 100);
+      armorPierceBonus = Math.min(0.45, Math.round((armorPierceBonus + affixSum.armorPierce) * 100) / 100);
+      allyAtkBonus = Math.min(0.5, Math.round((allyAtkBonus + affixSum.allyAtkBonus) * 100) / 100);
+      for (const [elKey, val] of Object.entries(affixSum.elementResists) as Array<[ElementType, number]>) {
+        if (val > 0) {
+          elementResists[elKey] = Math.min(
+            0.5,
+            Math.round(((elementResists[elKey] ?? 0) + val) * 100) / 100,
+          );
+          if (!resistElement || (elementResists[elKey] ?? 0) > resistBonus) {
+            resistElement = elKey;
+            resistBonus = elementResists[elKey] ?? resistBonus;
+          }
+        }
+      }
     }
   }
 
@@ -138,11 +184,23 @@ export function computeEffectiveStats(
     maxHp,
     atk,
     def,
-    moveSpeed: scaledBase.moveSpeed,
+    moveSpeed,
     resistElement,
     resistBonus,
     imbueElement,
+    critChanceBonus,
+    armorPierceBonus,
+    allyAtkBonus,
+    elementResists,
   };
+}
+
+export function getElementResistFor(stats: EffectiveStats, incomingElement: ElementType): number {
+  const mapped = stats.elementResists?.[incomingElement];
+  if (mapped !== undefined) {
+    return clamp(mapped, 0, 0.5);
+  }
+  return stats.resistElement === incomingElement ? clamp(stats.resistBonus, 0, 0.5) : 0;
 }
 
 /**
