@@ -1,21 +1,38 @@
-# CREDITS — Nguồn hình ảnh, âm thanh và công nghệ
+# CREDITS — Nguồn hình ảnh, âm thanh, phông chữ và công nghệ
 
-Toàn bộ tài nguyên trong **Giang Hồ AI (Bản Thủ Thành)** đều tự tạo 100% bằng mã nguồn, chạy hoàn toàn offline trong trình duyệt, không sử dụng tài nguyên bản quyền từ Võ Lâm Truyền Kỳ, truyện Kim Dung hay bất kỳ trò chơi thủ thành / công ty AI nào khác.
+Toàn bộ tài nguyên trong **Gọn Tiệm, Sạch Phố — Ngũ hành giữ tiệm** đều tự tạo hoặc sử dụng giấy phép mở (OFL / MIT / Apache-2.0), đóng gói chạy **100% offline** trong `dist/`, không tải tài nguyên từ mạng ngoài khi chơi, không sử dụng tên thương hiệu hay hình ảnh của bất kỳ trò chơi / công ty nào có thật.
 
-## 1. Đồ họa (Hình ảnh)
-- **Tác giả:** Tự vẽ hoàn toàn bằng HTML5 Canvas 2D API và Phaser Graphics trong [`src/game/textures.ts`](src/game/textures.ts) và [`src/scenes/TdStageScene.ts`](src/scenes/TdStageScene.ts).
+---
+
+## 1. Đồ họa (Hình ảnh & Sprite Atlas)
+- **Tác giả / Công cụ:**
+  - Hình vẽ gốc theo nét hoạt hình ấm cúng Đà Lạt ngày mưa được tạo bằng công cụ sinh ảnh tích hợp của Antigravity (`generate_image`), sau đó tách nền trong suốt, chỉnh chuẩn giải phẫu (Con Gián 2 râu dài thân dẹt), tạo khác biệt 3 bậc & 2 nhánh bậc 3, tạo hoạt ảnh 3–4 khung hình, ghép nền bản đồ Màn 1 khớp chính xác toạ độ đường đi và 9 ô đặt món, rồi nén đóng gói thành Texture Atlas WebP bằng kịch bản [`scripts/build_art_assets.py`](scripts/build_art_assets.py) (Python 3 + Pillow).
+  - Các biểu tượng hành Ngũ Hành, tiền xu, chiếc ví, đôi giày lành, Nắng Gắt, Nấm Mốc và Trùm Mùa Nồm được vẽ bằng mã nguồn 4× SSAA (Pillow) theo đúng cùng nét viền nâu đậm và bảng màu.
 - **Giấy phép:** CC0 / tự tạo cho dự án này.
-- **Bao gồm:**
-  - Bản đồ đường mòn, các khúc cua chữ U, cửa mỏ linh thạch, cổng Thành Lam Lư, cây rừng và các ô đặt quân.
-  - Hình khôi lỗi phe mình theo 5 hệ Ngũ Hành (Mộc, Kim, Thủy, Hỏa, Thổ), 3 bậc nâng cấp, vòng tầm bắn, vòng cộng hưởng hỗ trợ và hiệu ứng bị phá bùa.
-  - Hình các loại quái khôi lỗi nổi loạn (chạy nhanh, giáp đá máu trâu, cánh gỗ bay, song lõi chia đôi, phá bùa, hồi máu, trùm), hiệu ứng chớp sáng khi trúng đạn, nổ mảnh khi chết và hạt linh thạch bay về góc màn hình.
+- **Các tệp sản phẩm trong bản build:**
+  - [`public/assets/gon_tiem_atlas.webp`](public/assets/gon_tiem_atlas.webp) + [`public/assets/gon_tiem_atlas.json`](public/assets/gon_tiem_atlas.json) (104 khung hình: 5 món giữ tiệm × 4 bậc/nhánh × 3 khung hoạt ảnh bắn, 6 quái Màn 1 + Gián Con + Trùm Mùa Nồm × 4 khung đi, 5 biểu tượng hành, thảm cói đặt món, kệ giày gỗ, chiếc ví, tiền xu, đôi giày lành, đạn dép tông & gói hút ẩm).
+  - [`public/assets/map_man1_tiem_giay.webp`](public/assets/map_man1_tiem_giay.webp) (nền Màn 1 **Tiệm Giày Hẻm Dốc** 720×960 khớp 100% đường quái và 9 ô đặt món).
+
+---
 
 ## 2. Âm thanh
-- **Tác giả:** Tự tổng hợp trực tiếp bằng Web Audio API trong [`src/game/sound.ts`](src/game/sound.ts) theo thang âm ngũ cung.
+- **Tác giả:** Tự tổng hợp trực tiếp bằng Web Audio API trong [`src/game/sound.ts`](src/game/sound.ts).
 - **Giấy phép:** CC0 / tự tạo cho dự án này.
-- **Đặc điểm:** Âm thanh ngắn cho bắn, trúng đích, khắc hệ, quái nổ, mất mạng thành, đặt/nâng cấp quân và gọi đợt quái; không tải tệp MP3/WAV ngoài, không gọi mạng.
+- **Đặc điểm:** Không tải tệp MP3/WAV từ mạng ngoài, chạy hoàn toàn offline cho các hiệu ứng bắn, trúng đòn, "Trúng tủ!", dọn quái, bẩn giày, đặt/nâng món, gọi đợt và thắng màn.
 
-## 3. Thư viện mã nguồn mở
+---
+
+## 3. Phông chữ tiếng Việt (Cài sẵn offline trong bản build)
+- **Be Vietnam Pro** (Regular 400 & Bold 700 — bộ ký tự `vietnamese` + `latin`, dạng `.woff2` trong `src/assets/fonts/`):
+  - Nguồn gói mở: `@fontsource/be-vietnam-pro` (tác giả: Better Studio / Be Vietnam Pro Project Authors).
+  - Giấy phép: **SIL Open Font License 1.1 (OFL-1.1)**.
+- **Noto Serif** (Bold 700 — bộ ký tự `vietnamese` + `latin`, dạng `.woff2` trong `src/assets/fonts/`):
+  - Nguồn gói mở: `@fontsource/noto-serif` (Google Noto Fonts Project Authors).
+  - Giấy phép: **SIL Open Font License 1.1 (OFL-1.1)**.
+
+---
+
+## 4. Thư viện mã nguồn mở
 - **Phaser 3** (`phaser`) — MIT License — Engine game 2D Canvas/WebGL.
 - **Vite** (`vite`) — MIT License — Công cụ đóng gói web tĩnh offline.
 - **TypeScript** (`typescript`) — Apache-2.0 License.

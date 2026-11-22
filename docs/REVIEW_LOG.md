@@ -184,3 +184,14 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Thêm `tools/record_gameplay.cjs`: mở bản build `dist/` với `?bot=1`, vào Màn 1, bật bot, quay dọc rồi xuất mp4 1080×1920 bằng ffmpeg. Chạy: `npm run build && node tools/record_gameplay.cjs 40 video_out` (thư mục `video_out/` đã cho vào .gitignore). Antigravity không cần sửa file này.
 - Đã quay thử 30 giây trên bản hiện tại: ra clip ~38 giây, ~2,8 MB, hình đầy khung.
 - **Việc nhỏ cho Antigravity khi làm đẹp (không chặn):** thêm tham số `?video=1` để bot vẫn chạy nhưng ẩn nút "Bot" và các nút gỡ lỗi khỏi khung hình, tự bật tốc độ x2. Công cụ quay sẽ dùng `?bot=1&video=1`.
+
+---
+
+## 22/11/2026 — Rà "LÀM ĐẸP XONG" (3a43a24 → 9f742c1) + gộp sườn Màn 2 của Claude
+
+**Kết luận làm đẹp Màn 1:** ĐẠT.
+- `npm test` 22/22 (gồm 6 test Màn 2 mới), `npm run build` được, **bản build 2,0 MB** (≤ 5 MB). e2e 2/2 qua (Claude sửa 1 dòng chọn `.td-stage-name` → `.first()` vì màn hình đầu giờ có 2 ô màn).
+- Mở trên điện thoại dọc: giao diện hộp giày, phông Việt, hình atlas, không lỗi console, không gọi mạng ngoài.
+- Cân bằng Màn 1 sau khi gán lại hành (docs/review/sim_stage.ts stage_1): lấp 1 loại thua 5/5; đặt ngẫu nhiên thắng 8/60; 300 kế hoạch: thua 145, 1 sao 65, 2 sao 60, 3 sao 30, tốt nhất 20/20. Bot giờ còn 17/20 (trước 11) — bot là kế hoạch tốt nên chấp nhận; các mục tiêu khác vẫn đạt.
+
+**Sườn Màn 2 "Tiệm Bánh Đầu Phố" (Claude):** luật + số liệu ở `src/core/shops/bakery.ts`; tương sinh +15% bật từ Màn 2; 2 ngả đường, 10 ô, 10 đợt. Mô phỏng (stage_2): bot thắng còn 15/20; lấp 1 loại thua 5/5; ngẫu nhiên thắng ~15/60; 300 kế hoạch: thua ~188, 3 sao ~38, tốt nhất 20/20 → khó hơn Màn 1 một chút, đúng ý. Đang dùng **hình tạm** (mượn hình Màn 1 cùng vai, đường vẽ khối). Danh sách hình cần vẽ: docs/YEU_CAU.md.
