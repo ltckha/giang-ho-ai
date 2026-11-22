@@ -174,3 +174,5 @@ NAMES GỌN TIỆM: ĐỒNG Ý
 3. Thảm chùi chân ghi "WELCOME" → đổi chữ tiếng Việt (vd "Xin chào") hoặc bỏ chữ.
 4. Bản đồ nhìn chéo từ trên xuống: đường đi vẽ trên nền phải **khớp đúng đường quái và vị trí 9 ô đặt món** trong `STAGE_1_DEFINITION`; ô đặt món phải nhìn rõ trên điện thoại dọc.
 5. Ảnh gốc đang ~370–900 KB mỗi tấm: khi làm atlas nén lại, giữ tổng bản build ≤ 5 MB.
+
+NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs/art_samples/). Khi vẽ đủ bộ làm theo 5 góp ý ở mục trên.
