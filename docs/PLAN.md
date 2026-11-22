@@ -10,12 +10,17 @@ Soạn: Điều phối, 22/11/2026. Anh Kha nói "làm" 22/11. Phiên cloud Gian
 - Làm đẹp (anh Kha chốt 22/11): sau khi Màn 1 đạt vui; thử 3 hình mẫu bằng công cụ vẽ của Antigravity, anh duyệt nét rồi mới vẽ đủ bộ; thêm hiệu ứng và giao diện gỗ-đồng; bản build ≤ 5 MB. Lời giao: docs/ANTIGRAVITY_BRIEF_LAM_DEP.md.
 - Các mục Giai đoạn 1–3 bên dưới là kế hoạch nhập vai cũ, chỉ để tham khảo.
 
-## Lộ trình dài hạn (anh Kha nêu 22/11, làm dần — chưa làm ngay)
-Nguyên tắc: game vui trước, có người chơi rồi mới gắn bản đồ và quảng cáo.
-1. **Đang làm:** game thủ thành vui + đẹp, chủ đề phố nhiều tiệm (bản đầu 3 tiệm: giày, bánh, hoa; trùm chung Mùa Nồm).
-2. **Màn theo phố Đà Lạt thật:** dùng dữ liệu OpenStreetMap (miễn phí, giấy phép ODbL, phải ghi "© OpenStreetMap contributors"), lấy hình dạng đường phố thật làm đường đi của quái, dữ liệu đóng gói sẵn để chơi offline. Không dùng Google Maps lúc này (cần khoá API, tài khoản thanh toán, có thể tốn tiền, cần mạng).
-3. **Món là sản phẩm thật + link tiếp thị liên kết Shopee của anh Kha:** chạm món → nút "Xem món này" mở link. Trước khi làm phải: đọc điều khoản Shopee Affiliate (có cho đặt link trong game không), kiểm quy định ghi nhãn quảng cáo ở Việt Nam, và anh Kha quyết bỏ nguyên tắc "không quảng cáo".
-4. **Người chơi tự chọn phố / thành phố của mình** để game dựng màn (dùng OpenStreetMap; xin quyền vị trí chỉ khi người chơi đồng ý). **Thương hiệu tài trợ** đặt món / tiệm vào màn — khi đã có người chơi thật, có hợp đồng và được phép dùng tên / hình.
+## Lộ trình 6 chặng (anh Kha nói "ghi" 22/11)
+Mỗi chặng có chốt kiểm; chặng trước đạt mới sang chặng sau. Antigravity làm, Claude rà và chấm, anh Kha duyệt những gì nhìn thấy (tên, nét vẽ, cảm giác chơi). Bản cũ luôn còn trong lịch sử git.
+
+1. **Màn 1 vui + đẹp (đang làm):** đổi chủ đề tiệm giày "Ngũ hành giữ tiệm", hình mẫu → anh duyệt nét → đủ bộ hình + hiệu ứng. Chốt: anh chơi thấy thích.
+2. **Bản đầu đủ 3 tiệm:** Màn 2 tiệm bánh, Màn 3 tiệm hoa + trùm Mùa Nồm đổi hành; tương sinh, bậc 4, nâng cấp giữa màn bằng sao (~30 phút chơi). Chốt: Claude chấm vui từng màn, anh chơi hết.
+3. **Người thật chơi thử:** đưa lên địa chỉ công khai miễn phí (vd Cloudflare Pages), cài được ra màn hình điện thoại như app (không cần kho ứng dụng); 10–20 người quen chơi, giới thiệu qua @gon.simpli. Anh quyết có thêm bộ đếm người chơi ẩn danh hay không. Chốt: người chơi quay lại.
+4. **Thêm nội dung + phố thật:** tiệm mới (cà phê, nhà sách, tạp hóa), chế độ Vô tận; màn theo phố Đà Lạt thật từ OpenStreetMap (miễn phí, ghi "© OpenStreetMap contributors", đóng gói sẵn để chơi offline; không dùng Google Maps lúc này vì cần khoá API, tài khoản thanh toán, có thể tốn tiền, cần mạng).
+5. **Kiếm tiền nhẹ nhàng:** món là sản phẩm thật, chạm "Xem món này" mở link tiếp thị liên kết Shopee của anh; có thể đưa tiệm của anh vào game. Trước khi làm: đọc điều khoản Shopee Affiliate, kiểm quy định ghi nhãn quảng cáo ở Việt Nam, anh quyết bỏ nguyên tắc "không quảng cáo". Chốt: đã có người chơi thật.
+6. **Mở rộng:** người chơi tự chọn phố / thành phố của mình (xin quyền vị trí chỉ khi người chơi đồng ý); thương hiệu tài trợ (có hợp đồng, được phép dùng tên / hình); lên Google Play / App Store nếu chặng 3–5 cho thấy đáng (theo Claude biết: Google Play 25 USD một lần, Apple 99 USD mỗi năm — kiểm lại giá khi tới chặng này).
+
+Giữ suốt các chặng: tới chặng 5 vẫn 0 đồng và chơi offline. Thời gian: không hứa ngày; ước chặng 1–2 vài ngày tới 1–2 tuần nếu duyệt kịp (Antigravity có thể hết lượt hoặc bị trả lại vì chưa vui).
 
 ## Kết luận (kế hoạch nhập vai cũ)
 - Game kiếm hiệp hoàn toàn mới, không chép Võ Lâm Truyền Kỳ. 2D nhìn từ trên xuống, chơi trên trình duyệt (điện thoại + máy tính), không cần mạng, 0 đồng.
