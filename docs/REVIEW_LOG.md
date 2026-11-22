@@ -159,3 +159,18 @@ MÀN 1 VUI: ĐẠT
 **Giới hạn:** Claude chấm bằng mô phỏng + ảnh chụp; cảm giác "muốn chơi tiếp" cần anh Kha chơi thật. Đã đăng bản này lên link chơi thử.
 
 **Bước tiếp:** đổi chủ đề "Gọn Tiệm, Sạch Phố" + làm đẹp theo docs/ANTIGRAVITY_BRIEF_LAM_DEP.md và docs/CHU_DE_GIU_TIEM.md.
+
+---
+
+## 22/11/2026 — Rà tên "Gọn Tiệm" (4b323fc) + hình mẫu (0435e94)
+
+NAMES GỌN TIỆM: ĐỒNG Ý
+
+**Tên:** đúng docs/CHU_DE_GIU_TIEM.md; không tên thương hiệu thật; nhánh nâng cấp mỗi món có lý do đời thường. Chọn tên Màn 1 là **"Tiệm Giày Hẻm Dốc"** (khớp với "Tiệm Bánh Đầu Phố", "Tiệm Hoa Cuối Dốc" thành một con phố dốc Đà Lạt).
+
+**Hình mẫu:** nét hoạt hình ấm, đồng đều, rõ hình — Claude thấy dùng được. **Chờ anh Kha duyệt nét** (dòng "NÉT VẼ: ĐỒNG Ý" sẽ ghi khi anh đồng ý). Góp ý của Claude để làm khi vẽ đủ bộ:
+1. Hình món và quái phải **nền trong suốt** (dép tông và gián đang có nền nhà tranh / sàn gỗ) để đặt lên bản đồ.
+2. **Con gián** đang giống bọ cánh cứng tròn; vẽ lại cho ra gián (thân dẹt bầu dục, cánh nâu bóng, râu dài, chân có gai) nhưng vẫn dễ thương.
+3. Thảm chùi chân ghi "WELCOME" → đổi chữ tiếng Việt (vd "Xin chào") hoặc bỏ chữ.
+4. Bản đồ nhìn chéo từ trên xuống: đường đi vẽ trên nền phải **khớp đúng đường quái và vị trí 9 ô đặt món** trong `STAGE_1_DEFINITION`; ô đặt món phải nhìn rõ trên điện thoại dọc.
+5. Ảnh gốc đang ~370–900 KB mỗi tấm: khi làm atlas nén lại, giữ tổng bản build ≤ 5 MB.
