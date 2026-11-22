@@ -139,3 +139,23 @@ Nghĩa là: không cần nghĩ, không có lúc suýt thua, ngũ hành không t�
 3. **Đưa các kiểm tra ở mục 1 thành test tự động** trong tests/ (seed cố định) để giữ cân bằng về sau.
 4. **Ẩn nút "Bot"** khỏi người chơi (chỉ bật khi thêm `?bot=1` vào link, dùng cho test).
 5. Ghi bảng kết quả mô phỏng mới vào docs/PROGRESS.md, push, rồi dừng chờ Claude chấm lại.
+
+---
+
+## 22/11/2026 — Chấm lại Màn 1 (commit b3d7882)
+
+MÀN 1 VUI: ĐẠT
+
+**Đã chạy:** `npm test` 16/16, `npm run build` được. Nút Bot đã ẩn (chỉ hiện với `?bot=1`).
+
+**Script của Claude (docs/review/2026-11-22_sim_man1.ts) — khớp đúng bảng Antigravity ghi:**
+- Lấp toàn 1 loại quân (5 loại, có / không nâng): thua 10/10.
+- 1–4 quân: thua 8/8.
+- 60 lần đặt ngẫu nhiên: thắng 10/60, chỉ 1 lần 3 sao.
+- Bot chơi đúng hệ: thắng, còn 11/20 (2 sao).
+
+**Thêm kiểm tra mới (docs/review/2026-11-22_search_man1.ts):** thử 400 kế hoạch xây khác nhau (thứ tự xây, loại quân, nhánh nâng): thua 157, 1 sao 88, 2 sao 106, 3 sao 49; tốt nhất còn 20/20. → 3 sao vẫn đạt được nếu tính kỹ, không quá khó; cách đặt quyết định thắng thua.
+
+**Giới hạn:** Claude chấm bằng mô phỏng + ảnh chụp; cảm giác "muốn chơi tiếp" cần anh Kha chơi thật. Đã đăng bản này lên link chơi thử.
+
+**Bước tiếp:** đổi chủ đề "Gọn Tiệm, Sạch Phố" + làm đẹp theo docs/ANTIGRAVITY_BRIEF_LAM_DEP.md và docs/CHU_DE_GIU_TIEM.md.
