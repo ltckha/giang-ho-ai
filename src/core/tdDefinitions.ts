@@ -1,13 +1,17 @@
 import type {
   EnemyDefinition,
-  EnemyId,
+  ShoeEnemyId,
   StageDefinition,
   TowerBranch,
   TowerDefinition,
+  ShoeTowerId,
   TowerId,
   TowerTier,
   TowerTierStats,
 } from './types';
+
+import { BAKERY_ENEMIES, BAKERY_TOWERS, STAGE_2_DEFINITION } from './shops/bakery';
+import type { EnemyId } from './types';
 
 export const SELL_REFUND_RATE = 0.7;
 
@@ -17,7 +21,7 @@ export const SELL_REFUND_RATE = 0.7;
  * Lưu ý: giữ nguyên 5 khoá nội bộ (wood_tower, metal_tower, water_tower, fire_tower, earth_tower)
  * theo thứ tự 4 món đánh + 1 món hỗ trợ để tương thích với các script mô phỏng trong docs/review/.
  */
-export const TOWER_DEFINITIONS: Record<TowerId, TowerDefinition> = {
+export const TOWER_DEFINITIONS: Record<ShoeTowerId, TowerDefinition> = {
   wood_tower: {
     id: 'wood_tower',
     element: 'moc',
@@ -265,7 +269,7 @@ export function getTowerTierStats(
   tier: TowerTier,
   branch?: TowerBranch,
 ): TowerTierStats {
-  const def = TOWER_DEFINITIONS[defId];
+  const def = ALL_TOWER_DEFINITIONS[defId];
   if (tier === 1) return def.tier1;
   if (tier === 2) return def.tier2;
   return branch === 'B' ? def.tier3B : def.tier3A;
@@ -278,7 +282,7 @@ export function calculateSellRefund(totalInvested: number): number {
 /**
  * Định nghĩa 6 bọn phá đồ Tiệm Giày + Gián Con + Trùm Mùa Nồm (đủ 5 hành Ngũ Hành theo docs/CHU_DE_GIU_TIEM.md).
  */
-export const ENEMY_DEFINITIONS: Record<EnemyId, EnemyDefinition> = {
+export const ENEMY_DEFINITIONS: Record<ShoeEnemyId, EnemyDefinition> = {
   fast_metal: {
     id: 'fast_metal',
     name: 'Giọt Mưa',
@@ -711,6 +715,16 @@ export const STAGE_1_DEFINITION: StageDefinition = {
   ],
 };
 
-export const STAGES: Record<'stage_1', StageDefinition> = {
+/* ---- Nhiều tiệm (Claude, sườn Màn 2) ---- */
+export const ALL_TOWER_DEFINITIONS: Record<TowerId, TowerDefinition> = { ...TOWER_DEFINITIONS, ...BAKERY_TOWERS };
+export const ALL_ENEMY_DEFINITIONS: Record<EnemyId, EnemyDefinition> = { ...ENEMY_DEFINITIONS, ...BAKERY_ENEMIES };
+
+/** 5 món của một màn (theo tiệm) */
+export function getStageTowerList(stage: StageDefinition): TowerDefinition[] {
+  return stage.towerIds ? stage.towerIds.map((id) => ALL_TOWER_DEFINITIONS[id]) : TOWER_LIST;
+}
+
+export const STAGES: Record<'stage_1' | 'stage_2', StageDefinition> = {
   stage_1: STAGE_1_DEFINITION,
+  stage_2: STAGE_2_DEFINITION,
 };

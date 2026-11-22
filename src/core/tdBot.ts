@@ -1,4 +1,5 @@
-import { getTowerTierStats, TOWER_DEFINITIONS } from './tdDefinitions';
+import { ALL_TOWER_DEFINITIONS as TOWER_DEFINITIONS, getTowerTierStats } from './tdDefinitions';
+import { STAGE_2_BOT_PLAN } from './shops/bakery';
 import type { TowerDefenseEngine } from './tdEngine';
 import type { TowerBranch, TowerId } from './types';
 
@@ -25,9 +26,10 @@ const STAGE_1_PLAN: BotPlanItem[] = [
 
 export function runBotTurn(engine: TowerDefenseEngine): void {
   if (engine.status !== 'playing') return;
+  const STAGE_PLAN: BotPlanItem[] = engine.stage.id === 'stage_2' ? STAGE_2_BOT_PLAN : STAGE_1_PLAN;
 
   // 1. Ưu tiên đặt đủ 5 loại món giữ tiệm (5 hành) trước
-  for (const item of STAGE_1_PLAN.slice(0, 5)) {
+  for (const item of STAGE_PLAN.slice(0, 5)) {
     if (!engine.getTowerAtPad(item.padId)) {
       const cost = TOWER_DEFINITIONS[item.defId].tier1.cost;
       if (engine.essence >= cost) {
@@ -41,7 +43,7 @@ export function runBotTurn(engine: TowerDefenseEngine): void {
   }
 
   // 2. Nâng cấp các món chủ lực lên bậc 2
-  for (const item of STAGE_1_PLAN.slice(0, 5)) {
+  for (const item of STAGE_PLAN.slice(0, 5)) {
     const tower = engine.getTowerAtPad(item.padId);
     if (tower && tower.tier === 1) {
       const cost = getTowerTierStats(tower.defId, 2).cost;
@@ -52,7 +54,7 @@ export function runBotTurn(engine: TowerDefenseEngine): void {
   }
 
   // 3. Đặt thêm quân chốt chặn cuối và nâng lên bậc 3
-  for (const item of STAGE_1_PLAN) {
+  for (const item of STAGE_PLAN) {
     const existing = engine.getTowerAtPad(item.padId);
     if (!existing) {
       const cost = TOWER_DEFINITIONS[item.defId].tier1.cost;

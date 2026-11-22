@@ -1,10 +1,15 @@
-import { getElementRelation } from './elements';
+import { ELEMENT_GENERATES, getElementRelation } from './elements';
 import {
+  ALL_ENEMY_DEFINITIONS,
+  ALL_TOWER_DEFINITIONS,
   calculateSellRefund,
-  ENEMY_DEFINITIONS,
   getTowerTierStats,
-  TOWER_DEFINITIONS,
 } from './tdDefinitions';
+
+/** Tương sinh: món cách nhau không quá khoảng này (đơn vị logic) thì tính là "đặt cạnh nhau". */
+export const SYNERGY_RANGE = 105;
+/** Tương sinh: món được sinh mạnh thêm 15% sức (không cộng dồn). */
+export const SYNERGY_DAMAGE_BONUS = 0.15;
 import type {
   ActiveEnemy,
   ActiveTower,
@@ -153,7 +158,7 @@ export class TowerDefenseEngine {
     if (!pad) return null;
     if (this.getTowerAtPad(padId)) return null;
 
-    const def = TOWER_DEFINITIONS[defId];
+    const def = ALL_TOWER_DEFINITIONS[defId];
     const cost = def.tier1.cost;
     if (this.essence < cost) return null;
 
@@ -221,7 +226,7 @@ export class TowerDefenseEngine {
     const activeElements = new Set(this.towers.filter((t) => t.disruptedRemaining <= 0).map((t) => t.element));
     const hasCentralEarthAnchor = this.towers.some(
       (t) =>
-        TOWER_DEFINITIONS[t.defId].role === 'support_buff' &&
+        ALL_TOWER_DEFINITIONS[t.defId].role === 'support_buff' &&
         t.disruptedRemaining <= 0 &&
         t.padId === 'pad_4',
     );
@@ -235,7 +240,7 @@ export class TowerDefenseEngine {
       tower.bonusKillEssence = 0;
     }
 
-    const supportTowers = this.towers.filter((t) => TOWER_DEFINITIONS[t.defId].role === 'support_buff');
+    const supportTowers = this.towers.filter((t) => ALL_TOWER_DEFINITIONS[t.defId].role === 'support_buff');
     for (const sup of supportTowers) {
       if (sup.disruptedRemaining > 0) continue;
       const supStats = getTowerTierStats(sup.defId, sup.tier, sup.branch);
@@ -265,6 +270,25 @@ export class TowerDefenseEngine {
         }
       }
     }
+
+    // Tương sinh (từ Màn 2): món đặt cạnh món có hành sinh ra hành của nó thì mạnh thêm 15%.
+    if (this.stage.enableSynergy) {
+      for (const tower of this.towers) {
+        tower.synergyFromUid = undefined;
+        if (tower.disruptedRemaining > 0) continue;
+        const giver = this.towers.find(
+          (n) =>
+            n.uid !== tower.uid &&
+            n.disruptedRemaining <= 0 &&
+            ELEMENT_GENERATES[n.element] === tower.element &&
+            distance2D(n, tower) <= SYNERGY_RANGE,
+        );
+        if (giver) {
+          tower.synergyFromUid = giver.uid;
+          tower.buffDamageMultiplier *= 1 + SYNERGY_DAMAGE_BONUS;
+        }
+      }
+    }
   }
 
   public spawnEnemy(
@@ -273,7 +297,7 @@ export class TowerDefenseEngine {
     hpScale = 1,
     overridePos?: { x: number; y: number; waypointIndex: number; distanceTraveled: number },
   ): ActiveEnemy {
-    const def = ENEMY_DEFINITIONS[enemyId];
+    const def = ALL_ENEMY_DEFINITIONS[enemyId];
     const path = this.stage.paths[pathIndex] ?? this.stage.paths[0]!;
     const startPt = overridePos ? { x: overridePos.x, y: overridePos.y } : path[0]!;
     const maxHp = Math.max(1, Math.round(def.maxHp * hpScale));
@@ -339,7 +363,7 @@ export class TowerDefenseEngine {
         // Nếu nằm gần trụ Thổ đang hoạt động thì tốc độ giải bùa nhanh gấp 2.4 lần
         let decayRate = 1.0;
         for (const sup of this.towers) {
-          const supDef = TOWER_DEFINITIONS[sup.defId];
+          const supDef = ALL_TOWER_DEFINITIONS[sup.defId];
           if (supDef.role === 'support_buff' && sup.disruptedRemaining <= 0) {
             const supStats = getTowerTierStats(sup.defId, sup.tier, sup.branch);
             if (distance2D(sup, tower) <= supStats.range) {
@@ -386,7 +410,7 @@ export class TowerDefenseEngine {
       }
 
       // Kỹ năng đặc biệt của quái
-      const def = ENEMY_DEFINITIONS[enemy.defId];
+      const def = ALL_ENEMY_DEFINITIONS[enemy.defId];
       enemy.abilityTimer += dtSec;
 
       // Chuột gặm món gần nó hoặc Trùm Mùa Nồm phủ ẩm làm món đứng im
@@ -582,7 +606,7 @@ export class TowerDefenseEngine {
   }
 
   private findTargetForTower(tower: ActiveTower, range: number): ActiveEnemy | null {
-    const def = TOWER_DEFINITIONS[tower.defId];
+    const def = ALL_TOWER_DEFINITIONS[tower.defId];
     let best: ActiveEnemy | null = null;
     let bestScore = -Infinity;
 
@@ -682,7 +706,7 @@ export class TowerDefenseEngine {
       traitResist;
 
     if (enemy.shieldRemaining > 0) {
-      const def = ENEMY_DEFINITIONS[enemy.defId];
+      const def = ALL_ENEMY_DEFINITIONS[enemy.defId];
       damage *= 1 - (def.shieldReductionPct ?? 0.5);
     }
 
@@ -794,7 +818,7 @@ export class TowerDefenseEngine {
     });
 
     // Nếu là Gián chia đôi khi chết thành 2 Gián Con
-    const def = ENEMY_DEFINITIONS[enemy.defId];
+    const def = ALL_ENEMY_DEFINITIONS[enemy.defId];
     if (def.splitChildId && def.splitCount && def.splitCount > 0) {
       const hpScale = enemy.maxHp / def.maxHp;
       for (let i = 0; i < def.splitCount; i += 1) {

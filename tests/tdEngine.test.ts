@@ -7,11 +7,12 @@ import {
   getTowerTierStats,
   STAGE_1_DEFINITION,
   TOWER_DEFINITIONS,
+  ALL_TOWER_DEFINITIONS,
 } from '../src/core/tdDefinitions';
 import { calculateStarRating, TowerDefenseEngine } from '../src/core/tdEngine';
 import type { TowerBranch, TowerId } from '../src/core/types';
 
-const TOWER_TYPES = Object.keys(TOWER_DEFINITIONS) as TowerId[];
+const TOWER_TYPES = Object.keys(TOWER_DEFINITIONS) as (keyof typeof TOWER_DEFINITIONS)[];
 const STAGE_1_PADS = STAGE_1_DEFINITION.pads.map((p) => p.id);
 
 function makeRng(seed: number): () => number {
@@ -49,7 +50,7 @@ function makeGreedyPolicy(
     for (const p of STAGE_1_PADS) {
       if (!e.getTowerAtPad(p)) {
         const d = typeForPad(p);
-        if (e.essence >= TOWER_DEFINITIONS[d].tier1.cost) {
+        if (e.essence >= ALL_TOWER_DEFINITIONS[d].tier1.cost) {
           e.buildTower(p, d);
         }
         return;
@@ -239,7 +240,7 @@ describe('Gọn Tiệm, Sạch Phố — Kiểm thử độ khó & cân bằng M
         const policy = (e: TowerDefenseEngine) => {
           for (const p of limitedPads) {
             if (!e.getTowerAtPad(p)) {
-              if (e.essence >= TOWER_DEFINITIONS[ty].tier1.cost) {
+              if (e.essence >= ALL_TOWER_DEFINITIONS[ty].tier1.cost) {
                 e.buildTower(p, ty);
               }
               return;

@@ -3,12 +3,12 @@ import { ELEMENT_INFO } from '../core/elements';
 import { saveTdProgress } from '../core/saveSystem';
 import { runBotTurn } from '../core/tdBot';
 import {
+  ALL_ENEMY_DEFINITIONS as ENEMY_DEFINITIONS,
+  ALL_TOWER_DEFINITIONS as TOWER_DEFINITIONS,
   calculateSellRefund,
-  ENEMY_DEFINITIONS,
+  getStageTowerList,
   getTowerTierStats,
-  STAGE_1_DEFINITION,
-  TOWER_DEFINITIONS,
-  TOWER_LIST,
+  STAGES,
 } from '../core/tdDefinitions';
 import { calculateStarRating, TowerDefenseEngine } from '../core/tdEngine';
 import type { ActiveEnemy, ActiveTower, CombatEvent, TowerBranch, TowerId } from '../core/types';
@@ -80,8 +80,14 @@ export class TdStageScene extends Phaser.Scene {
     super({ key: SCENE_KEYS.TD_STAGE });
   }
 
-  public create(): void {
-    this.engine = new TowerDefenseEngine(STAGE_1_DEFINITION);
+  public create(data?: { stageId?: 'stage_1' | 'stage_2' }): void {
+    // Chọn màn: từ nút ở màn hình đầu, hoặc thêm ?stage=2 vào link (để thử / quay video)
+    let stageId: 'stage_1' | 'stage_2' = data?.stageId ?? 'stage_1';
+    if (!data?.stageId && typeof window !== 'undefined') {
+      const q = new URLSearchParams(window.location.search).get('stage');
+      if (q === '2') stageId = 'stage_2';
+    }
+    this.engine = new TowerDefenseEngine(STAGES[stageId]);
     this.speedMultiplier = 1;
     this.paused = false;
     this.autoBotEnabled = false;
@@ -797,7 +803,7 @@ export class TdStageScene extends Phaser.Scene {
     const existingTower = this.engine.getTowerAtPad(padId);
 
     if (!existingTower) {
-      const cardsHtml = TOWER_LIST.map((def) => {
+      const cardsHtml = getStageTowerList(this.engine.stage).map((def) => {
         const elInfo = ELEMENT_INFO[def.element];
         const canAfford = this.engine.essence >= def.tier1.cost;
         return `

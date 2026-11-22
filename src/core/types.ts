@@ -2,7 +2,12 @@ export type ElementType = 'kim' | 'moc' | 'thuy' | 'hoa' | 'tho';
 
 export type TowerRole = 'single_far' | 'heavy_slow' | 'slow_aura' | 'aoe_splash' | 'support_buff';
 
-export type TowerId = 'wood_tower' | 'metal_tower' | 'water_tower' | 'fire_tower' | 'earth_tower';
+export type ShoeTowerId = 'wood_tower' | 'metal_tower' | 'water_tower' | 'fire_tower' | 'earth_tower';
+
+/** Món tiệm bánh (Màn 2) — Claude làm sườn, xem src/core/shops/bakery.ts */
+export type BakeryTowerId = 'bk_swatter' | 'bk_jar' | 'bk_fan' | 'bk_oven' | 'bk_fridge';
+
+export type TowerId = ShoeTowerId | BakeryTowerId;
 
 export type TowerTier = 1 | 2 | 3;
 
@@ -41,7 +46,12 @@ export interface TowerDefinition {
   tier3B: TowerTierStats;
 }
 
-export type EnemyId =
+/** Quái tiệm bánh (Màn 2). Chuột dùng lại 'disrupt_water'. */
+export type BakeryEnemyId = 'bk_humid' | 'bk_flour' | 'bk_fly' | 'bk_mold' | 'bk_ember' | 'bk_ember_mini';
+
+export type EnemyId = ShoeEnemyId | BakeryEnemyId;
+
+export type ShoeEnemyId =
   | 'fast_metal'
   | 'tank_earth'
   | 'fly_wood'
@@ -118,6 +128,10 @@ export interface StageDefinition {
   paths: Point2D[][]; // toạ độ trong khung logic chuẩn 360 x 520
   pads: BuildPad[];
   waves: WaveDefinition[];
+  /** 5 món của tiệm này (mặc định: 5 món tiệm giày) */
+  towerIds?: TowerId[];
+  /** Bật tương sinh: món đặt cạnh món sinh ra hành của nó được +15% sức (từ Màn 2) */
+  enableSynergy?: boolean;
 }
 
 export interface ActiveTower {
@@ -138,6 +152,8 @@ export interface ActiveTower {
   buffRangeMultiplier: number;
   protectedFromDisrupt: boolean;
   bonusKillEssence: number;
+  /** uid món đang tương sinh cho món này (để vẽ đường sáng), nếu có */
+  synergyFromUid?: string;
 }
 
 export interface ActiveEnemy {

@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { ELEMENT_INFO } from '../core/elements';
 import { loadTdSave } from '../core/saveSystem';
-import { STAGE_1_DEFINITION, TOWER_LIST } from '../core/tdDefinitions';
+import { STAGE_1_DEFINITION, STAGES, TOWER_LIST } from '../core/tdDefinitions';
 import { SCENE_KEYS } from '../game/sceneKeys';
 import { sound } from '../game/sound';
 
@@ -70,6 +70,8 @@ export class TitleScene extends Phaser.Scene {
     const save = loadTdSave();
     const s1Stars = save.starsByStage.stage_1 ?? 0;
     const starText = s1Stars > 0 ? '★'.repeat(s1Stars) + '☆'.repeat(3 - s1Stars) : 'Chưa qua';
+    const s2Stars = save.starsByStage.stage_2 ?? 0;
+    const s2StarText = s2Stars > 0 ? '★'.repeat(s2Stars) + '☆'.repeat(3 - s2Stars) : 'Chưa qua';
 
     const root = document.createElement('div');
     root.className = 'td-title-overlay';
@@ -104,6 +106,19 @@ export class TitleScene extends Phaser.Scene {
           </button>
         </div>
 
+        <div class="td-stage-box">
+          <div class="td-stage-header">
+            <div>
+              <div class="td-stage-name">${STAGES.stage_2.name} (thử luật, hình tạm)</div>
+              <div class="td-stage-sub">${STAGES.stage_2.subtitle}</div>
+            </div>
+            <div class="td-stage-stars" data-testid="stage2-stars">${s2StarText}</div>
+          </div>
+          <button id="btn-start-stage-2" data-testid="btn-start-stage-2" class="td-btn-primary">
+            Vào Màn 2
+          </button>
+        </div>
+
         <div class="td-element-guide">
           <div class="td-guide-title">Vòng khắc Ngũ Hành: Kim → Mộc → Thổ → Thủy → Hỏa → Kim</div>
           <div class="td-pill-wrap">${towerBadges}</div>
@@ -119,7 +134,15 @@ export class TitleScene extends Phaser.Scene {
       startBtn.onclick = () => {
         sound.playUiClick();
         this.unmountOverlay();
-        this.scene.start(SCENE_KEYS.TD_STAGE);
+        this.scene.start(SCENE_KEYS.TD_STAGE, { stageId: 'stage_1' });
+      };
+    }
+    const startBtn2 = root.querySelector<HTMLButtonElement>('#btn-start-stage-2');
+    if (startBtn2) {
+      startBtn2.onclick = () => {
+        sound.playUiClick();
+        this.unmountOverlay();
+        this.scene.start(SCENE_KEYS.TD_STAGE, { stageId: 'stage_2' });
       };
     }
   }
