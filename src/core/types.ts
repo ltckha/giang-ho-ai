@@ -1,293 +1,207 @@
-import type { GuildWorldState } from './guildSystem';
-import type { MainQuestState, SectReputationMap } from './reputation';
-
 export type ElementType = 'kim' | 'moc' | 'thuy' | 'hoa' | 'tho';
 
-export type SectId = 'sect_open' | 'sect_closed' | 'sect_ban';
+export type TowerRole = 'single_far' | 'heavy_slow' | 'slow_aura' | 'aoe_splash' | 'support_buff';
 
-export type MapId = 'map_town' | 'map_forest' | 'map_cave' | 'map_inner_city' | 'map_valley';
+export type TowerId = 'wood_tower' | 'metal_tower' | 'water_tower' | 'fire_tower' | 'earth_tower';
 
-export type AllyPersonality = 'reckless' | 'cautious' | 'greedy';
+export type TowerTier = 1 | 2 | 3;
 
-export type AllyId = 'ally_reckless' | 'ally_cautious' | 'ally_greedy';
+export type TowerBranch = 'A' | 'B';
 
-export type EquipmentSlot = 'weapon' | 'armor' | 'charm';
-
-export type ItemKind = EquipmentSlot | 'consumable' | 'quest';
-
-export type Stage1QuestId = 'quest_blacksmith' | 'quest_hallucination' | 'quest_boss';
-
-export type Stage2SideQuestId =
-  | 'quest_fake_elder'
-  | 'quest_stolen_manual'
-  | 'quest_seal_breaker';
-
-export type QuestId = Stage1QuestId | Stage2SideQuestId;
-
-export type QuestStatus = 'not_started' | 'active' | 'ready' | 'completed';
-
-export type SkillEffectType =
-  | 'melee'
-  | 'projectile'
-  | 'pierce'
-  | 'aoe'
-  | 'slow_aoe'
-  | 'heal_party'
-  | 'shield_self'
-  | 'knockback_aoe'
-  | 'burn_projectile';
-
-export interface Vec2 {
-  x: number;
-  y: number;
-}
-
-export interface Rect {
-  x: number;
-  y: number;
-  w: number;
-  h: number;
-}
-
-export interface BaseStats {
-  maxHp: number;
-  atk: number;
-  def: number;
-  moveSpeed: number;
-}
-
-export type EquipmentRarity = 'common' | 'fine' | 'rare' | 'epic';
-
-export type AffixType =
-  | 'atk_flat'
-  | 'def_flat'
-  | 'hp_flat'
-  | 'crit_chance'
-  | 'armor_pierce'
-  | 'move_speed'
-  | 'elem_resist'
-  | 'ally_atk_pct';
-
-export interface EquipmentAffix {
-  type: AffixType;
-  value: number;
-  element?: ElementType;
-}
-
-export interface EquipmentInstance {
-  uid: string;
-  baseItemId: string;
-  slot: EquipmentSlot;
-  rarity: EquipmentRarity;
-  itemLevel: number;
-  affixes: EquipmentAffix[];
-  seed: number;
-  crafted?: boolean;
-}
-
-export interface EffectiveStats extends BaseStats {
-  resistElement?: ElementType;
-  resistBonus: number;
-  imbueElement?: ElementType;
-  critChanceBonus?: number;
-  armorPierceBonus?: number;
-  allyAtkBonus?: number;
-  elementResists?: Partial<Record<ElementType, number>>;
-}
-
-export interface SkillDef {
-  id: string;
-  sectId: SectId;
-  slot: 1 | 2 | 3 | 4;
-  element: ElementType;
-  effect: SkillEffectType;
-  powerMultiplier: number;
-  cooldownSec: number;
+export interface TowerTierStats {
+  name: string;
+  cost: number;
+  damage: number;
   range: number;
-  radius?: number;
-  armorPierce?: number;
-  slowFactor?: number;
+  cooldownSec: number;
+  splashRadius?: number;
+  slowPercent?: number;
   slowDurationSec?: number;
-  healPercent?: number;
-  healFlat?: number;
-  allyAtkBuff?: number;
-  allyBuffDurationSec?: number;
-  shieldReduction?: number;
-  shieldDurationSec?: number;
-  thornsDamage?: number;
+  pierceCount?: number;
   burnDps?: number;
   burnDurationSec?: number;
-  knockbackForce?: number;
+  stunDurationSec?: number;
+  knockbackDist?: number;
+  buffDamagePct?: number;
+  buffSpeedPct?: number;
+  buffRangePct?: number;
+  cleanseDisrupt?: boolean;
+  bonusKillReward?: number;
+  description: string;
 }
 
-export interface SectDef {
-  id: SectId;
+export interface TowerDefinition {
+  id: TowerId;
   element: ElementType;
-  baseStats: BaseStats;
-  allyPassiveAtkBonus: number;
-  skillIds: [string, string, string, string];
-  starterWeaponId: string;
-  starterArmorId: string;
+  role: TowerRole;
+  roleLabel: string;
+  tier1: TowerTierStats;
+  tier2: TowerTierStats;
+  tier3A: TowerTierStats;
+  tier3B: TowerTierStats;
 }
 
-export interface ItemDef {
-  id: string;
-  kind: ItemKind;
-  price: number;
-  atkBonus?: number;
-  defBonus?: number;
-  hpBonus?: number;
-  resistElement?: ElementType;
-  resistBonus?: number;
-  imbueElement?: ElementType;
-  healAmount?: number;
-  healParty?: boolean;
-  minLevel?: number;
-}
+export type EnemyId =
+  | 'fast_metal'
+  | 'tank_earth'
+  | 'fly_wood'
+  | 'split_fire'
+  | 'split_fire_mini'
+  | 'disrupt_water'
+  | 'healer_wood'
+  | 'boss_water';
 
-export interface InventoryEntry {
-  itemId: string;
-  quantity: number;
-}
+export type EnemyTrait = 'fast' | 'tank' | 'flying' | 'splitter' | 'mini' | 'disruptor' | 'healer' | 'boss';
 
-export interface EquipmentState {
-  weapon: string | null;
-  armor: string | null;
-  charm: string | null;
-}
-
-export interface EquippedInstancesState {
-  weapon: EquipmentInstance | null;
-  armor: EquipmentInstance | null;
-  charm: EquipmentInstance | null;
-}
-
-export interface QuestProgress {
-  status: QuestStatus;
-  count: number;
-  targetCount: number;
-}
-
-export type QuestStateMap = Record<QuestId, QuestProgress>;
-
-export interface EnemyTemplate {
-  id: string;
+export interface EnemyDefinition {
+  id: EnemyId;
+  name: string;
   element: ElementType;
+  trait: EnemyTrait;
+  traitLabel: string;
   maxHp: number;
-  atk: number;
-  def: number;
-  moveSpeed: number;
-  attackRange: number;
-  attackCooldownSec: number;
-  xpReward: number;
-  silverMin: number;
-  silverMax: number;
-  spiritStoneChance: number;
-  lootTable: Array<{ itemId: string; chance: number }>;
-  isBoss?: boolean;
+  speed: number; // đơn vị toạ độ chuẩn / giây
+  armor: number; // % giảm sát thương cơ bản (0..0.5)
+  reward: number; // linh thạch rơi ra
+  lifeCost: number; // số mạng thành bị trừ khi lọt qua
+  radius: number;
+  flying?: boolean;
+  splitChildId?: EnemyId;
+  splitCount?: number;
+  disruptRadius?: number;
+  disruptIntervalSec?: number;
+  disruptDurationSec?: number;
+  healRadius?: number;
+  healIntervalSec?: number;
+  healAmount?: number;
+  shieldIntervalSec?: number;
+  shieldDurationSec?: number;
+  shieldReductionPct?: number;
 }
 
-export interface SpawnPointDef {
-  id: string;
-  enemyId: string;
-  x: number;
-  y: number;
-  respawnSec: number;
-}
-
-export interface PortalDef {
-  id: string;
-  x: number;
-  y: number;
-  w: number;
-  h: number;
-  targetMap: MapId;
-  targetX: number;
-  targetY: number;
-}
-
-export type NpcRole =
-  | 'blacksmith'
-  | 'guide'
-  | 'merchant'
-  | 'foundry'
-  | 'guard'
-  | 'guild_board'
-  | 'scholar'
-  | 'sect_open_rep'
-  | 'sect_closed_rep'
-  | 'sect_ban_rep'
-  | 'teahouse'
-  | 'master'
-  | 'taoist'
-  | 'apprentice_smith'
-  | 'seal_breaker_npc';
-
-export interface NpcPlacement {
-  id: string;
-  role: NpcRole;
+export interface Point2D {
   x: number;
   y: number;
 }
 
-export interface LandmarkZone {
+export interface BuildPad {
   id: string;
   x: number;
   y: number;
-  w: number;
-  h: number;
-  kind:
-    | 'foundry'
-    | 'market'
-    | 'forge'
-    | 'plaza'
-    | 'mine'
-    | 'crossroads'
-    | 'fake_landmark'
-    | 'boss_arena'
-    | 'vault'
-    | 'board'
-    | 'siege_gate';
 }
 
-export interface MapDef {
-  id: MapId;
-  width: number;
-  height: number;
-  isSafeZone: boolean;
-  defaultSpawn: Vec2;
-  obstacles: Rect[];
-  landmarks: LandmarkZone[];
-  portals: PortalDef[];
-  npcs: NpcPlacement[];
-  enemySpawns: SpawnPointDef[];
+export interface WaveSpawnGroup {
+  enemyId: EnemyId;
+  count: number;
+  intervalSec: number;
+  delayBeforeSec: number;
+  pathIndex: number;
+  hpScale?: number;
 }
 
-export interface AllySaveState {
-  id: AllyId;
+export interface WaveDefinition {
+  waveNumber: number;
+  title: string;
+  mainElements: ElementType[];
+  earlyBonusMax: number;
+  clearReward: number;
+  groups: WaveSpawnGroup[];
+}
+
+export interface StageDefinition {
+  id: 'stage_1' | 'stage_2' | 'stage_3';
+  stageNumber: 1 | 2 | 3;
+  name: string;
+  subtitle: string;
+  startingEssence: number;
+  startingLives: number;
+  paths: Point2D[][]; // toạ độ trong khung logic chuẩn 360 x 520
+  pads: BuildPad[];
+  waves: WaveDefinition[];
+}
+
+export interface ActiveTower {
+  uid: string;
+  padId: string;
+  defId: TowerId;
+  element: ElementType;
+  x: number;
+  y: number;
+  tier: TowerTier;
+  branch?: TowerBranch;
+  totalInvested: number;
+  cooldownRemaining: number;
+  disruptedRemaining: number;
+  shotsFired: number;
+  buffDamageMultiplier: number;
+  buffSpeedMultiplier: number;
+  buffRangeMultiplier: number;
+  protectedFromDisrupt: boolean;
+  bonusKillEssence: number;
+}
+
+export interface ActiveEnemy {
+  uid: string;
+  defId: EnemyId;
+  element: ElementType;
+  trait: EnemyTrait;
   hp: number;
+  maxHp: number;
+  baseSpeed: number;
+  armor: number;
+  reward: number;
+  lifeCost: number;
+  flying: boolean;
+  pathIndex: number;
+  waypointIndex: number;
+  distanceTraveled: number;
+  x: number;
+  y: number;
+  slowPercent: number;
+  slowRemaining: number;
+  stunRemaining: number;
+  burnDps: number;
+  burnRemaining: number;
+  armorDebuffPct: number;
+  abilityTimer: number;
+  shieldRemaining: number;
+  shieldTimer: number;
+  hitFlashRemaining: number;
 }
 
-export interface SaveData {
-  version: number;
-  savedAt: number;
-  sectId: SectId;
-  mapId: MapId;
-  playerPos: Vec2;
-  level: number;
-  xp: number;
-  hp: number;
-  silver: number;
-  spiritStones: number;
-  equipment: EquipmentState;
-  inventory: InventoryEntry[];
-  quests: QuestStateMap;
-  allies: AllySaveState[];
-  bossDefeated: boolean;
-  rolledBag: EquipmentInstance[];
-  equippedInstances: EquippedInstancesState;
-  nextSeed: number;
-  guildWorld: GuildWorldState;
-  sectReputation: SectReputationMap;
-  mainQuestGd2: MainQuestState;
+export interface CombatEvent {
+  type:
+    | 'shot'
+    | 'hit'
+    | 'kill'
+    | 'split'
+    | 'leak'
+    | 'disrupt'
+    | 'cleanse'
+    | 'heal'
+    | 'shield'
+    | 'wave_start'
+    | 'wave_clear'
+    | 'stage_win'
+    | 'stage_lose';
+  x: number;
+  y: number;
+  targetX?: number;
+  targetY?: number;
+  element?: ElementType;
+  damage?: number;
+  isCounter?: boolean;
+  isCountered?: boolean;
+  reward?: number;
+  enemyUid?: string;
+  towerUid?: string;
+  text?: string;
+}
+
+export interface TdSaveData {
+  version: 1;
+  unlockedStage: 1 | 2 | 3;
+  starsByStage: Partial<Record<'stage_1' | 'stage_2' | 'stage_3', 1 | 2 | 3>>;
+  bestLivesByStage: Partial<Record<'stage_1' | 'stage_2' | 'stage_3', number>>;
+  updatedAt: number;
 }
