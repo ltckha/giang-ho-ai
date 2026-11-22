@@ -1327,7 +1327,7 @@ export class TdStageScene extends Phaser.Scene {
 
     const rmBtn = this.hudRoot.querySelector<HTMLButtonElement>('#btn-reduce-motion');
     if (rmBtn) {
-      rmBtn.textContent = this.reduceMotion ? 'Nhẹ' : '✨';
+      rmBtn.textContent = this.reduceMotion ? 'Nhẹ' : 'FX';
       rmBtn.setAttribute('aria-pressed', this.reduceMotion ? 'true' : 'false');
       rmBtn.classList.toggle('active', this.reduceMotion);
     }

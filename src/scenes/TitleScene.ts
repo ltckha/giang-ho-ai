@@ -2,43 +2,41 @@ import Phaser from 'phaser';
 import { ELEMENT_INFO } from '../core/elements';
 import { loadTdSave } from '../core/saveSystem';
 import { STAGE_1_DEFINITION, TOWER_LIST } from '../core/tdDefinitions';
+import { getAtlasFrameDataUrl, getTowerFrameName, STAGE1_MAP_KEY } from '../game/atlasIcons';
+import { getInitialReduceMotion } from '../game/preferences';
 import { SCENE_KEYS } from '../game/sceneKeys';
 import { sound } from '../game/sound';
 
 export class TitleScene extends Phaser.Scene {
   private overlayEl: HTMLDivElement | null = null;
-  private motes: Array<{ dot: Phaser.GameObjects.Arc; speedY: number; phase: number }> = [];
+  private rainLines: Array<{ x: number; y: number; len: number; speed: number }> = [];
+  private weatherGfx: Phaser.GameObjects.Graphics | null = null;
+  private reduceMotion = false;
 
   constructor() {
     super({ key: SCENE_KEYS.TITLE });
   }
 
   public create(): void {
-    this.motes = [];
+    this.reduceMotion = getInitialReduceMotion();
+    this.rainLines = [];
     const { width, height } = this.scale;
-    this.cameras.main.setBackgroundColor('#12100e');
+    this.cameras.main.setBackgroundColor('#241811');
 
-    const g = this.add.graphics();
-    g.lineStyle(2, 0xc7a45a, 0.14);
-    g.strokeCircle(width * 0.5, height * 0.45, Math.min(width, height) * 0.36);
-    g.lineStyle(1.5, 0x4cc9f0, 0.14);
-    g.strokeCircle(width * 0.5, height * 0.45, Math.min(width, height) * 0.26);
+    // Nền tiệm giày ngày mưa mờ ấm phía sau hộp giày mở màn
+    if (this.textures.exists(STAGE1_MAP_KEY)) {
+      const bg = this.add.image(width * 0.5, height * 0.5, STAGE1_MAP_KEY).setAlpha(0.32);
+      const scale = Math.max(width / bg.width, height / bg.height);
+      bg.setScale(scale);
+    }
 
-    for (let i = 0; i < 22; i += 1) {
-      const x = Phaser.Math.Between(16, Math.max(40, width - 16));
-      const y = Phaser.Math.Between(16, Math.max(40, height - 16));
-      const isCyan = i % 2 === 0;
-      const dot = this.add.circle(
-        x,
-        y,
-        Phaser.Math.FloatBetween(2, 4),
-        isCyan ? 0x4cc9f0 : 0xe8c468,
-        Phaser.Math.FloatBetween(0.2, 0.55),
-      );
-      this.motes.push({
-        dot,
-        speedY: Phaser.Math.FloatBetween(8, 20),
-        phase: Phaser.Math.FloatBetween(0, Math.PI * 2),
+    this.weatherGfx = this.add.graphics();
+    for (let i = 0; i < 24; i += 1) {
+      this.rainLines.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        len: 10 + Math.random() * 12,
+        speed: 90 + Math.random() * 65,
       });
     }
 
@@ -49,16 +47,21 @@ export class TitleScene extends Phaser.Scene {
     });
   }
 
-  public update(time: number, deltaMs: number): void {
-    const dt = deltaMs / 1000;
+  public update(_time: number, deltaMs: number): void {
+    if (!this.weatherGfx || this.reduceMotion) return;
+    const dt = Math.min(0.05, deltaMs / 1000);
     const { width, height } = this.scale;
-    for (const m of this.motes) {
-      m.dot.y -= m.speedY * dt;
-      m.dot.x += Math.sin(time * 0.001 + m.phase) * 7 * dt;
-      if (m.dot.y < -10) {
-        m.dot.y = height + 10;
-        m.dot.x = Phaser.Math.Between(16, Math.max(32, width - 16));
+    this.weatherGfx.clear();
+    this.weatherGfx.lineStyle(1.4, 0xc8ebff, 0.25);
+
+    for (const r of this.rainLines) {
+      r.x -= r.speed * 0.22 * dt;
+      r.y += r.speed * dt;
+      if (r.y > height + 16 || r.x < -16) {
+        r.x = Math.random() * (width + 60);
+        r.y = -14;
       }
+      this.weatherGfx.lineBetween(r.x, r.y, r.x - r.len * 0.22, r.y + r.len);
     }
   }
 
@@ -75,38 +78,59 @@ export class TitleScene extends Phaser.Scene {
     root.className = 'td-title-overlay';
     root.id = 'td-title-overlay';
 
-    const towerBadges = TOWER_LIST.map((t) => {
+    const shoeUrl = getAtlasFrameDataUrl(this, 'icon_shoe_life');
+    const towerShowcase = TOWER_LIST.map((t) => {
       const el = ELEMENT_INFO[t.element];
-      return `<span class="td-pill" style="border-color:${el.colorHex};color:${el.colorHex}">Hệ ${el.label}: ${t.roleLabel}</span>`;
+      const spUrl = getAtlasFrameDataUrl(this, getTowerFrameName(t.id, 1, undefined, 0));
+      const elUrl = getAtlasFrameDataUrl(this, `el_${t.element}`);
+      return `
+        <div class="td-showcase-item" style="border-color:${el.colorHex}">
+          ${spUrl ? `<img class="td-showcase-sprite" src="${spUrl}" alt="${t.tier1.name}" />` : ''}
+          <div class="td-showcase-name">${t.tier1.name}</div>
+          <span class="td-showcase-el" style="background:${el.colorHex}">
+            ${elUrl ? `<img class="td-badge-el-icon" src="${elUrl}" alt="" />` : ''}
+            ${el.label}
+          </span>
+        </div>
+      `;
     }).join('');
 
     root.innerHTML = `
-      <div class="td-title-card">
-        <div class="td-title-kicker">THỦ THÀNH KHÔI LỖI • NGŨ HÀNH TƯƠNG KHẮC</div>
-        <h1 class="td-title-heading">Giang Hồ AI</h1>
+      <div class="td-title-card td-shoebox-panel">
+        <div class="td-box-lid-label">
+          <span class="td-tag-hole"></span>
+          <span>PHỐ NHỎ ĐÀ LẠT MÙA MƯA • NGŨ HÀNH GIỮ TIỆM</span>
+        </div>
+
+        <h1 class="td-title-heading">Gọn Tiệm, Sạch Phố</h1>
+        <p class="td-title-sub">Ngũ hành giữ tiệm</p>
         <p class="td-title-desc">
-          Khôi lỗi ở mỏ linh thạch bị gỡ bùa phong ấn nổi loạn kéo về Thành Lam Lư. Đặt khôi lỗi phe mình dọc đường để chặn quái và thu linh thạch nâng cấp!
+          Trời đổ mưa, bùn đất, gián và nắng gắt kéo vào cửa tiệm! Đặt 5 món đồ trong tiệm đúng vòng Ngũ Hành để giữ sạch 20 đôi giày trên kệ.
         </p>
 
-        <div class="td-stage-box">
+        <div class="td-stage-tag-box">
           <div class="td-stage-header">
-            <div>
-              <div class="td-stage-name">${STAGE_1_DEFINITION.name}</div>
-              <div class="td-stage-sub">${STAGE_1_DEFINITION.subtitle}</div>
+            <div class="td-stage-title-row">
+              ${shoeUrl ? `<img class="td-stage-shoe-icon" src="${shoeUrl}" alt="" />` : ''}
+              <div>
+                <div class="td-stage-kicker">MÀN 1</div>
+                <div class="td-stage-name">${STAGE_1_DEFINITION.name}</div>
+              </div>
             </div>
             <div class="td-stage-stars" data-testid="stage1-stars">${starText}</div>
           </div>
+          <div class="td-stage-sub">${STAGE_1_DEFINITION.subtitle}</div>
           <div class="td-stage-meta">
-            <span>9 Đợt quái</span> • <span>20 Mạng thành</span> • <span>Khắc hệ 1.75x / Bị khắc 0.50x</span>
+            <span>9 Đợt quái</span> • <span>20 Đôi giày</span> • <span>Trúng tủ 1.75x / Bị khắc 0.5x</span>
           </div>
           <button id="btn-start-stage-1" data-testid="btn-start-stage-1" class="td-btn-primary">
-            Vào Màn 1 Ngay
+            Mở Cửa Giữ Tiệm Ngay
           </button>
         </div>
 
         <div class="td-element-guide">
-          <div class="td-guide-title">Vòng khắc Ngũ Hành: Kim → Mộc → Thổ → Thủy → Hỏa → Kim</div>
-          <div class="td-pill-wrap">${towerBadges}</div>
+          <div class="td-guide-title">Vòng khắc: Kim → Mộc → Thổ → Thủy → Hỏa → Kim</div>
+          <div class="td-showcase-grid">${towerShowcase}</div>
         </div>
       </div>
     `;
