@@ -167,8 +167,13 @@ test.describe('Gọn Tiệm, Sạch Phố — Kiểm thử trình duyệt (Đi�
     await expect(resultModal).toBeVisible();
     await expect(resultModal).toContainText('Giữ Tiệm Thành Công!');
     await page.waitForTimeout(950);
+    const dropsBox = page.getByTestId('td-result-drops');
+    await expect(dropsBox).toBeVisible();
+    await expect(dropsBox).toHaveClass(/chest-opened/);
+    await expect(dropsBox.locator('.td-drop-card').first()).toBeVisible();
     await page.screenshot({ path: 'docs/screenshots/man1v2_04_sau_victory.png' });
     await page.screenshot({ path: 'docs/screenshots/td_04_victory_portrait.png' });
+    await page.screenshot({ path: 'docs/screenshots/gear_04_victory_drops.png' });
 
     expect(consoleErrors).toEqual([]);
     expect(externalRequests).toEqual([]);
@@ -520,6 +525,211 @@ test.describe('Gọn Tiệm, Sạch Phố — Kiểm thử trình duyệt (Đi�
     await expect(resultModal).toContainText('chậu hoa');
     await page.waitForTimeout(950);
     await page.screenshot({ path: 'docs/screenshots/man3_04_victory.png' });
+
+    expect(consoleErrors).toEqual([]);
+    expect(externalRequests).toEqual([]);
+  });
+
+  test('Trang bị chủ tiệm: hình chủ tiệm mặc đúng đồ, vòng 10 ô 2 chống lưng, đổi đồ & Ngũ hành viên mãn, chụp ảnh gear_*.png', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+
+    const consoleErrors: string[] = [];
+    const externalRequests: string[] = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') consoleErrors.push(msg.text());
+    });
+    page.on('pageerror', (err) => consoleErrors.push(err.message));
+    await page.route('**/*', async (route) => {
+      const url = route.request().url();
+      if (
+        url.startsWith('http://127.0.0.1') ||
+        url.startsWith('http://localhost') ||
+        url.startsWith('data:') ||
+        url.startsWith('blob:')
+      ) {
+        await route.continue();
+      } else {
+        externalRequests.push(url);
+        await route.abort();
+      }
+    });
+
+    await page.goto('/');
+    const gearBox = page.getByTestId('td-gear-box');
+    await expect(gearBox).toBeVisible();
+    await gearBox.scrollIntoViewIfNeeded();
+    await page.waitForTimeout(250);
+
+    // Chủ tiệm mặc đúng đồ khởi đầu (Mũ Mộc + Kính Hỏa) và đủ 10 ô quanh vòng
+    const avatar = page.getByTestId('shopkeeper-avatar');
+    await expect(avatar).toBeVisible();
+    await expect(avatar).toHaveAttribute('data-worn', /hat:moc/);
+    await expect(avatar).toHaveAttribute('data-worn', /glasses:hoa/);
+    for (const sid of ['hat', 'glasses', 'jacket', 'belt', 'shoes', 'bag', 'wallet', 'watch', 'phone', 'umbrella']) {
+      await expect(page.getByTestId(`gear-slot-${sid}`)).toBeVisible();
+    }
+    await page.screenshot({ path: 'docs/screenshots/gear_01_ring_starter.png' });
+
+    // Chạm ô Kính mắt mở ngăn chọn đồ, hiện rõ 2 món chống lưng A/B
+    await page.getByTestId('gear-slot-glasses').click();
+    const picker = page.getByTestId('td-gear-picker');
+    await expect(picker).toBeVisible();
+    await expect(picker).toContainText('Chống lưng A');
+    await expect(picker).toContainText('Chống lưng B');
+    await expect(picker).toContainText('Kính Râm Tròng Cam');
+    await picker.scrollIntoViewIfNeeded();
+    await page.waitForTimeout(180);
+    await page.screenshot({ path: 'docs/screenshots/gear_02_picker.png' });
+
+    // Cởi Kính mắt -> chủ tiệm tháo kính ngay; bấm lại để mặc lại
+    await picker.locator('[data-gear-off="1"]').click();
+    await expect(page.getByTestId('shopkeeper-avatar')).not.toHaveAttribute('data-worn', /glasses:/);
+    await picker.locator('[data-gear-item]').first().click();
+    await expect(page.getByTestId('shopkeeper-avatar')).toHaveAttribute('data-worn', /glasses:hoa/);
+
+    // Đủ 10 món theo vòng ngũ hành lặp 2 lần -> Ngũ hành viên mãn & chủ tiệm mặc đủ mũ/kính/áo/dây nịt/giày/túi/đồng hồ/ô dù
+    await page.evaluate(() => {
+      const cycle = ['kim', 'thuy', 'moc', 'hoa', 'tho'];
+      const slots = ['hat', 'glasses', 'jacket', 'belt', 'shoes', 'bag', 'wallet', 'watch', 'phone', 'umbrella'];
+      const names: Record<string, string> = {
+        hat: 'Nón Bảo Hiểm Bạc',
+        glasses: 'Kính Tròng Xanh Biển',
+        jacket: 'Áo Khoác Kaki Xanh',
+        belt: 'Dây Nịt Da Đỏ Đô',
+        shoes: 'Bốt Lội Bùn Không Dính',
+        bag: 'Túi Khóa Kim Loại',
+        wallet: 'Ví Dài Xanh Đậm',
+        watch: 'Đồng Hồ Mặt Gỗ',
+        phone: 'Điện Thoại Pin 3 Ngày',
+        umbrella: 'Ô Dù Chống Bão Cấp 12',
+      };
+      const inv = slots.map((slot, i) => ({
+        uid: `full_${slot}`,
+        slot,
+        name: names[slot],
+        element: cycle[i % 5],
+        rarity: i === 4 || i === 8 || i === 9 ? 'hieu' : i % 2 === 0 ? 'xin' : 'tot',
+        visible: [{ kind: 'all_dmg', value: 0.04 }, { kind: 'speed', value: 0.05 }],
+        hidden: [
+          { kind: 'range', value: 0.05 },
+          { kind: 'coin_pct', value: 0.06 },
+          { kind: 'boss_dmg', value: 0.08 },
+        ],
+      }));
+      const eq = Object.fromEntries(slots.map((s) => [s, `full_${s}`]));
+      window.localStorage.setItem(
+        'giang_ho_ai_thu_thanh_save_v1',
+        JSON.stringify({
+          version: 1,
+          unlockedStage: 3,
+          starsByStage: { stage_1: 3, stage_2: 3, stage_3: 3 },
+          bestLivesByStage: { stage_1: 20, stage_2: 20, stage_3: 20 },
+          gearInventory: inv,
+          gearEquipped: eq,
+          updatedAt: Date.now(),
+        }),
+      );
+    });
+    await page.goto('/');
+    await page.getByTestId('td-gear-box').scrollIntoViewIfNeeded();
+    await page.waitForTimeout(250);
+    await expect(page.getByTestId('td-fullring-banner')).toBeVisible();
+    await expect(page.getByTestId('shopkeeper-avatar')).toHaveAttribute('data-worn', /umbrella:tho/);
+    await expect(page.getByTestId('shopkeeper-avatar')).toHaveAttribute('data-worn', /jacket:moc/);
+    await page.screenshot({ path: 'docs/screenshots/gear_03_fullring.png' });
+
+    expect(consoleErrors).toEqual([]);
+    expect(externalRequests).toEqual([]);
+  });
+
+  test('Bậc 4 tuyệt chiêu (Màn 2): mở khóa btn-unlock-ultimate, nút nổi trên món, kích hoạt hiện banner & vòng hồi chiêu 30s', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+
+    const consoleErrors: string[] = [];
+    const externalRequests: string[] = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') consoleErrors.push(msg.text());
+    });
+    page.on('pageerror', (err) => consoleErrors.push(err.message));
+    await page.route('**/*', async (route) => {
+      const url = route.request().url();
+      if (
+        url.startsWith('http://127.0.0.1') ||
+        url.startsWith('http://localhost') ||
+        url.startsWith('data:') ||
+        url.startsWith('blob:')
+      ) {
+        await route.continue();
+      } else {
+        externalRequests.push(url);
+        await route.abort();
+      }
+    });
+
+    await page.goto('/?stage=2');
+    await page.getByTestId('btn-start-stage-2').click();
+    await expect(page.getByTestId('td-wave-val')).toHaveText('0/10');
+
+    // Đặt sẵn 2 món bậc 3 (Hũ Sành trên pad_5 & Quạt Điện trên pad_4) để kiểm tra mở khóa & nút nổi Bậc 4
+    await page.evaluate(() => {
+      const scene = (
+        window as unknown as {
+          __TD_SCENE__?: {
+            engine: {
+              essence: number;
+              buildTower: (padId: string, defId: string) => unknown;
+              upgradeTower: (padId: string, branch?: 'A' | 'B') => boolean;
+              unlockUltimate: (padId: string) => boolean;
+            };
+            selectPadById: (padId: string) => void;
+          };
+        }
+      ).__TD_SCENE__;
+      if (!scene) return;
+      scene.engine.essence = 900;
+      scene.engine.buildTower('pad_5', 'bk_jar');
+      scene.engine.upgradeTower('pad_5');
+      scene.engine.upgradeTower('pad_5', 'A');
+      scene.engine.buildTower('pad_4', 'bk_fan');
+      scene.engine.upgradeTower('pad_4');
+      scene.engine.upgradeTower('pad_4', 'A');
+      scene.engine.unlockUltimate('pad_4');
+      scene.selectPadById('pad_5');
+    });
+
+    // 1. Nút btn-unlock-ultimate hiển thị đẹp trong bảng nâng cấp với tên tuyệt chiêu "Úp Cả Mẻ"
+    const unlockBtn = page.getByTestId('btn-unlock-ultimate');
+    await expect(unlockBtn).toBeVisible();
+    await expect(unlockBtn).toContainText('Úp Cả Mẻ');
+    await page.waitForTimeout(200);
+    await page.screenshot({ path: 'docs/screenshots/ult_01_unlock_sheet.png' });
+
+    // 2. Bấm mở khóa Bậc 4 -> hiện nút btn-use-ultimate và nút nổi ngay trên món pad_5
+    await unlockBtn.click();
+    await expect(page.getByTestId('btn-use-ultimate')).toBeVisible();
+    const floatingBtn = page.getByTestId('btn-floating-ult-pad_5');
+    await expect(floatingBtn).toBeVisible();
+    await expect(floatingBtn).toHaveAttribute('data-state', 'ready');
+
+    // Đóng bảng nâng cấp, gọi Đợt 1 cho quái tiến vào để thấy nút nổi rõ trên sân
+    await page.locator('#btn-close-sheet').click();
+    await page.getByTestId('btn-call-wave').click();
+    await page.waitForTimeout(700);
+    await page.screenshot({ path: 'docs/screenshots/ult_02_floating_ready.png' });
+
+    // 3. Bấm trực tiếp nút tuyệt chiêu nổi trên món -> hiện banner "★ Úp Cả Mẻ!" & chuyển sang vòng đếm hồi chiêu 30s
+    await floatingBtn.click();
+    const ultBanner = page.getByTestId('td-ult-banner');
+    await expect(ultBanner).toBeVisible();
+    await expect(ultBanner).toContainText('Úp Cả Mẻ');
+    await expect(floatingBtn).toHaveAttribute('data-state', 'cooling');
+    await expect(floatingBtn).toContainText(/\d+s/);
+    await page.waitForTimeout(140);
+    await page.screenshot({ path: 'docs/screenshots/ult_03_cast_and_cd.png' });
 
     expect(consoleErrors).toEqual([]);
     expect(externalRequests).toEqual([]);

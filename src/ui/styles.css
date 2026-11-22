@@ -1880,18 +1880,18 @@ button {
 
 @keyframes tdUltReadyPulse {
   0%, 100% {
-    transform: translate(-50%, -50%) scale(1);
+    filter: brightness(1);
     box-shadow:
       0 0 0 2px var(--ult-el, #fbbf24),
       0 3px 10px rgba(0, 0, 0, 0.5),
       0 0 10px rgba(251, 191, 36, 0.72);
   }
   50% {
-    transform: translate(-50%, -54%) scale(1.09);
+    filter: brightness(1.12);
     box-shadow:
       0 0 0 2.5px var(--ult-el, #fbbf24),
-      0 5px 14px rgba(0, 0, 0, 0.55),
-      0 0 18px rgba(253, 224, 71, 0.98);
+      0 4px 14px rgba(0, 0, 0, 0.55),
+      0 0 20px rgba(253, 224, 71, 1);
   }
 }
 

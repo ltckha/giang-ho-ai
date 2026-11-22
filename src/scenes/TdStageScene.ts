@@ -2782,7 +2782,7 @@ export class TdStageScene extends Phaser.Scene {
           this.floatingUltEls.set(tower.padId, btn);
         }
 
-        const sp = this.toScreen(tower.x, tower.y - 25);
+        const sp = this.toScreen(tower.x, tower.y - 29);
         const clampedY = Math.max(66, sp.y);
         btn.style.left = `${Math.round(sp.x)}px`;
         btn.style.top = `${Math.round(clampedY)}px`;

@@ -1,3 +1,4 @@
+TRANG BỊ VẼ XONG
 MÀN 1 VẼ LẠI XONG
 MÀN 3 VẼ XONG
 MÀN 2 VẼ XONG
@@ -5,7 +6,42 @@ LÀM ĐẸP XONG
 
 # Tiến độ phát triển — Gọn Tiệm, Sạch Phố ("Ngũ hành giữ tiệm")
 
-Cập nhật: 22/11/2026 • Nhánh: `main` • Trạng thái hiện tại: **Đã hoàn thành vẽ Màn 3 "Tiệm Hoa Cuối Dốc" (`MÀN 3 VẼ XONG`) và vẽ lại toàn bộ Màn 1 "Tiệm Giày Hẻm Dốc" theo đúng cách Màn 2 (`MÀN 1 VẼ LẠI XONG`), giữ nguyên 100% tên khung atlas & số liệu trong `src/core/`.**
+Cập nhật: 22/11/2026 • Nhánh: `main` • Trạng thái hiện tại: **Đã hoàn thành vẽ Trang bị chủ tiệm v2 (`TRANG BỊ VẼ XONG`) và làm đẹp Bậc 4 tuyệt chiêu (giữ nguyên toàn bộ `data-testid`, 288 khung `gon_tiem_atlas.webp` & 100% số liệu trong `src/core/`).**
+
+---
+
+## 0C. Vẽ Trang bị chủ tiệm (10 món, 50 biểu tượng, vòng ngũ hành v2) & Làm đẹp Tuyệt chiêu Bậc 4 — Đã hoàn thành (Antigravity)
+
+- **Atlas riêng `public/assets/gear_atlas.webp` (`768×720`, 103 KB) + `gear_atlas.json` (19 KB) — 56 khung nền trong suốt (`scripts/build_gear_atlas.py`, KHÔNG chạm `gon_tiem_atlas.webp`):**
+  - **50 biểu tượng trang bị** (10 loại: Mũ, Kính mắt, Áo khoác, Dây nịt da, Giày, Túi đeo chéo, Ví da, Đồng hồ, Điện thoại, Ô dù × 5 hành Kim/Mộc/Thủy/Hỏa/Thổ) vẽ khớp từng mẫu trong `GEAR_NAMES` (`src/core/equipment.ts`), tách nền trong suốt sạch cả lỗ quai túi & gọng kính.
+  - **2 hình rương quà** đóng/mở (`gear_chest_closed`, `gear_chest_open`) cho hiệu ứng mở rương khi thắng màn.
+  - **4 huy hiệu bộ đồ** (`set_di_mua`, `set_phuot`, `set_van_phong`, `set_chu_tiem_xin`).
+- **Hình Chủ tiệm Đà Lạt mặc đúng đồ đang đeo (`src/game/shopkeeperAvatar.ts`):**
+  - Người Đà Lạt trẻ, thân thiện đứng giữa vòng trang bị, tự động đổi đúng hình & màu hành của từng món đang đeo: **Mũ, Kính mắt, Áo khoác, Dây nịt da, Giày, Túi đeo chéo, Ô dù, Đồng hồ**; có hào quang vàng khi đạt **Ngũ hành viên mãn** hoặc mặc đồ **Hàng hiệu**.
+- **Bảng trang bị 10 ô xếp vòng tròn (`src/scenes/TitleScene.ts`, `src/game/gearUiHelpers.ts`, `src/ui/styles.css`):**
+  - Giữ đủ `data-testid="td-gear-box"` và `gear-slot-*` cho cả 10 ô.
+  - Viền & thẻ màu theo **4 hạng v2**: Thường (xám) / Tốt (xanh) / Xịn (tím) / Hàng hiệu (vàng kim có vương miện ★, tên riêng `LEGEND_NAMES`).
+  - Vẽ đủ **2 đường nối chống lưng** (`supporterSlots`: vòng ngoài ô liền trước A + dây sao trong ô cách 6 bước B), sáng theo màu hành món chống lưng kèm mũi tên khi sinh ra hành ô này; chấm sáng dòng ẩn (`●` / `○`, dòng 3 `✦` khi **Ngũ hành viên mãn** kèm dải hiệu ứng vinh danh).
+  - Bảng **4 Bộ đồ** (Đi Mưa, Phượt Đà Lạt, Dân Văn Phòng, Chủ Tiệm Xịn) hiện huy hiệu, đếm số món (`x/3`, `x/4`) và dòng thưởng sáng/tối.
+  - **19 biểu tượng nhỏ riêng** cho 19 dòng vui trong `STAT_NAME` (Đúng gu, Tự tin, Wifi mạnh, Cà phê sữa đá, Freeship, Chống nước, Ví đầy, Pin trâu, Sạc nhanh, Mã giảm giá, Flash sale, Bảo hành 12 tháng, Bắt trend, Combo, Gió Đà Lạt, Đi mưa không ướt, Xịt côn trùng, Khách quen, Săn trùm).
+- **Bảng kết quả thắng màn (`td-result-drops`):**
+  - Rương quà rung nhẹ rồi bật mở rực sáng (kèm âm thanh mở rương Web Audio `playChestOpen`, tôn trọng `reduceMotion`), lần lượt bung các **thẻ đồ rơi** có hình món, viền & nhãn hạng, biểu tượng hành và các dòng hiện.
+- **Làm đẹp Tuyệt chiêu Bậc 4 (`src/scenes/TdStageScene.ts`, `src/game/sound.ts`, bỏ phần nâng cấp bằng sao):**
+  - Giữ `data-testid="btn-unlock-ultimate"` và `btn-use-ultimate` trong bảng nâng cấp với thẻ vàng Bậc 4 (huy hiệu `IV`, `+20% sức đánh vĩnh viễn`, thanh hồi chiêu trực tiếp).
+  - **Viền hào quang vàng + 4 hạt sáng xoay + 4 chấm bậc** trên món đã lên Bậc 4 (`tower.hasUltimate`), cùng vòng cung hồi chiêu trên chân món.
+  - **Nút tuyệt chiêu nổi ngay trên món (`★ CHIÊU`)** khi sẵn sàng (`engine.canActivateUltimate(padId)`), bấm kích hoạt trực tiếp và chuyển thành **vòng đếm hồi chiêu tròn 30s** (`ultimateCooldownRemaining`).
+  - **5 hiệu ứng & âm thanh riêng cho sự kiện `ultimate` theo vai** (`single_far` bắn nhanh tia chớp, `heavy_slow` sóng địa chấn kép + sét + rung, `slow_aura` vòm khóa xoáy, `aoe_splash` quả cầu nổ + mưa tàn lửa, `support_buff` sóng cộng hưởng + tia sáng nối tới từng đồng đội quanh nó) kèm banner tên tuyệt chiêu `ULTIMATE_NAMES`.
+- **Kiểm chứng:** `npm test` **37/37** qua, `npm run test:e2e` **8/8** qua (0 lỗi console, 0 gọi mạng ngoài), tổng `dist/` = **3.0 MB** (≤ 5 MB), **không sửa bất kỳ tệp nào trong `src/core/`**.
+
+| Cảnh Trang bị & Bậc 4 (`390×844`) | Ảnh kiểm chứng |
+|---|---|
+| Vòng 10 ô & Chủ tiệm mặc đồ khởi đầu (Mũ Mộc → Kính Hỏa) | ![Vòng trang bị khởi đầu](screenshots/gear_01_ring_starter.png) |
+| Chạm ô mở ngăn chọn đồ & hiện rõ 2 chống lưng A/B | ![Ngăn chọn trang bị](screenshots/gear_02_picker.png) |
+| Đủ 10 món Ngũ hành viên mãn & chủ tiệm mặc đủ đồ | ![Ngũ hành viên mãn](screenshots/gear_03_fullring.png) |
+| Thắng màn mở rương rơi thẻ đồ theo hạng & hành | ![Thẻ đồ rơi mở rương](screenshots/gear_04_victory_drops.png) |
+| Bảng nâng cấp Bậc 4 (`btn-unlock-ultimate`) | ![Mở khóa Bậc 4](screenshots/ult_01_unlock_sheet.png) |
+| Hào quang Bậc 4 & nút tuyệt chiêu `★ CHIÊU` nổi trên món | ![Nút tuyệt chiêu nổi](screenshots/ult_02_floating_ready.png) |
+| Tung tuyệt chiêu `Úp Cả Mẻ` + hiệu ứng vùng + vòng hồi chiêu 30s | ![Kích hoạt tuyệt chiêu & hồi chiêu](screenshots/ult_03_cast_and_cd.png) |
 
 ---
 
