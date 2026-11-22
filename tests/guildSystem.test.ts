@@ -10,7 +10,13 @@ import {
   resolveWeeklySiege,
   simulateGuildWorldHours,
 } from '../src/core/guildSystem';
-import { HOURS_PER_WEEK, advanceWorldClock, decomposeWorldClock } from '../src/core/worldClock';
+import {
+  HOURS_PER_WEEK,
+  MAX_OFFLINE_CATCHUP_HOURS,
+  advanceWorldClock,
+  computeOfflineCatchupHours,
+  decomposeWorldClock,
+} from '../src/core/worldClock';
 
 describe('Bang hội AI (cây quyết định, tranh bãi quái & công thành theo giờ trong game)', () => {
   it('đồng hồ thế giới tính đúng tuần, ngày, giờ công thành và phát hiện các mốc 6 giờ / tuần', () => {
@@ -30,6 +36,13 @@ describe('Bang hội AI (cây quyết định, tranh bãi quái & công thành t
     const adv = advanceWorldClock(8, HOURS_PER_WEEK);
     expect(adv.tickHoursReached.length).toBe(28);
     expect(adv.siegeWeeksTriggered).toEqual([1]);
+
+    // Ghi chú REVIEW_LOG #1: đóng game mở lại chỉ bù tối đa 1 tuần trong game (168 giờ)
+    const t0 = 1_700_000_000_000;
+    expect(computeOfflineCatchupHours(t0, t0 - 5000)).toBe(0);
+    expect(computeOfflineCatchupHours(t0, t0 + 60 * 1000)).toBe(10); // 60s = 10 giờ game
+    expect(computeOfflineCatchupHours(t0, t0 + 30 * 24 * 3600 * 1000)).toBe(MAX_OFFLINE_CATCHUP_HOURS);
+    expect(MAX_OFFLINE_CATCHUP_HOURS).toBe(168);
   });
 
   it('mỗi tính cách bang hội AI ra quyết định khác nhau rõ rệt bằng chấm điểm / cây quyết định', () => {

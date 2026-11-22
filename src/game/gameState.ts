@@ -56,7 +56,7 @@ import type {
   SectId,
   Vec2,
 } from '../core/types';
-import { decomposeWorldClock } from '../core/worldClock';
+import { computeOfflineCatchupHours, decomposeWorldClock } from '../core/worldClock';
 
 export interface AllyHudStatus {
   id: AllyId;
@@ -71,6 +71,7 @@ export interface BossHudStatus {
   hp: number;
   maxHp: number;
   phaseTwo: boolean;
+  bossId?: string;
 }
 
 export interface ToastNotice {
@@ -133,6 +134,14 @@ class GameStateStore {
     if (!loaded) return null;
     this.data = loaded;
     this.resetTransientState();
+
+    // Mô phỏng bù thế giới bang hội AI trong lúc đóng game (giới hạn tối đa 1 tuần = 168 giờ trong game)
+    const catchupHours = computeOfflineCatchupHours(loaded.savedAt);
+    if (catchupHours > 0) {
+      this.advanceWorldHours(catchupHours);
+      this.persist(true);
+    }
+
     this.notify();
     return this.data;
   }

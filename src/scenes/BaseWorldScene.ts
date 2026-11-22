@@ -177,6 +177,7 @@ export abstract class BaseWorldScene extends Phaser.Scene {
 
   private portalCooldown = 0.7;
   private autoSaveTimer = 0;
+  private worldSimTimer = 0;
   private safeZoneHealTimer = 0;
   private hudSyncTimer = 0;
   private lootSeq = 0;
@@ -252,7 +253,11 @@ export abstract class BaseWorldScene extends Phaser.Scene {
         ? 'tile_town'
         : this.mapId === 'map_forest'
           ? 'tile_forest'
-          : 'tile_cave';
+          : this.mapId === 'map_inner_city'
+            ? 'tile_inner_city'
+            : this.mapId === 'map_valley'
+              ? 'tile_valley'
+              : 'tile_cave';
 
     this.add
       .tileSprite(0, 0, this.mapDef.width, this.mapDef.height, tileKey)
@@ -263,17 +268,32 @@ export abstract class BaseWorldScene extends Phaser.Scene {
   private renderObstacles(): void {
     const g = this.add.graphics().setDepth(2);
     for (const obs of this.mapDef.obstacles) {
-      if (this.mapId === 'map_town') {
+      if (this.mapId === 'map_town' || this.mapId === 'map_inner_city') {
         const isWall = obs.w > 400 || obs.h > 300;
-        g.fillStyle(isWall ? 0x453b31 : 0x573b29, 1);
+        const fillCol =
+          this.mapId === 'map_inner_city'
+            ? isWall
+              ? 0x39424e
+              : 0x465161
+            : isWall
+              ? 0x453b31
+              : 0x573b29;
+        const strokeCol =
+          this.mapId === 'map_inner_city'
+            ? isWall
+              ? 0x1e242c
+              : 0xd4a359
+            : isWall
+              ? 0x26201a
+              : 0x8c6239;
+        g.fillStyle(fillCol, 1);
         g.fillRoundedRect(obs.x, obs.y, obs.w, obs.h, 6);
-        g.lineStyle(3, isWall ? 0x26201a : 0x8c6239, 1);
+        g.lineStyle(3, strokeCol, 1);
         g.strokeRoundedRect(obs.x, obs.y, obs.w, obs.h, 6);
         if (!isWall) {
-          // Mái ngói cổ trang
-          g.fillStyle(0x2e211a, 0.45);
+          g.fillStyle(0x1f242c, 0.45);
           g.fillRect(obs.x + 8, obs.y + 10, obs.w - 16, obs.h - 22);
-          g.lineStyle(2, 0xc7a45a, 0.45);
+          g.lineStyle(2, 0xe8c468, 0.5);
           g.strokeRect(obs.x + 6, obs.y + 6, obs.w - 12, obs.h - 12);
         }
       } else if (this.mapId === 'map_forest') {
@@ -288,6 +308,11 @@ export abstract class BaseWorldScene extends Phaser.Scene {
           g.fillCircle(obs.x + obs.w * 0.3, obs.y + obs.h * 0.45, Math.min(obs.w, obs.h) * 0.32);
           g.fillCircle(obs.x + obs.w * 0.7, obs.y + obs.h * 0.52, Math.min(obs.w, obs.h) * 0.3);
         }
+      } else if (this.mapId === 'map_valley') {
+        g.fillStyle(0x3a3228, 1);
+        g.fillRoundedRect(obs.x, obs.y, obs.w, obs.h, 10);
+        g.lineStyle(2.5, 0x6c5842, 1);
+        g.strokeRoundedRect(obs.x, obs.y, obs.w, obs.h, 10);
       } else {
         g.fillStyle(0x28303d, 1);
         g.fillRoundedRect(obs.x, obs.y, obs.w, obs.h, 8);
@@ -308,12 +333,12 @@ export abstract class BaseWorldScene extends Phaser.Scene {
       } else if (lm.kind === 'forge') {
         color = 0xff7b54;
         alpha = 0.14;
-      } else if (lm.kind === 'boss_arena') {
+      } else if (lm.kind === 'boss_arena' || lm.kind === 'siege_gate') {
         color = 0x4ea8de;
         alpha = 0.14;
-      } else if (lm.kind === 'fake_landmark') {
+      } else if (lm.kind === 'fake_landmark' || lm.kind === 'vault' || lm.kind === 'board') {
         color = 0xf2c14e;
-        alpha = 0.11;
+        alpha = 0.13;
       }
 
       g.fillStyle(color, alpha);
@@ -324,7 +349,9 @@ export abstract class BaseWorldScene extends Phaser.Scene {
       const label = CONTENT.landmarks[lm.id];
       if (label) {
         const labelY =
-          lm.kind === 'forge' || lm.kind === 'crossroads' ? lm.y + lm.h - 14 : lm.y + 18;
+          lm.kind === 'forge' || lm.kind === 'crossroads' || lm.kind === 'board'
+            ? lm.y + lm.h - 14
+            : lm.y + 18;
         this.add
           .text(lm.x + lm.w / 2, labelY, label, {
             fontSize: '13px',
@@ -408,16 +435,40 @@ export abstract class BaseWorldScene extends Phaser.Scene {
   }
 
   protected refreshNpcMarkers(): void {
-    const quests = gameState.getData().quests;
+    const d = gameState.getData();
+    const quests = d.quests;
+    const mq = d.mainQuestGd2;
     for (const npc of this.npcs) {
       if (npc.def.role === 'blacksmith') {
         const st = quests.quest_blacksmith.status;
-        npc.markerText.setText(st === 'not_started' ? '!' : st === 'ready' ? '?' : '');
+        npc.markerText.setText(st === 'not_started' ? '!' : st === 'ready' ? '?' : 'Ghép đồ');
         npc.markerText.setColor(st === 'ready' ? '#59c173' : '#ffd166');
+      } else if (npc.def.role === 'apprentice_smith') {
+        npc.markerText.setText('Ghép đồ');
+        npc.markerText.setColor('#ffd166');
+      } else if (npc.def.role === 'guild_board') {
+        npc.markerText.setText('Bảng Tin');
+        npc.markerText.setColor('#8be9fd');
       } else if (npc.def.role === 'guide') {
         const st = quests.quest_hallucination.status;
         npc.markerText.setText(st === 'not_started' ? '!' : st === 'ready' ? '?' : '');
         npc.markerText.setColor(st === 'ready' ? '#59c173' : '#ffd166');
+      } else if (npc.def.role === 'teahouse') {
+        const st = quests.quest_fake_elder.status;
+        npc.markerText.setText(st === 'not_started' ? '!' : st === 'ready' ? '?' : '');
+        npc.markerText.setColor(st === 'ready' ? '#59c173' : '#ffd166');
+      } else if (npc.def.role === 'master') {
+        const st = quests.quest_stolen_manual.status;
+        npc.markerText.setText(st === 'not_started' ? '!' : st === 'ready' ? '?' : '');
+        npc.markerText.setColor(st === 'ready' ? '#59c173' : '#ffd166');
+      } else if (npc.def.role === 'taoist') {
+        const st = quests.quest_seal_breaker.status;
+        npc.markerText.setText(st === 'not_started' ? '!' : st === 'ready' ? '?' : '');
+        npc.markerText.setColor(st === 'ready' ? '#59c173' : '#ffd166');
+      } else if (npc.def.role === 'scholar') {
+        const hasMainStep = mq.step === 0 || mq.step === 1 || mq.step === 2 || mq.step === 4 || mq.step === 6;
+        npc.markerText.setText(hasMainStep ? '★ Chính tuyến' : '');
+        npc.markerText.setColor('#4cc9f0');
       } else if (npc.def.role === 'merchant') {
         npc.markerText.setText('Tiệm');
         npc.markerText.setColor('#8be9fd');
@@ -524,7 +575,10 @@ export abstract class BaseWorldScene extends Phaser.Scene {
     for (const sp of this.mapDef.enemySpawns) {
       const tmpl = ENEMIES[sp.enemyId];
       if (!tmpl) continue;
-      if (tmpl.isBoss && save.bossDefeated) {
+      if (tmpl.id === 'boss_awakened' && save.bossDefeated) {
+        continue;
+      }
+      if (tmpl.id === 'boss_van_chep' && save.mainQuestGd2.gd2BossDefeated) {
         continue;
       }
 
@@ -538,7 +592,7 @@ export abstract class BaseWorldScene extends Phaser.Scene {
           sp.y + offsetY,
           barWidth,
           6,
-          tmpl.isBoss ? 0x4ea8de : 0xe05252,
+          tmpl.id === 'boss_van_chep' ? 0xe8c468 : tmpl.isBoss ? 0x4ea8de : 0xe05252,
         )
         .setOrigin(0, 0.5)
         .setDepth(16);
@@ -628,6 +682,10 @@ export abstract class BaseWorldScene extends Phaser.Scene {
         inputBridge.openQuests();
         return;
       }
+      if (code === 'KeyG') {
+        inputBridge.openGuildBoard();
+        return;
+      }
       if (code === 'KeyH') {
         inputBridge.openElementsGuide();
         return;
@@ -692,6 +750,21 @@ export abstract class BaseWorldScene extends Phaser.Scene {
     this.checkNearbyInteractables();
     this.checkPortals();
     this.onPostUpdate(dt);
+
+    // Thế giới sống: mỗi 6 giây thực = +1 giờ trong game (bang hội AI tự luyện cấp, tranh bãi, công thành kể cả khi người chơi ở bản đồ khác)
+    this.worldSimTimer += dt;
+    if (this.worldSimTimer >= 6.0) {
+      this.worldSimTimer -= 6.0;
+      const sieges = gameState.advanceWorldHours(1);
+      if (sieges.length > 0) {
+        const last = sieges[sieges.length - 1];
+        const winName = CONTENT.guilds[last.winnerGuildId].name;
+        gameState.pushToast(
+          `[Công Thành Tuần ${last.week}] ${winName} nắm quyền làm chủ Thành Bế Các!`,
+          '#ffd166',
+        );
+      }
+    }
 
     // Hồi máu nhẹ trong thành (khu an toàn)
     if (this.mapDef.isSafeZone) {
@@ -989,31 +1062,99 @@ export abstract class BaseWorldScene extends Phaser.Scene {
       }
     }
 
-    // Rơi Mảnh Quặng Linh Thiết nếu đang làm nhiệm vụ phụ Lão Bính ngoài Rừng
-    const qBlacksmith = gameState.getData().quests.quest_blacksmith;
+    // RơiMảnh Quặng Linh Thiết nếu đang làm nhiệm vụ phụ Lão Bính ngoài Rừng
+    const d = gameState.getData();
+    const qBlacksmith = d.quests.quest_blacksmith;
     if (this.mapId === 'map_forest' && qBlacksmith.status === 'active') {
       this.spawnLootDrop(enemy.x, enemy.y - 16, 'quest', 120, 'qst_iron_ore');
     }
 
-    // Nếu hạ được Trùm Sơ Giác
+    // Nhiệm vụ phụ 3: Trưởng Lão Hai Giọng (Khôi Lỗi Giả Thanh rơi Mặt Nạ Gỗ Giả Thanh)
+    if (enemy.template.id === 'enemy_voice_mimic' && d.quests.quest_fake_elder.status === 'active') {
+      this.spawnLootDrop(enemy.x, enemy.y - 16, 'quest', 150, 'qst_voice_mask');
+    }
+
+    // Nhiệm vụ phụ 4: Cuốn Phổ Mất Dấu (Khôi Lỗi Chép Trộm rơi Tập Chép Lén Võ Phổ)
+    if (enemy.template.id === 'enemy_copy_scribe' && d.quests.quest_stolen_manual.status === 'active') {
+      this.spawnLootDrop(enemy.x, enemy.y - 16, 'quest', 150, 'qst_stolen_page');
+    }
+
+    // Nhiệm vụ phụ 5: Người Gỡ Bùa Đêm (hạ Khôi Lỗi Vỡ Bùa ở Hẻm Đứt Bùa)
+    if (enemy.template.id === 'enemy_unsealed_golem' && d.quests.quest_seal_breaker.status === 'active') {
+      if (gameState.progressQuest('quest_seal_breaker', 1)) {
+        this.refreshNpcMarkers();
+        gameState.pushToast(
+          `Người Gỡ Bùa Đêm: ${d.quests.quest_seal_breaker.count}/${d.quests.quest_seal_breaker.targetCount} Khôi Lỗi Vỡ Bùa`,
+          '#ffd166',
+        );
+      }
+    }
+
+    // Chính tuyến GĐ2 Bước 3: hạ 3 quái ở Lũng Đại Mạch để thu thập dấu vết
+    if (this.mapId === 'map_valley' && d.mainQuestGd2.step === 3 && !enemy.template.isBoss) {
+      gameState.progressMainStory(1);
+      if (d.mainQuestGd2.stepProgress >= d.mainQuestGd2.stepTarget) {
+        gameState.advanceMainStoryStep();
+        gameState.pushToast('Đã thu đủ manh mối ở Lũng Đại Mạch! Hãy về Thành Bế Các gặp Hàn Khắc hoặc Lục Viễn.', '#4cc9f0');
+        this.refreshNpcMarkers();
+      }
+    }
+
+    // Nếu hạ được Trùm Sơ Giác (GĐ1) hoặc Trùm Vạn Chép (GĐ2)
     if (enemy.template.isBoss) {
       const save = gameState.getData();
-      save.bossDefeated = true;
-      gameState.bossStatus = { active: false, hp: 0, maxHp: enemy.maxHp, phaseTwo: true };
-      gameState.progressQuest('quest_boss', 1);
-      const reward = gameState.turnInQuest('quest_boss');
-      sound.playLevelUp();
-      gameState.pushToast(
-        `Đã đánh bại Sơ Giác! Nhận +${reward.silver} Bạc, +${reward.spiritStones} Linh Thạch & Binh Khí Tàn Cơ!`,
-        '#ffd166',
-      );
-      inputBridge.openDialog({
-        speaker: CONTENT.enemies.boss_awakened,
-        subtitle: 'Động Tàn Cơ • Hồi kết Giai đoạn 1',
-        lines: [CONTENT.bossDialog.defeated],
-        actionLabel: 'Xem tổng kết Giai đoạn 1',
-        onAction: () => inputBridge.openVictory(),
-      });
+      gameState.bossStatus = {
+        active: false,
+        hp: 0,
+        maxHp: enemy.maxHp,
+        phaseTwo: true,
+        bossId: enemy.template.id,
+      };
+
+      if (enemy.template.id === 'boss_van_chep') {
+        save.mainQuestGd2.gd2BossDefeated = true;
+        if (save.mainQuestGd2.step === 5) {
+          gameState.progressMainStory(1);
+          gameState.advanceMainStoryStep();
+        }
+        const epicDrop = gameState.addRolledEquipment('wpn_fused_core', Math.max(6, save.level), 'epic');
+        sound.playLevelUp();
+        this.refreshNpcMarkers();
+        gameState.pushToast(
+          `Đã đánh bại Vạn Chép! Nhận [${CONTENT.rarities[epicDrop.rarity].name}] ${CONTENT.items.wpn_fused_core.name}!`,
+          '#ffd166',
+        );
+        inputBridge.openDialog({
+          speaker: CONTENT.enemies.boss_van_chep,
+          subtitle: 'Tế Đàn Lõi Trầm • Lũng Đại Mạch',
+          lines: [
+            CONTENT.bossVanChepDialog.defeated,
+            'Hãy quay về Đài Bảng Tin Giang Hồ (Thành Bế Các) gặp Thư Sinh Lục Viễn để đưa ra phán quyết cuối cùng của Chính tuyến Giai đoạn 2!',
+          ],
+          actionLabel: 'Tiếp tục hành trình',
+        });
+      } else {
+        save.bossDefeated = true;
+        gameState.unlockMainStory();
+        gameState.progressQuest('quest_boss', 1);
+        const reward = gameState.turnInQuest('quest_boss');
+        sound.playLevelUp();
+        this.refreshNpcMarkers();
+        gameState.pushToast(
+          `Đã đánh bại Sơ Giác! Mở khóa Chính tuyến GĐ2 "Tiếng Vọng Từ Động Tàn Cơ" (+${reward.silver} Bạc)!`,
+          '#ffd166',
+        );
+        inputBridge.openDialog({
+          speaker: CONTENT.enemies.boss_awakened,
+          subtitle: 'Động Tàn Cơ • Mở ra Giai đoạn 2',
+          lines: [
+            CONTENT.bossDialog.defeated,
+            'Chính tuyến Giai đoạn 2 đã mở! Bạn có thể lên Cổng Bắc Rừng Thạch Mạch để vào Thành Bế Các và Lũng Đại Mạch.',
+          ],
+          actionLabel: 'Xem tổng kết',
+          onAction: () => inputBridge.openVictory(),
+        });
+      }
     }
   }
 
@@ -1092,9 +1233,28 @@ export abstract class BaseWorldScene extends Phaser.Scene {
       gameState.addCurrency(0, loot.value);
       gameState.pushToast(`${prefix}+${loot.value} Mảnh Linh Thạch`, '#8be9fd');
     } else if (loot.itemId) {
-      gameState.addItem(loot.itemId, 1);
-      const itemName = CONTENT.items[loot.itemId]?.name ?? loot.itemId;
-      gameState.pushToast(`${prefix}${itemName}`, loot.kind === 'quest' ? '#ffd166' : '#a7f3d0');
+      const def = ITEMS[loot.itemId];
+      if (def && (def.kind === 'weapon' || def.kind === 'armor' || def.kind === 'charm')) {
+        // Trang bị rơi từ quái tự động sinh 1–3 dòng chỉ số ngẫu nhiên theo độ hiếm!
+        const rolled = gameState.addRolledEquipment(loot.itemId);
+        const rar = CONTENT.rarities[rolled.rarity];
+        const baseName = CONTENT.items[loot.itemId]?.name ?? loot.itemId;
+        gameState.pushToast(
+          `${prefix}[${rar.name}] ${baseName} (+${rolled.affixes.length} dòng chỉ số)`,
+          rar.colorHex,
+        );
+      } else {
+        gameState.addItem(loot.itemId, 1);
+        const itemName = CONTENT.items[loot.itemId]?.name ?? loot.itemId;
+        gameState.pushToast(`${prefix}${itemName}`, loot.kind === 'quest' ? '#ffd166' : '#a7f3d0');
+      }
+
+      const d = gameState.getData();
+      if (loot.itemId === 'qst_voice_mask' && d.quests.quest_fake_elder.status === 'active') {
+        gameState.progressQuest('quest_fake_elder', 1);
+      } else if (loot.itemId === 'qst_stolen_page' && d.quests.quest_stolen_manual.status === 'active') {
+        gameState.progressQuest('quest_stolen_manual', 1);
+      }
       this.refreshNpcMarkers();
     }
   }
@@ -1316,8 +1476,9 @@ export abstract class BaseWorldScene extends Phaser.Scene {
       enemy.attackCd = Math.max(0, enemy.attackCd - dt);
       const distPlayer = distBetween({ x: enemy.x, y: enemy.y }, { x: this.playerX, y: this.playerY });
 
-      // Trùm Sơ Giác: thoại mở đầu & Giai đoạn 2 (< 50% máu)
+      // Trùm Sơ Giác (Thủy) hoặc Trùm Vạn Chép (Kim): thoại mở đầu & Giai đoạn 2 (< 50% máu)
       if (enemy.template.isBoss) {
+        const isVanChep = enemy.template.id === 'boss_van_chep';
         if (distPlayer <= 420) {
           bossActive = true;
           gameState.bossStatus = {
@@ -1325,13 +1486,16 @@ export abstract class BaseWorldScene extends Phaser.Scene {
             hp: enemy.hp,
             maxHp: enemy.maxHp,
             phaseTwo: enemy.bossPhaseTwo,
+            bossId: enemy.template.id,
           };
           if (!enemy.bossIntroShown) {
             enemy.bossIntroShown = true;
             inputBridge.openDialog({
-              speaker: CONTENT.enemies.boss_awakened,
-              subtitle: 'Hệ Thủy • Khôi Lỗi Đầu Tiên Tỉnh Dậy',
-              lines: [CONTENT.bossDialog.intro],
+              speaker: isVanChep ? CONTENT.enemies.boss_van_chep : CONTENT.enemies.boss_awakened,
+              subtitle: isVanChep
+                ? 'Hệ Kim • Khôi Lỗi Chắp Vá Vạn Chiêu'
+                : 'Hệ Thủy • Khôi Lỗi Đầu Tiên Tỉnh Dậy',
+              lines: [isVanChep ? CONTENT.bossVanChepDialog.intro : CONTENT.bossDialog.intro],
               actionLabel: 'Nghênh chiến!',
             });
           }
@@ -1339,12 +1503,14 @@ export abstract class BaseWorldScene extends Phaser.Scene {
 
         if (!enemy.bossPhaseTwo && enemy.hp < enemy.maxHp * 0.5) {
           enemy.bossPhaseTwo = true;
-          enemy.sprite.setTexture('boss_awakened_p2');
+          enemy.sprite.setTexture(isVanChep ? 'boss_van_chep_p2' : 'boss_awakened_p2');
           sound.playBossPhase();
           this.cameras.main.shake(260, 0.01);
-          this.spawnRingVfx(enemy.x, enemy.y, 190, 0x6ee7ff);
-          gameState.pushToast(CONTENT.bossDialog.phaseTwo, '#6ee7ff');
-          // Đẩy lùi vòng cấm tự giải
+          this.spawnRingVfx(enemy.x, enemy.y, 190, isVanChep ? 0xffd166 : 0x6ee7ff);
+          gameState.pushToast(
+            isVanChep ? CONTENT.bossVanChepDialog.phaseTwo : CONTENT.bossDialog.phaseTwo,
+            isVanChep ? '#ffd166' : '#6ee7ff',
+          );
           if (distPlayer < 190) {
             const dx = this.playerX - enemy.x;
             const dy = this.playerY - enemy.y;
@@ -1378,7 +1544,7 @@ export abstract class BaseWorldScene extends Phaser.Scene {
           this.applyEnemyAttack(enemy, target, save.sectId, stats);
         }
 
-        // Kỹ năng đặc biệt của Trùm Sơ Giác
+        // Kỹ năng đặc biệt của Trùm
         if (enemy.template.isBoss && bossActive) {
           enemy.bossSpecialCd -= dt;
           if (enemy.bossSpecialCd <= 0) {
@@ -1488,7 +1654,10 @@ export abstract class BaseWorldScene extends Phaser.Scene {
   }
 
   private castBossFanWave(boss: ActiveEnemy): void {
-    gameState.pushToast(`Sơ Giác thi triển: ${CONTENT.bossSkills.fanWave}!`, '#6ee7ff');
+    const isVanChep = boss.template.id === 'boss_van_chep';
+    const bossLabel = isVanChep ? 'Vạn Chép' : 'Sơ Giác';
+    const skillLabel = isVanChep ? CONTENT.bossSkills.copyBarrage : CONTENT.bossSkills.fanWave;
+    gameState.pushToast(`${bossLabel} thi triển: ${skillLabel}!`, isVanChep ? '#ffd166' : '#6ee7ff');
     const baseAngle = Math.atan2(this.playerY - boss.y, this.playerX - boss.x);
     const count = boss.bossPhaseTwo ? 7 : 5;
     const spread = 0.24;
@@ -1501,7 +1670,7 @@ export abstract class BaseWorldScene extends Phaser.Scene {
         dir: { x: Math.cos(angle), y: Math.sin(angle) },
         speed: 245,
         life: 1.9,
-        element: 'thuy',
+        element: boss.template.element,
         atk: boss.template.atk,
         powerMultiplier: 0.9,
       });
@@ -1509,7 +1678,10 @@ export abstract class BaseWorldScene extends Phaser.Scene {
   }
 
   private castBossFallingStones(boss: ActiveEnemy): void {
-    gameState.pushToast(`Sơ Giác thi triển: ${CONTENT.bossSkills.fallingStones}!`, '#6ee7ff');
+    const isVanChep = boss.template.id === 'boss_van_chep';
+    const bossLabel = isVanChep ? 'Vạn Chép' : 'Sơ Giác';
+    const skillLabel = isVanChep ? CONTENT.bossSkills.fusedSiphon : CONTENT.bossSkills.fallingStones;
+    gameState.pushToast(`${bossLabel} thi triển: ${skillLabel}!`, isVanChep ? '#ffd166' : '#6ee7ff');
     const drops: Vec2[] = [
       { x: this.playerX, y: this.playerY },
       {
@@ -1810,12 +1982,16 @@ export abstract class BaseWorldScene extends Phaser.Scene {
             gameState.pushToast('Đã nhận nhiệm vụ: Lò Than Chưa Tắt (0/3 Quặng Linh Thiết)', '#ffd166');
             this.refreshNpcMarkers();
           },
+          secondaryLabel: 'Ghép đồ (2–3 món)',
+          onSecondary: () => inputBridge.openForge(),
         });
       } else if (q.status === 'active') {
         inputBridge.openDialog({
           speaker: meta.name,
           subtitle: `${meta.title} • Tiến độ ${q.count}/${q.targetCount}`,
           lines: [CONTENT.npcDialog.blacksmithActive],
+          actionLabel: 'Ghép đồ (2–3 món)',
+          onAction: () => inputBridge.openForge(),
         });
       } else if (q.status === 'ready') {
         inputBridge.openDialog({
@@ -1835,14 +2011,40 @@ export abstract class BaseWorldScene extends Phaser.Scene {
               this.onQuestCompleted('quest_blacksmith');
             }
           },
+          secondaryLabel: 'Ghép đồ (2–3 món)',
+          onSecondary: () => inputBridge.openForge(),
         });
       } else {
         inputBridge.openDialog({
           speaker: meta.name,
           subtitle: meta.title,
           lines: [CONTENT.npcDialog.blacksmithDone],
+          actionLabel: 'Mở Lò Ghép Đồ (2–3 món)',
+          onAction: () => inputBridge.openForge(),
         });
       }
+      return;
+    }
+
+    if (npc.role === 'apprentice_smith') {
+      inputBridge.openDialog({
+        speaker: meta.name,
+        subtitle: meta.title,
+        lines: [CONTENT.npcDialog.apprenticeSmithGreeting],
+        actionLabel: 'Mở Lò Luyện Hợp Kim (Ghép đồ 2–3 món)',
+        onAction: () => inputBridge.openForge(),
+      });
+      return;
+    }
+
+    if (npc.role === 'guild_board') {
+      inputBridge.openDialog({
+        speaker: meta.name,
+        subtitle: meta.title,
+        lines: [CONTENT.npcDialog.guildMasterGreeting],
+        actionLabel: 'Mở Đài Bảng Tin Bang Hội & Công Thành',
+        onAction: () => inputBridge.openGuildBoard(),
+      });
       return;
     }
 
@@ -1853,7 +2055,7 @@ export abstract class BaseWorldScene extends Phaser.Scene {
           speaker: meta.name,
           subtitle: meta.title,
           lines: CONTENT.npcDialog.guideStart,
-          actionLabel: 'Tin lời Bách Thông & lên lối bắc',
+          actionLabel: 'Tin lời Bách Thông & lên lối đông-bắc',
           onAction: () => {
             gameState.acceptQuest('quest_hallucination');
             gameState.pushToast('Đã nhận nhiệm vụ: Bản Đồ Không Có Thật (Đi lên lối cụt phía bắc)', '#ffd166');
@@ -1891,6 +2093,370 @@ export abstract class BaseWorldScene extends Phaser.Scene {
           lines: [CONTENT.npcDialog.guideDone],
         });
       }
+      return;
+    }
+
+    // Nhiệm vụ phụ 3: Bà Hai Quán Trà ("Trưởng Lão Hai Giọng")
+    if (npc.role === 'teahouse') {
+      const q = quests.quest_fake_elder;
+      if (q.status === 'not_started') {
+        inputBridge.openDialog({
+          speaker: meta.name,
+          subtitle: meta.title,
+          lines: CONTENT.npcDialog.teahouseStart,
+          actionLabel: 'Nhận nhiệm vụ: Trưởng Lão Hai Giọng',
+          onAction: () => {
+            gameState.acceptQuest('quest_fake_elder');
+            gameState.pushToast('Đã nhận NV phụ: Trưởng Lão Hai Giọng (Sang Bãi Mỏ Tinh Lam hạ Khôi Lỗi Giả Thanh)', '#ffd166');
+            this.refreshNpcMarkers();
+          },
+        });
+      } else if (q.status === 'active') {
+        inputBridge.openDialog({
+          speaker: meta.name,
+          subtitle: `${meta.title} • Tiến độ ${q.count}/${q.targetCount}`,
+          lines: [CONTENT.npcDialog.teahouseActive],
+        });
+      } else if (q.status === 'ready') {
+        inputBridge.openDialog({
+          speaker: meta.name,
+          subtitle: meta.title,
+          lines: CONTENT.npcDialog.teahouseReady,
+          actionLabel: 'Giao Mặt Nạ Gỗ Giả Thanh & nhận thưởng',
+          onAction: () => {
+            const res = gameState.turnInQuest('quest_fake_elder');
+            if (res.completed) {
+              sound.playLevelUp();
+              gameState.pushToast(
+                `Hoàn thành "Trưởng Lão Hai Giọng"! +${res.silver} Bạc, +${res.spiritStones} Linh Thạch & Ngọc Tinh Xảo!`,
+                '#7bf1a8',
+              );
+              this.refreshNpcMarkers();
+            }
+          },
+        });
+      } else {
+        inputBridge.openDialog({
+          speaker: meta.name,
+          subtitle: meta.title,
+          lines: [CONTENT.npcDialog.teahouseDone],
+        });
+      }
+      return;
+    }
+
+    // Nhiệm vụ phụ 4: Sư Phụ Kỷ Văn ("Cuốn Phổ Mất Dấu")
+    if (npc.role === 'master') {
+      const q = quests.quest_stolen_manual;
+      if (q.status === 'not_started') {
+        inputBridge.openDialog({
+          speaker: meta.name,
+          subtitle: meta.title,
+          lines: CONTENT.npcDialog.masterStart,
+          actionLabel: 'Nhận nhiệm vụ: Cuốn Phổ Mất Dấu',
+          onAction: () => {
+            gameState.acceptQuest('quest_stolen_manual');
+            gameState.pushToast('Đã nhận NV phụ: Cuốn Phổ Mất Dấu (0/3 Tập Chép Lén Võ Phổ ở Khe Vỡ Khung Đồng)', '#ffd166');
+            this.refreshNpcMarkers();
+          },
+        });
+      } else if (q.status === 'active') {
+        inputBridge.openDialog({
+          speaker: meta.name,
+          subtitle: `${meta.title} • Tiến độ ${q.count}/${q.targetCount}`,
+          lines: [CONTENT.npcDialog.masterActive],
+        });
+      } else if (q.status === 'ready') {
+        inputBridge.openDialog({
+          speaker: meta.name,
+          subtitle: meta.title,
+          lines: CONTENT.npcDialog.masterReady,
+          actionLabel: 'Trả 3 Tập Chép Lén Võ Phổ & nhận thưởng',
+          onAction: () => {
+            const res = gameState.turnInQuest('quest_stolen_manual');
+            if (res.completed) {
+              sound.playLevelUp();
+              gameState.pushToast(
+                `Hoàn thành "Cuốn Phổ Mất Dấu"! +${res.silver} Bạc, +${res.spiritStones} Linh Thạch & Vũ khí Hiếm Có!`,
+                '#4cc9f0',
+              );
+              this.refreshNpcMarkers();
+            }
+          },
+        });
+      } else {
+        inputBridge.openDialog({
+          speaker: meta.name,
+          subtitle: meta.title,
+          lines: [CONTENT.npcDialog.masterDone],
+        });
+      }
+      return;
+    }
+
+    // Nhiệm vụ phụ 5: Đạo Sĩ Tề Minh ("Người Gỡ Bùa Đêm")
+    if (npc.role === 'taoist') {
+      const q = quests.quest_seal_breaker;
+      if (q.status === 'not_started') {
+        inputBridge.openDialog({
+          speaker: meta.name,
+          subtitle: meta.title,
+          lines: CONTENT.npcDialog.taoistStart,
+          actionLabel: 'Nhận nhiệm vụ: Người Gỡ Bùa Đêm',
+          onAction: () => {
+            gameState.acceptQuest('quest_seal_breaker');
+            gameState.pushToast('Đã nhận NV phụ: Người Gỡ Bùa Đêm (0/3 Khôi Lỗi Vỡ Bùa ở Hẻm Đứt Bùa)', '#ffd166');
+            this.refreshNpcMarkers();
+          },
+        });
+      } else if (q.status === 'active') {
+        inputBridge.openDialog({
+          speaker: meta.name,
+          subtitle: `${meta.title} • Tiến độ ${q.count}/${q.targetCount}`,
+          lines: [CONTENT.npcDialog.taoistActive],
+        });
+      } else if (q.status === 'ready') {
+        inputBridge.openDialog({
+          speaker: meta.name,
+          subtitle: meta.title,
+          lines: CONTENT.npcDialog.taoistReady,
+          actionLabel: 'Báo cáo dẹp loạn & nhận thưởng',
+          onAction: () => {
+            const res = gameState.turnInQuest('quest_seal_breaker');
+            if (res.completed) {
+              sound.playLevelUp();
+              gameState.pushToast(
+                `Hoàn thành "Người Gỡ Bùa Đêm"! +${res.silver} Bạc, +${res.spiritStones} Linh Thạch & Giáp Hiếm Có!`,
+                '#4cc9f0',
+              );
+              this.refreshNpcMarkers();
+            }
+          },
+        });
+      } else {
+        inputBridge.openDialog({
+          speaker: meta.name,
+          subtitle: meta.title,
+          lines: [CONTENT.npcDialog.taoistDone],
+        });
+      }
+      return;
+    }
+
+    if (npc.role === 'seal_breaker_npc') {
+      inputBridge.openDialog({
+        speaker: meta.name,
+        subtitle: meta.title,
+        lines: CONTENT.npcDialog.sealBreakerEncounter,
+      });
+      return;
+    }
+
+    // Chính tuyến GĐ2 (6 bước, có 3 bước lựa chọn ảnh hưởng thái độ 3 môn phái)
+    if (
+      npc.role === 'scholar' ||
+      npc.role === 'sect_open_rep' ||
+      npc.role === 'sect_closed_rep' ||
+      npc.role === 'sect_ban_rep'
+    ) {
+      this.handleMainStoryNpcDialog(npc);
+    }
+  }
+
+  private handleMainStoryNpcDialog(npc: NpcPlacement): void {
+    const meta = CONTENT.npcs[npc.id];
+    const d = gameState.getData();
+    if (d.mainQuestGd2.step === 0) {
+      gameState.unlockMainStory();
+    }
+    const mq = gameState.getData().mainQuestGd2;
+
+    if (mq.step === 1) {
+      inputBridge.openDialog({
+        speaker: meta.name,
+        subtitle: CONTENT.mainQuestGd2.steps[1].title,
+        lines: [
+          'Câu hỏi của Sơ Giác dưới Động Tàn Cơ đã làm rúng động cả ba môn phái! Bản Ghi Lõi Sơ Giác đang nằm trong tay ngươi.',
+          'Phổ Mộc Đường muốn công khai bản ghi cho dân học, Tỏa Kim Các đòi khóa vào Mật Khố, còn Hỏa Ấn Môn muốn đốt bỏ ngay lập tức.',
+        ],
+        actionLabel: 'Bước vào cuộc chất vấn ba phái (Sang Bước 2/6)',
+        onAction: () => {
+          gameState.advanceMainStoryStep();
+          gameState.pushToast('Chính tuyến GĐ2 — Bước 2/6: Chọn cách xử lý Bản Ghi Lõi Sơ Giác!', '#4cc9f0');
+          this.refreshNpcMarkers();
+        },
+      });
+      return;
+    }
+
+    if (mq.step === 2) {
+      const ch = CONTENT.mainQuestGd2.choices;
+      inputBridge.openDialog({
+        speaker: meta.name,
+        subtitle: CONTENT.mainQuestGd2.steps[2].title,
+        lines: [
+          'Ba môn phái đều cử đại diện đòi định đoạt Bản Ghi Lõi Sơ Giác. Quyết định của ngươi sẽ trực tiếp thay đổi thái độ của cả 3 môn phái!',
+        ],
+        choices: [
+          {
+            label: ch.choice_share_open.label,
+            sublabel: ch.choice_share_open.effectDesc,
+            onSelect: () => {
+              gameState.advanceMainStoryStep('choice_share_open');
+              gameState.pushToast('Đã công khai Bản Ghi! Phổ Mộc Đường rất tán thưởng (+25).', '#59c173');
+              this.refreshNpcMarkers();
+            },
+          },
+          {
+            label: ch.choice_lock_closed.label,
+            sublabel: ch.choice_lock_closed.effectDesc,
+            onSelect: () => {
+              gameState.advanceMainStoryStep('choice_lock_closed');
+              gameState.pushToast('Đã niêm phong Bản Ghi vào Mật Khố! Tỏa Kim Các tín nhiệm (+25).', '#e8c468');
+              this.refreshNpcMarkers();
+            },
+          },
+          {
+            label: ch.choice_burn_ban.label,
+            sublabel: ch.choice_burn_ban.effectDesc,
+            onSelect: () => {
+              gameState.advanceMainStoryStep('choice_burn_ban');
+              gameState.pushToast('Đã thiêu hủy Bản Ghi! Hỏa Ấn Môn đồng tình (+25).', '#ef6351');
+              this.refreshNpcMarkers();
+            },
+          },
+        ],
+      });
+      return;
+    }
+
+    if (mq.step === 3) {
+      inputBridge.openDialog({
+        speaker: meta.name,
+        subtitle: `${CONTENT.mainQuestGd2.steps[3].title} (${mq.stepProgress}/${mq.stepTarget})`,
+        lines: [
+          'Trong lúc ba phái tranh cãi, một thế lực bí ẩn ở Lũng Đại Mạch đã gom cả võ phổ chép trộm lẫn lõi gỡ bùa để đúc một cỗ khôi lỗi khổng lồ!',
+          `Hãy qua Cổng Đông Thành Bế Các sang Lũng Đại Mạch, đánh bại 3 quái quanh các bãi mỏ để thu thập manh mối (Tiến độ: ${mq.stepProgress}/${mq.stepTarget}).`,
+        ],
+      });
+      return;
+    }
+
+    if (mq.step === 4) {
+      const ch = CONTENT.mainQuestGd2.choices;
+      inputBridge.openDialog({
+        speaker: meta.name,
+        subtitle: CONTENT.mainQuestGd2.steps[4].title,
+        lines: [
+          'Manh mối thu được từ Lũng Đại Mạch chỉ thẳng tới Tế Đàn Lõi Trầm: cỗ trùm Vạn Chép — Khôi Lỗi Hợp Lõi đã thành hình!',
+          'Trước khi xuất kích, ba môn phái yêu cầu chốt quy chế quản lý mỏ linh thạch và bùa an toàn tại Lũng Đại Mạch:',
+        ],
+        choices: [
+          {
+            label: ch.choice_joint_council.label,
+            sublabel: ch.choice_joint_council.effectDesc,
+            onSelect: () => {
+              gameState.advanceMainStoryStep('choice_joint_council');
+              gameState.pushToast('Đã lập hội đồng 3 phái! Bước 5/6: Tiến vào Lũng Đại Mạch hạ Trùm Vạn Chép!', '#4cc9f0');
+              this.refreshNpcMarkers();
+            },
+          },
+          {
+            label: ch.choice_sect_monopoly.label,
+            sublabel: ch.choice_sect_monopoly.effectDesc,
+            onSelect: () => {
+              gameState.advanceMainStoryStep('choice_sect_monopoly');
+              gameState.pushToast('Giao quyền cho Tỏa Kim Các! Bước 5/6: Tiến vào Lũng Đại Mạch hạ Trùm Vạn Chép!', '#e8c468');
+              this.refreshNpcMarkers();
+            },
+          },
+          {
+            label: ch.choice_strict_seal.label,
+            sublabel: ch.choice_strict_seal.effectDesc,
+            onSelect: () => {
+              gameState.advanceMainStoryStep('choice_strict_seal');
+              gameState.pushToast('Trao quyền phong ấn cho Hỏa Ấn Môn! Bước 5/6: Hạ Trùm Vạn Chép!', '#ef6351');
+              this.refreshNpcMarkers();
+            },
+          },
+        ],
+      });
+      return;
+    }
+
+    if (mq.step === 5) {
+      inputBridge.openDialog({
+        speaker: meta.name,
+        subtitle: CONTENT.mainQuestGd2.steps[5].title,
+        lines: [
+          'Trùm Vạn Chép — Khôi Lỗi Hợp Lõi (Hệ Kim) đang chờ ở Tế Đàn Lõi Trầm (góc đông nam Lũng Đại Mạch).',
+          'Mẹo Ngũ Hành: Vạn Chép thuộc hệ Kim, bị hệ Hỏa khắc chế 1.35x! Phái Phổ Mộc Đường có thể đeo Ngọc Hỏa Tinh để đổi Chiêu 1 sang hệ Hỏa.',
+        ],
+      });
+      return;
+    }
+
+    if (mq.step === 6) {
+      const ch = CONTENT.mainQuestGd2.choices;
+      inputBridge.openDialog({
+        speaker: meta.name,
+        subtitle: CONTENT.mainQuestGd2.steps[6].title,
+        lines: [
+          'Vạn Chép đã sụp đổ, Lũng Đại Mạch được giải vây. Giờ là lúc ngươi tuyên bố quy ước cuối cùng giữa con người và khôi lỗi biết nghĩ trên Đài Bảng Tin Giang Hồ:',
+        ],
+        choices: [
+          {
+            label: ch.ending_open_coexist.label,
+            sublabel: ch.ending_open_coexist.effectDesc,
+            onSelect: () => this.finishStage2MainStory('ending_open_coexist'),
+          },
+          {
+            label: ch.ending_regulated_vault.label,
+            sublabel: ch.ending_regulated_vault.effectDesc,
+            onSelect: () => this.finishStage2MainStory('ending_regulated_vault'),
+          },
+          {
+            label: ch.ending_seal_ban.label,
+            sublabel: ch.ending_seal_ban.effectDesc,
+            onSelect: () => this.finishStage2MainStory('ending_seal_ban'),
+          },
+          {
+            label: ch.ending_balanced_charter.label,
+            sublabel: ch.ending_balanced_charter.effectDesc,
+            onSelect: () => this.finishStage2MainStory('ending_balanced_charter'),
+          },
+        ],
+      });
+      return;
+    }
+
+    inputBridge.openDialog({
+      speaker: meta.name,
+      subtitle: meta.title,
+      lines: [
+        CONTENT.mainQuestGd2.steps[7].summary,
+        'Hãy ghé Quản Sự Trịnh Phong để xem thứ hạng 4 bang hội AI và tham chiến Công Thành hằng tuần!',
+      ],
+    });
+  }
+
+  private finishStage2MainStory(
+    choiceId:
+      | 'ending_open_coexist'
+      | 'ending_regulated_vault'
+      | 'ending_seal_ban'
+      | 'ending_balanced_charter',
+  ): void {
+    if (gameState.advanceMainStoryStep(choiceId)) {
+      gameState.addCurrency(250, 12);
+      gameState.gainXp(320);
+      sound.playLevelUp();
+      this.refreshNpcMarkers();
+      gameState.pushToast(
+        'Hoàn tất Chính tuyến Giai đoạn 2 "Tiếng Vọng Từ Động Tàn Cơ"! (+250 Bạc, +12 Linh Thạch, +320 KN)',
+        '#ffd166',
+      );
+      inputBridge.openVictory();
     }
   }
 

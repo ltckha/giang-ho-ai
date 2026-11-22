@@ -22,10 +22,11 @@ export class ForestScene extends BaseWorldScene {
     this.hallucinationChecked = false;
     const g = this.add.graphics().setDepth(1);
 
-    // Đường mòn đất nối Cổng Tây -> Ngã Ba -> Bãi Mỏ -> Cửa Hang Đông Nam & Lối Cụt Bắc
+    // Đường mòn đất nối Cổng Tây -> Ngã Ba -> Cổng Bắc (Thành Bế Các), Lối Cụt Đông Bắc, Bãi Mỏ & Cửa Hang Đông Nam
     g.fillStyle(0x4f4331, 0.62);
     g.fillRoundedRect(60, 510, 620, 74, 18); // Từ cổng Thành tới Ngã Ba
-    g.fillRoundedRect(640, 210, 84, 340, 18); // Lên Lối Cụt Bắc
+    g.fillRoundedRect(610, 50, 84, 480, 18); // Lên Cổng Bắc sang Thành Bế Các
+    g.fillRoundedRect(650, 180, 230, 68, 16); // Nhánh rẽ sang Lối Cụt Đông Bắc (bịa đường)
     g.fillRoundedRect(680, 510, 480, 78, 18); // Sang Bãi Mỏ
     g.fillRoundedRect(1380, 560, 110, 320, 18); // Xuống Cửa Hầm Mỏ Sâu
     g.fillRoundedRect(1420, 825, 250, 76, 18); // Tới cổng Hang

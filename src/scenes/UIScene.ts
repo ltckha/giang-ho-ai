@@ -131,6 +131,8 @@ export class UIScene extends Phaser.Scene {
       openDialog: (req: DialogRequest) => this.setModal({ kind: 'dialog', req }),
       openShop: () => this.setModal({ kind: 'shop', tab: 'buy' }),
       openBag: () => this.setModal({ kind: 'bag' }),
+      openForge: () => this.setModal({ kind: 'forge', slot: 'weapon', selectedUids: [] }),
+      openGuildBoard: () => this.setModal({ kind: 'guild_board', tab: 'ranks' }),
       openQuests: () => this.setModal({ kind: 'quests' }),
       openElementsGuide: () => this.setModal({ kind: 'elements' }),
       openVictory: () => this.setModal({ kind: 'victory' }),
@@ -321,6 +323,9 @@ export class UIScene extends Phaser.Scene {
 
     const bagBtn = makeUtilBtn('Túi đồ (I)', () => this.setModal({ kind: 'bag' }));
     const questBtn = makeUtilBtn('Nhiệm vụ (M)', () => this.setModal({ kind: 'quests' }));
+    const guildBtn = makeUtilBtn('Bang Hội (G)', () =>
+      this.setModal({ kind: 'guild_board', tab: 'ranks' }),
+    );
     const elemBtn = makeUtilBtn('Ngũ Hành (H)', () => this.setModal({ kind: 'elements' }));
     const townBtn = makeUtilBtn('Về Thành', () => inputBridge.triggerReturnToTown());
     this.muteBtnEl = makeUtilBtn('Âm: Bật', () => {
@@ -333,7 +338,16 @@ export class UIScene extends Phaser.Scene {
     });
     const menuBtn = makeUtilBtn('Menu', () => inputBridge.triggerReturnToTitle());
 
-    this.utilBarEl.append(bagBtn, questBtn, elemBtn, townBtn, this.muteBtnEl, saveBtn, menuBtn);
+    this.utilBarEl.append(
+      bagBtn,
+      questBtn,
+      guildBtn,
+      elemBtn,
+      townBtn,
+      this.muteBtnEl,
+      saveBtn,
+      menuBtn,
+    );
     topRight.append(mobileTopControls, this.utilBarEl);
     root.appendChild(topRight);
 
@@ -541,11 +555,22 @@ export class UIScene extends Phaser.Scene {
     this.mobileMapPillEl.textContent = mapName;
     this.questPillEl.textContent = this.computeActiveQuestHint();
 
-    // Thanh máu Trùm Sơ Giác
+    // Thanh máu Trùm (Sơ Giác hệ Thủy hoặc Vạn Chép hệ Kim)
     if (gameState.bossStatus.active) {
       this.bossBarEl.style.display = 'block';
-      const phaseTag = gameState.bossStatus.phaseTwo ? ' • VÒNG CẤM TỰ GIẢI!' : '';
-      this.bossTitleEl.textContent = `${CONTENT.enemies.boss_awakened} [Thủy]${phaseTag}`;
+      const isVanChep = gameState.bossStatus.bossId === 'boss_van_chep';
+      const bossName = isVanChep ? CONTENT.enemies.boss_van_chep : CONTENT.enemies.boss_awakened;
+      const elemTag = isVanChep ? '[Kim]' : '[Thủy]';
+      const phaseTag = gameState.bossStatus.phaseTwo
+        ? isVanChep
+          ? ' • MỞ KHÓA QUÁ TẢI!'
+          : ' • VÒNG CẤM TỰ GIẢI!'
+        : '';
+      this.bossTitleEl.textContent = `${bossName} ${elemTag}${phaseTag}`;
+      this.bossTitleEl.style.color = isVanChep ? '#ffd166' : '#8be9fd';
+      this.bossFillEl.style.background = isVanChep
+        ? 'linear-gradient(90deg, #c79c44, #ffd166)'
+        : 'linear-gradient(90deg, #2b8cbe, #6ee7ff)';
       const bpct = Math.max(
         0,
         Math.min(100, (gameState.bossStatus.hp / gameState.bossStatus.maxHp) * 100),
@@ -589,19 +614,38 @@ export class UIScene extends Phaser.Scene {
       )
       .join('');
 
-    // Cập nhật lại nội dung modal nếu đang mở túi đồ / tiệm
-    if (this.activeModal && (this.activeModal.kind === 'bag' || this.activeModal.kind === 'shop')) {
+    // Cập nhật lại nội dung modal nếu đang mở túi đồ / tiệm / lò rèn
+    if (
+      this.activeModal &&
+      (this.activeModal.kind === 'bag' ||
+        this.activeModal.kind === 'shop' ||
+        this.activeModal.kind === 'forge')
+    ) {
       this.renderModal();
     }
   }
 
   private computeActiveQuestHint(): string {
-    const q = gameState.getData().quests;
+    const d = gameState.getData();
+    const q = d.quests;
     if (q.quest_blacksmith.status === 'ready') {
       return '★ Về Thành Lam Lư trả nhiệm vụ cho Lão Bính!';
     }
     if (q.quest_hallucination.status === 'ready') {
       return '★ Quay lại Ngã Ba Sương Độc chất vấn Bách Thông!';
+    }
+    if (q.quest_fake_elder.status === 'ready') {
+      return '★ Về Thành Bế Các trả Mặt Nạ Giả Thanh cho Bà Hai Quán Trà!';
+    }
+    if (q.quest_stolen_manual.status === 'ready') {
+      return '★ Về Thành Bế Các trả 3 Tập Võ Phổ cho Sư Phụ Kỷ Văn!';
+    }
+    if (q.quest_seal_breaker.status === 'ready') {
+      return '★ Quay lại Cửa Tây Lũng Đại Mạch báo cho Đạo Sĩ Tề Minh!';
+    }
+    if (d.mainQuestGd2.step >= 1 && d.mainQuestGd2.step <= 6) {
+      const stepMeta = CONTENT.mainQuestGd2.steps[d.mainQuestGd2.step];
+      return `★ ${stepMeta.title}: ${stepMeta.summary}`;
     }
     if (q.quest_blacksmith.status === 'active') {
       return `NV phụ: Lò Than Chưa Tắt (${q.quest_blacksmith.count}/3 Quặng ngoài Rừng)`;
@@ -610,8 +654,8 @@ export class UIScene extends Phaser.Scene {
       return 'NV phụ: Lên Lối Cụt Bắc Rừng Thạch Mạch tìm "Cổ Thụ Chín Gốc"';
     }
     if (q.quest_boss.status === 'completed') {
-      return '✓ Giai đoạn 1 hoàn tất — Đã đánh bại Sơ Giác!';
+      return '★ Lên Cổng Bắc Rừng Thạch Mạch vào Thành Bế Các & Lũng Đại Mạch!';
     }
-    return 'Mục tiêu: Luyện cấp ở Rừng Thạch Mạch, sau đó vào Động Tàn Cơ gặp Sơ Giác';
+    return 'Mục tiêu: Luyện cấp ở Rừng Thạch Mạch, vào Động Tàn Cơ hoặc lên Thành Bế Các';
   }
 }

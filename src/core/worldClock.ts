@@ -87,3 +87,19 @@ export function advanceWorldClock(totalHours: number, deltaHours: number): Clock
     siegeWeeksTriggered,
   };
 }
+
+export const REAL_SECONDS_PER_GAME_HOUR = 6; // 6 giây thực = 1 giờ trong game (1 phút thực = 10 giờ game)
+export const MAX_OFFLINE_CATCHUP_HOURS = HOURS_PER_WEEK; // Giới hạn bù tối đa 1 tuần trong game (168 giờ)
+
+/**
+ * Tính số giờ trong game cần mô phỏng bù khi đóng game rồi mở lại.
+ * Giới hạn tối đa 1 tuần trong game (168 giờ) theo ghi chú REVIEW_LOG #1 để không nhảy quá xa.
+ */
+export function computeOfflineCatchupHours(savedAtMs: number, nowMs = Date.now()): number {
+  if (!Number.isFinite(savedAtMs) || !Number.isFinite(nowMs) || nowMs <= savedAtMs) {
+    return 0;
+  }
+  const elapsedSec = (nowMs - savedAtMs) / 1000;
+  const rawGameHours = Math.floor(elapsedSec / REAL_SECONDS_PER_GAME_HOUR);
+  return Math.max(0, Math.min(MAX_OFFLINE_CATCHUP_HOURS, rawGameHours));
+}

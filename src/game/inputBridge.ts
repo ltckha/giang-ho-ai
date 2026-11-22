@@ -1,5 +1,11 @@
 import type { Vec2 } from '../core/types';
 
+export interface DialogChoiceOption {
+  label: string;
+  sublabel?: string;
+  onSelect: () => void;
+}
+
 export interface DialogRequest {
   speaker: string;
   subtitle?: string;
@@ -8,6 +14,7 @@ export interface DialogRequest {
   onAction?: () => void;
   secondaryLabel?: string;
   onSecondary?: () => void;
+  choices?: DialogChoiceOption[];
 }
 
 export interface WorldActionHandlers {
@@ -22,6 +29,8 @@ export interface UiModalHandlers {
   openDialog: (req: DialogRequest) => void;
   openShop: () => void;
   openBag: () => void;
+  openForge: () => void;
+  openGuildBoard: () => void;
   openQuests: () => void;
   openElementsGuide: () => void;
   openVictory: () => void;
@@ -106,6 +115,14 @@ class InputBridge {
 
   public openBag(): void {
     this.uiHandlers?.openBag();
+  }
+
+  public openForge(): void {
+    this.uiHandlers?.openForge();
+  }
+
+  public openGuildBoard(): void {
+    this.uiHandlers?.openGuildBoard();
   }
 
   public openQuests(): void {
