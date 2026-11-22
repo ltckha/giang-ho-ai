@@ -249,3 +249,9 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - **4 bộ đồ:** Đi Mưa (3 món), Phượt Đà Lạt, Dân Văn Phòng, Chủ Tiệm Xịn (4 món, đồ da).
 - Trần mọi tác dụng giữ game khó (vd sức cộng ≤ 40%/món, bán lại ≤ 85%, quái yếu đi ≤ 20%). Đồ bản cũ tự đổi sang bản mới.
 - `npm test` 37/37, e2e 6/6, build được; thử bảng trang bị trên điện thoại không lỗi.
+
+---
+
+## 22/11/2026 — Rà "MÀN 1 VẼ LẠI XONG" (02f4cd8 → 8733626)
+
+**Kết luận:** ĐẠT. Không đụng `src/core/`, giữ tên khung atlas. Nền vector mới khớp đường chữ S và 9 ô, món / quái vẽ riêng từng bậc, cùng nét Màn 2–3. `npm test` 37/37, e2e 6/6, build 2,8 MB. Chơi thử điện thoại dọc không lỗi, không gọi mạng ngoài.
