@@ -323,7 +323,8 @@ export abstract class BaseWorldScene extends Phaser.Scene {
 
       const label = CONTENT.landmarks[lm.id];
       if (label) {
-        const labelY = lm.kind === 'forge' ? lm.y + lm.h - 14 : lm.y + 18;
+        const labelY =
+          lm.kind === 'forge' || lm.kind === 'crossroads' ? lm.y + lm.h - 14 : lm.y + 18;
         this.add
           .text(lm.x + lm.w / 2, labelY, label, {
             fontSize: '13px',

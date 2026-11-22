@@ -153,6 +153,8 @@
   font-size: 11px;
   font-weight: 700;
   color: #141210;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .gh-sect-stance {
@@ -378,7 +380,7 @@
 
 .gh-toasts {
   position: absolute;
-  top: 94px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -386,7 +388,7 @@
   align-items: center;
   gap: 4px;
   pointer-events: none;
-  max-width: 82vw;
+  max-width: 52vw;
 }
 
 .gh-toast {
@@ -652,12 +654,23 @@
   font-size: 12px;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 920px), (max-height: 500px) {
   .gh-hud-top-center {
+    left: 36%;
+  }
+  .gh-quest-pill {
     display: none;
   }
   .gh-hud-top-left {
-    width: 190px;
+    width: 210px;
+  }
+  .gh-hud-top-right {
+    max-width: 48vw;
+    gap: 4px;
+  }
+  .gh-icon-btn {
+    padding: 4px 7px;
+    font-size: 10.5px;
   }
   .gh-skill-btn {
     width: 56px;
@@ -667,13 +680,23 @@
     font-size: 9.5px;
   }
   .gh-joystick-zone {
-    width: 104px;
-    height: 104px;
+    width: 98px;
+    height: 98px;
     left: 12px;
-    bottom: 14px;
+    bottom: 16px;
   }
   .gh-joystick-knob {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
+  }
+  .gh-toasts {
+    bottom: 92px;
+    max-width: 68vw;
+  }
+}
+
+@media (max-width: 620px) {
+  .gh-hud-top-center {
+    display: none;
   }
 }
