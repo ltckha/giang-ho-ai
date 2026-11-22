@@ -1,8 +1,15 @@
 import { ALLY_ARCHETYPES } from './aiDecisionTree';
+import { createInitialGuildWorld, type GuildWorldState } from './guildSystem';
 import { MAPS } from './maps';
 import { createInitialQuests } from './quests';
+import {
+  createInitialMainQuest,
+  createInitialSectReputation,
+  type MainQuestState,
+  type SectReputationMap,
+} from './reputation';
 import { SECTS } from './skills';
-import type { SaveData, SectId } from './types';
+import type { EquipmentInstance, EquippedInstancesState, SaveData, SectId } from './types';
 
 export const LEGACY_SAVE_STORAGE_KEY_V1 = 'giang_ho_ai_save_v1';
 export const SAVE_STORAGE_KEY = 'giang_ho_ai_save_v2';
@@ -54,6 +61,12 @@ export function createNewSave(sectId: SectId): SaveData {
       { id: 'ally_greedy', hp: ALLY_ARCHETYPES.ally_greedy.maxHp },
     ],
     bossDefeated: false,
+    rolledBag: [],
+    equippedInstances: { weapon: null, armor: null, charm: null },
+    nextSeed: 20261122,
+    guildWorld: createInitialGuildWorld(),
+    sectReputation: createInitialSectReputation(sectId),
+    mainQuestGd2: createInitialMainQuest(false),
   };
 }
 
@@ -97,6 +110,78 @@ export function isValidSaveData(raw: unknown): raw is SaveData {
   return raw.version === SAVE_VERSION;
 }
 
+function isEquipmentInstance(v: unknown): v is EquipmentInstance {
+  if (!v || typeof v !== 'object') return false;
+  const o = v as Record<string, unknown>;
+  return (
+    typeof o.uid === 'string' &&
+    typeof o.baseItemId === 'string' &&
+    (o.slot === 'weapon' || o.slot === 'armor' || o.slot === 'charm') &&
+    (o.rarity === 'common' || o.rarity === 'fine' || o.rarity === 'rare' || o.rarity === 'epic') &&
+    typeof o.itemLevel === 'number' &&
+    Array.isArray(o.affixes)
+  );
+}
+
+function normalizeGuildWorld(raw: unknown): GuildWorldState {
+  if (!raw || typeof raw !== 'object') {
+    return createInitialGuildWorld();
+  }
+  const obj = raw as Record<string, unknown>;
+  if (
+    typeof obj.clockHours === 'number' &&
+    typeof obj.castleOwnerId === 'string' &&
+    obj.guilds &&
+    typeof obj.guilds === 'object' &&
+    obj.spots &&
+    typeof obj.spots === 'object' &&
+    obj.relations &&
+    typeof obj.relations === 'object'
+  ) {
+    return obj as unknown as GuildWorldState;
+  }
+  return createInitialGuildWorld();
+}
+
+function normalizeSectReputation(raw: unknown, sectId: SectId): SectReputationMap {
+  const base = createInitialSectReputation(sectId);
+  if (!raw || typeof raw !== 'object') return base;
+  const o = raw as Record<string, unknown>;
+  return {
+    sect_open: typeof o.sect_open === 'number' && Number.isFinite(o.sect_open) ? o.sect_open : base.sect_open,
+    sect_closed:
+      typeof o.sect_closed === 'number' && Number.isFinite(o.sect_closed) ? o.sect_closed : base.sect_closed,
+    sect_ban: typeof o.sect_ban === 'number' && Number.isFinite(o.sect_ban) ? o.sect_ban : base.sect_ban,
+  };
+}
+
+function normalizeMainQuest(raw: unknown, bossDefeated: boolean): MainQuestState {
+  if (!raw || typeof raw !== 'object') {
+    return createInitialMainQuest(bossDefeated);
+  }
+  const o = raw as Record<string, unknown>;
+  const step = typeof o.step === 'number' && Number.isFinite(o.step) ? Math.max(0, Math.floor(o.step)) : 0;
+  if (step === 0 && bossDefeated) {
+    return createInitialMainQuest(true);
+  }
+  return {
+    step,
+    stepProgress:
+      typeof o.stepProgress === 'number' && Number.isFinite(o.stepProgress)
+        ? Math.max(0, Math.floor(o.stepProgress))
+        : 0,
+    stepTarget:
+      typeof o.stepTarget === 'number' && Number.isFinite(o.stepTarget)
+        ? Math.max(1, Math.floor(o.stepTarget))
+        : 1,
+    choicesMade:
+      o.choicesMade && typeof o.choicesMade === 'object'
+        ? { ...(o.choicesMade as MainQuestState['choicesMade']) }
+        : {},
+    gd2BossDefeated: Boolean(o.gd2BossDefeated),
+  };
+}
+
 /**
  * Chuyển đổi bản lưu Giai đoạn 1 (version 1) hoặc bản lưu hiện tại (version 2)
  * sang cấu trúc SaveData chuẩn mới nhất mà không làm mất cấp độ, trang bị, túi đồ hay nhiệm vụ.
@@ -108,6 +193,7 @@ export function migrateSaveData(raw: unknown): SaveData | null {
   const mapId = raw.mapId as SaveData['mapId'];
   const pos = raw.playerPos as { x: number; y: number };
   const defaults = createNewSave(sectId);
+  const bossDefeated = Boolean(raw.bossDefeated);
 
   const rawEq = (raw.equipment && typeof raw.equipment === 'object'
     ? raw.equipment
@@ -172,6 +258,19 @@ export function migrateSaveData(raw: unknown): SaveData | null {
     hp: savedAlliesMap.get(id) ?? ALLY_ARCHETYPES[id].maxHp,
   }));
 
+  const rolledBag: EquipmentInstance[] = Array.isArray(raw.rolledBag)
+    ? (raw.rolledBag as unknown[]).filter(isEquipmentInstance)
+    : [];
+
+  const rawEquippedInst = (raw.equippedInstances && typeof raw.equippedInstances === 'object'
+    ? raw.equippedInstances
+    : {}) as Record<string, unknown>;
+  const equippedInstances: EquippedInstancesState = {
+    weapon: isEquipmentInstance(rawEquippedInst.weapon) ? rawEquippedInst.weapon : null,
+    armor: isEquipmentInstance(rawEquippedInst.armor) ? rawEquippedInst.armor : null,
+    charm: isEquipmentInstance(rawEquippedInst.charm) ? rawEquippedInst.charm : null,
+  };
+
   return {
     version: SAVE_VERSION,
     savedAt: typeof raw.savedAt === 'number' ? raw.savedAt : Date.now(),
@@ -190,7 +289,16 @@ export function migrateSaveData(raw: unknown): SaveData | null {
     inventory,
     quests: baseQuests,
     allies,
-    bossDefeated: Boolean(raw.bossDefeated),
+    bossDefeated,
+    rolledBag,
+    equippedInstances,
+    nextSeed:
+      typeof raw.nextSeed === 'number' && Number.isFinite(raw.nextSeed)
+        ? Math.floor(raw.nextSeed)
+        : 20261122,
+    guildWorld: normalizeGuildWorld(raw.guildWorld),
+    sectReputation: normalizeSectReputation(raw.sectReputation, sectId),
+    mainQuestGd2: normalizeMainQuest(raw.mainQuestGd2, bossDefeated),
   };
 }
 

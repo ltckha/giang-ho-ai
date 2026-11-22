@@ -1,3 +1,6 @@
+import type { GuildWorldState } from './guildSystem';
+import type { MainQuestState, SectReputationMap } from './reputation';
+
 export type ElementType = 'kim' | 'moc' | 'thuy' | 'hoa' | 'tho';
 
 export type SectId = 'sect_open' | 'sect_closed' | 'sect_ban';
@@ -12,7 +15,14 @@ export type EquipmentSlot = 'weapon' | 'armor' | 'charm';
 
 export type ItemKind = EquipmentSlot | 'consumable' | 'quest';
 
-export type QuestId = 'quest_blacksmith' | 'quest_hallucination' | 'quest_boss';
+export type Stage1QuestId = 'quest_blacksmith' | 'quest_hallucination' | 'quest_boss';
+
+export type Stage2SideQuestId =
+  | 'quest_fake_elder'
+  | 'quest_stolen_manual'
+  | 'quest_seal_breaker';
+
+export type QuestId = Stage1QuestId | Stage2SideQuestId;
 
 export type QuestStatus = 'not_started' | 'active' | 'ready' | 'completed';
 
@@ -246,4 +256,10 @@ export interface SaveData {
   quests: QuestStateMap;
   allies: AllySaveState[];
   bossDefeated: boolean;
+  rolledBag: EquipmentInstance[];
+  equippedInstances: EquippedInstancesState;
+  nextSeed: number;
+  guildWorld: GuildWorldState;
+  sectReputation: SectReputationMap;
+  mainQuestGd2: MainQuestState;
 }

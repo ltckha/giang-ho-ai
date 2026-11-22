@@ -4,7 +4,7 @@ import { ALL_ELEMENTS, ELEMENT_COUNTERS, ELEMENT_INFO } from '../core/elements';
 import { ITEMS, SHOP_STOCK, getSellPrice } from '../core/inventory';
 import { QUEST_REWARDS } from '../core/quests';
 import { SECTS } from '../core/skills';
-import type { QuestId, QuestStatus } from '../core/types';
+import type { QuestStatus, Stage1QuestId } from '../core/types';
 import { gameState } from '../game/gameState';
 import type { DialogRequest } from '../game/inputBridge';
 import { sound } from '../game/sound';
@@ -292,7 +292,7 @@ export function renderModalContent(
 
     const list = document.createElement('div');
     list.className = 'gh-list';
-    const order: QuestId[] = ['quest_boss', 'quest_blacksmith', 'quest_hallucination'];
+    const order: Stage1QuestId[] = ['quest_boss', 'quest_blacksmith', 'quest_hallucination'];
     for (const qid of order) {
       const prog = d.quests[qid];
       const meta = CONTENT.quests[qid];

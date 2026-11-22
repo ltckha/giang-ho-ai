@@ -5,6 +5,8 @@ export interface QuestReward {
   spiritStones: number;
   xp: number;
   itemId?: string;
+  rolledRewardRarity?: 'fine' | 'rare' | 'epic';
+  rolledRewardSlot?: 'weapon' | 'armor' | 'charm';
 }
 
 export const QUEST_REWARDS: Record<QuestId, QuestReward> = {
@@ -26,6 +28,27 @@ export const QUEST_REWARDS: Record<QuestId, QuestReward> = {
     xp: 260,
     itemId: 'wpn_cave_relic',
   },
+  quest_fake_elder: {
+    silver: 110,
+    spiritStones: 5,
+    xp: 160,
+    rolledRewardRarity: 'fine',
+    rolledRewardSlot: 'charm',
+  },
+  quest_stolen_manual: {
+    silver: 135,
+    spiritStones: 6,
+    xp: 190,
+    rolledRewardRarity: 'rare',
+    rolledRewardSlot: 'weapon',
+  },
+  quest_seal_breaker: {
+    silver: 150,
+    spiritStones: 7,
+    xp: 220,
+    rolledRewardRarity: 'rare',
+    rolledRewardSlot: 'armor',
+  },
 };
 
 export function createInitialQuests(): QuestStateMap {
@@ -33,6 +56,9 @@ export function createInitialQuests(): QuestStateMap {
     quest_blacksmith: { status: 'not_started', count: 0, targetCount: 3 },
     quest_hallucination: { status: 'not_started', count: 0, targetCount: 1 },
     quest_boss: { status: 'active', count: 0, targetCount: 1 },
+    quest_fake_elder: { status: 'not_started', count: 0, targetCount: 1 },
+    quest_stolen_manual: { status: 'not_started', count: 0, targetCount: 3 },
+    quest_seal_breaker: { status: 'not_started', count: 0, targetCount: 3 },
   };
 }
 

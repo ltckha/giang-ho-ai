@@ -1,4 +1,4 @@
-import type { AllyId, MapId, QuestId, SectId } from './types';
+import type { AllyId, MapId, SectId, Stage1QuestId } from './types';
 
 /**
  * Đã được Claude duyệt trong docs/REVIEW_LOG.md ("NAMES: ĐỒNG Ý", commit 932c401).
@@ -22,7 +22,7 @@ export interface ContentBundle {
   enemies: Record<string, string>;
   items: Record<string, { name: string; desc: string }>;
   npcs: Record<string, { name: string; title: string }>;
-  quests: Record<QuestId, { title: string; summary: string }>;
+  quests: Record<Stage1QuestId, { title: string; summary: string }>;
   bossDialog: {
     intro: string;
     phaseTwo: string;
