@@ -73,3 +73,26 @@ Luật, số liệu, đường đi, 11 ô, 12 đợt ở `src/core/shops/flower.
 | fl_monsoon | Trùm Mùa Nồm | Thủy → Mộc → Kim | đám mây đen ẩm lớn; **3 màu theo hành** (xanh dương → xanh lá → bạc) |
 
 **Hiệu ứng mới:** sự kiện `element_shift` (trùm đổi hành): đổi màu / hình trùm theo `enemy.element`, chữ lớn "Đổi hành!" kèm biểu tượng hành mới, rung nhẹ. Màn hình đầu: khoá ô Màn 3 tới khi qua Màn 2 (trừ khi `?stage=3` hoặc `?bot=1`).
+
+---
+
+## Claude → Antigravity: vẽ lại Màn 1 "Tiệm Giày Hẻm Dốc" theo cách Màn 2 (làm SAU khi xong Màn 3)
+
+Anh Kha thấy Màn 2 đẹp hơn Màn 1 nhiều. Lý do (Claude đọc scripts): Màn 1 làm bậc nâng cấp từ 1 hình gốc rồi chồng chi tiết bằng code, vài quái / biểu tượng vẽ bằng khối PIL, nền cắt ghép từ ảnh mẫu; Màn 2 vẽ riêng từng hình và vẽ nền vector mới khớp đường. → Làm lại Màn 1 **đúng cách Màn 2**. **Không đổi số liệu, đường đi, ô, tên; giữ nguyên tên khung (frame) trong atlas** để code không phải sửa.
+
+**Nền bản đồ** `map_man1_tiem_giay` vẽ mới dạng vector như `scripts/build_stage2_map.py`, khớp đúng `STAGE_1_DEFINITION` (đường chữ S qua 2 khúc cua chữ U, 9 ô), cửa kính mưa ở đầu đường, kệ giày gỗ đèn vàng ở cuối, sàn gỗ, thảm, ghế thử giày. Không chữ tiếng nước ngoài.
+
+**5 món × 4 bậc vẽ riêng từng hình** (bậc 3A và 3B khác nhau nhìn thấy được), 3 khung khi đánh:
+| Khoá | Bậc 1 → 2 → 3A / 3B |
+|---|---|
+| wood_tower | Dép Tông → Dép Tông Đế Dày → Dép Tông Kép / Dép Tông Gai Bám |
+| metal_tower | Bốt Đế Đinh → Bốt Đinh Thép → Bốt Chốt Chì / Bốt Đinh Quét Dọc |
+| water_tower | Xịt Dưỡng Da → Bình Xịt Áp Lực → Xịt Bọt Tuyết Lạnh / Xịt Vòi Xoáy |
+| fire_tower | Túi Hút Ẩm → Giỏ Hút Ẩm Cỡ Đại → Thảm Hạt Hút Khô / Chùm Túi Nổ Liên Hoàn |
+| earth_tower | Máy Sấy Giày → Máy Sấy Hai Vòi → Máy Sấy Khử Khuẩn / Máy Sấy Gió Nhiệt Cao |
+
+**Quái vẽ lại riêng từng con** (4 khung đi): Giọt Mưa, Cục Bùn, Gián, Gián Con, Nấm Mốc, Chuột, Nắng Gắt (các khoá `fast_metal`, `tank_earth`, `split_fire`, `split_fire_mini`, `healer_wood`, `disrupt_water`, `fly_wood`). Chuột và Nắng Gắt dùng chung cho Màn 2–3 nên vẽ kỹ.
+
+**Biểu tượng:** 5 hành (`el_*`), xu, ví, đôi giày (mạng) — vẽ lại cùng nét, không dùng khối PIL.
+
+**Nộp:** ảnh trước / sau cùng cảnh trong `docs/screenshots/man1v2_*.png`; dist ≤ 5 MB; `npm test`, e2e qua. Xong ghi "MÀN 1 VẼ LẠI XONG" đầu docs/PROGRESS.md.
