@@ -1,4 +1,4 @@
-import { computeGearBonus, rollStageDrops, starterGear, type Equipped, type GearBonus, type GearItem, type GearSlotId } from './equipment';
+import { computeGearBonus, migrateGearItem, rollStageDrops, starterGear, type Equipped, type GearBonus, type GearItem, type GearSlotId } from './equipment';
 import type { TdSaveData } from './types';
 
 /**
@@ -33,7 +33,9 @@ export function loadTdSave(storage?: Pick<Storage, 'getItem'>): TdSaveData {
         parsed.unlockedStage === 2 || parsed.unlockedStage === 3 ? parsed.unlockedStage : 1,
       starsByStage: parsed.starsByStage ?? {},
       bestLivesByStage: parsed.bestLivesByStage ?? {},
-      gearInventory: Array.isArray(parsed.gearInventory) ? parsed.gearInventory : starterGear(),
+      gearInventory: Array.isArray(parsed.gearInventory)
+        ? parsed.gearInventory.map(migrateGearItem).filter((x): x is GearItem => x !== null)
+        : starterGear(),
       gearEquipped: parsed.gearEquipped ?? (Array.isArray(parsed.gearInventory) ? {} : { hat: 'starter_hat', glasses: 'starter_glasses' }),
       updatedAt: typeof parsed.updatedAt === 'number' ? parsed.updatedAt : Date.now(),
     };
@@ -130,7 +132,8 @@ export function grantStageDrops(
 ): GearItem[] {
   const store = resolveStore(storage);
   const cur = loadTdSave(store);
-  const drops = rollStageDrops(stageNumber, stars, rng, `g${Date.now().toString(36)}${Math.floor(rng() * 1e6).toString(36)}`);
+  const extra = getGearBonus(cur).stats.extra_drop; // "Khách quen"
+  const drops = rollStageDrops(stageNumber, stars, rng, `g${Date.now().toString(36)}${Math.floor(rng() * 1e6).toString(36)}`, extra);
   cur.gearInventory = [...(cur.gearInventory ?? []), ...drops];
   cur.updatedAt = Date.now();
   writeSave(store, cur);

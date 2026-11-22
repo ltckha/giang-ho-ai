@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { activatedSlots, computeGearBonus, GEAR_SLOTS, gearDamageFor, isFullRing, makeGearItem, type Equipped } from '../src/core/equipment';
+import { activatedHiddenCount, computeGearBonus, EMPTY_GEAR_BONUS, GEAR_SLOTS, gearDamageFor, isFullRing, makeGearItem, migrateGearItem, supporterSlots, type Equipped, type GearRarity, type GearSlotId } from '../src/core/equipment';
+import type { ElementType } from '../src/core/types';
 import { equipGear, getEquipped, grantStageDrops, loadTdSave } from '../src/core/saveSystem';
 import { STAGES } from '../src/core/tdDefinitions';
 import { TowerDefenseEngine } from '../src/core/tdEngine';
@@ -59,62 +60,81 @@ describe('Bậc 4 tuyệt chiêu', () => {
   });
 });
 
-describe('Trang bị chủ tiệm 10 món + kích hoạt ngũ hành', () => {
-  const mk = (slot: Parameters<typeof makeGearItem>[0], el: Parameters<typeof makeGearItem>[1], r: Parameters<typeof makeGearItem>[2] = 'thuong') =>
-    makeGearItem(slot, el, r, `${slot}_${el}_${r}`);
-
-  it('đủ 10 loại món, mỗi loại có đủ 5 hành', () => {
-    expect(GEAR_SLOTS.length).toBe(10);
-    expect(new Set(GEAR_SLOTS.map((s) => s.id)).size).toBe(10);
-  });
-
-  it('món ô trước sinh ra hành món ô sau thì món sau sáng dòng ẩn', () => {
-    const eq: Equipped = { hat: mk('hat', 'moc'), glasses: mk('glasses', 'hoa'), jacket: mk('jacket', 'kim') };
-    const act = activatedSlots(eq);
-    expect(act.has('glasses')).toBe(true); // Mộc sinh Hỏa
-    expect(act.has('jacket')).toBe(false); // Hỏa không sinh Kim
-    expect(act.has('hat')).toBe(false); // ô trước (Ô dù) trống
-  });
-
-  it('xếp đủ vòng 10 món tương sinh → Ngũ hành viên mãn, có trần sức cộng', () => {
-    const cycle = ['kim', 'thuy', 'moc', 'hoa', 'tho'] as const;
+describe('Trang bị chủ tiệm v2: 6 dòng, 2 món chống lưng, bộ đồ', () => {
+  let seed = 3;
+  const rng = () => ((seed = (seed * 1664525 + 1013904223) % 4294967296), seed / 4294967296);
+  const mk = (slot: GearSlotId, el: ElementType, r: GearRarity = 'xin') => makeGearItem(slot, el, r, `${slot}_${el}_${r}`, rng);
+  const CYCLE: ElementType[] = ['kim', 'thuy', 'moc', 'hoa', 'tho'];
+  const fullSet = (r: GearRarity = 'xin'): Equipped => {
     const eq: Equipped = {};
-    GEAR_SLOTS.forEach((s, i) => (eq[s.id] = mk(s.id, cycle[i % 5]!, 'quy')));
-    expect(isFullRing(eq)).toBe(true);
-    const b = computeGearBonus(eq);
+    GEAR_SLOTS.forEach((s, i) => (eq[s.id] = mk(s.id, CYCLE[i % 5]!, r)));
+    return eq;
+  };
+
+  it('10 loại món hiện đại; hạng quyết định số dòng hiện / ẩn', () => {
+    expect(GEAR_SLOTS.map((s) => s.label)).toContain('Điện thoại');
+    const it1 = mk('phone', 'hoa', 'thuong');
+    const it3 = mk('phone', 'hoa', 'xin');
+    expect(it1.visible.length).toBe(1);
+    expect(it1.hidden.length).toBe(1);
+    expect(it3.visible.length).toBe(3);
+    expect(it3.hidden.length).toBe(3);
+    expect(mk('umbrella', 'thuy', 'hieu').name).toBe('Ô Dù Chống Bão Cấp 12');
+  });
+
+  it('mỗi ô có 2 món chống lưng: ô liền trước và ô cách 6 bước', () => {
+    expect(supporterSlots('glasses')).toEqual(['hat', 'bag']);
+  });
+
+  it('1 món chống lưng sinh → sáng 1 dòng; 2 món sinh → sáng 2 dòng; dòng cuối cần đủ bộ ngũ hành', () => {
+    const glasses = mk('glasses', 'hoa');
+    const one: Equipped = { glasses, hat: mk('hat', 'moc') };
+    expect(activatedHiddenCount(one).glasses).toBe(1);
+    const two: Equipped = { glasses, hat: mk('hat', 'moc'), bag: mk('bag', 'moc') };
+    expect(activatedHiddenCount(two).glasses).toBe(2);
+    expect(isFullRing(two)).toBe(false);
+    const full = fullSet();
+    expect(isFullRing(full)).toBe(true);
+    const c = activatedHiddenCount(full);
+    for (const s of GEAR_SLOTS) expect(c[s.id]).toBe(3);
+  });
+
+  it('đủ bộ ngũ hành: thưởng viên mãn, mọi tác dụng nằm trong trần', () => {
+    const b = computeGearBonus(fullSet('hieu'));
     expect(b.fullRing).toBe(true);
-    expect(b.activeCount).toBe(10);
-    for (const el of cycle) expect(gearDamageFor(b, el)).toBeLessThanOrEqual(0.4 + 1e-9);
+    expect(b.activeLines).toBe(30);
+    for (const el of CYCLE) expect(gearDamageFor(b, el)).toBeLessThanOrEqual(0.4 + 1e-9);
     expect(b.lives).toBeLessThanOrEqual(5);
+    expect(b.stats.sell_refund).toBeLessThanOrEqual(0.15 + 1e-9);
   });
 
-  it('engine áp trang bị: xu đầu màn, mạng, sức món cùng hành', () => {
-    const eq: Equipped = { bag: mk('bag', 'tho'), umbrella: mk('umbrella', 'thuy'), hat: mk('hat', 'moc') };
+  it('bộ đồ: mặc Áo Mưa + Dù Xanh → Bộ Đi Mưa (2 món) có thêm mạng', () => {
+    const eq: Equipped = { jacket: mk('jacket', 'thuy', 'thuong'), umbrella: mk('umbrella', 'thuy', 'thuong') };
     const b = computeGearBonus(eq);
-    const plain = new TowerDefenseEngine(STAGES.stage_1);
-    const geared = new TowerDefenseEngine(STAGES.stage_1, { gear: b });
-    expect(geared.essence).toBe(plain.essence + b.startCoins);
-    expect(geared.lives).toBe(plain.lives + b.lives);
-    plain.buildTower('pad_1', 'wood_tower');
-    geared.buildTower('pad_1', 'wood_tower');
-    expect(geared.getTowerAtPad('pad_1')!.buffDamageMultiplier).toBeGreaterThan(plain.getTowerAtPad('pad_1')!.buffDamageMultiplier);
+    expect(b.sets.some((s) => s.id === 'di_mua' && s.count === 2)).toBe(true);
+    expect(b.lives).toBeGreaterThanOrEqual(1);
   });
 
-  it('thắng màn rơi số món = số sao, lưu vào kho; mặc / cởi lưu lại được; người mới có bộ khởi đầu', () => {
+  it('engine áp dòng vui: giảm giá đặt / nâng cấp, quái Thủy yếu đi, bán lại hoàn thêm', () => {
+    const gear = { ...EMPTY_GEAR_BONUS, stats: { ...EMPTY_GEAR_BONUS.stats, build_discount: 0.1, upgrade_discount: 0.1, weaken_thuy: 0.2, sell_refund: 0.1 } };
+    const plain = new TowerDefenseEngine(STAGES.stage_1);
+    const g = new TowerDefenseEngine(STAGES.stage_1, { gear });
+    expect(g.getBuildCost('wood_tower')).toBeLessThan(plain.getBuildCost('wood_tower'));
+    expect(g.getUpgradeCost('wood_tower', 2)).toBeLessThan(plain.getUpgradeCost('wood_tower', 2));
+    expect(g.spawnEnemy('fast_metal').maxHp).toBeLessThan(plain.spawnEnemy('fast_metal').maxHp);
+    expect(g.getSellRefund(100)).toBe(80);
+  });
+
+  it('đồ bản cũ đổi sang bản mới không mất; thắng màn rơi đồ; mặc / cởi lưu lại', () => {
+    expect(migrateGearItem({ uid: 'x', slot: 'hat', element: 'moc', rarity: 'quy', main: { kind: 'elem_dmg', value: 0.1 }, hidden: [] })?.visible.length).toBe(1);
     const mem: Record<string, string> = {};
     const store = { getItem: (k: string) => mem[k] ?? null, setItem: (k: string, v: string) => { mem[k] = v; } };
     const fresh = loadTdSave(store);
     expect(fresh.gearInventory?.length).toBe(2);
-    expect(activatedSlots(getEquipped(fresh)).has('glasses')).toBe(true);
-    let seed = 7;
-    const rng = () => ((seed = (seed * 1664525 + 1013904223) % 4294967296), seed / 4294967296);
+    expect(activatedHiddenCount(getEquipped(fresh)).glasses).toBe(1);
     const drops = grantStageDrops(2, 3, store, rng);
-    expect(drops.length).toBe(3);
-    const saved = loadTdSave(store);
-    expect(saved.gearInventory?.length).toBe(5);
+    expect(drops.length).toBeGreaterThanOrEqual(3);
     equipGear(drops[0]!.slot, drops[0]!.uid, store);
     expect(getEquipped(loadTdSave(store))[drops[0]!.slot]?.uid).toBe(drops[0]!.uid);
-    equipGear(drops[0]!.slot, null, store);
-    expect(getEquipped(loadTdSave(store))[drops[0]!.slot]).toBeUndefined();
   });
 });

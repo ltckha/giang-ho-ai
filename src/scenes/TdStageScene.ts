@@ -2,12 +2,11 @@ import Phaser from 'phaser';
 import { ELEMENT_INFO } from '../core/elements';
 import { getGearBonus, grantStageDrops, loadTdSave, saveTdProgress } from '../core/saveSystem';
 import { RARITY_LABEL, statText, type GearItem } from '../core/equipment';
-import { ULTIMATE_COST, ULTIMATE_MIN_STAGE, ULTIMATE_NAMES, ULTIMATE_ROLE_TEXT } from '../core/ultimates';
+import { ULTIMATE_MIN_STAGE, ULTIMATE_NAMES, ULTIMATE_ROLE_TEXT } from '../core/ultimates';
 import { runBotTurn } from '../core/tdBot';
 import {
   ALL_ENEMY_DEFINITIONS as ENEMY_DEFINITIONS,
   ALL_TOWER_DEFINITIONS as TOWER_DEFINITIONS,
-  calculateSellRefund,
   getStageTowerList,
   getTowerTierStats,
   STAGES,
@@ -2400,7 +2399,8 @@ export class TdStageScene extends Phaser.Scene {
     if (!existingTower) {
       const cardsHtml = getStageTowerList(this.engine.stage).map((def) => {
         const elInfo = ELEMENT_INFO[def.element];
-        const canAfford = this.engine.essence >= def.tier1.cost;
+        const buildCost = this.engine.getBuildCost(def.id);
+        const canAfford = this.engine.essence >= buildCost;
         const spriteUrl = getAtlasFrameDataUrl(this, getTowerFrameName(def.id, 1, undefined, 0));
         const elIconUrl = getAtlasFrameDataUrl(this, `el_${def.element}`);
         return `
@@ -2417,7 +2417,7 @@ export class TdStageScene extends Phaser.Scene {
                   ${elInfo.label}
                 </span>
                 <strong>${def.tier1.name}</strong>
-                <span class="td-price-tag">${def.tier1.cost}${coinImgHtml}</span>
+                <span class="td-price-tag">${buildCost}${coinImgHtml}</span>
               </div>
               <div class="td-opt-role">${def.tier1.description}</div>
             </div>
@@ -2468,12 +2468,13 @@ export class TdStageScene extends Phaser.Scene {
         this,
         getTowerFrameName(existingTower.defId, existingTower.tier, existingTower.branch, 0),
       );
-      const refund = calculateSellRefund(existingTower.totalInvested);
+      const refund = this.engine.getSellRefund(existingTower.totalInvested);
 
       let upgradeSectionHtml = '';
       if (existingTower.tier === 1) {
         const t2 = def.tier2;
-        const canAfford = this.engine.essence >= t2.cost;
+        const t2Cost = this.engine.getUpgradeCost(def.id, 2);
+        const canAfford = this.engine.essence >= t2Cost;
         const t2Sprite = getAtlasFrameDataUrl(this, getTowerFrameName(def.id, 2, undefined, 0));
         upgradeSectionHtml = `
           <button
@@ -2485,7 +2486,7 @@ export class TdStageScene extends Phaser.Scene {
             <div class="td-opt-body">
               <div class="td-opt-head">
                 <strong>Lên Bậc 2: ${t2.name}</strong>
-                <span class="td-price-tag">${t2.cost}${coinImgHtml}</span>
+                <span class="td-price-tag">${t2Cost}${coinImgHtml}</span>
               </div>
               <div class="td-opt-role">${t2.description}</div>
             </div>
@@ -2494,8 +2495,10 @@ export class TdStageScene extends Phaser.Scene {
       } else if (existingTower.tier === 2) {
         const t3A = def.tier3A;
         const t3B = def.tier3B;
-        const canA = this.engine.essence >= t3A.cost;
-        const canB = this.engine.essence >= t3B.cost;
+        const t3ACost = this.engine.getUpgradeCost(def.id, 3, 'A');
+        const t3BCost = this.engine.getUpgradeCost(def.id, 3, 'B');
+        const canA = this.engine.essence >= t3ACost;
+        const canB = this.engine.essence >= t3BCost;
         const s3A = getAtlasFrameDataUrl(this, getTowerFrameName(def.id, 3, 'A', 0));
         const s3B = getAtlasFrameDataUrl(this, getTowerFrameName(def.id, 3, 'B', 0));
         upgradeSectionHtml = `
@@ -2507,7 +2510,7 @@ export class TdStageScene extends Phaser.Scene {
             >
               <div class="td-branch-top">
                 ${s3A ? `<img class="td-branch-sprite" src="${s3A}" alt="${t3A.name}" />` : ''}
-                <span class="td-price-tag">${t3A.cost}${coinImgHtml}</span>
+                <span class="td-price-tag">${t3ACost}${coinImgHtml}</span>
               </div>
               <strong class="td-branch-name">Nhánh A: ${t3A.name}</strong>
               <div class="td-opt-role">${t3A.description}</div>
@@ -2519,7 +2522,7 @@ export class TdStageScene extends Phaser.Scene {
             >
               <div class="td-branch-top">
                 ${s3B ? `<img class="td-branch-sprite" src="${s3B}" alt="${t3B.name}" />` : ''}
-                <span class="td-price-tag">${t3B.cost}${coinImgHtml}</span>
+                <span class="td-price-tag">${t3BCost}${coinImgHtml}</span>
               </div>
               <strong class="td-branch-name">Nhánh B: ${t3B.name}</strong>
               <div class="td-opt-role">${t3B.description}</div>
@@ -2533,13 +2536,14 @@ export class TdStageScene extends Phaser.Scene {
         if (this.engine.stage.stageNumber < ULTIMATE_MIN_STAGE) {
           upgradeSectionHtml = `<div class="td-max-tier">★ Đã đạt Bậc 3 (Nhánh ${existingTower.branch}). Bậc 4 tuyệt chiêu mở từ Màn 2.</div>`;
         } else if (!existingTower.hasUltimate) {
-          const canU = this.engine.essence >= ULTIMATE_COST;
+          const ultCost = this.engine.getUltimateCost();
+          const canU = this.engine.essence >= ultCost;
           upgradeSectionHtml = `
             <button class="td-upgrade-btn ${canU ? '' : 'disabled'}" id="btn-unlock-ultimate" data-testid="btn-unlock-ultimate">
               <div class="td-opt-body">
                 <div class="td-opt-head">
                   <strong>Lên Bậc 4: tuyệt chiêu "${ultName}"</strong>
-                  <span class="td-price-tag">${ULTIMATE_COST}${coinImgHtml}</span>
+                  <span class="td-price-tag">${ultCost}${coinImgHtml}</span>
                 </div>
                 <div class="td-opt-role">+20% sức luôn luôn. Bấm dùng: ${ultText} Hồi chiêu 30 giây.</div>
               </div>
@@ -2595,7 +2599,7 @@ export class TdStageScene extends Phaser.Scene {
           </div>
           ${upgradeSectionHtml}
           <button class="td-sell-btn" id="btn-sell-tower" data-testid="btn-sell-tower">
-            Cất món / Bán lại (+${refund} xu — hoàn 70%)
+            Cất món / Bán lại (+${refund} xu)
           </button>
         </div>
       `;
@@ -2703,7 +2707,7 @@ export class TdStageScene extends Phaser.Scene {
         <div class="td-result-stars ${this.reduceMotion ? 'no-anim' : ''}" data-testid="td-result-stars">${starsHtml}</div>
         <p class="td-result-desc">${descText}</p>
         ${isWin && this.lastDrops.length > 0 ? `<div class="td-result-desc" data-testid="td-result-drops"><strong>Nhận trang bị:</strong><br>${this.lastDrops
-          .map((g) => `${g.name} (${RARITY_LABEL[g.rarity]}, hệ ${ELEMENT_INFO[g.element].label}) — ${statText(g.main)}`)
+          .map((g) => `${g.name} (${RARITY_LABEL[g.rarity]}, hệ ${ELEMENT_INFO[g.element].label}) — ${g.visible.map(statText).join('; ')}`)
           .join('<br>')}</div>` : ''}
         <div class="td-result-actions">
           <button id="btn-retry-stage" data-testid="btn-retry-stage" class="td-btn-primary">Chơi Lại Màn ${stageNum}</button>

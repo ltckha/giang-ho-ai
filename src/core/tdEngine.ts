@@ -173,7 +173,7 @@ export class TowerDefenseEngine {
     if (this.getTowerAtPad(padId)) return null;
 
     const def = ALL_TOWER_DEFINITIONS[defId];
-    const cost = def.tier1.cost;
+    const cost = this.getBuildCost(defId);
     if (this.essence < cost) return null;
 
     this.essence -= cost;
@@ -209,13 +209,13 @@ export class TowerDefenseEngine {
 
     const nextTier = (tower.tier + 1) as 2 | 3;
     const chosenBranch: TowerBranch | undefined = nextTier === 3 ? (branch ?? 'A') : undefined;
-    const stats = getTowerTierStats(tower.defId, nextTier, chosenBranch);
+    const cost = this.getUpgradeCost(tower.defId, nextTier, chosenBranch);
 
-    if (this.essence < stats.cost) return false;
-    this.essence -= stats.cost;
+    if (this.essence < cost) return false;
+    this.essence -= cost;
     tower.tier = nextTier;
     tower.branch = chosenBranch;
-    tower.totalInvested += stats.cost;
+    tower.totalInvested += cost;
 
     this.recalculateSupportBuffs();
     return true;
@@ -228,7 +228,7 @@ export class TowerDefenseEngine {
     const [removed] = this.towers.splice(idx, 1);
     if (!removed) return 0;
 
-    const refund = calculateSellRefund(removed.totalInvested);
+    const refund = this.getSellRefund(removed.totalInvested);
     this.essence += refund;
     this.recalculateSupportBuffs();
     return refund;
@@ -299,7 +299,7 @@ export class TowerDefenseEngine {
         );
         if (giver) {
           tower.synergyFromUid = giver.uid;
-          tower.buffDamageMultiplier *= 1 + SYNERGY_DAMAGE_BONUS;
+          tower.buffDamageMultiplier *= 1 + SYNERGY_DAMAGE_BONUS + this.gear.stats.synergy_bonus;
         }
       }
     }
@@ -317,6 +317,23 @@ export class TowerDefenseEngine {
     }
   }
 
+  /* ---- Giá sau giảm từ trang bị (dùng cho cả giao diện) ---- */
+  public getBuildCost(defId: TowerId): number {
+    return Math.round(ALL_TOWER_DEFINITIONS[defId].tier1.cost * (1 - this.gear.stats.build_discount));
+  }
+
+  public getUpgradeCost(defId: TowerId, tier: 2 | 3, branch?: TowerBranch): number {
+    return Math.round(getTowerTierStats(defId, tier, branch).cost * (1 - this.gear.stats.upgrade_discount));
+  }
+
+  public getUltimateCost(): number {
+    return Math.max(0, ULTIMATE_COST - this.gear.stats.ult_cost);
+  }
+
+  public getSellRefund(totalInvested: number): number {
+    return Math.round(calculateSellRefund(totalInvested) + totalInvested * this.gear.stats.sell_refund);
+  }
+
   /** Bậc 4 mở từ Màn 2, cho món đã lên bậc 3 */
   public canUnlockUltimate(padId: string): boolean {
     const tower = this.getTowerAtPad(padId);
@@ -326,15 +343,16 @@ export class TowerDefenseEngine {
       !!tower &&
       tower.tier === 3 &&
       !tower.hasUltimate &&
-      this.essence >= ULTIMATE_COST
+      this.essence >= this.getUltimateCost()
     );
   }
 
   public unlockUltimate(padId: string): boolean {
     if (!this.canUnlockUltimate(padId)) return false;
     const tower = this.getTowerAtPad(padId)!;
-    this.essence -= ULTIMATE_COST;
-    tower.totalInvested += ULTIMATE_COST;
+    const ultCost = this.getUltimateCost();
+    this.essence -= ultCost;
+    tower.totalInvested += ultCost;
     tower.hasUltimate = true;
     tower.ultimateCooldownRemaining = 0;
     tower.ultimateActiveRemaining = 0;
@@ -431,7 +449,9 @@ export class TowerDefenseEngine {
     const def = ALL_ENEMY_DEFINITIONS[enemyId];
     const path = this.stage.paths[pathIndex] ?? this.stage.paths[0]!;
     const startPt = overridePos ? { x: overridePos.x, y: overridePos.y } : path[0]!;
-    const maxHp = Math.max(1, Math.round(def.maxHp * hpScale));
+    // Trang bị "Đi mưa không ướt" / "Xịt côn trùng": quái Thủy / Mộc vào tiệm đã yếu đi
+    const weaken = def.element === 'thuy' ? this.gear.stats.weaken_thuy : def.element === 'moc' ? this.gear.stats.weaken_moc : 0;
+    const maxHp = Math.max(1, Math.round(def.maxHp * hpScale * (1 - weaken)));
 
     const enemy: ActiveEnemy = {
       uid: this.nextUid('enemy'),
@@ -842,7 +862,8 @@ export class TowerDefenseEngine {
     const relation = getElementRelation(tower.element, enemy.element);
     // Trong thủ thành, tương khắc Ngũ Hành tạo chênh lệch rõ rệt (1.75x khi khắc, 0.5x khi bị khắc)
     const elemMult =
-      relation === 'counter' ? 1.75 : relation === 'countered' ? 0.5 : 1.0;
+      (relation === 'counter' ? 1.75 + this.gear.stats.counter_dmg : relation === 'countered' ? 0.5 : 1.0) *
+      (enemy.trait === 'boss' ? 1 + this.gear.stats.boss_dmg : 1);
 
     let armorIgnore = 0;
     if (relation === 'counter') {
@@ -898,7 +919,7 @@ export class TowerDefenseEngine {
       if (stats.slowPercent >= enemy.slowPercent) {
         enemy.slowPercent = stats.slowPercent;
       }
-      enemy.slowRemaining = Math.max(enemy.slowRemaining, stats.slowDurationSec);
+      enemy.slowRemaining = Math.max(enemy.slowRemaining, stats.slowDurationSec * (1 + this.gear.stats.slow_dur));
     }
 
     // Choáng / giữ chân

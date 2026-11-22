@@ -238,3 +238,14 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 ## 22/11/2026 — Rà "MÀN 3 VẼ XONG" (0c6385c → 14183d0)
 
 **Kết luận:** ĐẠT. Không đụng `src/core/`. Gộp với trang bị của Claude (giữ chế độ `?video=1` của Antigravity). `npm test` 35/35, e2e 6/6, build 2,7 MB. Chơi thử Màn 3 trên điện thoại dọc: nền tiệm hoa khớp 2 cửa và 11 ô, món / quái đúng tên, không lỗi console, không gọi mạng ngoài.
+
+---
+
+## 22/11/2026 — Trang bị v2: nhiều dòng, 2 món chống lưng, bộ đồ (Claude)
+
+- Mỗi món tối đa **3 dòng hiện + 3 dòng ẩn** theo hạng (Thường 1+1, Tốt 2+2, Xịn 3+3, Hàng hiệu 3+3 tên riêng).
+- **19 loại dòng** tên vui đời thường: Đúng gu, Tự tin, Wifi mạnh, Cà phê sữa đá, Freeship, Chống nước, Ví đầy, Pin trâu, Sạc nhanh (bậc 4 rẻ), Mã giảm giá, Flash sale, Bảo hành 12 tháng, Bắt trend ("Trúng tủ!" mạnh hơn), Combo (tương sinh mạnh hơn), Gió Đà Lạt, Đi mưa không ướt, Xịt côn trùng, Khách quen (rơi thêm đồ), Săn trùm. Engine áp đủ.
+- **Kích hoạt (anh Kha chốt):** mỗi ô có 2 món chống lưng (ô liền trước, ô cách 6 bước); mỗi món chống lưng sinh ra hành của món → sáng 1 dòng ẩn (2 món → 2 dòng). **Dòng ẩn cuối chỉ sáng khi mặc đủ bộ ngũ hành** (10 món đều được cả 2 chống lưng sinh). Xếp 10 món theo vòng ngũ hành lặp 2 lần thì đạt.
+- **4 bộ đồ:** Đi Mưa (3 món), Phượt Đà Lạt, Dân Văn Phòng, Chủ Tiệm Xịn (4 món, đồ da).
+- Trần mọi tác dụng giữ game khó (vd sức cộng ≤ 40%/món, bán lại ≤ 85%, quái yếu đi ≤ 20%). Đồ bản cũ tự đổi sang bản mới.
+- `npm test` 37/37, e2e 6/6, build được; thử bảng trang bị trên điện thoại không lỗi.

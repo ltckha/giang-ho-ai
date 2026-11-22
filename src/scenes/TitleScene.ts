@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import { ELEMENT_INFO } from '../core/elements';
 import { equipGear, getEquipped, getGearBonus, loadTdSave } from '../core/saveSystem';
 import { ALL_ELEMENTS } from '../core/elements';
-import { activatedSlots, GEAR_SLOTS, RARITY_LABEL, statText, type GearSlotId } from '../core/equipment';
+import { activatedHiddenCount, GEAR_SETS, GEAR_SLOTS, RARITY_LABEL, statText, supporterSlots, type GearSlotId } from '../core/equipment';
 import { STAGE_1_DEFINITION, STAGES, TOWER_LIST } from '../core/tdDefinitions';
 import { getAtlasFrameDataUrl, getTowerFrameName, STAGE1_MAP_KEY } from '../game/atlasIcons';
 import { getInitialReduceMotion } from '../game/preferences';
@@ -215,7 +215,7 @@ export class TitleScene extends Phaser.Scene {
               <div class="td-stage-name" id="td-gear-head"></div>
             </div>
           </div>
-          <div class="td-stage-sub">10 món nối thành vòng (Mũ → … → Ô dù → Mũ). Món ô trước sinh ra hành món ô sau thì món sau sáng dòng ẩn (●). Sáng đủ 10 = Ngũ hành viên mãn. Thắng màn rơi thêm đồ.</div>
+          <div class="td-stage-sub">Mỗi món có 2 món chống lưng. Món chống lưng sinh ra hành của món này thì sáng 1 dòng ẩn (●), 2 món sinh thì sáng 2 dòng. Dòng ẩn cuối chỉ sáng khi mặc đủ bộ ngũ hành 10 món. Mặc đủ bộ đồ (Đi Mưa, Phượt Đà Lạt, Dân Văn Phòng, Chủ Tiệm Xịn) có thưởng thêm. Thắng màn rơi đồ.</div>
           <div id="td-gear-sum" class="td-stage-sub"></div>
           <div id="td-gear-rows"></div>
           <div id="td-gear-pick"></div>
@@ -235,21 +235,16 @@ export class TitleScene extends Phaser.Scene {
     const renderGear = (): void => {
       const cur = loadTdSave();
       const eq = getEquipped(cur);
-      const act = activatedSlots(eq);
+      const act = activatedHiddenCount(eq);
       const bonus = getGearBonus(cur);
       const head = root.querySelector<HTMLDivElement>('#td-gear-head');
-      if (head) head.textContent = `Sáng ${act.size}/10${bonus.fullRing ? ' • NGŨ HÀNH VIÊN MÃN!' : ''} • Kho ${cur.gearInventory?.length ?? 0} món`;
+      if (head) head.textContent = `Dòng ẩn sáng ${bonus.activeLines}/${bonus.totalHiddenLines}${bonus.fullRing ? ' • NGŨ HÀNH VIÊN MÃN!' : ''} • Kho ${cur.gearInventory?.length ?? 0} món`;
       const sum = root.querySelector<HTMLDivElement>('#td-gear-sum');
       if (sum) {
         const parts: string[] = [];
-        if (bonus.allDmg) parts.push(`+${Math.round(bonus.allDmg * 100)}% sức mọi món`);
         for (const el of ALL_ELEMENTS) if (bonus.elementDmg[el]) parts.push(`${ELEMENT_INFO[el].label} +${Math.round(bonus.elementDmg[el]! * 100)}%`);
-        if (bonus.rangePct) parts.push(`+${Math.round(bonus.rangePct * 100)}% tầm`);
-        if (bonus.speedPct) parts.push(`+${Math.round(bonus.speedPct * 100)}% tốc độ`);
-        if (bonus.startCoins) parts.push(`+${bonus.startCoins} xu đầu màn`);
-        if (bonus.lives) parts.push(`+${bonus.lives} mạng`);
-        if (bonus.coinPct) parts.push(`+${Math.round(bonus.coinPct * 100)}% xu rơi`);
-        if (bonus.ultCdPct) parts.push(`tuyệt chiêu nhanh ${Math.round(bonus.ultCdPct * 100)}%`);
+        for (const [k, v] of Object.entries(bonus.stats)) if (v) parts.push(statText({ kind: k as never, value: v }));
+        for (const st of bonus.sets) parts.push(`${st.name} (${st.count} món)`);
         sum.textContent = parts.length ? `Đang có: ${parts.join(' • ')}` : 'Chưa mặc gì.';
       }
       const rows = root.querySelector<HTMLDivElement>('#td-gear-rows');
@@ -259,7 +254,7 @@ export class TitleScene extends Phaser.Scene {
           const info = it ? ELEMENT_INFO[it.element] : null;
           const border = info ? `border-color:${info.colorHex}` : '';
           const nameHtml = it && info ? `<span style="color:${info.colorHex}">${it.name}</span>` : '<span style="opacity:.6">— trống —</span>';
-          return `<button class="td-ctrl-btn" data-gear-slot="${sl.id}" data-testid="gear-slot-${sl.id}" style="text-align:left;padding:6px;min-height:48px;${border}"><small>${sl.label}${act.has(sl.id) ? ' ●' : ''}</small><br>${nameHtml}</button>`;
+          return `<button class="td-ctrl-btn" data-gear-slot="${sl.id}" data-testid="gear-slot-${sl.id}" style="text-align:left;padding:6px;min-height:48px;${border}"><small>${sl.label} ${it ? '●'.repeat(act[sl.id] ?? 0) + '○'.repeat(Math.max(0, it.hidden.length - (act[sl.id] ?? 0))) : ''}</small><br>${nameHtml}</button>`;
         }).join('');
         rows.innerHTML = `<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px">${cells}</div>`;
         rows.querySelectorAll<HTMLButtonElement>('[data-gear-slot]').forEach((btn) => {
@@ -284,10 +279,13 @@ export class TitleScene extends Phaser.Scene {
         : owned.map((it) => {
             const info = ELEMENT_INFO[it.element];
             const on = eq[slotId]?.uid === it.uid;
-            return `<button class="td-ctrl-btn" data-gear-item="${it.uid}" style="display:block;width:100%;text-align:left;margin-top:4px;padding:6px;border-color:${info.colorHex}">${on ? '✔ ' : ''}<span style="color:${info.colorHex}">${it.name}</span> <small>(${RARITY_LABEL[it.rarity]}, ${info.label})</small><br><small>${statText(it.main)} • ẩn: ${it.hidden.map(statText).join(', ')}</small></button>`;
+            return `<button class="td-ctrl-btn" data-gear-item="${it.uid}" style="display:block;width:100%;text-align:left;margin-top:4px;padding:6px;border-color:${info.colorHex}">${on ? '✔ ' : ''}<span style="color:${info.colorHex}">${it.name}</span> <small>(${RARITY_LABEL[it.rarity]}, ${info.label})</small><br><small>${it.visible.map(statText).join('<br>')}<br><i>Ẩn: ${it.hidden.map(statText).join('<br>')}</i></small></button>`;
           }).join('');
       const offBtn = eq[slotId] ? `<button class="td-ctrl-btn" data-gear-off="1" style="margin-top:4px">Cởi ${label}</button>` : '';
-      pick.innerHTML = `<div style="margin-top:8px"><strong>Chọn ${label}:</strong></div>${list}${offBtn}`;
+      const [supA, supB] = supporterSlots(slotId);
+      const supLabel = (id: GearSlotId) => GEAR_SLOTS.find((x) => x.id === id)!.label;
+      const setHint = GEAR_SETS.filter((st) => st.pieces.some((p) => p.slot === slotId)).map((st) => st.name).join(', ');
+      pick.innerHTML = `<div style="margin-top:8px"><strong>Chọn ${label}:</strong> <small>chống lưng: ${supLabel(supA)} + ${supLabel(supB)}${setHint ? ` • có trong ${setHint}` : ''}</small></div>${list}${offBtn}`;
       pick.querySelectorAll<HTMLButtonElement>('[data-gear-item]').forEach((b) => {
         b.onclick = () => {
           equipGear(slotId, b.dataset.gearItem!);

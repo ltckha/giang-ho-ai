@@ -115,3 +115,5 @@ Luật xong ở `src/core/equipment.ts` (10 ô, đồ 5 hành, dòng chính / d�
 2. **50 biểu tượng đồ**: 10 loại (Mũ, Kính mắt, Áo khoác, Dây nịt da, Giày, Túi đeo chéo, Ví da, Đồng hồ, Điện thoại, Ô dù) × 5 hành; tên từng mẫu trong `GEAR_NAMES`. Màu theo hành. Viền theo hạng (Thường / Tốt / Quý).
 3. **Bảng trang bị**: 10 ô xếp thành **vòng tròn** quanh hình chủ tiệm, đường nối giữa các ô sáng lên khi ô sau được kích hoạt (●); đủ 10 thì hiệu ứng "Ngũ hành viên mãn".
 4. **Bảng kết quả khi thắng**: hiện thẻ đồ vừa rơi (hình + hạng + hành), có hiệu ứng mở rương.
+
+**Cập nhật trang bị v2 (Claude, 22/11):** mỗi món tối đa 3 dòng hiện + 3 dòng ẩn; 4 hạng Thường (xám) / Tốt (xanh) / Xịn (tím) / Hàng hiệu (vàng, tên riêng trong `LEGEND_NAMES`); mỗi ô có **2 món chống lưng** (`supporterSlots`: ô liền trước + ô cách 6 bước) — vẽ 2 đường nối tới 2 ô đó, sáng khi món chống lưng sinh ra hành món này; dòng ẩn thứ 3 chỉ sáng khi **Ngũ hành viên mãn**. **Bộ đồ** (`GEAR_SETS`: Đi Mưa, Phượt Đà Lạt, Dân Văn Phòng, Chủ Tiệm Xịn) cần huy hiệu bộ và đếm số món. Tên dòng vui ở `STAT_NAME` (Pin trâu, Wifi mạnh, Freeship, Bảo hành 12 tháng…) — có thể vẽ biểu tượng nhỏ cho từng dòng.
