@@ -232,3 +232,9 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Mỗi món: dòng chính luôn có, dòng ẩn sáng khi **món ô trước sinh ra hành món ô sau** (vòng 10 ô). Đủ 10 → Ngũ hành viên mãn (+15% sức mọi món, tuyệt chiêu nhanh 30%). Trần: sức cộng tối đa 40% / món, tầm 20%, tốc 20%, +60 xu, +5 mạng, +20% xu rơi.
 - Thắng màn rơi số món = số sao; người mới có bộ khởi đầu (Mũ Len Mộc + Kính Râm Hỏa, kính sáng sẵn để thấy cách kích hoạt).
 - `npm test` 35/35, e2e 4/4, build được; thử bảng trang bị trên điện thoại: mặc / cởi / lưu đúng, không lỗi. Hình tạm; danh sách vẽ ở docs/YEU_CAU.md.
+
+---
+
+## 22/11/2026 — Rà "MÀN 3 VẼ XONG" (0c6385c → 14183d0)
+
+**Kết luận:** ĐẠT. Không đụng `src/core/`. Gộp với trang bị của Claude (giữ chế độ `?video=1` của Antigravity). `npm test` 35/35, e2e 6/6, build 2,7 MB. Chơi thử Màn 3 trên điện thoại dọc: nền tiệm hoa khớp 2 cửa và 11 ô, món / quái đúng tên, không lỗi console, không gọi mạng ngoài.
