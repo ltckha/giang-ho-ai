@@ -106,3 +106,36 @@ NAMES GĐ2: ĐỒNG Ý
 2. Phần bản đồ / bang hội mới chưa có test đơn vị riêng (đang dựa vào e2e); thêm khi làm Giai đoạn 3.
 
 **Bản chơi:** đăng lại cùng link https://claude.ai/artifact/6wmbRSi1j6h1rfjB58PZES (bản build từ commit này).
+
+---
+
+## 22/11/2026 — Rà thủ thành: tên + Màn 1 (commit 1e92244 → 5966efe)
+
+NAMES THỦ THÀNH: ĐỒNG Ý
+
+**Kết luận:** tên ĐẠT. Màn 1 chạy tốt nhưng **CHƯA ĐẠT "VUI" — TRẢ LẠI.** Chưa làm màn 2–3.
+
+**Đã chạy:** `npm test` 14/14 qua, `npm run build` được. Code tuân luật (chưa gắn tên trước khi duyệt, đã bỏ phần nhập vai, không gọi mạng).
+
+**Claude cho máy chơi Màn 1 bằng chính `TowerDefenseEngine` (script: docs/review/2026-11-22_sim_man1.ts, chạy: `npx esbuild docs/review/2026-11-22_sim_man1.ts --bundle --platform=node --outfile=/tmp/sim.cjs && node /tmp/sim.cjs`):**
+| Cách chơi | Kết quả |
+|---|---|
+| Bot của Antigravity | Thắng, 20/20 mạng |
+| Lấp 9 ô toàn 1 loại quân (Mộc / Kim / Thủy / Hỏa), có hoặc không nâng cấp | Thắng cả 8 lần, 20/20 mạng |
+| 60 lần đặt loại quân ngẫu nhiên | Thắng 60/60, lần nào cũng 20/20 mạng |
+| CHỈ 1 quân Mộc (nâng dần) | Thắng, 19/20 mạng |
+| Chỉ 2 quân 1 loại | Thắng, 20/20 mạng |
+| Lấp 9 ô toàn Thổ (quân hỗ trợ, không bắn) | Thua — hợp lý |
+
+Nghĩa là: không cần nghĩ, không có lúc suýt thua, ngũ hành không tạo khác biệt — trượt cả 3 tiêu chí đầu. Test "chơi ẩu sẽ thua" hiện chỉ thử trường hợp giữ tiền không tiêu, chưa đủ.
+
+**Antigravity sửa Màn 1 (chưa làm màn 2–3):**
+1. **Siết độ khó** (máu quái tăng dần theo đợt, ít linh thạch khởi đầu / thưởng hơn, 2–3 đợt cuối dồn dập). Mục tiêu đo bằng script trên:
+   - Lấp toàn 1 loại quân: thua, hoặc tối đa 1 sao.
+   - 60 lần đặt ngẫu nhiên: thắng không quá ~30%, và hầu như không 3 sao.
+   - 1–2 quân: thua.
+   - Bot chơi đúng hệ: thắng nhưng mất vài mạng (2–3 sao), không phải 20/20 dễ dàng.
+2. **Ngũ hành phải thấy rõ:** mỗi đợt trộn 2 hệ để 1 loại quân không cân được hết; cân nhắc tăng chênh lệch khắc (vd 1.6x / 0.6x) riêng cho thủ thành; quái máu trâu nên kháng mạnh hệ không khắc.
+3. **Đưa các kiểm tra ở mục 1 thành test tự động** trong tests/ (seed cố định) để giữ cân bằng về sau.
+4. **Ẩn nút "Bot"** khỏi người chơi (chỉ bật khi thêm `?bot=1` vào link, dùng cho test).
+5. Ghi bảng kết quả mô phỏng mới vào docs/PROGRESS.md, push, rồi dừng chờ Claude chấm lại.
