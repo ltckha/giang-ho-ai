@@ -7,6 +7,7 @@ import {
   resolveSkillElement,
   xpRequiredForLevel,
 } from '../src/core/combat';
+import { generateEquipmentInstance } from '../src/core/equipmentGen';
 import { ITEMS } from '../src/core/inventory';
 import { SECTS } from '../src/core/skills';
 
@@ -418,6 +419,143 @@ describe('Tính sát thương & lên cấp', () => {
       if (playerHp > 0 && playerHp < stats.maxHp * 0.45 && potionsLeft > 0) {
         playerHp = Math.min(stats.maxHp, playerHp + 65);
         potionsLeft -= 1;
+      }
+    }
+
+    expect(boss.hp).toBeLessThanOrEqual(0);
+    expect(playerHp).toBeGreaterThan(0);
+  });
+
+  it('cân bằng Ngũ Hành GĐ2: Phổ Mộc Đường (Mộc bị Kim khắc) ở cấp 6 đeo Ngọc Hỏa Tinh + đồ ghép vẫn hạ được Trùm hệ Kim', () => {
+    const rolledWpn = generateEquipmentInstance({
+      baseItemId: 'wpn_cave_relic',
+      itemLevel: 6,
+      rarity: 'rare',
+      seed: 202606,
+    });
+    const rolledArm = generateEquipmentInstance({
+      baseItemId: 'arm_bronze_mail',
+      itemLevel: 6,
+      rarity: 'rare',
+      seed: 202607,
+    });
+
+    const scaled = computeScaledBaseStats(SECTS.sect_open.baseStats, 6);
+    const stats = computeEffectiveStats(
+      scaled,
+      { weapon: 'wpn_cave_relic', armor: 'arm_bronze_mail', charm: 'chm_hoa' },
+      ITEMS,
+      { weapon: rolledWpn, armor: rolledArm },
+    );
+
+    // Chiêu 1 được Ngọc Hỏa Tinh đổi sang hệ Hỏa -> khắc Trùm hệ Kim (1.35x)
+    const skill1El = resolveSkillElement(1, SECTS.sect_open.element, stats.imbueElement);
+    expect(skill1El).toBe('hoa');
+
+    const boss = { hp: 860, maxHp: 860, atk: 36, def: 18, element: 'kim' as const };
+    let playerHp = stats.maxHp;
+    const allyAtkMult = 1 + SECTS.sect_open.allyPassiveAtkBonus + (stats.allyAtkBonus ?? 0);
+    const allies = [
+      { id: 'ally_reckless', hp: 145, maxHp: 145, atk: Math.round(19 * allyAtkMult), def: 9, element: 'hoa' as const, cd: 0, period: 0.9 },
+      { id: 'ally_cautious', hp: 130, maxHp: 130, atk: Math.round(13 * allyAtkMult), def: 13, element: 'tho' as const, cd: 0, period: 1.15, healCd: 0 },
+      { id: 'ally_greedy', hp: 120, maxHp: 120, atk: Math.round(16 * allyAtkMult), def: 10, element: 'thuy' as const, cd: 0, period: 0.85 },
+    ];
+
+    let s1Cd = 0;
+    let s3Cd = 0;
+    let s4Cd = 0;
+    let bossCd = 0;
+    let potions = 2;
+
+    for (let t = 0; t < 75 && boss.hp > 0 && playerHp > 0; t += 0.5) {
+      s1Cd = Math.max(0, s1Cd - 0.5);
+      s3Cd = Math.max(0, s3Cd - 0.5);
+      s4Cd = Math.max(0, s4Cd - 0.5);
+      bossCd = Math.max(0, bossCd - 0.5);
+
+      if (s3Cd <= 0 && playerHp < stats.maxHp * 0.72) {
+        playerHp = Math.min(stats.maxHp, playerHp + Math.round(stats.maxHp * 0.38 + 24));
+        for (const a of allies) {
+          if (a.hp > 0) a.hp = Math.min(a.maxHp, a.hp + 55);
+        }
+        s3Cd = 7.0;
+      } else if (s4Cd <= 0) {
+        const hit = calculateDamage({
+          attackerAtk: stats.atk,
+          attackElement: 'moc',
+          powerMultiplier: 2.15,
+          armorPierce: stats.armorPierceBonus,
+          defenderDef: boss.def,
+          defenderElement: boss.element,
+          rng: noCritRng,
+        });
+        boss.hp -= hit.damage;
+        s4Cd = 9.5;
+      } else if (s1Cd <= 0) {
+        const hit = calculateDamage({
+          attackerAtk: stats.atk,
+          attackElement: skill1El,
+          powerMultiplier: 1.0,
+          armorPierce: stats.armorPierceBonus,
+          defenderDef: boss.def,
+          defenderElement: boss.element,
+          rng: noCritRng,
+        });
+        boss.hp -= hit.damage;
+        s1Cd = 0.5;
+      }
+
+      for (const ally of allies) {
+        if (ally.hp <= 0) continue;
+        ally.cd = Math.max(0, ally.cd - 0.5);
+        if (ally.healCd !== undefined) {
+          ally.healCd = Math.max(0, ally.healCd - 0.5);
+          if (ally.healCd <= 0 && playerHp < stats.maxHp * 0.6) {
+            playerHp = Math.min(stats.maxHp, playerHp + 38);
+            ally.healCd = 6.0;
+            continue;
+          }
+        }
+        if (ally.cd <= 0 && boss.hp > 0) {
+          const hit = calculateDamage({
+            attackerAtk: ally.atk,
+            attackElement: ally.element,
+            defenderDef: boss.def,
+            defenderElement: boss.element,
+            rng: noCritRng,
+          });
+          boss.hp -= hit.damage;
+          ally.cd = ally.period;
+        }
+      }
+
+      if (boss.hp > 0 && bossCd <= 0) {
+        const targetReckless = allies[0].hp > 0 && Math.floor(t) % 2 === 0;
+        if (targetReckless) {
+          const hit = calculateDamage({
+            attackerAtk: boss.atk,
+            attackElement: boss.element,
+            defenderDef: allies[0].def,
+            defenderElement: allies[0].element,
+            rng: noCritRng,
+          });
+          allies[0].hp -= hit.damage;
+        } else {
+          const hit = calculateDamage({
+            attackerAtk: boss.atk,
+            attackElement: boss.element,
+            defenderDef: stats.def,
+            defenderElement: 'moc',
+            rng: noCritRng,
+          });
+          playerHp -= hit.damage;
+        }
+        bossCd = boss.hp < boss.maxHp * 0.5 ? 1.25 : 1.5;
+      }
+
+      if (playerHp > 0 && playerHp < stats.maxHp * 0.4 && potions > 0) {
+        playerHp = Math.min(stats.maxHp, playerHp + 65);
+        potions -= 1;
       }
     }
 

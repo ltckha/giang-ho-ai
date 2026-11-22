@@ -6,6 +6,21 @@ import {
   xpRequiredForLevel,
 } from '../core/combat';
 import {
+  craftEquipment,
+  generateEquipmentInstance,
+  getEquipmentSellPrice,
+  type CraftEquipmentResult,
+} from '../core/equipmentGen';
+import {
+  joinPlayerGuild,
+  leavePlayerGuild,
+  resolveWeeklySiege,
+  simulateGuildWorldHours,
+  type GuildId,
+  type PlayerSiegeSupport,
+  type SiegeResult,
+} from '../core/guildSystem';
+import {
   ITEMS,
   addInventoryItem,
   buyItem,
@@ -17,6 +32,12 @@ import {
 import { MAPS } from '../core/maps';
 import { advanceQuestProgress, completeQuest, startQuest } from '../core/quests';
 import {
+  advanceMainQuestProgress,
+  completeMainQuestStep,
+  unlockMainQuestGd2,
+  type MainStoryChoiceId,
+} from '../core/reputation';
+import {
   clearGameState,
   createNewSave,
   loadGameState,
@@ -26,12 +47,16 @@ import { SECTS } from '../core/skills';
 import type {
   AllyId,
   EffectiveStats,
+  EquipmentInstance,
+  EquipmentRarity,
+  EquipmentSlot,
   MapId,
   QuestId,
   SaveData,
   SectId,
   Vec2,
 } from '../core/types';
+import { decomposeWorldClock } from '../core/worldClock';
 
 export interface AllyHudStatus {
   id: AllyId;
@@ -147,7 +172,7 @@ class GameStateStore {
   public getEffectiveStats(): EffectiveStats {
     const d = this.getData();
     const scaled = computeScaledBaseStats(SECTS[d.sectId].baseStats, d.level);
-    return computeEffectiveStats(scaled, d.equipment, ITEMS);
+    return computeEffectiveStats(scaled, d.equipment, ITEMS, d.equippedInstances);
   }
 
   public getXpToNext(): number {
@@ -280,6 +305,17 @@ class GameStateStore {
 
   public equipBagItem(itemId: string): boolean {
     const d = this.getData();
+    const item = ITEMS[itemId];
+    if (!item || (item.kind !== 'weapon' && item.kind !== 'armor' && item.kind !== 'charm')) {
+      return false;
+    }
+    const slot: EquipmentSlot = item.kind;
+    const prevRolled = d.equippedInstances[slot];
+    if (prevRolled) {
+      d.rolledBag = [...d.rolledBag, prevRolled];
+      d.equippedInstances = { ...d.equippedInstances, [slot]: null };
+      d.equipment = { ...d.equipment, [slot]: null };
+    }
     const res = equipItem(d.inventory, d.equipment, itemId);
     if (!res.equipped) return false;
     d.inventory = res.inventory;
@@ -289,6 +325,90 @@ class GameStateStore {
     this.persist(true);
     this.notify();
     return true;
+  }
+
+  public addRolledEquipment(
+    baseItemId: string,
+    itemLevel?: number,
+    rarity?: EquipmentRarity,
+  ): EquipmentInstance {
+    const d = this.getData();
+    d.nextSeed = (d.nextSeed + 1013904223) >>> 0;
+    const inst = generateEquipmentInstance({
+      baseItemId,
+      itemLevel: itemLevel ?? Math.max(1, d.level),
+      rarity,
+      seed: d.nextSeed,
+    });
+    d.rolledBag = [...d.rolledBag, inst];
+    this.persist(false);
+    this.notify();
+    return inst;
+  }
+
+  public equipRolledItem(uid: string): boolean {
+    const d = this.getData();
+    const idx = d.rolledBag.findIndex((i) => i.uid === uid);
+    if (idx === -1) return false;
+    const target = d.rolledBag[idx];
+    const slot = target.slot;
+
+    const nextRolledBag = d.rolledBag.filter((i) => i.uid !== uid);
+    const prevRolled = d.equippedInstances[slot];
+    if (prevRolled) {
+      nextRolledBag.push(prevRolled);
+    } else if (d.equipment[slot]) {
+      d.inventory = addInventoryItem(d.inventory, d.equipment[slot]!, 1);
+    }
+
+    d.rolledBag = nextRolledBag;
+    d.equippedInstances = { ...d.equippedInstances, [slot]: target };
+    d.equipment = { ...d.equipment, [slot]: target.baseItemId };
+
+    const stats = this.getEffectiveStats();
+    d.hp = Math.min(d.hp, stats.maxHp);
+    this.persist(true);
+    this.notify();
+    return true;
+  }
+
+  public sellRolledItem(uid: string): { success: boolean; gained: number } {
+    const d = this.getData();
+    const item = d.rolledBag.find((i) => i.uid === uid);
+    if (!item) return { success: false, gained: 0 };
+    const price = getEquipmentSellPrice(item);
+    if (price <= 0) return { success: false, gained: 0 };
+    d.rolledBag = d.rolledBag.filter((i) => i.uid !== uid);
+    d.silver += price;
+    this.persist(true);
+    this.notify();
+    return { success: true, gained: price };
+  }
+
+  public craftRolledItems(uids: string[]): CraftEquipmentResult {
+    const d = this.getData();
+    const inputs = uids
+      .map((u) => d.rolledBag.find((i) => i.uid === u))
+      .filter((i): i is EquipmentInstance => Boolean(i));
+
+    d.nextSeed = (d.nextSeed + 1664525) >>> 0;
+    const res = craftEquipment({
+      inputs,
+      silver: d.silver,
+      spiritStones: d.spiritStones,
+      seed: d.nextSeed,
+    });
+    if (!res.success || !res.result) {
+      return res;
+    }
+
+    const consumedSet = new Set(res.consumedUids);
+    d.rolledBag = [...d.rolledBag.filter((i) => !consumedSet.has(i.uid)), res.result];
+    d.silver = res.silver;
+    d.spiritStones = res.spiritStones;
+    this.persist(true);
+    this.notify();
+    return res;
   }
 
   public useConsumable(itemId: string): { used: boolean; healAmount: number; healParty: boolean } {
@@ -345,6 +465,7 @@ class GameStateStore {
   public turnInQuest(questId: QuestId): {
     completed: boolean;
     itemId?: string;
+    rolledItem?: EquipmentInstance;
     silver: number;
     spiritStones: number;
     xp: number;
@@ -365,17 +486,100 @@ class GameStateStore {
     if (res.reward.itemId) {
       d.inventory = addInventoryItem(d.inventory, res.reward.itemId, 1);
     }
+    let rolledItem: EquipmentInstance | undefined;
+    if (res.reward.rolledRewardSlot && res.reward.rolledRewardRarity) {
+      const baseId =
+        res.reward.rolledRewardSlot === 'weapon'
+          ? 'wpn_mine_spear'
+          : res.reward.rolledRewardSlot === 'armor'
+            ? 'arm_bronze_mail'
+            : 'chm_hoa';
+      rolledItem = this.addRolledEquipment(baseId, Math.max(4, d.level), res.reward.rolledRewardRarity);
+    }
     const lvl = this.gainXp(res.reward.xp);
     this.persist(true);
     this.notify();
     return {
       completed: true,
       itemId: res.reward.itemId,
+      rolledItem,
       silver: res.reward.silver,
       spiritStones: res.reward.spiritStones,
       xp: res.reward.xp,
       levelsGained: lvl.levelsGained,
     };
+  }
+
+  // ============ BANG HỘI AI & THẾ GIỚI SỐNG (LÕI GĐ2) ============
+
+  public advanceWorldHours(
+    deltaHours: number,
+    playerSupport?: PlayerSiegeSupport | null,
+  ): SiegeResult[] {
+    const d = this.getData();
+    d.nextSeed = (d.nextSeed + 2246822519) >>> 0;
+    const sim = simulateGuildWorldHours(d.guildWorld, deltaHours, d.nextSeed, playerSupport);
+    d.guildWorld = sim.world;
+    this.persist(false);
+    this.notify();
+    return sim.siegeResults;
+  }
+
+  public joinGuild(guildId: GuildId): void {
+    const d = this.getData();
+    d.guildWorld = joinPlayerGuild(d.guildWorld, guildId);
+    this.persist(true);
+    this.notify();
+  }
+
+  public leaveGuild(): void {
+    const d = this.getData();
+    d.guildWorld = leavePlayerGuild(d.guildWorld);
+    this.persist(true);
+    this.notify();
+  }
+
+  public runWeeklySiegeNow(playerContribution = 0): SiegeResult {
+    const d = this.getData();
+    const clock = decomposeWorldClock(d.guildWorld.clockHours);
+    const targetWeek = Math.max(clock.week, d.guildWorld.lastSiegeWeek + 1);
+    const support: PlayerSiegeSupport | null =
+      d.guildWorld.playerGuildId && playerContribution > 0
+        ? { guildId: d.guildWorld.playerGuildId, contribution: playerContribution }
+        : null;
+    d.nextSeed = (d.nextSeed + 3266489917) >>> 0;
+    const res = resolveWeeklySiege(d.guildWorld, targetWeek, d.nextSeed, support);
+    d.guildWorld = res.world;
+    this.persist(true);
+    this.notify();
+    return res.result;
+  }
+
+  // ============ NHIỆM VỤ CHÍNH & THÁI ĐỘ 3 MÔN PHÁI (LÕI GĐ2) ============
+
+  public unlockMainStory(): void {
+    const d = this.getData();
+    d.mainQuestGd2 = unlockMainQuestGd2(d.mainQuestGd2);
+    this.persist(true);
+    this.notify();
+  }
+
+  public progressMainStory(delta = 1): void {
+    const d = this.getData();
+    d.mainQuestGd2 = advanceMainQuestProgress(d.mainQuestGd2, delta);
+    this.persist(true);
+    this.notify();
+  }
+
+  public advanceMainStoryStep(choiceId?: MainStoryChoiceId): boolean {
+    const d = this.getData();
+    const res = completeMainQuestStep(d.mainQuestGd2, d.sectReputation, choiceId);
+    if (!res.advanced) return false;
+    d.mainQuestGd2 = res.state;
+    d.sectReputation = res.reputation;
+    this.persist(true);
+    this.notify();
+    return true;
   }
 }
 

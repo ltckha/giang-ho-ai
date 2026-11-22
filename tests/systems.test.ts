@@ -209,4 +209,36 @@ describe('Túi đồ, tiệm mua bán, nhiệm vụ, bản đồ và tự lưu',
     // migrateSaveData từ chối dữ liệu sai phiên bản
     expect(migrateSaveData({ ...legacyV1Save, version: 99 })).toBeNull();
   });
+
+  it('GameStateStore hỗ trợ mặc/ghép trang bị ngẫu nhiên, gia nhập bang hội và chạy mô phỏng thế giới', async () => {
+    const { gameState } = await import('../src/game/gameState');
+    gameState.startNewGame('sect_open');
+    gameState.addCurrency(300, 5);
+
+    const w1 = gameState.addRolledEquipment('wpn_mine_spear', 4, 'common');
+    const w2 = gameState.addRolledEquipment('wpn_mine_spear', 4, 'common');
+    expect(gameState.getData().rolledBag.length).toBe(2);
+
+    const forged = gameState.craftRolledItems([w1.uid, w2.uid]);
+    expect(forged.success).toBe(true);
+    expect(forged.result?.rarity).toBe('fine');
+    expect(gameState.getData().rolledBag.length).toBe(1);
+
+    const baseAtkBefore = gameState.getEffectiveStats().atk;
+    expect(gameState.equipRolledItem(forged.result!.uid)).toBe(true);
+    expect(gameState.getData().equippedInstances.weapon?.uid).toBe(forged.result!.uid);
+    expect(gameState.getEffectiveStats().atk).toBeGreaterThan(baseAtkBefore);
+
+    // Gia nhập bang hệ Thủy (khắc bang thủ thành hệ Hỏa) và mô phỏng 48 giờ trong game
+    gameState.joinGuild('guild_opportunist');
+    expect(gameState.getData().guildWorld.playerGuildId).toBe('guild_opportunist');
+    gameState.advanceWorldHours(48);
+    expect(gameState.getData().guildWorld.clockHours).toBe(56);
+
+    // Chạy Công Thành với điểm đóng góp của người chơi
+    const siege = gameState.runWeeklySiegeNow(200);
+    expect(siege.playerHelpedGuildId).toBe('guild_opportunist');
+    expect(siege.winnerGuildId).toBe('guild_opportunist');
+    expect(gameState.getData().guildWorld.castleOwnerId).toBe('guild_opportunist');
+  });
 });
