@@ -38,3 +38,8 @@ Màn nào không đạt sẽ bị trả lại.
 - Test: sát thương ngũ hành + nâng cấp, đường đi / đợt quái (seed cố định), kinh tế linh thạch (tổng linh thạch màn 1 đủ thắng nhưng không thừa), trạng thái phá bùa / làm chậm.
 - e2e Playwright (điện thoại dọc): mở game → vào màn 1 → đặt quân bằng chạm → chạy hết các đợt bằng x2 → thắng; không lỗi console, không gọi mạng ngoài. Thêm 1 bot đơn giản tự đặt quân để kiểm màn thắng được.
 - Xong bản đầu ghi "THỦ THÀNH BẢN 1 XONG" dòng đầu docs/PROGRESS.md.
+
+## Cập nhật 22/11 — Màn 2–3 (làm sau khi xong bước làm đẹp Màn 1)
+- Món, quái, hành theo docs/CHU_DE_GIU_TIEM.md mục 3 (tiệm bánh, tiệm hoa, trùm Mùa Nồm đổi hành).
+- Thêm tương sinh (mục 4), bậc 4 tuyệt chiêu và nâng cấp giữa màn bằng sao (mục 5).
+- Số đợt: Màn 2 ~10, Màn 3 ~12 (mục 6). Mỗi màn có bảng mô phỏng như Màn 1 trong PROGRESS.md; Claude chấm vui từng màn.

@@ -1,6 +1,6 @@
 # Lời giao Antigravity: Đổi chủ đề "Gọn Tiệm, Sạch Phố" + làm đẹp
 
-**Chủ đề mới:** đọc docs/CHU_DE_GIU_TIEM.md trước. Đổi toàn bộ tên, hình, câu chuyện sang phố nhiều tiệm mùa mưa (Màn 1 = tiệm giày; Màn 2 tiệm bánh, Màn 3 tiệm hoa làm sau theo docs/ANTIGRAVITY_BRIEF_THU_THANH.md với món / quái ở mục 5), và thay vòng ngũ hành bằng bảng khắc chế đời thường trong đó (đây là thay đổi luật duy nhất được phép; chạy lại script mô phỏng và giữ mục tiêu độ khó). Bước 0: ghi tên nhánh nâng cấp và tên màn chính thức vào docs/NAMES.md, push, chờ "NAMES GỌN TIỆM: ĐỒNG Ý" trong docs/REVIEW_LOG.md.
+**Chủ đề mới:** đọc docs/CHU_DE_GIU_TIEM.md trước. Đổi toàn bộ tên, hình, câu chuyện sang phố nhiều tiệm mùa mưa (Màn 1 = tiệm giày; Màn 2 tiệm bánh, Màn 3 tiệm hoa làm sau theo docs/ANTIGRAVITY_BRIEF_THU_THANH.md với món / quái ở mục 5), giữ vòng ngũ hành nhưng gán lại hành cho món / quái theo mục 1–2 trong đó (chạy lại script mô phỏng, giữ mục tiêu độ khó). Tương sinh (mục 4), bậc 4 và nâng cấp giữa màn (mục 5) làm cùng Màn 2–3, không làm trong bước làm đẹp. Bước 0: ghi tên nhánh nâng cấp và tên màn chính thức vào docs/NAMES.md, push, chờ "NAMES GỌN TIỆM: ĐỒNG Ý" trong docs/REVIEW_LOG.md.
 
 **Chỉ bắt đầu khi docs/REVIEW_LOG.md có dòng "MÀN 1 VUI: ĐẠT".** Không đổi luật chơi, số liệu cân bằng, đường đi hay đợt quái khi làm đẹp; test cân bằng phải vẫn qua.
 
@@ -13,13 +13,13 @@ Luật cũ vẫn giữ: không lấy hình / giao diện / nét vẽ của game 
 4. Nếu Antigravity không tạo được ảnh: ghi rõ vào PROGRESS.md và chuyển sang làm Bước C bằng hình vẽ code, báo lại.
 
 ## Bước B — Vẽ đủ bộ (sau khi duyệt nét)
-- 5 món × 3 bậc (bậc 3 mỗi nhánh có khác biệt nhìn thấy được), 6 quái + gián con + trùm Mùa Nồm, nền 3 màn, kệ giày, ô đặt món, 5 biểu tượng loại quái, tiền xu, chiếc ví, đôi giày (mạng).
+- 5 món × 3 bậc (bậc 3 mỗi nhánh có khác biệt nhìn thấy được), 6 quái + gián con + trùm Mùa Nồm, nền 3 màn, kệ giày, ô đặt món, 5 biểu tượng hành (giọt nước, cục đất, chiếc lá, mũi kim, ngọn lửa), tiền xu, chiếc ví, đôi giày (mạng).
 - Ghép thành atlas (sprite sheet), nén PNG / WebP. **Tổng dung lượng bản build ≤ 5 MB.**
 - Có hoạt ảnh tối thiểu: quân 2–3 khung khi bắn, quái 2–4 khung khi đi.
 
 ## Bước C — Hiệu ứng (bằng code)
-- Đòn đánh mỗi món một kiểu: dép xoay vèo, bốt đạp có bụi, xịt phun sương trơn, túi văng gói hút ẩm, bàn chải lấp lánh bóng.
-- Quân giật / lóe khi bắn; quái nhún khi đi, chớp trắng khi trúng, khi chết: giọt mưa bắn tóe, bùn vỡ vụn, gián lật ngửa, chuột chạy biến, mốc tan thành bụi.
+- Đòn đánh mỗi món một kiểu: dép xoay vèo, bốt đạp có bụi, xịt phun sương, túi văng gói hút ẩm, máy sấy thổi hơi ấm; màu đòn theo hành (Thủy xanh dương, Thổ nâu vàng, Mộc xanh lá, Kim bạc, Hỏa đỏ cam).
+- Quân giật / lóe khi bắn; quái nhún khi đi, chớp trắng khi trúng, khi chết: giọt mưa bắn tóe, bùn vỡ vụn, gián lật ngửa, chuột chạy biến, mốc tan thành bụi, tia nắng tắt.
 - Mưa rơi ngoài cửa, đèn tiệm ấm, vũng nước lăn tăn.
 - Trúng khắc chế: chữ "Trúng tủ!" lớn, rung nhẹ. Thắng màn: pháo sáng, sao rơi lần lượt.
 - Có tuỳ chọn "Giảm hiệu ứng" cho máy yếu (và tự bật khi máy đặt giảm chuyển động).

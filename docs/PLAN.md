@@ -6,6 +6,7 @@ Soạn: Điều phối, 22/11/2026. Anh Kha nói "làm" 22/11. Phiên cloud Gian
 - Giữ bối cảnh, tên đã duyệt, câu chuyện AI. Lời giao: docs/ANTIGRAVITY_BRIEF_THU_THANH.md.
 - Bản đầu: 3 màn, 5 loại quân, 6 loại quái, 1 trùm. Claude tự chơi và chấm "vui" từng màn, không chỉ "chạy được".
 - Đổi chủ đề (anh Kha chốt 22/11): bỏ giang hồ khôi lỗi, thành "Gọn Tiệm, Sạch Phố" — đặt dép tông, bốt da, xịt chống thấm, túi xách, bàn chải chặn mưa, bùn, côn trùng, chuột, nấm mốc, trùm Mùa Nồm. Chi tiết và lý do từng cặp khắc chế: docs/CHU_DE_GIU_TIEM.md. Làm cùng lúc với bước làm đẹp.
+- Ngũ hành giữ tiệm (anh Kha chốt 22/11): giữ vòng ngũ hành, gán hành cho món / quái theo đời thường; thêm tương sinh (cặp ăn ý), bậc 4 tuyệt chiêu, nâng cấp giữa màn bằng sao; mỗi màn 8–12 đợt (6–10 phút), sau này có chế độ Vô tận. Chi tiết: docs/CHU_DE_GIU_TIEM.md.
 - Làm đẹp (anh Kha chốt 22/11): sau khi Màn 1 đạt vui; thử 3 hình mẫu bằng công cụ vẽ của Antigravity, anh duyệt nét rồi mới vẽ đủ bộ; thêm hiệu ứng và giao diện gỗ-đồng; bản build ≤ 5 MB. Lời giao: docs/ANTIGRAVITY_BRIEF_LAM_DEP.md.
 - Các mục Giai đoạn 1–3 bên dưới là kế hoạch nhập vai cũ, chỉ để tham khảo.
 

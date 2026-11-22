@@ -1,85 +1,100 @@
-# Chủ đề mới: Gọn Tiệm, Sạch Phố (anh Kha chốt 22/11/2026)
+# Chủ đề: Gọn Tiệm, Sạch Phố — "Ngũ hành giữ tiệm" (anh Kha chốt 22/11/2026)
 
-Thay bối cảnh giang hồ khôi lỗi bằng chủ đề đời thường: **một con phố nhiều tiệm nhỏ ở Đà Lạt mùa mưa**. Mỗi màn là một tiệm; "bọn phá đồ" thật ngoài đời của tiệm đó kéo vào; người chơi đặt đồ dùng trong tiệm ra chặn, giữ tiệm gọn, phố sạch. Bản đầu 3 tiệm: **giày (Màn 1), bánh (Màn 2), hoa (Màn 3, có trùm Mùa Nồm)**. Mục 1–2 dưới đây là tiệm giày; mục 5 là tiệm bánh và tiệm hoa. Luật chơi, đường đi, đợt quái, nâng cấp giữ nguyên; chỉ đổi tên, hình, câu chuyện và **bảng khắc chế** (thay ngũ hành bằng khắc chế đời thường, mỗi cặp đều có lý do thật).
+Game thủ thành trên **một con phố nhiều tiệm nhỏ ở Đà Lạt mùa mưa**. Mỗi màn là một tiệm; "bọn phá đồ" thật ngoài đời của tiệm đó kéo vào; người chơi đặt đồ dùng trong tiệm ra chặn. Khắc chế theo **ngũ hành**, mỗi cặp đều có lý do đời thật. Bản đầu 3 tiệm: **giày (Màn 1), bánh (Màn 2), hoa (Màn 3, trùm Mùa Nồm)**.
 
-Tên game: **Gọn Tiệm, Sạch Phố** (anh Kha đặt; viết gọn "Gọn Tiệm"; dùng chung thương hiệu Gọn / kênh @gon.simpli). Không dùng tên thương hiệu thật (kể cả tên tiệm của anh) khi anh chưa đồng ý. Không cho khách hàng hay "hàng nhái" làm quái.
+- Tên game: **Gọn Tiệm, Sạch Phố**, dòng phụ **"Ngũ hành giữ tiệm"**; chỗ chật viết "Gọn Tiệm". Dùng chung thương hiệu Gọn / kênh @gon.simpli.
+- Không dùng tên thương hiệu thật (kể cả tên tiệm của anh Kha) khi anh chưa đồng ý. Không cho khách hàng hay "hàng nhái" làm quái.
+- Phần chơi Màn 1 đã đạt (REVIEW_LOG "MÀN 1 VUI: ĐẠT") giữ nguyên; chỉ đổi tên, hình, gán lại hành cho món / quái, rồi thêm các lớp ở mục 4–5. Sau mỗi thay đổi chạy lại script mô phỏng, giữ mục tiêu độ khó.
 
-## 1. Năm món đặt (thay 5 loại quân)
+## 1. Ngũ hành theo đời thường
 
-| Món | Vai | Khắc (mạnh với) | Lý do | Kém với | Lý do |
-|---|---|---|---|---|---|
-| **Dép tông** | Ném nhanh, tầm xa, đánh 1 con | **Côn trùng** (gián, bướm đêm) | Cầm dép đập gián — ai cũng từng làm | **Bẩn** (bùn) | Dép ném vào bùn lún mất, không đau |
-| **Bốt da đế cứng** | Đạp mạnh, chậm, xuyên lớp vỏ | **Gặm** (chuột) | Đế cứng đạp chuột, chuột gặm không thủng | **Ẩm** (mưa) | Da gặp nước dễ thấm, bạc màu |
-| **Xịt chống thấm** | Phun cả vùng, làm trơn, làm chậm | **Ẩm** (giọt mưa, trùm mùa mưa) | Lớp chống thấm làm nước trôi tuột | **Côn trùng** | Xịt chống thấm không giết được côn trùng; bướm đêm bay qua lớp trơn |
-| **Túi xách** (đầy gói hút ẩm) | Quăng vào giữa đám, gói hút ẩm văng ra trúng cả bầy | **Mốc** | Túi mới luôn có gói hút ẩm; khô ráo thì mốc chết | **Gặm** | Chuột gặm rách túi |
-| **Bàn chải đánh giày** | Hỗ trợ: chải bóng các món bên cạnh cho bền, khỏe hơn; sửa món bị chuột gặm đang đứng im; tự chải quét nhẹ | **Bẩn** (bùn) | Bùn thì chải là sạch | **Mốc** | Chải mốc làm bào tử bay lan ra |
+| Hành | Bọn phá đồ thuộc hành này | Món thuộc hành này |
+|---|---|---|
+| **Thủy** | mưa, hơi ẩm, nồm, ốc sên (ưa ẩm) | xịt dưỡng, bình tưới, tủ mát |
+| **Thổ** | bùn, bụi đất, bụi bột | gói hút ẩm, vôi bột, hũ sành |
+| **Mộc** | côn trùng, rệp, nấm mốc (sinh sôi như cây cỏ) | quạt (gió thuộc Mộc), dép cao su |
+| **Kim** | chuột (răng sắc), sương muối (buốt như kim châm) | bốt đế đinh, kéo tỉa, vỉ đập ruồi lưới sắt |
+| **Hỏa** | nắng gắt (bạc màu, héo hoa), than hồng | máy sấy giày, lò nướng, đèn sưởi |
 
-- Mỗi món nâng 3 bậc, bậc 3 chọn 1 trong 2 nhánh (vd Dép tông → Dép tổ ong nặng hơn / Dép đôi ném 2 chiếc; Túi xách → Túi to gói hút ẩm nhiều hơn / Túi đeo chéo ném xa hơn). Antigravity đề xuất tên nhánh, Claude rà.
-- **Tiền:** đổi "linh thạch" thành **tiền** (xu và tiền giấy rơi ra khi diệt quái, bay vào **chiếc ví** ở góc màn hình). Ví là chỗ đựng tiền trên giao diện.
-- **Mạng:** số đôi giày còn lành trên kệ (vd 20 đôi). Quái lọt tới kệ làm hỏng giày.
+**Vòng khắc (giữ nguyên `src/core/elements.ts`):** Kim khắc Mộc → Mộc khắc Thổ → Thổ khắc Thủy → Thủy khắc Hỏa → Hỏa khắc Kim.
+- Kim khắc Mộc: bốt đế đinh đạp gián, kéo tỉa cắt cành có rệp, vỉ sắt đập ruồi.
+- Mộc khắc Thổ: dép cao su lội bùn không sợ, quạt thổi bay bụi.
+- Thổ khắc Thủy: gói hút ẩm, vôi bột hút nước; hũ sành đậy kín không cho ẩm vào ("nước tới đất ngăn").
+- Thủy khắc Hỏa: xịt dưỡng chống nắng làm da khô nứt; tưới nước chống héo; tủ mát dập than nóng.
+- Hỏa khắc Kim: hun nóng đuổi chuột; đèn sưởi chống sương muối.
+Trước mỗi đợt hiện biểu tượng hành của quái sắp tới (giọt nước, cục đất, chiếc lá, mũi kim, ngọn lửa) kèm hình con quái.
 
-## 2. Sáu loại quái + trùm (thay quái khôi lỗi)
+## 2. Tiệm giày (Màn 1)
 
-| Quái | Loại (để khắc chế) | Cách phá | Lý do đời thật |
+| Món | Hành | Vai | Khắc |
 |---|---|---|---|
-| **Giọt mưa** | Ẩm | Nhanh, đến thành đàn | Đà Lạt mưa, nước theo chân khách vào tiệm |
-| **Cục bùn** | Bẩn | Máu trâu, đi chậm, lọt vào trừ 2 đôi | Đường đất mùa mưa, bùn bám đế |
-| **Bướm đêm** | Côn trùng | Bay, không bị làm chậm | Bướm đêm bay vào kho, ấu trùng cắn vải lót, nỉ |
-| **Gián** | Côn trùng | Đập chết tách ra 2 gián con chạy nhanh | Gián ăn keo dán giày và da; đập gián hay văng trứng |
-| **Chuột** | Gặm | Gặm món đặt gần nó làm món đó đứng im vài giây | Chuột gặm quai dép, dây giày, túi |
-| **Nấm mốc** | Mốc | Lan ra hồi máu cho quái đi gần | Đà Lạt ẩm, mốc lan từ đôi này sang đôi khác |
-| **Trùm: Mùa Nồm** (đám mây đen ẩm) | Ẩm | Máu rất dày, đi chậm, định kỳ phủ hơi ẩm làm các món quanh nó đứng im và tạo lớp hơi nước giảm sát thương; lọt vào trừ 10 đôi | Mùa nồm ẩm là thứ tiệm giày, đồ da sợ nhất |
+| **Dép tông** (cao su) | Mộc | Ném nhanh, đánh 1 con | Thổ: bùn |
+| **Bốt đế đinh** | Kim | Đạp mạnh, chậm, xuyên vỏ | Mộc: gián, nấm mốc |
+| **Xịt dưỡng da** | Thủy | Phun cả vùng, làm chậm | Hỏa: nắng gắt |
+| **Túi xách đầy gói hút ẩm** | Thổ | Quăng vào giữa đám, trúng cả bầy | Thủy: giọt mưa |
+| **Máy sấy giày** | Hỏa | Hỗ trợ: sấy khô món bên cạnh cho khỏe hơn, gỡ món bị chuột gặm đứng im | Kim: chuột |
 
-## 3. Ba màn
-
-| Màn | Tên tạm | Cảnh | Quái chính |
+| Quái | Hành | Cách phá | Lý do đời thật |
 |---|---|---|---|
-| 1 | **Cửa Tiệm Ngày Mưa** | Từ vỉa hè vào cửa tiệm tới kệ giày | Giọt mưa, Cục bùn, Bướm đêm, Gián |
-| 2 | **Kho Hàng Sau Tiệm** | Kho chất hộp giày, 2 lối đi giữa các chồng hộp | + Chuột, Nấm mốc |
-| 3 | **Mùa Nồm** | Cả tiệm, quái vào từ cửa trước và cửa kho | Đủ 6 loại + trùm Mùa Nồm |
+| Giọt mưa | Thủy | Nhanh, đến thành đàn | Mưa theo chân khách vào tiệm |
+| Cục bùn | Thổ | Máu trâu, đi chậm, lọt vào trừ 2 đôi | Đường đất mùa mưa |
+| Gián | Mộc | Đập chết tách ra 2 gián con | Gián ăn keo và da giày |
+| Nấm mốc | Mộc | Hồi máu cho quái gần | Đà Lạt ẩm, mốc lan đôi này sang đôi khác |
+| Chuột | Kim | Gặm món gần nó làm món đứng im vài giây | Chuột gặm quai dép, dây giày |
+| Nắng gắt | Hỏa | Tia nắng: không bị làm chậm | Nắng xuyên kính làm da bạc màu |
 
-## 4. Bảng khắc chế cho code
-Thay vòng ngũ hành bằng bảng tra 5×5 (món × loại quái): khắc = ×1.35 (hoặc mức Claude đã đề nghị khi cân bằng), kém = ×0.75, còn lại ×1.0, đúng theo cột "Khắc" và "Kém" ở mục 1. Trước mỗi đợt hiện biểu tượng loại quái sắp tới (giọt nước, cục bùn, con bọ, răng chuột, đốm mốc). Chạy lại script mô phỏng để giữ các mục tiêu độ khó.
+- **Tiền:** xu và tiền giấy rơi ra khi diệt quái, bay vào **chiếc ví** ở góc màn hình. **Mạng:** số đôi giày còn lành trên kệ (20).
 
-## 5. Tiệm bánh (Màn 2) và tiệm hoa (Màn 3)
+## 3. Tiệm bánh (Màn 2) và tiệm hoa (Màn 3)
 
-Năm **loại quái dùng chung cho mọi tiệm**: Ẩm, Bẩn, Côn trùng, Gặm, Mốc — người chơi học một lần. Mỗi tiệm có 5 món riêng, đủ 5 vai (nhanh đơn, mạnh chậm, làm chậm, đánh lan, hỗ trợ), mỗi món khắc đúng 1 loại theo cách ngoài đời. Antigravity đề xuất cột "Kém với" kèm lý do thật cho 2 tiệm này, Claude rà.
-
-### Tiệm bánh — món
-| Món | Vai | Khắc | Lý do |
+### Tiệm bánh
+| Món | Hành | Vai | Khắc |
 |---|---|---|---|
-| **Khăn lau** | Ném nhanh, đánh 1 con | Bẩn | Bụi bột, vụn bánh lau là sạch |
-| **Bẫy chuột lò xo** | Sập mạnh, chậm | Gặm | Đúng việc của nó |
-| **Quạt điện** | Gió làm chậm cả vùng | Côn trùng | Tiệm bánh bật quạt đuổi ruồi, kiến |
-| **Lò nướng** | Hơi nóng tỏa cả vùng | Ẩm | Sấy khô, bánh hết ỉu |
-| **Tủ mát** | Hỗ trợ: món bên cạnh bền, khỏe hơn | Mốc | Giữ lạnh làm mốc chậm lan |
+| **Vỉ đập ruồi lưới sắt** | Kim | Đập nhanh, đánh 1 con | Mộc: ruồi, mốc bánh |
+| **Hũ sành kín** | Thổ | Sập nắp mạnh, chậm | Thủy: hơi ẩm |
+| **Quạt điện** | Mộc | Gió làm chậm cả vùng | Thổ: bụi bột |
+| **Lò nướng** | Hỏa | Hơi nóng tỏa cả vùng | Kim: chuột |
+| **Tủ mát** | Thủy | Hỗ trợ: giữ lạnh món bên cạnh cho bền, khỏe | Hỏa: than hồng |
 
-### Tiệm bánh — quái
-| Quái | Loại | Cách phá | Lý do |
-|---|---|---|---|
-| Hơi ẩm | Ẩm | Nhanh, đến thành đàn | Hơi mưa lọt vào làm bánh ỉu |
-| Đám bụi bột | Bẩn | Máu trâu, đi chậm | Bao bột rách, bụi bám khắp quầy |
-| Ruồi | Côn trùng | Bay, không bị làm chậm | Ruồi bu bánh |
-| Tổ kiến | Côn trùng | Phá tổ văng ra 2 nhóm kiến con | Kiến bu đường, phá tổ là kiến chạy tán loạn |
-| Chuột | Gặm | Gặm món gần nó làm món đứng im | Chuột cắn bao bột |
-| Mốc bánh | Mốc | Hồi máu cho quái gần | Mốc lan từ ổ bánh này sang ổ khác |
+| Quái | Hành | Cách phá |
+|---|---|---|
+| Hơi ẩm (làm bánh ỉu) | Thủy | Nhanh, thành đàn |
+| Bụi bột | Thổ | Máu trâu |
+| Ruồi | Mộc | Bay, không bị làm chậm |
+| Mốc bánh | Mộc | Hồi máu cho quái gần |
+| Chuột | Kim | Gặm món gần nó làm đứng im |
+| Than hồng văng từ lò | Hỏa | Vỡ ra 2 cục nhỏ khi bị dập |
 
-### Tiệm hoa — món
-| Món | Vai | Khắc | Lý do |
+### Tiệm hoa
+| Món | Hành | Vai | Khắc |
 |---|---|---|---|
-| **Bình tưới** | Tia nước nhanh, đánh 1 con | Bẩn | Rửa bụi đất bám lá |
-| **Kéo tỉa** | Cắt mạnh, chậm | Côn trùng | Tỉa bỏ cành có sâu |
-| **Vôi bột** | Rắc thành vệt làm chậm | Gặm (ốc sên) | Nhà vườn rắc vôi chặn ốc sên |
-| **Đèn sưởi** | Hơi ấm tỏa cả vùng | Ẩm (sương muối) | Đà Lạt sưởi ấm chống sương muối cho hoa |
-| **Quạt thông gió** | Hỗ trợ: thổi khô món bên cạnh, khỏe hơn | Mốc | Thông thoáng thì nấm thối rễ không lên |
+| **Bình tưới** | Thủy | Tia nước nhanh, đánh 1 con | Hỏa: nắng gắt |
+| **Kéo tỉa** | Kim | Cắt mạnh, chậm | Mộc: rệp, nấm thối rễ |
+| **Vôi bột** | Thổ | Rắc thành vệt làm chậm | Thủy: ốc sên |
+| **Đèn sưởi** | Hỏa | Hơi ấm tỏa cả vùng | Kim: sương muối |
+| **Quạt thông gió** | Mộc | Hỗ trợ: thổi khô món bên cạnh cho khỏe | Thổ: bụi đất |
 
-### Tiệm hoa — quái
-| Quái | Loại | Cách phá | Lý do |
-|---|---|---|---|
-| Rệp | Côn trùng | Nhanh, đến thành đàn | Rệp bám đọt non, sinh sôi nhanh |
-| Ốc sên | Gặm | Máu trâu, đi chậm | Ốc ăn lá về đêm |
-| Bướm sâu | Côn trùng | Bay, không bị làm chậm | Bướm đẻ trứng thành sâu |
-| Đám bụi đất | Bẩn | Vỡ ra 2 đám nhỏ | Gió cuốn đất bám cánh hoa |
-| Sương muối | Ẩm | Làm món gần nó đứng im (cóng) | Sương muối làm cháy lá, tê cóng |
-| Nấm thối rễ | Mốc | Hồi máu cho quái gần | Nấm lan theo đất ẩm |
-| **Trùm Mùa Nồm** | Ẩm | Như mục 2 | Cả phố đều sợ |
+| Quái | Hành | Cách phá |
+|---|---|---|
+| Rệp | Mộc | Nhanh, thành đàn |
+| Ốc sên | Thủy | Máu trâu, đi chậm |
+| Nắng gắt | Hỏa | Tia nắng: không bị làm chậm |
+| Bụi đất | Thổ | Vỡ ra 2 đám nhỏ |
+| Sương muối | Kim | Làm món gần nó đứng im (cóng) |
+| Nấm thối rễ | Mộc | Hồi máu cho quái gần |
+| **Trùm Mùa Nồm** (đám mây đen ẩm) | Thủy → đổi hành giữa trận | Máu rất dày, đi chậm; mỗi khi mất 1/3 máu đổi sang hành khác (Thủy → Mộc → Kim) và đổi màu, buộc người chơi đặt lại món; định kỳ phủ hơi ẩm làm món quanh nó đứng im; lọt vào trừ 10 mạng |
+
+## 4. Tương sinh — cặp ăn ý
+Vòng sinh: Kim sinh Thủy → Thủy sinh Mộc → Mộc sinh Hỏa → Hỏa sinh Thổ → Thổ sinh Kim. Hai món **đặt cạnh nhau** (trong tầm 1 ô) mà hành sinh nhau thì món được sinh mạnh lên (gợi ý +15% sức, không cộng dồn quá 1 lần), có đường sáng nối hai món cho người chơi thấy. Ví dụ có lý:
+- Quạt (Mộc) cạnh lò nướng (Hỏa): gió thổi lửa to hơn.
+- Máy sấy (Hỏa) cạnh túi gói hút ẩm (Thổ): sấy khô gói hút ẩm thì hút mạnh lại (đúng ngoài đời).
+- Tủ mát (Thủy) cạnh quạt (Mộc): gió mát thổi xa hơn.
+Antigravity đề xuất câu giải thích ngắn cho từng cặp, hiện khi chạm vào đường sáng.
+
+## 5. Nâng cấp sâu hơn
+- **Trong màn:** bậc 1 → 2 → 3 (chọn 1 trong 2 nhánh) như hiện tại, thêm **bậc 4 "tuyệt chiêu"** cho mỗi nhánh: nút bấm kích hoạt, có thời gian hồi (vd lò nướng "Bùng lửa" cả vùng; quạt "Lốc xoáy" thổi lùi cả đám; gói hút ẩm "Hút cạn" làm quái Thủy đứng im 2 giây). Bậc 4 đắt, chỉ mở từ Màn 2 trở đi.
+- **Giữa các màn (giữ lâu dài):** sao kiếm được đổi lấy điểm nâng **theo hành** (vd Hỏa +10% sức, Thổ rẻ hơn 5 xu, Thủy làm chậm lâu hơn). Đổi lại được miễn phí. Mục tiêu: người chơi muốn chơi lại lấy đủ sao. Cân bằng sao cho chơi Màn 2 không cần điểm nâng vẫn thắng được (khó hơn).
+
+## 6. Số đợt mỗi màn
+- **8–12 đợt, 6–10 phút một màn**; không quá 15 đợt. Màn 1: 9 đợt (giữ). Màn 2: ~10. Màn 3: ~12, đợt cuối trùm Mùa Nồm.
+- Muốn chơi dài thì thêm màn, không kéo dài màn. Sau bản đầu có thể thêm chế độ **"Vô tận"** (quái ra mãi, đo giữ được bao nhiêu đợt).
