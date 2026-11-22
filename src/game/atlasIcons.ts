@@ -54,21 +54,10 @@ export function getTowerTierKey(tier: 1 | 2 | 3, branch?: 'A' | 'B'): string {
 }
 
 /**
- * HÌNH TẠM Màn 2 (Claude thêm): món / quái tiệm bánh chưa có hình thì mượn hình Màn 1 cùng vai trò.
- * Antigravity xoá bảng này khi đã vẽ hình tiệm bánh vào atlas (docs/YEU_CAU.md).
+ * HÌNH TẠM Màn 3 (Claude thêm cho Tiệm Hoa chưa vẽ hình; toàn bộ Màn 2 bk_* đã có hình riêng trong atlas và đã xoá alias).
+ * Xoá nốt bảng này khi vẽ xong hình Màn 3 vào atlas (docs/YEU_CAU.md).
  */
 const PLACEHOLDER_FRAME_ALIAS: Record<string, string> = {
-  bk_swatter: 'wood_tower',
-  bk_jar: 'metal_tower',
-  bk_fan: 'water_tower',
-  bk_oven: 'fire_tower',
-  bk_fridge: 'earth_tower',
-  bk_humid: 'fast_metal',
-  bk_flour: 'tank_earth',
-  bk_fly: 'fly_wood',
-  bk_mold: 'healer_wood',
-  bk_ember: 'split_fire',
-  bk_ember_mini: 'split_fire_mini',
   fl_can: 'wood_tower',
   fl_shears: 'metal_tower',
   fl_lime: 'water_tower',

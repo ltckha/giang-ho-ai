@@ -3,7 +3,18 @@ import { ATLAS_KEY, STAGE1_MAP_KEY, STAGE2_MAP_KEY } from '../game/atlasIcons';
 import { SCENE_KEYS } from '../game/sceneKeys';
 import { generateGameTextures } from '../game/textures';
 
-const TOWER_IDS = ['wood_tower', 'metal_tower', 'water_tower', 'fire_tower', 'earth_tower'] as const;
+const TOWER_IDS = [
+  'wood_tower',
+  'metal_tower',
+  'water_tower',
+  'fire_tower',
+  'earth_tower',
+  'bk_swatter',
+  'bk_jar',
+  'bk_fan',
+  'bk_oven',
+  'bk_fridge',
+] as const;
 const TIER_KEYS = ['t1', 't2', 't3a', 't3b'] as const;
 const ENEMY_IDS = [
   'fast_metal',
@@ -14,6 +25,12 @@ const ENEMY_IDS = [
   'disrupt_water',
   'healer_wood',
   'boss_water',
+  'bk_humid',
+  'bk_flour',
+  'bk_fly',
+  'bk_mold',
+  'bk_ember',
+  'bk_ember_mini',
 ] as const;
 
 export class BootScene extends Phaser.Scene {
@@ -68,6 +85,12 @@ export class BootScene extends Phaser.Scene {
     for (const eid of ENEMY_IDS) {
       const key = `anim_walk_${eid}`;
       if (!this.anims.exists(key)) {
+        const isZippy =
+          eid === 'fast_metal' ||
+          eid === 'split_fire_mini' ||
+          eid === 'bk_humid' ||
+          eid === 'bk_fly' ||
+          eid === 'bk_ember_mini';
         this.anims.create({
           key,
           frames: [
@@ -76,7 +99,7 @@ export class BootScene extends Phaser.Scene {
             { key: ATLAS_KEY, frame: `enemy_${eid}_f2` },
             { key: ATLAS_KEY, frame: `enemy_${eid}_f3` },
           ],
-          frameRate: eid === 'fast_metal' || eid === 'split_fire_mini' ? 10 : 7,
+          frameRate: isZippy ? 10 : 7,
           repeat: -1,
         });
       }
