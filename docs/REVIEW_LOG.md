@@ -21,3 +21,26 @@ NAMES: ĐỒNG Ý
 1. Cân bằng ngũ hành giữa 3 phái lệch: Kim khắc Mộc, Hỏa khắc Kim, nhưng không phái nào khắc Hỏa, còn Mộc không khắc phái nào. Ngoài phần quái, nên cho Phổ Mộc Đường bù thêm (vd hồi máu mạnh hơn, hoặc ngọc ngũ hành đổi hệ chiêu) để phái Mộc không yếu nhất. Ghi cách cân bằng vào PROGRESS.md.
 2. Trùm Sơ Giác hệ Thủy khắc Hỏa Ấn Môn; chỉ Mộc Tĩnh (Thổ) khắc trùm. Chấp nhận được, nhưng test phải có trường hợp người chơi phái Hỏa vẫn hạ được trùm ở cấp đề xuất.
 3. Chỉ một phiên Antigravity được đẩy lên main. Nếu có phiên thứ hai đang chạy Giai đoạn 1, phiên đó dừng, hoặc làm trên nhánh riêng và không ghi đè docs/NAMES.md.
+
+---
+
+## 22/11/2026 — Rà lõi game (commit 719adbd)
+
+**Kết luận:** CHƯA CHƠI ĐƯỢC. Phần lõi (luật chơi) tốt, nhưng chưa có màn hình game. Antigravity làm tiếp, chưa phải sửa lại gì.
+
+**Đã chạy thử (máy phiên cloud):**
+- `npm ci`: được.
+- `npx vitest run`: 25/25 test qua (AI đồng đội 8, sát thương 7, ngũ hành 5, túi đồ/nhiệm vụ/lưu máy 5).
+- `npx tsc --noEmit`: không lỗi.
+- `npm run build`: HỎNG — index.html gọi `src/main.ts` nhưng file chưa có (chưa có Phaser scene nào). Chưa có docs/PROGRESS.md, CREDITS.md, ảnh chụp.
+
+**Tốt:**
+- Ngũ hành đúng vòng khắc (1.35x / 0.75x). Ghi chú cân bằng lần trước đã xử lý: ngọc ngũ hành đổi hệ chiêu 1, giúp phái Mộc / phái Hỏa đánh trùm Thủy.
+- Cây quyết định 3 khôi lỗi rõ ràng, có lý do cho từng hành động (dễ hiện chữ "đang lùi vì máu thấp" sau này).
+- Không gọi mạng, không khoá API, không theo dõi; lưu bằng localStorage.
+
+**Antigravity cần làm tiếp:**
+1. Thêm `src/main.ts` + các scene Phaser (thành, rừng, hang, giao diện, điều khiển chạm + bàn phím) để `npm run build` chạy được.
+2. Ghi docs/PROGRESS.md + ảnh chụp trong docs/screenshots/ khi có bản chơi được; thêm CREDITS.md khi có hình / âm thanh.
+3. Tiêu đề index.html đang là "Giang Hồ AI — Mộc Cơ Giang Hồ": anh Kha chưa chọn tên game, để "Giang Hồ AI" cho tới khi chốt.
+4. Cần thêm 1 test: người chơi phái Hỏa Ấn Môn (có ngọc đổi hệ) hạ được trùm Sơ Giác ở cấp đề xuất (ghi chú 2 lần trước).
