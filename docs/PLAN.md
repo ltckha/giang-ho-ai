@@ -1,7 +1,13 @@
 # Kế hoạch: game kiếm hiệp có nhân vật AI, chơi offline (N73)
 Soạn: Điều phối, 22/11/2026. Anh Kha nói "làm" 22/11. Phiên cloud Giang Hồ AI giao Antigravity cloud và rà kết quả.
 
-## Kết luận
+## Đổi hướng thủ thành (anh Kha chốt 22/11)
+- Bản nhập vai (Giai đoạn 1–2, commit 23c6b31) chơi thấy không thú vị → đổi sang game thủ thành: quái đi theo đường về Thành Lam Lư, người chơi đặt khôi lỗi phe mình chặn, tiền là linh thạch, ngũ hành khắc chế.
+- Giữ bối cảnh, tên đã duyệt, câu chuyện AI. Lời giao: docs/ANTIGRAVITY_BRIEF_THU_THANH.md.
+- Bản đầu: 3 màn, 5 loại quân, 6 loại quái, 1 trùm. Claude tự chơi và chấm "vui" từng màn, không chỉ "chạy được".
+- Các mục Giai đoạn 1–3 bên dưới là kế hoạch nhập vai cũ, chỉ để tham khảo.
+
+## Kết luận (kế hoạch nhập vai cũ)
 - Game kiếm hiệp hoàn toàn mới, không chép Võ Lâm Truyền Kỳ. 2D nhìn từ trên xuống, chơi trên trình duyệt (điện thoại + máy tính), không cần mạng, 0 đồng.
 - Đồng đội và đối thủ là nhân vật AI: tự đánh, tự nhặt đồ, theo tổ đội, có tính cách riêng.
 - 3 giai đoạn; Giai đoạn 1 nhỏ để chắc có bản chơi được.
