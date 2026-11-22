@@ -280,4 +280,148 @@ describe('Tính sát thương & lên cấp', () => {
     expect(boss.hp).toBeLessThanOrEqual(0);
     expect(playerHp).toBeGreaterThan(0);
   });
+
+  it('phái Hỏa Ấn Môn đeo Ngọc Thổ Thạch (ngọc đổi hệ Chiêu 1 sang Thổ) khắc chế và hạ được trùm Sơ Giác ở cấp đề xuất 4', () => {
+    // Hỏa Ấn Môn (gốc Hỏa, bị Thủy khắc 0.75x) mua/nhặt Ngọc Thổ Thạch (chm_tho) để đổi Chiêu 1 sang Thổ (khắc Thủy 1.35x)
+    const scaled = computeScaledBaseStats(SECTS.sect_ban.baseStats, 4);
+    const stats = computeEffectiveStats(
+      scaled,
+      { weapon: 'wpn_mine_spear', armor: 'arm_wood_weave', charm: 'chm_tho' },
+      ITEMS,
+    );
+
+    const skill1Element = resolveSkillElement(1, SECTS.sect_ban.element, stats.imbueElement);
+    expect(skill1Element).toBe('tho');
+
+    const fireHit = calculateDamage({
+      attackerAtk: stats.atk,
+      attackElement: 'hoa',
+      defenderDef: 14,
+      defenderElement: 'thuy',
+      rng: noCritRng,
+    });
+    const earthImbuedHit = calculateDamage({
+      attackerAtk: stats.atk,
+      attackElement: skill1Element,
+      defenderDef: 14,
+      defenderElement: 'thuy',
+      rng: noCritRng,
+    });
+    expect(fireHit.relation).toBe('countered');
+    expect(earthImbuedHit.relation).toBe('counter');
+    expect(earthImbuedHit.damage).toBeGreaterThan(fireHit.damage);
+
+    const boss = { hp: 560, maxHp: 560, atk: 29, def: 14, element: 'thuy' as const };
+    let playerHp = stats.maxHp;
+    const allies = [
+      { id: 'ally_reckless', hp: 130, maxHp: 130, atk: 19, def: 8, element: 'hoa' as const, cd: 0, period: 0.9 },
+      { id: 'ally_cautious', hp: 115, maxHp: 115, atk: 13, def: 12, element: 'tho' as const, cd: 0, period: 1.15, healCd: 0 },
+      { id: 'ally_greedy', hp: 105, maxHp: 105, atk: 16, def: 9, element: 'thuy' as const, cd: 0, period: 0.85 },
+    ];
+
+    let playerSkill1Cd = 0;
+    let playerSkill2Cd = 0;
+    let playerSkill4Cd = 0;
+    let potionsLeft = 2;
+    let bossAttackCd = 0;
+
+    for (let t = 0; t < 60 && boss.hp > 0 && playerHp > 0; t += 0.5) {
+      playerSkill1Cd = Math.max(0, playerSkill1Cd - 0.5);
+      playerSkill2Cd = Math.max(0, playerSkill2Cd - 0.5);
+      playerSkill4Cd = Math.max(0, playerSkill4Cd - 0.5);
+      bossAttackCd = Math.max(0, bossAttackCd - 0.5);
+
+      // Ưu tiên Chiêu 1 đã đổi hệ Thổ (1.35x vào trùm Thủy), xen kẽ Chiêu 4 và thiêu đốt Chiêu 2
+      if (playerSkill4Cd <= 0) {
+        const hit = calculateDamage({
+          attackerAtk: stats.atk,
+          attackElement: 'hoa',
+          powerMultiplier: 2.4,
+          defenderDef: boss.def,
+          defenderElement: boss.element,
+          rng: noCritRng,
+        });
+        boss.hp -= hit.damage;
+        playerSkill4Cd = 10.5;
+      } else if (playerSkill1Cd <= 0) {
+        const hit = calculateDamage({
+          attackerAtk: stats.atk,
+          attackElement: skill1Element,
+          powerMultiplier: 1.0,
+          defenderDef: boss.def,
+          defenderElement: boss.element,
+          rng: noCritRng,
+        });
+        boss.hp -= hit.damage;
+        playerSkill1Cd = 0.5;
+      } else if (playerSkill2Cd <= 0) {
+        const hit = calculateDamage({
+          attackerAtk: stats.atk,
+          attackElement: 'hoa',
+          powerMultiplier: 1.2,
+          defenderDef: boss.def,
+          defenderElement: boss.element,
+          rng: noCritRng,
+        });
+        boss.hp -= hit.damage + 22;
+        playerSkill2Cd = 4.5;
+      }
+
+      for (const ally of allies) {
+        if (ally.hp <= 0) continue;
+        ally.cd = Math.max(0, ally.cd - 0.5);
+        if (ally.healCd !== undefined) {
+          ally.healCd = Math.max(0, ally.healCd - 0.5);
+          if (ally.healCd <= 0 && playerHp < stats.maxHp * 0.6) {
+            playerHp = Math.min(stats.maxHp, playerHp + 38);
+            ally.healCd = 6.0;
+            continue;
+          }
+        }
+        if (ally.cd <= 0 && boss.hp > 0) {
+          const hit = calculateDamage({
+            attackerAtk: ally.atk,
+            attackElement: ally.element,
+            defenderDef: boss.def,
+            defenderElement: boss.element,
+            rng: noCritRng,
+          });
+          boss.hp -= hit.damage;
+          ally.cd = ally.period;
+        }
+      }
+
+      if (boss.hp > 0 && bossAttackCd <= 0) {
+        const targetReckless = allies[0].hp > 0 && Math.floor(t) % 2 === 0;
+        if (targetReckless) {
+          const hit = calculateDamage({
+            attackerAtk: boss.atk,
+            attackElement: boss.element,
+            defenderDef: allies[0].def,
+            defenderElement: allies[0].element,
+            rng: noCritRng,
+          });
+          allies[0].hp -= hit.damage;
+        } else {
+          const hit = calculateDamage({
+            attackerAtk: boss.atk,
+            attackElement: boss.element,
+            defenderDef: stats.def,
+            defenderElement: 'hoa',
+            rng: noCritRng,
+          });
+          playerHp -= hit.damage;
+        }
+        bossAttackCd = boss.hp < boss.maxHp * 0.5 ? 1.2 : 1.5;
+      }
+
+      if (playerHp > 0 && playerHp < stats.maxHp * 0.45 && potionsLeft > 0) {
+        playerHp = Math.min(stats.maxHp, playerHp + 65);
+        potionsLeft -= 1;
+      }
+    }
+
+    expect(boss.hp).toBeLessThanOrEqual(0);
+    expect(playerHp).toBeGreaterThan(0);
+  });
 });
