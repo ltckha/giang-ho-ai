@@ -304,3 +304,53 @@ Mỗi loại quân là một cỗ khôi lỗi do ba môn phái cùng thợ lò T
 | **Màn 2** | **Ngã Đôi Lũng Đại Mạch** | **1 cửa vào tách thành 2 ngả** (ngả bắc qua Hẻm Đứt Bùa, ngả nam qua Bãi Mỏ Tinh Lam) rồi hợp lại trước trạm gác. Quái chia ngả theo đợt. | 10 đợt | Xuất hiện thêm **Phá Ấn Khôi Lỗi** (khóa quân) và **Linh Tuyền Khôi Lỗi** (hồi máu bầy), buộc người chơi phối hợp **Thổ Trấn Khôi** và chia quân giữ cả 2 nhánh. |
 | **Màn 3** | **Trước Cổng Thành Lam Lư** | **2 cửa quái vào độc lập** (cửa đông từ Rừng Thạch Mạch, cửa bắc từ Động Tàn Cơ) cùng đổ về cổng chính Thành Lam Lư. | 12 đợt (Đợt cuối có Trùm **Sơ Giác**) | Áp lực 2 hướng đồng thời, đủ 6 loại quái phối hợp và trận quyết chiến chặn trùm **Sơ Giác — Khôi Lỗi Thức Tỉnh** ngay trước cổng thành. |
 
+---
+
+# Gọn Tiệm, Sạch Phố — Danh sách tên đề xuất (Chờ Claude rà)
+
+> Tài liệu bổ sung tên nhánh nâng cấp và tên màn cho chủ đề mới **"Gọn Tiệm, Sạch Phố — Ngũ hành giữ tiệm"** theo `docs/CHU_DE_GIU_TIEM.md` và `docs/ANTIGRAVITY_BRIEF_LAM_DEP.md` (Bước 0).
+> - Không dùng tên thương hiệu có thật ngoài đời (kể cả tên tiệm thật của anh Kha khi chưa đồng ý).
+> - Không lấy khách hàng hay "hàng nhái" làm quái — chỉ dùng tác nhân phá đồ đời thường (mưa, bùn, gián, nấm mốc, chuột, nắng gắt, hơi ẩm, bụi bột, ruồi, than hồng, rệp, ốc sên, sương muối, mùa nồm).
+> - Chờ `docs/REVIEW_LOG.md` có dòng `NAMES GỌN TIỆM: ĐỒNG Ý` trước khi gắn vào bản build.
+
+---
+
+## 19. Tên game, Tiền tệ & Mạng giữ tiệm
+
+- **Tên game chính:** **Gọn Tiệm, Sạch Phố**
+- **Dòng phụ:** **Ngũ hành giữ tiệm** *(chỗ hẹp trên thanh di động viết gọn: **Gọn Tiệm**)*
+- **Tiền đặt món:** **Tiền Xu / Tiền Lẻ** *(rơi ra khi dọn sạch quái, bay vào **Chiếc Ví** ở góc màn hình)*
+- **Mạng của tiệm (Màn 1):** **20 Đôi Giày Lành** trên **Kệ Giày Gỗ** cuối tiệm
+- **Chữ báo khắc hệ:** **"Trúng tủ!"** *(thay cho "Khắc!")*
+
+---
+
+## 20. Tiệm Giày (Màn 1) — 5 Món Giữ Tiệm (3 Bậc & 2 Nhánh Bậc 3) + 6 Quái
+
+| STT | Món (Bậc 1) | Hành | Vai trò & Khắc chế đời thật | Bậc 2 (Nâng cấp) | Bậc 3 — Nhánh A | Bậc 3 — Nhánh B |
+|---|---|---|---|---|---|---|
+| 1 | **Dép Tông** *(cao su)* | **Mộc** | **Ném nhanh, đánh 1 con tầm xa** — Khắc **Thổ** (*Cục Bùn*: dép cao su lội bùn không sợ, bắn bật bùn đất) | **Dép Tông Đế Dày** *(tăng tốc ném & tầm ném)* | **Dép Tông Kép** *(ném 2 chiếc liên hoàn siêu nhanh, văng xuyên thêm 1 mục tiêu sát sau)* | **Dép Tông Gai Bám** *(đế gai ma sát quét sạch lớp bùn vỏ cứng, làm mục tiêu mất giáp & rỉ máu)* |
+| 2 | **Bốt Đế Đinh** | **Kim** | **Đạp mạnh, chậm, xuyên vỏ** — Khắc **Mộc** (*Gián*, *Nấm Mốc*: đế đinh kim loại dẫm bẹp gián và cạo bật ổ mốc) | **Bốt Đinh Thép** *(tăng mạnh lực đạp & xuyên vỏ)* | **Bốt Chốt Chì** *(cú dẫm cực nặng gây choáng 0.6s cho quái máu dày)* | **Bốt Đinh Quét Dọc** *(đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi)* |
+| 3 | **Xịt Dưỡng Da** | **Thủy** | **Phun sương cả vùng, làm chậm** — Khắc **Hỏa** (*Nắng Gắt*: lớp sương dưỡng ẩm bảo vệ da giày khỏi khô nứt bạc màu) | **Bình Xịt Áp Lực** *(mở rộng làn sương & tăng độ làm chậm)* | **Xịt Bọt Tuyết Lạnh** *(mỗi phát xịt thứ 3 phủ bọt mát giữ chân quái đứng im 1.0s)* | **Xịt Vòi Xoáy** *(luồng phun xoáy rộng đẩy lùi nhẹ bầy quái đang tràn lên)* |
+| 4 | **Túi Xách Đầy Gói Hút Ẩm** | **Thổ** | **Quăng vào giữa đám, nổ hạt hút ẩm trúng cả bầy** — Khắc **Thủy** (*Giọt Mưa*: gói hút ẩm hút sạch nước mưa theo chân khách) | **Giỏ Hút Ẩm Cỡ Đại** *(tăng bán kính tung gói & sức sát thương lan)* | **Thảm Hạt Hút Khô** *(rải lớp hạt silica dưới sàn tiếp tục rút khô máu quái đi qua trong 3s)* | **Chùm Túi Nổ Liên Hoàn** *(túi văng bung nhiều gói nhỏ nổ lan diện rộng)* |
+| 5 | **Máy Sấy Giày** | **Hỏa** | **Hỗ trợ: sấy ấm món bên cạnh cho khỏe hơn, gỡ món bị chuột gặm đứng im** — Khắc **Kim** (*Chuột*: hơi nóng hun đuổi chuột chạy mất) | **Máy Sấy Hai Vòi** *(tăng % sức đánh, tốc đánh cho món quanh máy & xua chuột nhanh)* | **Máy Sấy Khử Khuẩn** *(tỏa vòng khí ấm bảo vệ món cạnh bên không bị chuột gặm đứng im & thưởng thêm +2 xu mỗi quái dọn được trong tầm)* | **Máy Sấy Gió Nhiệt Cao** *(cộng hưởng nhiệt độ tăng mạnh +40% sức đánh, +30% tốc độ và +16% tầm cho món đồng minh)* |
+
+### Quái Màn 1 (Tiệm Giày)
+1. **Giọt Mưa** (**Thủy**) — *Nhanh, đến thành đàn*: Nước mưa ngoài vỉa hè theo bước chân khách bắn lướt vào sàn tiệm.
+2. **Cục Bùn** (**Thổ**) — *Máu trâu, đi chậm, lọt vào làm bẩn 2 đôi giày*: Đất đỏ mùa mưa Đà Lạt vón cục dày, kháng mạnh các món không phải hành Mộc.
+3. **Gián** (**Mộc**) — *Đập chết tách ra 2 **Gián Con** chạy vọt lên*: Gián chui từ cống ẩm vào gầm kệ kiếm keo và da giày.
+4. **Nấm Mốc** (**Mộc**) — *Hồi máu cho quái ở gần*: Đám bào tử mốc trắng-xanh gặp trời ẩm lan từ góc này sang góc khác.
+5. **Chuột** (**Kim**) — *Gặm món gần nó làm món đứng im 2.5 giây*: Chuột phố mưa lẻn vào gặm dây giày, quai dép; **Máy Sấy Giày** (Hỏa) sấy nóng đuổi đi ngay.
+6. **Nắng Gắt** (**Hỏa**) — *Tia nắng chiếu xiên không bị làm chậm*: Vệt nắng gắt xuyên qua cửa kính sau cơn mưa làm bạc màu, khô cứng mũi giày da.
+
+---
+
+## 21. Ba màn chơi (Con phố nhỏ Đà Lạt mùa mưa)
+
+| Màn | Tên màn chính thức | Không gian & Tuyến đường | Số đợt | Điểm nhấn lối chơi |
+|---|---|---|---|---|
+| **Màn 1** | **Tiệm Giày Hẻm Dốc** *(hoặc **Màn 1: Tiệm Giày Ngày Mưa**)* | **1 lối đi uốn qua các dãy kệ gỗ** từ tấm thảm chùi chân ngoài cửa kính mưa hắt, vòng qua ghế thử giày về **Kệ Giày Gỗ** trong cùng. | 9 đợt | Giữ sạch 20 đôi giày lành trước **Giọt Mưa**, **Cục Bùn**, **Gián** (tách **Gián Con**) và **Nắng Gắt**; mỗi đợt trộn 2–4 hành. |
+| **Màn 2** | **Tiệm Bánh Đầu Phố** *(dự kiến cho bước làm Màn 2)* | **1 cửa vào tách thành 2 lối** quanh bàn nhào bột và tủ kính trưng bánh rồi hợp lại trước kệ bánh mới ra lò. | 10 đợt | Dùng **Vỉ Đập Ruồi Lưới Sắt (Kim)**, **Hũ Sành Kín (Thổ)**, **Quạt Điện (Mộc)**, **Lò Nướng (Hỏa)**, **Tủ Mát (Thủy)** chặn *Hơi Ẩm*, *Bụi Bột*, *Ruồi*, *Mốc Bánh*, *Chuột*, *Than Hồng*. |
+| **Màn 3** | **Tiệm Hoa Cuối Dốc** *(dự kiến cho bước làm Màn 3)* | **2 lối vào độc lập** (cửa chính và cửa hông nhà kính) cùng dẫn về giàn hoa trưng bày giữa tiệm. | 12 đợt (Đợt cuối có **Trùm Mùa Nồm**) | Dùng **Bình Tưới (Thủy)**, **Kéo Tỉa (Kim)**, **Vôi Bột (Thổ)**, **Đèn Sưởi (Hỏa)**, **Quạt Thông Gió (Mộc)** chống *Rệp*, *Ốc Sên*, *Nắng Gắt*, *Bụi Đất*, *Sương Muối*, *Nấm Thối Rễ* và **Trùm Mùa Nồm** đổi hành (Thủy → Mộc → Kim). |
+
+
