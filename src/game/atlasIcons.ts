@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 
 export const ATLAS_KEY = 'gon_tiem_atlas';
 export const STAGE1_MAP_KEY = 'map_man1_tiem_giay';
+export const STAGE2_MAP_KEY = 'map_man2_tiem_banh';
 
 const iconDataUrlCache = new Map<string, string>();
 

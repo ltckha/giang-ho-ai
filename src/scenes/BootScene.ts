@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { ATLAS_KEY, STAGE1_MAP_KEY } from '../game/atlasIcons';
+import { ATLAS_KEY, STAGE1_MAP_KEY, STAGE2_MAP_KEY } from '../game/atlasIcons';
 import { SCENE_KEYS } from '../game/sceneKeys';
 import { generateGameTextures } from '../game/textures';
 
@@ -26,7 +26,7 @@ export class BootScene extends Phaser.Scene {
     this.cameras.main.setBackgroundColor('#231811');
 
     this.add
-      .text(width / 2, height / 2, 'Đang mở cửa Tiệm Giày Hẻm Dốc...', {
+      .text(width / 2, height / 2, 'Đang mở cửa phố nhỏ Đà Lạt...', {
         fontSize: '18px',
         color: '#f5d796',
         fontFamily: "'Be Vietnam Pro', system-ui, -apple-system, sans-serif",
@@ -35,6 +35,7 @@ export class BootScene extends Phaser.Scene {
 
     this.load.atlas(ATLAS_KEY, './assets/gon_tiem_atlas.webp', './assets/gon_tiem_atlas.json');
     this.load.image(STAGE1_MAP_KEY, './assets/map_man1_tiem_giay.webp');
+    this.load.image(STAGE2_MAP_KEY, './assets/map_man2_tiem_banh.webp');
   }
 
   public create(): void {

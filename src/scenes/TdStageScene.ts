@@ -26,6 +26,7 @@ import {
   getTowerFrameName,
   getTowerTierKey,
   STAGE1_MAP_KEY,
+  STAGE2_MAP_KEY,
 } from '../game/atlasIcons';
 import { getInitialReduceMotion, saveReduceMotion } from '../game/preferences';
 import { SCENE_KEYS } from '../game/sceneKeys';
@@ -33,6 +34,7 @@ import { sound } from '../game/sound';
 
 const LOGICAL_WIDTH = 360;
 const LOGICAL_HEIGHT = 480;
+const STAGE2_LOGICAL_HEIGHT = 520;
 
 interface ProjectileVisual {
   kind: TowerId;
@@ -204,15 +206,15 @@ export class TdStageScene extends Phaser.Scene {
 
     this.mapImage = null;
     this.placeholderMap = null;
-    if (this.engine.stage.id !== 'stage_1') {
-      // Màn chưa có nền vẽ: vẽ tạm đường đi bằng khối (Antigravity thay bằng hình nền sau)
-      this.placeholderMap = this.add.graphics().setDepth(1);
-      this.layoutMapImage();
-    } else if (this.textures.exists(STAGE1_MAP_KEY)) {
+    const mapKey = this.engine.stage.id === 'stage_2' ? STAGE2_MAP_KEY : STAGE1_MAP_KEY;
+    if (this.textures.exists(mapKey)) {
       this.mapImage = this.add
-        .image(this.mapOffsetX, this.mapOffsetY, STAGE1_MAP_KEY)
+        .image(this.mapOffsetX, this.mapOffsetY, mapKey)
         .setOrigin(0, 0)
         .setDepth(1);
+      this.layoutMapImage();
+    } else {
+      this.placeholderMap = this.add.graphics().setDepth(1);
       this.layoutMapImage();
     }
 
@@ -245,28 +247,39 @@ export class TdStageScene extends Phaser.Scene {
     });
   }
 
+  private getLogicalHeight(): number {
+    return this.engine.stage.id === 'stage_2' ? STAGE2_LOGICAL_HEIGHT : LOGICAL_HEIGHT;
+  }
+
   private initRainDrops(): void {
     this.rainDrops = [];
+    const isStage2 = this.engine.stage.id === 'stage_2';
     for (let i = 0; i < 18; i += 1) {
       this.rainDrops.push({
-        lx: Math.random() * 112,
-        ly: Math.random() * 68,
+        lx: isStage2 ? 140 + Math.random() * 82 : Math.random() * 112,
+        ly: isStage2 ? Math.random() * 42 : Math.random() * 68,
         len: 7 + Math.random() * 6,
         speed: 75 + Math.random() * 45,
       });
     }
-    this.ripples = [
-      { lx: 22, ly: 34, life: 0.2, maxLife: 1.4, maxR: 11 },
-      { lx: 64, ly: 16, life: 0.9, maxLife: 1.5, maxR: 10 },
-    ];
+    this.ripples = isStage2
+      ? [
+          { lx: 162, ly: 19, life: 0.2, maxLife: 1.4, maxR: 10 },
+          { lx: 196, ly: 24, life: 0.85, maxLife: 1.5, maxR: 9 },
+        ]
+      : [
+          { lx: 22, ly: 34, life: 0.2, maxLife: 1.4, maxR: 11 },
+          { lx: 64, ly: 16, life: 0.9, maxLife: 1.5, maxR: 10 },
+        ];
   }
 
   private layoutMapImage(): void {
+    const logicalH = this.getLogicalHeight();
     if (this.placeholderMap) {
       const g = this.placeholderMap;
       g.clear();
       g.fillStyle(0x3a2a1c, 1);
-      g.fillRect(this.mapOffsetX, this.mapOffsetY, LOGICAL_WIDTH * this.mapScale, LOGICAL_HEIGHT * this.mapScale);
+      g.fillRect(this.mapOffsetX, this.mapOffsetY, LOGICAL_WIDTH * this.mapScale, logicalH * this.mapScale);
       for (const path of this.engine.stage.paths) {
         g.lineStyle(26 * this.mapScale, 0x8a6a48, 1);
         g.beginPath();
@@ -287,19 +300,20 @@ export class TdStageScene extends Phaser.Scene {
     }
     if (!this.mapImage) return;
     this.mapImage.setPosition(this.mapOffsetX, this.mapOffsetY);
-    this.mapImage.setDisplaySize(LOGICAL_WIDTH * this.mapScale, LOGICAL_HEIGHT * this.mapScale);
+    this.mapImage.setDisplaySize(LOGICAL_WIDTH * this.mapScale, logicalH * this.mapScale);
   }
 
   private computeViewportTransform(): void {
     const { width, height } = this.scale;
+    const logicalH = this.getLogicalHeight();
     const topHudH = 54;
     const bottomHudH = 68;
     const availW = Math.max(260, width - 8);
     const availH = Math.max(300, height - topHudH - bottomHudH);
 
-    this.mapScale = Math.min(availW / LOGICAL_WIDTH, availH / LOGICAL_HEIGHT);
+    this.mapScale = Math.min(availW / LOGICAL_WIDTH, availH / logicalH);
     this.mapOffsetX = Math.round((width - LOGICAL_WIDTH * this.mapScale) * 0.5);
-    this.mapOffsetY = Math.round(topHudH + (availH - LOGICAL_HEIGHT * this.mapScale) * 0.5);
+    this.mapOffsetY = Math.round(topHudH + (availH - logicalH * this.mapScale) * 0.5);
   }
 
   public toScreen(lx: number, ly: number): { x: number; y: number } {
@@ -881,7 +895,7 @@ export class TdStageScene extends Phaser.Scene {
 
   private spawnVictoryFirework(): void {
     const fx = this.mapOffsetX + (45 + Math.random() * (LOGICAL_WIDTH - 90)) * this.mapScale;
-    const fy = this.mapOffsetY + (60 + Math.random() * (LOGICAL_HEIGHT - 160)) * this.mapScale;
+    const fy = this.mapOffsetY + (60 + Math.random() * (this.getLogicalHeight() - 160)) * this.mapScale;
     const palette = [0xffe066, 0xff6b4a, 0x38bdf8, 0x59c173, 0xf472b6];
     const col = palette[Math.floor(Math.random() * palette.length)]!;
     for (let i = 0; i < 14; i += 1) {
@@ -1204,9 +1218,10 @@ export class TdStageScene extends Phaser.Scene {
     // Không khí tiệm ngày mưa Đà Lạt (mưa rơi ngoài cửa, vũng nước lăn tăn, đèn tiệm ấm)
     const wg = this.weatherGraphics;
     wg.clear();
+    const isStage2 = this.engine.stage.id === 'stage_2';
 
-    // Đèn vàng ấm trên kệ giày cuối tiệm (nhẹ nhàng, không gây rối mắt kể cả khi giảm hiệu ứng)
-    const lampPos = this.toScreen(314, 442);
+    // Đèn vàng ấm trên kệ giày / kệ bánh cuối tiệm (nhẹ nhàng, không gây rối mắt kể cả khi giảm hiệu ứng)
+    const lampPos = isStage2 ? this.toScreen(308, 456) : this.toScreen(314, 442);
     const glowPulse = this.reduceMotion ? 1 : 0.88 + Math.sin(this.animTimeSec * 2.2) * 0.12;
     wg.fillStyle(0xffe082, 0.11 * glowPulse);
     wg.fillCircle(lampPos.x, lampPos.y, 44 * this.mapScale);
@@ -1214,12 +1229,17 @@ export class TdStageScene extends Phaser.Scene {
     wg.fillCircle(lampPos.x, lampPos.y, 68 * this.mapScale);
 
     if (!this.reduceMotion) {
-      // Mưa rơi xiên ngoài vỉa hè góc trên trái
+      // Mưa rơi xiên ngoài vỉa hè (Màn 1: góc trên trái; Màn 2: cửa giữa trên)
       wg.lineStyle(1.4, 0xc8ebff, 0.58);
       for (const drop of this.rainDrops) {
         drop.lx -= drop.speed * 0.25 * dt;
         drop.ly += drop.speed * dt;
-        if (drop.ly > 64 || drop.lx < 0) {
+        if (isStage2) {
+          if (drop.ly > 42 || drop.lx < 138) {
+            drop.lx = 144 + Math.random() * 82;
+            drop.ly = -4;
+          }
+        } else if (drop.ly > 64 || drop.lx < 0) {
           drop.lx = 8 + Math.random() * 102;
           drop.ly = -4;
         }
@@ -1233,8 +1253,13 @@ export class TdStageScene extends Phaser.Scene {
         rp.life += dt;
         if (rp.life >= rp.maxLife) {
           rp.life = 0;
-          rp.lx = 16 + Math.random() * 58;
-          rp.ly = 12 + Math.random() * 38;
+          if (isStage2) {
+            rp.lx = 152 + Math.random() * 56;
+            rp.ly = 10 + Math.random() * 18;
+          } else {
+            rp.lx = 16 + Math.random() * 58;
+            rp.ly = 12 + Math.random() * 38;
+          }
         }
         const t = rp.life / rp.maxLife;
         const p = this.toScreen(rp.lx, rp.ly);
