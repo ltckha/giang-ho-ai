@@ -176,3 +176,11 @@ NAMES GỌN TIỆM: ĐỒNG Ý
 5. Ảnh gốc đang ~370–900 KB mỗi tấm: khi làm atlas nén lại, giữ tổng bản build ≤ 5 MB.
 
 NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs/art_samples/). Khi vẽ đủ bộ làm theo 5 góp ý ở mục trên.
+
+---
+
+## 22/11/2026 — Công cụ quay video (Claude, không phải code game)
+
+- Thêm `tools/record_gameplay.cjs`: mở bản build `dist/` với `?bot=1`, vào Màn 1, bật bot, quay dọc rồi xuất mp4 1080×1920 bằng ffmpeg. Chạy: `npm run build && node tools/record_gameplay.cjs 40 video_out` (thư mục `video_out/` đã cho vào .gitignore). Antigravity không cần sửa file này.
+- Đã quay thử 30 giây trên bản hiện tại: ra clip ~38 giây, ~2,8 MB, hình đầy khung.
+- **Việc nhỏ cho Antigravity khi làm đẹp (không chặn):** thêm tham số `?video=1` để bot vẫn chạy nhưng ẩn nút "Bot" và các nút gỡ lỗi khỏi khung hình, tự bật tốc độ x2. Công cụ quay sẽ dùng `?bot=1&video=1`.
