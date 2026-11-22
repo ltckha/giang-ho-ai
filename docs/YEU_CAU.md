@@ -103,4 +103,15 @@ Anh Kha thấy Màn 2 đẹp hơn Màn 1 nhiều. Lý do (Claude đọc scripts)
 
 Luật đã xong (`src/core/ultimates.ts`, `src/core/metaUpgrades.ts`), giao diện Claude làm tạm — Antigravity làm đẹp, **giữ các `data-testid`**:
 1. **Bậc 4 tuyệt chiêu** (từ Màn 2): trong bảng nâng cấp có nút `btn-unlock-ultimate` (150 xu) và `btn-use-ultimate`. Cần thêm: viền / hào quang cho món đã có bậc 4 (`tower.hasUltimate`); **nút tuyệt chiêu nổi ngay trên món** khi sẵn sàng (`engine.canActivateUltimate(padId)`), vòng đếm hồi chiêu (`ultimateCooldownRemaining`, 30s); hiệu ứng riêng cho sự kiện `ultimate` theo vai (bắn nhanh / đập cả vùng / giữ chân / nổ / hỗ trợ). Tên tuyệt chiêu: `ULTIMATE_NAMES`.
-2. **Nâng cấp ngũ hành bằng sao** ở màn hình đầu (ô `td-meta-box`, nút `meta-up-*` / `meta-down-*`): làm đẹp theo giao diện hộp giày, biểu tượng hành, chấm bậc.
+2. ~~Nâng cấp ngũ hành bằng sao~~ — đã bỏ, thay bằng **Trang bị chủ tiệm** (mục dưới).
+
+
+---
+
+## Claude → Antigravity: vẽ Trang bị chủ tiệm (10 món, kích hoạt ngũ hành)
+
+Luật xong ở `src/core/equipment.ts` (10 ô, đồ 5 hành, dòng chính / dòng ẩn, vòng tương sinh, rơi đồ, trần sức cộng). Giao diện tạm ở màn hình đầu (ô `td-gear-box`, nút `gear-slot-*`) và dòng "Nhận trang bị" ở bảng kết quả (`td-result-drops`). **Giữ data-testid, không đổi số.**
+1. **Hình chủ tiệm** (người Đà Lạt trẻ, thân thiện) đứng ở màn hình đầu, **mặc đúng đồ đang đeo** (ít nhất: mũ, kính, áo khoác, giày, túi, ô dù hiện trên người; ví, đồng hồ, điện thoại, dây nịt hiện ở ô bên cạnh).
+2. **50 biểu tượng đồ**: 10 loại (Mũ, Kính mắt, Áo khoác, Dây nịt da, Giày, Túi đeo chéo, Ví da, Đồng hồ, Điện thoại, Ô dù) × 5 hành; tên từng mẫu trong `GEAR_NAMES`. Màu theo hành. Viền theo hạng (Thường / Tốt / Quý).
+3. **Bảng trang bị**: 10 ô xếp thành **vòng tròn** quanh hình chủ tiệm, đường nối giữa các ô sáng lên khi ô sau được kích hoạt (●); đủ 10 thì hiệu ứng "Ngũ hành viên mãn".
+4. **Bảng kết quả khi thắng**: hiện thẻ đồ vừa rơi (hình + hạng + hành), có hiệu ứng mở rương.

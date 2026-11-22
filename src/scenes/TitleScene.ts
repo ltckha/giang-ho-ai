@@ -1,8 +1,8 @@
 import Phaser from 'phaser';
 import { ELEMENT_INFO } from '../core/elements';
-import { loadTdSave, saveMetaLevels } from '../core/saveSystem';
+import { equipGear, getEquipped, getGearBonus, loadTdSave } from '../core/saveSystem';
 import { ALL_ELEMENTS } from '../core/elements';
-import { availablePoints, lower, META_DAMAGE_PER_LEVEL, META_MAX_LEVEL, totalStars, tryRaise } from '../core/metaUpgrades';
+import { activatedSlots, GEAR_SLOTS, RARITY_LABEL, statText, type GearSlotId } from '../core/equipment';
 import { STAGE_1_DEFINITION, STAGES, TOWER_LIST } from '../core/tdDefinitions';
 import { getAtlasFrameDataUrl, getTowerFrameName, STAGE1_MAP_KEY } from '../game/atlasIcons';
 import { getInitialReduceMotion } from '../game/preferences';
@@ -208,15 +208,17 @@ export class TitleScene extends Phaser.Scene {
           </button>
         </div>
 
-        <div class="td-stage-tag-box" data-testid="td-meta-box">
+        <div class="td-stage-tag-box" data-testid="td-gear-box">
           <div class="td-stage-header">
             <div>
-              <div class="td-stage-kicker">NÂNG CẤP NGŨ HÀNH BẰNG SAO</div>
-              <div class="td-stage-name" id="td-meta-points">Còn ${availablePoints(save)} / ${totalStars(save)} sao</div>
+              <div class="td-stage-kicker">TRANG BỊ CHỦ TIỆM • KÍCH HOẠT NGŨ HÀNH</div>
+              <div class="td-stage-name" id="td-gear-head"></div>
             </div>
           </div>
-          <div class="td-stage-sub">Mỗi sao = 1 bậc. Mỗi bậc +${Math.round(META_DAMAGE_PER_LEVEL * 100)}% sức cho mọi món cùng hành, tối đa ${META_MAX_LEVEL} bậc. Đổi lại miễn phí.</div>
-          <div id="td-meta-rows"></div>
+          <div class="td-stage-sub">10 món nối thành vòng (Mũ → … → Ô dù → Mũ). Món ô trước sinh ra hành món ô sau thì món sau sáng dòng ẩn (●). Sáng đủ 10 = Ngũ hành viên mãn. Thắng màn rơi thêm đồ.</div>
+          <div id="td-gear-sum" class="td-stage-sub"></div>
+          <div id="td-gear-rows"></div>
+          <div id="td-gear-pick"></div>
         </div>
 
         <div class="td-element-guide">
@@ -228,42 +230,78 @@ export class TitleScene extends Phaser.Scene {
 
     container.appendChild(root);
 
-    // Nâng cấp theo hành bằng sao (Claude) — giao diện đơn giản, Antigravity làm đẹp sau
-    const renderMeta = () => {
+    // Trang bị chủ tiệm (Claude) — giao diện tạm, Antigravity làm đẹp sau
+    let pickSlot: GearSlotId | null = null;
+    const renderGear = (): void => {
       const cur = loadTdSave();
-      const rows = root.querySelector<HTMLDivElement>('#td-meta-rows');
-      const pts = root.querySelector<HTMLDivElement>('#td-meta-points');
-      if (pts) pts.textContent = `Còn ${availablePoints(cur)} / ${totalStars(cur)} sao`;
-      if (!rows) return;
-      rows.innerHTML = ALL_ELEMENTS.map((el) => {
-        const info = ELEMENT_INFO[el];
-        const lv = cur.metaLevels?.[el] ?? 0;
-        const dots = '●'.repeat(lv) + '○'.repeat(META_MAX_LEVEL - lv);
-        return `<div style="display:flex;align-items:center;gap:8px;margin-top:6px">
-          <span class="td-showcase-el" style="background:${info.colorHex};min-width:52px;text-align:center">${info.label}</span>
-          <span style="flex:1;letter-spacing:2px">${dots} <small>+${Math.round(lv * META_DAMAGE_PER_LEVEL * 100)}%</small></span>
-          <button class="td-ctrl-btn" data-meta-down="${el}" data-testid="meta-down-${el}" aria-label="Bớt 1 bậc ${info.label}">−</button>
-          <button class="td-ctrl-btn" data-meta-up="${el}" data-testid="meta-up-${el}" aria-label="Thêm 1 bậc ${info.label}">+</button>
-        </div>`;
-      }).join('');
-      rows.querySelectorAll<HTMLButtonElement>('[data-meta-up]').forEach((b) => {
+      const eq = getEquipped(cur);
+      const act = activatedSlots(eq);
+      const bonus = getGearBonus(cur);
+      const head = root.querySelector<HTMLDivElement>('#td-gear-head');
+      if (head) head.textContent = `Sáng ${act.size}/10${bonus.fullRing ? ' • NGŨ HÀNH VIÊN MÃN!' : ''} • Kho ${cur.gearInventory?.length ?? 0} món`;
+      const sum = root.querySelector<HTMLDivElement>('#td-gear-sum');
+      if (sum) {
+        const parts: string[] = [];
+        if (bonus.allDmg) parts.push(`+${Math.round(bonus.allDmg * 100)}% sức mọi món`);
+        for (const el of ALL_ELEMENTS) if (bonus.elementDmg[el]) parts.push(`${ELEMENT_INFO[el].label} +${Math.round(bonus.elementDmg[el]! * 100)}%`);
+        if (bonus.rangePct) parts.push(`+${Math.round(bonus.rangePct * 100)}% tầm`);
+        if (bonus.speedPct) parts.push(`+${Math.round(bonus.speedPct * 100)}% tốc độ`);
+        if (bonus.startCoins) parts.push(`+${bonus.startCoins} xu đầu màn`);
+        if (bonus.lives) parts.push(`+${bonus.lives} mạng`);
+        if (bonus.coinPct) parts.push(`+${Math.round(bonus.coinPct * 100)}% xu rơi`);
+        if (bonus.ultCdPct) parts.push(`tuyệt chiêu nhanh ${Math.round(bonus.ultCdPct * 100)}%`);
+        sum.textContent = parts.length ? `Đang có: ${parts.join(' • ')}` : 'Chưa mặc gì.';
+      }
+      const rows = root.querySelector<HTMLDivElement>('#td-gear-rows');
+      if (rows) {
+        const cells = GEAR_SLOTS.map((sl) => {
+          const it = eq[sl.id];
+          const info = it ? ELEMENT_INFO[it.element] : null;
+          const border = info ? `border-color:${info.colorHex}` : '';
+          const nameHtml = it && info ? `<span style="color:${info.colorHex}">${it.name}</span>` : '<span style="opacity:.6">— trống —</span>';
+          return `<button class="td-ctrl-btn" data-gear-slot="${sl.id}" data-testid="gear-slot-${sl.id}" style="text-align:left;padding:6px;min-height:48px;${border}"><small>${sl.label}${act.has(sl.id) ? ' ●' : ''}</small><br>${nameHtml}</button>`;
+        }).join('');
+        rows.innerHTML = `<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px">${cells}</div>`;
+        rows.querySelectorAll<HTMLButtonElement>('[data-gear-slot]').forEach((btn) => {
+          btn.onclick = () => {
+            pickSlot = pickSlot === btn.dataset.gearSlot ? null : (btn.dataset.gearSlot as GearSlotId);
+            sound.playUiClick();
+            renderGear();
+          };
+        });
+      }
+      const pick = root.querySelector<HTMLDivElement>('#td-gear-pick');
+      if (!pick) return;
+      if (!pickSlot) {
+        pick.innerHTML = '';
+        return;
+      }
+      const slotId = pickSlot;
+      const label = GEAR_SLOTS.find((x) => x.id === slotId)!.label;
+      const owned = (cur.gearInventory ?? []).filter((it) => it.slot === slotId);
+      const list = owned.length === 0
+        ? '<div class="td-stage-sub">Chưa có món nào loại này. Thắng màn để rơi đồ.</div>'
+        : owned.map((it) => {
+            const info = ELEMENT_INFO[it.element];
+            const on = eq[slotId]?.uid === it.uid;
+            return `<button class="td-ctrl-btn" data-gear-item="${it.uid}" style="display:block;width:100%;text-align:left;margin-top:4px;padding:6px;border-color:${info.colorHex}">${on ? '✔ ' : ''}<span style="color:${info.colorHex}">${it.name}</span> <small>(${RARITY_LABEL[it.rarity]}, ${info.label})</small><br><small>${statText(it.main)} • ẩn: ${it.hidden.map(statText).join(', ')}</small></button>`;
+          }).join('');
+      const offBtn = eq[slotId] ? `<button class="td-ctrl-btn" data-gear-off="1" style="margin-top:4px">Cởi ${label}</button>` : '';
+      pick.innerHTML = `<div style="margin-top:8px"><strong>Chọn ${label}:</strong></div>${list}${offBtn}`;
+      pick.querySelectorAll<HTMLButtonElement>('[data-gear-item]').forEach((b) => {
         b.onclick = () => {
-          const c = loadTdSave();
-          saveMetaLevels(tryRaise(c, b.dataset.metaUp as (typeof ALL_ELEMENTS)[number]));
+          equipGear(slotId, b.dataset.gearItem!);
           sound.playUiClick();
-          renderMeta();
+          renderGear();
         };
       });
-      rows.querySelectorAll<HTMLButtonElement>('[data-meta-down]').forEach((b) => {
-        b.onclick = () => {
-          const c = loadTdSave();
-          saveMetaLevels(lower(c.metaLevels ?? {}, b.dataset.metaDown as (typeof ALL_ELEMENTS)[number]));
-          sound.playUiClick();
-          renderMeta();
-        };
+      pick.querySelector<HTMLButtonElement>('[data-gear-off]')?.addEventListener('click', () => {
+        equipGear(slotId, null);
+        sound.playUiClick();
+        renderGear();
       });
     };
-    renderMeta();
+    renderGear();
     this.overlayEl = root;
 
     const startBtn = root.querySelector<HTMLButtonElement>('#btn-start-stage-1');

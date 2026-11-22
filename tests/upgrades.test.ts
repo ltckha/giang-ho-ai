@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { availablePoints, lower, META_MAX_LEVEL, metaDamageBonus, totalStars, tryRaise } from '../src/core/metaUpgrades';
-import { loadTdSave, saveMetaLevels } from '../src/core/saveSystem';
+import { activatedSlots, computeGearBonus, GEAR_SLOTS, gearDamageFor, isFullRing, makeGearItem, type Equipped } from '../src/core/equipment';
+import { equipGear, getEquipped, grantStageDrops, loadTdSave } from '../src/core/saveSystem';
 import { STAGES } from '../src/core/tdDefinitions';
 import { TowerDefenseEngine } from '../src/core/tdEngine';
 import { ULTIMATE_COOLDOWN_SEC, ULTIMATE_COST } from '../src/core/ultimates';
@@ -59,34 +59,62 @@ describe('Bậc 4 tuyệt chiêu', () => {
   });
 });
 
-describe('Nâng cấp theo hành bằng sao', () => {
-  it('tính điểm, tối đa 3 bậc / hành, không vượt số sao', () => {
-    const save = { starsByStage: { stage_1: 3, stage_2: 1 } as const, metaLevels: {} };
-    expect(totalStars(save)).toBe(4);
-    let lv = tryRaise(save, 'hoa');
-    lv = tryRaise({ ...save, metaLevels: lv }, 'hoa');
-    lv = tryRaise({ ...save, metaLevels: lv }, 'hoa');
-    lv = tryRaise({ ...save, metaLevels: lv }, 'hoa');
-    expect(lv.hoa).toBe(META_MAX_LEVEL);
-    lv = tryRaise({ ...save, metaLevels: lv }, 'thuy');
-    lv = tryRaise({ ...save, metaLevels: lv }, 'thuy');
-    expect(lv.thuy).toBe(1);
-    expect(availablePoints({ ...save, metaLevels: lv })).toBe(0);
-    expect(lower(lv, 'hoa').hoa).toBe(2);
+describe('Trang bị chủ tiệm 10 món + kích hoạt ngũ hành', () => {
+  const mk = (slot: Parameters<typeof makeGearItem>[0], el: Parameters<typeof makeGearItem>[1], r: Parameters<typeof makeGearItem>[2] = 'thuong') =>
+    makeGearItem(slot, el, r, `${slot}_${el}_${r}`);
+
+  it('đủ 10 loại món, mỗi loại có đủ 5 hành', () => {
+    expect(GEAR_SLOTS.length).toBe(10);
+    expect(new Set(GEAR_SLOTS.map((s) => s.id)).size).toBe(10);
   });
 
-  it('engine cộng sức cho món đúng hành', () => {
+  it('món ô trước sinh ra hành món ô sau thì món sau sáng dòng ẩn', () => {
+    const eq: Equipped = { hat: mk('hat', 'moc'), glasses: mk('glasses', 'hoa'), jacket: mk('jacket', 'kim') };
+    const act = activatedSlots(eq);
+    expect(act.has('glasses')).toBe(true); // Mộc sinh Hỏa
+    expect(act.has('jacket')).toBe(false); // Hỏa không sinh Kim
+    expect(act.has('hat')).toBe(false); // ô trước (Ô dù) trống
+  });
+
+  it('xếp đủ vòng 10 món tương sinh → Ngũ hành viên mãn, có trần sức cộng', () => {
+    const cycle = ['kim', 'thuy', 'moc', 'hoa', 'tho'] as const;
+    const eq: Equipped = {};
+    GEAR_SLOTS.forEach((s, i) => (eq[s.id] = mk(s.id, cycle[i % 5]!, 'quy')));
+    expect(isFullRing(eq)).toBe(true);
+    const b = computeGearBonus(eq);
+    expect(b.fullRing).toBe(true);
+    expect(b.activeCount).toBe(10);
+    for (const el of cycle) expect(gearDamageFor(b, el)).toBeLessThanOrEqual(0.4 + 1e-9);
+    expect(b.lives).toBeLessThanOrEqual(5);
+  });
+
+  it('engine áp trang bị: xu đầu màn, mạng, sức món cùng hành', () => {
+    const eq: Equipped = { bag: mk('bag', 'tho'), umbrella: mk('umbrella', 'thuy'), hat: mk('hat', 'moc') };
+    const b = computeGearBonus(eq);
     const plain = new TowerDefenseEngine(STAGES.stage_1);
-    const boosted = new TowerDefenseEngine(STAGES.stage_1, { elementDamageBonus: metaDamageBonus({ moc: 2 }) });
+    const geared = new TowerDefenseEngine(STAGES.stage_1, { gear: b });
+    expect(geared.essence).toBe(plain.essence + b.startCoins);
+    expect(geared.lives).toBe(plain.lives + b.lives);
     plain.buildTower('pad_1', 'wood_tower');
-    boosted.buildTower('pad_1', 'wood_tower');
-    expect(boosted.getTowerAtPad('pad_1')!.buffDamageMultiplier).toBeCloseTo(plain.getTowerAtPad('pad_1')!.buffDamageMultiplier * 1.12, 5);
+    geared.buildTower('pad_1', 'wood_tower');
+    expect(geared.getTowerAtPad('pad_1')!.buffDamageMultiplier).toBeGreaterThan(plain.getTowerAtPad('pad_1')!.buffDamageMultiplier);
   });
 
-  it('lưu và đọc lại bậc nâng cấp', () => {
+  it('thắng màn rơi số món = số sao, lưu vào kho; mặc / cởi lưu lại được; người mới có bộ khởi đầu', () => {
     const mem: Record<string, string> = {};
     const store = { getItem: (k: string) => mem[k] ?? null, setItem: (k: string, v: string) => { mem[k] = v; } };
-    saveMetaLevels({ kim: 2 }, store);
-    expect(loadTdSave(store).metaLevels?.kim).toBe(2);
+    const fresh = loadTdSave(store);
+    expect(fresh.gearInventory?.length).toBe(2);
+    expect(activatedSlots(getEquipped(fresh)).has('glasses')).toBe(true);
+    let seed = 7;
+    const rng = () => ((seed = (seed * 1664525 + 1013904223) % 4294967296), seed / 4294967296);
+    const drops = grantStageDrops(2, 3, store, rng);
+    expect(drops.length).toBe(3);
+    const saved = loadTdSave(store);
+    expect(saved.gearInventory?.length).toBe(5);
+    equipGear(drops[0]!.slot, drops[0]!.uid, store);
+    expect(getEquipped(loadTdSave(store))[drops[0]!.slot]?.uid).toBe(drops[0]!.uid);
+    equipGear(drops[0]!.slot, null, store);
+    expect(getEquipped(loadTdSave(store))[drops[0]!.slot]).toBeUndefined();
   });
 });

@@ -223,3 +223,12 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - **Nâng cấp ngũ hành bằng sao** (`src/core/metaUpgrades.ts`): mỗi sao = 1 bậc, mỗi bậc +6% sức cho món cùng hành, tối đa 3 bậc / hành, đổi lại miễn phí; lưu trong bản lưu (`metaLevels`).
 - Không làm thay đổi kết quả mô phỏng các màn khi không dùng (bot không dùng bậc 4 / sao). Đây là phần thưởng thêm cho người chơi.
 - `npm test` 33/33 (thêm tests/upgrades.test.ts), e2e 4/4, build được; thử ô nâng cấp ngũ hành trên điện thoại: lưu đúng, không lỗi.
+
+---
+
+## 22/11/2026 — Trang bị chủ tiệm 10 món + kích hoạt ngũ hành (Claude)
+
+- Thay "nâng cấp ngũ hành bằng sao" bằng **trang bị mặc trên người** (`src/core/equipment.ts`): Mũ, Kính mắt, Áo khoác, Dây nịt da, Giày, Túi đeo chéo, Ví da, Đồng hồ, Điện thoại, Ô dù; mỗi loại đủ 5 hành; hạng Thường / Tốt / Quý.
+- Mỗi món: dòng chính luôn có, dòng ẩn sáng khi **món ô trước sinh ra hành món ô sau** (vòng 10 ô). Đủ 10 → Ngũ hành viên mãn (+15% sức mọi món, tuyệt chiêu nhanh 30%). Trần: sức cộng tối đa 40% / món, tầm 20%, tốc 20%, +60 xu, +5 mạng, +20% xu rơi.
+- Thắng màn rơi số món = số sao; người mới có bộ khởi đầu (Mũ Len Mộc + Kính Râm Hỏa, kính sáng sẵn để thấy cách kích hoạt).
+- `npm test` 35/35, e2e 4/4, build được; thử bảng trang bị trên điện thoại: mặc / cởi / lưu đúng, không lỗi. Hình tạm; danh sách vẽ ở docs/YEU_CAU.md.

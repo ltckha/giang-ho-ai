@@ -10,6 +10,7 @@ import {
 export const SYNERGY_RANGE = 105;
 /** Tương sinh: món được sinh mạnh thêm 15% sức (không cộng dồn). */
 export const SYNERGY_DAMAGE_BONUS = 0.15;
+import { EMPTY_GEAR_BONUS, gearDamageFor, type GearBonus } from './equipment';
 import {
   ULTIMATE_COOLDOWN_SEC,
   ULTIMATE_COST,
@@ -20,7 +21,6 @@ import {
 } from './ultimates';
 import type {
   ActiveEnemy,
-  ElementType,
   ActiveTower,
   CombatEvent,
   EnemyId,
@@ -65,17 +65,17 @@ export class TowerDefenseEngine {
   public enemies: ActiveEnemy[] = [];
   public pendingSpawns: PendingSpawn[] = [];
   private uidCounter = 1;
-  /** Cộng sức theo hành từ nâng cấp bằng sao (metaUpgrades.ts) */
-  public readonly elementDamageBonus: Partial<Record<ElementType, number>>;
+  /** Tác dụng trang bị chủ tiệm đang mặc (equipment.ts) */
+  public readonly gear: GearBonus;
   /** Sự kiện phát sinh ngoài step() (vd tuyệt chiêu) — trả ra ở lần step() kế tiếp */
   private queuedEvents: CombatEvent[] = [];
 
-  constructor(stage: StageDefinition, options?: { elementDamageBonus?: Partial<Record<ElementType, number>> }) {
+  constructor(stage: StageDefinition, options?: { gear?: GearBonus }) {
     this.stage = stage;
-    this.elementDamageBonus = options?.elementDamageBonus ?? {};
-    this.essence = stage.startingEssence;
-    this.lives = stage.startingLives;
-    this.maxLives = stage.startingLives;
+    this.gear = options?.gear ?? EMPTY_GEAR_BONUS;
+    this.essence = stage.startingEssence + this.gear.startCoins;
+    this.lives = stage.startingLives + this.gear.lives;
+    this.maxLives = stage.startingLives + this.gear.lives;
   }
 
   private nextUid(prefix: string): string {
@@ -307,8 +307,10 @@ export class TowerDefenseEngine {
     // Bậc 4 (bị động +20%), nâng cấp theo hành bằng sao, và tăng tốc từ tuyệt chiêu hỗ trợ
     for (const tower of this.towers) {
       if (tower.hasUltimate) tower.buffDamageMultiplier *= 1 + ULTIMATE_PASSIVE_DAMAGE_BONUS;
-      const meta = this.elementDamageBonus[tower.element] ?? 0;
-      if (meta > 0) tower.buffDamageMultiplier *= 1 + meta;
+      const gearDmg = gearDamageFor(this.gear, tower.element);
+      if (gearDmg > 0) tower.buffDamageMultiplier *= 1 + gearDmg;
+      if (this.gear.rangePct > 0) tower.buffRangeMultiplier *= 1 + this.gear.rangePct;
+      if (this.gear.speedPct > 0) tower.buffSpeedMultiplier *= 1 + this.gear.speedPct;
       if ((tower.ultimateHasteRemaining ?? 0) > 0) {
         tower.buffSpeedMultiplier *= 1 + ULTIMATE_EFFECT.support_buff.speedBonus;
       }
@@ -354,7 +356,7 @@ export class TowerDefenseEngine {
     const range = stats.range * tower.buffRangeMultiplier;
     const inRange = this.enemies.filter((e) => e.hp > 0 && distance2D(tower, e) <= range);
     const events = this.queuedEvents;
-    tower.ultimateCooldownRemaining = ULTIMATE_COOLDOWN_SEC;
+    tower.ultimateCooldownRemaining = ULTIMATE_COOLDOWN_SEC * (1 - this.gear.ultCdPct);
     tower.disruptedRemaining = 0;
     events.push({
       type: 'ultimate',
@@ -966,7 +968,7 @@ export class TowerDefenseEngine {
     this.enemies.splice(idx, 1);
 
     const bonus = killerTower?.bonusKillEssence ?? 0;
-    const totalReward = enemy.reward + bonus;
+    const totalReward = Math.round(enemy.reward * (1 + this.gear.coinPct)) + bonus;
     this.essence += totalReward;
 
     events.push({

@@ -240,7 +240,9 @@ export interface TdSaveData {
   unlockedStage: 1 | 2 | 3;
   starsByStage: Partial<Record<'stage_1' | 'stage_2' | 'stage_3', 1 | 2 | 3>>;
   bestLivesByStage: Partial<Record<'stage_1' | 'stage_2' | 'stage_3', number>>;
-  /** Nâng cấp theo hành bằng sao (xem metaUpgrades.ts) */
-  metaLevels?: Partial<Record<ElementType, number>>;
+  /** Kho trang bị chủ tiệm (equipment.ts) */
+  gearInventory?: import('./equipment').GearItem[];
+  /** Món đang mặc theo ô: uid trong kho */
+  gearEquipped?: Partial<Record<import('./equipment').GearSlotId, string>>;
   updatedAt: number;
 }

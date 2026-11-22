@@ -1,3 +1,4 @@
+import { computeGearBonus, rollStageDrops, starterGear, type Equipped, type GearBonus, type GearItem, type GearSlotId } from './equipment';
 import type { TdSaveData } from './types';
 
 /**
@@ -11,6 +12,8 @@ export function createDefaultTdSave(): TdSaveData {
     unlockedStage: 1,
     starsByStage: {},
     bestLivesByStage: {},
+    gearInventory: starterGear(),
+    gearEquipped: { hat: 'starter_hat', glasses: 'starter_glasses' },
     updatedAt: Date.now(),
   };
 }
@@ -30,7 +33,8 @@ export function loadTdSave(storage?: Pick<Storage, 'getItem'>): TdSaveData {
         parsed.unlockedStage === 2 || parsed.unlockedStage === 3 ? parsed.unlockedStage : 1,
       starsByStage: parsed.starsByStage ?? {},
       bestLivesByStage: parsed.bestLivesByStage ?? {},
-      metaLevels: parsed.metaLevels ?? {},
+      gearInventory: Array.isArray(parsed.gearInventory) ? parsed.gearInventory : starterGear(),
+      gearEquipped: parsed.gearEquipped ?? (Array.isArray(parsed.gearInventory) ? {} : { hat: 'starter_hat', glasses: 'starter_glasses' }),
       updatedAt: typeof parsed.updatedAt === 'number' ? parsed.updatedAt : Date.now(),
     };
   } catch {
@@ -76,21 +80,59 @@ export function saveTdProgress(
   return current;
 }
 
-/** Lưu bậc nâng cấp theo hành (đổi lại miễn phí) */
-export function saveMetaLevels(
-  levels: Partial<Record<import('./types').ElementType, number>>,
-  storage?: Pick<Storage, 'getItem' | 'setItem'>,
-): TdSaveData {
-  const store = storage ?? (typeof window !== 'undefined' ? window.localStorage : undefined);
-  const current = loadTdSave(store);
-  current.metaLevels = levels;
-  current.updatedAt = Date.now();
-  if (store) {
-    try {
-      store.setItem(TD_SAVE_KEY, JSON.stringify(current));
-    } catch {
-      // Ignore quota errors
-    }
+function writeSave(store: Pick<Storage, 'setItem'> | undefined, data: TdSaveData): void {
+  if (!store) return;
+  try {
+    store.setItem(TD_SAVE_KEY, JSON.stringify(data));
+  } catch {
+    // Ignore quota errors
   }
-  return current;
+}
+
+function resolveStore(storage?: Pick<Storage, 'getItem' | 'setItem'>) {
+  return storage ?? (typeof window !== 'undefined' ? window.localStorage : undefined);
+}
+
+/** Đồ đang mặc (theo ô) từ bản lưu */
+export function getEquipped(save: TdSaveData): Equipped {
+  const inv = save.gearInventory ?? [];
+  const eq: Equipped = {};
+  for (const [slot, uid] of Object.entries(save.gearEquipped ?? {})) {
+    const item = inv.find((it) => it.uid === uid && it.slot === slot);
+    if (item) eq[slot as GearSlotId] = item;
+  }
+  return eq;
+}
+
+export function getGearBonus(save: TdSaveData): GearBonus {
+  return computeGearBonus(getEquipped(save));
+}
+
+/** Mặc (uid) hoặc cởi (null) món ở một ô */
+export function equipGear(slot: GearSlotId, uid: string | null, storage?: Pick<Storage, 'getItem' | 'setItem'>): TdSaveData {
+  const store = resolveStore(storage);
+  const cur = loadTdSave(store);
+  const eq = { ...(cur.gearEquipped ?? {}) };
+  if (uid === null) delete eq[slot];
+  else if ((cur.gearInventory ?? []).some((it) => it.uid === uid && it.slot === slot)) eq[slot] = uid;
+  cur.gearEquipped = eq;
+  cur.updatedAt = Date.now();
+  writeSave(store, cur);
+  return cur;
+}
+
+/** Thắng màn: rơi đồ theo số sao, cất vào kho. Trả về các món vừa rơi. */
+export function grantStageDrops(
+  stageNumber: number,
+  stars: 1 | 2 | 3,
+  storage?: Pick<Storage, 'getItem' | 'setItem'>,
+  rng: () => number = Math.random,
+): GearItem[] {
+  const store = resolveStore(storage);
+  const cur = loadTdSave(store);
+  const drops = rollStageDrops(stageNumber, stars, rng, `g${Date.now().toString(36)}${Math.floor(rng() * 1e6).toString(36)}`);
+  cur.gearInventory = [...(cur.gearInventory ?? []), ...drops];
+  cur.updatedAt = Date.now();
+  writeSave(store, cur);
+  return drops;
 }

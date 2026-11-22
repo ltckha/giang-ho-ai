@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { ELEMENT_INFO } from '../core/elements';
-import { loadTdSave, saveTdProgress } from '../core/saveSystem';
-import { metaDamageBonus } from '../core/metaUpgrades';
+import { getGearBonus, grantStageDrops, loadTdSave, saveTdProgress } from '../core/saveSystem';
+import { RARITY_LABEL, statText, type GearItem } from '../core/equipment';
 import { ULTIMATE_COST, ULTIMATE_MIN_STAGE, ULTIMATE_NAMES, ULTIMATE_ROLE_TEXT } from '../core/ultimates';
 import { runBotTurn } from '../core/tdBot';
 import {
@@ -155,6 +155,7 @@ export class TdStageScene extends Phaser.Scene {
   private synergyTooltipRoot: HTMLDivElement | null = null;
   private activeSynergyLinks = new Set<string>();
   private resultShown = false;
+  private lastDrops: GearItem[] = [];
   private lastUpcomingWaveNum = -999;
 
   private projectiles: ProjectileVisual[] = [];
@@ -185,8 +186,9 @@ export class TdStageScene extends Phaser.Scene {
       if (q === '2') stageId = 'stage_2';
       if (q === '3') stageId = 'stage_3';
     }
-    // Nâng cấp theo hành bằng sao (lưu trên máy)
-    this.engine = new TowerDefenseEngine(STAGES[stageId], { elementDamageBonus: metaDamageBonus(loadTdSave().metaLevels) });
+    // Trang bị chủ tiệm đang mặc (lưu trên máy)
+    this.engine = new TowerDefenseEngine(STAGES[stageId], { gear: getGearBonus(loadTdSave()) });
+    this.lastDrops = [];
     this.speedMultiplier = 1;
     this.paused = false;
     this.autoBotEnabled = false;
@@ -1001,6 +1003,8 @@ export class TdStageScene extends Phaser.Scene {
         const stars = calculateStarRating(this.engine.lives, this.engine.maxLives);
         if (stars !== 0) {
           saveTdProgress(this.engine.stage.id, stars, this.engine.lives);
+          // Rơi trang bị theo số sao (Claude)
+          this.lastDrops = grantStageDrops(this.engine.stage.stageNumber, stars);
         }
       }
     }
@@ -2223,6 +2227,9 @@ export class TdStageScene extends Phaser.Scene {
         <h2 class="td-result-title">${titleText}</h2>
         <div class="td-result-stars ${this.reduceMotion ? 'no-anim' : ''}" data-testid="td-result-stars">${starsHtml}</div>
         <p class="td-result-desc">${descText}</p>
+        ${isWin && this.lastDrops.length > 0 ? `<div class="td-result-desc" data-testid="td-result-drops"><strong>Nhận trang bị:</strong><br>${this.lastDrops
+          .map((g) => `${g.name} (${RARITY_LABEL[g.rarity]}, hệ ${ELEMENT_INFO[g.element].label}) — ${statText(g.main)}`)
+          .join('<br>')}</div>` : ''}
         <div class="td-result-actions">
           <button id="btn-retry-stage" data-testid="btn-retry-stage" class="td-btn-primary">Chơi Lại Màn ${stageNum}</button>
           <button id="btn-back-title" data-testid="btn-back-title" class="td-btn-secondary">Về Màn Chính</button>
