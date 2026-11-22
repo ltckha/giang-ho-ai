@@ -30,6 +30,7 @@ export function loadTdSave(storage?: Pick<Storage, 'getItem'>): TdSaveData {
         parsed.unlockedStage === 2 || parsed.unlockedStage === 3 ? parsed.unlockedStage : 1,
       starsByStage: parsed.starsByStage ?? {},
       bestLivesByStage: parsed.bestLivesByStage ?? {},
+      metaLevels: parsed.metaLevels ?? {},
       updatedAt: typeof parsed.updatedAt === 'number' ? parsed.updatedAt : Date.now(),
     };
   } catch {
@@ -72,5 +73,24 @@ export function saveTdProgress(
     }
   }
 
+  return current;
+}
+
+/** Lưu bậc nâng cấp theo hành (đổi lại miễn phí) */
+export function saveMetaLevels(
+  levels: Partial<Record<import('./types').ElementType, number>>,
+  storage?: Pick<Storage, 'getItem' | 'setItem'>,
+): TdSaveData {
+  const store = storage ?? (typeof window !== 'undefined' ? window.localStorage : undefined);
+  const current = loadTdSave(store);
+  current.metaLevels = levels;
+  current.updatedAt = Date.now();
+  if (store) {
+    try {
+      store.setItem(TD_SAVE_KEY, JSON.stringify(current));
+    } catch {
+      // Ignore quota errors
+    }
+  }
   return current;
 }

@@ -10,8 +10,17 @@ import {
 export const SYNERGY_RANGE = 105;
 /** Tương sinh: món được sinh mạnh thêm 15% sức (không cộng dồn). */
 export const SYNERGY_DAMAGE_BONUS = 0.15;
+import {
+  ULTIMATE_COOLDOWN_SEC,
+  ULTIMATE_COST,
+  ULTIMATE_EFFECT,
+  ULTIMATE_MIN_STAGE,
+  ULTIMATE_NAMES,
+  ULTIMATE_PASSIVE_DAMAGE_BONUS,
+} from './ultimates';
 import type {
   ActiveEnemy,
+  ElementType,
   ActiveTower,
   CombatEvent,
   EnemyId,
@@ -56,9 +65,14 @@ export class TowerDefenseEngine {
   public enemies: ActiveEnemy[] = [];
   public pendingSpawns: PendingSpawn[] = [];
   private uidCounter = 1;
+  /** Cộng sức theo hành từ nâng cấp bằng sao (metaUpgrades.ts) */
+  public readonly elementDamageBonus: Partial<Record<ElementType, number>>;
+  /** Sự kiện phát sinh ngoài step() (vd tuyệt chiêu) — trả ra ở lần step() kế tiếp */
+  private queuedEvents: CombatEvent[] = [];
 
-  constructor(stage: StageDefinition) {
+  constructor(stage: StageDefinition, options?: { elementDamageBonus?: Partial<Record<ElementType, number>> }) {
     this.stage = stage;
+    this.elementDamageBonus = options?.elementDamageBonus ?? {};
     this.essence = stage.startingEssence;
     this.lives = stage.startingLives;
     this.maxLives = stage.startingLives;
@@ -289,6 +303,121 @@ export class TowerDefenseEngine {
         }
       }
     }
+
+    // Bậc 4 (bị động +20%), nâng cấp theo hành bằng sao, và tăng tốc từ tuyệt chiêu hỗ trợ
+    for (const tower of this.towers) {
+      if (tower.hasUltimate) tower.buffDamageMultiplier *= 1 + ULTIMATE_PASSIVE_DAMAGE_BONUS;
+      const meta = this.elementDamageBonus[tower.element] ?? 0;
+      if (meta > 0) tower.buffDamageMultiplier *= 1 + meta;
+      if ((tower.ultimateHasteRemaining ?? 0) > 0) {
+        tower.buffSpeedMultiplier *= 1 + ULTIMATE_EFFECT.support_buff.speedBonus;
+      }
+    }
+  }
+
+  /** Bậc 4 mở từ Màn 2, cho món đã lên bậc 3 */
+  public canUnlockUltimate(padId: string): boolean {
+    const tower = this.getTowerAtPad(padId);
+    return (
+      this.status === 'playing' &&
+      this.stage.stageNumber >= ULTIMATE_MIN_STAGE &&
+      !!tower &&
+      tower.tier === 3 &&
+      !tower.hasUltimate &&
+      this.essence >= ULTIMATE_COST
+    );
+  }
+
+  public unlockUltimate(padId: string): boolean {
+    if (!this.canUnlockUltimate(padId)) return false;
+    const tower = this.getTowerAtPad(padId)!;
+    this.essence -= ULTIMATE_COST;
+    tower.totalInvested += ULTIMATE_COST;
+    tower.hasUltimate = true;
+    tower.ultimateCooldownRemaining = 0;
+    tower.ultimateActiveRemaining = 0;
+    this.recalculateSupportBuffs();
+    return true;
+  }
+
+  public canActivateUltimate(padId: string): boolean {
+    const tower = this.getTowerAtPad(padId);
+    return this.status === 'playing' && !!tower?.hasUltimate && (tower.ultimateCooldownRemaining ?? 0) <= 0;
+  }
+
+  /** Dùng tuyệt chiêu. Sự kiện đánh / hiệu ứng trả ra ở lần step() kế tiếp. */
+  public activateUltimate(padId: string): boolean {
+    if (!this.canActivateUltimate(padId)) return false;
+    const tower = this.getTowerAtPad(padId)!;
+    const def = ALL_TOWER_DEFINITIONS[tower.defId];
+    const stats = getTowerTierStats(tower.defId, tower.tier, tower.branch);
+    const range = stats.range * tower.buffRangeMultiplier;
+    const inRange = this.enemies.filter((e) => e.hp > 0 && distance2D(tower, e) <= range);
+    const events = this.queuedEvents;
+    tower.ultimateCooldownRemaining = ULTIMATE_COOLDOWN_SEC;
+    tower.disruptedRemaining = 0;
+    events.push({
+      type: 'ultimate',
+      x: tower.x,
+      y: tower.y,
+      element: tower.element,
+      towerUid: tower.uid,
+      towerDefId: tower.defId,
+      splashRadius: range,
+      text: ULTIMATE_NAMES[tower.defId],
+    });
+
+    const hitAll = (mult: number) => {
+      for (const enemy of inRange) {
+        if (enemy.hp <= 0) continue;
+        const { damage, isCounter, isCountered } = this.computeHitDamage(tower, stats.damage * mult, enemy);
+        enemy.hp -= damage;
+        enemy.hitFlashRemaining = 0.2;
+        events.push({ type: 'hit', x: enemy.x, y: enemy.y, element: tower.element, damage, isCounter, isCountered, enemyUid: enemy.uid, enemyDefId: enemy.defId, towerUid: tower.uid, towerDefId: tower.defId });
+        if (enemy.hp <= 0) this.handleEnemyDeath(enemy, tower, events);
+      }
+    };
+
+    switch (def.role) {
+      case 'single_far':
+        tower.ultimateActiveRemaining = ULTIMATE_EFFECT.single_far.durationSec;
+        tower.cooldownRemaining = 0;
+        break;
+      case 'heavy_slow':
+        hitAll(ULTIMATE_EFFECT.heavy_slow.damageMultiplier);
+        for (const e of inRange) {
+          if (e.hp > 0) e.stunRemaining = Math.max(e.stunRemaining, e.trait === 'boss' ? ULTIMATE_EFFECT.heavy_slow.bossStunSec : ULTIMATE_EFFECT.heavy_slow.stunSec);
+        }
+        break;
+      case 'slow_aura':
+        for (const e of inRange) {
+          e.stunRemaining = Math.max(e.stunRemaining, e.trait === 'boss' ? ULTIMATE_EFFECT.slow_aura.bossStunSec : ULTIMATE_EFFECT.slow_aura.stunSec);
+        }
+        break;
+      case 'aoe_splash':
+        hitAll(ULTIMATE_EFFECT.aoe_splash.damageMultiplier);
+        for (const e of inRange) {
+          if (e.hp > 0) {
+            e.burnDps = Math.max(e.burnDps, stats.burnDps ?? stats.damage * 0.3);
+            e.burnRemaining = Math.max(e.burnRemaining, ULTIMATE_EFFECT.aoe_splash.burnSec);
+          }
+        }
+        break;
+      case 'support_buff':
+        tower.ultimateActiveRemaining = ULTIMATE_EFFECT.support_buff.durationSec;
+        for (const t of this.towers) {
+          if (distance2D(tower, t) <= range) {
+            t.ultimateHasteRemaining = ULTIMATE_EFFECT.support_buff.durationSec;
+            if (t.disruptedRemaining > 0) {
+              t.disruptedRemaining = 0;
+              events.push({ type: 'cleanse', x: t.x, y: t.y, towerUid: t.uid, towerDefId: t.defId });
+            }
+          }
+        }
+        this.recalculateSupportBuffs();
+        break;
+    }
+    return true;
   }
 
   public spawnEnemy(
@@ -336,8 +465,25 @@ export class TowerDefenseEngine {
   }
 
   public step(dtSec: number): CombatEvent[] {
-    const events: CombatEvent[] = [];
+    const events: CombatEvent[] = this.queuedEvents;
+    this.queuedEvents = [];
     if (this.status !== 'playing' || dtSec <= 0) return events;
+
+    // Đồng hồ tuyệt chiêu (bậc 4)
+    let hasteEnded = false;
+    for (const tower of this.towers) {
+      if ((tower.ultimateCooldownRemaining ?? 0) > 0) {
+        tower.ultimateCooldownRemaining = Math.max(0, tower.ultimateCooldownRemaining! - dtSec);
+      }
+      if ((tower.ultimateActiveRemaining ?? 0) > 0) {
+        tower.ultimateActiveRemaining = Math.max(0, tower.ultimateActiveRemaining! - dtSec);
+      }
+      if ((tower.ultimateHasteRemaining ?? 0) > 0) {
+        tower.ultimateHasteRemaining = Math.max(0, tower.ultimateHasteRemaining! - dtSec);
+        if (tower.ultimateHasteRemaining === 0) hasteEnded = true;
+      }
+    }
+    if (hasteEnded) this.recalculateSupportBuffs();
 
     // Nếu đang đếm ngược giữa hai đợt thì giảm đồng hồ
     if (!this.waveInProgress && this.currentWaveIndex >= 0 && this.nextWaveCountdownSec > 0) {
@@ -544,7 +690,11 @@ export class TowerDefenseEngine {
       if (tower.disruptedRemaining > 0) continue;
 
       const stats = getTowerTierStats(tower.defId, tower.tier, tower.branch);
-      const effectiveCooldown = stats.cooldownSec / tower.buffSpeedMultiplier;
+      const ultRapid =
+        (tower.ultimateActiveRemaining ?? 0) > 0 && ALL_TOWER_DEFINITIONS[tower.defId].role === 'single_far'
+          ? ULTIMATE_EFFECT.single_far.speedMultiplier
+          : 1;
+      const effectiveCooldown = stats.cooldownSec / (tower.buffSpeedMultiplier * ultRapid);
       tower.cooldownRemaining -= dtSec;
 
       if (tower.cooldownRemaining > 0) continue;

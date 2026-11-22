@@ -162,6 +162,14 @@ export interface ActiveTower {
   bonusKillEssence: number;
   /** uid món đang tương sinh cho món này (để vẽ đường sáng), nếu có */
   synergyFromUid?: string;
+  /** Bậc 4: đã có tuyệt chiêu */
+  hasUltimate?: boolean;
+  /** Bậc 4: còn bao nhiêu giây mới dùng lại được */
+  ultimateCooldownRemaining?: number;
+  /** Bậc 4: hiệu ứng kéo dài (bắn nhanh / hỗ trợ) còn bao nhiêu giây */
+  ultimateActiveRemaining?: number;
+  /** Đang được món hỗ trợ dùng tuyệt chiêu tăng tốc: còn bao nhiêu giây */
+  ultimateHasteRemaining?: number;
 }
 
 export interface ActiveEnemy {
@@ -205,6 +213,7 @@ export interface CombatEvent {
     | 'heal'
     | 'shield'
     | 'element_shift'
+    | 'ultimate'
     | 'wave_start'
     | 'wave_clear'
     | 'stage_win'
@@ -231,5 +240,7 @@ export interface TdSaveData {
   unlockedStage: 1 | 2 | 3;
   starsByStage: Partial<Record<'stage_1' | 'stage_2' | 'stage_3', 1 | 2 | 3>>;
   bestLivesByStage: Partial<Record<'stage_1' | 'stage_2' | 'stage_3', number>>;
+  /** Nâng cấp theo hành bằng sao (xem metaUpgrades.ts) */
+  metaLevels?: Partial<Record<ElementType, number>>;
   updatedAt: number;
 }

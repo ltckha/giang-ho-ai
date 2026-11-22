@@ -214,3 +214,12 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - `npm test` 27/27, e2e 4/4 (thêm khoá màn, đường sáng tương sinh, thắng 10 đợt), build 2,4 MB (≤ 5 MB).
 - Chơi thử điện thoại dọc Màn 2 và Màn 3: không lỗi console, không gọi mạng ngoài. Nền tiệm bánh khớp 2 ngả và 10 ô, món / quái đúng tên, đường sáng tương sinh hiện rõ.
 - Ghi chú: bot Màn 2 mất 3 mạng ở đợt 1–2 rồi giữ ổn (kết thúc 15/20). Nếu anh Kha thấy đầu màn gắt, Claude tăng xu khởi đầu (170 → 185).
+
+---
+
+## 22/11/2026 — Nâng cấp sâu (Claude)
+
+- **Bậc 4 tuyệt chiêu** (`src/core/ultimates.ts`): mở từ Màn 2 cho món đã lên bậc 3, giá 150 xu; bị động +20% sức; chủ động hồi chiêu 30s, hiệu ứng theo vai (nhanh: bắn ×2,5 trong 5s; mạnh: đập cả tầm ×3 + choáng; làm chậm: giữ chân cả con bay 2s; lan: nổ cả tầm ×2,5 + đốt; hỗ trợ: món quanh nó +60% tốc độ 6s, gỡ đứng im). Mỗi món có tên tuyệt chiêu riêng.
+- **Nâng cấp ngũ hành bằng sao** (`src/core/metaUpgrades.ts`): mỗi sao = 1 bậc, mỗi bậc +6% sức cho món cùng hành, tối đa 3 bậc / hành, đổi lại miễn phí; lưu trong bản lưu (`metaLevels`).
+- Không làm thay đổi kết quả mô phỏng các màn khi không dùng (bot không dùng bậc 4 / sao). Đây là phần thưởng thêm cho người chơi.
+- `npm test` 33/33 (thêm tests/upgrades.test.ts), e2e 4/4, build được; thử ô nâng cấp ngũ hành trên điện thoại: lưu đúng, không lỗi.

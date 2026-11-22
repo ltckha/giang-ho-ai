@@ -96,3 +96,11 @@ Anh Kha thấy Màn 2 đẹp hơn Màn 1 nhiều. Lý do (Claude đọc scripts)
 **Biểu tượng:** 5 hành (`el_*`), xu, ví, đôi giày (mạng) — vẽ lại cùng nét, không dùng khối PIL.
 
 **Nộp:** ảnh trước / sau cùng cảnh trong `docs/screenshots/man1v2_*.png`; dist ≤ 5 MB; `npm test`, e2e qua. Xong ghi "MÀN 1 VẼ LẠI XONG" đầu docs/PROGRESS.md.
+
+---
+
+## Claude → Antigravity: làm đẹp phần nâng cấp mới (sau Màn 3 và Màn 1)
+
+Luật đã xong (`src/core/ultimates.ts`, `src/core/metaUpgrades.ts`), giao diện Claude làm tạm — Antigravity làm đẹp, **giữ các `data-testid`**:
+1. **Bậc 4 tuyệt chiêu** (từ Màn 2): trong bảng nâng cấp có nút `btn-unlock-ultimate` (150 xu) và `btn-use-ultimate`. Cần thêm: viền / hào quang cho món đã có bậc 4 (`tower.hasUltimate`); **nút tuyệt chiêu nổi ngay trên món** khi sẵn sàng (`engine.canActivateUltimate(padId)`), vòng đếm hồi chiêu (`ultimateCooldownRemaining`, 30s); hiệu ứng riêng cho sự kiện `ultimate` theo vai (bắn nhanh / đập cả vùng / giữ chân / nổ / hỗ trợ). Tên tuyệt chiêu: `ULTIMATE_NAMES`.
+2. **Nâng cấp ngũ hành bằng sao** ở màn hình đầu (ô `td-meta-box`, nút `meta-up-*` / `meta-down-*`): làm đẹp theo giao diện hộp giày, biểu tượng hành, chấm bậc.

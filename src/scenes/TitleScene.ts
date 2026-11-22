@@ -1,6 +1,8 @@
 import Phaser from 'phaser';
 import { ELEMENT_INFO } from '../core/elements';
-import { loadTdSave } from '../core/saveSystem';
+import { loadTdSave, saveMetaLevels } from '../core/saveSystem';
+import { ALL_ELEMENTS } from '../core/elements';
+import { availablePoints, lower, META_DAMAGE_PER_LEVEL, META_MAX_LEVEL, totalStars, tryRaise } from '../core/metaUpgrades';
 import { STAGE_1_DEFINITION, STAGES, TOWER_LIST } from '../core/tdDefinitions';
 import { getAtlasFrameDataUrl, getTowerFrameName, STAGE1_MAP_KEY } from '../game/atlasIcons';
 import { getInitialReduceMotion } from '../game/preferences';
@@ -186,6 +188,17 @@ export class TitleScene extends Phaser.Scene {
           </button>
         </div>
 
+        <div class="td-stage-tag-box" data-testid="td-meta-box">
+          <div class="td-stage-header">
+            <div>
+              <div class="td-stage-kicker">NÂNG CẤP NGŨ HÀNH BẰNG SAO</div>
+              <div class="td-stage-name" id="td-meta-points">Còn ${availablePoints(save)} / ${totalStars(save)} sao</div>
+            </div>
+          </div>
+          <div class="td-stage-sub">Mỗi sao = 1 bậc. Mỗi bậc +${Math.round(META_DAMAGE_PER_LEVEL * 100)}% sức cho mọi món cùng hành, tối đa ${META_MAX_LEVEL} bậc. Đổi lại miễn phí.</div>
+          <div id="td-meta-rows"></div>
+        </div>
+
         <div class="td-element-guide">
           <div class="td-guide-title">Vòng khắc: Kim → Mộc → Thổ → Thủy → Hỏa → Kim</div>
           <div class="td-showcase-grid">${towerShowcase}</div>
@@ -194,6 +207,43 @@ export class TitleScene extends Phaser.Scene {
     `;
 
     container.appendChild(root);
+
+    // Nâng cấp theo hành bằng sao (Claude) — giao diện đơn giản, Antigravity làm đẹp sau
+    const renderMeta = () => {
+      const cur = loadTdSave();
+      const rows = root.querySelector<HTMLDivElement>('#td-meta-rows');
+      const pts = root.querySelector<HTMLDivElement>('#td-meta-points');
+      if (pts) pts.textContent = `Còn ${availablePoints(cur)} / ${totalStars(cur)} sao`;
+      if (!rows) return;
+      rows.innerHTML = ALL_ELEMENTS.map((el) => {
+        const info = ELEMENT_INFO[el];
+        const lv = cur.metaLevels?.[el] ?? 0;
+        const dots = '●'.repeat(lv) + '○'.repeat(META_MAX_LEVEL - lv);
+        return `<div style="display:flex;align-items:center;gap:8px;margin-top:6px">
+          <span class="td-showcase-el" style="background:${info.colorHex};min-width:52px;text-align:center">${info.label}</span>
+          <span style="flex:1;letter-spacing:2px">${dots} <small>+${Math.round(lv * META_DAMAGE_PER_LEVEL * 100)}%</small></span>
+          <button class="td-ctrl-btn" data-meta-down="${el}" data-testid="meta-down-${el}" aria-label="Bớt 1 bậc ${info.label}">−</button>
+          <button class="td-ctrl-btn" data-meta-up="${el}" data-testid="meta-up-${el}" aria-label="Thêm 1 bậc ${info.label}">+</button>
+        </div>`;
+      }).join('');
+      rows.querySelectorAll<HTMLButtonElement>('[data-meta-up]').forEach((b) => {
+        b.onclick = () => {
+          const c = loadTdSave();
+          saveMetaLevels(tryRaise(c, b.dataset.metaUp as (typeof ALL_ELEMENTS)[number]));
+          sound.playUiClick();
+          renderMeta();
+        };
+      });
+      rows.querySelectorAll<HTMLButtonElement>('[data-meta-down]').forEach((b) => {
+        b.onclick = () => {
+          const c = loadTdSave();
+          saveMetaLevels(lower(c.metaLevels ?? {}, b.dataset.metaDown as (typeof ALL_ELEMENTS)[number]));
+          sound.playUiClick();
+          renderMeta();
+        };
+      });
+    };
+    renderMeta();
     this.overlayEl = root;
 
     const startBtn = root.querySelector<HTMLButtonElement>('#btn-start-stage-1');

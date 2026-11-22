@@ -1,6 +1,8 @@
 import Phaser from 'phaser';
 import { ELEMENT_INFO } from '../core/elements';
-import { saveTdProgress } from '../core/saveSystem';
+import { loadTdSave, saveTdProgress } from '../core/saveSystem';
+import { metaDamageBonus } from '../core/metaUpgrades';
+import { ULTIMATE_COST, ULTIMATE_MIN_STAGE, ULTIMATE_NAMES, ULTIMATE_ROLE_TEXT } from '../core/ultimates';
 import { runBotTurn } from '../core/tdBot';
 import {
   ALL_ENEMY_DEFINITIONS as ENEMY_DEFINITIONS,
@@ -183,7 +185,8 @@ export class TdStageScene extends Phaser.Scene {
       if (q === '2') stageId = 'stage_2';
       if (q === '3') stageId = 'stage_3';
     }
-    this.engine = new TowerDefenseEngine(STAGES[stageId]);
+    // Nâng cấp theo hành bằng sao (lưu trên máy)
+    this.engine = new TowerDefenseEngine(STAGES[stageId], { elementDamageBonus: metaDamageBonus(loadTdSave().metaLevels) });
     this.speedMultiplier = 1;
     this.paused = false;
     this.autoBotEnabled = false;
@@ -977,6 +980,13 @@ export class TdStageScene extends Phaser.Scene {
         if (ev.reward && ev.reward > 0) {
           this.spawnFloatingLabel(sPos.x + 26, sPos.y + 14, `Gọi sớm +${ev.reward} xu`, '#ffe066', 13, true);
         }
+      } else if (ev.type === 'ultimate') {
+        // Tuyệt chiêu bậc 4 (hình tạm: chữ lớn; Antigravity làm hiệu ứng riêng)
+        const up = this.toScreen(ev.x, ev.y);
+        this.spawnFloatingLabel(up.x, up.y - 30, `★ ${ev.text ?? 'Tuyệt chiêu'}!`, '#ffd166', 16, true);
+      } else if (ev.type === 'element_shift') {
+        const up = this.toScreen(ev.x, ev.y);
+        this.spawnFloatingLabel(up.x, up.y - 34, ev.text ?? 'Đổi hành!', '#e0f2fe', 16, true);
       } else if (ev.type === 'wave_clear') {
         this.spawnFloatingLabel(
           this.scale.width * 0.5,
@@ -2046,7 +2056,36 @@ export class TdStageScene extends Phaser.Scene {
           </div>
         `;
       } else {
-        upgradeSectionHtml = `<div class="td-max-tier">★ Đã đạt Bậc 3 tối đa (Nhánh ${existingTower.branch})</div>`;
+        // Bậc 4 tuyệt chiêu (Claude) — mở từ Màn 2
+        const ultName = ULTIMATE_NAMES[existingTower.defId];
+        const ultText = ULTIMATE_ROLE_TEXT[def.role];
+        if (this.engine.stage.stageNumber < ULTIMATE_MIN_STAGE) {
+          upgradeSectionHtml = `<div class="td-max-tier">★ Đã đạt Bậc 3 (Nhánh ${existingTower.branch}). Bậc 4 tuyệt chiêu mở từ Màn 2.</div>`;
+        } else if (!existingTower.hasUltimate) {
+          const canU = this.engine.essence >= ULTIMATE_COST;
+          upgradeSectionHtml = `
+            <button class="td-upgrade-btn ${canU ? '' : 'disabled'}" id="btn-unlock-ultimate" data-testid="btn-unlock-ultimate">
+              <div class="td-opt-body">
+                <div class="td-opt-head">
+                  <strong>Lên Bậc 4: tuyệt chiêu "${ultName}"</strong>
+                  <span class="td-price-tag">${ULTIMATE_COST}${coinImgHtml}</span>
+                </div>
+                <div class="td-opt-role">+20% sức luôn luôn. Bấm dùng: ${ultText} Hồi chiêu 30 giây.</div>
+              </div>
+            </button>`;
+        } else {
+          const cd = Math.ceil(existingTower.ultimateCooldownRemaining ?? 0);
+          upgradeSectionHtml = `
+            <button class="td-upgrade-btn ${cd > 0 ? 'disabled' : ''}" id="btn-use-ultimate" data-testid="btn-use-ultimate">
+              <div class="td-opt-body">
+                <div class="td-opt-head">
+                  <strong>★ Dùng "${ultName}"</strong>
+                  <span class="td-price-tag">${cd > 0 ? `chờ ${cd}s` : 'Sẵn sàng'}</span>
+                </div>
+                <div class="td-opt-role">${ultText}</div>
+              </div>
+            </button>`;
+        }
       }
 
       const synergyGiver = existingTower.synergyFromUid
@@ -2112,6 +2151,22 @@ export class TdStageScene extends Phaser.Scene {
             this.refreshHud();
           }
         };
+      });
+
+      this.modalRoot.querySelector('#btn-unlock-ultimate')?.addEventListener('click', () => {
+        if (this.engine.unlockUltimate(padId)) {
+          sound.playBuildOrUpgrade();
+          this.renderPadModal(padId);
+          this.refreshHud();
+        }
+      });
+
+      this.modalRoot.querySelector('#btn-use-ultimate')?.addEventListener('click', () => {
+        if (this.engine.activateUltimate(padId)) {
+          sound.playBuildOrUpgrade();
+          this.selectedPadId = null;
+          this.closePadModal();
+        }
       });
 
       this.modalRoot.querySelector('#btn-sell-tower')?.addEventListener('click', () => {
