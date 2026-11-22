@@ -20,6 +20,8 @@ Mỗi chặng có chốt kiểm; chặng trước đạt mới sang chặng sau.
 5. **Kiếm tiền nhẹ nhàng:** món là sản phẩm thật, chạm "Xem món này" mở link tiếp thị liên kết Shopee của anh; có thể đưa tiệm của anh vào game. Trước khi làm: đọc điều khoản Shopee Affiliate, kiểm quy định ghi nhãn quảng cáo ở Việt Nam, anh quyết bỏ nguyên tắc "không quảng cáo". Chốt: đã có người chơi thật.
 6. **Mở rộng:** người chơi tự chọn phố / thành phố của mình (xin quyền vị trí chỉ khi người chơi đồng ý); thương hiệu tài trợ (có hợp đồng, được phép dùng tên / hình); lên Google Play / App Store nếu chặng 3–5 cho thấy đáng (theo Claude biết: Google Play 25 USD một lần, Apple 99 USD mỗi năm — kiểm lại giá khi tới chặng này).
 
+**Video kênh Gọn (anh Kha nói "ghi" 22/11):** máy tự chơi + quay màn hình dọc 9:16 (Playwright), clip 15–30 giây, chỉ dùng âm thanh trong game (không nhạc ngoài). Nội dung: "đặt sai món là thua" → chơi lại đúng hành thì thắng; khoảnh khắc "Trúng tủ!"; trùm Mùa Nồm đổi hành; ghép mẹo thật (vd mùa mưa bỏ gói hút ẩm vào giày). Đăng qua hệ thống đăng bài đang có (phiên "Thực thi · Đăng bài"), mỗi lần anh duyệt trước. Thời điểm: quay thử 3–5 clip sau chặng 1 (chưa đăng); bắt đầu đăng từ chặng 3 khi có link chơi công khai. Xen kẽ với nội dung khác của kênh, không lấn hết.
+
 Giữ suốt các chặng: tới chặng 5 vẫn 0 đồng và chơi offline. Thời gian: không hứa ngày; ước chặng 1–2 vài ngày tới 1–2 tuần nếu duyệt kịp (Antigravity có thể hết lượt hoặc bị trả lại vì chưa vui).
 
 ## Kết luận (kế hoạch nhập vai cũ)
