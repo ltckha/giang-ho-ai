@@ -1,6 +1,8 @@
-# Giang Hồ AI (tên tạm)
+# Gọn Tiệm, Sạch Phố
 
-Game thủ thành bối cảnh giang hồ thời khôi lỗi biết nghĩ (đặt quân chặn quái, ngũ hành khắc chế), chơi offline trên trình duyệt (điện thoại + máy tính), 0 đồng.
+(Repo tên cũ giang-ho-ai.)
+
+Game thủ thành phố nhiều tiệm Đà Lạt mùa mưa: đặt đồ dùng trong tiệm (dép tông, bàn chải, quạt, lò nướng…) chặn bọn phá đồ (mưa, bùn, côn trùng, chuột, nấm mốc), chơi offline trên trình duyệt (điện thoại + máy tính), 0 đồng.
 
 - Kế hoạch: docs/PLAN.md (anh Kha nói "làm" 22/11/2026).
 - Người làm: Antigravity cloud viết toàn bộ code, hình, âm thanh theo docs/ANTIGRAVITY_BRIEF_THU_THANH.md (đổi hướng 22/11/2026). Bản nhập vai cũ (ANTIGRAVITY_BRIEF.md, ANTIGRAVITY_BRIEF_GD2.md) dừng ở commit 23c6b31.

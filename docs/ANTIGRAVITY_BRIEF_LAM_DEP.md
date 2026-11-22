@@ -1,6 +1,6 @@
-# Lời giao Antigravity: Đổi chủ đề "Giữ Kệ Giày" + làm đẹp
+# Lời giao Antigravity: Đổi chủ đề "Gọn Tiệm, Sạch Phố" + làm đẹp
 
-**Chủ đề mới:** đọc docs/CHU_DE_GIU_TIEM.md trước. Đổi toàn bộ tên, hình, câu chuyện sang tiệm giày mùa mưa, và thay vòng ngũ hành bằng bảng khắc chế đời thường trong đó (đây là thay đổi luật duy nhất được phép; chạy lại script mô phỏng và giữ mục tiêu độ khó). Bước 0: ghi tên nhánh nâng cấp và tên màn chính thức vào docs/NAMES.md, push, chờ "NAMES GIỮ KỆ GIÀY: ĐỒNG Ý" trong docs/REVIEW_LOG.md.
+**Chủ đề mới:** đọc docs/CHU_DE_GIU_TIEM.md trước. Đổi toàn bộ tên, hình, câu chuyện sang phố nhiều tiệm mùa mưa (Màn 1 = tiệm giày; Màn 2 tiệm bánh, Màn 3 tiệm hoa làm sau theo docs/ANTIGRAVITY_BRIEF_THU_THANH.md với món / quái ở mục 5), và thay vòng ngũ hành bằng bảng khắc chế đời thường trong đó (đây là thay đổi luật duy nhất được phép; chạy lại script mô phỏng và giữ mục tiêu độ khó). Bước 0: ghi tên nhánh nâng cấp và tên màn chính thức vào docs/NAMES.md, push, chờ "NAMES GỌN TIỆM: ĐỒNG Ý" trong docs/REVIEW_LOG.md.
 
 **Chỉ bắt đầu khi docs/REVIEW_LOG.md có dòng "MÀN 1 VUI: ĐẠT".** Không đổi luật chơi, số liệu cân bằng, đường đi hay đợt quái khi làm đẹp; test cân bằng phải vẫn qua.
 
