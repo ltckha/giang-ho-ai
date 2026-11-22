@@ -1,7 +1,18 @@
 import { expect, test } from '@playwright/test';
 
 test.describe('Thủ Thành — Kiểm thử trình duyệt (Điện thoại cầm dọc 390×844)', () => {
-  test('mở game trên điện thoại dọc -> vào Màn 1 -> chạm đặt quân -> bật tốc độ x2 & bot -> chạy hết 9 đợt và thắng, không lỗi console, không gọi mạng ngoài', async ({
+  test('mặc định ẩn nút Bot đối với người chơi bình thường, chỉ hiện khi mở kèm ?bot=1', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    await page.getByTestId('btn-start-stage-1').click();
+
+    await expect(page.getByTestId('btn-speed-toggle')).toBeVisible();
+    await expect(page.getByTestId('btn-bot-toggle')).toHaveCount(0);
+  });
+
+  test('mở game trên điện thoại dọc (?bot=1) -> vào Màn 1 -> chạm đặt quân -> bật tốc độ x2 & bot -> chạy hết 9 đợt và thắng, không lỗi console, không gọi mạng ngoài', async ({
     page,
   }) => {
     await page.setViewportSize({ width: 390, height: 844 });
@@ -19,7 +30,6 @@ test.describe('Thủ Thành — Kiểm thử trình duyệt (Điện thoại c�
       consoleErrors.push(err.message);
     });
 
-    // Chặn tuyệt đối mọi yêu cầu ra ngoài localhost / 127.0.0.1
     await page.route('**/*', async (route) => {
       const url = route.request().url();
       if (
@@ -35,26 +45,31 @@ test.describe('Thủ Thành — Kiểm thử trình duyệt (Điện thoại c�
       }
     });
 
-    await page.goto('/');
+    await page.goto('/?bot=1');
 
-    // 1. Màn hình chính hiển thị tiêu đề và nút vào Màn 1
+    // 1. Màn hình chính hiển thị tiêu đề và nút vào Màn 1 với tên chính thức
     const startBtn = page.getByTestId('btn-start-stage-1');
     await expect(startBtn).toBeVisible();
     await page.screenshot({ path: 'docs/screenshots/td_01_title_portrait.png' });
 
     await startBtn.click();
 
-    // 2. Đã vào Màn 1: HUD hiển thị linh thạch, mạng thành, đợt và gợi ý hệ quái đợt sắp tới
+    // 2. Đã vào Màn 1: HUD hiển thị 160 linh thạch khởi đầu, 20/20 mạng, gợi ý 2 hệ quái Đợt 1
     const essenceVal = page.getByTestId('td-essence-val');
     const livesVal = page.getByTestId('td-lives-val');
     const upcomingBox = page.getByTestId('td-upcoming-box');
-    await expect(essenceVal).toHaveText('175');
+    await expect(essenceVal).toHaveText('160');
     await expect(livesVal).toHaveText('20/20');
     await expect(upcomingBox).toContainText('Hệ Kim');
+    await expect(upcomingBox).toContainText('Hệ Thổ');
 
     // 3. Chạm vào ô trống đầu tiên (pad_1) trên bản đồ để mở bảng chọn quân
     const pad1Screen = await page.evaluate(() => {
-      const scene = (window as unknown as { __TD_SCENE__?: { toScreen: (x: number, y: number) => { x: number; y: number } } }).__TD_SCENE__;
+      const scene = (
+        window as unknown as {
+          __TD_SCENE__?: { toScreen: (x: number, y: number) => { x: number; y: number } };
+        }
+      ).__TD_SCENE__;
       return scene ? scene.toScreen(112, 76) : { x: 120, y: 140 };
     });
 
@@ -63,12 +78,14 @@ test.describe('Thủ Thành — Kiểm thử trình duyệt (Điện thoại c�
 
     const buildSheet = page.getByTestId('td-build-sheet');
     await expect(buildSheet).toBeVisible();
+    await expect(buildSheet).toContainText('Mộc Tiêu Khôi');
+    await expect(buildSheet).toContainText('Hỏa Lôi Khôi');
     await page.screenshot({ path: 'docs/screenshots/td_02_build_menu_portrait.png' });
 
-    // Chọn đặt Quân Hỏa (Đánh lan, khắc hệ Kim của Đợt 1)
+    // Chọn đặt Hỏa Lôi Khôi (Đánh lan, khắc hệ Kim của Đợt 1)
     await page.getByTestId('build-fire_tower').click();
     await expect(buildSheet).toBeHidden();
-    await expect(essenceVal).toHaveText('110');
+    await expect(essenceVal).toHaveText('95');
 
     // 4. Bật tốc độ x2, gọi Đợt 1 và bật Bot tự động phối hợp quân
     const speedBtn = page.getByTestId('btn-speed-toggle');
@@ -78,7 +95,6 @@ test.describe('Thủ Thành — Kiểm thử trình duyệt (Điện thoại c�
     await page.getByTestId('btn-call-wave').click();
     await page.getByTestId('btn-bot-toggle').click();
 
-    // Chờ một chút cho quái xuất hiện và quân bắn để chụp ảnh chiến đấu dọc
     await page.waitForTimeout(1400);
     await page.screenshot({ path: 'docs/screenshots/td_03_combat_portrait.png' });
 
@@ -97,7 +113,7 @@ test.describe('Thủ Thành — Kiểm thử trình duyệt (Điện thoại c�
       if (!scene) return;
       let guard = 0;
       while (scene.engine.status === 'playing' && guard < 25000) {
-        scene.tickSimulation(0.1);
+        scene.tickSimulation(0.05);
         guard += 1;
       }
     });

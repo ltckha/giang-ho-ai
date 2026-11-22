@@ -1,4 +1,4 @@
-import { getElementMultiplier, getElementRelation } from './elements';
+import { getElementRelation } from './elements';
 import {
   calculateSellRefund,
   ENEMY_DEFINITIONS,
@@ -216,9 +216,20 @@ export class TowerDefenseEngine {
   }
 
   public recalculateSupportBuffs(): void {
+    // Ngũ Hành Tương Sinh Trận: khi người chơi phối hợp đủ 5 hệ quân trên sân và có Thổ Trấn Khôi ở tâm trận (pad_4),
+    // toàn bộ quân nhận cộng hưởng Ngũ Hành (+34% công & +24% tốc đánh).
+    const activeElements = new Set(this.towers.filter((t) => t.disruptedRemaining <= 0).map((t) => t.element));
+    const hasCentralEarthAnchor = this.towers.some(
+      (t) =>
+        TOWER_DEFINITIONS[t.defId].role === 'support_buff' &&
+        t.disruptedRemaining <= 0 &&
+        t.padId === 'pad_4',
+    );
+    const fiveElementHarmony = activeElements.size >= 5 && hasCentralEarthAnchor;
+
     for (const tower of this.towers) {
-      tower.buffDamageMultiplier = 1;
-      tower.buffSpeedMultiplier = 1;
+      tower.buffDamageMultiplier = fiveElementHarmony ? 1.34 : 1;
+      tower.buffSpeedMultiplier = fiveElementHarmony ? 1.24 : 1;
       tower.buffRangeMultiplier = 1;
       tower.protectedFromDisrupt = false;
       tower.bonusKillEssence = 0;
@@ -233,13 +244,15 @@ export class TowerDefenseEngine {
       for (const target of this.towers) {
         if (target.uid === sup.uid) continue;
         if (distance2D(sup, target) <= radius) {
+          const harmonyDmg = fiveElementHarmony ? 0.34 : 0;
+          const harmonySpd = fiveElementHarmony ? 0.24 : 0;
           target.buffDamageMultiplier = Math.max(
             target.buffDamageMultiplier,
-            1 + (supStats.buffDamagePct ?? 0),
+            1 + (supStats.buffDamagePct ?? 0) + harmonyDmg,
           );
           target.buffSpeedMultiplier = Math.max(
             target.buffSpeedMultiplier,
-            1 + (supStats.buffSpeedPct ?? 0),
+            1 + (supStats.buffSpeedPct ?? 0) + harmonySpd,
           );
           target.buffRangeMultiplier = Math.max(
             target.buffRangeMultiplier,
@@ -573,11 +586,14 @@ export class TowerDefenseEngine {
       if (enemy.hp <= 0) continue;
       if (distance2D(tower, enemy) > range) continue;
 
-      // Quân đánh mạnh chậm ưu tiên quái máu cao + đi xa; các quân khác ưu tiên quái đi đầu hàng
+      const relation = getElementRelation(tower.element, enemy.element);
+      // Ưu tiên mục tiêu bị khắc hệ đang tiến xa, giúp người chơi đặt quân khắc hệ phát huy tối đa
+      const counterBonus = relation === 'counter' ? 180 : relation === 'countered' ? -90 : 0;
+
       const score =
         def.role === 'heavy_slow'
-          ? enemy.maxHp * 0.6 + enemy.distanceTraveled
-          : enemy.distanceTraveled;
+          ? enemy.maxHp * 0.4 + enemy.distanceTraveled + counterBonus
+          : enemy.distanceTraveled + counterBonus;
 
       if (score > bestScore) {
         bestScore = score;
@@ -630,18 +646,34 @@ export class TowerDefenseEngine {
     enemy: ActiveEnemy,
   ): { damage: number; isCounter: boolean; isCountered: boolean } {
     const relation = getElementRelation(tower.element, enemy.element);
-    const elemMult = getElementMultiplier(tower.element, enemy.element);
+    // Trong thủ thành, tương khắc Ngũ Hành tạo chênh lệch rõ rệt (1.75x khi khắc, 0.5x khi bị khắc)
+    const elemMult =
+      relation === 'counter' ? 1.75 : relation === 'countered' ? 0.5 : 1.0;
 
-    // Quân Kim chuyên phá giáp (bậc 2 bỏ qua 50% giáp, bậc 3 bỏ qua 75% giáp)
     let armorIgnore = 0;
-    if (tower.defId === 'metal_tower') {
-      armorIgnore = tower.tier === 1 ? 0.35 : tower.tier === 2 ? 0.55 : 0.75;
+    if (relation === 'counter') {
+      armorIgnore = 0.75;
+    } else if (tower.defId === 'metal_tower') {
+      armorIgnore = tower.tier === 1 ? 0.25 : tower.tier === 2 ? 0.4 : 0.55;
     }
 
     const rawArmor = Math.max(0, enemy.armor - enemy.armorDebuffPct);
     const effectiveArmor = rawArmor * (1 - armorIgnore);
 
-    let damage = baseDamage * tower.buffDamageMultiplier * elemMult * (1 - effectiveArmor);
+    // Quái máu trâu (Thạch Giáp - Thổ) và Quái bay (Phi Dực - Mộc) kháng mạnh đòn đánh không khắc hệ
+    let traitResist = 1.0;
+    if (enemy.trait === 'tank' && relation !== 'counter') {
+      traitResist = 0.52;
+    } else if (enemy.flying && relation !== 'counter') {
+      traitResist = 0.65;
+    }
+
+    let damage =
+      baseDamage *
+      tower.buffDamageMultiplier *
+      elemMult *
+      (1 - effectiveArmor) *
+      traitResist;
 
     if (enemy.shieldRemaining > 0) {
       const def = ENEMY_DEFINITIONS[enemy.defId];

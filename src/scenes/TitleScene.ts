@@ -97,7 +97,7 @@ export class TitleScene extends Phaser.Scene {
             <div class="td-stage-stars" data-testid="stage1-stars">${starText}</div>
           </div>
           <div class="td-stage-meta">
-            <span>9 Đợt quái</span> • <span>20 Mạng thành</span> • <span>Khắc hệ 1.35x / Bị khắc 0.75x</span>
+            <span>9 Đợt quái</span> • <span>20 Mạng thành</span> • <span>Khắc hệ 1.75x / Bị khắc 0.50x</span>
           </div>
           <button id="btn-start-stage-1" data-testid="btn-start-stage-1" class="td-btn-primary">
             Vào Màn 1 Ngay

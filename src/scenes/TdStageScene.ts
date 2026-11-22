@@ -635,6 +635,10 @@ export class TdStageScene extends Phaser.Scene {
     hud.className = 'td-hud-layer';
     hud.id = 'td-hud-layer';
 
+    const showBotBtn =
+      typeof window !== 'undefined' &&
+      new URLSearchParams(window.location.search).get('bot') === '1';
+
     hud.innerHTML = `
       <div class="td-top-bar">
         <div class="td-stat-group">
@@ -653,7 +657,7 @@ export class TdStageScene extends Phaser.Scene {
         </div>
         <div class="td-ctrl-group">
           <button id="btn-speed-toggle" data-testid="btn-speed-toggle" class="td-ctrl-btn">x1</button>
-          <button id="btn-bot-toggle" data-testid="btn-bot-toggle" class="td-ctrl-btn" title="Bật/Tắt Tự động đặt quân">Bot</button>
+          ${showBotBtn ? `<button id="btn-bot-toggle" data-testid="btn-bot-toggle" class="td-ctrl-btn" title="Bật/Tắt Tự động đặt quân">Bot</button>` : ''}
           <button id="btn-pause-toggle" data-testid="btn-pause-toggle" class="td-ctrl-btn">⏸</button>
         </div>
       </div>
