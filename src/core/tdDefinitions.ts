@@ -12,98 +12,100 @@ import type {
 export const SELL_REFUND_RATE = 0.7;
 
 /**
- * Định nghĩa 5 loại quân (5 hệ Ngũ Hành, 5 vai trò riêng, 3 bậc & 2 nhánh bậc 3).
- * Tên chính thức đã được Claude duyệt ("NAMES THỦ THÀNH: ĐỒNG Ý" trong docs/REVIEW_LOG.md).
+ * Định nghĩa 5 món giữ tiệm Màn 1 "Tiệm Giày Hẻm Dốc" (chủ đề "Gọn Tiệm, Sạch Phố — Ngũ hành giữ tiệm").
+ * Tên chính thức & phân bổ Ngũ Hành đã được Claude duyệt ("NAMES GỌN TIỆM: ĐỒNG Ý").
+ * Lưu ý: giữ nguyên 5 khoá nội bộ (wood_tower, metal_tower, water_tower, fire_tower, earth_tower)
+ * theo thứ tự 4 món đánh + 1 món hỗ trợ để tương thích với các script mô phỏng trong docs/review/.
  */
 export const TOWER_DEFINITIONS: Record<TowerId, TowerDefinition> = {
   wood_tower: {
     id: 'wood_tower',
     element: 'moc',
     role: 'single_far',
-    roleLabel: 'Đánh đơn tầm xa',
+    roleLabel: 'Ném nhanh 1 con tầm xa',
     tier1: {
-      name: 'Mộc Tiêu Khôi',
+      name: 'Dép Tông',
       cost: 55,
       damage: 19,
       range: 122,
       cooldownSec: 0.74,
-      description: 'Bắn gai gỗ tầm xa, khắc mạnh Thạch Giáp (Thổ).',
+      description: 'Ném dép cao su nhanh tầm xa. Khắc Thổ (Cục Bùn): dép cao su lội bùn không sợ.',
     },
     tier2: {
-      name: 'Liên Tiêu Khôi',
+      name: 'Dép Tông Đế Dày',
       cost: 70,
       damage: 32,
       range: 134,
       cooldownSec: 0.62,
-      description: 'Tăng tốc bắn, sát thương và mở rộng tầm bắn.',
+      description: 'Đế cao su dày ném mạnh hơn, nhanh hơn và xa hơn.',
     },
     tier3A: {
-      name: 'Truy Mạch Tiêu',
+      name: 'Dép Tông Kép',
       cost: 105,
       damage: 46,
       range: 144,
       cooldownSec: 0.48,
       pierceCount: 2,
-      description: 'Bắn siêu nhanh, đạn xuyên thêm 1 mục tiêu gần kề.',
+      description: 'Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau.',
     },
     tier3B: {
-      name: 'Độc Căn Tiêu',
+      name: 'Dép Tông Gai Bám',
       cost: 105,
       damage: 42,
       range: 140,
       cooldownSec: 0.54,
       burnDps: 18,
       burnDurationSec: 3.0,
-      description: 'Găm gai rút máu theo thời gian và phá 15% giáp quái.',
+      description: 'Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục.',
     },
   },
   metal_tower: {
     id: 'metal_tower',
     element: 'kim',
     role: 'heavy_slow',
-    roleLabel: 'Đánh mạnh chậm',
+    roleLabel: 'Đạp mạnh, chậm, xuyên vỏ',
     tier1: {
-      name: 'Kim Trọng Khôi',
+      name: 'Bốt Đế Đinh',
       cost: 70,
       damage: 54,
       range: 100,
       cooldownSec: 1.32,
-      description: 'Đòn đánh nặng phá giáp, khắc mạnh Phi Dực (Mộc).',
+      description: 'Cú đạp đế đinh cực nặng xuyên vỏ. Khắc Mộc (Gián, Nấm Mốc).',
     },
     tier2: {
-      name: 'Phá Giáp Kim Khôi',
+      name: 'Bốt Đinh Thép',
       cost: 85,
       damage: 92,
       range: 108,
       cooldownSec: 1.18,
-      description: 'Sát thương lớn, xuyên giáp mục tiêu.',
+      description: 'Đinh thép tôi cứng tăng mạnh lực đạp và độ xuyên vỏ.',
     },
     tier3A: {
-      name: 'Đoạt Lõi Cự Khôi',
+      name: 'Bốt Chốt Chì',
       cost: 120,
       damage: 152,
       range: 115,
       cooldownSec: 1.08,
       stunDurationSec: 0.6,
-      description: 'Đòn chí mạng cực mạnh và làm choáng mục tiêu 0.6s.',
+      description: 'Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày.',
     },
     tier3B: {
-      name: 'Xuyên Phong Kim Khôi',
+      name: 'Bốt Đinh Quét Dọc',
       cost: 115,
       damage: 115,
       range: 122,
       cooldownSec: 1.0,
       pierceCount: 3,
-      description: 'Phóng lao đồng xuyên tối đa 3 kẻ địch trên đường đạn.',
+      description: 'Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi.',
     },
   },
   water_tower: {
     id: 'water_tower',
     element: 'thuy',
     role: 'slow_aura',
-    roleLabel: 'Làm chậm',
+    roleLabel: 'Phun sương làm chậm',
     tier1: {
-      name: 'Thủy Hàn Khôi',
+      name: 'Xịt Dưỡng Da',
       cost: 60,
       damage: 15,
       range: 102,
@@ -111,10 +113,10 @@ export const TOWER_DEFINITIONS: Record<TowerId, TowerDefinition> = {
       splashRadius: 50,
       slowPercent: 0.34,
       slowDurationSec: 2.2,
-      description: 'Phun sương lạnh làm chậm 34% quái mặt đất, khắc Song Thể (Hỏa).',
+      description: 'Phun sương dưỡng ẩm làm chậm 34% cả vùng. Khắc Hỏa (Nắng Gắt).',
     },
     tier2: {
-      name: 'Ngưng Sương Khôi',
+      name: 'Bình Xịt Áp Lực',
       cost: 75,
       damage: 26,
       range: 110,
@@ -122,10 +124,10 @@ export const TOWER_DEFINITIONS: Record<TowerId, TowerDefinition> = {
       splashRadius: 58,
       slowPercent: 0.45,
       slowDurationSec: 2.6,
-      description: 'Tăng làm chậm lên 45% và mở rộng vùng sương.',
+      description: 'Mở rộng làn sương dưỡng và tăng làm chậm lên 45%.',
     },
     tier3A: {
-      name: 'Băng Mạch Khôi',
+      name: 'Xịt Bọt Tuyết Lạnh',
       cost: 105,
       damage: 44,
       range: 118,
@@ -134,10 +136,10 @@ export const TOWER_DEFINITIONS: Record<TowerId, TowerDefinition> = {
       slowPercent: 0.54,
       slowDurationSec: 2.8,
       stunDurationSec: 1.0,
-      description: 'Làm chậm 54% và mỗi phát thứ 3 đóng băng giữ chân quái 1.0s.',
+      description: 'Làm chậm 54% và mỗi phát xịt thứ 3 phủ bọt mát giữ chân quái 1.0s.',
     },
     tier3B: {
-      name: 'Triều Ngược Khôi',
+      name: 'Xịt Vòi Xoáy',
       cost: 105,
       damage: 38,
       range: 116,
@@ -146,34 +148,34 @@ export const TOWER_DEFINITIONS: Record<TowerId, TowerDefinition> = {
       slowPercent: 0.48,
       slowDurationSec: 2.7,
       knockbackDist: 14,
-      description: 'Sóng xoáy diện rộng làm chậm 48% và đẩy lùi nhẹ quái nhỏ.',
+      description: 'Luồng phun xoáy rộng làm chậm 48% và đẩy lùi nhẹ bầy quái.',
     },
   },
   fire_tower: {
     id: 'fire_tower',
-    element: 'hoa',
+    element: 'tho',
     role: 'aoe_splash',
-    roleLabel: 'Đánh lan',
+    roleLabel: 'Quăng gói hút ẩm đánh lan',
     tier1: {
-      name: 'Hỏa Lôi Khôi',
+      name: 'Túi Hút Ẩm',
       cost: 65,
       damage: 27,
       range: 102,
       cooldownSec: 1.15,
       splashRadius: 54,
-      description: 'Ném đạn lửa nổ sát thương diện rộng, khắc Chân Gió (Kim).',
+      description: 'Túi xách đầy gói hút ẩm quăng nổ cả bầy. Khắc Thủy (Giọt Mưa).',
     },
     tier2: {
-      name: 'Viêm Bạo Khôi',
+      name: 'Giỏ Hút Ẩm Cỡ Đại',
       cost: 80,
       damage: 46,
       range: 112,
       cooldownSec: 1.04,
       splashRadius: 64,
-      description: 'Tăng bán kính nổ và sát thương lan.',
+      description: 'Tăng bán kính tung gói hút ẩm và sát thương diện rộng.',
     },
     tier3A: {
-      name: 'Liệt Diệm Lò Khôi',
+      name: 'Thảm Hạt Hút Khô',
       cost: 115,
       damage: 66,
       range: 118,
@@ -181,25 +183,25 @@ export const TOWER_DEFINITIONS: Record<TowerId, TowerDefinition> = {
       splashRadius: 72,
       burnDps: 22,
       burnDurationSec: 3.0,
-      description: 'Nổ rộng kèm than hồng thiêu đốt 22 sát thương/giây trong 3 giây.',
+      description: 'Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s.',
     },
     tier3B: {
-      name: 'Liên Hoàn Hỏa Khôi',
+      name: 'Chùm Túi Nổ Liên Hoàn',
       cost: 115,
       damage: 84,
       range: 120,
       cooldownSec: 0.94,
       splashRadius: 80,
-      description: 'Đạn nổ liên hoàn diện rộng với sát thương bùng phát cao.',
+      description: 'Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao.',
     },
   },
   earth_tower: {
     id: 'earth_tower',
-    element: 'tho',
+    element: 'hoa',
     role: 'support_buff',
-    roleLabel: 'Hỗ trợ & Giải bùa',
+    roleLabel: 'Hỗ trợ sấy khỏe & xua chuột',
     tier1: {
-      name: 'Thổ Trấn Khôi',
+      name: 'Máy Sấy Giày',
       cost: 55,
       damage: 13,
       range: 108,
@@ -208,10 +210,10 @@ export const TOWER_DEFINITIONS: Record<TowerId, TowerDefinition> = {
       buffSpeedPct: 0.14,
       buffRangePct: 0.06,
       cleanseDisrupt: true,
-      description: 'Tăng 18% công, 14% tốc đánh cho quân cạnh bên & giải nhanh phá bùa.',
+      description: 'Sấy ấm tăng 18% sức, 14% tốc cho món cạnh bên & gỡ nhanh món bị chuột gặm. Khắc Kim (Chuột).',
     },
     tier2: {
-      name: 'Hoàng Thạch Trấn Khôi',
+      name: 'Máy Sấy Hai Vòi',
       cost: 70,
       damage: 22,
       range: 120,
@@ -220,10 +222,10 @@ export const TOWER_DEFINITIONS: Record<TowerId, TowerDefinition> = {
       buffSpeedPct: 0.2,
       buffRangePct: 0.1,
       cleanseDisrupt: true,
-      description: 'Tăng 26% công, 20% tốc đánh và giải nhanh hiệu ứng phá bùa.',
+      description: 'Tăng 26% sức, 20% tốc đánh và xua chuột phá rối nhanh hơn.',
     },
     tier3A: {
-      name: 'Khu Ấn Thổ Khôi',
+      name: 'Máy Sấy Khử Khuẩn',
       cost: 95,
       damage: 36,
       range: 132,
@@ -233,10 +235,10 @@ export const TOWER_DEFINITIONS: Record<TowerId, TowerDefinition> = {
       buffRangePct: 0.12,
       cleanseDisrupt: true,
       bonusKillReward: 2,
-      description: 'Bảo hộ quân cạnh bên miễn nhiễm phá bùa & cộng +2 linh thạch mỗi quái diệt.',
+      description: 'Bảo hộ món quanh máy không bị chuột gặm đứng im & thưởng +2 xu mỗi quái dọn được.',
     },
     tier3B: {
-      name: 'Cộng Minh Thổ Khôi',
+      name: 'Máy Sấy Gió Nhiệt Cao',
       cost: 100,
       damage: 42,
       range: 136,
@@ -245,7 +247,7 @@ export const TOWER_DEFINITIONS: Record<TowerId, TowerDefinition> = {
       buffSpeedPct: 0.3,
       buffRangePct: 0.16,
       cleanseDisrupt: true,
-      description: 'Cộng hưởng mạnh: tăng 40% công, 30% tốc đánh và 16% tầm bắn cho đồng minh.',
+      description: 'Cộng hưởng nhiệt mạnh: tăng 40% sức, 30% tốc đánh và 16% tầm cho món cạnh bên.',
     },
   },
 };
@@ -274,16 +276,15 @@ export function calculateSellRefund(totalInvested: number): number {
 }
 
 /**
- * Định nghĩa 6 loại quái + 1 quái con tách ra + 1 trùm (đủ 5 hệ Ngũ Hành).
- * Tên chính thức đã được Claude duyệt ("NAMES THỦ THÀNH: ĐỒNG Ý").
+ * Định nghĩa 6 bọn phá đồ Tiệm Giày + Gián Con + Trùm Mùa Nồm (đủ 5 hành Ngũ Hành theo docs/CHU_DE_GIU_TIEM.md).
  */
 export const ENEMY_DEFINITIONS: Record<EnemyId, EnemyDefinition> = {
   fast_metal: {
     id: 'fast_metal',
-    name: 'Khôi Lỗi Chân Gió',
-    element: 'kim',
+    name: 'Giọt Mưa',
+    element: 'thuy',
     trait: 'fast',
-    traitLabel: 'Chạy nhanh',
+    traitLabel: 'Nhanh, thành đàn',
     maxHp: 96,
     speed: 63,
     armor: 0.1,
@@ -293,10 +294,10 @@ export const ENEMY_DEFINITIONS: Record<EnemyId, EnemyDefinition> = {
   },
   tank_earth: {
     id: 'tank_earth',
-    name: 'Thạch Giáp Khôi Lỗi',
+    name: 'Cục Bùn',
     element: 'tho',
     trait: 'tank',
-    traitLabel: 'Máu trâu • Kháng hệ',
+    traitLabel: 'Máu trâu • Trừ 2 đôi',
     maxHp: 335,
     speed: 32,
     armor: 0.32,
@@ -306,10 +307,10 @@ export const ENEMY_DEFINITIONS: Record<EnemyId, EnemyDefinition> = {
   },
   fly_wood: {
     id: 'fly_wood',
-    name: 'Phi Dực Khôi Lỗi',
-    element: 'moc',
+    name: 'Nắng Gắt',
+    element: 'hoa',
     trait: 'flying',
-    traitLabel: 'Bay (Bỏ qua làm chậm)',
+    traitLabel: 'Tia nắng (Không bị làm chậm)',
     maxHp: 165,
     speed: 50,
     armor: 0.12,
@@ -320,10 +321,10 @@ export const ENEMY_DEFINITIONS: Record<EnemyId, EnemyDefinition> = {
   },
   split_fire: {
     id: 'split_fire',
-    name: 'Song Thể Khôi Lỗi',
-    element: 'hoa',
+    name: 'Gián',
+    element: 'moc',
     trait: 'splitter',
-    traitLabel: 'Chia đôi khi chết',
+    traitLabel: 'Đập chết tách 2 Gián Con',
     maxHp: 185,
     speed: 41,
     armor: 0.12,
@@ -335,10 +336,10 @@ export const ENEMY_DEFINITIONS: Record<EnemyId, EnemyDefinition> = {
   },
   split_fire_mini: {
     id: 'split_fire_mini',
-    name: 'Tiểu Hỏa Khôi',
-    element: 'hoa',
+    name: 'Gián Con',
+    element: 'moc',
     trait: 'mini',
-    traitLabel: 'Tách ra nhanh',
+    traitLabel: 'Tách ra chạy nhanh',
     maxHp: 64,
     speed: 58,
     armor: 0.04,
@@ -348,10 +349,10 @@ export const ENEMY_DEFINITIONS: Record<EnemyId, EnemyDefinition> = {
   },
   disrupt_water: {
     id: 'disrupt_water',
-    name: 'Phá Ấn Khôi Lỗi',
-    element: 'thuy',
+    name: 'Chuột',
+    element: 'kim',
     trait: 'disruptor',
-    traitLabel: 'Khóa quân đứng gần',
+    traitLabel: 'Gặm món đứng im',
     maxHp: 280,
     speed: 36,
     armor: 0.15,
@@ -364,10 +365,10 @@ export const ENEMY_DEFINITIONS: Record<EnemyId, EnemyDefinition> = {
   },
   healer_wood: {
     id: 'healer_wood',
-    name: 'Linh Tuyền Khôi Lỗi',
+    name: 'Nấm Mốc',
     element: 'moc',
     trait: 'healer',
-    traitLabel: 'Hồi máu cho bầy',
+    traitLabel: 'Hồi máu cho quái gần',
     maxHp: 260,
     speed: 37,
     armor: 0.12,
@@ -380,10 +381,10 @@ export const ENEMY_DEFINITIONS: Record<EnemyId, EnemyDefinition> = {
   },
   boss_water: {
     id: 'boss_water',
-    name: 'Sơ Giác — Khôi Lỗi Thức Tỉnh',
+    name: 'Trùm Mùa Nồm',
     element: 'thuy',
     trait: 'boss',
-    traitLabel: 'Trùm: Khiên & Phá bùa',
+    traitLabel: 'Trùm: Hơi ẩm & Đổi hành',
     maxHp: 2800,
     speed: 23,
     armor: 0.3,
@@ -400,14 +401,14 @@ export const ENEMY_DEFINITIONS: Record<EnemyId, EnemyDefinition> = {
 };
 
 /**
- * Màn 1: Đường Mòn Rừng Thạch Mạch — 9 đợt quái, mỗi đợt đều trộn ít nhất 2 hệ Ngũ Hành
- * để không một loại quân đơn lẻ nào cân được tất cả, 3 đợt cuối dồn dập và máu tăng mạnh.
+ * Màn 1: Tiệm Giày Hẻm Dốc — giữ nguyên đường đi, 9 ô đặt món và cấu trúc 9 đợt đã đạt chuẩn cân bằng.
+ * Hành quái gán theo docs/CHU_DE_GIU_TIEM.md: Giọt Mưa (Thủy), Cục Bùn (Thổ), Gián (Mộc), Nắng Gắt (Hỏa).
  */
 export const STAGE_1_DEFINITION: StageDefinition = {
   id: 'stage_1',
   stageNumber: 1,
-  name: 'Màn 1: Đường Mòn Rừng Thạch Mạch',
-  subtitle: 'Chặn 9 đợt khôi lỗi vỡ bùa từ Bãi Mỏ Phía Đông kéo về Thành Lam Lư',
+  name: 'Tiệm Giày Hẻm Dốc',
+  subtitle: 'Giữ sạch 20 đôi giày lành trên kệ qua 9 đợt mưa bùn Đà Lạt',
   startingEssence: 160,
   startingLives: 20,
   paths: [
@@ -436,8 +437,8 @@ export const STAGE_1_DEFINITION: StageDefinition = {
   waves: [
     {
       waveNumber: 1,
-      title: 'Đợt 1: Chân Gió & Giáp Đá',
-      mainElements: ['kim', 'tho'],
+      title: 'Đợt 1: Giọt Mưa & Cục Bùn',
+      mainElements: ['thuy', 'tho'],
       earlyBonusMax: 12,
       clearReward: 14,
       groups: [
@@ -461,8 +462,8 @@ export const STAGE_1_DEFINITION: StageDefinition = {
     },
     {
       waveNumber: 2,
-      title: 'Đợt 2: Phi Dực & Thạch Giáp',
-      mainElements: ['moc', 'tho'],
+      title: 'Đợt 2: Cục Bùn & Nắng Gắt',
+      mainElements: ['tho', 'hoa'],
       earlyBonusMax: 14,
       clearReward: 15,
       groups: [
@@ -486,8 +487,8 @@ export const STAGE_1_DEFINITION: StageDefinition = {
     },
     {
       waveNumber: 3,
-      title: 'Đợt 3: Song Thể & Chân Gió',
-      mainElements: ['hoa', 'kim'],
+      title: 'Đợt 3: Gián Đàn & Giọt Mưa',
+      mainElements: ['moc', 'thuy'],
       earlyBonusMax: 15,
       clearReward: 16,
       groups: [
@@ -511,8 +512,8 @@ export const STAGE_1_DEFINITION: StageDefinition = {
     },
     {
       waveNumber: 4,
-      title: 'Đợt 4: Không Kích & Lửa Chia',
-      mainElements: ['moc', 'hoa'],
+      title: 'Đợt 4: Nắng Gắt & Gián Bò',
+      mainElements: ['hoa', 'moc'],
       earlyBonusMax: 16,
       clearReward: 15,
       groups: [
@@ -536,8 +537,8 @@ export const STAGE_1_DEFINITION: StageDefinition = {
     },
     {
       waveNumber: 5,
-      title: 'Đợt 5: Thiết Giáp & Tốc Kích',
-      mainElements: ['tho', 'kim'],
+      title: 'Đợt 5: Bùn Dày & Mưa Rào',
+      mainElements: ['tho', 'thuy'],
       earlyBonusMax: 18,
       clearReward: 15,
       groups: [
@@ -561,8 +562,8 @@ export const STAGE_1_DEFINITION: StageDefinition = {
     },
     {
       waveNumber: 6,
-      title: 'Đợt 6: Hỏa Lõi & Cánh Gỗ',
-      mainElements: ['hoa', 'moc', 'tho'],
+      title: 'Đợt 6: Gián, Nắng & Cục Bùn',
+      mainElements: ['moc', 'hoa', 'tho'],
       earlyBonusMax: 18,
       clearReward: 15,
       groups: [
@@ -594,8 +595,8 @@ export const STAGE_1_DEFINITION: StageDefinition = {
     },
     {
       waveNumber: 7,
-      title: 'Đợt 7: Bão Đồng & Đá Tảng Dồn Dập',
-      mainElements: ['kim', 'tho', 'moc'],
+      title: 'Đợt 7: Mưa Xối, Bùn & Nắng Chói',
+      mainElements: ['thuy', 'tho', 'hoa'],
       earlyBonusMax: 20,
       clearReward: 16,
       groups: [
@@ -627,8 +628,8 @@ export const STAGE_1_DEFINITION: StageDefinition = {
     },
     {
       waveNumber: 8,
-      title: 'Đợt 8: Tứ Hành Cuồng Công',
-      mainElements: ['hoa', 'moc', 'tho', 'kim'],
+      title: 'Đợt 8: Tứ Bề Kéo Tới',
+      mainElements: ['tho', 'moc', 'hoa', 'thuy'],
       earlyBonusMax: 20,
       clearReward: 17,
       groups: [
@@ -668,8 +669,8 @@ export const STAGE_1_DEFINITION: StageDefinition = {
     },
     {
       waveNumber: 9,
-      title: 'Đợt 9: Đại Quân Vỡ Bùa Tổng Kích',
-      mainElements: ['tho', 'hoa', 'moc', 'kim'],
+      title: 'Đợt 9: Cơn Mưa Dầm Tổng Lực',
+      mainElements: ['tho', 'moc', 'hoa', 'thuy'],
       earlyBonusMax: 22,
       clearReward: 20,
       groups: [

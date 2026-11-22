@@ -389,7 +389,7 @@ export class TowerDefenseEngine {
       const def = ENEMY_DEFINITIONS[enemy.defId];
       enemy.abilityTimer += dtSec;
 
-      // Quái phá bùa hoặc Trùm phát xung khóa quân gần nó
+      // Chuột gặm món gần nó hoặc Trùm Mùa Nồm phủ ẩm làm món đứng im
       if (def.disruptIntervalSec && def.disruptRadius && def.disruptDurationSec) {
         if (enemy.abilityTimer >= def.disruptIntervalSec) {
           enemy.abilityTimer = 0;
@@ -401,7 +401,8 @@ export class TowerDefenseEngine {
                   x: tower.x,
                   y: tower.y,
                   towerUid: tower.uid,
-                  text: 'Hộ Ấn!',
+                  towerDefId: tower.defId,
+                  text: 'Sấy Khô!',
                 });
               } else {
                 tower.disruptedRemaining = Math.max(tower.disruptedRemaining, def.disruptDurationSec);
@@ -410,7 +411,8 @@ export class TowerDefenseEngine {
                   x: tower.x,
                   y: tower.y,
                   towerUid: tower.uid,
-                  text: 'Phá Bùa!',
+                  towerDefId: tower.defId,
+                  text: 'Chuột Gặm!',
                 });
               }
             }
@@ -418,7 +420,7 @@ export class TowerDefenseEngine {
         }
       }
 
-      // Quái hồi máu cho bầy
+      // Nấm Mốc hồi máu cho bầy gần đó
       if (def.healIntervalSec && def.healRadius && def.healAmount) {
         if (enemy.abilityTimer >= def.healIntervalSec) {
           enemy.abilityTimer = 0;
@@ -432,12 +434,13 @@ export class TowerDefenseEngine {
             x: enemy.x,
             y: enemy.y,
             enemyUid: enemy.uid,
+            enemyDefId: enemy.defId,
             text: `+${def.healAmount}`,
           });
         }
       }
 
-      // Trùm bật khiên giảm sát thương
+      // Trùm Mùa Nồm tạo màn ẩm giảm sát thương
       if (def.shieldIntervalSec && def.shieldDurationSec) {
         enemy.shieldTimer += dtSec;
         if (enemy.shieldTimer >= def.shieldIntervalSec) {
@@ -448,7 +451,8 @@ export class TowerDefenseEngine {
             x: enemy.x,
             y: enemy.y,
             enemyUid: enemy.uid,
-            text: 'Triều Linh Hộ Thể!',
+            enemyDefId: enemy.defId,
+            text: 'Màn Ẩm Dày!',
           });
         }
       }
@@ -531,7 +535,7 @@ export class TowerDefenseEngine {
         x: 180,
         y: 220,
         reward: clearReward,
-        text: `Qua Đợt ${this.currentWaveIndex + 1}! +${clearReward} Linh thạch`,
+        text: `Sạch Đợt ${this.currentWaveIndex + 1}! +${clearReward} Xu`,
       });
 
       if (this.currentWaveIndex >= this.stage.waves.length - 1) {
@@ -618,6 +622,8 @@ export class TowerDefenseEngine {
       targetY: primaryTarget.y,
       element: tower.element,
       towerUid: tower.uid,
+      towerDefId: tower.defId,
+      splashRadius: stats.splashRadius,
     });
 
     // Xác định danh sách mục tiêu bị trúng đòn (đánh đơn, đánh xuyên, hoặc đánh lan)
@@ -660,7 +666,7 @@ export class TowerDefenseEngine {
     const rawArmor = Math.max(0, enemy.armor - enemy.armorDebuffPct);
     const effectiveArmor = rawArmor * (1 - armorIgnore);
 
-    // Quái máu trâu (Thạch Giáp - Thổ) và Quái bay (Phi Dực - Mộc) kháng mạnh đòn đánh không khắc hệ
+    // Quái máu trâu (Cục Bùn - Thổ) và Tia nắng (Nắng Gắt - Hỏa) kháng mạnh đòn đánh không khắc hệ
     let traitResist = 1.0;
     if (enemy.trait === 'tank' && relation !== 'counter') {
       traitResist = 0.52;
@@ -699,7 +705,7 @@ export class TowerDefenseEngine {
     enemy.hp -= damage;
     enemy.hitFlashRemaining = 0.14;
 
-    // Làm chậm (quân Thủy) — quái bay miễn nhiễm làm chậm
+    // Làm chậm (Xịt Dưỡng Da — Thủy) — Nắng Gắt không bị làm chậm
     if (stats.slowPercent && stats.slowDurationSec && !enemy.flying) {
       if (stats.slowPercent >= enemy.slowPercent) {
         enemy.slowPercent = stats.slowPercent;
@@ -707,7 +713,7 @@ export class TowerDefenseEngine {
       enemy.slowRemaining = Math.max(enemy.slowRemaining, stats.slowDurationSec);
     }
 
-    // Choáng / đóng băng
+    // Choáng / giữ chân
     if (stats.stunDurationSec) {
       const shouldStun =
         tower.defId === 'water_tower' ? tower.shotsFired % 3 === 0 : true;
@@ -716,12 +722,12 @@ export class TowerDefenseEngine {
       }
     }
 
-    // Đẩy lùi nhẹ (Thủy 3B)
+    // Đẩy lùi nhẹ (Xịt Vòi Xoáy)
     if (stats.knockbackDist && !enemy.flying && enemy.trait !== 'boss') {
       this.knockbackEnemy(enemy, stats.knockbackDist);
     }
 
-    // Rút máu / thiêu đốt (Hỏa 3A hoặc Mộc 3B)
+    // Rút máu / hút khô (Thảm Hạt Hút Khô hoặc Dép Tông Gai Bám)
     if (stats.burnDps && stats.burnDurationSec) {
       enemy.burnDps = Math.max(enemy.burnDps, stats.burnDps);
       enemy.burnRemaining = Math.max(enemy.burnRemaining, stats.burnDurationSec);
@@ -739,6 +745,9 @@ export class TowerDefenseEngine {
       isCounter,
       isCountered,
       enemyUid: enemy.uid,
+      enemyDefId: enemy.defId,
+      towerUid: tower.uid,
+      towerDefId: tower.defId,
     });
 
     if (enemy.hp <= 0) {
@@ -781,9 +790,10 @@ export class TowerDefenseEngine {
       element: enemy.element,
       reward: totalReward,
       enemyUid: enemy.uid,
+      enemyDefId: enemy.defId,
     });
 
-    // Nếu là quái chia đôi khi chết (Song Thể Khôi Lỗi)
+    // Nếu là Gián chia đôi khi chết thành 2 Gián Con
     const def = ENEMY_DEFINITIONS[enemy.defId];
     if (def.splitChildId && def.splitCount && def.splitCount > 0) {
       const hpScale = enemy.maxHp / def.maxHp;
@@ -801,7 +811,8 @@ export class TowerDefenseEngine {
         x: enemy.x,
         y: enemy.y,
         element: enemy.element,
-        text: 'Tách Đôi!',
+        enemyDefId: enemy.defId,
+        text: 'Tách 2 Gián!',
       });
     }
   }

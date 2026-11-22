@@ -194,7 +194,10 @@ export interface CombatEvent {
   isCountered?: boolean;
   reward?: number;
   enemyUid?: string;
+  enemyDefId?: EnemyId;
   towerUid?: string;
+  towerDefId?: TowerId;
+  splashRadius?: number;
   text?: string;
 }
 

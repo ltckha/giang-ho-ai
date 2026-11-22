@@ -32,13 +32,13 @@ export const NEUTRAL_MULTIPLIER = 1.0;
 
 export const ELEMENT_INFO: Record<
   ElementType,
-  { label: string; colorHex: string; colorInt: number }
+  { label: string; colorHex: string; colorInt: number; iconSymbol: string }
 > = {
-  kim: { label: 'Kim', colorHex: '#e8c468', colorInt: 0xe8c468 },
-  moc: { label: 'Mộc', colorHex: '#59c173', colorInt: 0x59c173 },
-  thuy: { label: 'Thủy', colorHex: '#4ea8de', colorInt: 0x4ea8de },
-  hoa: { label: 'Hỏa', colorHex: '#ef6351', colorInt: 0xef6351 },
-  tho: { label: 'Thổ', colorHex: '#c49a6c', colorInt: 0xc49a6c },
+  kim: { label: 'Kim', colorHex: '#cbd5e1', colorInt: 0xcbd5e1, iconSymbol: '🪡' },
+  moc: { label: 'Mộc', colorHex: '#59c173', colorInt: 0x59c173, iconSymbol: '🍃' },
+  thuy: { label: 'Thủy', colorHex: '#38bdf8', colorInt: 0x38bdf8, iconSymbol: '💧' },
+  hoa: { label: 'Hỏa', colorHex: '#ff6b4a', colorInt: 0xff6b4a, iconSymbol: '🔥' },
+  tho: { label: 'Thổ', colorHex: '#d4a359', colorInt: 0xd4a359, iconSymbol: '🪨' },
 };
 
 export const ALL_ELEMENTS: readonly ElementType[] = ['kim', 'moc', 'thuy', 'hoa', 'tho'] as const;
