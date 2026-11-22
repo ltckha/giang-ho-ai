@@ -1,24 +1,55 @@
+MÀN 2 VẼ XONG
 LÀM ĐẸP XONG
 
 # Tiến độ phát triển — Gọn Tiệm, Sạch Phố ("Ngũ hành giữ tiệm")
 
-Cập nhật: 22/11/2026 • Nhánh: `main` • Trạng thái hiện tại: **Đã hoàn thành đổi chủ đề & làm đẹp Màn 1 "Tiệm Giày Hẻm Dốc" (Bước B, C, D theo `docs/ANTIGRAVITY_BRIEF_LAM_DEP.md` & `docs/CHU_DE_GIU_TIEM.md`), giữ nguyên mục tiêu độ khó; chưa làm Màn 2–3, tương sinh và bậc 4.**
+Cập nhật: 22/11/2026 • Nhánh: `main` • Trạng thái hiện tại: **Đã hoàn thành vẽ & gắn toàn bộ đồ họa, hiệu ứng tương sinh và khoá màn cho Màn 2 "Tiệm Bánh Đầu Phố" (theo `docs/YEU_CAU.md`), giữ nguyên 100% số liệu trong `src/core/`.**
 
 ---
 
-## 1. Năm góp ý từ `docs/REVIEW_LOG.md` đã làm đủ
+## 0. Màn 2 "Tiệm Bánh Đầu Phố" — Đã hoàn thành (Antigravity)
+
+- **Nền bản đồ `public/assets/map_man2_tiem_banh.webp` (`720×1040` = 2× khung logic `360×520`, 79 KB):** Khớp 100% đường đi 2 ngả vòng quanh **quầy bánh gỗ** ở giữa (`x 60–300, y 80–290`) và 10 ô đặt món trong `src/core/shops/bakery.ts` (4 ô nằm gọn trong lòng quầy cùng tủ kính trưng bày bánh, thớt cán bột, giỏ bánh mì). Cửa tiệm ở trên giữa (`x=180, y=24`) mở ra phố mưa Đà Lạt có thảm nâu sọc không chữ nước ngoài; bao bột mì ở các góc; **kệ bánh gỗ đèn vàng ấm** đặt cuối đường `(300, 460)`.
+- **Đủ bộ Sprite nền trong suốt vào Atlas (`public/assets/gon_tiem_atlas.webp`, `1024×1680`, 190 khung hình = 104 Màn 1 + 86 Màn 2, 513 KB):**
+  - **5 món Tiệm Bánh × 4 bậc (`t1`, `t2`, `t3a`, `t3b`) × 3 khung hoạt ảnh đánh (60 khung):**
+    - `bk_swatter` (**Kim**): *Vỉ Đập Ruồi* → *Vỉ Lưới Cán Dài* → *Vỉ Đập Đôi* (hai vỉ chéo) / *Vợt Điện Diệt Ruồi* (tia lửa điện xanh).
+    - `bk_jar` (**Thổ**): *Hũ Sành Kín* → *Hũ Sành Nắp Nặng* → *Chum Sành Lớn* (chum sành hoa văn vàng) / *Hũ Lăn Dọc Quầy*.
+    - `bk_fan` (**Mộc**): *Quạt Điện* (lồng quạt thoáng trong suốt) → *Quạt Đứng Hai Tốc* → *Quạt Trần Ba Cánh* / *Quạt Hộp Thổi Lùi*.
+    - `bk_oven` (**Hỏa**): *Lò Nướng* → *Lò Nướng Hai Tầng* → *Lò Đối Lưu* / *Lò Bánh Mì Củi* (lò gạch vòm củi rực lửa).
+    - `bk_fridge` (**Thủy**): *Tủ Mát* → *Tủ Mát Hai Cánh* → *Tủ Mát Giữ Tươi* / *Tủ Đông Gió Lạnh* (phủ băng tuyết).
+  - **6 quái mới × 4 khung hoạt ảnh đi (24 khung) + dùng lại Chuột Màn 1 (`disrupt_water`):** *Hơi Ẩm* (`bk_humid`), *Bụi Bột* (`bk_flour`), *Ruồi* (`bk_fly`), *Mốc Bánh* (`bk_mold`), *Than Hồng* (`bk_ember`), *Than Vụn* (`bk_ember_mini`).
+  - **Biểu tượng & đạo cụ:** Ổ bánh mì lành (`icon_bread_life`), kệ bánh gỗ (`prop_bakery_shelf`).
+  - **Xoá sạch toàn bộ 11 khoá hình tạm Màn 2 (`bk_*`) khỏi `PLACEHOLDER_FRAME_ALIAS` trong `src/game/atlasIcons.ts`** (giữ nguyên các khoá `fl_*` tạm của Màn 3 do Claude vừa đẩy sườn).
+- **Hiệu ứng & giao diện mới:**
+  - **Đường sáng tương sinh (`tower.synergyFromUid`):** Vẽ đường sáng mảnh + hạt sáng trôi + mũi tên chỉ hướng theo màu hành món cho từ món cho → món nhận; bật chữ `+15%` ngay khi mới nối; chạm vào đường sáng mở thẻ giải thích tiếng Việt đời thường (vd *"Gió thổi lửa to hơn — Mộc sinh Hỏa"* trong `src/game/synergyText.ts`) và hiển thị dòng tương sinh ngay trong bảng nâng cấp.
+  - **Khoá ô Màn 2 trên `TitleScene`:** Khoá tới khi `unlockedStage >= 2` trong bản lưu (qua Màn 1), nhưng `?stage=2` hoặc `?bot=1` vẫn mở thử ngay.
+  - **Hiệu ứng đánh & chết riêng** cho cả 5 món và 6 quái Tiệm Bánh, mưa ngoài cửa giữa trên, đèn vàng ấm trên kệ bánh, biểu tượng ổ bánh mì trên HUD & hộp tổng kết Màn 2.
+- **Tổng dung lượng `dist/`:** **2.4 MB** (dưới xa ngưỡng ≤ 5 MB). Không thay đổi bất kỳ tệp nào trong `src/core/`.
+
+| Cảnh Màn 2 (`390×844`) | Ảnh kiểm chứng |
+|---|---|
+| Khoá Màn 2 trước khi qua Màn 1 | ![Màn 2 khoá](screenshots/man2_00_title_locked.png) |
+| Chạm ô trong quầy bánh mở 5 món | ![Bảng đặt món Màn 2](screenshots/man2_01_build_menu.png) |
+| Đường sáng tương sinh +15% & chạm xem giải thích | ![Tương sinh Màn 2](screenshots/man2_02_synergy_tooltip.png) |
+| Giao tranh 2 ngả đường | ![Giao tranh Màn 2](screenshots/man2_03_combat.png) |
+| Thắng 10 đợt Màn 2 với tháp Bậc 3 | ![Thắng Màn 2](screenshots/man2_04_victory.png) |
+
+---
+
+## 1. Năm góp ý Màn 1 từ `docs/REVIEW_LOG.md` đã làm đủ
 
 1. **Nền trong suốt sạch cho mọi món & quái:** Toàn bộ 5 món giữ tiệm và 6 quái (+ Gián Con + Trùm Mùa Nồm) được tách nền trong suốt hoàn toàn (BFS flood-fill + gọt halo mép ngoài), kiểm tra trên nền caro không còn dính nền cũ hay viền trắng.
 2. **Vẽ lại Con Gián đúng dáng gián hoạt hình dễ thương:** Thân dẹt bầu dục, cánh nâu bóng xếp chồng, đúng 2 râu dài uốn cong, 6 chân mảnh có gai nhỏ và đôi mắt tinh nghịch (không còn giống bọ cánh cứng tròn).
 3. **Bỏ chữ "WELCOME" trên thảm chùi chân:** Cửa tiệm góc trên-trái dùng thảm chùi chân nâu sọc sạch, không có chữ nước ngoài.
 4. **Nền bản đồ Màn 1 khớp 100% đường quái đi & 9 ô đặt món:** Bản đồ [`public/assets/map_man1_tiem_giay.webp`](../public/assets/map_man1_tiem_giay.webp) (`720×960` = đúng 2× khung `360×480`) ghép sàn gỗ thông ấm, góc vỉa hè đá ướt mưa, ghế thử giày, giỏ ô, kệ giày gỗ ở cuối đường `(304, 455)`, đường đi màu kem khớp chính xác 8 điểm nút `STAGE_1_DEFINITION.paths[0]` và 9 thảm cói tròn nằm đúng toạ độ 9 ô `STAGE_1_DEFINITION.pads` (rõ nét, không bị che khuất trên điện thoại cầm dọc).
 5. **Nén Atlas WebP, tổng dung lượng `dist/` ≤ 5 MB:**
-   - `dist/assets/gon_tiem_atlas.webp` (104 khung hình, `1024×944`): **276 KB**
-   - `dist/assets/gon_tiem_atlas.json`: **18 KB**
+   - `dist/assets/gon_tiem_atlas.webp` (190 khung hình Màn 1 + Màn 2, `1024×1680`): **513 KB**
+   - `dist/assets/gon_tiem_atlas.json`: **33 KB**
    - `dist/assets/map_man1_tiem_giay.webp`: **49 KB**
+   - `dist/assets/map_man2_tiem_banh.webp`: **79 KB**
    - Phông chữ tiếng Việt offline (`Be Vietnam Pro` + `Noto Serif`, `.woff2`): **89 KB**
-   - Mã game + Phaser (`index-*.js` + CSS): **1.56 MB**
-   - **Tổng thư mục `dist/`:** **2.0 MB** (dưới rất xa ngưỡng 5 MB).
+   - Mã game + Phaser (`index-*.js` + CSS): **1.60 MB**
+   - **Tổng thư mục `dist/`:** **2.4 MB** (dưới rất xa ngưỡng 5 MB).
 
 ---
 
@@ -78,7 +109,7 @@ Cập nhật: 22/11/2026 • Nhánh: `main` • Trạng thái hiện tại: **Đ
 ## 5. Lệnh kiểm tra nhanh
 
 ```bash
-npm test          # 16/16 unit test qua
-npm run build     # dist/ tổng cộng 2.0 MB (<= 5 MB)
-npm run test:e2e  # 2/2 Playwright điện thoại dọc 390x844 qua, 0 lỗi console, 0 mạng ngoài
+npm test          # 27/27 unit test qua (Màn 1, Màn 2, Màn 3 & Ngũ Hành)
+npm run build     # dist/ tổng cộng 2.4 MB (<= 5 MB)
+npm run test:e2e  # 4/4 Playwright điện thoại dọc 390x844 qua (Màn 1 + khoá Màn 2 + tương sinh & Màn 2), 0 lỗi console, 0 mạng ngoài
 ```
