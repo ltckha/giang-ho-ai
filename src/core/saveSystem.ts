@@ -16,7 +16,13 @@ export const SAVE_STORAGE_KEY = 'giang_ho_ai_save_v2';
 export const SAVE_VERSION = 2;
 
 const VALID_SECT_IDS: ReadonlySet<string> = new Set(['sect_open', 'sect_closed', 'sect_ban']);
-const VALID_MAP_IDS: ReadonlySet<string> = new Set(['map_town', 'map_forest', 'map_cave']);
+const VALID_MAP_IDS: ReadonlySet<string> = new Set([
+  'map_town',
+  'map_forest',
+  'map_cave',
+  'map_inner_city',
+  'map_valley',
+]);
 const VALID_QUEST_STATUSES: ReadonlySet<string> = new Set([
   'not_started',
   'active',

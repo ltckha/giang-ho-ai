@@ -758,4 +758,168 @@ export function generateGameTextures(scene: Phaser.Scene): void {
     ctx.arc(5, 5, 5, 0, Math.PI * 2);
     ctx.fill();
   });
+
+  // 9. Nền 2 bản đồ mới Giai đoạn 2 (Thành Bế Các & Lũng Đại Mạch)
+  makeCanvasTexture(scene, 'tile_inner_city', 64, 64, (ctx, w, h) => {
+    ctx.fillStyle = '#2a303a';
+    ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = '#3a4250';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(1, 1, 30, 30);
+    ctx.strokeRect(33, 1, 30, 30);
+    ctx.strokeRect(1, 33, 30, 30);
+    ctx.strokeRect(33, 33, 30, 30);
+    // Đường viền đồng niêm phong
+    ctx.strokeStyle = 'rgba(232, 196, 104, 0.16)';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(4, 4, 24, 24);
+    ctx.strokeRect(36, 36, 24, 24);
+  });
+
+  makeCanvasTexture(scene, 'tile_valley', 64, 64, (ctx, w, h) => {
+    ctx.fillStyle = '#25211c';
+    ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = '#312b24';
+    ctx.fillRect(4, 8, 22, 16);
+    ctx.fillRect(34, 36, 24, 18);
+    // Mạch linh thạch lộ thiên xanh lam dưới nền thung lũng
+    ctx.strokeStyle = 'rgba(76, 201, 240, 0.25)';
+    ctx.lineWidth = 1.6;
+    ctx.beginPath();
+    ctx.moveTo(8, 52);
+    ctx.lineTo(24, 42);
+    ctx.lineTo(42, 48);
+    ctx.stroke();
+  });
+
+  // 10. NPC mới Giai đoạn 2 (nhân vật nhiệm vụ chính & 3 nhiệm vụ phụ & bang hội & ghép đồ)
+  makeCanvasTexture(scene, 'npc_open_rep', 42, 46, (ctx) =>
+    drawNpc(ctx, '#2b7a4b', '#a7f3d0', 'foundry'),
+  );
+  makeCanvasTexture(scene, 'npc_closed_rep', 42, 46, (ctx) =>
+    drawNpc(ctx, '#3b4a5e', '#e8c468', 'foundry'),
+  );
+  makeCanvasTexture(scene, 'npc_ban_rep', 42, 46, (ctx) =>
+    drawNpc(ctx, '#7f2323', '#ffd166', 'guard'),
+  );
+  makeCanvasTexture(scene, 'npc_scholar', 42, 46, (ctx) =>
+    drawNpc(ctx, '#335c67', '#e0fbfc', 'merchant'),
+  );
+  makeCanvasTexture(scene, 'npc_teahouse', 42, 46, (ctx) =>
+    drawNpc(ctx, '#8c4a27', '#f6dc95', 'merchant'),
+  );
+  makeCanvasTexture(scene, 'npc_martial_master', 42, 46, (ctx) =>
+    drawNpc(ctx, '#3d405b', '#f2cc8f', 'guard'),
+  );
+  makeCanvasTexture(scene, 'npc_taoist', 42, 46, (ctx) =>
+    drawNpc(ctx, '#4a5759', '#f7e1d7', 'foundry'),
+  );
+  makeCanvasTexture(scene, 'npc_guild_master', 42, 46, (ctx) =>
+    drawNpc(ctx, '#5f4bb6', '#ffd166', 'guard'),
+  );
+  makeCanvasTexture(scene, 'npc_apprentice_smith', 42, 46, (ctx) =>
+    drawNpc(ctx, '#6c4f3d', '#ffb703', 'blacksmith'),
+  );
+  makeCanvasTexture(scene, 'npc_seal_breaker', 42, 46, (ctx) =>
+    drawNpc(ctx, '#3b2842', '#ff4d6d', 'merchant'),
+  );
+
+  // 11. Quái mới Giai đoạn 2
+  makeCanvasTexture(scene, 'enemy_bronze_guard', 42, 46, (ctx) =>
+    drawEnemy(ctx, '#6c5838', '#f3d68b', '#ffd166', 'blocky'),
+  );
+  makeCanvasTexture(scene, 'enemy_copy_scribe', 42, 46, (ctx) =>
+    drawEnemy(ctx, '#2b5842', '#95d5b2', '#7bf1a8', 'logger'),
+  );
+  makeCanvasTexture(scene, 'enemy_unsealed_golem', 42, 46, (ctx) =>
+    drawEnemy(ctx, '#6e1f1f', '#ff9f1c', '#ff4d4d', 'furnace'),
+  );
+  makeCanvasTexture(scene, 'enemy_stone_colossus', 44, 48, (ctx) =>
+    drawEnemy(ctx, '#5c5346', '#c49a6c', '#ffe6a7', 'blocky'),
+  );
+  makeCanvasTexture(scene, 'enemy_voice_mimic', 42, 46, (ctx) =>
+    drawEnemy(ctx, '#2b506e', '#90e0ef', '#48cae4', 'sentry'),
+  );
+  makeCanvasTexture(scene, 'enemy_siege_defender', 44, 48, (ctx) =>
+    drawEnemy(ctx, '#4a5568', '#e8c468', '#9bf6ff', 'blocky'),
+  );
+
+  // 12. Trùm mới Giai đoạn 2: Vạn Chép — Khôi Lỗi Hợp Lõi (Hệ Kim)
+  const drawBossVanChep = (ctx: CanvasRenderingContext2D, phaseTwo: boolean): void => {
+    const cx = 38;
+    const aura = ctx.createRadialGradient(cx, 66, 8, cx, 66, 36);
+    aura.addColorStop(0, phaseTwo ? 'rgba(255, 190, 85, 0.78)' : 'rgba(232, 196, 104, 0.5)');
+    aura.addColorStop(1, 'rgba(232, 196, 104, 0)');
+    ctx.fillStyle = aura;
+    ctx.beginPath();
+    ctx.ellipse(cx, 66, 35, 13, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Bốn cánh tay đồng chép võ công 3 phái sau lưng
+    ctx.strokeStyle = phaseTwo ? '#ff9f1c' : '#d4a359';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(14, 30);
+    ctx.lineTo(4, 14);
+    ctx.moveTo(62, 30);
+    ctx.lineTo(72, 14);
+    ctx.moveTo(14, 44);
+    ctx.lineTo(3, 48);
+    ctx.moveTo(62, 44);
+    ctx.lineTo(73, 48);
+    ctx.stroke();
+
+    // Thân hợp kim đồng-sắt đồ sộ
+    ctx.fillStyle = phaseTwo ? '#5c3c24' : '#4a525d';
+    drawRoundedRect(ctx, 14, 22, 48, 38, 8);
+    ctx.fill();
+    ctx.strokeStyle = phaseTwo ? '#ffd166' : '#e8c468';
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+
+    // Ba lõi linh thạch ghép chồng trước ngực (Kim - Mộc - Hỏa)
+    const cores: Array<{ x: number; y: number; col: string }> = [
+      { x: cx, y: 34, col: '#e8c468' },
+      { x: cx - 9, y: 45, col: '#59c173' },
+      { x: cx + 9, y: 45, col: '#ef6351' },
+    ];
+    for (const c of cores) {
+      ctx.fillStyle = c.col;
+      ctx.beginPath();
+      ctx.arc(c.x, c.y, 5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+    }
+
+    // Đầu hợp lõi
+    ctx.fillStyle = '#2d3748';
+    drawRoundedRect(ctx, 24, 5, 28, 18, 5);
+    ctx.fill();
+    ctx.strokeStyle = '#e8c468';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.fillStyle = phaseTwo ? '#ff595e' : '#ffd166';
+    ctx.fillRect(29, 12, 6, 4);
+    ctx.fillRect(41, 12, 6, 4);
+  };
+
+  makeCanvasTexture(scene, 'boss_van_chep', 76, 80, (ctx) => drawBossVanChep(ctx, false));
+  makeCanvasTexture(scene, 'boss_van_chep_p2', 76, 80, (ctx) => drawBossVanChep(ctx, true));
+
+  // 13. Đại diện 4 Bang hội AI tuần tra ngoài bản đồ
+  makeCanvasTexture(scene, 'guild_agent_guild_aggressive', 40, 44, (ctx) =>
+    drawMartialHero(ctx, '#6b5322', '#ffd166', '#3d2f14', 'sword', '#e8c468'),
+  );
+  makeCanvasTexture(scene, 'guild_agent_guild_merchant', 40, 44, (ctx) =>
+    drawMartialHero(ctx, '#245c3b', '#95d5b2', '#3a2d1e', 'staff', '#59c173'),
+  );
+  makeCanvasTexture(scene, 'guild_agent_guild_opportunist', 40, 44, (ctx) =>
+    drawMartialHero(ctx, '#214e6e', '#90e0ef', '#1d3557', 'sword', '#4ea8de'),
+  );
+  makeCanvasTexture(scene, 'guild_agent_guild_guardian', 40, 44, (ctx) =>
+    drawMartialHero(ctx, '#6e2222', '#ffadad', '#2b1818', 'rod', '#ef6351'),
+  );
 }

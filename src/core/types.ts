@@ -5,7 +5,7 @@ export type ElementType = 'kim' | 'moc' | 'thuy' | 'hoa' | 'tho';
 
 export type SectId = 'sect_open' | 'sect_closed' | 'sect_ban';
 
-export type MapId = 'map_town' | 'map_forest' | 'map_cave';
+export type MapId = 'map_town' | 'map_forest' | 'map_cave' | 'map_inner_city' | 'map_valley';
 
 export type AllyPersonality = 'reckless' | 'cautious' | 'greedy';
 
@@ -206,9 +206,26 @@ export interface PortalDef {
   targetY: number;
 }
 
+export type NpcRole =
+  | 'blacksmith'
+  | 'guide'
+  | 'merchant'
+  | 'foundry'
+  | 'guard'
+  | 'guild_board'
+  | 'scholar'
+  | 'sect_open_rep'
+  | 'sect_closed_rep'
+  | 'sect_ban_rep'
+  | 'teahouse'
+  | 'master'
+  | 'taoist'
+  | 'apprentice_smith'
+  | 'seal_breaker_npc';
+
 export interface NpcPlacement {
   id: string;
-  role: 'blacksmith' | 'guide' | 'merchant' | 'foundry' | 'guard';
+  role: NpcRole;
   x: number;
   y: number;
 }
@@ -219,7 +236,18 @@ export interface LandmarkZone {
   y: number;
   w: number;
   h: number;
-  kind: 'foundry' | 'market' | 'forge' | 'plaza' | 'mine' | 'crossroads' | 'fake_landmark' | 'boss_arena';
+  kind:
+    | 'foundry'
+    | 'market'
+    | 'forge'
+    | 'plaza'
+    | 'mine'
+    | 'crossroads'
+    | 'fake_landmark'
+    | 'boss_arena'
+    | 'vault'
+    | 'board'
+    | 'siege_gate';
 }
 
 export interface MapDef {

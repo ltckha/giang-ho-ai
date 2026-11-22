@@ -6,6 +6,8 @@ export const SCENE_KEYS = {
   TOWN: 'TownScene',
   FOREST: 'ForestScene',
   CAVE: 'CaveScene',
+  INNER_CITY: 'InnerCityScene',
+  VALLEY: 'ValleyScene',
   UI: 'UIScene',
 } as const;
 
@@ -17,5 +19,9 @@ export function getSceneKeyForMap(mapId: MapId): string {
       return SCENE_KEYS.FOREST;
     case 'map_cave':
       return SCENE_KEYS.CAVE;
+    case 'map_inner_city':
+      return SCENE_KEYS.INNER_CITY;
+    case 'map_valley':
+      return SCENE_KEYS.VALLEY;
   }
 }
