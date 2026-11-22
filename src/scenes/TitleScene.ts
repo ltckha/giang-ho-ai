@@ -1,17 +1,10 @@
 import Phaser from 'phaser';
-import { CONTENT } from '../core/contentRegistry';
 import { ELEMENT_INFO } from '../core/elements';
-import { SECTS, getSectSkills } from '../core/skills';
-import type { SectId } from '../core/types';
-import { gameState } from '../game/gameState';
-import { SCENE_KEYS, getSceneKeyForMap } from '../game/sceneKeys';
+import { loadTdSave } from '../core/saveSystem';
+import { STAGE_1_DEFINITION, TOWER_LIST } from '../core/tdDefinitions';
+import { SCENE_KEYS } from '../game/sceneKeys';
 import { sound } from '../game/sound';
 
-const SECT_ORDER: SectId[] = ['sect_open', 'sect_closed', 'sect_ban'];
-
-/**
- * Màn hình khởi đầu: chọn tiếp tục bản lưu localStorage hoặc gia nhập 1 trong 3 môn phái.
- */
 export class TitleScene extends Phaser.Scene {
   private overlayEl: HTMLDivElement | null = null;
   private motes: Array<{ dot: Phaser.GameObjects.Arc; speedY: number; phase: number }> = [];
@@ -23,29 +16,28 @@ export class TitleScene extends Phaser.Scene {
   public create(): void {
     this.motes = [];
     const { width, height } = this.scale;
-    this.cameras.main.setBackgroundColor('#13110f');
+    this.cameras.main.setBackgroundColor('#12100e');
 
-    // Nền trang trí linh thạch xanh lam & vòng đồng cổ xoay nhẹ
     const g = this.add.graphics();
     g.lineStyle(2, 0xc7a45a, 0.14);
-    g.strokeCircle(width * 0.5, height * 0.48, Math.min(width, height) * 0.38);
+    g.strokeCircle(width * 0.5, height * 0.45, Math.min(width, height) * 0.36);
     g.lineStyle(1.5, 0x4cc9f0, 0.14);
-    g.strokeCircle(width * 0.5, height * 0.48, Math.min(width, height) * 0.28);
+    g.strokeCircle(width * 0.5, height * 0.45, Math.min(width, height) * 0.26);
 
-    for (let i = 0; i < 28; i++) {
-      const x = Phaser.Math.Between(20, Math.max(40, width - 20));
-      const y = Phaser.Math.Between(20, Math.max(40, height - 20));
+    for (let i = 0; i < 22; i += 1) {
+      const x = Phaser.Math.Between(16, Math.max(40, width - 16));
+      const y = Phaser.Math.Between(16, Math.max(40, height - 16));
       const isCyan = i % 2 === 0;
       const dot = this.add.circle(
         x,
         y,
-        Phaser.Math.FloatBetween(2, 4.5),
+        Phaser.Math.FloatBetween(2, 4),
         isCyan ? 0x4cc9f0 : 0xe8c468,
-        Phaser.Math.FloatBetween(0.18, 0.55),
+        Phaser.Math.FloatBetween(0.2, 0.55),
       );
       this.motes.push({
         dot,
-        speedY: Phaser.Math.FloatBetween(8, 22),
+        speedY: Phaser.Math.FloatBetween(8, 20),
         phase: Phaser.Math.FloatBetween(0, Math.PI * 2),
       });
     }
@@ -62,7 +54,7 @@ export class TitleScene extends Phaser.Scene {
     const { width, height } = this.scale;
     for (const m of this.motes) {
       m.dot.y -= m.speedY * dt;
-      m.dot.x += Math.sin(time * 0.001 + m.phase) * 8 * dt;
+      m.dot.x += Math.sin(time * 0.001 + m.phase) * 7 * dt;
       if (m.dot.y < -10) {
         m.dot.y = height + 10;
         m.dot.x = Phaser.Math.Between(16, Math.max(32, width - 16));
@@ -70,135 +62,66 @@ export class TitleScene extends Phaser.Scene {
     }
   }
 
-  private getTextureDataUrl(key: string): string {
-    const tex = this.textures.get(key);
-    const source = tex?.getSourceImage() as HTMLCanvasElement | undefined;
-    if (source && typeof source.toDataURL === 'function') {
-      return source.toDataURL();
-    }
-    return '';
-  }
-
   private mountTitleOverlay(): void {
     this.unmountOverlay();
     const container = document.getElementById('game-container');
     if (!container) return;
 
+    const save = loadTdSave();
+    const s1Stars = save.starsByStage.stage_1 ?? 0;
+    const starText = s1Stars > 0 ? '★'.repeat(s1Stars) + '☆'.repeat(3 - s1Stars) : 'Chưa qua';
+
     const root = document.createElement('div');
-    root.className = 'gh-overlay';
-    root.id = 'gh-title-overlay';
+    root.className = 'td-title-overlay';
+    root.id = 'td-title-overlay';
 
-    const wrap = document.createElement('div');
-    wrap.className = 'gh-title-wrap';
+    const towerBadges = TOWER_LIST.map((t) => {
+      const el = ELEMENT_INFO[t.element];
+      return `<span class="td-pill" style="border-color:${el.colorHex};color:${el.colorHex}">Hệ ${el.label}: ${t.roleLabel}</span>`;
+    }).join('');
 
-    // Tiêu đề game
-    const header = document.createElement('div');
-    header.className = 'gh-title-header';
-    header.innerHTML = `
-      <h1>${CONTENT.gameTitle}</h1>
-      <p>Giang hồ cổ trang thời khôi lỗi biết nghĩ • 3 đồng đội AI gỗ-đồng chạy linh thạch • Chơi offline trên điện thoại &amp; máy tính</p>
-    `;
-    wrap.appendChild(header);
+    root.innerHTML = `
+      <div class="td-title-card">
+        <div class="td-title-kicker">THỦ THÀNH KHÔI LỖI • NGŨ HÀNH TƯƠNG KHẮC</div>
+        <h1 class="td-title-heading">Giang Hồ AI</h1>
+        <p class="td-title-desc">
+          Khôi lỗi ở mỏ linh thạch bị gỡ bùa phong ấn nổi loạn kéo về Thành Lam Lư. Đặt khôi lỗi phe mình dọc đường để chặn quái và thu linh thạch nâng cấp!
+        </p>
 
-    // Thanh tiếp tục bản lưu nếu đã có trong localStorage
-    const saved = gameState.peekSavedGame();
-    if (saved) {
-      const continueBar = document.createElement('div');
-      continueBar.className = 'gh-continue-bar';
-      const sectMeta = CONTENT.sects[saved.sectId];
-      const mapMeta = CONTENT.maps[saved.mapId];
-      continueBar.innerHTML = `
-        <div class="gh-continue-meta">
-          <strong>Tiếp tục hành trình đã lưu</strong><br/>
-          ${sectMeta.name} • Cấp ${saved.level} • ${mapMeta.name} • ${saved.silver} Bạc • ${saved.spiritStones} Linh Thạch${saved.bossDefeated ? ' • Đã hạ Sơ Giác' : ''}
-        </div>
-      `;
-      const btnGroup = document.createElement('div');
-      btnGroup.style.display = 'flex';
-      btnGroup.style.gap = '8px';
-
-      const btnCont = document.createElement('button');
-      btnCont.className = 'gh-btn gh-btn-cyan';
-      btnCont.textContent = 'Tiếp tục chơi';
-      btnCont.onclick = () => {
-        sound.playUiClick();
-        const loaded = gameState.continueSavedGame();
-        if (loaded) {
-          this.unmountOverlay();
-          this.scene.start(getSceneKeyForMap(loaded.mapId));
-        }
-      };
-
-      const btnClear = document.createElement('button');
-      btnClear.className = 'gh-btn gh-btn-secondary';
-      btnClear.textContent = 'Xóa bản lưu';
-      btnClear.onclick = () => {
-        sound.playUiClick();
-        gameState.resetSave();
-        this.mountTitleOverlay();
-      };
-
-      btnGroup.appendChild(btnCont);
-      btnGroup.appendChild(btnClear);
-      continueBar.appendChild(btnGroup);
-      wrap.appendChild(continueBar);
-    }
-
-    // Lưới chọn 3 môn phái
-    const grid = document.createElement('div');
-    grid.className = 'gh-sect-grid';
-
-    for (const sectId of SECT_ORDER) {
-      const sectDef = SECTS[sectId];
-      const sectInfo = CONTENT.sects[sectId];
-      const elInfo = ELEMENT_INFO[sectDef.element];
-      const skills = getSectSkills(sectId)
-        .map((s) => `${s.slot}. ${CONTENT.skills[s.id].name}`)
-        .join(' • ');
-      const avatarSrc = this.getTextureDataUrl(`player_${sectId}`);
-
-      const card = document.createElement('div');
-      card.className = 'gh-sect-card';
-      card.dataset.sectId = sectId;
-      card.innerHTML = `
-        <div class="gh-sect-head">
-          ${avatarSrc ? `<img class="gh-sect-avatar" src="${avatarSrc}" alt="${sectInfo.name}" />` : ''}
-          <div>
-            <div class="gh-sect-name">${sectInfo.name}</div>
-            <span class="gh-badge" style="background:${elInfo.colorHex}">Hệ ${elInfo.label}</span>
+        <div class="td-stage-box">
+          <div class="td-stage-header">
+            <div>
+              <div class="td-stage-name">${STAGE_1_DEFINITION.name}</div>
+              <div class="td-stage-sub">${STAGE_1_DEFINITION.subtitle}</div>
+            </div>
+            <div class="td-stage-stars" data-testid="stage1-stars">${starText}</div>
           </div>
+          <div class="td-stage-meta">
+            <span>9 Đợt quái</span> • <span>20 Mạng thành</span> • <span>Khắc hệ 1.35x / Bị khắc 0.75x</span>
+          </div>
+          <button id="btn-start-stage-1" data-testid="btn-start-stage-1" class="td-btn-primary">
+            Vào Màn 1 Ngay
+          </button>
         </div>
-        <div class="gh-sect-stance">${sectInfo.stance}</div>
-        <div class="gh-sect-stance" style="color:#c2b399">${sectInfo.weaponDesc}</div>
-        <div class="gh-sect-bonus">${sectInfo.bonusDesc}</div>
-        <div class="gh-sect-skills"><strong>4 Chiêu:</strong> ${skills}</div>
-      `;
 
-      const startBtn = document.createElement('button');
-      startBtn.className = 'gh-btn';
-      startBtn.style.marginTop = 'auto';
-      startBtn.textContent = `Chọn ${sectInfo.name}`;
-      startBtn.onclick = () => {
-        sound.playUiClick();
-        const fresh = gameState.startNewGame(sectId);
-        this.unmountOverlay();
-        this.scene.start(getSceneKeyForMap(fresh.mapId));
-      };
-      card.appendChild(startBtn);
-      grid.appendChild(card);
-    }
+        <div class="td-element-guide">
+          <div class="td-guide-title">Vòng khắc Ngũ Hành: Kim → Mộc → Thổ → Thủy → Hỏa → Kim</div>
+          <div class="td-pill-wrap">${towerBadges}</div>
+        </div>
+      </div>
+    `;
 
-    wrap.appendChild(grid);
-
-    const foot = document.createElement('div');
-    foot.className = 'gh-title-foot';
-    foot.textContent =
-      'Phím tắt: WASD / Mũi tên di chuyển • 1-4 hoặc Space đánh chiêu • E trò chuyện/vào cổng • Q/R uống bình • I Túi đồ • M Nhiệm vụ • Điện thoại: dùng cần ảo & nút chạm.';
-    wrap.appendChild(foot);
-
-    root.appendChild(wrap);
     container.appendChild(root);
     this.overlayEl = root;
+
+    const startBtn = root.querySelector<HTMLButtonElement>('#btn-start-stage-1');
+    if (startBtn) {
+      startBtn.onclick = () => {
+        sound.playUiClick();
+        this.unmountOverlay();
+        this.scene.start(SCENE_KEYS.TD_STAGE);
+      };
+    }
   }
 
   private unmountOverlay(): void {
