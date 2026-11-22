@@ -114,6 +114,14 @@ class SoundManager {
     this.playTone(587, 0.22, 'triangle', 0.11, 880, 0.13);
   }
 
+  public playChestOpen(): void {
+    this.playTone(280, 0.08, 'triangle', 0.11, 380);
+    const notes = [587, 784, 988, 1175];
+    notes.forEach((n, idx) => {
+      this.playTone(n, 0.16, 'sine', 0.09, n * 1.03, 0.05 + idx * 0.055);
+    });
+  }
+
   public playUiClick(): void {
     this.playTone(587, 0.05, 'sine', 0.06, 659);
   }

@@ -26,12 +26,15 @@ import {
   getAtlasFrameDataUrl,
   getEnemyFrameName,
   getEnemyWalkAnimKey,
+  getGearAtlasFrameDataUrl,
+  getGearIconFrameName,
   getTowerFrameName,
   getTowerTierKey,
   STAGE1_MAP_KEY,
   STAGE2_MAP_KEY,
   STAGE3_MAP_KEY,
 } from '../game/atlasIcons';
+import { getStatMiniIconSvg, RARITY_THEME } from '../game/gearUiHelpers';
 import { getInitialReduceMotion, saveReduceMotion } from '../game/preferences';
 import { SCENE_KEYS } from '../game/sceneKeys';
 import { sound } from '../game/sound';
@@ -2700,21 +2703,104 @@ export class TdStageScene extends Phaser.Scene {
           ? 'Hơi ẩm, ruồi và than hồng đã tràn lên kệ bánh. Hãy ghép cặp tương sinh (+15%) và đặt món khắc chế "Trúng tủ!" nhé!'
           : 'Mưa bùn và gián đã tràn lên kệ giày. Hãy xem hành đợt sắp tới để đặt món khắc chế "Trúng tủ!" nhé!';
 
+    const chestClosedUrl = getGearAtlasFrameDataUrl(this, 'gear_chest_closed');
+    const chestOpenUrl = getGearAtlasFrameDataUrl(this, 'gear_chest_open');
+
+    let dropsHtml = '';
+    if (isWin && this.lastDrops.length > 0) {
+      const startOpen = this.reduceMotion;
+      const cardsHtml = this.lastDrops
+        .map((g, idx) => {
+          const theme = RARITY_THEME[g.rarity];
+          const elInfo = ELEMENT_INFO[g.element];
+          const gearIconUrl = getGearAtlasFrameDataUrl(this, getGearIconFrameName(g.slot, g.element));
+          const elIconUrl = getAtlasFrameDataUrl(this, `el_${g.element}`);
+          const delayMs = this.reduceMotion ? 0 : 280 + idx * 140;
+          const visibleLinesHtml = g.visible
+            .map(
+              (st) =>
+                `<div class="td-drop-stat-line">${getStatMiniIconSvg(st.kind)}<span>${statText(st)}</span></div>`,
+            )
+            .join('');
+
+          return `
+            <div
+              class="td-drop-card rarity-${g.rarity} ${this.reduceMotion ? 'no-anim' : ''}"
+              data-testid="drop-card-${idx}"
+              style="border-color:${theme.border};background:${theme.bg};animation-delay:${delayMs}ms"
+            >
+              <div class="td-drop-thumb" style="border-color:${theme.border}">
+                ${gearIconUrl ? `<img src="${gearIconUrl}" alt="${g.name}" />` : ''}
+                ${g.rarity === 'hieu' ? '<span class="td-hieu-crown" aria-hidden="true">★</span>' : ''}
+              </div>
+              <div class="td-drop-info">
+                <div class="td-drop-name-row">
+                  <strong>${g.rarity === 'hieu' ? '★ ' : ''}${g.name}</strong>
+                </div>
+                <div class="td-drop-badges">
+                  <span class="td-rarity-pill" style="background:${theme.badgeBg};color:${theme.badgeText}">${RARITY_LABEL[g.rarity]}</span>
+                  <span class="td-el-badge" style="background:${elInfo.colorHex}">
+                    ${elIconUrl ? `<img class="td-badge-el-icon" src="${elIconUrl}" alt="" />` : ''}
+                    ${elInfo.label}
+                  </span>
+                  <span class="td-drop-hidden-pill">+${g.hidden.length} dòng ẩn</span>
+                </div>
+                <div class="td-drop-stats">${visibleLinesHtml}</div>
+              </div>
+            </div>
+          `;
+        })
+        .join('');
+
+      dropsHtml = `
+        <div class="td-result-drops-box ${startOpen ? 'chest-opened' : ''} ${this.reduceMotion ? 'no-anim' : ''}" id="td-result-drops" data-testid="td-result-drops">
+          <div class="td-drops-chest-head">
+            <div class="td-chest-stage" id="td-chest-stage">
+              ${
+                chestClosedUrl && chestOpenUrl
+                  ? `<img class="td-chest-img closed" src="${chestClosedUrl}" alt="Rương quà đóng" />
+                     <img class="td-chest-img open" src="${chestOpenUrl}" alt="Rương quà mở" />`
+                  : `<span class="td-chest-fallback" aria-hidden="true">🎁</span>`
+              }
+            </div>
+            <div class="td-chest-caption">
+              <strong>Mở Rương Trang Bị (+${this.lastDrops.length} món)</strong>
+              <span>Đã cất vào kho chủ tiệm • Về Màn Chính để mặc ngay!</span>
+            </div>
+          </div>
+          <div class="td-drop-card-list">${cardsHtml}</div>
+        </div>
+      `;
+    }
+
     this.modalRoot.innerHTML = `
       <div class="td-result-modal td-shoebox-panel" data-testid="td-result-modal">
         <div class="td-result-ribbon">${ribbonText}</div>
         <h2 class="td-result-title">${titleText}</h2>
         <div class="td-result-stars ${this.reduceMotion ? 'no-anim' : ''}" data-testid="td-result-stars">${starsHtml}</div>
         <p class="td-result-desc">${descText}</p>
-        ${isWin && this.lastDrops.length > 0 ? `<div class="td-result-desc" data-testid="td-result-drops"><strong>Nhận trang bị:</strong><br>${this.lastDrops
-          .map((g) => `${g.name} (${RARITY_LABEL[g.rarity]}, hệ ${ELEMENT_INFO[g.element].label}) — ${g.visible.map(statText).join('; ')}`)
-          .join('<br>')}</div>` : ''}
+        ${dropsHtml}
         <div class="td-result-actions">
           <button id="btn-retry-stage" data-testid="btn-retry-stage" class="td-btn-primary">Chơi Lại Màn ${stageNum}</button>
           <button id="btn-back-title" data-testid="btn-back-title" class="td-btn-secondary">Về Màn Chính</button>
         </div>
       </div>
     `;
+
+    if (isWin && this.lastDrops.length > 0) {
+      const dropsBox = this.modalRoot.querySelector<HTMLDivElement>('#td-result-drops');
+      const openChest = () => {
+        if (!dropsBox || dropsBox.classList.contains('chest-opened')) return;
+        dropsBox.classList.add('chest-opened');
+        sound.playChestOpen();
+      };
+      if (this.reduceMotion) {
+        sound.playChestOpen();
+      } else {
+        this.time.delayedCall(260, openChest);
+        dropsBox?.querySelector('#td-chest-stage')?.addEventListener('click', openChest);
+      }
+    }
 
     this.modalRoot.querySelector('#btn-retry-stage')?.addEventListener('click', () => {
       sound.playUiClick();
