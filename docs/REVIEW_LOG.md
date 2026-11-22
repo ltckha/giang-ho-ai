@@ -67,3 +67,24 @@ NAMES: ĐỒNG Ý
 **Chờ anh Kha:** chọn chỗ xem bản chơi (theo PLAN mục "Anh thấy gì").
 
 **Chỗ xem (anh Kha chọn 22/11):** trang Claude riêng tư — https://claude.ai/artifact/6wmbRSi1j6h1rfjB58PZES (bản build từ commit 8a679e8). Bản mới: phiên Claude "Giang Hồ AI" build và đăng lại cùng link.
+
+---
+
+## 22/11/2026 — Rà Giai đoạn 2: Bước 0, tên mới, lõi (commit d2595b9 → 7385c00)
+
+NAMES GĐ2: ĐỒNG Ý
+
+**Kết luận:** Bước 0 đạt, danh sách tên GĐ2 đạt, phần lõi đạt. Antigravity được vẽ hình, gắn tên và làm 2 bản đồ mới.
+
+**Đã chạy thử (máy phiên cloud):**
+- `npm test`: 43/43 test qua (thêm bang hội, đồ ngẫu nhiên, thái độ môn phái, nhiệm vụ, bản lưu v2).
+- `npm run build`: được.
+- `npx playwright test`: 3/3 qua — đi bộ thật từ thành → rừng → hang tới thanh máu trùm Sơ Giác; điện thoại dọc bản đồ ≥ 2/3 màn hình, thông báo không đè nút; bản lưu GĐ1 mở được. Không lỗi console, không gọi mạng ngoài. Claude đã đọc test: đi bằng phím, không dùng lối tắt dịch chuyển.
+
+**Tên GĐ2 đã kiểm:** Thành Bế Các, Lũng Đại Mạch và các khu; 4 bang (Cương Lô Hội, Mộc Khế Bang, Thủy Kính Minh, Diệm Giới Đoàn); nhân vật nhiệm vụ; 6 NPC; quái; trùm Vạn Chép; 4 bậc độ hiếm, 8 dòng chỉ số. Không thấy trùng Võ Lâm Truyền Kỳ / môn phái Kim Dung / công ty AI có thật. Ghi chú nhỏ: "Thủy Kính" là điển cố cổ (biệt hiệu một ẩn sĩ thời Tam Quốc), không phải tên game hay môn phái, giữ được. 3 nhiệm vụ phụ khớp đúng 3 ánh xạ còn lại trong PLAN; trùm Vạn Chép hệ Kim bù cho phái Hỏa — tốt.
+
+**Ghi chú cho phần còn lại (không chặn):**
+1. Bang hội chạy "kể cả khi người chơi ở bản đồ khác": khi đóng game rồi mở lại, giới hạn thời gian bù (vd tối đa 1 tuần trong game) để không nhảy quá xa; ghi rõ trong PROGRESS.md.
+2. Bảng tin bang hội phải đọc được trên điện thoại dọc (thêm vào test e2e điện thoại).
+3. Thêm 1 đoạn e2e: thành → Thành Bế Các → Lũng Đại Mạch → thấy trùm Vạn Chép.
+4. Giữ dung lượng bản build dưới ~2 MB JS (hiện ~1,6 MB).
