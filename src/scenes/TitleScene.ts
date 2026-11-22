@@ -71,10 +71,18 @@ export class TitleScene extends Phaser.Scene {
     if (!container) return;
 
     const save = loadTdSave();
+    const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+    const stage2TestBypass = params?.get('stage') === '2' || params?.get('bot') === '1';
+    const stage2Unlocked = save.unlockedStage >= 2 || stage2TestBypass;
+
     const s1Stars = save.starsByStage.stage_1 ?? 0;
     const starText = s1Stars > 0 ? '★'.repeat(s1Stars) + '☆'.repeat(3 - s1Stars) : 'Chưa qua';
     const s2Stars = save.starsByStage.stage_2 ?? 0;
-    const s2StarText = s2Stars > 0 ? '★'.repeat(s2Stars) + '☆'.repeat(3 - s2Stars) : 'Chưa qua';
+    const s2StarText = !stage2Unlocked
+      ? '🔒 Khóa'
+      : s2Stars > 0
+        ? '★'.repeat(s2Stars) + '☆'.repeat(3 - s2Stars)
+        : 'Chưa qua';
     const s3Stars = save.starsByStage.stage_3 ?? 0;
     const s3StarText = s3Stars > 0 ? '★'.repeat(s3Stars) + '☆'.repeat(3 - s3Stars) : 'Chưa qua';
 
@@ -83,6 +91,7 @@ export class TitleScene extends Phaser.Scene {
     root.id = 'td-title-overlay';
 
     const shoeUrl = getAtlasFrameDataUrl(this, 'icon_shoe_life');
+    const breadUrl = getAtlasFrameDataUrl(this, 'icon_bread_life');
     const towerShowcase = TOWER_LIST.map((t) => {
       const el = ELEMENT_INFO[t.element];
       const spUrl = getAtlasFrameDataUrl(this, getTowerFrameName(t.id, 1, undefined, 0));
@@ -109,7 +118,7 @@ export class TitleScene extends Phaser.Scene {
         <h1 class="td-title-heading">Gọn Tiệm, Sạch Phố</h1>
         <p class="td-title-sub">Ngũ hành giữ tiệm</p>
         <p class="td-title-desc">
-          Trời đổ mưa, bùn đất, gián và nắng gắt kéo vào cửa tiệm! Đặt 5 món đồ trong tiệm đúng vòng Ngũ Hành để giữ sạch 20 đôi giày trên kệ.
+          Trời đổ mưa, bùn đất, gián và nắng gắt kéo vào cửa tiệm! Đặt 5 món đồ trong tiệm đúng vòng Ngũ Hành để giữ sạch từng cửa tiệm trên phố.
         </p>
 
         <div class="td-stage-tag-box">
@@ -132,19 +141,32 @@ export class TitleScene extends Phaser.Scene {
           </button>
         </div>
 
-        <div class="td-stage-tag-box">
+        <div class="td-stage-tag-box ${stage2Unlocked ? '' : 'td-stage-locked'}" data-testid="stage2-card">
           <div class="td-stage-header">
             <div class="td-stage-title-row">
+              ${
+                breadUrl
+                  ? `<img class="td-stage-shoe-icon" src="${breadUrl}" alt="" />`
+                  : `<span class="td-stage-emoji" aria-hidden="true">🥖</span>`
+              }
               <div>
-                <div class="td-stage-kicker">MÀN 2 • THỬ LUẬT (HÌNH TẠM)</div>
+                <div class="td-stage-kicker">MÀN 2 • TƯƠNG SINH +15%</div>
                 <div class="td-stage-name">${STAGES.stage_2.name}</div>
               </div>
             </div>
-            <div class="td-stage-stars" data-testid="stage2-stars">${s2StarText}</div>
+            <div class="td-stage-stars ${stage2Unlocked ? '' : 'locked'}" data-testid="stage2-stars">${s2StarText}</div>
           </div>
           <div class="td-stage-sub">${STAGES.stage_2.subtitle}</div>
-          <button id="btn-start-stage-2" data-testid="btn-start-stage-2" class="td-btn-primary">
-            Vào Tiệm Bánh
+          <div class="td-stage-meta">
+            <span>10 Đợt quái</span> • <span>20 Ổ bánh</span> • <span>2 Ngả &amp; Cặp tương sinh +15%</span>
+          </div>
+          <button
+            id="btn-start-stage-2"
+            data-testid="btn-start-stage-2"
+            class="${stage2Unlocked ? 'td-btn-primary' : 'td-btn-locked'}"
+            ${stage2Unlocked ? '' : 'disabled aria-disabled="true"'}
+          >
+            ${stage2Unlocked ? 'Mở Cửa Tiệm Bánh' : '🔒 Qua Màn 1 để mở khóa'}
           </button>
         </div>
 
@@ -183,7 +205,7 @@ export class TitleScene extends Phaser.Scene {
       };
     }
     const startBtn2 = root.querySelector<HTMLButtonElement>('#btn-start-stage-2');
-    if (startBtn2) {
+    if (startBtn2 && stage2Unlocked) {
       startBtn2.onclick = () => {
         sound.playUiClick();
         this.unmountOverlay();

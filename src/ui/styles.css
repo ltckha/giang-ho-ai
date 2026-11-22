@@ -791,3 +791,96 @@ button {
   display: flex;
   gap: 8px;
 }
+
+/* Trạng thái khoá Màn 2 cho tới khi qua Màn 1 */
+.td-stage-locked {
+  background: #f2e4c7;
+  border-color: #a88d67;
+  opacity: 0.92;
+}
+
+.td-stage-stars.locked {
+  background: #e5d4b4;
+  border-color: #aa8e65;
+  color: #6b4e32;
+  font-size: 12px;
+}
+
+.td-stage-emoji {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.td-btn-locked {
+  background: #d9c5a0;
+  color: #65472c;
+  font-weight: 700;
+  font-size: 13.5px;
+  border: 2px dashed #997950;
+  border-radius: 10px;
+  min-height: 44px;
+  padding: 9px 12px;
+  width: 100%;
+  cursor: not-allowed;
+}
+
+/* Chú thích đường sáng tương sinh khi người chơi chạm vào đường nối */
+.td-synergy-holder {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 58px;
+  z-index: 26;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  padding: 0 10px;
+}
+
+.td-synergy-tooltip {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 372px;
+  padding: 9px 11px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border-width: 2.2px;
+}
+
+.td-synergy-tooltip-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.td-synergy-tooltip-head {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--wood-mid);
+}
+
+.td-synergy-tooltip-desc {
+  font-size: 12px;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.td-synergy-badge-inline {
+  margin-top: 4px;
+  padding: 4px 7px;
+  border-radius: 7px;
+  background: #fff4cf;
+  border: 1.5px solid #d49a2a;
+  color: #5e3809;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
