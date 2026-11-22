@@ -204,3 +204,13 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Sửa luật chung: "mỗi phát thứ 3 mới giữ chân" trước chỉ áp cho Xịt Dưỡng Da (khoá `water_tower`), nay áp cho mọi món vai làm chậm (Quạt Điện Màn 2, Vôi Bột Màn 3). Màn 1 không đổi.
 - Mô phỏng stage_3 (hpScale ×0.58): bot thắng còn 18/20; lấp 1 loại thua 5/5; ngẫu nhiên thắng 5/60; 300 kế hoạch: thua 219, 1 sao 32, 2 sao 33, 3 sao 16, tốt nhất 20/20 → màn khó nhất, vẫn có cách thắng trọn.
 - `npm test` 27/27, build 1,6 MB JS, e2e 2/2, chơi thử trên điện thoại dọc không lỗi. Hình tạm; danh sách vẽ ở docs/YEU_CAU.md.
+
+---
+
+## 22/11/2026 — Rà "MÀN 2 VẼ XONG" (73b784e → 244dc27)
+
+**Kết luận:** ĐẠT.
+- Antigravity không đụng `src/core/` (đúng chia việc). Giữ nguyên hình tạm Màn 3.
+- `npm test` 27/27, e2e 4/4 (thêm khoá màn, đường sáng tương sinh, thắng 10 đợt), build 2,4 MB (≤ 5 MB).
+- Chơi thử điện thoại dọc Màn 2 và Màn 3: không lỗi console, không gọi mạng ngoài. Nền tiệm bánh khớp 2 ngả và 10 ô, món / quái đúng tên, đường sáng tương sinh hiện rõ.
+- Ghi chú: bot Màn 2 mất 3 mạng ở đợt 1–2 rồi giữ ổn (kết thúc 15/20). Nếu anh Kha thấy đầu màn gắt, Claude tăng xu khởi đầu (170 → 185).
