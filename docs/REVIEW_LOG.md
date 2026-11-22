@@ -88,3 +88,21 @@ NAMES GĐ2: ĐỒNG Ý
 2. Bảng tin bang hội phải đọc được trên điện thoại dọc (thêm vào test e2e điện thoại).
 3. Thêm 1 đoạn e2e: thành → Thành Bế Các → Lũng Đại Mạch → thấy trùm Vạn Chép.
 4. Giữ dung lượng bản build dưới ~2 MB JS (hiện ~1,6 MB).
+
+---
+
+## 22/11/2026 — Rà bản "GĐ2 XONG" (commit c1d4c8b → 83b1378)
+
+**Kết luận:** ĐẠT. Chấp nhận Giai đoạn 2.
+
+**Đã chạy thử (máy phiên cloud):**
+- `npm test`: 43/43 qua. `npm run build`: được, JS ~1,7 MB (~404 KB nén), dưới mức 2 MB.
+- `npx playwright test`: 4/4 qua — đi bộ thật tới trùm Sơ Giác; đi bộ Thành Lam Lư → Rừng Thạch Mạch → Thành Bế Các → Lũng Đại Mạch tới trùm Vạn Chép; điện thoại dọc; bản lưu GĐ1. Không lỗi console, không gọi mạng ngoài.
+- 4 ghi chú lần trước đã làm: giới hạn bù 168 giờ trong game khi mở lại; bảng tin đọc được trên điện thoại dọc; e2e 2 bản đồ mới; dung lượng dưới 2 MB.
+- Xem ảnh chụp gd2_02 (bảng tin bang hội) và gd2_05 (điện thoại dọc): đúng tên đã duyệt, bản đồ thấy rõ.
+
+**Việc nhỏ cho lần sau (không chặn):**
+1. Bảng tin bang hội: nút "Gia nhập" lúc nằm dưới, lúc nằm bên phải — nên để cùng một chỗ.
+2. Phần bản đồ / bang hội mới chưa có test đơn vị riêng (đang dựa vào e2e); thêm khi làm Giai đoạn 3.
+
+**Bản chơi:** đăng lại cùng link https://claude.ai/artifact/6wmbRSi1j6h1rfjB58PZES (bản build từ commit này).
