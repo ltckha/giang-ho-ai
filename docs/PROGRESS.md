@@ -1,9 +1,45 @@
+MÀN 3 VẼ XONG
 MÀN 2 VẼ XONG
 LÀM ĐẸP XONG
 
 # Tiến độ phát triển — Gọn Tiệm, Sạch Phố ("Ngũ hành giữ tiệm")
 
-Cập nhật: 22/11/2026 • Nhánh: `main` • Trạng thái hiện tại: **Đã hoàn thành vẽ & gắn toàn bộ đồ họa, hiệu ứng tương sinh và khoá màn cho Màn 2 "Tiệm Bánh Đầu Phố" (theo `docs/YEU_CAU.md`), giữ nguyên 100% số liệu trong `src/core/`.**
+Cập nhật: 22/11/2026 • Nhánh: `main` • Trạng thái hiện tại: **Đã hoàn thành vẽ & gắn toàn bộ đồ họa, Trùm Mùa Nồm 3 màu + hiệu ứng "Đổi hành!", khoá màn cho Màn 3 "Tiệm Hoa Cuối Dốc" (theo `docs/YEU_CAU.md`), giữ nguyên 100% số liệu trong `src/core/`.**
+
+---
+
+## 0A. Màn 3 "Tiệm Hoa Cuối Dốc" — Đã hoàn thành (Antigravity)
+
+- **Nền bản đồ `public/assets/map_man3_tiem_hoa.webp` (`720×1040` = 2× khung logic `360×520`, 75 KB):** Vẽ vector SVG + ghép Pillow khớp 100% `STAGE_3_DEFINITION` trong `src/core/shops/flower.ts`:
+  - **2 cửa vào độc lập:** Cửa chính tiệm hoa trên trái (`x=40, y=24`, mái hiên sọc xanh-kem, thảm chùi chân sạch không chữ nước ngoài) và Cửa hông nhà kính trên phải (`x=330, y=24`, mái kính khung xanh-trắng, sương sớm Đà Lạt).
+  - **2 lối đi sỏi kem** vòng qua luống hoa cẩm tú cầu, chậu đất nung, kệ nhà kính rồi **hợp lại** tại `(180, 330) → (180, 420) → (70, 420) → (70, 470)` dẫn tới **giàn hoa trưng bày** 3 tầng dưới ánh đèn vàng ấm, cùng **11 ô đặt món** rõ nét.
+- **Đủ bộ Sprite nền trong suốt vào Atlas (`public/assets/gon_tiem_atlas.webp`, `1536×1712`, 288 khung hình, 713 KB):**
+  - **5 món Tiệm Hoa × 4 bậc vẽ RIÊNG TỪNG HÌNH (`t1`, `t2`, `t3a`, `t3b` — 20 hình riêng biệt) × 3 khung đánh (60 khung):**
+    - `fl_can` (**Thủy**): *Bình Tưới* → *Bình Tưới Vòi Sen* → *Vòi Xịt Tăng Áp* / *Bình Phun Sương Dưỡng*.
+    - `fl_shears` (**Kim**): *Kéo Tỉa* → *Kéo Tỉa Cán Dài* → *Kéo Cắt Cành Lớn* / *Kéo Xén Hàng Rào*.
+    - `fl_lime` (**Thổ**): *Vôi Bột* → *Vôi Bột Rắc Dày* → *Vòng Vôi Khép Kín* / *Vôi Trộn Tro Bếp*.
+    - `fl_heater` (**Hỏa**): *Đèn Sưởi* → *Đèn Sưởi Hai Bóng* → *Lò Sưởi Than* / *Đèn Hồng Ngoại Nhà Kính*.
+    - `fl_vent` (**Mộc**): *Quạt Thông Gió* → *Quạt Thông Gió Hai Cánh* → *Quạt Nhà Kính* / *Quạt Hút Thông Thoáng*.
+  - **6 quái mới × 4 khung đi (24 khung) + dùng lại Nắng Gắt (`fly_wood`):** *Rệp* (`fl_aphid`), *Ốc Sên* (`fl_snail`, kèm vệt nhớt lấp lánh), *Bụi Đất* (`fl_dust`), *Bụi Nhỏ* (`fl_dust_mini`), *Sương Muối* (`fl_frost`), *Nấm Thối Rễ* (`fl_rot`).
+  - **Trùm Mùa Nồm (`fl_monsoon`) — 3 màu riêng theo hành × 4 khung đi (12 khung):**
+    - Hành **Thủy** (`enemy_fl_monsoon_f0..f3`): đám mây bão xanh dương đậm có vương miện & giọt mưa.
+    - Hành **Mộc** (`enemy_fl_monsoon_moc_f0..f3`): đổi sang xanh rêu dây leo & vương miện lá.
+    - Hành **Kim** (`enemy_fl_monsoon_kim_f0..f3`): đổi sang bạc thép gai băng sắc lạnh.
+  - **Biểu tượng & đạo cụ:** Chậu hoa Đà Lạt (`icon_flower_life` cho HUD mạng & màn chính), giàn hoa trưng bày (`prop_flower_rack`).
+  - **Đã xoá sạch toàn bộ bảng hình tạm `PLACEHOLDER_FRAME_ALIAS` khỏi `src/game/atlasIcons.ts`** (cả 3 màn đều dùng 100% hình vẽ thật).
+- **Hiệu ứng & giao diện Màn 3:**
+  - **Sự kiện `element_shift` (Trùm đổi hành):** đổi hình & hoạt ảnh Trùm sang màu hành mới (`thuy` → `moc` → `kim`), vòng sáng bùng nổ, chữ lớn **"Đổi hành!"** trên đầu Trùm + banner lớn kèm biểu tượng hành mới & gợi ý khắc chế, âm thanh riêng (`playBossShift`), rung nhẹ màn hình (tôn trọng `reduceMotion`).
+  - **Khoá ô Màn 3 trên `TitleScene`:** khoá tới khi qua Màn 2 (`unlockedStage >= 3`), nhưng `?stage=3` hoặc `?bot=1` vẫn mở thử ngay; hỗ trợ thêm `?video=1` ẩn nút Bot & tự bật x2 khi quay video.
+  - **5 kiểu đòn đánh & hiệu ứng chết riêng** cho toàn bộ món và quái Tiệm Hoa, mưa phùn & sương sớm ngoài cả 2 cửa trên, đèn vàng ấm trên giàn hoa dưới trái.
+- **Tổng dung lượng `dist/`:** **2.7 MB** (dưới xa ngưỡng ≤ 5 MB). `npm test` **27/27**, `npm run test:e2e` **6/6** (0 lỗi console, 0 mạng ngoài). Không sửa bất kỳ tệp nào trong `src/core/`.
+
+| Cảnh Màn 3 (`390×844`) | Ảnh kiểm chứng |
+|---|---|
+| Khoá Màn 3 khi chưa qua Màn 2 | ![Màn 3 khoá](screenshots/man3_00_title_locked.png) |
+| Chạm ô mở bảng 5 món Tiệm Hoa | ![Bảng đặt món Màn 3](screenshots/man3_01_build_menu.png) |
+| Giao tranh 2 cửa vào | ![Giao tranh Màn 3](screenshots/man3_02_combat.png) |
+| Trùm Mùa Nồm Đổi hành! (Thủy → Mộc) | ![Trùm đổi hành Màn 3](screenshots/man3_03_boss_shift.png) |
+| Thắng 12 đợt Màn 3 với tháp Bậc 3 | ![Thắng Màn 3](screenshots/man3_04_victory.png) |
 
 ---
 
