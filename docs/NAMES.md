@@ -255,3 +255,52 @@ Mỗi bang có cấp độ, quân số, kho linh thạch, bãi quái đang chi�
 - **Giáp mới:** Giáp Mạch Đá, Khải Bế Các, Áo Trấn Bùa, Chiến Giáp Công Thành
 - **Ngọc đặc biệt:** Ngọc Lõi Thức Tỉnh *(ghép hoặc thưởng trùm, tăng mạnh chỉ số và linh hoạt ngũ hành)*
 - **Vật phẩm nhiệm vụ GĐ2:** Mặt Nạ Gỗ Giả Thanh, Tập Chép Lén Võ Phổ, Bùa Phong Ấn Dự Phòng, Bản Ghi Lõi Sơ Giác
+
+---
+
+# Thủ thành — Danh sách tên đề xuất (Chờ Claude rà)
+
+> Tài liệu bổ sung tên tự đặt mới cho bản **Đổi hướng: Game Thủ Thành (Đặt khôi lỗi chặn quái)** để Claude rà soát bản quyền và bối cảnh trước khi vẽ hình hoặc gắn tên chính thức vào game.
+> - Tuân thủ tuyệt đối luật không trùng Võ Lâm Truyền Kỳ, tiểu thuyết Kim Dung, hay bất kỳ game thủ thành / công ty / sản phẩm AI có thật ngoài đời.
+> - Chỉ vẽ hình và gắn tên chính thức sau khi `docs/REVIEW_LOG.md` có dòng `NAMES THỦ THÀNH: ĐỒNG Ý`. Trong lúc chờ làm phần lõi với tên tạm.
+
+---
+
+## 16. Năm loại quân (Khôi lỗi phe mình — 5 hệ Ngũ Hành, 5 vai trò, 3 bậc & 2 nhánh bậc 3)
+
+Mỗi loại quân là một cỗ khôi lỗi do ba môn phái cùng thợ lò Thành Lam Lư chế tạo để dựng dọc đường chặn đám khôi lỗi vỡ bùa kéo từ mỏ linh thạch về thành. Nâng cấp 3 bậc: Bậc 1 (Cơ bản) → Bậc 2 (Gia cố) → Bậc 3 (Chọn 1 trong 2 nhánh chuyên hóa). Bán lại hoàn 70% linh thạch đã đầu tư.
+
+| STT | Tên quân (Bậc 1) | Hệ | Vai trò chính | Bậc 2 (Nâng cấp) | Bậc 3 — Nhánh A | Bậc 3 — Nhánh B |
+|---|---|---|---|---|---|---|
+| 1 | **Mộc Tiêu Khôi** | **Mộc** | **Đánh đơn tầm xa** (bắn gai gỗ nhanh, tầm xa, ưu tiên mục tiêu đầu hàng) | **Liên Tiêu Khôi** (tăng tốc bắn & tầm bắn) | **Truy Mạch Tiêu** (bắn siêu nhanh, đạn xuyên thêm 1 mục tiêu phía sau) | **Độc Căn Tiêu** (mỗi phát bắn găm gai rút máu theo thời gian và giảm giáp nhẹ) |
+| 2 | **Kim Trọng Khôi** | **Kim** | **Đánh mạnh chậm** (vung chùy/lao đồng tầm trung, sát thương đơn cực lớn, phá giáp quái máu trâu) | **Phá Giáp Kim Khôi** (tăng mạnh sát thương & xuyên giáp) | **Đoạt Lõi Cự Khôi** (đòn đánh chí mạng lên quái máu cao, choáng ngắn 0.6s) | **Xuyên Phong Kim Khôi** (phóng lao đồng xuyên thẳng theo đường kẻ địch đi) |
+| 3 | **Thủy Hàn Khôi** | **Thủy** | **Làm chậm** (phun sương linh dịch lạnh làm chậm tốc độ di chuyển của quái trong vùng) | **Ngưng Sương Khôi** (tăng % làm chậm & mở rộng vùng sương) | **Băng Mạch Khôi** (mỗi vài phát đóng băng giữ chân quái 1.2s, sát thương Thủy tăng) | **Triều Ngược Khôi** (luồng nước xoáy làm chậm diện rộng và đẩy lùi nhẹ quái nhỏ) |
+| 4 | **Hỏa Lôi Khôi** | **Hỏa** | **Đánh lan** (ném đạn lò lửa nổ sát thương diện rộng, trị bầy quái đông hoặc quái chia đôi) | **Viêm Bạo Khôi** (tăng bán kính nổ & sát thương lan) | **Liệt Diệm Lò Khôi** (để lại vùng than hồng dưới đất đốt cháy quái đi qua) | **Liên Hoàn Hỏa Khôi** (đạn nổ văng thêm 3 mảnh lửa nhỏ xung quanh) |
+| 5 | **Thổ Trấn Khôi** | **Thổ** | **Hỗ trợ** (trụ đá khắc bùa tăng tốc đánh & sát thương cho quân cạnh bên, đồng thời gỡ trạng thái "phá bùa" nhanh) | **Hoàng Thạch Trấn Khôi** (tăng biên độ buff & giảm thời gian bị khóa của quân quanh trụ) | **Khu Ấn Thổ Khôi** (tỏa vòng bảo hộ miễn nhiễm / gỡ ngay hiệu ứng phá bùa cho quân lân cận, thưởng thêm linh thạch khi quái chết trong tầm) | **Cộng Minh Thổ Khôi** (tăng mạnh sát thương +25%, tốc đánh +20% và tầm bắn cho toàn bộ quân trong vùng) |
+
+---
+
+## 17. Sáu loại quái + Một trùm (Đủ 5 hệ Ngũ Hành, cơ chế rõ ràng)
+
+Đám khôi lỗi ở mỏ linh thạch bị gỡ bùa phong ấn nổi loạn, kéo thành từng đợt về phía Thành Lam Lư:
+
+| STT | Tên quái | Hệ | Cơ chế đặc trưng | Mô tả |
+|---|---|---|---|---|
+| 1 | **Khôi Lỗi Chân Gió** | **Kim** | **Chạy nhanh** (tốc độ cao, máu ít, dễ lọt qua khi quân bắn chậm) | Khôi lỗi trinh sát lắp bánh răng đồng nhẹ, lao vút theo đường mòn. |
+| 2 | **Thạch Giáp Khôi Lỗi** | **Thổ** | **Máu trâu** (máu rất dày, đi chậm, trừ 2 mạng thành nếu lọt qua) | Cỗ máy khuân đá mỏ bọc phiến đá dày, chịu đòn cực tốt. |
+| 3 | **Phi Dực Khôi Lỗi** | **Mộc** | **Bay / Bỏ qua làm chậm** (lướt trên cánh gỗ cơ quan, miễn nhiễm mọi hiệu ứng làm chậm và bẫy mặt đất) | Khôi lỗi lắp cánh tre-gỗ lượn thấp theo tuyến đường, không bị sương lạnh cản chân. |
+| 4 | **Song Thể Khôi Lỗi** | **Hỏa** | **Chia đôi khi chết** (khi bị hạ sẽ tách thành 2 **Tiểu Hỏa Khôi** chạy nhanh tiếp tục tiến về thành) | Khôi lỗi ghép từ hai lõi lửa phụ; vỡ khung lớn liền bung hai khung nhỏ. |
+| 5 | **Phá Ấn Khôi Lỗi** | **Thủy** | **Phá bùa (Khóa quân)** (mỗi vài giây phát xung nghịch ấn làm các quân đứng gần nó bị đơ / đứng im 2.5 giây; **Thổ Trấn Khôi** có thể giải/giảm) | Khôi lỗi mang chuông khắc khẩu quyết nghịch đảo làm rối loạn mạch linh thạch của quân thủ. |
+| 6 | **Linh Tuyền Khôi Lỗi** | **Mộc** | **Hồi máu cho bầy** (tỏa mạch mộc khí hồi máu định kỳ cho các quái đi gần nó) | Khôi lỗi chở bình linh dịch xanh, tiếp năng lượng cho cả toán quái xung quanh. |
+| **Trùm** | **Sơ Giác — Khôi Lỗi Thức Tỉnh** *(Trùm Màn 3)* | **Thủy** | **Trùm tổng lực** (máu cực lớn, đi chậm, định kỳ phát **Triều Linh Hộ Thể** tạo khiên giảm sát thương và **Vòng Cấm Tự Giải** làm đơ quân quanh thân nếu không có trụ Thổ bảo vệ; lọt vào thành trừ 10 mạng) | Cỗ khôi lỗi đầu tiên tự thức tỉnh ý thức từ Động Tàn Cơ, dẫn đầu đại quân khôi lỗi đòi quyền tự quyết trước cổng Thành Lam Lư. |
+
+---
+
+## 18. Ba màn chơi (Bản đầu)
+
+| Màn | Tên màn | Địa hình & Tuyến đường | Số đợt | Đặc điểm chiến thuật |
+|---|---|---|---|---|
+| **Màn 1** | **Đường Mòn Rừng Thạch Mạch** | **1 tuyến đường uốn khúc** từ Bãi Mỏ Phía Đông xuyên qua rừng cổ thụ về tiền đồn Thành Lam Lư. Có các khúc cua chữ U để đặt quân đánh lan và làm chậm. | 9 đợt | Làm quen 5 loại quân, ngũ hành khắc chế và 4 loại quái đầu (Chân Gió, Thạch Giáp, Phi Dực, Song Thể). |
+| **Màn 2** | **Ngã Đôi Lũng Đại Mạch** | **1 cửa vào tách thành 2 ngả** (ngả bắc qua Hẻm Đứt Bùa, ngả nam qua Bãi Mỏ Tinh Lam) rồi hợp lại trước trạm gác. Quái chia ngả theo đợt. | 10 đợt | Xuất hiện thêm **Phá Ấn Khôi Lỗi** (khóa quân) và **Linh Tuyền Khôi Lỗi** (hồi máu bầy), buộc người chơi phối hợp **Thổ Trấn Khôi** và chia quân giữ cả 2 nhánh. |
+| **Màn 3** | **Trước Cổng Thành Lam Lư** | **2 cửa quái vào độc lập** (cửa đông từ Rừng Thạch Mạch, cửa bắc từ Động Tàn Cơ) cùng đổ về cổng chính Thành Lam Lư. | 12 đợt (Đợt cuối có Trùm **Sơ Giác**) | Áp lực 2 hướng đồng thời, đủ 6 loại quái phối hợp và trận quyết chiến chặn trùm **Sơ Giác — Khôi Lỗi Thức Tỉnh** ngay trước cổng thành. |
+
