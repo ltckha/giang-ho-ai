@@ -6,6 +6,13 @@ Soạn: Điều phối, 22/11/2026. Anh Kha nói "làm" 22/11. Phiên cloud Gian
 - Đồng đội và đối thủ là nhân vật AI: tự đánh, tự nhặt đồ, theo tổ đội, có tính cách riêng.
 - 3 giai đoạn; Giai đoạn 1 nhỏ để chắc có bản chơi được.
 
+## Bối cảnh (anh Kha chốt 22/11)
+- Giang hồ cổ trang, giữ cảm giác game kiếm hiệp nhập vai (môn phái, bang hội, đánh quái, công thành), nhưng thế giới có "khôi lỗi biết nghĩ": người máy gỗ và đồng chạy bằng linh thạch, là "AI" của thời cổ.
+- 3 đồng đội AI là 3 khôi lỗi; tính cách (liều / cẩn thận / tham đồ) là câu chuyện riêng của từng con.
+- 3 môn phái khác nhau ở cách đối xử với khôi lỗi: coi là bạn đồng hành / coi là công cụ / muốn phá hết.
+- Trùm hang Giai đoạn 1: khôi lỗi đầu tiên "tỉnh dậy", đòi tự quyết mạng mình.
+- Giai đoạn 3 (khôi lỗi biết trò chuyện) nối tiếp câu chuyện này.
+
 ## Giai đoạn 1 (mục tiêu 2–3 tuần)
 - 1 thành, 1 rừng, 1 hang có trùm. 3 môn phái tự đặt tên, mỗi phái 4 chiêu, ngũ hành khắc chế.
 - Đánh quái, lên cấp, nhặt trang bị, bán đồ ở tiệm trong thành.
