@@ -119,6 +119,10 @@ class InputBridge {
   public openVictory(): void {
     this.uiHandlers?.openVictory();
   }
+
+  public closeModals(): void {
+    this.uiHandlers?.closeAll();
+  }
 }
 
 export const inputBridge = new InputBridge();

@@ -62,9 +62,9 @@ export class TownScene extends BaseWorldScene {
     const bannerLabels = ['MỞ', 'ĐÓNG', 'CẤM'];
     bannerColors.forEach((col, i) => {
       const bx = 570 + i * 78;
-      const by = 438;
+      const by = 404;
       g.fillStyle(col, 0.85);
-      g.fillRoundedRect(bx - 14, by - 10, 28, 20, 4);
+      g.fillRoundedRect(bx - 16, by - 10, 32, 20, 4);
       this.add
         .text(bx, by, bannerLabels[i], {
           fontSize: '9px',

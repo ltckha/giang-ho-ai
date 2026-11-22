@@ -156,8 +156,18 @@ class GameStateStore {
 
   public pushToast(text: string, color = '#f4ead5'): void {
     this.toastSeq += 1;
-    this.toasts = [...this.toasts.slice(-3), { id: this.toastSeq, text, color }];
+    const id = this.toastSeq;
+    this.toasts = [...this.toasts.slice(-2), { id, text, color }];
     this.notify();
+    if (typeof setTimeout !== 'undefined') {
+      setTimeout(() => {
+        const before = this.toasts.length;
+        this.toasts = this.toasts.filter((t) => t.id !== id);
+        if (this.toasts.length !== before) {
+          this.notify();
+        }
+      }, 4500);
+    }
   }
 
   public persist(force = false): boolean {

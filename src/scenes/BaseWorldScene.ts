@@ -323,8 +323,9 @@ export abstract class BaseWorldScene extends Phaser.Scene {
 
       const label = CONTENT.landmarks[lm.id];
       if (label) {
+        const labelY = lm.kind === 'forge' ? lm.y + lm.h - 14 : lm.y + 18;
         this.add
-          .text(lm.x + lm.w / 2, lm.y + 18, label, {
+          .text(lm.x + lm.w / 2, labelY, label, {
             fontSize: '13px',
             fontStyle: 'bold',
             color: '#f4ead5',
@@ -610,6 +611,49 @@ export abstract class BaseWorldScene extends Phaser.Scene {
       m: kb.addKey(Phaser.Input.Keyboard.KeyCodes.M),
       h: kb.addKey(Phaser.Input.Keyboard.KeyCodes.H),
     };
+
+    const onKeyDown = (ev: KeyboardEvent): void => {
+      if (this.transitionLocked) return;
+      const code = ev.code;
+      if (code === 'Escape' && inputBridge.isModalOpen) {
+        inputBridge.closeModals();
+        return;
+      }
+      if (code === 'KeyI') {
+        inputBridge.openBag();
+        return;
+      }
+      if (code === 'KeyM') {
+        inputBridge.openQuests();
+        return;
+      }
+      if (code === 'KeyH') {
+        inputBridge.openElementsGuide();
+        return;
+      }
+      if (inputBridge.isModalOpen) return;
+
+      if (code === 'Digit1' || code === 'Space' || code === 'KeyJ') {
+        this.castPlayerSkill(1);
+      } else if (code === 'Digit2') {
+        this.castPlayerSkill(2);
+      } else if (code === 'Digit3') {
+        this.castPlayerSkill(3);
+      } else if (code === 'Digit4') {
+        this.castPlayerSkill(4);
+      } else if (code === 'KeyE' || code === 'KeyF') {
+        this.tryInteract();
+      } else if (code === 'KeyQ') {
+        this.useConsumableItem('pot_heal_small');
+      } else if (code === 'KeyR') {
+        this.useConsumableItem('pot_ally_oil');
+      }
+    };
+
+    kb.on('keydown', onKeyDown);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+      kb.off('keydown', onKeyDown);
+    });
   }
 
   private registerInputBridge(): void {
@@ -632,8 +676,6 @@ export abstract class BaseWorldScene extends Phaser.Scene {
   public update(_time: number, deltaMs: number): void {
     const dt = Math.min(0.05, deltaMs / 1000);
     if (this.transitionLocked) return;
-
-    this.handleModalHotkeys();
     if (inputBridge.isModalOpen) {
       return;
     }
@@ -641,7 +683,6 @@ export abstract class BaseWorldScene extends Phaser.Scene {
     this.portalCooldown = Math.max(0, this.portalCooldown - dt);
     this.updateTimers(dt);
     this.updatePlayerMovement(dt);
-    this.handleCombatHotkeys();
     this.updateAllies(dt);
     this.updateEnemies(dt);
     this.updateProjectiles(dt);
@@ -681,39 +722,6 @@ export abstract class BaseWorldScene extends Phaser.Scene {
       this.hudSyncTimer = 0;
       this.syncHudState();
     }
-  }
-
-  private handleModalHotkeys(): void {
-    if (!this.keys) return;
-    if (Phaser.Input.Keyboard.JustDown(this.keys.i)) {
-      inputBridge.openBag();
-    } else if (Phaser.Input.Keyboard.JustDown(this.keys.m)) {
-      inputBridge.openQuests();
-    } else if (Phaser.Input.Keyboard.JustDown(this.keys.h)) {
-      inputBridge.openElementsGuide();
-    }
-  }
-
-  private handleCombatHotkeys(): void {
-    if (!this.keys) return;
-    if (
-      Phaser.Input.Keyboard.JustDown(this.keys.one) ||
-      Phaser.Input.Keyboard.JustDown(this.keys.space) ||
-      Phaser.Input.Keyboard.JustDown(this.keys.j)
-    ) {
-      this.castPlayerSkill(1);
-    }
-    if (Phaser.Input.Keyboard.JustDown(this.keys.two)) this.castPlayerSkill(2);
-    if (Phaser.Input.Keyboard.JustDown(this.keys.three)) this.castPlayerSkill(3);
-    if (Phaser.Input.Keyboard.JustDown(this.keys.four)) this.castPlayerSkill(4);
-    if (
-      Phaser.Input.Keyboard.JustDown(this.keys.e) ||
-      Phaser.Input.Keyboard.JustDown(this.keys.f)
-    ) {
-      this.tryInteract();
-    }
-    if (Phaser.Input.Keyboard.JustDown(this.keys.q)) this.useConsumableItem('pot_heal_small');
-    if (Phaser.Input.Keyboard.JustDown(this.keys.r)) this.useConsumableItem('pot_ally_oil');
   }
 
   private updateTimers(dt: number): void {
