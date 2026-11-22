@@ -27,14 +27,19 @@ export class UIScene extends Phaser.Scene {
   private playerHpTextEl!: HTMLDivElement;
   private playerXpFillEl!: HTMLDivElement;
   private currencyEl!: HTMLDivElement;
+  private alliesWrapEl!: HTMLDivElement;
+  private alliesToggleBtnEl!: HTMLButtonElement;
   private alliesBoxEl!: HTMLDivElement;
   private mapPillEl!: HTMLDivElement;
+  private mobileMapPillEl!: HTMLDivElement;
   private questPillEl!: HTMLDivElement;
   private bossBarEl!: HTMLDivElement;
   private bossTitleEl!: HTMLDivElement;
   private bossFillEl!: HTMLDivElement;
   private bossHpTextEl!: HTMLDivElement;
   private toastsEl!: HTMLDivElement;
+  private utilBarEl!: HTMLDivElement;
+  private menuToggleBtnEl!: HTMLButtonElement;
   private interactBtnEl!: HTMLButtonElement;
   private potSmallBtnEl!: HTMLButtonElement;
   private potOilBtnEl!: HTMLButtonElement;
@@ -46,6 +51,12 @@ export class UIScene extends Phaser.Scene {
     cdEl: HTMLDivElement;
   }> = [];
 
+  // Trạng thái thu gọn cho màn hình điện thoại cầm dọc
+  private alliesExpanded = true;
+  private mobileMenuOpen = false;
+  private lastViewportNarrow = false;
+  private resizeListener: (() => void) | null = null;
+
   // Trạng thái cần chạm ảo
   private joystickPointerId: number | null = null;
   private joystickCenter = { x: 0, y: 0 };
@@ -55,15 +66,37 @@ export class UIScene extends Phaser.Scene {
     super({ key: SCENE_KEYS.UI });
   }
 
+  private isNarrowViewport(): boolean {
+    return typeof window !== 'undefined' && window.innerWidth <= 680;
+  }
+
   public create(): void {
     this.activeModal = null;
     inputBridge.isModalOpen = false;
+    this.lastViewportNarrow = this.isNarrowViewport();
+    this.alliesExpanded = !this.lastViewportNarrow;
+    this.mobileMenuOpen = false;
     this.mountHud();
     this.registerUiBridge();
     this.unsubState = gameState.subscribe(() => this.refreshHud());
     this.refreshHud();
 
+    this.resizeListener = () => {
+      const narrow = this.isNarrowViewport();
+      if (narrow !== this.lastViewportNarrow) {
+        this.lastViewportNarrow = narrow;
+        this.alliesExpanded = !narrow;
+        this.mobileMenuOpen = false;
+        this.syncCollapsibleState();
+      }
+    };
+    window.addEventListener('resize', this.resizeListener);
+
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+      if (this.resizeListener) {
+        window.removeEventListener('resize', this.resizeListener);
+        this.resizeListener = null;
+      }
       if (this.unsubState) {
         this.unsubState();
         this.unsubState = null;
@@ -111,8 +144,28 @@ export class UIScene extends Phaser.Scene {
     inputBridge.isModalOpen = modal !== null;
     if (modal !== null) {
       inputBridge.clearTouchMove();
+      if (this.mobileMenuOpen) {
+        this.mobileMenuOpen = false;
+        this.syncCollapsibleState();
+      }
     }
     this.renderModal();
+  }
+
+  private syncCollapsibleState(): void {
+    if (this.alliesWrapEl) {
+      this.alliesWrapEl.classList.toggle('gh-collapsed', !this.alliesExpanded);
+    }
+    if (this.alliesToggleBtnEl) {
+      this.alliesToggleBtnEl.setAttribute('aria-expanded', String(this.alliesExpanded));
+    }
+    if (this.utilBarEl) {
+      this.utilBarEl.classList.toggle('gh-open', this.mobileMenuOpen);
+    }
+    if (this.menuToggleBtnEl) {
+      this.menuToggleBtnEl.setAttribute('aria-expanded', String(this.mobileMenuOpen));
+      this.menuToggleBtnEl.textContent = this.mobileMenuOpen ? '✕' : '≡';
+    }
   }
 
   private renderModal(): void {
@@ -129,12 +182,12 @@ export class UIScene extends Phaser.Scene {
     root.className = 'gh-overlay';
     root.id = 'gh-hud-overlay';
 
-    // 1. Góc trên-trái: thông tin nhân vật + 3 đồng đội AI khôi lỗi
+    // 1. Góc trên-trái: thông tin nhân vật + 3 đồng đội AI khôi lỗi (thu gọn được trên màn hình hẹp)
     const topLeft = document.createElement('div');
     topLeft.className = 'gh-hud-top-left';
 
     const playerCard = document.createElement('div');
-    playerCard.className = 'gh-card';
+    playerCard.className = 'gh-card gh-player-card';
     this.playerHeaderEl = document.createElement('div');
     this.playerHeaderEl.className = 'gh-row';
 
@@ -167,14 +220,30 @@ export class UIScene extends Phaser.Scene {
       this.currencyEl,
     );
 
+    this.alliesWrapEl = document.createElement('div');
+    this.alliesWrapEl.className = 'gh-allies-wrap';
+
+    this.alliesToggleBtnEl = document.createElement('button');
+    this.alliesToggleBtnEl.type = 'button';
+    this.alliesToggleBtnEl.className = 'gh-allies-toggle';
+    this.alliesToggleBtnEl.dataset.testid = 'allies-toggle';
+    this.alliesToggleBtnEl.onclick = () => {
+      sound.playUiClick();
+      this.alliesExpanded = !this.alliesExpanded;
+      this.syncCollapsibleState();
+      this.refreshHud();
+    };
+
     const alliesCard = document.createElement('div');
     alliesCard.className = 'gh-card gh-allies-box';
+    alliesCard.dataset.testid = 'allies-box';
     this.alliesBoxEl = alliesCard;
 
-    topLeft.append(playerCard, alliesCard);
+    this.alliesWrapEl.append(this.alliesToggleBtnEl, alliesCard);
+    topLeft.append(playerCard, this.alliesWrapEl);
     root.appendChild(topLeft);
 
-    // 2. Giữa trên: tên bản đồ + nhiệm vụ hiện tại + thanh máu Trùm Sơ Giác
+    // 2. Giữa trên: tên bản đồ + nhiệm vụ hiện tại + thanh máu Trùm + thông báo nổi (không đè nút bình)
     const topCenter = document.createElement('div');
     topCenter.className = 'gh-hud-top-center';
 
@@ -201,19 +270,50 @@ export class UIScene extends Phaser.Scene {
     this.bossHpTextEl.className = 'gh-bar-text';
     this.bossBarEl.append(this.bossTitleEl, bossTrack, this.bossHpTextEl);
 
-    topCenter.append(this.mapPillEl, this.questPillEl, this.bossBarEl);
+    this.toastsEl = document.createElement('div');
+    this.toastsEl.className = 'gh-toasts';
+
+    topCenter.append(this.mapPillEl, this.questPillEl, this.bossBarEl, this.toastsEl);
     root.appendChild(topCenter);
 
-    // 3. Góc trên-phải: nút tiện ích
+    // 3. Góc trên-phải: nút tiện ích (gom vào nút "≡" trên màn hình hẹp)
     const topRight = document.createElement('div');
     topRight.className = 'gh-hud-top-right';
 
+    const mobileTopControls = document.createElement('div');
+    mobileTopControls.className = 'gh-mobile-top-controls';
+
+    this.mobileMapPillEl = document.createElement('div');
+    this.mobileMapPillEl.className = 'gh-map-pill gh-map-pill-mobile';
+
+    this.menuToggleBtnEl = document.createElement('button');
+    this.menuToggleBtnEl.type = 'button';
+    this.menuToggleBtnEl.className = 'gh-icon-btn gh-menu-toggle-btn';
+    this.menuToggleBtnEl.dataset.testid = 'mobile-menu-toggle';
+    this.menuToggleBtnEl.setAttribute('aria-label', 'Mở thực đơn');
+    this.menuToggleBtnEl.textContent = '≡';
+    this.menuToggleBtnEl.onclick = () => {
+      sound.playUiClick();
+      this.mobileMenuOpen = !this.mobileMenuOpen;
+      this.syncCollapsibleState();
+    };
+    mobileTopControls.append(this.mobileMapPillEl, this.menuToggleBtnEl);
+
+    this.utilBarEl = document.createElement('div');
+    this.utilBarEl.className = 'gh-util-bar';
+    this.utilBarEl.dataset.testid = 'util-bar';
+
     const makeUtilBtn = (label: string, onClick: () => void): HTMLButtonElement => {
       const b = document.createElement('button');
+      b.type = 'button';
       b.className = 'gh-icon-btn';
       b.textContent = label;
       b.onclick = () => {
         sound.playUiClick();
+        if (this.mobileMenuOpen) {
+          this.mobileMenuOpen = false;
+          this.syncCollapsibleState();
+        }
         onClick();
       };
       return b;
@@ -233,15 +333,11 @@ export class UIScene extends Phaser.Scene {
     });
     const menuBtn = makeUtilBtn('Menu', () => inputBridge.triggerReturnToTitle());
 
-    topRight.append(bagBtn, questBtn, elemBtn, townBtn, this.muteBtnEl, saveBtn, menuBtn);
+    this.utilBarEl.append(bagBtn, questBtn, elemBtn, townBtn, this.muteBtnEl, saveBtn, menuBtn);
+    topRight.append(mobileTopControls, this.utilBarEl);
     root.appendChild(topRight);
 
-    // 4. Thông báo nổi (toasts)
-    this.toastsEl = document.createElement('div');
-    this.toastsEl.className = 'gh-toasts';
-    root.appendChild(this.toastsEl);
-
-    // 5. Góc dưới-trái: Cần điều khiển chạm ảo (Virtual Joystick)
+    // 4. Góc dưới-trái: Cần điều khiển chạm ảo (Virtual Joystick)
     const joyZone = document.createElement('div');
     joyZone.className = 'gh-joystick-zone';
     joyZone.setAttribute('aria-label', 'Cần di chuyển cảm ứng');
@@ -254,6 +350,8 @@ export class UIScene extends Phaser.Scene {
     this.joystickKnobEl = knob;
     this.bindJoystick(joyZone);
     root.appendChild(joyZone);
+
+    this.syncCollapsibleState();
 
     // 6. Góc dưới-phải: Tương tác, Bình hồi máu & 4 nút chiêu thức
     const controlsRight = document.createElement('div');
@@ -405,7 +503,20 @@ export class UIScene extends Phaser.Scene {
       <span style="color:#8be9fd">Linh Thạch: ${d.spiritStones}</span>
     `;
 
-    // 3 đồng đội AI khôi lỗi
+    // 3 đồng đội AI khôi lỗi + thanh thu gọn tổ đội
+    const miniBars = gameState.allyStatuses
+      .map((ally) => {
+        const pct = Math.max(0, Math.min(100, (ally.hp / ally.maxHp) * 100));
+        const col = pct > 55 ? '#59c173' : pct > 25 ? '#ffd166' : '#ef6351';
+        return `<span class="gh-ally-mini-track"><span class="gh-ally-mini-fill" style="width:${pct}%;background:${col}"></span></span>`;
+      })
+      .join('');
+    this.alliesToggleBtnEl.innerHTML = `
+      <span class="gh-allies-toggle-label">Tổ đội (${gameState.allyStatuses.length})</span>
+      <span class="gh-allies-mini-bars">${miniBars}</span>
+      <span class="gh-allies-chevron">${this.alliesExpanded ? '▴' : '▾'}</span>
+    `;
+
     this.alliesBoxEl.innerHTML = gameState.allyStatuses
       .map((ally) => {
         const meta = CONTENT.allies[ally.id];
@@ -425,7 +536,9 @@ export class UIScene extends Phaser.Scene {
       .join('');
 
     // Bản đồ & nhiệm vụ nổi bật
-    this.mapPillEl.textContent = CONTENT.maps[d.mapId].name;
+    const mapName = CONTENT.maps[d.mapId].name;
+    this.mapPillEl.textContent = mapName;
+    this.mobileMapPillEl.textContent = mapName;
     this.questPillEl.textContent = this.computeActiveQuestHint();
 
     // Thanh máu Trùm Sơ Giác
@@ -454,8 +567,8 @@ export class UIScene extends Phaser.Scene {
     // Số lượng bình hồi máu
     const smallCount = countInventoryItem(d.inventory, 'pot_heal_small');
     const oilCount = countInventoryItem(d.inventory, 'pot_ally_oil');
-    this.potSmallBtnEl.textContent = `Linh Dịch (Q) x${smallCount}`;
-    this.potOilBtnEl.textContent = `Dầu Chốt (R) x${oilCount}`;
+    this.potSmallBtnEl.innerHTML = `Linh Dịch<span class="gh-key-hint"> (Q)</span> x${smallCount}`;
+    this.potOilBtnEl.innerHTML = `Dầu Chốt<span class="gh-key-hint"> (R)</span> x${oilCount}`;
 
     // Cập nhật 4 nút chiêu thức + hệ Ngũ Hành (có tính Ngọc đổi hệ Chiêu 1)
     const skills = getSectSkills(d.sectId);

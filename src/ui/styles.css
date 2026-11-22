@@ -287,6 +287,62 @@
   font-weight: 600;
 }
 
+.gh-allies-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.gh-allies-toggle {
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 4px 8px;
+  background: var(--bg-obsidian);
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  color: var(--text-main);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.gh-allies-toggle:hover {
+  border-color: var(--border-strong);
+}
+
+.gh-allies-mini-bars {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.gh-ally-mini-track {
+  width: 16px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  overflow: hidden;
+  display: inline-block;
+}
+
+.gh-ally-mini-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+}
+
+.gh-allies-chevron {
+  font-size: 11px;
+  color: var(--border-strong);
+}
+
+.gh-allies-wrap.gh-collapsed .gh-allies-box {
+  display: none;
+}
+
 .gh-allies-box {
   display: flex;
   flex-direction: column;
@@ -319,6 +375,7 @@
   gap: 6px;
   max-width: min(420px, 44vw);
   text-align: center;
+  pointer-events: none;
 }
 
 .gh-map-pill {
@@ -355,11 +412,33 @@
   top: 10px;
   right: 10px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
   gap: 6px;
   max-width: 44vw;
   pointer-events: auto;
+  z-index: 20;
+}
+
+.gh-mobile-top-controls {
+  display: none;
+  align-items: center;
+  gap: 5px;
+}
+
+.gh-menu-toggle-btn {
+  min-width: 34px;
+  min-height: 30px;
+  font-size: 16px;
+  line-height: 1;
+  padding: 4px 9px;
+}
+
+.gh-util-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
 }
 
 .gh-icon-btn {
@@ -379,26 +458,23 @@
 }
 
 .gh-toasts {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
   pointer-events: none;
-  max-width: 52vw;
+  width: 100%;
 }
 
 .gh-toast {
-  background: rgba(16, 14, 12, 0.86);
-  border: 1px solid rgba(232, 196, 104, 0.45);
+  background: rgba(16, 14, 12, 0.88);
+  border: 1px solid rgba(232, 196, 104, 0.5);
   padding: 4px 12px;
   border-radius: 999px;
   font-size: 12px;
   font-weight: 600;
   text-align: center;
+  max-width: 100%;
 }
 
 /* ============ TOUCH JOYSTICK & SKILL PAD ============ */
@@ -656,7 +732,9 @@
 
 @media (max-width: 920px), (max-height: 500px) {
   .gh-hud-top-center {
-    left: 36%;
+    top: 8px;
+    left: 44%;
+    max-width: 36vw;
   }
   .gh-quest-pill {
     display: none;
@@ -666,6 +744,9 @@
   }
   .gh-hud-top-right {
     max-width: 48vw;
+    gap: 4px;
+  }
+  .gh-util-bar {
     gap: 4px;
   }
   .gh-icon-btn {
@@ -689,14 +770,152 @@
     width: 40px;
     height: 40px;
   }
-  .gh-toasts {
-    bottom: 92px;
-    max-width: 68vw;
+  .gh-toast {
+    font-size: 11px;
+    padding: 3px 10px;
   }
 }
 
-@media (max-width: 620px) {
-  .gh-hud-top-center {
+@media (max-width: 680px) {
+  .gh-hud-top-left {
+    top: 6px;
+    left: 6px;
+    width: min(214px, 57vw);
+    gap: 4px;
+  }
+  .gh-card {
+    padding: 5px 7px;
+    border-radius: 8px;
+  }
+  .gh-player-name {
+    font-size: 11px;
+  }
+  .gh-badge {
+    font-size: 9.5px;
+    padding: 1px 5px;
+  }
+  .gh-bar-track {
+    height: 7px;
+    margin-top: 3px;
+  }
+  .gh-bar-text {
+    font-size: 9.5px;
+  }
+  .gh-currency-row {
+    font-size: 10px;
+    margin-top: 3px;
+    gap: 8px;
+  }
+  .gh-allies-toggle {
+    padding: 3px 7px;
+    font-size: 10px;
+  }
+  .gh-hud-top-right {
+    top: 6px;
+    right: 6px;
+    max-width: 41vw;
+    gap: 4px;
+  }
+  .gh-mobile-top-controls {
+    display: flex;
+  }
+  .gh-map-pill-mobile {
+    padding: 3px 8px;
+    font-size: 10.5px;
+    max-width: 28vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .gh-util-bar {
     display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    min-width: 136px;
+    padding: 6px;
+    background: var(--bg-panel);
+    border: 1.5px solid var(--border-strong);
+    border-radius: 10px;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.7);
+  }
+  .gh-util-bar.gh-open {
+    display: flex;
+  }
+  .gh-util-bar .gh-icon-btn {
+    text-align: left;
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+  .gh-hud-top-center {
+    top: 108px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(350px, 92vw);
+    max-width: 92vw;
+    gap: 4px;
+  }
+  .gh-hud-top-center > .gh-map-pill,
+  .gh-hud-top-center > .gh-quest-pill {
+    display: none;
+  }
+  .gh-boss-bar {
+    width: 100%;
+    padding: 5px 8px;
+  }
+  .gh-joystick-zone {
+    width: 86px;
+    height: 86px;
+    left: 10px;
+    bottom: 12px;
+  }
+  .gh-joystick-knob {
+    width: 36px;
+    height: 36px;
+  }
+  .gh-joystick-hint {
+    display: none;
+  }
+  .gh-controls-right {
+    right: 8px;
+    bottom: 10px;
+    gap: 5px;
+  }
+  .gh-action-row {
+    gap: 4px;
+  }
+  .gh-key-hint {
+    display: none;
+  }
+  .gh-potion-btn {
+    padding: 4px 7px;
+    font-size: 10px;
+  }
+  .gh-interact-btn {
+    padding: 5px 9px;
+    font-size: 10.5px;
+  }
+  .gh-skills-row {
+    gap: 5px;
+  }
+  .gh-skill-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    padding: 3px;
+  }
+  .gh-skill-key {
+    font-size: 9px;
+    top: 2px;
+    left: 4px;
+  }
+  .gh-skill-el {
+    width: 7px;
+    height: 7px;
+    top: 3px;
+    right: 4px;
+  }
+  .gh-skill-name {
+    font-size: 8.5px;
+    margin-top: 6px;
   }
 }
