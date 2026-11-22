@@ -7,11 +7,20 @@ Soạn: Điều phối, 22/11/2026. Anh Kha nói "làm" 22/11. Phiên cloud Gian
 - 3 giai đoạn; Giai đoạn 1 nhỏ để chắc có bản chơi được.
 
 ## Bối cảnh (anh Kha chốt 22/11)
-- Giang hồ cổ trang, giữ cảm giác game kiếm hiệp nhập vai (môn phái, bang hội, đánh quái, công thành), nhưng thế giới có "khôi lỗi biết nghĩ": người máy gỗ và đồng chạy bằng linh thạch, là "AI" của thời cổ.
-- 3 đồng đội AI là 3 khôi lỗi; tính cách (liều / cẩn thận / tham đồ) là câu chuyện riêng của từng con.
-- 3 môn phái khác nhau ở cách đối xử với khôi lỗi: coi là bạn đồng hành / coi là công cụ / muốn phá hết.
-- Trùm hang Giai đoạn 1: khôi lỗi đầu tiên "tỉnh dậy", đòi tự quyết mạng mình.
-- Giai đoạn 3 (khôi lỗi biết trò chuyện) nối tiếp câu chuyện này.
+Game kiếm hiệp, không cài AI thật; câu chuyện kể lại thời đại AI ngoài đời, khoác áo giang hồ cổ trang.
+- Khôi lỗi biết nghĩ: người máy gỗ và đồng chạy bằng linh thạch, là "AI" của thời cổ. Người chơi là người thường có khôi lỗi đi cùng (như ai cũng dùng AI hằng ngày). 3 đồng đội AI là 3 khôi lỗi (liều / cẩn thận / tham đồ).
+- Ánh xạ chuyện thật → chuyện game:
+  - Đua chip → tranh mỏ linh thạch.
+  - Các công ty AI lớn → các lò đúc khôi lỗi, mỗi mùa tung khôi lỗi mạnh hơn.
+  - Mở / đóng / lo ngại → 3 môn phái: truyền bí kíp đúc cho mọi người / giữ kín bí kíp bán khôi lỗi / muốn cấm khôi lỗi.
+  - AI làm mất việc → thợ rèn, người chép sách, tiêu cục mất việc (nhiệm vụ phụ).
+  - AI bịa chuyện → khôi lỗi nói sai mà tự tin, dẫn người chơi đi lạc.
+  - Giả giọng giả mặt lừa đảo → khôi lỗi đóng giả trưởng lão lừa dân.
+  - Lấy dữ liệu dạy AI → bí kíp các phái bị chép trộm dạy khôi lỗi.
+  - Luật an toàn AI / phá luật → bùa phong ấn trên khôi lỗi / kẻ chuyên phá phong ấn.
+  - AI tự nhận thức → trùm hang là khôi lỗi đầu tiên tỉnh dậy: "Ta có được tự quyết mạng mình không?"
+- Giai đoạn 1: thành có lò đúc, chợ khôi lỗi, thợ rèn mất việc; rừng là mỏ linh thạch bị tranh; hang có trùm khôi lỗi tỉnh dậy.
+- Tên lò đúc, môn phái, nhân vật tự đặt mới. Không dùng tên công ty AI có thật, không lấy gì từ Võ Lâm Truyền Kỳ.
 
 ## Giai đoạn 1 (mục tiêu 2–3 tuần)
 - 1 thành, 1 rừng, 1 hang có trùm. 3 môn phái tự đặt tên, mỗi phái 4 chiêu, ngũ hành khắc chế.
