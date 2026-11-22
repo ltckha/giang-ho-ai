@@ -264,9 +264,93 @@ test.describe('Giang Hồ AI — Kiểm thử tự động trình duyệt (bản
 
     await menuBtn.click();
     await expect(utilBar).toBeVisible();
-    await page.getByRole('button', { name: 'Túi đồ (I)' }).click();
+    await page.getByRole('button', { name: 'Bang Hội (G)' }).click();
     await expect(page.locator('.gh-modal')).toBeVisible();
     await expect(utilBar).toBeHidden();
+
+    // Ghi chú REVIEW_LOG #2: Bảng tin bang hội phải đọc được đầy đủ trên điện thoại dọc, không tràn màn hình
+    await expect(page.locator('.gh-modal')).toContainText('Đài Bảng Tin Giang Hồ');
+    await expect(page.locator('.gh-modal')).toContainText('Cương Lô Hội');
+    await expect(page.locator('.gh-modal')).toContainText('Mộc Khế Bang');
+    await expect(page.locator('.gh-modal')).toContainText('Thủy Kính Minh');
+    await expect(page.locator('.gh-modal')).toContainText('Diệm Giới Đoàn');
+
+    const boardFitsViewport = await page.evaluate(() => {
+      const m = document.querySelector('.gh-modal')!.getBoundingClientRect();
+      return m.left >= 0 && m.right <= window.innerWidth && m.top >= 0 && m.bottom <= window.innerHeight;
+    });
+    expect(boardFitsViewport).toBe(true);
+
+    // Chuyển qua tab bãi mỏ và tab công thành trên điện thoại dọc
+    await page.getByRole('button', { name: '3 Bãi Mỏ & Tin Tức' }).click();
+    await expect(page.locator('.gh-modal')).toContainText('Bãi Mỏ Tinh Lam');
+    await expect(page.locator('.gh-modal')).toContainText('Hẻm Đứt Bùa');
+    await expect(page.locator('.gh-modal')).toContainText('Khe Vỡ Khung Đồng');
+
+    await page.getByRole('button', { name: 'Công Thành Hằng Tuần' }).click();
+    await expect(page.locator('.gh-modal')).toContainText('Đại Chiến Công Thành Bế Các');
+    await page.getByRole('button', { name: 'Đóng' }).click();
+
+    expect(guards.externalRequests).toEqual([]);
+    expect(guards.pageErrors).toEqual([]);
+    expect(guards.consoleErrors).toEqual([]);
+  });
+
+  test('Giai đoạn 2: đi bộ từ Thành Lam Lư → Rừng Thạch Mạch → Thành Bế Các → Lũng Đại Mạch → thấy Trùm Vạn Chép', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1280, height: 720 });
+    const guards = await setupOfflineAndErrorGuards(page);
+
+    await page.goto('/');
+    await expect(page.locator('#gh-title-overlay')).toBeVisible();
+
+    // 1. Chọn Hỏa Ấn Môn (Hệ Hỏa khắc Kim của Trùm Vạn Chép)
+    await page.getByRole('button', { name: 'Chọn Hỏa Ấn Môn' }).click();
+    await expect(page.locator('#gh-hud-overlay')).toBeVisible();
+    await expect(page.locator('.gh-hud-top-center .gh-map-pill')).toHaveText('Thành Lam Lư');
+
+    // 2. Đi bộ qua Cổng Đông Thành Lam Lư ra Rừng Thạch Mạch
+    const inForest = await walkTowards(page, 1365, 480, {
+      stopWhenScene: 'ForestScene',
+      maxSteps: 180,
+    });
+    expect(inForest.sceneKey).toBe('ForestScene');
+    await expect(page.locator('.gh-hud-top-center .gh-map-pill')).toHaveText('Rừng Thạch Mạch');
+
+    // 3. Từ Rừng Thạch Mạch đi tới Ngã Ba Sương Độc rồi rẽ lên Cổng Bắc vào Thành Bế Các
+    await walkTowards(page, 645, 530, { stopWhenScene: 'InnerCityScene', tolerance: 32, maxSteps: 140 });
+    const inInnerCity = await walkTowards(page, 645, 25, {
+      stopWhenScene: 'InnerCityScene',
+      maxSteps: 140,
+    });
+    expect(inInnerCity.sceneKey, `Expected InnerCityScene, got ${JSON.stringify(inInnerCity)}`).toBe('InnerCityScene');
+    await expect(page.locator('.gh-hud-top-center .gh-map-pill')).toHaveText('Thành Bế Các');
+
+    // 4. Băng qua Đài Bảng Tin Giang Hồ tới Cổng Đông Thành Bế Các để sang Lũng Đại Mạch
+    await walkTowards(page, 700, 520, { stopWhenScene: 'ValleyScene', tolerance: 36, maxSteps: 120 });
+    const inValley = await walkTowards(page, 1440, 490, {
+      stopWhenScene: 'ValleyScene',
+      maxSteps: 160,
+    });
+    expect(inValley.sceneKey, `Expected ValleyScene, got ${JSON.stringify(inValley)}`).toBe('ValleyScene');
+    await expect(page.locator('.gh-hud-top-center .gh-map-pill')).toHaveText('Lũng Đại Mạch');
+
+    // 5. Đi xuyên Lũng Đại Mạch xuống Tế Đàn Lõi Trầm gặp Trùm Vạn Chép — Khôi Lỗi Hợp Lõi
+    await walkTowards(page, 880, 500, { stopWhenBossVisible: true, tolerance: 36, maxSteps: 140 });
+    await walkTowards(page, 1300, 660, { stopWhenBossVisible: true, tolerance: 36, maxSteps: 120 });
+    await walkTowards(page, 1500, 790, {
+      stopWhenBossVisible: true,
+      maxSteps: 120,
+    });
+
+    const bossDialogTitle = page.locator('.gh-modal-title');
+    if (await bossDialogTitle.isVisible()) {
+      await expect(bossDialogTitle).toContainText('Vạn Chép');
+      await page.getByRole('button', { name: 'Nghênh chiến!' }).click();
+    }
+    await expect(page.locator('.gh-boss-bar')).toBeVisible();
+    await expect(page.locator('.gh-boss-bar')).toContainText('Vạn Chép');
 
     expect(guards.externalRequests).toEqual([]);
     expect(guards.pageErrors).toEqual([]);
