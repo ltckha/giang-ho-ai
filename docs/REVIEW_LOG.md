@@ -65,3 +65,5 @@ NAMES: ĐỒNG Ý
 3. Nên thêm 1 test chơi tự động trong trình duyệt (đi từ thành → rừng → hang) để lần sau rà nhanh hơn.
 
 **Chờ anh Kha:** chọn chỗ xem bản chơi (theo PLAN mục "Anh thấy gì").
+
+**Chỗ xem (anh Kha chọn 22/11):** trang Claude riêng tư — https://claude.ai/artifact/6wmbRSi1j6h1rfjB58PZES (bản build từ commit 8a679e8). Bản mới: phiên Claude "Giang Hồ AI" build và đăng lại cùng link.
