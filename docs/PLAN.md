@@ -5,6 +5,7 @@ Soạn: Điều phối, 22/11/2026. Anh Kha nói "làm" 22/11. Phiên cloud Gian
 - Bản nhập vai (Giai đoạn 1–2, commit 23c6b31) chơi thấy không thú vị → đổi sang game thủ thành: quái đi theo đường về Thành Lam Lư, người chơi đặt khôi lỗi phe mình chặn, tiền là linh thạch, ngũ hành khắc chế.
 - Giữ bối cảnh, tên đã duyệt, câu chuyện AI. Lời giao: docs/ANTIGRAVITY_BRIEF_THU_THANH.md.
 - Bản đầu: 3 màn, 5 loại quân, 6 loại quái, 1 trùm. Claude tự chơi và chấm "vui" từng màn, không chỉ "chạy được".
+- Làm đẹp (anh Kha chốt 22/11): sau khi Màn 1 đạt vui; thử 3 hình mẫu bằng công cụ vẽ của Antigravity, anh duyệt nét rồi mới vẽ đủ bộ; thêm hiệu ứng và giao diện gỗ-đồng; bản build ≤ 5 MB. Lời giao: docs/ANTIGRAVITY_BRIEF_LAM_DEP.md.
 - Các mục Giai đoạn 1–3 bên dưới là kế hoạch nhập vai cũ, chỉ để tham khảo.
 
 ## Kết luận (kế hoạch nhập vai cũ)
