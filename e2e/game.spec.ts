@@ -314,4 +314,214 @@ test.describe('Gọn Tiệm, Sạch Phố — Kiểm thử trình duyệt (Đi�
     expect(consoleErrors).toEqual([]);
     expect(externalRequests).toEqual([]);
   });
+
+  test('ô Màn 3 bị khoá tới khi qua Màn 2 (unlockedStage=3), nhưng ?stage=3 mở thử được', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+
+    const s3Btn = page.getByTestId('btn-start-stage-3');
+    await expect(s3Btn).toBeVisible();
+    await expect(s3Btn).toBeDisabled();
+    await expect(page.getByTestId('stage3-stars')).toContainText('Khóa');
+
+    // Khi mới qua Màn 1 (unlockedStage = 2), Màn 3 vẫn khoá
+    await page.evaluate(() => {
+      window.localStorage.setItem(
+        'giang_ho_ai_thu_thanh_save_v1',
+        JSON.stringify({
+          version: 1,
+          unlockedStage: 2,
+          starsByStage: { stage_1: 3 },
+          bestLivesByStage: { stage_1: 18 },
+          updatedAt: Date.now(),
+        }),
+      );
+    });
+    await page.goto('/');
+    await expect(page.getByTestId('btn-start-stage-2')).toBeEnabled();
+    await expect(page.getByTestId('btn-start-stage-3')).toBeDisabled();
+    await page.screenshot({ path: 'docs/screenshots/man3_00_title_locked.png' });
+
+    // ?stage=3 mở thử ngay dù chưa qua Màn 2
+    await page.goto('/?stage=3');
+    await expect(page.getByTestId('btn-start-stage-3')).toBeEnabled();
+
+    // Khi đã qua Màn 2 (unlockedStage = 3), vào / bình thường mở được Màn 3
+    await page.evaluate(() => {
+      window.localStorage.setItem(
+        'giang_ho_ai_thu_thanh_save_v1',
+        JSON.stringify({
+          version: 1,
+          unlockedStage: 3,
+          starsByStage: { stage_1: 3, stage_2: 2 },
+          bestLivesByStage: { stage_1: 18, stage_2: 15 },
+          updatedAt: Date.now(),
+        }),
+      );
+    });
+    await page.goto('/');
+    await expect(page.getByTestId('btn-start-stage-3')).toBeEnabled();
+    await expect(page.getByTestId('btn-start-stage-3')).toContainText('Mở Cửa Tiệm Hoa');
+  });
+
+  test('Màn 3 Tiệm Hoa Cuối Dốc (?bot=1): đặt 5 món tiệm hoa, giao tranh 2 cửa, Trùm Mùa Nồm Đổi hành! (3 màu) & thắng 12 đợt, chụp ảnh man3_*.png', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+
+    const consoleErrors: string[] = [];
+    const externalRequests: string[] = [];
+
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') consoleErrors.push(msg.text());
+    });
+    page.on('pageerror', (err) => {
+      consoleErrors.push(err.message);
+    });
+
+    await page.route('**/*', async (route) => {
+      const url = route.request().url();
+      if (
+        url.startsWith('http://127.0.0.1') ||
+        url.startsWith('http://localhost') ||
+        url.startsWith('data:') ||
+        url.startsWith('blob:')
+      ) {
+        await route.continue();
+      } else {
+        externalRequests.push(url);
+        await route.abort();
+      }
+    });
+
+    await page.goto('/?bot=1');
+    const startStage3 = page.getByTestId('btn-start-stage-3');
+    await expect(startStage3).toBeEnabled();
+    await startStage3.click();
+
+    // 1. HUD Màn 3: 180 xu, 20/20 chậu hoa, 0/12 đợt, báo Đợt 1 (Mộc & Thủy)
+    const essenceVal = page.getByTestId('td-essence-val');
+    const livesVal = page.getByTestId('td-lives-val');
+    const waveVal = page.getByTestId('td-wave-val');
+    const upcomingBox = page.getByTestId('td-upcoming-box');
+    await expect(essenceVal).toHaveText('180');
+    await expect(livesVal).toHaveText('20/20');
+    await expect(waveVal).toHaveText('0/12');
+    await expect(upcomingBox).toContainText('Mộc');
+    await expect(upcomingBox).toContainText('Thủy');
+
+    // 2. Chạm ô pad_3 (188, 180) ở giữa 2 cửa -> mở bảng chọn 5 món tiệm hoa
+    const canvas = page.locator('canvas');
+    const pad3Screen = await page.evaluate(() => {
+      const s = (window as unknown as { __TD_SCENE__?: { toScreen: (x: number, y: number) => { x: number; y: number } } }).__TD_SCENE__;
+      return s ? s.toScreen(188, 180) : { x: 188, y: 240 };
+    });
+    await canvas.click({ position: { x: Math.round(pad3Screen.x), y: Math.round(pad3Screen.y) } });
+
+    const buildSheet = page.getByTestId('td-build-sheet');
+    await expect(buildSheet).toBeVisible();
+    await expect(buildSheet).toContainText('Bình Tưới');
+    await expect(buildSheet).toContainText('Kéo Tỉa');
+    await expect(buildSheet).toContainText('Vôi Bột');
+    await expect(buildSheet).toContainText('Đèn Sưởi');
+    await expect(buildSheet).toContainText('Quạt Thông Gió');
+    await page.screenshot({ path: 'docs/screenshots/man3_01_build_menu.png' });
+
+    // Đặt Kéo Tỉa (Kim, 70 xu) vào pad_3
+    await page.getByTestId('build-fl_shears').click();
+    await expect(essenceVal).toHaveText('110');
+
+    // Bật tốc độ x2, gọi Đợt 1 và bật Bot tự phối hợp món Màn 3
+    await page.getByTestId('btn-speed-toggle').click();
+    await page.getByTestId('btn-call-wave').click();
+    await page.getByTestId('btn-bot-toggle').click();
+
+    await page.waitForTimeout(2600);
+    await page.screenshot({ path: 'docs/screenshots/man3_02_combat.png' });
+
+    // 3. Tua mô phỏng tới Đợt 12 khi Trùm Mùa Nồm xuất hiện, để hiệu ứng cũ tan hết rồi chụp đúng khoảnh khắc Đổi hành!
+    await page.evaluate(() => {
+      const scene = (
+        window as unknown as {
+          __TD_SCENE__?: {
+            engine: { status: string; enemies: Array<{ defId: string; element: string }> };
+            tickSimulation: (dt: number) => void;
+          };
+        }
+      ).__TD_SCENE__;
+      if (!scene) return;
+      let guard = 0;
+      while (scene.engine.status === 'playing' && guard < 36000) {
+        scene.tickSimulation(0.05);
+        guard += 1;
+        if (scene.engine.enemies.some((e) => e.defId === 'fl_monsoon')) {
+          break;
+        }
+      }
+    });
+    await page.waitForTimeout(950);
+
+    const bossShifted = await page.evaluate(() => {
+      const scene = (
+        window as unknown as {
+          __TD_SCENE__?: {
+            engine: {
+              status: string;
+              enemies: Array<{ defId: string; element: string }>;
+            };
+            tickSimulation: (dt: number) => void;
+          };
+        }
+      ).__TD_SCENE__;
+      if (!scene) return false;
+      let guard = 0;
+      while (scene.engine.status === 'playing' && guard < 12000) {
+        scene.tickSimulation(0.05);
+        guard += 1;
+        const boss = scene.engine.enemies.find((e) => e.defId === 'fl_monsoon');
+        if (boss && boss.element === 'moc') {
+          return true;
+        }
+      }
+      return false;
+    });
+    expect(bossShifted).toBe(true);
+
+    // Kiểm tra banner "Đổi hành!" hiển thị rõ kèm biểu tượng Hành Mộc và chụp ảnh khoảnh khắc Trùm đổi màu xanh lá
+    const shiftBanner = page.getByTestId('td-boss-shift-banner');
+    await expect(shiftBanner).toBeVisible();
+    await expect(shiftBanner).toContainText('Đổi hành!');
+    await expect(shiftBanner).toContainText('Mộc');
+    await page.waitForTimeout(160);
+    await page.screenshot({ path: 'docs/screenshots/man3_03_boss_shift.png' });
+
+    // 4. Tiếp tục chạy tới khi thắng hết 12 đợt Màn 3
+    await page.evaluate(() => {
+      const scene = (
+        window as unknown as {
+          __TD_SCENE__?: {
+            engine: { status: string };
+            tickSimulation: (dt: number) => void;
+          };
+        }
+      ).__TD_SCENE__;
+      if (!scene) return;
+      let guard = 0;
+      while (scene.engine.status === 'playing' && guard < 20000) {
+        scene.tickSimulation(0.05);
+        guard += 1;
+      }
+    });
+
+    const resultModal = page.getByTestId('td-result-modal');
+    await expect(resultModal).toBeVisible();
+    await expect(resultModal).toContainText('Giữ Tiệm Thành Công!');
+    await expect(resultModal).toContainText('Tiệm Hoa Cuối Dốc');
+    await expect(resultModal).toContainText('chậu hoa');
+    await page.waitForTimeout(950);
+    await page.screenshot({ path: 'docs/screenshots/man3_04_victory.png' });
+
+    expect(consoleErrors).toEqual([]);
+    expect(externalRequests).toEqual([]);
+  });
 });
