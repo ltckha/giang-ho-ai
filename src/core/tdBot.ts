@@ -1,5 +1,6 @@
 import { ALL_TOWER_DEFINITIONS as TOWER_DEFINITIONS, getTowerTierStats } from './tdDefinitions';
 import { STAGE_2_BOT_PLAN } from './shops/bakery';
+import { STAGE_3_BOT_PLAN } from './shops/flower';
 import type { TowerDefenseEngine } from './tdEngine';
 import type { TowerBranch, TowerId } from './types';
 
@@ -26,7 +27,8 @@ const STAGE_1_PLAN: BotPlanItem[] = [
 
 export function runBotTurn(engine: TowerDefenseEngine): void {
   if (engine.status !== 'playing') return;
-  const STAGE_PLAN: BotPlanItem[] = engine.stage.id === 'stage_2' ? STAGE_2_BOT_PLAN : STAGE_1_PLAN;
+  const STAGE_PLAN: BotPlanItem[] =
+    engine.stage.id === 'stage_2' ? STAGE_2_BOT_PLAN : engine.stage.id === 'stage_3' ? STAGE_3_BOT_PLAN : STAGE_1_PLAN;
 
   // 1. Ưu tiên đặt đủ 5 loại món giữ tiệm (5 hành) trước
   for (const item of STAGE_PLAN.slice(0, 5)) {

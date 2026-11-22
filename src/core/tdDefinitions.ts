@@ -11,6 +11,7 @@ import type {
 } from './types';
 
 import { BAKERY_ENEMIES, BAKERY_TOWERS, STAGE_2_DEFINITION } from './shops/bakery';
+import { FLOWER_ENEMIES, FLOWER_TOWERS, STAGE_3_DEFINITION } from './shops/flower';
 import type { EnemyId } from './types';
 
 export const SELL_REFUND_RATE = 0.7;
@@ -716,15 +717,16 @@ export const STAGE_1_DEFINITION: StageDefinition = {
 };
 
 /* ---- Nhiều tiệm (Claude, sườn Màn 2) ---- */
-export const ALL_TOWER_DEFINITIONS: Record<TowerId, TowerDefinition> = { ...TOWER_DEFINITIONS, ...BAKERY_TOWERS };
-export const ALL_ENEMY_DEFINITIONS: Record<EnemyId, EnemyDefinition> = { ...ENEMY_DEFINITIONS, ...BAKERY_ENEMIES };
+export const ALL_TOWER_DEFINITIONS: Record<TowerId, TowerDefinition> = { ...TOWER_DEFINITIONS, ...BAKERY_TOWERS, ...FLOWER_TOWERS };
+export const ALL_ENEMY_DEFINITIONS: Record<EnemyId, EnemyDefinition> = { ...ENEMY_DEFINITIONS, ...BAKERY_ENEMIES, ...FLOWER_ENEMIES };
 
 /** 5 món của một màn (theo tiệm) */
 export function getStageTowerList(stage: StageDefinition): TowerDefinition[] {
   return stage.towerIds ? stage.towerIds.map((id) => ALL_TOWER_DEFINITIONS[id]) : TOWER_LIST;
 }
 
-export const STAGES: Record<'stage_1' | 'stage_2', StageDefinition> = {
+export const STAGES: Record<'stage_1' | 'stage_2' | 'stage_3', StageDefinition> = {
   stage_1: STAGE_1_DEFINITION,
   stage_2: STAGE_2_DEFINITION,
+  stage_3: STAGE_3_DEFINITION,
 };

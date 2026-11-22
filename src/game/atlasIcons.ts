@@ -68,6 +68,18 @@ const PLACEHOLDER_FRAME_ALIAS: Record<string, string> = {
   bk_mold: 'healer_wood',
   bk_ember: 'split_fire',
   bk_ember_mini: 'split_fire_mini',
+  fl_can: 'wood_tower',
+  fl_shears: 'metal_tower',
+  fl_lime: 'water_tower',
+  fl_heater: 'fire_tower',
+  fl_vent: 'earth_tower',
+  fl_aphid: 'fast_metal',
+  fl_snail: 'tank_earth',
+  fl_dust: 'split_fire',
+  fl_dust_mini: 'split_fire_mini',
+  fl_frost: 'disrupt_water',
+  fl_rot: 'healer_wood',
+  fl_monsoon: 'boss_water',
 };
 
 export function getTowerFrameName(defId: string, tier: 1 | 2 | 3, branch?: 'A' | 'B', frameIdx = 0): string {

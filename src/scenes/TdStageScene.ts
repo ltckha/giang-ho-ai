@@ -169,12 +169,13 @@ export class TdStageScene extends Phaser.Scene {
     super({ key: SCENE_KEYS.TD_STAGE });
   }
 
-  public create(data?: { stageId?: 'stage_1' | 'stage_2' }): void {
+  public create(data?: { stageId?: 'stage_1' | 'stage_2' | 'stage_3' }): void {
     // Chọn màn: từ nút ở màn hình đầu, hoặc thêm ?stage=2 vào link (để thử / quay video)
-    let stageId: 'stage_1' | 'stage_2' = data?.stageId ?? 'stage_1';
+    let stageId: 'stage_1' | 'stage_2' | 'stage_3' = data?.stageId ?? 'stage_1';
     if (!data?.stageId && typeof window !== 'undefined') {
       const q = new URLSearchParams(window.location.search).get('stage');
       if (q === '2') stageId = 'stage_2';
+      if (q === '3') stageId = 'stage_3';
     }
     this.engine = new TowerDefenseEngine(STAGES[stageId]);
     this.speedMultiplier = 1;
@@ -276,9 +277,11 @@ export class TdStageScene extends Phaser.Scene {
         });
         g.strokePath();
       }
-      const start = this.engine.stage.paths[0]?.[0];
+      for (const path of this.engine.stage.paths) {
+        const start = path[0];
+        if (start) { const sp = this.toScreen(start.x, start.y); g.fillStyle(0x4ea8de, 1); g.fillCircle(sp.x, sp.y, 14 * this.mapScale); }
+      }
       const end = this.engine.stage.paths[0]?.[this.engine.stage.paths[0].length - 1];
-      if (start) { const sp = this.toScreen(start.x, start.y); g.fillStyle(0x4ea8de, 1); g.fillCircle(sp.x, sp.y, 14 * this.mapScale); }
       if (end) { const sp = this.toScreen(end.x, end.y); g.fillStyle(0xe8c468, 1); g.fillRect(sp.x - 16 * this.mapScale, sp.y - 12 * this.mapScale, 32 * this.mapScale, 24 * this.mapScale); }
       return;
     }

@@ -1,6 +1,6 @@
 // Quay video máy tự chơi (dọc 9:16) để làm clip cho kênh Gọn.
 // Không phải code game: chỉ mở bản build trong dist/, bật bot, quay màn hình.
-// Cách chạy: npm run build && node tools/record_gameplay.cjs [số giây, mặc định 40] [thư mục ra, mặc định video_out] [màn 1|2]
+// Cách chạy: npm run build && node tools/record_gameplay.cjs [số giây, mặc định 40] [thư mục ra, mặc định video_out] [màn 1|2|3]
 // Cần: Playwright + Chromium (đã có trong máy phiên cloud), ffmpeg để đổi sang mp4.
 const http = require('http'), fs = require('fs'), path = require('path'), { execFileSync } = require('child_process');
 // Ưu tiên Playwright cài sẵn trong máy (khớp trình duyệt và ffmpeg quay video); không có thì dùng bản của dự án
@@ -9,7 +9,7 @@ try { chromium = require(path.join(execFileSync('npm', ['root', '-g']).toString(
 catch { chromium = require('playwright').chromium; }
 const seconds = Number(process.argv[2] || 40);
 const outDir = path.resolve(process.argv[3] || 'video_out');
-const stageNo = process.argv[4] === '2' ? 2 : 1; // màn cần quay (1 hoặc 2)
+const stageNo = ['2', '3'].includes(process.argv[4]) ? Number(process.argv[4]) : 1; // màn cần quay (1, 2 hoặc 3)
 const root = path.resolve(__dirname, '..', 'dist');
 const types = { '.js': 'text/javascript', '.css': 'text/css', '.html': 'text/html', '.png': 'image/png', '.webp': 'image/webp', '.json': 'application/json', '.woff2': 'font/woff2' };
 const srv = http.createServer((q, r) => { let p = path.join(root, decodeURIComponent(q.url.split('?')[0])); if (p.endsWith('/')) p += 'index.html'; fs.readFile(p, (e, d) => { if (e) { r.writeHead(404); return r.end(); } r.writeHead(200, { 'Content-Type': types[path.extname(p)] || 'application/octet-stream' }); r.end(d); }); }).listen(0);

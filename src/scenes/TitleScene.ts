@@ -75,6 +75,8 @@ export class TitleScene extends Phaser.Scene {
     const starText = s1Stars > 0 ? '★'.repeat(s1Stars) + '☆'.repeat(3 - s1Stars) : 'Chưa qua';
     const s2Stars = save.starsByStage.stage_2 ?? 0;
     const s2StarText = s2Stars > 0 ? '★'.repeat(s2Stars) + '☆'.repeat(3 - s2Stars) : 'Chưa qua';
+    const s3Stars = save.starsByStage.stage_3 ?? 0;
+    const s3StarText = s3Stars > 0 ? '★'.repeat(s3Stars) + '☆'.repeat(3 - s3Stars) : 'Chưa qua';
 
     const root = document.createElement('div');
     root.className = 'td-title-overlay';
@@ -146,6 +148,22 @@ export class TitleScene extends Phaser.Scene {
           </button>
         </div>
 
+        <div class="td-stage-tag-box">
+          <div class="td-stage-header">
+            <div class="td-stage-title-row">
+              <div>
+                <div class="td-stage-kicker">MÀN 3 • THỬ LUẬT (HÌNH TẠM)</div>
+                <div class="td-stage-name">${STAGES.stage_3.name}</div>
+              </div>
+            </div>
+            <div class="td-stage-stars" data-testid="stage3-stars">${s3StarText}</div>
+          </div>
+          <div class="td-stage-sub">${STAGES.stage_3.subtitle}</div>
+          <button id="btn-start-stage-3" data-testid="btn-start-stage-3" class="td-btn-primary">
+            Vào Tiệm Hoa
+          </button>
+        </div>
+
         <div class="td-element-guide">
           <div class="td-guide-title">Vòng khắc: Kim → Mộc → Thổ → Thủy → Hỏa → Kim</div>
           <div class="td-showcase-grid">${towerShowcase}</div>
@@ -170,6 +188,14 @@ export class TitleScene extends Phaser.Scene {
         sound.playUiClick();
         this.unmountOverlay();
         this.scene.start(SCENE_KEYS.TD_STAGE, { stageId: 'stage_2' });
+      };
+    }
+    const startBtn3 = root.querySelector<HTMLButtonElement>('#btn-start-stage-3');
+    if (startBtn3) {
+      startBtn3.onclick = () => {
+        sound.playUiClick();
+        this.unmountOverlay();
+        this.scene.start(SCENE_KEYS.TD_STAGE, { stageId: 'stage_3' });
       };
     }
   }

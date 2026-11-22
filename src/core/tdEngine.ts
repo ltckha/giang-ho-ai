@@ -398,6 +398,18 @@ export class TowerDefenseEngine {
         enemy.shieldRemaining = Math.max(0, enemy.shieldRemaining - dtSec);
       }
 
+      // Trùm đổi hành theo máu còn lại (Mùa Nồm: Thủy → Mộc → Kim)
+      const phases = ALL_ENEMY_DEFINITIONS[enemy.defId].phaseElements;
+      if (phases && phases.length > 1 && enemy.hp > 0) {
+        const lost = 1 - enemy.hp / enemy.maxHp;
+        const idx = Math.min(phases.length - 1, Math.floor(lost * phases.length));
+        const el = phases[idx]!;
+        if (el !== enemy.element) {
+          enemy.element = el;
+          events.push({ type: 'element_shift', x: enemy.x, y: enemy.y, element: el, enemyUid: enemy.uid, enemyDefId: enemy.defId, text: 'Đổi hành!' });
+        }
+      }
+
       // Sát thương theo thời gian (đốt / gai độc)
       if (enemy.burnRemaining > 0 && enemy.burnDps > 0) {
         enemy.burnRemaining = Math.max(0, enemy.burnRemaining - dtSec);
@@ -740,7 +752,7 @@ export class TowerDefenseEngine {
     // Choáng / giữ chân
     if (stats.stunDurationSec) {
       const shouldStun =
-        tower.defId === 'water_tower' ? tower.shotsFired % 3 === 0 : true;
+        ALL_TOWER_DEFINITIONS[tower.defId].role === 'slow_aura' ? tower.shotsFired % 3 === 0 : true;
       if (shouldStun && !enemy.flying) {
         enemy.stunRemaining = Math.max(enemy.stunRemaining, stats.stunDurationSec);
       }

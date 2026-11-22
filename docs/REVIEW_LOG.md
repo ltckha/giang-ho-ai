@@ -195,3 +195,12 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Cân bằng Màn 1 sau khi gán lại hành (docs/review/sim_stage.ts stage_1): lấp 1 loại thua 5/5; đặt ngẫu nhiên thắng 8/60; 300 kế hoạch: thua 145, 1 sao 65, 2 sao 60, 3 sao 30, tốt nhất 20/20. Bot giờ còn 17/20 (trước 11) — bot là kế hoạch tốt nên chấp nhận; các mục tiêu khác vẫn đạt.
 
 **Sườn Màn 2 "Tiệm Bánh Đầu Phố" (Claude):** luật + số liệu ở `src/core/shops/bakery.ts`; tương sinh +15% bật từ Màn 2; 2 ngả đường, 10 ô, 10 đợt. Mô phỏng (stage_2): bot thắng còn 15/20; lấp 1 loại thua 5/5; ngẫu nhiên thắng ~15/60; 300 kế hoạch: thua ~188, 3 sao ~38, tốt nhất 20/20 → khó hơn Màn 1 một chút, đúng ý. Đang dùng **hình tạm** (mượn hình Màn 1 cùng vai, đường vẽ khối). Danh sách hình cần vẽ: docs/YEU_CAU.md.
+
+---
+
+## 22/11/2026 — Sườn Màn 3 "Tiệm Hoa Cuối Dốc" (Claude)
+
+- Luật + số liệu: `src/core/shops/flower.ts`. 2 cửa vào riêng hợp lại giữa tiệm, 11 ô, 12 đợt, đợt 12 có **Trùm Mùa Nồm đổi hành Thủy → Mộc → Kim** theo máu còn lại (engine: `phaseElements`, sự kiện `element_shift`). Tương sinh bật.
+- Sửa luật chung: "mỗi phát thứ 3 mới giữ chân" trước chỉ áp cho Xịt Dưỡng Da (khoá `water_tower`), nay áp cho mọi món vai làm chậm (Quạt Điện Màn 2, Vôi Bột Màn 3). Màn 1 không đổi.
+- Mô phỏng stage_3 (hpScale ×0.58): bot thắng còn 18/20; lấp 1 loại thua 5/5; ngẫu nhiên thắng 5/60; 300 kế hoạch: thua 219, 1 sao 32, 2 sao 33, 3 sao 16, tốt nhất 20/20 → màn khó nhất, vẫn có cách thắng trọn.
+- `npm test` 27/27, build 1,6 MB JS, e2e 2/2, chơi thử trên điện thoại dọc không lỗi. Hình tạm; danh sách vẽ ở docs/YEU_CAU.md.

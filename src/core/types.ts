@@ -7,7 +7,10 @@ export type ShoeTowerId = 'wood_tower' | 'metal_tower' | 'water_tower' | 'fire_t
 /** Món tiệm bánh (Màn 2) — Claude làm sườn, xem src/core/shops/bakery.ts */
 export type BakeryTowerId = 'bk_swatter' | 'bk_jar' | 'bk_fan' | 'bk_oven' | 'bk_fridge';
 
-export type TowerId = ShoeTowerId | BakeryTowerId;
+/** Món tiệm hoa (Màn 3) — xem src/core/shops/flower.ts */
+export type FlowerTowerId = 'fl_can' | 'fl_shears' | 'fl_lime' | 'fl_heater' | 'fl_vent';
+
+export type TowerId = ShoeTowerId | BakeryTowerId | FlowerTowerId;
 
 export type TowerTier = 1 | 2 | 3;
 
@@ -49,7 +52,10 @@ export interface TowerDefinition {
 /** Quái tiệm bánh (Màn 2). Chuột dùng lại 'disrupt_water'. */
 export type BakeryEnemyId = 'bk_humid' | 'bk_flour' | 'bk_fly' | 'bk_mold' | 'bk_ember' | 'bk_ember_mini';
 
-export type EnemyId = ShoeEnemyId | BakeryEnemyId;
+/** Quái tiệm hoa (Màn 3). Nắng Gắt dùng lại 'fly_wood'. */
+export type FlowerEnemyId = 'fl_aphid' | 'fl_snail' | 'fl_dust' | 'fl_dust_mini' | 'fl_frost' | 'fl_rot' | 'fl_monsoon';
+
+export type EnemyId = ShoeEnemyId | BakeryEnemyId | FlowerEnemyId;
 
 export type ShoeEnemyId =
   | 'fast_metal'
@@ -87,6 +93,8 @@ export interface EnemyDefinition {
   shieldIntervalSec?: number;
   shieldDurationSec?: number;
   shieldReductionPct?: number;
+  /** Trùm đổi hành: mỗi khi mất 1 phần máu bằng nhau thì sang hành kế tiếp trong danh sách */
+  phaseElements?: ElementType[];
 }
 
 export interface Point2D {
@@ -196,6 +204,7 @@ export interface CombatEvent {
     | 'cleanse'
     | 'heal'
     | 'shield'
+    | 'element_shift'
     | 'wave_start'
     | 'wave_clear'
     | 'stage_win'

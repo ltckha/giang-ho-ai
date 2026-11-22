@@ -40,3 +40,36 @@ Luật, số liệu, đường đi, 10 ô, 10 đợt đã có trong `src/core/sh
 2. Màn hình đầu: ô Màn 2 hiện khoá cho tới khi qua Màn 1 (dùng `unlockedStage` trong bản lưu), nhưng `?stage=2` hoặc `?bot=1` vẫn mở được để thử.
 
 **Sửa test e2e:** `e2e/game.spec.ts` dòng ~63 còn chờ chữ "Hệ Kim" ở đợt 1 Màn 1, nhưng đợt 1 giờ là Thủy + Thổ → cập nhật cho khớp.
+
+---
+
+## Claude → Antigravity: vẽ Màn 3 "Tiệm Hoa Cuối Dốc" (sườn đã xong)
+
+Luật, số liệu, đường đi, 11 ô, 12 đợt ở `src/core/shops/flower.ts` — **không đổi số**. Cùng nét, nền trong suốt, vào atlas; xoá các dòng `fl_*` trong `PLACEHOLDER_FRAME_ALIAS` khi có hình.
+
+**Nền bản đồ** `map_man3_tiem_hoa` (khung logic 360×520, khớp `STAGE_3_DEFINITION`):
+- **Cửa chính** trên trái (x=40, y=24), **cửa hông nhà kính** trên phải (x=330, y=24). Hai lối riêng vòng qua các luống / kệ hoa, **hợp lại** ở x=180, y=330, xuống y=420, sang trái tới **giàn hoa trưng bày** dưới trái (x=70, y=470).
+- Không khí: tiệm hoa Đà Lạt, chậu đất nung, nhà kính, sương sớm.
+
+**5 món** (4 hình mỗi món, 2–3 khung khi đánh):
+| Khoá | Tên bậc 1 → 2 → 3A / 3B | Hành | Gợi ý hình |
+|---|---|---|---|
+| fl_can | Bình Tưới → Bình Tưới Vòi Sen → Vòi Xịt Tăng Áp / Bình Phun Sương Dưỡng | Thủy | bình tưới xanh dương có mắt |
+| fl_shears | Kéo Tỉa → Kéo Tỉa Cán Dài → Kéo Cắt Cành Lớn / Kéo Xén Hàng Rào | Kim | kéo tỉa cán đỏ, lưỡi bạc |
+| fl_lime | Vôi Bột → Vôi Bột Rắc Dày → Vòng Vôi Khép Kín / Vôi Trộn Tro Bếp | Thổ | bao vôi trắng, rắc vệt |
+| fl_heater | Đèn Sưởi → Đèn Sưởi Hai Bóng → Lò Sưởi Than / Đèn Hồng Ngoại Nhà Kính | Hỏa | đèn sưởi tỏa sáng cam |
+| fl_vent | Quạt Thông Gió → Quạt Thông Gió Hai Cánh → Quạt Nhà Kính / Quạt Hút Thông Thoáng | Mộc | quạt thông gió khung xanh lá |
+
+**Quái:**
+| Khoá | Tên | Hành | Gợi ý hình |
+|---|---|---|---|
+| fl_aphid | Rệp | Mộc | rệp xanh nhỏ, đi thành đàn |
+| fl_snail | Ốc Sên | Thủy | ốc sên vỏ xoắn, chậm, để vệt nhớt |
+| fly_wood | Nắng Gắt | Hỏa | dùng lại hình Nắng Gắt Màn 1 |
+| fl_dust | Bụi Đất | Thổ | đám bụi đất nâu; chết vỡ ra 2 |
+| fl_dust_mini | Bụi Nhỏ | Thổ | đám bụi nhỏ |
+| fl_frost | Sương Muối | Kim | bông sương trắng bạc, làm món cóng |
+| fl_rot | Nấm Thối Rễ | Mộc | cây nấm nâu tím, tỏa vòng hồi máu |
+| fl_monsoon | Trùm Mùa Nồm | Thủy → Mộc → Kim | đám mây đen ẩm lớn; **3 màu theo hành** (xanh dương → xanh lá → bạc) |
+
+**Hiệu ứng mới:** sự kiện `element_shift` (trùm đổi hành): đổi màu / hình trùm theo `enemy.element`, chữ lớn "Đổi hành!" kèm biểu tượng hành mới, rung nhẹ. Màn hình đầu: khoá ô Màn 3 tới khi qua Màn 2 (trừ khi `?stage=3` hoặc `?bot=1`).
