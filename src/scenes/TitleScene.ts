@@ -74,6 +74,8 @@ export class TitleScene extends Phaser.Scene {
     const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
     const stage2TestBypass = params?.get('stage') === '2' || params?.get('bot') === '1';
     const stage2Unlocked = save.unlockedStage >= 2 || stage2TestBypass;
+    const stage3TestBypass = params?.get('stage') === '3' || params?.get('bot') === '1';
+    const stage3Unlocked = save.unlockedStage >= 3 || stage3TestBypass;
 
     const s1Stars = save.starsByStage.stage_1 ?? 0;
     const starText = s1Stars > 0 ? '★'.repeat(s1Stars) + '☆'.repeat(3 - s1Stars) : 'Chưa qua';
@@ -84,7 +86,11 @@ export class TitleScene extends Phaser.Scene {
         ? '★'.repeat(s2Stars) + '☆'.repeat(3 - s2Stars)
         : 'Chưa qua';
     const s3Stars = save.starsByStage.stage_3 ?? 0;
-    const s3StarText = s3Stars > 0 ? '★'.repeat(s3Stars) + '☆'.repeat(3 - s3Stars) : 'Chưa qua';
+    const s3StarText = !stage3Unlocked
+      ? '🔒 Khóa'
+      : s3Stars > 0
+        ? '★'.repeat(s3Stars) + '☆'.repeat(3 - s3Stars)
+        : 'Chưa qua';
 
     const root = document.createElement('div');
     root.className = 'td-title-overlay';
@@ -92,6 +98,7 @@ export class TitleScene extends Phaser.Scene {
 
     const shoeUrl = getAtlasFrameDataUrl(this, 'icon_shoe_life');
     const breadUrl = getAtlasFrameDataUrl(this, 'icon_bread_life');
+    const flowerUrl = getAtlasFrameDataUrl(this, 'icon_flower_life');
     const towerShowcase = TOWER_LIST.map((t) => {
       const el = ELEMENT_INFO[t.element];
       const spUrl = getAtlasFrameDataUrl(this, getTowerFrameName(t.id, 1, undefined, 0));
@@ -170,19 +177,32 @@ export class TitleScene extends Phaser.Scene {
           </button>
         </div>
 
-        <div class="td-stage-tag-box">
+        <div class="td-stage-tag-box ${stage3Unlocked ? '' : 'td-stage-locked'}" data-testid="stage3-card">
           <div class="td-stage-header">
             <div class="td-stage-title-row">
+              ${
+                flowerUrl
+                  ? `<img class="td-stage-shoe-icon" src="${flowerUrl}" alt="" />`
+                  : `<span class="td-stage-emoji" aria-hidden="true">🌸</span>`
+              }
               <div>
-                <div class="td-stage-kicker">MÀN 3 • THỬ LUẬT (HÌNH TẠM)</div>
+                <div class="td-stage-kicker">MÀN 3 • 2 CỬA &amp; TRÙM ĐỔI HÀNH</div>
                 <div class="td-stage-name">${STAGES.stage_3.name}</div>
               </div>
             </div>
-            <div class="td-stage-stars" data-testid="stage3-stars">${s3StarText}</div>
+            <div class="td-stage-stars ${stage3Unlocked ? '' : 'locked'}" data-testid="stage3-stars">${s3StarText}</div>
           </div>
           <div class="td-stage-sub">${STAGES.stage_3.subtitle}</div>
-          <button id="btn-start-stage-3" data-testid="btn-start-stage-3" class="td-btn-primary">
-            Vào Tiệm Hoa
+          <div class="td-stage-meta">
+            <span>12 Đợt quái</span> • <span>20 Chậu hoa</span> • <span>2 Cửa vào &amp; Trùm Mùa Nồm</span>
+          </div>
+          <button
+            id="btn-start-stage-3"
+            data-testid="btn-start-stage-3"
+            class="${stage3Unlocked ? 'td-btn-primary' : 'td-btn-locked'}"
+            ${stage3Unlocked ? '' : 'disabled aria-disabled="true"'}
+          >
+            ${stage3Unlocked ? 'Mở Cửa Tiệm Hoa' : '🔒 Qua Màn 2 để mở khóa'}
           </button>
         </div>
 
@@ -213,7 +233,7 @@ export class TitleScene extends Phaser.Scene {
       };
     }
     const startBtn3 = root.querySelector<HTMLButtonElement>('#btn-start-stage-3');
-    if (startBtn3) {
+    if (startBtn3 && stage3Unlocked) {
       startBtn3.onclick = () => {
         sound.playUiClick();
         this.unmountOverlay();

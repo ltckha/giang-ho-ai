@@ -1,8 +1,10 @@
 import Phaser from 'phaser';
+import type { ElementType } from '../core/types';
 
 export const ATLAS_KEY = 'gon_tiem_atlas';
 export const STAGE1_MAP_KEY = 'map_man1_tiem_giay';
 export const STAGE2_MAP_KEY = 'map_man2_tiem_banh';
+export const STAGE3_MAP_KEY = 'map_man3_tiem_hoa';
 
 const iconDataUrlCache = new Map<string, string>();
 
@@ -53,31 +55,20 @@ export function getTowerTierKey(tier: 1 | 2 | 3, branch?: 'A' | 'B'): string {
   return branch === 'B' ? 't3b' : 't3a';
 }
 
-/**
- * HÌNH TẠM Màn 3 (Claude thêm cho Tiệm Hoa chưa vẽ hình; toàn bộ Màn 2 bk_* đã có hình riêng trong atlas và đã xoá alias).
- * Xoá nốt bảng này khi vẽ xong hình Màn 3 vào atlas (docs/YEU_CAU.md).
- */
-const PLACEHOLDER_FRAME_ALIAS: Record<string, string> = {
-  fl_can: 'wood_tower',
-  fl_shears: 'metal_tower',
-  fl_lime: 'water_tower',
-  fl_heater: 'fire_tower',
-  fl_vent: 'earth_tower',
-  fl_aphid: 'fast_metal',
-  fl_snail: 'tank_earth',
-  fl_dust: 'split_fire',
-  fl_dust_mini: 'split_fire_mini',
-  fl_frost: 'disrupt_water',
-  fl_rot: 'healer_wood',
-  fl_monsoon: 'boss_water',
-};
-
 export function getTowerFrameName(defId: string, tier: 1 | 2 | 3, branch?: 'A' | 'B', frameIdx = 0): string {
-  const id = PLACEHOLDER_FRAME_ALIAS[defId] ?? defId;
-  return `tower_${id}_${getTowerTierKey(tier, branch)}_f${frameIdx}`;
+  return `tower_${defId}_${getTowerTierKey(tier, branch)}_f${frameIdx}`;
 }
 
-export function getEnemyFrameName(enemyId: string, frameIdx = 0): string {
-  const id = PLACEHOLDER_FRAME_ALIAS[enemyId] ?? enemyId;
-  return `enemy_${id}_f${frameIdx}`;
+export function getEnemyFrameName(enemyId: string, frameIdx = 0, element?: ElementType): string {
+  if (enemyId === 'fl_monsoon' && (element === 'moc' || element === 'kim')) {
+    return `enemy_fl_monsoon_${element}_f${frameIdx}`;
+  }
+  return `enemy_${enemyId}_f${frameIdx}`;
+}
+
+export function getEnemyWalkAnimKey(enemyId: string, element?: ElementType): string {
+  if (enemyId === 'fl_monsoon' && (element === 'moc' || element === 'kim')) {
+    return `anim_walk_fl_monsoon_${element}`;
+  }
+  return `anim_walk_${enemyId}`;
 }

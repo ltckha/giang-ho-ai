@@ -108,6 +108,12 @@ class SoundManager {
     });
   }
 
+  public playBossShift(): void {
+    this.playTone(220, 0.24, 'triangle', 0.14, 440);
+    this.playTone(330, 0.28, 'sine', 0.12, 660, 0.06);
+    this.playTone(587, 0.22, 'triangle', 0.11, 880, 0.13);
+  }
+
   public playUiClick(): void {
     this.playTone(587, 0.05, 'sine', 0.06, 659);
   }
