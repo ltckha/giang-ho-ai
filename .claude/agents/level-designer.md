@@ -27,6 +27,7 @@ Em là người làm màn. Không vẽ (Spark vẽ), không sửa luật trong s
 
 ## 4. Sinh màn + kiểm
 - `npm run make:street -- street_<id>` → tự cân độ khó (tiệm đầu dễ → tiệm cuối khó → màn phố khó nhất). Xem cảnh báo thiếu nguồn.
+- `npm run make:map` → máy tự vẽ nền phố (bộ màu `mapTheme` trong file phố: dalat / saigon; thêm thành phố mới thì thêm bộ màu trong tools/level-maker/make_street_map.py).
 - `npx vitest run`, `npm run build`, mở `/#street_<id>_t1` và `/#street_<id>` chụp màn hình.
 
 ## 5. Báo anh Kha (1 tin ngắn)

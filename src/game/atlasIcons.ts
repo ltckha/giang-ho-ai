@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import type { GearSlotId } from '../core/equipment';
-import { ALL_ENEMY_DEFINITIONS, ALL_TOWER_DEFINITIONS, STAGES } from '../core/tdDefinitions';
+import { ALL_ENEMY_DEFINITIONS, ALL_TOWER_DEFINITIONS, REAL_STREET_STAGES, STAGES } from '../core/tdDefinitions';
 import type { ElementType, EnemyId, StageId, TowerId } from '../core/types';
 import sparkAtlas from '../../public/assets/spark_atlas.json';
 import streetsAtlas from '../../public/assets/streets_atlas.json';
@@ -17,11 +17,10 @@ export const STAGE1_MAP_KEY = 'map_man1_tiem_giay';
 export const STAGE2_MAP_KEY = 'map_man2_tiem_banh';
 export const STAGE3_MAP_KEY = 'map_man3_tiem_hoa';
 export const STAGE4_MAP_KEY = 'map_trum_pho';
-export const STREET_MAP_KEYS: Record<string, string> = {
-  street_tang_bat_ho: 'map_street_tang_bat_ho',
-  street_pho_ca_phe: 'map_street_pho_ca_phe',
-  street_phan_dinh_phung: 'map_street_phan_dinh_phung',
-};
+/** Nền mỗi phố thật: public/assets/map_<id>.webp (vẽ tay hoặc tools/level-maker/make_street_map.py) */
+export const STREET_MAP_KEYS: Record<string, string> = Object.fromEntries(
+  REAL_STREET_STAGES.map((st) => [st.id, `map_${st.id}`]),
+);
 
 const iconDataUrlCache = new Map<string, string>();
 

@@ -97,6 +97,13 @@ const REAL_STREET_MAP_PINS: Record<string, { leftPct: number; topPct: number; sh
     shortName: 'Phố Cà Phê',
     tag: 'Cà phê xưa • Sân thượng • Cây xanh',
   },
+  // Phố ngoài Đà Lạt: ghim ở góc dưới phải, ghi rõ thành phố (Claude)
+  street_cho_ben_thanh: {
+    leftPct: 80,
+    topPct: 80,
+    shortName: 'Chợ Bến Thành (Sài Gòn)',
+    tag: 'Sài Gòn • 4 cửa chợ • Chợ đêm',
+  },
 };
 
 const SHOP_GROUPS_FOR_BOSS: Array<{ label: string; ids: TowerId[] }> = [
@@ -892,8 +899,8 @@ export class TitleScene extends Phaser.Scene {
         <div class="td-dalat-map-card ${isRealStreetsUnlocked ? 'unlocked' : 'locked'}">
           <div class="td-dalat-map-head">
             <div>
-              <div class="td-stage-kicker">BẢN ĐỒ ĐÀ LẠT • ${REAL_STREET_STAGES.length} PHỐ THẬT</div>
-              <div class="td-dalat-map-title">Bảo vệ các tuyến phố thật Đà Lạt</div>
+              <div class="td-stage-kicker">BẢN ĐỒ PHỐ THẬT • ${REAL_STREET_STAGES.length} PHỐ</div>
+              <div class="td-dalat-map-title">Bảo vệ các tuyến phố thật: Đà Lạt &amp; Sài Gòn</div>
             </div>
             <span class="td-dalat-lock-pill ${isRealStreetsUnlocked ? 'open' : ''}" data-testid="real-streets-status">
               ${isRealStreetsUnlocked ? '🗺 Đã mở khóa' : '🔒 Thắng Trùm Phố để mở'}

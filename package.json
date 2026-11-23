@@ -11,7 +11,8 @@
     "test": "vitest run",
     "make:street": "esbuild tools/level-maker/make-street.ts --bundle --platform=node --log-level=warning --outfile=node_modules/.cache/make-street.cjs && node node_modules/.cache/make-street.cjs",
     "test:watch": "vitest",
-    "test:e2e": "npm run build && playwright test"
+    "test:e2e": "npm run build && playwright test",
+    "make:map": "python3 tools/level-maker/make_street_map.py"
   },
   "dependencies": {
     "phaser": "^3.88.2"

@@ -349,3 +349,8 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Quái màn phố lấy chuyện thật có nguồn: chai nhựa bỏ lại, rào công trường ga Cần Giờ, túi nilon, khói nướng chợ đêm, Lê Lợi ngập 23/9/2026, hộp xốp nhét bồn cây. Trùm: Mưa Ngập Bến Thành. Không biến người bán hàng rong / cò thành quái.
 - Độ khó: 8 màn tiệm (đặt bừa 65% → 42%), màn phố 25%. Thiếu: nền phố, 5 loại món mới (lưu niệm, trái cây, tiệm vàng, quầy nướng, nước dừa) đang mượn hình. CHƯA đưa lên link game — chờ anh Kha duyệt.
 - Sửa: món / quái chưa có hình lại mượn hình tiệm giày theo vai (lối tạm bị mất khi Antigravity viết lại atlasIcons).
+
+## 23/11/2026 — Máy tự vẽ nền phố + đưa Phố Chợ Bến Thành lên game (Claude)
+- tools/level-maker/make_street_map.py: vẽ nền 720×1040 theo đúng đường đi (đường có viền + vạch giữa), vỉa hè lát gạch, dãy nhà mái hiên sọc, cây ở chỗ trống; tránh đường và ô đặt món; bộ màu theo thành phố (`mapTheme`: dalat / saigon). Phố đã có nền vẽ tay thì giữ nguyên.
+- STREET_MAP_KEYS tự lấy theo danh sách phố thật (map_<id>.webp). Bản đồ chọn phố đổi tên "Bản đồ phố thật", ghim Chợ Bến Thành ghi rõ Sài Gòn.
+- `npm test` 78/78, e2e 17/17. Đã lên link game.
