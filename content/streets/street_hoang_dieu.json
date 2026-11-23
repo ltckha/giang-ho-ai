@@ -1,0 +1,322 @@
+{
+  "waves": 12,
+  "startingEssence": 210,
+  "startingLives": 20,
+  "loadoutSize": 6,
+  "difficulty": {
+    "gearTier": "after_street_1",
+    "targetRandomWin": 0.3
+  },
+  "researchNote": "docs/research/2026-11-24_pho_moi_da_lat.md",
+  "id": "street_hoang_dieu",
+  "name": "Phố Lẩu Bò Hoàng Diệu",
+  "subtitle": "Phố lẩu bò Ba Toa: hơn 20 quán lẩu, sáng bán bánh mì xíu mại",
+  "geometry": "pho_hoang_dieu",
+  "places": [
+    {
+      "key": "lau_nha_go",
+      "name": "Lẩu Bò Nhà Gỗ Sim Tím",
+      "type": "Quán lẩu bò nhà gỗ",
+      "trait": "nồi lẩu bò bốc hơi, gần như luôn kín khách",
+      "sources": [
+        "https://news.tuoitre.vn/over-20-ba-toa-beef-hotpot-restaurants-line-this-300m-street-in-vietnams-da-lat-10326061223565753.htm",
+        "https://mia.vn/cam-nang-du-lich/top-quan-lau-bo-ba-toa-da-lat-19503",
+        "https://mia.vn/cam-nang-du-lich/moi-ban-vao-team-miavn-de-cung-di-an-quan-lau-bo-ba-toa-nha-go-nuc-tieng-da-lat-1420"
+      ],
+      "confidence": "chac",
+      "tower": {
+        "element": "hoa",
+        "role": "aoe_splash",
+        "names": [
+          "Nồi Lẩu Bò",
+          "Nồi Lẩu Lớn",
+          "Bếp Ga Đỏ Lửa",
+          "Bàn Lẩu Kín Khách"
+        ],
+        "ult": "Lẩu Sôi Cả Phố",
+        "why": "Hơi nóng nồi lẩu xua ruồi"
+      },
+      "art": "lau_ga"
+    },
+    {
+      "key": "lau_hem",
+      "name": "Lẩu Bò Hẻm Sương Mai",
+      "type": "Quán lẩu bò trong hẻm",
+      "trait": "khách địa phương, đông 6–8 giờ tối",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/top-quan-lau-bo-ba-toa-da-lat-19503",
+        "https://www.foody.vn/lam-dong/lau-bo-ba-toa-hoang-dieu"
+      ],
+      "confidence": "chac",
+      "tower": {
+        "element": "thuy",
+        "role": "slow_aura",
+        "names": [
+          "Nồi Nước Dùng",
+          "Nồi Nước Dùng Lớn",
+          "Vá Múc Nước",
+          "Thùng Nước Lèo"
+        ],
+        "ult": "Nước Dùng Ngập Hẻm",
+        "why": "Nước dùng nóng dập than khét"
+      },
+      "art": "lau_ga"
+    },
+    {
+      "key": "xiu_mai",
+      "name": "Bánh Mì Xíu Mại Hồ Sương",
+      "type": "Quán bánh mì xíu mại buổi sáng",
+      "trait": "chén xíu mại, ổ bánh nóng, hết hàng lúc 9 giờ",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/top-quan-banh-mi-xiu-mai-hoang-dieu-19607",
+        "https://vinwonders.com/vi/wonderpedia/news/diem-mat-17-quan-banh-mi-da-lat/",
+        "https://vietnamnews.vn/life-style/1728243/a-taste-of-mist-discovering-da-lat-through-its-cuisine.html"
+      ],
+      "confidence": "chac",
+      "tower": {
+        "element": "tho",
+        "role": "heavy_slow",
+        "names": [
+          "Ổ Bánh Mì",
+          "Chén Xíu Mại",
+          "Lò Bánh Mì",
+          "Xe Bánh Mì Có Mái"
+        ],
+        "ult": "Mẻ Bánh Nóng Hổi",
+        "why": "Lò bánh khô ráo hút hơi ẩm"
+      },
+      "art": "banh_mi_xe"
+    },
+    {
+      "key": "banh_trang",
+      "name": "Bánh Tráng Nướng Dã Quỳ",
+      "type": "Bánh tráng nướng bếp than buổi chiều",
+      "trait": "bếp than đỏ từ 2 giờ chiều",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/bo-tui-ngay-dia-chi-10-quan-ban-banh-trang-nuong-ngon-xuat-sac-giua-long-da-lat-1283"
+      ],
+      "confidence": "nen_kiem",
+      "tower": {
+        "element": "hoa",
+        "role": "single_far",
+        "names": [
+          "Bánh Tráng",
+          "Vỉ Nướng Nhỏ",
+          "Bếp Than Đỏ",
+          "Xe Đẩy Bánh Tráng"
+        ],
+        "ult": "Giòn Rụm Cả Phố",
+        "why": "Lửa than hun lùi kiến"
+      },
+      "art": "banh_trang_nuong"
+    },
+    {
+      "key": "com_ga",
+      "name": "Cơm Gà Lan Hài",
+      "type": "Quán cơm gà đầu phố",
+      "trait": "cơm gà xé, nước mắm gừng",
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/an-trua-da-lat/",
+        "https://foody.vn/lam-dong/com-ga-hoang-dieu"
+      ],
+      "confidence": "chac",
+      "tower": {
+        "element": "kim",
+        "role": "single_far",
+        "names": [
+          "Dao Chặt Gà",
+          "Thớt Gỗ",
+          "Nồi Cơm Gà",
+          "Tủ Kính Gà Luộc"
+        ],
+        "ult": "Chặt Gọn Một Lượt",
+        "why": "Dao thép chặt gọn bụi rối"
+      }
+    },
+    {
+      "key": "chao_gang",
+      "name": "Bánh Mì Chảo Mây Ngàn",
+      "type": "Quán bánh mì chảo xíu mại",
+      "trait": "chảo gang nóng buổi sáng",
+      "sources": [],
+      "confidence": "nen_kiem",
+      "tower": {
+        "element": "kim",
+        "role": "heavy_slow",
+        "names": [
+          "Chảo Gang",
+          "Chảo Gang Đôi",
+          "Bếp Chảo",
+          "Khay Chảo Đầy"
+        ],
+        "ult": "Chảo Nóng Liên Hoàn",
+        "why": "Chảo gang nặng đập tan mốc"
+      }
+    },
+    {
+      "key": "yaourt",
+      "name": "Yaourt Phô Mai Cỏ Hồng",
+      "type": "Quầy yaourt phô mai",
+      "trait": "yaourt phô mai không quá ngọt",
+      "sources": [],
+      "confidence": "nen_kiem",
+      "tower": {
+        "element": "moc",
+        "role": "support_buff",
+        "names": [
+          "Hũ Yaourt",
+          "Khay Yaourt",
+          "Tủ Mát Yaourt",
+          "Xe Yaourt"
+        ],
+        "ult": "Mát Lành Cả Quán",
+        "why": "Men tươi bồi bổ cả phố"
+      },
+      "art": "kem"
+    },
+    {
+      "key": "pizza",
+      "name": "Tiệm Pizza Nhỏ Đồi Chè",
+      "type": "Tiệm pizza nhỏ đầu phố",
+      "trait": "lò nướng nhỏ",
+      "sources": [
+        "https://www.foody.vn/lam-dong/pizza-like-hoang-dieu"
+      ],
+      "confidence": "nen_kiem",
+      "tower": {
+        "element": "tho",
+        "role": "aoe_splash",
+        "names": [
+          "Đế Bánh",
+          "Lò Pizza Nhỏ",
+          "Lò Đá",
+          "Khay Pizza Lớn"
+        ],
+        "ult": "Bánh Nóng Cả Lò",
+        "why": "Lò đá giữ nóng, chặn hơi ẩm"
+      }
+    },
+    {
+      "key": "khach_san",
+      "name": "Khách Sạn Phố Núi Mai Anh Đào",
+      "type": "Khách sạn mặt tiền",
+      "trait": "phòng nhìn ra phố lẩu",
+      "sources": [
+        "https://batdongsan.com.vn/ban-dat-duong-hoang-dieu-391"
+      ],
+      "confidence": "nen_kiem",
+      "tower": {
+        "element": "moc",
+        "role": "slow_aura",
+        "names": [
+          "Chăn Len Ấm",
+          "Giường Gỗ Thông",
+          "Cây Thông Hành Lang",
+          "Vườn Hoa Sân Sau"
+        ],
+        "ult": "Đêm Phố Núi",
+        "why": "Cây xanh chắn bụi đường"
+      },
+      "art": "homestay"
+    }
+  ],
+  "pests": [
+    {
+      "art": "kien_duong",
+      "name": "Kiến Bu Đường",
+      "element": "moc",
+      "trait": "fast",
+      "reason": "Kiến bu ly chè, hũ đường"
+    },
+    {
+      "art": "bui_bot",
+      "name": "Bụi Bột",
+      "element": "tho",
+      "trait": "tank",
+      "reason": "Bao bột, bụi bếp"
+    },
+    {
+      "art": "ruoi_bep",
+      "name": "Ruồi Bếp",
+      "element": "moc",
+      "trait": "flying",
+      "reason": "Ruồi bu quầy thức ăn"
+    },
+    {
+      "art": "khoi_nuong",
+      "name": "Than Nướng Bén Lửa",
+      "element": "hoa",
+      "trait": "splitter",
+      "reason": "Than bếp văng tàn"
+    },
+    {
+      "art": "chuot_cong",
+      "name": "Chuột Cống",
+      "element": "kim",
+      "trait": "disruptor",
+      "reason": "Chuột cắn bao hàng ban đêm"
+    },
+    {
+      "art": "vung_nuoc",
+      "name": "Nước Đá Tan",
+      "element": "thuy",
+      "trait": "healer",
+      "reason": "Nước đá tan rỉ ra lối đi"
+    }
+  ],
+  "streetPests": [
+    {
+      "art": "nap_chai",
+      "name": "Nắp Chai Leng Keng",
+      "element": "kim",
+      "trait": "fast",
+      "reason": "Nắp chai bia quán lẩu rơi lăn"
+    },
+    {
+      "art": "bui_duong",
+      "name": "Bụi Thảm Nhựa",
+      "element": "tho",
+      "trait": "tank",
+      "reason": "Thi công thảm bê tông nhựa 2026"
+    },
+    {
+      "art": "to_roi",
+      "name": "Tờ Rơi Mạo Danh",
+      "element": "moc",
+      "trait": "flying",
+      "reason": "Quán mạo danh tên lẩu bò nổi tiếng"
+    },
+    {
+      "art": "khoi_nuong",
+      "name": "Hơi Lẩu Mù Đường",
+      "element": "hoa",
+      "trait": "splitter",
+      "reason": "Hơi lẩu từ hơn 20 quán bốc mù phố"
+    },
+    {
+      "art": "o_ga",
+      "name": "Ổ Gà Giấu Nước",
+      "element": "thuy",
+      "trait": "disruptor",
+      "reason": "Ổ gà bị nước đọng che"
+    },
+    {
+      "art": "bai_rac",
+      "name": "Đống Rác Cồng Kềnh",
+      "element": "moc",
+      "trait": "healer",
+      "reason": "Rác ùn ứ cạnh suối Cam Ly"
+    }
+  ],
+  "boss": {
+    "name": "Máy Xúc Nới Đường",
+    "art": "trum_may_xuc",
+    "phases": [
+      "tho",
+      "kim",
+      "hoa",
+      "thuy",
+      "moc"
+    ]
+  }
+}

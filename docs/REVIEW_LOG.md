@@ -388,3 +388,10 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Chế độ chủ: link có #mo (hoặc ?mo=1) mở hết màn để anh Kha xem, nhớ trên máy; #dong để tắt.
 - Spark đợt 16: vẽ lại 11 hình lỗi + 10 biểu tượng nút (art/ui, public/assets/ui) + 4 hình thẻ phố.
 - `npm test` 74/74, e2e 17/17.
+
+## 24/11/2026 (đêm) — 3 phố Đà Lạt mới + bản đồ 7 phố + mẹo lần đầu (Claude, anh Kha ngủ)
+- Nghiên cứu (docs/research/2026-11-24_pho_moi_da_lat.md): Nguyễn Văn Trỗi (phố kem bơ), Hoàng Diệu (phố lẩu bò Ba Toa), Trần Phú – Ba Tháng Hai (phố di sản, khách sạn cổ). Bỏ chùa / nhà thờ khỏi màn tiệm (là nơi thờ tự). Quái màn phố theo chuyện thật: xe đậu lấn lề, thi công thảm nhựa, rác tồn, cành thông gãy, dây đèn Noel.
+- Máy làm màn: 9 + 9 + 8 màn tiệm + 3 màn phố; trùm Dòng Xe Tối Thứ Bảy, Máy Xúc Nới Đường, Đêm Đông Kẹt Cứng (hình tạm Bão Lốc, chờ Spark). Nền tự vẽ. Nhiều món dùng loại Spark đang vẽ (đợt 17: bánh tráng nướng, lẩu, tiệm bánh mì...) — có hình là tự hiện.
+- Bản đồ màn chính 7 phố, thẻ tự né nhau; phố chưa có hình thẻ dùng mặt tiền tiệm đầu.
+- Mẹo 1 dòng khi gặp loại quái / trùm mới lần đầu (nhớ trên máy).
+- `npm test` 86/86, e2e 17/17.

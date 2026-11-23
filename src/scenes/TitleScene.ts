@@ -100,6 +100,9 @@ const REAL_STREET_MAP_PINS: Record<string, { leftPct: number; topPct: number; sh
     shortName: 'Phố Cà Phê',
     tag: 'Cà phê xưa • Sân thượng • Cây xanh',
   },
+  street_nguyen_van_troi: { leftPct: 60, topPct: 50, shortName: 'Phố Kem Bơ', tag: 'Kem bơ • Chè • Dốc chùa' },
+  street_hoang_dieu: { leftPct: 20, topPct: 50, shortName: 'Phố Lẩu Bò', tag: 'Lẩu bò Ba Toa • Xíu mại' },
+  street_tran_phu: { leftPct: 50, topPct: 80, shortName: 'Trần Phú', tag: 'Khách sạn cổ • Tiệm bánh' },
   // Phố ngoài Đà Lạt: ghim ở góc dưới phải, ghi rõ thành phố (Claude)
   street_cho_ben_thanh: {
     leftPct: 80,
@@ -651,12 +654,21 @@ export class TitleScene extends Phaser.Scene {
         return { id: st.id, dot, card: [dot[0], dot[1]], name: base.shortName, sub: isRealStreetsUnlocked ? `${prog.shopsCleared}/${prog.shopsTotal}` : '', open: isRealStreetsUnlocked, testid: `real-street-pin-${st.id}`, extra: `data-real-pin="${st.id}"` };
       });
       // xếp thẻ thành cột bên phải chấm, cách nhau đủ để không chồng
-      const SLOTS: [number, number][] = [[47, 22], [56, 50], [47, 78], [72, 64], [80, 40]];
-      realPins.sort((p1, p2) => p1.dot![1] - p2.dot![1]).forEach((pp, i) => {
-        pp.card = SLOTS[i % SLOTS.length]!;
+      // đặt thẻ gần chấm, tránh chồng nhau (thẻ ~24% rộng, ~26% cao)
+      const taken: [number, number][] = [[84, 10]];
+      const OFFS: [number, number][] = [[20, 0], [-20, 0], [20, -12], [20, 12], [-20, 12], [-20, -12], [0, 20], [0, -20], [30, 20], [-30, 20], [30, -20], [-30, -20], [40, 0], [-40, 0]];
+      realPins.sort((p1, p2) => p1.dot![1] - p2.dot![1]).forEach((pp) => {
+        const [dx, dy] = pp.dot!;
+        let best: [number, number] = [Math.min(86, Math.max(14, dx + 24)), Math.min(86, Math.max(14, dy))];
+        for (const [ox, oy] of OFFS) {
+          const c: [number, number] = [Math.min(86, Math.max(14, dx + ox)), Math.min(86, Math.max(14, dy + oy))];
+          if (taken.every(([tx, ty]) => Math.abs(tx - c[0]) >= 19 || Math.abs(ty - c[1]) >= 18)) { best = c; break; }
+        }
+        pp.card = best;
+        taken.push(best);
       });
       const allPins: MapPin[] = [
-        { id: 'doc', dot: null, card: [82, 16], name: 'Phố Dốc', sub: `★${docStars}`, open: true, testid: 'street-tab-doc', extra: '' },
+        { id: 'doc', dot: null, card: [84, 10], name: 'Phố Dốc', sub: `★${docStars}`, open: true, testid: 'street-tab-doc', extra: '' },
         ...realPins,
       ];
       const lines = allPins.filter((pp) => pp.dot).map((pp) => `<line x1="${pp.dot![0]}" y1="${pp.dot![1]}" x2="${pp.card[0]}" y2="${pp.card[1]}" />`).join('');
@@ -664,7 +676,15 @@ export class TitleScene extends Phaser.Scene {
       const cards = allPins.map((pp) => `
         <button type="button" class="td-map-card ${pp.open ? 'open' : 'locked'} ${activeStreetTab === pp.id ? 'selected' : ''}"
           style="left:${pp.card[0]}%;top:${pp.card[1]}%" data-street-tab="${pp.id}" data-testid="${pp.testid}" ${pp.extra}>
-          <img src="./assets/ui/${CARD_IMG[pp.id] ?? 'the_pho_doc'}.webp" alt="" onerror="this.style.display='none'" />
+          ${CARD_IMG[pp.id] ? `<img src="./assets/ui/${CARD_IMG[pp.id]}.webp" alt="" />` : (() => {
+            // phố chưa có hình thẻ: dùng mặt tiền tiệm đầu phố (Claude)
+            const first = REAL_STREET_SHOPS[pp.id]?.[0];
+            const art = first?.featuredTowerId ? ALL_TOWER_DEFINITIONS[first.featuredTowerId]?.art : undefined;
+            const tex = this.textures.exists(FACADE_ATLAS_KEY) ? this.textures.get(FACADE_ATLAS_KEY) : null;
+            const k = [first?.facadeKey, art ? `facade_${art}` : undefined].find((x) => x && tex?.has(x));
+            const u = k ? getAtlasFrameDataUrlFrom(this, FACADE_ATLAS_KEY, k) : '';
+            return u ? `<img src="${u}" alt="" />` : '';
+          })()}
           <span class="td-map-card-name">${pp.open ? '' : '🔒 '}${pp.name}</span>
           ${pp.sub ? `<span class="td-map-card-sub">${pp.sub}</span>` : ''}
         </button>`).join('');

@@ -4018,3 +4018,9 @@ img.td-vehicle-ico { object-fit: contain; }
 .td-real-street-detail .td-real-shop-progress { margin: 2px 0 6px; }
 .td-title-heading { touch-action: none; -webkit-touch-callout: none; }
 .td-title-heading.holding { color: #15803d; transition: color 3s linear; }
+.td-map-card { width: 60px; padding: 2px 2px 3px; border-radius: 10px; }
+.td-map-card img { width: 50px; height: 34px; }
+.td-map-card-name { font-size: 9px; }
+.td-map-card-sub { font-size: 9px; }
+.td-first-tip { position: absolute; left: 50%; top: 62px; transform: translateX(-50%); max-width: 92%; padding: 6px 12px; border-radius: 12px; background: rgba(43, 26, 18, 0.92); color: #fff3d6; font-size: 13px; font-weight: 800; text-align: center; pointer-events: none; z-index: 40; animation: tdTipIn 0.25s ease-out; }
+@keyframes tdTipIn { from { opacity: 0; transform: translate(-50%, -6px); } to { opacity: 1; transform: translate(-50%, 0); } }

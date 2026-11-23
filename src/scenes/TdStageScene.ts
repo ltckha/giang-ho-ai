@@ -253,6 +253,7 @@ export class TdStageScene extends Phaser.Scene {
       if (q === '4') stageId = 'stage_4';
     }
     const isVideoMode = params?.get('video') === '1';
+    this.videoMode = isVideoMode;
     const isBotQuery = params?.get('bot') === '1';
 
     const stageDef = STAGES[stageId];
@@ -742,7 +743,47 @@ export class TdStageScene extends Phaser.Scene {
     }
   }
 
+  /** Mẹo 1 dòng khi gặp quái mới lần đầu (Claude) — nhớ trên máy, mỗi loại chỉ báo 1 lần */
+  private seenTipIds: Set<string> | null = null;
+  private videoMode = false;
+  private tipQueue: string[] = [];
+  private tipShowing = false;
+  private checkFirstTimeTips(): void {
+    if (!this.seenTipIds) {
+      try {
+        this.seenTipIds = new Set(JSON.parse(localStorage.getItem('gonpho_da_gap') ?? '[]') as string[]);
+      } catch {
+        this.seenTipIds = new Set();
+      }
+    }
+    for (const e of this.engine.enemies) {
+      const kind = ENEMY_DEFINITIONS[e.defId]?.trait === 'boss' ? `boss:${e.defId}` : `trait:${e.trait}`;
+      if (this.seenTipIds.has(kind)) continue;
+      this.seenTipIds.add(kind);
+      const def = ENEMY_DEFINITIONS[e.defId];
+      if (def) this.tipQueue.push(`${def.name}: ${def.traitLabel}`);
+      try {
+        localStorage.setItem('gonpho_da_gap', JSON.stringify([...this.seenTipIds]));
+      } catch {
+        /* bỏ qua */
+      }
+    }
+    if (!this.tipShowing && this.tipQueue.length && this.hudRoot) {
+      const msg = this.tipQueue.shift()!;
+      const el = document.createElement('div');
+      el.className = 'td-first-tip';
+      el.textContent = `💡 ${msg}`;
+      this.hudRoot.appendChild(el);
+      this.tipShowing = true;
+      this.time.delayedCall(2600, () => {
+        el.remove();
+        this.tipShowing = false;
+      });
+    }
+  }
+
   private syncSprites(dt: number): void {
+    if (!this.videoMode) this.checkFirstTimeTips();
     // 1. Đồng bộ Sprite các món giữ tiệm (tự chọn gon_tiem_atlas hoặc streets_atlas)
     const activeTowerUids = new Set<string>();
     for (const tower of this.engine.towers) {

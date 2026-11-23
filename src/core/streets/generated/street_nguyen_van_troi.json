@@ -1,0 +1,6850 @@
+{
+ "generatedBy": "tools/level-maker/make-street.ts",
+ "hpMultiplier": 1.5,
+ "balance": {
+  "randomWinWithExpectedGear": 0.2916666666666667,
+  "botWinRate": 1,
+  "botLivesAvg": 14.333333333333334,
+  "gearTier": "after_street_1"
+ },
+ "stage": {
+  "id": "street_nguyen_van_troi",
+  "stageNumber": 20,
+  "name": "Phố Kem Bơ Nguyễn Văn Trỗi",
+  "subtitle": "Màn phố: Dòng Xe Tối Thứ Bảy — Phố một chiều ăn vặt ngọt: kem bơ lâu năm, chè, bánh tráng nướng, dốc chùa",
+  "startingEssence": 210,
+  "startingLives": 20,
+  "paths": [
+   [
+    {
+     "x": 49,
+     "y": 30
+    },
+    {
+     "x": 88,
+     "y": 50
+    },
+    {
+     "x": 113,
+     "y": 56
+    },
+    {
+     "x": 155,
+     "y": 58
+    },
+    {
+     "x": 231,
+     "y": 38
+    },
+    {
+     "x": 251,
+     "y": 43
+    },
+    {
+     "x": 266,
+     "y": 56
+    },
+    {
+     "x": 245,
+     "y": 109
+    },
+    {
+     "x": 194,
+     "y": 129
+    },
+    {
+     "x": 173,
+     "y": 152
+    },
+    {
+     "x": 168,
+     "y": 170
+    },
+    {
+     "x": 176,
+     "y": 208
+    },
+    {
+     "x": 172,
+     "y": 218
+    },
+    {
+     "x": 160,
+     "y": 223
+    },
+    {
+     "x": 124,
+     "y": 223
+    },
+    {
+     "x": 96,
+     "y": 239
+    },
+    {
+     "x": 43,
+     "y": 334
+    },
+    {
+     "x": 38,
+     "y": 353
+    },
+    {
+     "x": 38,
+     "y": 391
+    },
+    {
+     "x": 56,
+     "y": 437
+    },
+    {
+     "x": 56,
+     "y": 447
+    },
+    {
+     "x": 86,
+     "y": 470
+    },
+    {
+     "x": 98,
+     "y": 490
+    }
+   ],
+   [
+    {
+     "x": 323,
+     "y": 30
+    },
+    {
+     "x": 292,
+     "y": 53
+    },
+    {
+     "x": 266,
+     "y": 56
+    },
+    {
+     "x": 245,
+     "y": 109
+    },
+    {
+     "x": 187,
+     "y": 134
+    },
+    {
+     "x": 169,
+     "y": 160
+    },
+    {
+     "x": 168,
+     "y": 174
+    },
+    {
+     "x": 176,
+     "y": 208
+    },
+    {
+     "x": 172,
+     "y": 218
+    },
+    {
+     "x": 160,
+     "y": 223
+    },
+    {
+     "x": 124,
+     "y": 223
+    },
+    {
+     "x": 96,
+     "y": 239
+    },
+    {
+     "x": 43,
+     "y": 334
+    },
+    {
+     "x": 38,
+     "y": 353
+    },
+    {
+     "x": 38,
+     "y": 391
+    },
+    {
+     "x": 56,
+     "y": 437
+    },
+    {
+     "x": 56,
+     "y": 447
+    },
+    {
+     "x": 86,
+     "y": 470
+    },
+    {
+     "x": 98,
+     "y": 490
+    }
+   ]
+  ],
+  "pads": [
+   {
+    "id": "pad_1",
+    "x": 126,
+    "y": 138
+   },
+   {
+    "id": "pad_2",
+    "x": 246,
+    "y": 150
+   },
+   {
+    "id": "pad_3",
+    "x": 186,
+    "y": 90
+   },
+   {
+    "id": "pad_4",
+    "x": 222,
+    "y": 210
+   },
+   {
+    "id": "pad_5",
+    "x": 90,
+    "y": 198
+   },
+   {
+    "id": "pad_6",
+    "x": 114,
+    "y": 294
+   },
+   {
+    "id": "pad_7",
+    "x": 90,
+    "y": 390
+   },
+   {
+    "id": "pad_8",
+    "x": 174,
+    "y": 270
+   },
+   {
+    "id": "pad_9",
+    "x": 30,
+    "y": 486
+   },
+   {
+    "id": "pad_10",
+    "x": 294,
+    "y": 102
+   },
+   {
+    "id": "pad_11",
+    "x": 126,
+    "y": 450
+   }
+  ],
+  "waves": [
+   {
+    "waveNumber": 1,
+    "title": "Đợt 1: Ly Nhựa Bỏ Lề",
+    "mainElements": [
+     "kim"
+    ],
+    "earlyBonusMax": 12,
+    "clearReward": 14,
+    "groups": [
+     {
+      "enemyId": "ge_nguyen_van_troi_p1",
+      "count": 6,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 1.5
+     }
+    ]
+   },
+   {
+    "waveNumber": 2,
+    "title": "Đợt 2: Xe Đậu Lấn Lề",
+    "mainElements": [
+     "tho"
+    ],
+    "earlyBonusMax": 13,
+    "clearReward": 14,
+    "groups": [
+     {
+      "enemyId": "ge_nguyen_van_troi_p2",
+      "count": 2,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 1.73
+     }
+    ]
+   },
+   {
+    "waveNumber": 3,
+    "title": "Đợt 3: Khăn Giấy Bay & Xe Đậu Lấn Lề",
+    "mainElements": [
+     "moc",
+     "tho"
+    ],
+    "earlyBonusMax": 14,
+    "clearReward": 15,
+    "groups": [
+     {
+      "enemyId": "ge_nguyen_van_troi_p3",
+      "count": 4,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 1.95
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p2",
+      "count": 2,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 1.95
+     }
+    ]
+   },
+   {
+    "waveNumber": 4,
+    "title": "Đợt 4: Ly Nhựa Bỏ Lề & Khăn Giấy Bay",
+    "mainElements": [
+     "kim",
+     "moc"
+    ],
+    "earlyBonusMax": 15,
+    "clearReward": 15,
+    "groups": [
+     {
+      "enemyId": "ge_nguyen_van_troi_p1",
+      "count": 7,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 2.17
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p3",
+      "count": 5,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 2.17
+     }
+    ]
+   },
+   {
+    "waveNumber": 5,
+    "title": "Đợt 5: Ly Nhựa Bỏ Lề & Khăn Giấy Bay",
+    "mainElements": [
+     "kim",
+     "moc"
+    ],
+    "earlyBonusMax": 16,
+    "clearReward": 16,
+    "groups": [
+     {
+      "enemyId": "ge_nguyen_van_troi_p1",
+      "count": 8,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 2.55
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p3",
+      "count": 5,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 2.55
+     }
+    ]
+   },
+   {
+    "waveNumber": 6,
+    "title": "Đợt 6: Ly Nhựa Bỏ Lề & Khăn Giấy Bay & Ổ Gà Đọng Nước",
+    "mainElements": [
+     "kim",
+     "moc",
+     "thuy"
+    ],
+    "earlyBonusMax": 17,
+    "clearReward": 16,
+    "groups": [
+     {
+      "enemyId": "ge_nguyen_van_troi_p1",
+      "count": 8,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 3
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p3",
+      "count": 5,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 3
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p5",
+      "count": 3,
+      "intervalSec": 1.8,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 3
+     }
+    ]
+   },
+   {
+    "waveNumber": 7,
+    "title": "Đợt 7: Xe Đậu Lấn Lề & Khói Bếp Than Vỉa Hè & Ly Nhựa Bỏ Lề",
+    "mainElements": [
+     "tho",
+     "hoa",
+     "kim"
+    ],
+    "earlyBonusMax": 18,
+    "clearReward": 17,
+    "groups": [
+     {
+      "enemyId": "ge_nguyen_van_troi_p2",
+      "count": 4,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 3.6
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p4",
+      "count": 5,
+      "intervalSec": 1.2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 3.6
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p1",
+      "count": 9,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 3.6
+     }
+    ]
+   },
+   {
+    "waveNumber": 8,
+    "title": "Đợt 8: Xe Đậu Lấn Lề & Khói Bếp Than Vỉa Hè & Rêu Trơn Dốc Chùa",
+    "mainElements": [
+     "tho",
+     "hoa",
+     "moc"
+    ],
+    "earlyBonusMax": 19,
+    "clearReward": 17,
+    "groups": [
+     {
+      "enemyId": "ge_nguyen_van_troi_p2",
+      "count": 4,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 4.2
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p4",
+      "count": 5,
+      "intervalSec": 1.2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 4.2
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p6",
+      "count": 2,
+      "intervalSec": 2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 4.2
+     }
+    ]
+   },
+   {
+    "waveNumber": 9,
+    "title": "Đợt 9: Khăn Giấy Bay & Ổ Gà Đọng Nước & Ly Nhựa Bỏ Lề",
+    "mainElements": [
+     "moc",
+     "thuy",
+     "kim"
+    ],
+    "earlyBonusMax": 20,
+    "clearReward": 18,
+    "groups": [
+     {
+      "enemyId": "ge_nguyen_van_troi_p3",
+      "count": 6,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 4.8
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p5",
+      "count": 4,
+      "intervalSec": 1.8,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 4.8
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p1",
+      "count": 10,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 4.8
+     }
+    ]
+   },
+   {
+    "waveNumber": 10,
+    "title": "Đợt 10: Khói Bếp Than Vỉa Hè & Rêu Trơn Dốc Chùa & Xe Đậu Lấn Lề",
+    "mainElements": [
+     "hoa",
+     "moc",
+     "tho"
+    ],
+    "earlyBonusMax": 21,
+    "clearReward": 18,
+    "groups": [
+     {
+      "enemyId": "ge_nguyen_van_troi_p4",
+      "count": 6,
+      "intervalSec": 1.2,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 5.4
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p6",
+      "count": 3,
+      "intervalSec": 2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 5.4
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p2",
+      "count": 5,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 5.4
+     }
+    ]
+   },
+   {
+    "waveNumber": 11,
+    "title": "Đợt 11: Ổ Gà Đọng Nước & Ly Nhựa Bỏ Lề & Khăn Giấy Bay",
+    "mainElements": [
+     "thuy",
+     "kim",
+     "moc"
+    ],
+    "earlyBonusMax": 22,
+    "clearReward": 19,
+    "groups": [
+     {
+      "enemyId": "ge_nguyen_van_troi_p5",
+      "count": 4,
+      "intervalSec": 1.8,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 6
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p1",
+      "count": 11,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 6
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p3",
+      "count": 7,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 6
+     }
+    ]
+   },
+   {
+    "waveNumber": 12,
+    "title": "Đợt 12: Dòng Xe Tối Thứ Bảy ập tới",
+    "mainElements": [
+     "kim",
+     "tho",
+     "moc",
+     "hoa",
+     "thuy"
+    ],
+    "earlyBonusMax": 0,
+    "clearReward": 0,
+    "groups": [
+     {
+      "enemyId": "ge_nguyen_van_troi_p1",
+      "count": 11,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 6.45
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p2",
+      "count": 5,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 6.45
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p3",
+      "count": 7,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 6.45
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p4",
+      "count": 6,
+      "intervalSec": 1.2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 6.45
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p5",
+      "count": 4,
+      "intervalSec": 1.8,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 6.45
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_p6",
+      "count": 3,
+      "intervalSec": 2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 6.45
+     },
+     {
+      "enemyId": "ge_nguyen_van_troi_trum",
+      "count": 1,
+      "intervalSec": 1,
+      "delayBeforeSec": 3,
+      "pathIndex": 0,
+      "hpScale": 0.9
+     }
+    ]
+   }
+  ],
+  "towerIds": [
+   "gt_don_kep_rac",
+   "gt_don_choi_tre",
+   "gt_don_voi_xit",
+   "gt_don_den_duong",
+   "gt_don_bao_cat",
+   "wood_tower",
+   "metal_tower",
+   "water_tower",
+   "fire_tower",
+   "earth_tower",
+   "bk_swatter",
+   "bk_jar",
+   "bk_fan",
+   "bk_oven",
+   "bk_fridge",
+   "fl_can",
+   "fl_shears",
+   "fl_lime",
+   "fl_heater",
+   "fl_vent",
+   "gt_nguyen_van_troi_kem_bo",
+   "gt_nguyen_van_troi_che",
+   "gt_nguyen_van_troi_banh_trang",
+   "gt_nguyen_van_troi_pho",
+   "gt_nguyen_van_troi_lau_ga",
+   "gt_nguyen_van_troi_nuong",
+   "gt_nguyen_van_troi_com_tam",
+   "gt_nguyen_van_troi_banh_mi",
+   "gt_nguyen_van_troi_homestay"
+  ],
+  "loadoutSize": 6,
+  "defaultLoadout": [
+   "gt_don_kep_rac",
+   "gt_don_choi_tre",
+   "gt_don_voi_xit",
+   "gt_don_den_duong",
+   "metal_tower",
+   "fl_vent"
+  ],
+  "enableSynergy": true,
+  "attribution": "© OpenStreetMap contributors (ODbL)",
+  "places": [
+   {
+    "key": "kem_bo",
+    "name": "Tiệm Kem Bơ Thông Reo",
+    "type": "Tiệm kem bơ lâu năm",
+    "trait": "bơ sáp xay sữa đặc, khách xếp hàng dù trời lạnh",
+    "towerId": "gt_nguyen_van_troi_kem_bo"
+   },
+   {
+    "key": "che",
+    "name": "Quán Chè Thạch Thảo",
+    "type": "Quán chè, yaourt phô mai, rau câu",
+    "trait": "ly chè Thái, yaourt phô mai",
+    "towerId": "gt_nguyen_van_troi_che"
+   },
+   {
+    "key": "banh_trang",
+    "name": "Bánh Tráng Nướng Xác Pháo",
+    "type": "Bánh tráng nướng vỉa hè",
+    "trait": "bếp than vỉa hè, bán chiều tối",
+    "towerId": "gt_nguyen_van_troi_banh_trang"
+   },
+   {
+    "key": "pho",
+    "name": "Phở Thố Đá Phong Lữ",
+    "type": "Quán phở lâu năm ở dốc chùa",
+    "trait": "phở bò, ăn kèm quẩy",
+    "towerId": "gt_nguyen_van_troi_pho"
+   },
+   {
+    "key": "lau_ga",
+    "name": "Lẩu Gà Lá É Đồi Chè",
+    "type": "Quán lẩu gà lá é",
+    "trait": "đông sau 7 giờ tối",
+    "towerId": "gt_nguyen_van_troi_lau_ga"
+   },
+   {
+    "key": "nuong",
+    "name": "Quán Nướng Phố Núi",
+    "type": "Quán nướng, lẩu buổi tối",
+    "trait": "bếp nướng than, khói thơm",
+    "towerId": "gt_nguyen_van_troi_nuong"
+   },
+   {
+    "key": "com_tam",
+    "name": "Cơm Tấm Hoa Hồng Leo",
+    "type": "Quán cơm tấm",
+    "trait": "sườn nướng, chảo gang",
+    "towerId": "gt_nguyen_van_troi_com_tam"
+   },
+   {
+    "key": "banh_mi",
+    "name": "Bánh Mì Xíu Mại Sương Mai",
+    "type": "Bánh mì xíu mại buổi sáng",
+    "trait": "mở sớm, chén xíu mại nóng",
+    "towerId": "gt_nguyen_van_troi_banh_mi"
+   },
+   {
+    "key": "homestay",
+    "name": "Homestay Hẻm Cẩm Tú Cầu",
+    "type": "Homestay trong hẻm",
+    "trait": "phòng nhỏ, cửa sổ nhìn dốc",
+    "towerId": "gt_nguyen_van_troi_homestay"
+   }
+  ],
+  "streetId": "street_nguyen_van_troi",
+  "cleanTowerIds": [
+   "gt_don_kep_rac",
+   "gt_don_choi_tre",
+   "gt_don_voi_xit",
+   "gt_don_den_duong",
+   "gt_don_bao_cat"
+  ],
+  "maxShopTowers": 2,
+  "botPlan": [
+   {
+    "padId": "pad_1",
+    "defId": "gt_don_kep_rac",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_2",
+    "defId": "gt_don_choi_tre",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_3",
+    "defId": "gt_don_den_duong",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_4",
+    "defId": "metal_tower",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_5",
+    "defId": "gt_don_kep_rac",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_6",
+    "defId": "gt_don_choi_tre",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_7",
+    "defId": "gt_don_voi_xit",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_8",
+    "defId": "metal_tower",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_9",
+    "defId": "gt_don_kep_rac",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_10",
+    "defId": "gt_don_choi_tre",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_11",
+    "defId": "gt_don_voi_xit",
+    "preferredBranch": "A"
+   }
+  ]
+ },
+ "shops": [
+  {
+   "hpMultiplier": 0.9,
+   "balance": {
+    "randomWinWithExpectedGear": 0.625,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.65
+   },
+   "stage": {
+    "id": "street_nguyen_van_troi_t1",
+    "stageNumber": 11,
+    "name": "Tiệm Kem Bơ Thông Reo",
+    "subtitle": "Phố Kem Bơ Nguyễn Văn Trỗi · tiệm 1/9: Tiệm kem bơ lâu năm",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 323,
+       "y": 30
+      },
+      {
+       "x": 292,
+       "y": 53
+      },
+      {
+       "x": 266,
+       "y": 56
+      },
+      {
+       "x": 245,
+       "y": 109
+      },
+      {
+       "x": 187,
+       "y": 134
+      },
+      {
+       "x": 169,
+       "y": 160
+      },
+      {
+       "x": 168,
+       "y": 174
+      },
+      {
+       "x": 176,
+       "y": 208
+      },
+      {
+       "x": 172,
+       "y": 218
+      },
+      {
+       "x": 160,
+       "y": 223
+      },
+      {
+       "x": 124,
+       "y": 223
+      },
+      {
+       "x": 96,
+       "y": 239
+      },
+      {
+       "x": 43,
+       "y": 334
+      },
+      {
+       "x": 38,
+       "y": 353
+      },
+      {
+       "x": 38,
+       "y": 391
+      },
+      {
+       "x": 56,
+       "y": 437
+      },
+      {
+       "x": 56,
+       "y": 447
+      },
+      {
+       "x": 86,
+       "y": 470
+      },
+      {
+       "x": 98,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 126,
+      "y": 138
+     },
+     {
+      "id": "pad_2",
+      "x": 246,
+      "y": 150
+     },
+     {
+      "id": "pad_3",
+      "x": 186,
+      "y": 90
+     },
+     {
+      "id": "pad_4",
+      "x": 222,
+      "y": 210
+     },
+     {
+      "id": "pad_5",
+      "x": 90,
+      "y": 198
+     },
+     {
+      "id": "pad_6",
+      "x": 114,
+      "y": 294
+     },
+     {
+      "id": "pad_7",
+      "x": 90,
+      "y": 390
+     },
+     {
+      "id": "pad_8",
+      "x": 174,
+      "y": 270
+     },
+     {
+      "id": "pad_9",
+      "x": 30,
+      "y": 486
+     },
+     {
+      "id": "pad_10",
+      "x": 294,
+      "y": 102
+     },
+     {
+      "id": "pad_11",
+      "x": 126,
+      "y": 450
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Bụi Bột",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.9
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.03
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Than Nướng Bén Lửa & Ruồi Bếp",
+      "mainElements": [
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.17
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.17
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Bụi Bột & Than Nướng Bén Lửa",
+      "mainElements": [
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.31
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.31
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Ruồi Bếp & Bụi Bột & Than Nướng Bén Lửa",
+      "mainElements": [
+       "moc",
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Than Nướng Bén Lửa & Ruồi Bếp & Bụi Bột",
+      "mainElements": [
+       "hoa",
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Bụi Bột & Than Nướng Bén Lửa & Ruồi Bếp",
+      "mainElements": [
+       "tho",
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "tho",
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_nguyen_van_troi_kem_bo"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_nguyen_van_troi_kem_bo",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "kem_bo",
+      "name": "Tiệm Kem Bơ Thông Reo",
+      "type": "Tiệm kem bơ lâu năm",
+      "trait": "bơ sáp xay sữa đặc, khách xếp hàng dù trời lạnh",
+      "towerId": "gt_nguyen_van_troi_kem_bo"
+     },
+     {
+      "key": "che",
+      "name": "Quán Chè Thạch Thảo",
+      "type": "Quán chè, yaourt phô mai, rau câu",
+      "trait": "ly chè Thái, yaourt phô mai",
+      "towerId": "gt_nguyen_van_troi_che"
+     },
+     {
+      "key": "banh_trang",
+      "name": "Bánh Tráng Nướng Xác Pháo",
+      "type": "Bánh tráng nướng vỉa hè",
+      "trait": "bếp than vỉa hè, bán chiều tối",
+      "towerId": "gt_nguyen_van_troi_banh_trang"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Thố Đá Phong Lữ",
+      "type": "Quán phở lâu năm ở dốc chùa",
+      "trait": "phở bò, ăn kèm quẩy",
+      "towerId": "gt_nguyen_van_troi_pho"
+     },
+     {
+      "key": "lau_ga",
+      "name": "Lẩu Gà Lá É Đồi Chè",
+      "type": "Quán lẩu gà lá é",
+      "trait": "đông sau 7 giờ tối",
+      "towerId": "gt_nguyen_van_troi_lau_ga"
+     },
+     {
+      "key": "nuong",
+      "name": "Quán Nướng Phố Núi",
+      "type": "Quán nướng, lẩu buổi tối",
+      "trait": "bếp nướng than, khói thơm",
+      "towerId": "gt_nguyen_van_troi_nuong"
+     },
+     {
+      "key": "com_tam",
+      "name": "Cơm Tấm Hoa Hồng Leo",
+      "type": "Quán cơm tấm",
+      "trait": "sườn nướng, chảo gang",
+      "towerId": "gt_nguyen_van_troi_com_tam"
+     },
+     {
+      "key": "banh_mi",
+      "name": "Bánh Mì Xíu Mại Sương Mai",
+      "type": "Bánh mì xíu mại buổi sáng",
+      "trait": "mở sớm, chén xíu mại nóng",
+      "towerId": "gt_nguyen_van_troi_banh_mi"
+     },
+     {
+      "key": "homestay",
+      "name": "Homestay Hẻm Cẩm Tú Cầu",
+      "type": "Homestay trong hẻm",
+      "trait": "phòng nhỏ, cửa sổ nhìn dốc",
+      "towerId": "gt_nguyen_van_troi_homestay"
+     }
+    ],
+    "streetId": "street_nguyen_van_troi",
+    "shopIndex": 1,
+    "mapStageId": "street_nguyen_van_troi",
+    "featuredTowerId": "gt_nguyen_van_troi_kem_bo",
+    "facadeKey": "mat_tien_kem_bo",
+    "facadeSpot": {
+     "x": 298,
+     "y": 244,
+     "size": 120
+    },
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_nguyen_van_troi_kem_bo",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_nguyen_van_troi_kem_bo",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_nguyen_van_troi_kem_bo",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_nguyen_van_troi_kem_bo",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 0.9,
+   "balance": {
+    "randomWinWithExpectedGear": 0.5416666666666666,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.6125
+   },
+   "stage": {
+    "id": "street_nguyen_van_troi_t2",
+    "stageNumber": 12,
+    "name": "Quán Chè Thạch Thảo",
+    "subtitle": "Phố Kem Bơ Nguyễn Văn Trỗi · tiệm 2/9: Quán chè, yaourt phô mai, rau câu",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 49,
+       "y": 30
+      },
+      {
+       "x": 88,
+       "y": 50
+      },
+      {
+       "x": 113,
+       "y": 56
+      },
+      {
+       "x": 155,
+       "y": 58
+      },
+      {
+       "x": 231,
+       "y": 38
+      },
+      {
+       "x": 251,
+       "y": 43
+      },
+      {
+       "x": 266,
+       "y": 56
+      },
+      {
+       "x": 245,
+       "y": 109
+      },
+      {
+       "x": 194,
+       "y": 129
+      },
+      {
+       "x": 173,
+       "y": 152
+      },
+      {
+       "x": 168,
+       "y": 170
+      },
+      {
+       "x": 176,
+       "y": 208
+      },
+      {
+       "x": 172,
+       "y": 218
+      },
+      {
+       "x": 160,
+       "y": 223
+      },
+      {
+       "x": 124,
+       "y": 223
+      },
+      {
+       "x": 96,
+       "y": 239
+      },
+      {
+       "x": 43,
+       "y": 334
+      },
+      {
+       "x": 38,
+       "y": 353
+      },
+      {
+       "x": 38,
+       "y": 391
+      },
+      {
+       "x": 56,
+       "y": 437
+      },
+      {
+       "x": 56,
+       "y": 447
+      },
+      {
+       "x": 86,
+       "y": 470
+      },
+      {
+       "x": 98,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 126,
+      "y": 138
+     },
+     {
+      "id": "pad_2",
+      "x": 246,
+      "y": 150
+     },
+     {
+      "id": "pad_3",
+      "x": 186,
+      "y": 90
+     },
+     {
+      "id": "pad_4",
+      "x": 222,
+      "y": 210
+     },
+     {
+      "id": "pad_5",
+      "x": 90,
+      "y": 198
+     },
+     {
+      "id": "pad_6",
+      "x": 114,
+      "y": 294
+     },
+     {
+      "id": "pad_7",
+      "x": 90,
+      "y": 390
+     },
+     {
+      "id": "pad_8",
+      "x": 174,
+      "y": 270
+     },
+     {
+      "id": "pad_9",
+      "x": 30,
+      "y": 486
+     },
+     {
+      "id": "pad_10",
+      "x": 294,
+      "y": 102
+     },
+     {
+      "id": "pad_11",
+      "x": 126,
+      "y": 450
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Bụi Bột",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.9
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.03
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Than Nướng Bén Lửa & Ruồi Bếp",
+      "mainElements": [
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.17
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.17
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Bụi Bột & Than Nướng Bén Lửa",
+      "mainElements": [
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.31
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.31
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Ruồi Bếp & Bụi Bột & Than Nướng Bén Lửa",
+      "mainElements": [
+       "moc",
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Than Nướng Bén Lửa & Ruồi Bếp & Bụi Bột",
+      "mainElements": [
+       "hoa",
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Bụi Bột & Than Nướng Bén Lửa & Ruồi Bếp",
+      "mainElements": [
+       "tho",
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "tho",
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_nguyen_van_troi_che"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_nguyen_van_troi_che",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "kem_bo",
+      "name": "Tiệm Kem Bơ Thông Reo",
+      "type": "Tiệm kem bơ lâu năm",
+      "trait": "bơ sáp xay sữa đặc, khách xếp hàng dù trời lạnh",
+      "towerId": "gt_nguyen_van_troi_kem_bo"
+     },
+     {
+      "key": "che",
+      "name": "Quán Chè Thạch Thảo",
+      "type": "Quán chè, yaourt phô mai, rau câu",
+      "trait": "ly chè Thái, yaourt phô mai",
+      "towerId": "gt_nguyen_van_troi_che"
+     },
+     {
+      "key": "banh_trang",
+      "name": "Bánh Tráng Nướng Xác Pháo",
+      "type": "Bánh tráng nướng vỉa hè",
+      "trait": "bếp than vỉa hè, bán chiều tối",
+      "towerId": "gt_nguyen_van_troi_banh_trang"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Thố Đá Phong Lữ",
+      "type": "Quán phở lâu năm ở dốc chùa",
+      "trait": "phở bò, ăn kèm quẩy",
+      "towerId": "gt_nguyen_van_troi_pho"
+     },
+     {
+      "key": "lau_ga",
+      "name": "Lẩu Gà Lá É Đồi Chè",
+      "type": "Quán lẩu gà lá é",
+      "trait": "đông sau 7 giờ tối",
+      "towerId": "gt_nguyen_van_troi_lau_ga"
+     },
+     {
+      "key": "nuong",
+      "name": "Quán Nướng Phố Núi",
+      "type": "Quán nướng, lẩu buổi tối",
+      "trait": "bếp nướng than, khói thơm",
+      "towerId": "gt_nguyen_van_troi_nuong"
+     },
+     {
+      "key": "com_tam",
+      "name": "Cơm Tấm Hoa Hồng Leo",
+      "type": "Quán cơm tấm",
+      "trait": "sườn nướng, chảo gang",
+      "towerId": "gt_nguyen_van_troi_com_tam"
+     },
+     {
+      "key": "banh_mi",
+      "name": "Bánh Mì Xíu Mại Sương Mai",
+      "type": "Bánh mì xíu mại buổi sáng",
+      "trait": "mở sớm, chén xíu mại nóng",
+      "towerId": "gt_nguyen_van_troi_banh_mi"
+     },
+     {
+      "key": "homestay",
+      "name": "Homestay Hẻm Cẩm Tú Cầu",
+      "type": "Homestay trong hẻm",
+      "trait": "phòng nhỏ, cửa sổ nhìn dốc",
+      "towerId": "gt_nguyen_van_troi_homestay"
+     }
+    ],
+    "streetId": "street_nguyen_van_troi",
+    "shopIndex": 2,
+    "mapStageId": "street_nguyen_van_troi",
+    "featuredTowerId": "gt_nguyen_van_troi_che",
+    "facadeKey": "mat_tien_che",
+    "facadeSpot": {
+     "x": 298,
+     "y": 244,
+     "size": 120
+    },
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_nguyen_van_troi_che",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 0.8,
+   "balance": {
+    "randomWinWithExpectedGear": 0.6041666666666666,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.5750000000000001
+   },
+   "stage": {
+    "id": "street_nguyen_van_troi_t3",
+    "stageNumber": 13,
+    "name": "Bánh Tráng Nướng Xác Pháo",
+    "subtitle": "Phố Kem Bơ Nguyễn Văn Trỗi · tiệm 3/9: Bánh tráng nướng vỉa hè",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 323,
+       "y": 30
+      },
+      {
+       "x": 292,
+       "y": 53
+      },
+      {
+       "x": 266,
+       "y": 56
+      },
+      {
+       "x": 245,
+       "y": 109
+      },
+      {
+       "x": 187,
+       "y": 134
+      },
+      {
+       "x": 169,
+       "y": 160
+      },
+      {
+       "x": 168,
+       "y": 174
+      },
+      {
+       "x": 176,
+       "y": 208
+      },
+      {
+       "x": 172,
+       "y": 218
+      },
+      {
+       "x": 160,
+       "y": 223
+      },
+      {
+       "x": 124,
+       "y": 223
+      },
+      {
+       "x": 96,
+       "y": 239
+      },
+      {
+       "x": 43,
+       "y": 334
+      },
+      {
+       "x": 38,
+       "y": 353
+      },
+      {
+       "x": 38,
+       "y": 391
+      },
+      {
+       "x": 56,
+       "y": 437
+      },
+      {
+       "x": 56,
+       "y": 447
+      },
+      {
+       "x": 86,
+       "y": 470
+      },
+      {
+       "x": 98,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 126,
+      "y": 138
+     },
+     {
+      "id": "pad_2",
+      "x": 246,
+      "y": 150
+     },
+     {
+      "id": "pad_3",
+      "x": 186,
+      "y": 90
+     },
+     {
+      "id": "pad_4",
+      "x": 222,
+      "y": 210
+     },
+     {
+      "id": "pad_5",
+      "x": 90,
+      "y": 198
+     },
+     {
+      "id": "pad_6",
+      "x": 114,
+      "y": 294
+     },
+     {
+      "id": "pad_7",
+      "x": 90,
+      "y": 390
+     },
+     {
+      "id": "pad_8",
+      "x": 174,
+      "y": 270
+     },
+     {
+      "id": "pad_9",
+      "x": 30,
+      "y": 486
+     },
+     {
+      "id": "pad_10",
+      "x": 294,
+      "y": 102
+     },
+     {
+      "id": "pad_11",
+      "x": 126,
+      "y": 450
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Than Nướng Bén Lửa",
+      "mainElements": [
+       "hoa"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.8
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Chuột Cống",
+      "mainElements": [
+       "kim"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.92
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Nước Đá Tan & Chuột Cống",
+      "mainElements": [
+       "thuy",
+       "kim"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_6",
+        "count": 1,
+        "intervalSec": 2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.04
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.04
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Than Nướng Bén Lửa & Nước Đá Tan",
+      "mainElements": [
+       "hoa",
+       "thuy"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.16
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_6",
+        "count": 1,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.16
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Chuột Cống & Than Nướng Bén Lửa & Nước Đá Tan",
+      "mainElements": [
+       "kim",
+       "hoa",
+       "thuy"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.36
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.36
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.36
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Nước Đá Tan & Chuột Cống & Than Nướng Bén Lửa",
+      "mainElements": [
+       "thuy",
+       "kim",
+       "hoa"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Than Nướng Bén Lửa & Nước Đá Tan & Chuột Cống",
+      "mainElements": [
+       "hoa",
+       "thuy",
+       "kim"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.92
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.92
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.92
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "hoa",
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.24
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.24
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.24
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_nguyen_van_troi_che",
+     "gt_nguyen_van_troi_banh_trang"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_nguyen_van_troi_banh_trang",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "kem_bo",
+      "name": "Tiệm Kem Bơ Thông Reo",
+      "type": "Tiệm kem bơ lâu năm",
+      "trait": "bơ sáp xay sữa đặc, khách xếp hàng dù trời lạnh",
+      "towerId": "gt_nguyen_van_troi_kem_bo"
+     },
+     {
+      "key": "che",
+      "name": "Quán Chè Thạch Thảo",
+      "type": "Quán chè, yaourt phô mai, rau câu",
+      "trait": "ly chè Thái, yaourt phô mai",
+      "towerId": "gt_nguyen_van_troi_che"
+     },
+     {
+      "key": "banh_trang",
+      "name": "Bánh Tráng Nướng Xác Pháo",
+      "type": "Bánh tráng nướng vỉa hè",
+      "trait": "bếp than vỉa hè, bán chiều tối",
+      "towerId": "gt_nguyen_van_troi_banh_trang"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Thố Đá Phong Lữ",
+      "type": "Quán phở lâu năm ở dốc chùa",
+      "trait": "phở bò, ăn kèm quẩy",
+      "towerId": "gt_nguyen_van_troi_pho"
+     },
+     {
+      "key": "lau_ga",
+      "name": "Lẩu Gà Lá É Đồi Chè",
+      "type": "Quán lẩu gà lá é",
+      "trait": "đông sau 7 giờ tối",
+      "towerId": "gt_nguyen_van_troi_lau_ga"
+     },
+     {
+      "key": "nuong",
+      "name": "Quán Nướng Phố Núi",
+      "type": "Quán nướng, lẩu buổi tối",
+      "trait": "bếp nướng than, khói thơm",
+      "towerId": "gt_nguyen_van_troi_nuong"
+     },
+     {
+      "key": "com_tam",
+      "name": "Cơm Tấm Hoa Hồng Leo",
+      "type": "Quán cơm tấm",
+      "trait": "sườn nướng, chảo gang",
+      "towerId": "gt_nguyen_van_troi_com_tam"
+     },
+     {
+      "key": "banh_mi",
+      "name": "Bánh Mì Xíu Mại Sương Mai",
+      "type": "Bánh mì xíu mại buổi sáng",
+      "trait": "mở sớm, chén xíu mại nóng",
+      "towerId": "gt_nguyen_van_troi_banh_mi"
+     },
+     {
+      "key": "homestay",
+      "name": "Homestay Hẻm Cẩm Tú Cầu",
+      "type": "Homestay trong hẻm",
+      "trait": "phòng nhỏ, cửa sổ nhìn dốc",
+      "towerId": "gt_nguyen_van_troi_homestay"
+     }
+    ],
+    "streetId": "street_nguyen_van_troi",
+    "shopIndex": 3,
+    "mapStageId": "street_nguyen_van_troi",
+    "featuredTowerId": "gt_nguyen_van_troi_banh_trang",
+    "facadeKey": "mat_tien_banh_trang",
+    "facadeSpot": {
+     "x": 298,
+     "y": 244,
+     "size": 120
+    },
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_nguyen_van_troi_banh_trang",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_nguyen_van_troi_banh_trang",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_nguyen_van_troi_banh_trang",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_nguyen_van_troi_banh_trang",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4166666666666667,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.5375000000000001
+   },
+   "stage": {
+    "id": "street_nguyen_van_troi_t4",
+    "stageNumber": 14,
+    "name": "Phở Thố Đá Phong Lữ",
+    "subtitle": "Phố Kem Bơ Nguyễn Văn Trỗi · tiệm 4/9: Quán phở lâu năm ở dốc chùa",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 49,
+       "y": 30
+      },
+      {
+       "x": 88,
+       "y": 50
+      },
+      {
+       "x": 113,
+       "y": 56
+      },
+      {
+       "x": 155,
+       "y": 58
+      },
+      {
+       "x": 231,
+       "y": 38
+      },
+      {
+       "x": 251,
+       "y": 43
+      },
+      {
+       "x": 266,
+       "y": 56
+      },
+      {
+       "x": 245,
+       "y": 109
+      },
+      {
+       "x": 194,
+       "y": 129
+      },
+      {
+       "x": 173,
+       "y": 152
+      },
+      {
+       "x": 168,
+       "y": 170
+      },
+      {
+       "x": 176,
+       "y": 208
+      },
+      {
+       "x": 172,
+       "y": 218
+      },
+      {
+       "x": 160,
+       "y": 223
+      },
+      {
+       "x": 124,
+       "y": 223
+      },
+      {
+       "x": 96,
+       "y": 239
+      },
+      {
+       "x": 43,
+       "y": 334
+      },
+      {
+       "x": 38,
+       "y": 353
+      },
+      {
+       "x": 38,
+       "y": 391
+      },
+      {
+       "x": 56,
+       "y": 437
+      },
+      {
+       "x": 56,
+       "y": 447
+      },
+      {
+       "x": 86,
+       "y": 470
+      },
+      {
+       "x": 98,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 126,
+      "y": 138
+     },
+     {
+      "id": "pad_2",
+      "x": 246,
+      "y": 150
+     },
+     {
+      "id": "pad_3",
+      "x": 186,
+      "y": 90
+     },
+     {
+      "id": "pad_4",
+      "x": 222,
+      "y": 210
+     },
+     {
+      "id": "pad_5",
+      "x": 90,
+      "y": 198
+     },
+     {
+      "id": "pad_6",
+      "x": 114,
+      "y": 294
+     },
+     {
+      "id": "pad_7",
+      "x": 90,
+      "y": 390
+     },
+     {
+      "id": "pad_8",
+      "x": 174,
+      "y": 270
+     },
+     {
+      "id": "pad_9",
+      "x": 30,
+      "y": 486
+     },
+     {
+      "id": "pad_10",
+      "x": 294,
+      "y": 102
+     },
+     {
+      "id": "pad_11",
+      "x": 126,
+      "y": 450
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Bột",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.15
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Chuột Cống & Bụi Bột",
+      "mainElements": [
+       "kim",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Đường & Chuột Cống",
+      "mainElements": [
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Kiến Bu Đường & Chuột Cống",
+      "mainElements": [
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Bụi Bột & Nước Đá Tan",
+      "mainElements": [
+       "tho",
+       "thuy"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Chuột Cống & Kiến Bu Đường",
+      "mainElements": [
+       "kim",
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "tho",
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_nguyen_van_troi_che",
+     "gt_nguyen_van_troi_banh_trang",
+     "gt_nguyen_van_troi_pho"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_nguyen_van_troi_pho",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "kem_bo",
+      "name": "Tiệm Kem Bơ Thông Reo",
+      "type": "Tiệm kem bơ lâu năm",
+      "trait": "bơ sáp xay sữa đặc, khách xếp hàng dù trời lạnh",
+      "towerId": "gt_nguyen_van_troi_kem_bo"
+     },
+     {
+      "key": "che",
+      "name": "Quán Chè Thạch Thảo",
+      "type": "Quán chè, yaourt phô mai, rau câu",
+      "trait": "ly chè Thái, yaourt phô mai",
+      "towerId": "gt_nguyen_van_troi_che"
+     },
+     {
+      "key": "banh_trang",
+      "name": "Bánh Tráng Nướng Xác Pháo",
+      "type": "Bánh tráng nướng vỉa hè",
+      "trait": "bếp than vỉa hè, bán chiều tối",
+      "towerId": "gt_nguyen_van_troi_banh_trang"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Thố Đá Phong Lữ",
+      "type": "Quán phở lâu năm ở dốc chùa",
+      "trait": "phở bò, ăn kèm quẩy",
+      "towerId": "gt_nguyen_van_troi_pho"
+     },
+     {
+      "key": "lau_ga",
+      "name": "Lẩu Gà Lá É Đồi Chè",
+      "type": "Quán lẩu gà lá é",
+      "trait": "đông sau 7 giờ tối",
+      "towerId": "gt_nguyen_van_troi_lau_ga"
+     },
+     {
+      "key": "nuong",
+      "name": "Quán Nướng Phố Núi",
+      "type": "Quán nướng, lẩu buổi tối",
+      "trait": "bếp nướng than, khói thơm",
+      "towerId": "gt_nguyen_van_troi_nuong"
+     },
+     {
+      "key": "com_tam",
+      "name": "Cơm Tấm Hoa Hồng Leo",
+      "type": "Quán cơm tấm",
+      "trait": "sườn nướng, chảo gang",
+      "towerId": "gt_nguyen_van_troi_com_tam"
+     },
+     {
+      "key": "banh_mi",
+      "name": "Bánh Mì Xíu Mại Sương Mai",
+      "type": "Bánh mì xíu mại buổi sáng",
+      "trait": "mở sớm, chén xíu mại nóng",
+      "towerId": "gt_nguyen_van_troi_banh_mi"
+     },
+     {
+      "key": "homestay",
+      "name": "Homestay Hẻm Cẩm Tú Cầu",
+      "type": "Homestay trong hẻm",
+      "trait": "phòng nhỏ, cửa sổ nhìn dốc",
+      "towerId": "gt_nguyen_van_troi_homestay"
+     }
+    ],
+    "streetId": "street_nguyen_van_troi",
+    "shopIndex": 4,
+    "mapStageId": "street_nguyen_van_troi",
+    "featuredTowerId": "gt_nguyen_van_troi_pho",
+    "facadeKey": "mat_tien_pho",
+    "facadeSpot": {
+     "x": 298,
+     "y": 244,
+     "size": 120
+    },
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_nguyen_van_troi_pho",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_nguyen_van_troi_pho",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_nguyen_van_troi_pho",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_nguyen_van_troi_pho",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.2,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4375,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.5
+   },
+   "stage": {
+    "id": "street_nguyen_van_troi_t5",
+    "stageNumber": 15,
+    "name": "Lẩu Gà Lá É Đồi Chè",
+    "subtitle": "Phố Kem Bơ Nguyễn Văn Trỗi · tiệm 5/9: Quán lẩu gà lá é",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 323,
+       "y": 30
+      },
+      {
+       "x": 292,
+       "y": 53
+      },
+      {
+       "x": 266,
+       "y": 56
+      },
+      {
+       "x": 245,
+       "y": 109
+      },
+      {
+       "x": 187,
+       "y": 134
+      },
+      {
+       "x": 169,
+       "y": 160
+      },
+      {
+       "x": 168,
+       "y": 174
+      },
+      {
+       "x": 176,
+       "y": 208
+      },
+      {
+       "x": 172,
+       "y": 218
+      },
+      {
+       "x": 160,
+       "y": 223
+      },
+      {
+       "x": 124,
+       "y": 223
+      },
+      {
+       "x": 96,
+       "y": 239
+      },
+      {
+       "x": 43,
+       "y": 334
+      },
+      {
+       "x": 38,
+       "y": 353
+      },
+      {
+       "x": 38,
+       "y": 391
+      },
+      {
+       "x": 56,
+       "y": 437
+      },
+      {
+       "x": 56,
+       "y": 447
+      },
+      {
+       "x": 86,
+       "y": 470
+      },
+      {
+       "x": 98,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 126,
+      "y": 138
+     },
+     {
+      "id": "pad_2",
+      "x": 246,
+      "y": 150
+     },
+     {
+      "id": "pad_3",
+      "x": 186,
+      "y": 90
+     },
+     {
+      "id": "pad_4",
+      "x": 222,
+      "y": 210
+     },
+     {
+      "id": "pad_5",
+      "x": 90,
+      "y": 198
+     },
+     {
+      "id": "pad_6",
+      "x": 114,
+      "y": 294
+     },
+     {
+      "id": "pad_7",
+      "x": 90,
+      "y": 390
+     },
+     {
+      "id": "pad_8",
+      "x": 174,
+      "y": 270
+     },
+     {
+      "id": "pad_9",
+      "x": 30,
+      "y": 486
+     },
+     {
+      "id": "pad_10",
+      "x": 294,
+      "y": 102
+     },
+     {
+      "id": "pad_11",
+      "x": 126,
+      "y": 450
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Bột",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.38
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Ruồi Bếp & Bụi Bột",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.56
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.56
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Đường & Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.74
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.74
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Kiến Bu Đường & Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.04
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.04
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Bụi Bột & Nước Đá Tan",
+      "mainElements": [
+       "tho",
+       "thuy"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Ruồi Bếp & Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.88
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.88
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "tho",
+       "thuy"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.36
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.36
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.36
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.36
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_nguyen_van_troi_che",
+     "gt_nguyen_van_troi_banh_trang",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_nguyen_van_troi_lau_ga",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "kem_bo",
+      "name": "Tiệm Kem Bơ Thông Reo",
+      "type": "Tiệm kem bơ lâu năm",
+      "trait": "bơ sáp xay sữa đặc, khách xếp hàng dù trời lạnh",
+      "towerId": "gt_nguyen_van_troi_kem_bo"
+     },
+     {
+      "key": "che",
+      "name": "Quán Chè Thạch Thảo",
+      "type": "Quán chè, yaourt phô mai, rau câu",
+      "trait": "ly chè Thái, yaourt phô mai",
+      "towerId": "gt_nguyen_van_troi_che"
+     },
+     {
+      "key": "banh_trang",
+      "name": "Bánh Tráng Nướng Xác Pháo",
+      "type": "Bánh tráng nướng vỉa hè",
+      "trait": "bếp than vỉa hè, bán chiều tối",
+      "towerId": "gt_nguyen_van_troi_banh_trang"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Thố Đá Phong Lữ",
+      "type": "Quán phở lâu năm ở dốc chùa",
+      "trait": "phở bò, ăn kèm quẩy",
+      "towerId": "gt_nguyen_van_troi_pho"
+     },
+     {
+      "key": "lau_ga",
+      "name": "Lẩu Gà Lá É Đồi Chè",
+      "type": "Quán lẩu gà lá é",
+      "trait": "đông sau 7 giờ tối",
+      "towerId": "gt_nguyen_van_troi_lau_ga"
+     },
+     {
+      "key": "nuong",
+      "name": "Quán Nướng Phố Núi",
+      "type": "Quán nướng, lẩu buổi tối",
+      "trait": "bếp nướng than, khói thơm",
+      "towerId": "gt_nguyen_van_troi_nuong"
+     },
+     {
+      "key": "com_tam",
+      "name": "Cơm Tấm Hoa Hồng Leo",
+      "type": "Quán cơm tấm",
+      "trait": "sườn nướng, chảo gang",
+      "towerId": "gt_nguyen_van_troi_com_tam"
+     },
+     {
+      "key": "banh_mi",
+      "name": "Bánh Mì Xíu Mại Sương Mai",
+      "type": "Bánh mì xíu mại buổi sáng",
+      "trait": "mở sớm, chén xíu mại nóng",
+      "towerId": "gt_nguyen_van_troi_banh_mi"
+     },
+     {
+      "key": "homestay",
+      "name": "Homestay Hẻm Cẩm Tú Cầu",
+      "type": "Homestay trong hẻm",
+      "trait": "phòng nhỏ, cửa sổ nhìn dốc",
+      "towerId": "gt_nguyen_van_troi_homestay"
+     }
+    ],
+    "streetId": "street_nguyen_van_troi",
+    "shopIndex": 5,
+    "mapStageId": "street_nguyen_van_troi",
+    "featuredTowerId": "gt_nguyen_van_troi_lau_ga",
+    "facadeKey": "mat_tien_lau_ga",
+    "facadeSpot": {
+     "x": 298,
+     "y": 244,
+     "size": 120
+    },
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_nguyen_van_troi_lau_ga",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_nguyen_van_troi_lau_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_nguyen_van_troi_lau_ga",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_nguyen_van_troi_lau_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.1,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4791666666666667,
+    "botWinRate": 1,
+    "botLivesAvg": 14.333333333333334,
+    "target": 0.4625
+   },
+   "stage": {
+    "id": "street_nguyen_van_troi_t6",
+    "stageNumber": 16,
+    "name": "Quán Nướng Phố Núi",
+    "subtitle": "Phố Kem Bơ Nguyễn Văn Trỗi · tiệm 6/9: Quán nướng, lẩu buổi tối",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 49,
+       "y": 30
+      },
+      {
+       "x": 88,
+       "y": 50
+      },
+      {
+       "x": 113,
+       "y": 56
+      },
+      {
+       "x": 155,
+       "y": 58
+      },
+      {
+       "x": 231,
+       "y": 38
+      },
+      {
+       "x": 251,
+       "y": 43
+      },
+      {
+       "x": 266,
+       "y": 56
+      },
+      {
+       "x": 245,
+       "y": 109
+      },
+      {
+       "x": 194,
+       "y": 129
+      },
+      {
+       "x": 173,
+       "y": 152
+      },
+      {
+       "x": 168,
+       "y": 170
+      },
+      {
+       "x": 176,
+       "y": 208
+      },
+      {
+       "x": 172,
+       "y": 218
+      },
+      {
+       "x": 160,
+       "y": 223
+      },
+      {
+       "x": 124,
+       "y": 223
+      },
+      {
+       "x": 96,
+       "y": 239
+      },
+      {
+       "x": 43,
+       "y": 334
+      },
+      {
+       "x": 38,
+       "y": 353
+      },
+      {
+       "x": 38,
+       "y": 391
+      },
+      {
+       "x": 56,
+       "y": 437
+      },
+      {
+       "x": 56,
+       "y": 447
+      },
+      {
+       "x": 86,
+       "y": 470
+      },
+      {
+       "x": 98,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 126,
+      "y": 138
+     },
+     {
+      "id": "pad_2",
+      "x": 246,
+      "y": 150
+     },
+     {
+      "id": "pad_3",
+      "x": 186,
+      "y": 90
+     },
+     {
+      "id": "pad_4",
+      "x": 222,
+      "y": 210
+     },
+     {
+      "id": "pad_5",
+      "x": 90,
+      "y": 198
+     },
+     {
+      "id": "pad_6",
+      "x": 114,
+      "y": 294
+     },
+     {
+      "id": "pad_7",
+      "x": 90,
+      "y": 390
+     },
+     {
+      "id": "pad_8",
+      "x": 174,
+      "y": 270
+     },
+     {
+      "id": "pad_9",
+      "x": 30,
+      "y": 486
+     },
+     {
+      "id": "pad_10",
+      "x": 294,
+      "y": 102
+     },
+     {
+      "id": "pad_11",
+      "x": 126,
+      "y": 450
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Bột",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.26
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Ruồi Bếp & Bụi Bột",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.43
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.43
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Đường & Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Kiến Bu Đường & Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Bụi Bột & Chuột Cống",
+      "mainElements": [
+       "tho",
+       "kim"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Ruồi Bếp & Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "tho",
+       "kim"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_nguyen_van_troi_che",
+     "gt_nguyen_van_troi_banh_trang",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_nguyen_van_troi_nuong",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "kem_bo",
+      "name": "Tiệm Kem Bơ Thông Reo",
+      "type": "Tiệm kem bơ lâu năm",
+      "trait": "bơ sáp xay sữa đặc, khách xếp hàng dù trời lạnh",
+      "towerId": "gt_nguyen_van_troi_kem_bo"
+     },
+     {
+      "key": "che",
+      "name": "Quán Chè Thạch Thảo",
+      "type": "Quán chè, yaourt phô mai, rau câu",
+      "trait": "ly chè Thái, yaourt phô mai",
+      "towerId": "gt_nguyen_van_troi_che"
+     },
+     {
+      "key": "banh_trang",
+      "name": "Bánh Tráng Nướng Xác Pháo",
+      "type": "Bánh tráng nướng vỉa hè",
+      "trait": "bếp than vỉa hè, bán chiều tối",
+      "towerId": "gt_nguyen_van_troi_banh_trang"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Thố Đá Phong Lữ",
+      "type": "Quán phở lâu năm ở dốc chùa",
+      "trait": "phở bò, ăn kèm quẩy",
+      "towerId": "gt_nguyen_van_troi_pho"
+     },
+     {
+      "key": "lau_ga",
+      "name": "Lẩu Gà Lá É Đồi Chè",
+      "type": "Quán lẩu gà lá é",
+      "trait": "đông sau 7 giờ tối",
+      "towerId": "gt_nguyen_van_troi_lau_ga"
+     },
+     {
+      "key": "nuong",
+      "name": "Quán Nướng Phố Núi",
+      "type": "Quán nướng, lẩu buổi tối",
+      "trait": "bếp nướng than, khói thơm",
+      "towerId": "gt_nguyen_van_troi_nuong"
+     },
+     {
+      "key": "com_tam",
+      "name": "Cơm Tấm Hoa Hồng Leo",
+      "type": "Quán cơm tấm",
+      "trait": "sườn nướng, chảo gang",
+      "towerId": "gt_nguyen_van_troi_com_tam"
+     },
+     {
+      "key": "banh_mi",
+      "name": "Bánh Mì Xíu Mại Sương Mai",
+      "type": "Bánh mì xíu mại buổi sáng",
+      "trait": "mở sớm, chén xíu mại nóng",
+      "towerId": "gt_nguyen_van_troi_banh_mi"
+     },
+     {
+      "key": "homestay",
+      "name": "Homestay Hẻm Cẩm Tú Cầu",
+      "type": "Homestay trong hẻm",
+      "trait": "phòng nhỏ, cửa sổ nhìn dốc",
+      "towerId": "gt_nguyen_van_troi_homestay"
+     }
+    ],
+    "streetId": "street_nguyen_van_troi",
+    "shopIndex": 6,
+    "mapStageId": "street_nguyen_van_troi",
+    "featuredTowerId": "gt_nguyen_van_troi_nuong",
+    "facadeKey": "mat_tien_nuong",
+    "facadeSpot": {
+     "x": 298,
+     "y": 244,
+     "size": 120
+    },
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_nguyen_van_troi_nuong",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_nguyen_van_troi_nuong",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_nguyen_van_troi_nuong",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_nguyen_van_troi_nuong",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1,
+   "balance": {
+    "randomWinWithExpectedGear": 0.3333333333333333,
+    "botWinRate": 1,
+    "botLivesAvg": 18,
+    "target": 0.42500000000000004
+   },
+   "stage": {
+    "id": "street_nguyen_van_troi_t7",
+    "stageNumber": 17,
+    "name": "Cơm Tấm Hoa Hồng Leo",
+    "subtitle": "Phố Kem Bơ Nguyễn Văn Trỗi · tiệm 7/9: Quán cơm tấm",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 323,
+       "y": 30
+      },
+      {
+       "x": 292,
+       "y": 53
+      },
+      {
+       "x": 266,
+       "y": 56
+      },
+      {
+       "x": 245,
+       "y": 109
+      },
+      {
+       "x": 187,
+       "y": 134
+      },
+      {
+       "x": 169,
+       "y": 160
+      },
+      {
+       "x": 168,
+       "y": 174
+      },
+      {
+       "x": 176,
+       "y": 208
+      },
+      {
+       "x": 172,
+       "y": 218
+      },
+      {
+       "x": 160,
+       "y": 223
+      },
+      {
+       "x": 124,
+       "y": 223
+      },
+      {
+       "x": 96,
+       "y": 239
+      },
+      {
+       "x": 43,
+       "y": 334
+      },
+      {
+       "x": 38,
+       "y": 353
+      },
+      {
+       "x": 38,
+       "y": 391
+      },
+      {
+       "x": 56,
+       "y": 437
+      },
+      {
+       "x": 56,
+       "y": 447
+      },
+      {
+       "x": 86,
+       "y": 470
+      },
+      {
+       "x": 98,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 126,
+      "y": 138
+     },
+     {
+      "id": "pad_2",
+      "x": 246,
+      "y": 150
+     },
+     {
+      "id": "pad_3",
+      "x": 186,
+      "y": 90
+     },
+     {
+      "id": "pad_4",
+      "x": 222,
+      "y": 210
+     },
+     {
+      "id": "pad_5",
+      "x": 90,
+      "y": 198
+     },
+     {
+      "id": "pad_6",
+      "x": 114,
+      "y": 294
+     },
+     {
+      "id": "pad_7",
+      "x": 90,
+      "y": 390
+     },
+     {
+      "id": "pad_8",
+      "x": 174,
+      "y": 270
+     },
+     {
+      "id": "pad_9",
+      "x": 30,
+      "y": 486
+     },
+     {
+      "id": "pad_10",
+      "x": 294,
+      "y": 102
+     },
+     {
+      "id": "pad_11",
+      "x": 126,
+      "y": 450
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Bột",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.15
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Ruồi Bếp & Bụi Bột",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Đường & Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Kiến Bu Đường & Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Kiến Bu Đường & Ruồi Bếp & Chuột Cống",
+      "mainElements": [
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Bụi Bột & Than Nướng Bén Lửa & Kiến Bu Đường",
+      "mainElements": [
+       "tho",
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "tho",
+       "hoa",
+       "kim"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_nguyen_van_troi_che",
+     "gt_nguyen_van_troi_banh_trang",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong",
+     "gt_nguyen_van_troi_com_tam"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_nguyen_van_troi_com_tam",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "kem_bo",
+      "name": "Tiệm Kem Bơ Thông Reo",
+      "type": "Tiệm kem bơ lâu năm",
+      "trait": "bơ sáp xay sữa đặc, khách xếp hàng dù trời lạnh",
+      "towerId": "gt_nguyen_van_troi_kem_bo"
+     },
+     {
+      "key": "che",
+      "name": "Quán Chè Thạch Thảo",
+      "type": "Quán chè, yaourt phô mai, rau câu",
+      "trait": "ly chè Thái, yaourt phô mai",
+      "towerId": "gt_nguyen_van_troi_che"
+     },
+     {
+      "key": "banh_trang",
+      "name": "Bánh Tráng Nướng Xác Pháo",
+      "type": "Bánh tráng nướng vỉa hè",
+      "trait": "bếp than vỉa hè, bán chiều tối",
+      "towerId": "gt_nguyen_van_troi_banh_trang"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Thố Đá Phong Lữ",
+      "type": "Quán phở lâu năm ở dốc chùa",
+      "trait": "phở bò, ăn kèm quẩy",
+      "towerId": "gt_nguyen_van_troi_pho"
+     },
+     {
+      "key": "lau_ga",
+      "name": "Lẩu Gà Lá É Đồi Chè",
+      "type": "Quán lẩu gà lá é",
+      "trait": "đông sau 7 giờ tối",
+      "towerId": "gt_nguyen_van_troi_lau_ga"
+     },
+     {
+      "key": "nuong",
+      "name": "Quán Nướng Phố Núi",
+      "type": "Quán nướng, lẩu buổi tối",
+      "trait": "bếp nướng than, khói thơm",
+      "towerId": "gt_nguyen_van_troi_nuong"
+     },
+     {
+      "key": "com_tam",
+      "name": "Cơm Tấm Hoa Hồng Leo",
+      "type": "Quán cơm tấm",
+      "trait": "sườn nướng, chảo gang",
+      "towerId": "gt_nguyen_van_troi_com_tam"
+     },
+     {
+      "key": "banh_mi",
+      "name": "Bánh Mì Xíu Mại Sương Mai",
+      "type": "Bánh mì xíu mại buổi sáng",
+      "trait": "mở sớm, chén xíu mại nóng",
+      "towerId": "gt_nguyen_van_troi_banh_mi"
+     },
+     {
+      "key": "homestay",
+      "name": "Homestay Hẻm Cẩm Tú Cầu",
+      "type": "Homestay trong hẻm",
+      "trait": "phòng nhỏ, cửa sổ nhìn dốc",
+      "towerId": "gt_nguyen_van_troi_homestay"
+     }
+    ],
+    "streetId": "street_nguyen_van_troi",
+    "shopIndex": 7,
+    "mapStageId": "street_nguyen_van_troi",
+    "featuredTowerId": "gt_nguyen_van_troi_com_tam",
+    "facadeKey": "mat_tien_com_tam",
+    "facadeSpot": {
+     "x": 298,
+     "y": 244,
+     "size": 120
+    },
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_nguyen_van_troi_com_tam",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_nguyen_van_troi_com_tam",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_nguyen_van_troi_com_tam",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_nguyen_van_troi_com_tam",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.2,
+   "balance": {
+    "randomWinWithExpectedGear": 0.3541666666666667,
+    "botWinRate": 1,
+    "botLivesAvg": 18.666666666666668,
+    "target": 0.3875
+   },
+   "stage": {
+    "id": "street_nguyen_van_troi_t8",
+    "stageNumber": 18,
+    "name": "Bánh Mì Xíu Mại Sương Mai",
+    "subtitle": "Phố Kem Bơ Nguyễn Văn Trỗi · tiệm 8/9: Bánh mì xíu mại buổi sáng",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 49,
+       "y": 30
+      },
+      {
+       "x": 88,
+       "y": 50
+      },
+      {
+       "x": 113,
+       "y": 56
+      },
+      {
+       "x": 155,
+       "y": 58
+      },
+      {
+       "x": 231,
+       "y": 38
+      },
+      {
+       "x": 251,
+       "y": 43
+      },
+      {
+       "x": 266,
+       "y": 56
+      },
+      {
+       "x": 245,
+       "y": 109
+      },
+      {
+       "x": 194,
+       "y": 129
+      },
+      {
+       "x": 173,
+       "y": 152
+      },
+      {
+       "x": 168,
+       "y": 170
+      },
+      {
+       "x": 176,
+       "y": 208
+      },
+      {
+       "x": 172,
+       "y": 218
+      },
+      {
+       "x": 160,
+       "y": 223
+      },
+      {
+       "x": 124,
+       "y": 223
+      },
+      {
+       "x": 96,
+       "y": 239
+      },
+      {
+       "x": 43,
+       "y": 334
+      },
+      {
+       "x": 38,
+       "y": 353
+      },
+      {
+       "x": 38,
+       "y": 391
+      },
+      {
+       "x": 56,
+       "y": 437
+      },
+      {
+       "x": 56,
+       "y": 447
+      },
+      {
+       "x": 86,
+       "y": 470
+      },
+      {
+       "x": 98,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 126,
+      "y": 138
+     },
+     {
+      "id": "pad_2",
+      "x": 246,
+      "y": 150
+     },
+     {
+      "id": "pad_3",
+      "x": 186,
+      "y": 90
+     },
+     {
+      "id": "pad_4",
+      "x": 222,
+      "y": 210
+     },
+     {
+      "id": "pad_5",
+      "x": 90,
+      "y": 198
+     },
+     {
+      "id": "pad_6",
+      "x": 114,
+      "y": 294
+     },
+     {
+      "id": "pad_7",
+      "x": 90,
+      "y": 390
+     },
+     {
+      "id": "pad_8",
+      "x": 174,
+      "y": 270
+     },
+     {
+      "id": "pad_9",
+      "x": 30,
+      "y": 486
+     },
+     {
+      "id": "pad_10",
+      "x": 294,
+      "y": 102
+     },
+     {
+      "id": "pad_11",
+      "x": 126,
+      "y": 450
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.38
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Than Nướng Bén Lửa & Ruồi Bếp",
+      "mainElements": [
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.56
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.56
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Đường & Than Nướng Bén Lửa",
+      "mainElements": [
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.74
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.74
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Kiến Bu Đường & Than Nướng Bén Lửa",
+      "mainElements": [
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.04
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.04
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Kiến Bu Đường & Than Nướng Bén Lửa & Nước Đá Tan",
+      "mainElements": [
+       "moc",
+       "hoa",
+       "thuy"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Ruồi Bếp & Chuột Cống & Kiến Bu Đường",
+      "mainElements": [
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.88
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.88
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.88
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "hoa",
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.36
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.36
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.36
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.36
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.36
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_nguyen_van_troi_che",
+     "gt_nguyen_van_troi_banh_trang",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong",
+     "gt_nguyen_van_troi_com_tam",
+     "gt_nguyen_van_troi_banh_mi"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_nguyen_van_troi_banh_mi",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "kem_bo",
+      "name": "Tiệm Kem Bơ Thông Reo",
+      "type": "Tiệm kem bơ lâu năm",
+      "trait": "bơ sáp xay sữa đặc, khách xếp hàng dù trời lạnh",
+      "towerId": "gt_nguyen_van_troi_kem_bo"
+     },
+     {
+      "key": "che",
+      "name": "Quán Chè Thạch Thảo",
+      "type": "Quán chè, yaourt phô mai, rau câu",
+      "trait": "ly chè Thái, yaourt phô mai",
+      "towerId": "gt_nguyen_van_troi_che"
+     },
+     {
+      "key": "banh_trang",
+      "name": "Bánh Tráng Nướng Xác Pháo",
+      "type": "Bánh tráng nướng vỉa hè",
+      "trait": "bếp than vỉa hè, bán chiều tối",
+      "towerId": "gt_nguyen_van_troi_banh_trang"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Thố Đá Phong Lữ",
+      "type": "Quán phở lâu năm ở dốc chùa",
+      "trait": "phở bò, ăn kèm quẩy",
+      "towerId": "gt_nguyen_van_troi_pho"
+     },
+     {
+      "key": "lau_ga",
+      "name": "Lẩu Gà Lá É Đồi Chè",
+      "type": "Quán lẩu gà lá é",
+      "trait": "đông sau 7 giờ tối",
+      "towerId": "gt_nguyen_van_troi_lau_ga"
+     },
+     {
+      "key": "nuong",
+      "name": "Quán Nướng Phố Núi",
+      "type": "Quán nướng, lẩu buổi tối",
+      "trait": "bếp nướng than, khói thơm",
+      "towerId": "gt_nguyen_van_troi_nuong"
+     },
+     {
+      "key": "com_tam",
+      "name": "Cơm Tấm Hoa Hồng Leo",
+      "type": "Quán cơm tấm",
+      "trait": "sườn nướng, chảo gang",
+      "towerId": "gt_nguyen_van_troi_com_tam"
+     },
+     {
+      "key": "banh_mi",
+      "name": "Bánh Mì Xíu Mại Sương Mai",
+      "type": "Bánh mì xíu mại buổi sáng",
+      "trait": "mở sớm, chén xíu mại nóng",
+      "towerId": "gt_nguyen_van_troi_banh_mi"
+     },
+     {
+      "key": "homestay",
+      "name": "Homestay Hẻm Cẩm Tú Cầu",
+      "type": "Homestay trong hẻm",
+      "trait": "phòng nhỏ, cửa sổ nhìn dốc",
+      "towerId": "gt_nguyen_van_troi_homestay"
+     }
+    ],
+    "streetId": "street_nguyen_van_troi",
+    "shopIndex": 8,
+    "mapStageId": "street_nguyen_van_troi",
+    "featuredTowerId": "gt_nguyen_van_troi_banh_mi",
+    "facadeKey": "mat_tien_banh_mi",
+    "facadeSpot": {
+     "x": 298,
+     "y": 244,
+     "size": 120
+    },
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_nguyen_van_troi_banh_mi",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_nguyen_van_troi_banh_mi",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_nguyen_van_troi_banh_mi",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_nguyen_van_troi_banh_mi",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1,
+   "balance": {
+    "randomWinWithExpectedGear": 0.375,
+    "botWinRate": 1,
+    "botLivesAvg": 20.333333333333332,
+    "target": 0.35000000000000003
+   },
+   "stage": {
+    "id": "street_nguyen_van_troi_t9",
+    "stageNumber": 19,
+    "name": "Homestay Hẻm Cẩm Tú Cầu",
+    "subtitle": "Phố Kem Bơ Nguyễn Văn Trỗi · tiệm 9/9: Homestay trong hẻm",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 323,
+       "y": 30
+      },
+      {
+       "x": 292,
+       "y": 53
+      },
+      {
+       "x": 266,
+       "y": 56
+      },
+      {
+       "x": 245,
+       "y": 109
+      },
+      {
+       "x": 187,
+       "y": 134
+      },
+      {
+       "x": 169,
+       "y": 160
+      },
+      {
+       "x": 168,
+       "y": 174
+      },
+      {
+       "x": 176,
+       "y": 208
+      },
+      {
+       "x": 172,
+       "y": 218
+      },
+      {
+       "x": 160,
+       "y": 223
+      },
+      {
+       "x": 124,
+       "y": 223
+      },
+      {
+       "x": 96,
+       "y": 239
+      },
+      {
+       "x": 43,
+       "y": 334
+      },
+      {
+       "x": 38,
+       "y": 353
+      },
+      {
+       "x": 38,
+       "y": 391
+      },
+      {
+       "x": 56,
+       "y": 437
+      },
+      {
+       "x": 56,
+       "y": 447
+      },
+      {
+       "x": 86,
+       "y": 470
+      },
+      {
+       "x": 98,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 126,
+      "y": 138
+     },
+     {
+      "id": "pad_2",
+      "x": 246,
+      "y": 150
+     },
+     {
+      "id": "pad_3",
+      "x": 186,
+      "y": 90
+     },
+     {
+      "id": "pad_4",
+      "x": 222,
+      "y": 210
+     },
+     {
+      "id": "pad_5",
+      "x": 90,
+      "y": 198
+     },
+     {
+      "id": "pad_6",
+      "x": 114,
+      "y": 294
+     },
+     {
+      "id": "pad_7",
+      "x": 90,
+      "y": 390
+     },
+     {
+      "id": "pad_8",
+      "x": 174,
+      "y": 270
+     },
+     {
+      "id": "pad_9",
+      "x": 30,
+      "y": 486
+     },
+     {
+      "id": "pad_10",
+      "x": 294,
+      "y": 102
+     },
+     {
+      "id": "pad_11",
+      "x": 126,
+      "y": 450
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Bột",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.15
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Than Nướng Bén Lửa & Bụi Bột",
+      "mainElements": [
+       "hoa",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Đường & Than Nướng Bén Lửa",
+      "mainElements": [
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Kiến Bu Đường & Than Nướng Bén Lửa",
+      "mainElements": [
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Kiến Bu Đường & Than Nướng Bén Lửa & Nước Đá Tan",
+      "mainElements": [
+       "moc",
+       "hoa",
+       "thuy"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Bụi Bột & Chuột Cống & Kiến Bu Đường",
+      "mainElements": [
+       "tho",
+       "kim",
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "tho",
+       "hoa",
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_nguyen_van_troi_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_nguyen_van_troi_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_nguyen_van_troi_che",
+     "gt_nguyen_van_troi_banh_trang",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong",
+     "gt_nguyen_van_troi_com_tam",
+     "gt_nguyen_van_troi_banh_mi",
+     "gt_nguyen_van_troi_homestay"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_nguyen_van_troi_homestay",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "kem_bo",
+      "name": "Tiệm Kem Bơ Thông Reo",
+      "type": "Tiệm kem bơ lâu năm",
+      "trait": "bơ sáp xay sữa đặc, khách xếp hàng dù trời lạnh",
+      "towerId": "gt_nguyen_van_troi_kem_bo"
+     },
+     {
+      "key": "che",
+      "name": "Quán Chè Thạch Thảo",
+      "type": "Quán chè, yaourt phô mai, rau câu",
+      "trait": "ly chè Thái, yaourt phô mai",
+      "towerId": "gt_nguyen_van_troi_che"
+     },
+     {
+      "key": "banh_trang",
+      "name": "Bánh Tráng Nướng Xác Pháo",
+      "type": "Bánh tráng nướng vỉa hè",
+      "trait": "bếp than vỉa hè, bán chiều tối",
+      "towerId": "gt_nguyen_van_troi_banh_trang"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Thố Đá Phong Lữ",
+      "type": "Quán phở lâu năm ở dốc chùa",
+      "trait": "phở bò, ăn kèm quẩy",
+      "towerId": "gt_nguyen_van_troi_pho"
+     },
+     {
+      "key": "lau_ga",
+      "name": "Lẩu Gà Lá É Đồi Chè",
+      "type": "Quán lẩu gà lá é",
+      "trait": "đông sau 7 giờ tối",
+      "towerId": "gt_nguyen_van_troi_lau_ga"
+     },
+     {
+      "key": "nuong",
+      "name": "Quán Nướng Phố Núi",
+      "type": "Quán nướng, lẩu buổi tối",
+      "trait": "bếp nướng than, khói thơm",
+      "towerId": "gt_nguyen_van_troi_nuong"
+     },
+     {
+      "key": "com_tam",
+      "name": "Cơm Tấm Hoa Hồng Leo",
+      "type": "Quán cơm tấm",
+      "trait": "sườn nướng, chảo gang",
+      "towerId": "gt_nguyen_van_troi_com_tam"
+     },
+     {
+      "key": "banh_mi",
+      "name": "Bánh Mì Xíu Mại Sương Mai",
+      "type": "Bánh mì xíu mại buổi sáng",
+      "trait": "mở sớm, chén xíu mại nóng",
+      "towerId": "gt_nguyen_van_troi_banh_mi"
+     },
+     {
+      "key": "homestay",
+      "name": "Homestay Hẻm Cẩm Tú Cầu",
+      "type": "Homestay trong hẻm",
+      "trait": "phòng nhỏ, cửa sổ nhìn dốc",
+      "towerId": "gt_nguyen_van_troi_homestay"
+     }
+    ],
+    "streetId": "street_nguyen_van_troi",
+    "shopIndex": 9,
+    "mapStageId": "street_nguyen_van_troi",
+    "featuredTowerId": "gt_nguyen_van_troi_homestay",
+    "facadeKey": "mat_tien_homestay",
+    "facadeSpot": {
+     "x": 298,
+     "y": 244,
+     "size": 120
+    },
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_nguyen_van_troi_homestay",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_nguyen_van_troi_homestay",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_nguyen_van_troi_homestay",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_nguyen_van_troi_homestay",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  }
+ ],
+ "towers": {
+  "gt_nguyen_van_troi_kem_bo": {
+   "id": "gt_nguyen_van_troi_kem_bo",
+   "art": "kem",
+   "element": "thuy",
+   "role": "slow_aura",
+   "roleLabel": "Phun sương làm chậm",
+   "ultimateName": "Bơ Sáp Phủ Phố",
+   "tier1": {
+    "name": "Ly Kem Bơ",
+    "cost": 60,
+    "damage": 15,
+    "range": 102,
+    "cooldownSec": 0.92,
+    "splashRadius": 50,
+    "slowPercent": 0.34,
+    "slowDurationSec": 2.2,
+    "description": "Tiệm Kem Bơ Thông Reo: bơ sáp xay sữa đặc, khách xếp hàng dù trời lạnh. Khắc Hỏa: Kem lạnh dập than nướng."
+   },
+   "tier2": {
+    "name": "Ly Kem Bơ Đôi",
+    "cost": 75,
+    "damage": 26,
+    "range": 110,
+    "cooldownSec": 0.84,
+    "splashRadius": 58,
+    "slowPercent": 0.45,
+    "slowDurationSec": 2.6,
+    "description": "Ly Kem Bơ Đôi: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Máy Xay Bơ",
+    "cost": 105,
+    "damage": 44,
+    "range": 118,
+    "cooldownSec": 0.78,
+    "splashRadius": 64,
+    "slowPercent": 0.54,
+    "slowDurationSec": 2.8,
+    "stunDurationSec": 1,
+    "description": "Làm chậm 54% và mỗi phát xịt thứ 3 phủ bọt mát giữ chân quái 1.0s."
+   },
+   "tier3B": {
+    "name": "Tủ Kem Mát Lạnh",
+    "cost": 105,
+    "damage": 38,
+    "range": 116,
+    "cooldownSec": 0.8,
+    "splashRadius": 72,
+    "slowPercent": 0.48,
+    "slowDurationSec": 2.7,
+    "knockbackDist": 14,
+    "description": "Luồng phun xoáy rộng làm chậm 48% và đẩy lùi nhẹ bầy quái."
+   }
+  },
+  "gt_nguyen_van_troi_che": {
+   "id": "gt_nguyen_van_troi_che",
+   "art": "che",
+   "element": "moc",
+   "role": "support_buff",
+   "roleLabel": "Hỗ trợ sấy khỏe & xua chuột",
+   "ultimateName": "Ngọt Mát Cả Dốc",
+   "tier1": {
+    "name": "Ly Chè",
+    "cost": 55,
+    "damage": 13,
+    "range": 108,
+    "cooldownSec": 1.25,
+    "buffDamagePct": 0.18,
+    "buffSpeedPct": 0.14,
+    "buffRangePct": 0.06,
+    "cleanseDisrupt": true,
+    "description": "Quán Chè Thạch Thảo: ly chè Thái, yaourt phô mai. Khắc Thổ: Đậu xanh, lá dứa thanh mát cả phố."
+   },
+   "tier2": {
+    "name": "Nồi Chè",
+    "cost": 70,
+    "damage": 22,
+    "range": 120,
+    "cooldownSec": 1.1,
+    "buffDamagePct": 0.26,
+    "buffSpeedPct": 0.2,
+    "buffRangePct": 0.1,
+    "cleanseDisrupt": true,
+    "description": "Nồi Chè: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Tủ Kính Chè",
+    "cost": 95,
+    "damage": 36,
+    "range": 132,
+    "cooldownSec": 1,
+    "buffDamagePct": 0.3,
+    "buffSpeedPct": 0.22,
+    "buffRangePct": 0.12,
+    "cleanseDisrupt": true,
+    "bonusKillReward": 2,
+    "description": "Bảo hộ món quanh máy không bị chuột gặm đứng im & thưởng +2 xu mỗi quái dọn được."
+   },
+   "tier3B": {
+    "name": "Gánh Chè",
+    "cost": 100,
+    "damage": 42,
+    "range": 136,
+    "cooldownSec": 0.95,
+    "buffDamagePct": 0.4,
+    "buffSpeedPct": 0.3,
+    "buffRangePct": 0.16,
+    "cleanseDisrupt": true,
+    "description": "Cộng hưởng nhiệt mạnh: tăng 40% sức, 30% tốc đánh và 16% tầm cho món cạnh bên."
+   }
+  },
+  "gt_nguyen_van_troi_banh_trang": {
+   "id": "gt_nguyen_van_troi_banh_trang",
+   "art": "banh_trang_nuong",
+   "element": "hoa",
+   "role": "aoe_splash",
+   "roleLabel": "Quăng gói hút ẩm đánh lan",
+   "ultimateName": "Giòn Rụm Cả Phố",
+   "tier1": {
+    "name": "Bánh Tráng",
+    "cost": 65,
+    "damage": 27,
+    "range": 102,
+    "cooldownSec": 1.15,
+    "splashRadius": 54,
+    "description": "Bánh Tráng Nướng Xác Pháo: bếp than vỉa hè, bán chiều tối. Khắc Kim: Lửa than hun lùi ruồi kiến."
+   },
+   "tier2": {
+    "name": "Vỉ Nướng Nhỏ",
+    "cost": 80,
+    "damage": 46,
+    "range": 112,
+    "cooldownSec": 1.04,
+    "splashRadius": 64,
+    "description": "Vỉ Nướng Nhỏ: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Bếp Than Bánh Tráng",
+    "cost": 115,
+    "damage": 66,
+    "range": 118,
+    "cooldownSec": 0.96,
+    "splashRadius": 72,
+    "burnDps": 22,
+    "burnDurationSec": 3,
+    "description": "Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s."
+   },
+   "tier3B": {
+    "name": "Xe Đẩy Bánh Tráng",
+    "cost": 115,
+    "damage": 84,
+    "range": 120,
+    "cooldownSec": 0.94,
+    "splashRadius": 80,
+    "description": "Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao."
+   }
+  },
+  "gt_nguyen_van_troi_pho": {
+   "id": "gt_nguyen_van_troi_pho",
+   "art": "quan_pho",
+   "element": "tho",
+   "role": "heavy_slow",
+   "roleLabel": "Đạp mạnh, chậm, xuyên vỏ",
+   "ultimateName": "Sôi Sùng Sục",
+   "tier1": {
+    "name": "Nồi Xương Hầm",
+    "cost": 70,
+    "damage": 54,
+    "range": 100,
+    "cooldownSec": 1.32,
+    "description": "Phở Thố Đá Phong Lữ: phở bò, ăn kèm quẩy. Khắc Thủy: Thố đá giữ nóng, chắn hơi ẩm."
+   },
+   "tier2": {
+    "name": "Nồi Phở Lớn",
+    "cost": 85,
+    "damage": 92,
+    "range": 108,
+    "cooldownSec": 1.18,
+    "description": "Nồi Phở Lớn: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Thố Đá Nóng",
+    "cost": 120,
+    "damage": 152,
+    "range": 115,
+    "cooldownSec": 1.08,
+    "stunDurationSec": 0.6,
+    "description": "Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày."
+   },
+   "tier3B": {
+    "name": "Bếp Than Liu Riu",
+    "cost": 115,
+    "damage": 115,
+    "range": 122,
+    "cooldownSec": 1,
+    "pierceCount": 3,
+    "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
+   }
+  },
+  "gt_nguyen_van_troi_lau_ga": {
+   "id": "gt_nguyen_van_troi_lau_ga",
+   "art": "lau_ga",
+   "element": "moc",
+   "role": "single_far",
+   "roleLabel": "Ném nhanh 1 con tầm xa",
+   "ultimateName": "Lá É Thơm Lừng",
+   "tier1": {
+    "name": "Nồi Lẩu Nhỏ",
+    "cost": 55,
+    "damage": 19,
+    "range": 122,
+    "cooldownSec": 0.74,
+    "description": "Lẩu Gà Lá É Đồi Chè: đông sau 7 giờ tối. Khắc Thổ: Lá é cay thơm xua chuột."
+   },
+   "tier2": {
+    "name": "Nồi Lẩu Lớn",
+    "cost": 70,
+    "damage": 32,
+    "range": 134,
+    "cooldownSec": 0.62,
+    "description": "Nồi Lẩu Lớn: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Bếp Gas Mini",
+    "cost": 105,
+    "damage": 46,
+    "range": 144,
+    "cooldownSec": 0.48,
+    "pierceCount": 2,
+    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+   },
+   "tier3B": {
+    "name": "Bàn Lẩu Đầy Đủ",
+    "cost": 105,
+    "damage": 42,
+    "range": 140,
+    "cooldownSec": 0.54,
+    "burnDps": 18,
+    "burnDurationSec": 3,
+    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+   }
+  },
+  "gt_nguyen_van_troi_nuong": {
+   "id": "gt_nguyen_van_troi_nuong",
+   "art": "quay_nuong",
+   "element": "hoa",
+   "role": "single_far",
+   "roleLabel": "Ném nhanh 1 con tầm xa",
+   "ultimateName": "Lửa Hồng Phố Đêm",
+   "tier1": {
+    "name": "Vỉ Nướng Than",
+    "cost": 55,
+    "damage": 19,
+    "range": 122,
+    "cooldownSec": 0.74,
+    "description": "Quán Nướng Phố Núi: bếp nướng than, khói thơm. Khắc Kim: Lửa nướng hun lùi mọt mốc."
+   },
+   "tier2": {
+    "name": "Bếp Nướng Đôi",
+    "cost": 70,
+    "damage": 32,
+    "range": 134,
+    "cooldownSec": 0.62,
+    "description": "Bếp Nướng Đôi: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Xiên Nướng Lửa Hồng",
+    "cost": 105,
+    "damage": 46,
+    "range": 144,
+    "cooldownSec": 0.48,
+    "pierceCount": 2,
+    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+   },
+   "tier3B": {
+    "name": "Lò Nướng Cả Dãy",
+    "cost": 105,
+    "damage": 42,
+    "range": 140,
+    "cooldownSec": 0.54,
+    "burnDps": 18,
+    "burnDurationSec": 3,
+    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+   }
+  },
+  "gt_nguyen_van_troi_com_tam": {
+   "id": "gt_nguyen_van_troi_com_tam",
+   "element": "kim",
+   "role": "heavy_slow",
+   "roleLabel": "Đạp mạnh, chậm, xuyên vỏ",
+   "ultimateName": "Sườn Nướng Một Lượt",
+   "tier1": {
+    "name": "Kẹp Sườn Inox",
+    "cost": 70,
+    "damage": 54,
+    "range": 100,
+    "cooldownSec": 1.32,
+    "description": "Cơm Tấm Hoa Hồng Leo: sườn nướng, chảo gang. Khắc Mộc: Kẹp thép gắp gọn rác bừa."
+   },
+   "tier2": {
+    "name": "Vỉ Sườn",
+    "cost": 85,
+    "damage": 92,
+    "range": 108,
+    "cooldownSec": 1.18,
+    "description": "Vỉ Sườn: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Chảo Gang",
+    "cost": 120,
+    "damage": 152,
+    "range": 115,
+    "cooldownSec": 1.08,
+    "stunDurationSec": 0.6,
+    "description": "Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày."
+   },
+   "tier3B": {
+    "name": "Lò Nướng Sườn",
+    "cost": 115,
+    "damage": 115,
+    "range": 122,
+    "cooldownSec": 1,
+    "pierceCount": 3,
+    "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
+   }
+  },
+  "gt_nguyen_van_troi_banh_mi": {
+   "id": "gt_nguyen_van_troi_banh_mi",
+   "art": "tiem_banh_mi",
+   "element": "tho",
+   "role": "single_far",
+   "roleLabel": "Ném nhanh 1 con tầm xa",
+   "ultimateName": "Mẻ Bánh Nóng Hổi",
+   "tier1": {
+    "name": "Ổ Bánh Mì",
+    "cost": 55,
+    "damage": 19,
+    "range": 122,
+    "cooldownSec": 0.74,
+    "description": "Bánh Mì Xíu Mại Sương Mai: mở sớm, chén xíu mại nóng. Khắc Thủy: Lò gạch khô ráo hút hơi ẩm."
+   },
+   "tier2": {
+    "name": "Rổ Bánh Mì",
+    "cost": 70,
+    "damage": 32,
+    "range": 134,
+    "cooldownSec": 0.62,
+    "description": "Rổ Bánh Mì: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Lò Gạch",
+    "cost": 105,
+    "damage": 46,
+    "range": 144,
+    "cooldownSec": 0.48,
+    "pierceCount": 2,
+    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+   },
+   "tier3B": {
+    "name": "Xe Bánh Mì Xíu Mại",
+    "cost": 105,
+    "damage": 42,
+    "range": 140,
+    "cooldownSec": 0.54,
+    "burnDps": 18,
+    "burnDurationSec": 3,
+    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+   }
+  },
+  "gt_nguyen_van_troi_homestay": {
+   "id": "gt_nguyen_van_troi_homestay",
+   "art": "homestay",
+   "element": "tho",
+   "role": "slow_aura",
+   "roleLabel": "Phun sương làm chậm",
+   "ultimateName": "Đêm Đà Lạt Ấm Áp",
+   "tier1": {
+    "name": "Chăn Len Ấm",
+    "cost": 60,
+    "damage": 15,
+    "range": 102,
+    "cooldownSec": 0.92,
+    "splashRadius": 50,
+    "slowPercent": 0.34,
+    "slowDurationSec": 2.2,
+    "description": "Homestay Hẻm Cẩm Tú Cầu: phòng nhỏ, cửa sổ nhìn dốc. Khắc Thủy: Nhà gạch chặn sương lạnh."
+   },
+   "tier2": {
+    "name": "Lò Sưởi Gạch",
+    "cost": 75,
+    "damage": 26,
+    "range": 110,
+    "cooldownSec": 0.84,
+    "splashRadius": 58,
+    "slowPercent": 0.45,
+    "slowDurationSec": 2.6,
+    "description": "Lò Sưởi Gạch: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Giường Gỗ Thông",
+    "cost": 105,
+    "damage": 44,
+    "range": 118,
+    "cooldownSec": 0.78,
+    "splashRadius": 64,
+    "slowPercent": 0.54,
+    "slowDurationSec": 2.8,
+    "stunDurationSec": 1,
+    "description": "Làm chậm 54% và mỗi phát xịt thứ 3 phủ bọt mát giữ chân quái 1.0s."
+   },
+   "tier3B": {
+    "name": "Bếp Củi Chung",
+    "cost": 105,
+    "damage": 38,
+    "range": 116,
+    "cooldownSec": 0.8,
+    "splashRadius": 72,
+    "slowPercent": 0.48,
+    "slowDurationSec": 2.7,
+    "knockbackDist": 14,
+    "description": "Luồng phun xoáy rộng làm chậm 48% và đẩy lùi nhẹ bầy quái."
+   }
+  },
+  "gt_don_kep_rac": {
+   "id": "gt_don_kep_rac",
+   "art": "don_kep_rac",
+   "element": "kim",
+   "role": "single_far",
+   "roleLabel": "Ném nhanh 1 con tầm xa",
+   "ultimateName": "Gom Sạch Một Lượt",
+   "tier1": {
+    "name": "Kẹp Gắp Rác",
+    "cost": 55,
+    "damage": 19,
+    "range": 122,
+    "cooldownSec": 0.74,
+    "description": "Kẹp Gắp Rác: kẹp thép gắp gọn rác bay, tờ rơi, khăn giấy. Khắc Mộc: Kẹp thép gắp gọn rác bay, tờ rơi, khăn giấy."
+   },
+   "tier2": {
+    "name": "Kẹp Gắp Cán Dài",
+    "cost": 70,
+    "damage": 32,
+    "range": 134,
+    "cooldownSec": 0.62,
+    "description": "Kẹp Gắp Cán Dài: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Xe Rác Đẩy Tay",
+    "cost": 105,
+    "damage": 46,
+    "range": 144,
+    "cooldownSec": 0.48,
+    "pierceCount": 2,
+    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+   },
+   "tier3B": {
+    "name": "Xe Ép Rác Mini",
+    "cost": 105,
+    "damage": 42,
+    "range": 140,
+    "cooldownSec": 0.54,
+    "burnDps": 18,
+    "burnDurationSec": 3,
+    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+   }
+  },
+  "gt_don_choi_tre": {
+   "id": "gt_don_choi_tre",
+   "art": "don_choi_tre",
+   "element": "moc",
+   "role": "aoe_splash",
+   "roleLabel": "Quăng gói hút ẩm đánh lan",
+   "ultimateName": "Quét Một Đường Dài",
+   "tier1": {
+    "name": "Chổi Tre",
+    "cost": 65,
+    "damage": 27,
+    "range": 102,
+    "cooldownSec": 1.15,
+    "splashRadius": 54,
+    "description": "Chổi Tre: chổi tre quét bay bụi đường, xà bần. Khắc Thổ: Chổi tre quét bay bụi đường, xà bần."
+   },
+   "tier2": {
+    "name": "Chổi Tre Cán Dài",
+    "cost": 80,
+    "damage": 46,
+    "range": 112,
+    "cooldownSec": 1.04,
+    "splashRadius": 64,
+    "description": "Chổi Tre Cán Dài: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Chổi Quét Đôi",
+    "cost": 115,
+    "damage": 66,
+    "range": 118,
+    "cooldownSec": 0.96,
+    "splashRadius": 72,
+    "burnDps": 22,
+    "burnDurationSec": 3,
+    "description": "Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s."
+   },
+   "tier3B": {
+    "name": "Hàng Cây Chắn Bụi",
+    "cost": 115,
+    "damage": 84,
+    "range": 120,
+    "cooldownSec": 0.94,
+    "splashRadius": 80,
+    "description": "Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao."
+   }
+  },
+  "gt_don_voi_xit": {
+   "id": "gt_don_voi_xit",
+   "art": "don_voi_xit",
+   "element": "thuy",
+   "role": "slow_aura",
+   "roleLabel": "Phun sương làm chậm",
+   "ultimateName": "Rửa Trôi Cả Dốc",
+   "tier1": {
+    "name": "Vòi Xịt Rửa Đường",
+    "cost": 60,
+    "damage": 15,
+    "range": 102,
+    "cooldownSec": 0.92,
+    "splashRadius": 50,
+    "slowPercent": 0.34,
+    "slowDurationSec": 2.2,
+    "description": "Vòi Xịt Rửa Đường: nước dập khói nướng, tàn thuốc, khói xe. Khắc Hỏa: Nước dập khói nướng, tàn thuốc, khói xe."
+   },
+   "tier2": {
+    "name": "Vòi Xịt Áp Lực",
+    "cost": 75,
+    "damage": 26,
+    "range": 110,
+    "cooldownSec": 0.84,
+    "splashRadius": 58,
+    "slowPercent": 0.45,
+    "slowDurationSec": 2.6,
+    "description": "Vòi Xịt Áp Lực: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Xe Phun Nước",
+    "cost": 105,
+    "damage": 44,
+    "range": 118,
+    "cooldownSec": 0.78,
+    "splashRadius": 64,
+    "slowPercent": 0.54,
+    "slowDurationSec": 2.8,
+    "stunDurationSec": 1,
+    "description": "Làm chậm 54% và mỗi phát xịt thứ 3 phủ bọt mát giữ chân quái 1.0s."
+   },
+   "tier3B": {
+    "name": "Bồn Nước Mát",
+    "cost": 105,
+    "damage": 38,
+    "range": 116,
+    "cooldownSec": 0.8,
+    "splashRadius": 72,
+    "slowPercent": 0.48,
+    "slowDurationSec": 2.7,
+    "knockbackDist": 14,
+    "description": "Luồng phun xoáy rộng làm chậm 48% và đẩy lùi nhẹ bầy quái."
+   }
+  },
+  "gt_don_den_duong": {
+   "id": "gt_don_den_duong",
+   "art": "don_den_duong",
+   "element": "hoa",
+   "role": "support_buff",
+   "roleLabel": "Hỗ trợ sấy khỏe & xua chuột",
+   "ultimateName": "Sáng Bừng Cả Phố",
+   "tier1": {
+    "name": "Đèn Pin Tuần Tra",
+    "cost": 55,
+    "damage": 13,
+    "range": 108,
+    "cooldownSec": 1.25,
+    "buffDamagePct": 0.18,
+    "buffSpeedPct": 0.14,
+    "buffRangePct": 0.06,
+    "cleanseDisrupt": true,
+    "description": "Đèn Pin Tuần Tra: đèn sáng soi rõ đinh ốc, nắp chai rơi; cả phố làm việc nhanh hơn. Khắc Kim: Đèn sáng soi rõ đinh ốc, nắp chai rơi; cả phố làm việc nhanh hơn."
+   },
+   "tier2": {
+    "name": "Đèn Đường Vàng",
+    "cost": 70,
+    "damage": 22,
+    "range": 120,
+    "cooldownSec": 1.1,
+    "buffDamagePct": 0.26,
+    "buffSpeedPct": 0.2,
+    "buffRangePct": 0.1,
+    "cleanseDisrupt": true,
+    "description": "Đèn Đường Vàng: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Đèn Pha Công Trình",
+    "cost": 95,
+    "damage": 36,
+    "range": 132,
+    "cooldownSec": 1,
+    "buffDamagePct": 0.3,
+    "buffSpeedPct": 0.22,
+    "buffRangePct": 0.12,
+    "cleanseDisrupt": true,
+    "bonusKillReward": 2,
+    "description": "Bảo hộ món quanh máy không bị chuột gặm đứng im & thưởng +2 xu mỗi quái dọn được."
+   },
+   "tier3B": {
+    "name": "Cột Đèn Năng Lượng",
+    "cost": 100,
+    "damage": 42,
+    "range": 136,
+    "cooldownSec": 0.95,
+    "buffDamagePct": 0.4,
+    "buffSpeedPct": 0.3,
+    "buffRangePct": 0.16,
+    "cleanseDisrupt": true,
+    "description": "Cộng hưởng nhiệt mạnh: tăng 40% sức, 30% tốc đánh và 16% tầm cho món cạnh bên."
+   }
+  },
+  "gt_don_bao_cat": {
+   "id": "gt_don_bao_cat",
+   "art": "don_bao_cat",
+   "element": "tho",
+   "role": "heavy_slow",
+   "roleLabel": "Đạp mạnh, chậm, xuyên vỏ",
+   "ultimateName": "Chặn Dòng Nước Tràn",
+   "tier1": {
+    "name": "Bao Cát",
+    "cost": 70,
+    "damage": 54,
+    "range": 100,
+    "cooldownSec": 1.32,
+    "description": "Bao Cát: bao cát chặn nước cống, vũng nước mưa. Khắc Thủy: Bao cát chặn nước cống, vũng nước mưa."
+   },
+   "tier2": {
+    "name": "Bao Cát Chồng Đôi",
+    "cost": 85,
+    "damage": 92,
+    "range": 108,
+    "cooldownSec": 1.18,
+    "description": "Bao Cát Chồng Đôi: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Rãnh Thoát Nước",
+    "cost": 120,
+    "damage": 152,
+    "range": 115,
+    "cooldownSec": 1.08,
+    "stunDurationSec": 0.6,
+    "description": "Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày."
+   },
+   "tier3B": {
+    "name": "Bờ Kè Đá",
+    "cost": 115,
+    "damage": 115,
+    "range": 122,
+    "cooldownSec": 1,
+    "pierceCount": 3,
+    "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
+   }
+  }
+ },
+ "enemies": {
+  "ge_nguyen_van_troi_1": {
+   "id": "ge_nguyen_van_troi_1",
+   "name": "Kiến Bu Đường",
+   "element": "moc",
+   "trait": "fast",
+   "traitLabel": "Nhanh, thành đàn",
+   "maxHp": 96,
+   "speed": 63,
+   "armor": 0.1,
+   "reward": 7,
+   "lifeCost": 1,
+   "radius": 11,
+   "art": "kien_duong"
+  },
+  "ge_nguyen_van_troi_2": {
+   "id": "ge_nguyen_van_troi_2",
+   "name": "Bụi Bột",
+   "element": "tho",
+   "trait": "tank",
+   "traitLabel": "Máu trâu, đi chậm",
+   "maxHp": 335,
+   "speed": 32,
+   "armor": 0.32,
+   "reward": 13,
+   "lifeCost": 2,
+   "radius": 15,
+   "art": "bui_bot"
+  },
+  "ge_nguyen_van_troi_3": {
+   "id": "ge_nguyen_van_troi_3",
+   "name": "Ruồi Bếp",
+   "element": "moc",
+   "trait": "flying",
+   "traitLabel": "Bay (không bị làm chậm)",
+   "maxHp": 165,
+   "speed": 50,
+   "armor": 0.12,
+   "reward": 10,
+   "lifeCost": 1,
+   "radius": 12,
+   "flying": true,
+   "art": "ruoi_bep"
+  },
+  "ge_nguyen_van_troi_4_nho": {
+   "id": "ge_nguyen_van_troi_4_nho",
+   "name": "Than Nướng Bén Lửa Nhỏ",
+   "element": "hoa",
+   "trait": "mini",
+   "traitLabel": "Tản ra chạy nhanh",
+   "maxHp": 64,
+   "speed": 58,
+   "armor": 0.04,
+   "reward": 2,
+   "lifeCost": 1,
+   "radius": 8,
+   "art": "khoi_nuong"
+  },
+  "ge_nguyen_van_troi_4": {
+   "id": "ge_nguyen_van_troi_4",
+   "name": "Than Nướng Bén Lửa",
+   "element": "hoa",
+   "trait": "splitter",
+   "traitLabel": "Vỡ ra 2 con nhỏ",
+   "maxHp": 185,
+   "speed": 41,
+   "armor": 0.12,
+   "reward": 9,
+   "lifeCost": 2,
+   "radius": 14,
+   "splitChildId": "ge_nguyen_van_troi_4_nho",
+   "splitCount": 2,
+   "art": "khoi_nuong"
+  },
+  "ge_nguyen_van_troi_5": {
+   "id": "ge_nguyen_van_troi_5",
+   "name": "Chuột Cống",
+   "element": "kim",
+   "trait": "disruptor",
+   "traitLabel": "Làm món gần nó đứng im",
+   "maxHp": 280,
+   "speed": 36,
+   "armor": 0.15,
+   "reward": 15,
+   "lifeCost": 2,
+   "radius": 13,
+   "disruptRadius": 96,
+   "disruptIntervalSec": 4.2,
+   "disruptDurationSec": 2.5,
+   "art": "chuot_cong"
+  },
+  "ge_nguyen_van_troi_6": {
+   "id": "ge_nguyen_van_troi_6",
+   "name": "Nước Đá Tan",
+   "element": "thuy",
+   "trait": "healer",
+   "traitLabel": "Hồi máu cho quái gần",
+   "maxHp": 260,
+   "speed": 37,
+   "armor": 0.12,
+   "reward": 14,
+   "lifeCost": 2,
+   "radius": 13,
+   "healRadius": 90,
+   "healIntervalSec": 2.6,
+   "healAmount": 42,
+   "art": "vung_nuoc"
+  },
+  "ge_nguyen_van_troi_p1": {
+   "id": "ge_nguyen_van_troi_p1",
+   "name": "Ly Nhựa Bỏ Lề",
+   "element": "kim",
+   "trait": "fast",
+   "traitLabel": "Nhanh, thành đàn",
+   "maxHp": 96,
+   "speed": 63,
+   "armor": 0.1,
+   "reward": 7,
+   "lifeCost": 1,
+   "radius": 11,
+   "art": "lon_nuoc"
+  },
+  "ge_nguyen_van_troi_p2": {
+   "id": "ge_nguyen_van_troi_p2",
+   "name": "Xe Đậu Lấn Lề",
+   "element": "tho",
+   "trait": "tank",
+   "traitLabel": "Máu trâu, đi chậm",
+   "maxHp": 335,
+   "speed": 32,
+   "armor": 0.32,
+   "reward": 13,
+   "lifeCost": 2,
+   "radius": 15,
+   "art": "ket_xe"
+  },
+  "ge_nguyen_van_troi_p3": {
+   "id": "ge_nguyen_van_troi_p3",
+   "name": "Khăn Giấy Bay",
+   "element": "moc",
+   "trait": "flying",
+   "traitLabel": "Bay (không bị làm chậm)",
+   "maxHp": 165,
+   "speed": 50,
+   "armor": 0.12,
+   "reward": 10,
+   "lifeCost": 1,
+   "radius": 12,
+   "flying": true,
+   "art": "khan_giay"
+  },
+  "ge_nguyen_van_troi_p4_nho": {
+   "id": "ge_nguyen_van_troi_p4_nho",
+   "name": "Khói Bếp Than Vỉa Hè Nhỏ",
+   "element": "hoa",
+   "trait": "mini",
+   "traitLabel": "Tản ra chạy nhanh",
+   "maxHp": 64,
+   "speed": 58,
+   "armor": 0.04,
+   "reward": 2,
+   "lifeCost": 1,
+   "radius": 8,
+   "art": "khoi_nuong"
+  },
+  "ge_nguyen_van_troi_p4": {
+   "id": "ge_nguyen_van_troi_p4",
+   "name": "Khói Bếp Than Vỉa Hè",
+   "element": "hoa",
+   "trait": "splitter",
+   "traitLabel": "Vỡ ra 2 con nhỏ",
+   "maxHp": 185,
+   "speed": 41,
+   "armor": 0.12,
+   "reward": 9,
+   "lifeCost": 2,
+   "radius": 14,
+   "splitChildId": "ge_nguyen_van_troi_p4_nho",
+   "splitCount": 2,
+   "art": "khoi_nuong"
+  },
+  "ge_nguyen_van_troi_p5": {
+   "id": "ge_nguyen_van_troi_p5",
+   "name": "Ổ Gà Đọng Nước",
+   "element": "thuy",
+   "trait": "disruptor",
+   "traitLabel": "Làm món gần nó đứng im",
+   "maxHp": 280,
+   "speed": 36,
+   "armor": 0.15,
+   "reward": 15,
+   "lifeCost": 2,
+   "radius": 13,
+   "disruptRadius": 96,
+   "disruptIntervalSec": 4.2,
+   "disruptDurationSec": 2.5,
+   "art": "o_ga"
+  },
+  "ge_nguyen_van_troi_p6": {
+   "id": "ge_nguyen_van_troi_p6",
+   "name": "Rêu Trơn Dốc Chùa",
+   "element": "moc",
+   "trait": "healer",
+   "traitLabel": "Hồi máu cho quái gần",
+   "maxHp": 260,
+   "speed": 37,
+   "armor": 0.12,
+   "reward": 14,
+   "lifeCost": 2,
+   "radius": 13,
+   "healRadius": 90,
+   "healIntervalSec": 2.6,
+   "healAmount": 42,
+   "art": "reu_moc"
+  },
+  "ge_nguyen_van_troi_trum": {
+   "id": "ge_nguyen_van_troi_trum",
+   "name": "Dòng Xe Tối Thứ Bảy",
+   "element": "tho",
+   "trait": "boss",
+   "traitLabel": "Trùm phố: đổi hành theo máu, gọi quân của phố",
+   "maxHp": 5200,
+   "speed": 20,
+   "armor": 0.32,
+   "reward": 200,
+   "lifeCost": 15,
+   "radius": 22,
+   "disruptRadius": 110,
+   "disruptIntervalSec": 6.5,
+   "disruptDurationSec": 2.2,
+   "shieldIntervalSec": 9,
+   "shieldDurationSec": 2.6,
+   "shieldReductionPct": 0.5,
+   "phaseElements": [
+    "tho",
+    "kim",
+    "thuy",
+    "moc",
+    "hoa"
+   ],
+   "summonIds": [
+    "ge_nguyen_van_troi_p2",
+    "ge_nguyen_van_troi_p1",
+    "ge_nguyen_van_troi_p5",
+    "ge_nguyen_van_troi_p3",
+    "ge_nguyen_van_troi_p4"
+   ],
+   "summonIntervalSec": 7,
+   "summonCount": 2,
+   "art": "trum_dong_xe"
+  }
+ }
+}

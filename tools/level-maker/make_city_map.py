@@ -10,7 +10,7 @@ import json, math, os
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-W, H = 720, 640
+W, H = 720, 820
 INK = (43, 26, 18)
 data = json.load(open(os.path.join(ROOT, 'docs/research/streets/osm_dalat_trung_tam.json'), encoding='utf-8'))
 
@@ -19,8 +19,11 @@ GAME_STREETS = {
     'street_tang_bat_ho': ['Tăng Bạt Hổ', 'Trương Công Định'],
     'street_pho_ca_phe': ['Nguyễn Chí Thanh', 'Lê Đại Hành'],
     'street_phan_dinh_phung': ['Phan Đình Phùng'],
+    'street_nguyen_van_troi': ['Nguyễn Văn Trỗi'],
+    'street_hoang_dieu': ['Hoàng Diệu'],
+    'street_tran_phu': ['Trần Phú', 'Ba Tháng Hai'],
 }
-WAY_FILES = ['docs/research/streets/osm_ways_2026-11-23.json', 'docs/research/streets/osm_ways_pho3.json']
+WAY_FILES = ['docs/research/streets/osm_ways_2026-11-23.json', 'docs/research/streets/osm_ways_pho3.json', 'docs/research/streets/osm_nguyen_van_troi.json', 'docs/research/streets/osm_hoang_dieu.json', 'docs/research/streets/osm_tran_phu.json']
 KEY2NAME = {'tang_bat_ho': 'Tăng Bạt Hổ', 'truong_cong_dinh': 'Trương Công Định', 'nguyen_chi_thanh': 'Nguyễn Chí Thanh', 'le_dai_hanh': 'Lê Đại Hành'}
 
 
@@ -43,7 +46,7 @@ _focus = [p for n, pts in game_ways() for p in pts if any(n in v for v in GAME_S
 _focus += [p for w in data['water'] if 'Xuân Hương' in (w.get('name') or '') for p in w['pts']]
 lat0, lat1 = min(p[0] for p in _focus), max(p[0] for p in _focus)
 lon0, lon1 = min(p[1] for p in _focus), max(p[1] for p in _focus)
-_pl, _po = (lat1 - lat0) * 0.12, (lon1 - lon0) * 0.08
+_pl, _po = (lat1 - lat0) * 0.22, (lon1 - lon0) * 0.30
 lat0, lat1, lon0, lon1 = lat0 - _pl, lat1 + _pl, lon0 - _po, lon1 + _po
 kx = math.cos(math.radians((lat0 + lat1) / 2))
 spanx, spany = (lon1 - lon0) * kx, (lat1 - lat0)

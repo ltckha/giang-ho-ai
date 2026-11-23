@@ -6,7 +6,7 @@ import { TowerDefenseEngine } from '../src/core/tdEngine';
 describe('Phố thật do máy làm màn sinh ra', () => {
   it('có đủ các phố thật', () => {
     const ids = GENERATED_STREETS.map((g) => g.stage.id).sort();
-    expect(ids).toEqual(['street_phan_dinh_phung', 'street_pho_ca_phe', 'street_tang_bat_ho']);
+    expect(ids).toEqual(['street_hoang_dieu', 'street_nguyen_van_troi', 'street_phan_dinh_phung', 'street_pho_ca_phe', 'street_tang_bat_ho', 'street_tran_phu']);
   });
 
   for (const g of GENERATED_STREETS) {

@@ -1,0 +1,326 @@
+{
+  "waves": 12,
+  "startingEssence": 210,
+  "startingLives": 20,
+  "loadoutSize": 6,
+  "difficulty": {
+    "gearTier": "after_street_1",
+    "targetRandomWin": 0.3
+  },
+  "researchNote": "docs/research/2026-11-24_pho_moi_da_lat.md",
+  "id": "street_nguyen_van_troi",
+  "name": "Phố Kem Bơ Nguyễn Văn Trỗi",
+  "subtitle": "Phố một chiều ăn vặt ngọt: kem bơ lâu năm, chè, bánh tráng nướng, dốc chùa",
+  "geometry": "pho_nguyen_van_troi",
+  "places": [
+    {
+      "key": "kem_bo",
+      "name": "Tiệm Kem Bơ Thông Reo",
+      "type": "Tiệm kem bơ lâu năm",
+      "trait": "bơ sáp xay sữa đặc, khách xếp hàng dù trời lạnh",
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/kem-bo-da-lat/",
+        "https://vinwonders.com/vi/wonderpedia/news/15-quan-kem-da-lat-duoc-review-nhieu-nhat/",
+        "https://mia.vn/cam-nang-du-lich/kem-bo-thanh-thao-da-lat-14041"
+      ],
+      "confidence": "chac",
+      "tower": {
+        "element": "thuy",
+        "role": "slow_aura",
+        "names": [
+          "Ly Kem Bơ",
+          "Ly Kem Bơ Đôi",
+          "Máy Xay Bơ",
+          "Tủ Kem Mát Lạnh"
+        ],
+        "ult": "Bơ Sáp Phủ Phố",
+        "why": "Kem lạnh dập than nướng"
+      },
+      "art": "kem"
+    },
+    {
+      "key": "che",
+      "name": "Quán Chè Thạch Thảo",
+      "type": "Quán chè, yaourt phô mai, rau câu",
+      "trait": "ly chè Thái, yaourt phô mai",
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/15-quan-kem-da-lat-duoc-review-nhieu-nhat/",
+        "https://mia.vn/cam-nang-du-lich/kem-bo-thanh-thao-da-lat-14041",
+        "https://vietnamnet.vn/da-lat-lanh-14-do-c-khach-van-xuyt-xoa-xep-hang-o-pho-kem-bo-2080453.html"
+      ],
+      "confidence": "chac",
+      "tower": {
+        "element": "moc",
+        "role": "support_buff",
+        "names": [
+          "Ly Chè",
+          "Nồi Chè",
+          "Tủ Kính Chè",
+          "Gánh Chè"
+        ],
+        "ult": "Ngọt Mát Cả Dốc",
+        "why": "Đậu xanh, lá dứa thanh mát cả phố"
+      },
+      "art": "che"
+    },
+    {
+      "key": "banh_trang",
+      "name": "Bánh Tráng Nướng Xác Pháo",
+      "type": "Bánh tráng nướng vỉa hè",
+      "trait": "bếp than vỉa hè, bán chiều tối",
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/bo-tui-ngay-dia-chi-10-quan-ban-banh-trang-nuong-ngon-xuat-sac-giua-long-da-lat-1283",
+        "https://vinwonders.com/vi/wonderpedia/news/kem-bo-da-lat/"
+      ],
+      "confidence": "chac",
+      "tower": {
+        "element": "hoa",
+        "role": "aoe_splash",
+        "names": [
+          "Bánh Tráng",
+          "Vỉ Nướng Nhỏ",
+          "Bếp Than Bánh Tráng",
+          "Xe Đẩy Bánh Tráng"
+        ],
+        "ult": "Giòn Rụm Cả Phố",
+        "why": "Lửa than hun lùi ruồi kiến"
+      },
+      "art": "banh_trang_nuong"
+    },
+    {
+      "key": "pho",
+      "name": "Phở Thố Đá Phong Lữ",
+      "type": "Quán phở lâu năm ở dốc chùa",
+      "trait": "phở bò, ăn kèm quẩy",
+      "sources": [
+        "https://wanderlog.com/list/geoCategory/1820178",
+        "https://vinwonders.com/vi/wonderpedia/news/pho-da-lat/"
+      ],
+      "confidence": "nen_kiem",
+      "tower": {
+        "element": "tho",
+        "role": "heavy_slow",
+        "names": [
+          "Nồi Xương Hầm",
+          "Nồi Phở Lớn",
+          "Thố Đá Nóng",
+          "Bếp Than Liu Riu"
+        ],
+        "ult": "Sôi Sùng Sục",
+        "why": "Thố đá giữ nóng, chắn hơi ẩm"
+      },
+      "art": "quan_pho"
+    },
+    {
+      "key": "lau_ga",
+      "name": "Lẩu Gà Lá É Đồi Chè",
+      "type": "Quán lẩu gà lá é",
+      "trait": "đông sau 7 giờ tối",
+      "sources": [
+        "https://www.vietnamtourism.com/vi/am-thuc-a-lat-ca-phe-lau-va-o-an-uong-pho"
+      ],
+      "confidence": "nen_kiem",
+      "tower": {
+        "element": "moc",
+        "role": "single_far",
+        "names": [
+          "Nồi Lẩu Nhỏ",
+          "Nồi Lẩu Lớn",
+          "Bếp Gas Mini",
+          "Bàn Lẩu Đầy Đủ"
+        ],
+        "ult": "Lá É Thơm Lừng",
+        "why": "Lá é cay thơm xua chuột"
+      },
+      "art": "lau_ga"
+    },
+    {
+      "key": "nuong",
+      "name": "Quán Nướng Phố Núi",
+      "type": "Quán nướng, lẩu buổi tối",
+      "trait": "bếp nướng than, khói thơm",
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/an-trua-da-lat/"
+      ],
+      "confidence": "nen_kiem",
+      "tower": {
+        "element": "hoa",
+        "role": "single_far",
+        "names": [
+          "Vỉ Nướng Than",
+          "Bếp Nướng Đôi",
+          "Xiên Nướng Lửa Hồng",
+          "Lò Nướng Cả Dãy"
+        ],
+        "ult": "Lửa Hồng Phố Đêm",
+        "why": "Lửa nướng hun lùi mọt mốc"
+      },
+      "art": "quay_nuong"
+    },
+    {
+      "key": "com_tam",
+      "name": "Cơm Tấm Hoa Hồng Leo",
+      "type": "Quán cơm tấm",
+      "trait": "sườn nướng, chảo gang",
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/an-trua-da-lat/"
+      ],
+      "confidence": "nen_kiem",
+      "tower": {
+        "element": "kim",
+        "role": "heavy_slow",
+        "names": [
+          "Kẹp Sườn Inox",
+          "Vỉ Sườn",
+          "Chảo Gang",
+          "Lò Nướng Sườn"
+        ],
+        "ult": "Sườn Nướng Một Lượt",
+        "why": "Kẹp thép gắp gọn rác bừa"
+      }
+    },
+    {
+      "key": "banh_mi",
+      "name": "Bánh Mì Xíu Mại Sương Mai",
+      "type": "Bánh mì xíu mại buổi sáng",
+      "trait": "mở sớm, chén xíu mại nóng",
+      "sources": [],
+      "confidence": "nen_kiem",
+      "tower": {
+        "element": "tho",
+        "role": "single_far",
+        "names": [
+          "Ổ Bánh Mì",
+          "Rổ Bánh Mì",
+          "Lò Gạch",
+          "Xe Bánh Mì Xíu Mại"
+        ],
+        "ult": "Mẻ Bánh Nóng Hổi",
+        "why": "Lò gạch khô ráo hút hơi ẩm"
+      },
+      "art": "tiem_banh_mi"
+    },
+    {
+      "key": "homestay",
+      "name": "Homestay Hẻm Cẩm Tú Cầu",
+      "type": "Homestay trong hẻm",
+      "trait": "phòng nhỏ, cửa sổ nhìn dốc",
+      "sources": [
+        "https://vn.trip.com/hotels/dalat-hotel-detail-47145665/trinh-nguyen-homestay"
+      ],
+      "confidence": "nen_kiem",
+      "tower": {
+        "element": "tho",
+        "role": "slow_aura",
+        "names": [
+          "Chăn Len Ấm",
+          "Lò Sưởi Gạch",
+          "Giường Gỗ Thông",
+          "Bếp Củi Chung"
+        ],
+        "ult": "Đêm Đà Lạt Ấm Áp",
+        "why": "Nhà gạch chặn sương lạnh"
+      },
+      "art": "homestay"
+    }
+  ],
+  "pests": [
+    {
+      "art": "kien_duong",
+      "name": "Kiến Bu Đường",
+      "element": "moc",
+      "trait": "fast",
+      "reason": "Kiến bu ly chè, hũ đường"
+    },
+    {
+      "art": "bui_bot",
+      "name": "Bụi Bột",
+      "element": "tho",
+      "trait": "tank",
+      "reason": "Bao bột, bụi bếp"
+    },
+    {
+      "art": "ruoi_bep",
+      "name": "Ruồi Bếp",
+      "element": "moc",
+      "trait": "flying",
+      "reason": "Ruồi bu quầy thức ăn"
+    },
+    {
+      "art": "khoi_nuong",
+      "name": "Than Nướng Bén Lửa",
+      "element": "hoa",
+      "trait": "splitter",
+      "reason": "Than bếp văng tàn"
+    },
+    {
+      "art": "chuot_cong",
+      "name": "Chuột Cống",
+      "element": "kim",
+      "trait": "disruptor",
+      "reason": "Chuột cắn bao hàng ban đêm"
+    },
+    {
+      "art": "vung_nuoc",
+      "name": "Nước Đá Tan",
+      "element": "thuy",
+      "trait": "healer",
+      "reason": "Nước đá tan rỉ ra lối đi"
+    }
+  ],
+  "streetPests": [
+    {
+      "art": "lon_nuoc",
+      "name": "Ly Nhựa Bỏ Lề",
+      "element": "kim",
+      "trait": "fast",
+      "reason": "Ly kem, ly chè mang đi vứt lề"
+    },
+    {
+      "art": "ket_xe",
+      "name": "Xe Đậu Lấn Lề",
+      "element": "tho",
+      "trait": "tank",
+      "reason": "Phố một chiều, cuối tuần xe đậu kín hai bên"
+    },
+    {
+      "art": "khan_giay",
+      "name": "Khăn Giấy Bay",
+      "element": "moc",
+      "trait": "flying",
+      "reason": "Khăn giấy quán vỉa hè bị gió cuốn"
+    },
+    {
+      "art": "khoi_nuong",
+      "name": "Khói Bếp Than Vỉa Hè",
+      "element": "hoa",
+      "trait": "splitter",
+      "reason": "Bếp than bánh tráng nướng trên vỉa hè"
+    },
+    {
+      "art": "o_ga",
+      "name": "Ổ Gà Đọng Nước",
+      "element": "thuy",
+      "trait": "disruptor",
+      "reason": "Ổ gà đọng nước sau mưa"
+    },
+    {
+      "art": "reu_moc",
+      "name": "Rêu Trơn Dốc Chùa",
+      "element": "moc",
+      "trait": "healer",
+      "reason": "Dốc ngắn lên chùa, trơn khi mưa"
+    }
+  ],
+  "boss": {
+    "name": "Dòng Xe Tối Thứ Bảy",
+    "art": "trum_dong_xe",
+    "phases": [
+      "tho",
+      "kim",
+      "thuy",
+      "moc",
+      "hoa"
+    ]
+  }
+}
