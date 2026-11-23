@@ -33,3 +33,6 @@ Kim: bạc / xám kim loại · Mộc: xanh lá · Thủy: xanh nước · Hỏa
 - Nền trong suốt (góc ảnh alpha = 0); nếu nền trắng trơn thì tự xoá.
 - Đặt cạnh hình cũ ở cỡ trong game (~45 điểm ảnh) xem có lệch nét không.
 - 4 bậc cùng màu, cùng mặt; lệch thì nhờ Spark vẽ lại hình đó.
+
+## Các đợt đã giao
+- **Đợt 1 (23/11) — bộ chung cho phố sau:** 5 loại địa điểm ngoài ăn uống, mỗi loại 1 hành (sửa xe Kim, nhà thuốc Mộc, giặt ủi Thủy, studio ảnh Hỏa, tạp hoá Thổ) × 4 bậc = 20 hình + 6 quái chung (GENERIC_PESTS) = 26 hình. Thư mục Drive `Game_ve_thu/dot1_bo_chung/`. Không trùng việc 9 của Antigravity.
