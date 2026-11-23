@@ -734,4 +734,75 @@ test.describe('Gọn Tiệm, Sạch Phố — Kiểm thử trình duyệt (Đi�
     expect(consoleErrors).toEqual([]);
     expect(externalRequests).toEqual([]);
   });
+
+  test('Con phố dốc Đà Lạt: đủ 3 mặt tiền từ SHOP_STREET, cửa cuốn khóa, chạm tiệm hiện 5 món + quái chính + bảng giới thiệu đổi theo tiệm, chụp c3_01_*.png', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+
+    const street = page.getByTestId('shop-street');
+    await expect(street).toBeVisible();
+    await expect(page.getByTestId('street-shop-1')).toBeVisible();
+    await expect(page.getByTestId('street-shop-2')).toBeVisible();
+    await expect(page.getByTestId('street-shop-3')).toBeVisible();
+    await expect(page.getByTestId('street-coming-soon')).toBeVisible();
+
+    // Tiệm 1 mở (không có cửa cuốn), Tiệm 2 & 3 có cửa cuốn kéo xuống + ổ khóa
+    await expect(page.getByTestId('street-shop-1').locator('[data-shutter="closed"]')).toHaveCount(0);
+    await expect(page.getByTestId('street-shop-2').locator('[data-shutter="closed"]')).toHaveCount(1);
+    await expect(page.getByTestId('street-shop-3').locator('[data-shutter="closed"]')).toHaveCount(1);
+    await expect(page.getByTestId('shop-detail-1')).toContainText('Dép Tông');
+    await expect(page.getByTestId('shop-detail-1')).toContainText('Giọt Mưa');
+    await page.waitForTimeout(250);
+    await page.screenshot({ path: 'docs/screenshots/c3_01_street_top.png' });
+
+    // Khi đã mở Tiệm 2 và qua Tiệm 1 với 3 sao -> chạm Tiệm 2 xem 5 món Tiệm Bánh + quái Tiệm Bánh
+    await page.evaluate(() => {
+      window.localStorage.setItem(
+        'giang_ho_ai_thu_thanh_save_v1',
+        JSON.stringify({
+          version: 1,
+          unlockedStage: 2,
+          starsByStage: { stage_1: 3 },
+          bestLivesByStage: { stage_1: 19 },
+          updatedAt: Date.now(),
+        }),
+      );
+    });
+    await page.goto('/');
+    await expect(page.getByTestId('stage1-stars')).toContainText('★★★');
+    await expect(page.getByTestId('street-shop-2').locator('[data-shutter="closed"]')).toHaveCount(0);
+    await expect(page.getByTestId('street-shop-3').locator('[data-shutter="closed"]')).toHaveCount(1);
+
+    await page.getByTestId('street-shop-2').click();
+    const detail2 = page.getByTestId('shop-detail-2');
+    await expect(detail2).toBeVisible();
+    await expect(detail2).toContainText('Vỉ Đập Ruồi');
+    await expect(detail2).toContainText('Lò Nướng');
+    await expect(detail2).toContainText('Hơi Ẩm');
+    await expect(detail2).toContainText('Than Hồng');
+
+    // Bảng giới thiệu món ở màn hình đầu đổi sang 5 món của Tiệm Bánh
+    const guide = page.getByTestId('td-element-guide');
+    await expect(guide).toContainText('Tiệm Bánh Đầu Phố');
+    await expect(guide).toContainText('Vỉ Đập Ruồi');
+
+    await page.getByTestId('street-shop-2').scrollIntoViewIfNeeded();
+    await page.waitForTimeout(200);
+    await page.screenshot({ path: 'docs/screenshots/c3_01_street_bakery_detail.png' });
+
+    // Chạm Tiệm 3 (dù đang khóa vẫn xem được thông tin 5 món + Trùm Mùa Nồm)
+    await page.getByTestId('street-shop-3').click();
+    const detail3 = page.getByTestId('shop-detail-3');
+    await expect(detail3).toBeVisible();
+    await expect(detail3).toContainText('Bình Tưới');
+    await expect(detail3).toContainText('Trùm Mùa Nồm');
+    await expect(guide).toContainText('Tiệm Hoa Cuối Dốc');
+    await expect(guide).toContainText('Kéo Tỉa');
+    await page.getByTestId('street-shop-3').scrollIntoViewIfNeeded();
+    await page.waitForTimeout(200);
+    await page.screenshot({ path: 'docs/screenshots/c3_01_street_flower_locked.png' });
+  });
 });
+

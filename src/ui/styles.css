@@ -2031,6 +2031,475 @@ button {
   box-shadow: 0 6px 22px rgba(245, 158, 11, 0.45);
 }
 
+/* =========================================================
+   CHẶNG 3 — 1. MÀN CHỌN MÀN "CON PHỐ DỐC" ĐÀ LẠT
+   ========================================================= */
+.td-street-section {
+  background: linear-gradient(180deg, #3b302a 0%, #2c231e 50%, #231a15 100%);
+  border: 2.4px solid var(--wood-mid);
+  border-radius: 14px;
+  padding: 10px 9px 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 224, 150, 0.14),
+    0 5px 14px rgba(24, 14, 7, 0.25);
+}
+
+.td-street-lane-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 0 2px;
+}
+
+.td-street-sign-post {
+  background: #4d301c;
+  color: #fde6a8;
+  border: 1.5px solid #c58d46;
+  border-radius: 99px;
+  padding: 3px 9px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.td-street-rain-tag {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #cde8f8;
+  opacity: 0.9;
+}
+
+.td-street-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.td-street-slope-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 3px 6px;
+}
+
+.td-slope-line {
+  flex: 1;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(214, 185, 138, 0.45) 0 6px,
+    transparent 6px 12px
+  );
+}
+
+.td-slope-step-pill {
+  font-size: 10px;
+  font-weight: 700;
+  color: #e6d1aa;
+  background: rgba(56, 38, 25, 0.92);
+  border: 1px solid rgba(196, 146, 86, 0.55);
+  border-radius: 99px;
+  padding: 2px 9px;
+  white-space: nowrap;
+}
+
+.td-street-shop {
+  background: linear-gradient(180deg, #fffaf0 0%, #f3e2c0 100%);
+  border: 2.2px solid #8a5b32;
+  border-radius: 13px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(14, 8, 4, 0.36);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+}
+
+.td-street-shop.selected {
+  border-color: #f5b942;
+  box-shadow:
+    0 0 0 2.5px rgba(253, 224, 71, 0.72),
+    0 6px 18px rgba(14, 8, 4, 0.46);
+}
+
+.td-street-shop.locked {
+  background: linear-gradient(180deg, #ede2cd 0%, #dfd0b4 100%);
+  border-color: #7d6b57;
+}
+
+.td-shop-facade-hit {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  outline: none;
+}
+
+.td-shop-facade-hit:focus-visible {
+  box-shadow: inset 0 0 0 3px #f59e0b;
+}
+
+.td-shop-signboard {
+  background: linear-gradient(180deg, #4b2d18 0%, #311d10 100%);
+  border-bottom: 2px solid #b88246;
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.td-shop-signboard.locked {
+  background: linear-gradient(180deg, #4a433d 0%, #332e29 100%);
+  border-bottom-color: #82766a;
+}
+
+.td-shop-sign-left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+}
+
+.td-shop-order-badge {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f5c352;
+  color: #2b1a12;
+  border: 1.6px solid #2b1a12;
+  font-size: 11px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.td-shop-signboard.locked .td-shop-order-badge {
+  background: #9e9488;
+  color: #2b241f;
+}
+
+.td-shop-life-ico {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+}
+
+.td-shop-sign-titles {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.td-shop-sign-short {
+  font-size: 9px;
+  font-weight: 700;
+  color: #f3cc7b;
+  letter-spacing: 0.05em;
+  line-height: 1.15;
+}
+
+.td-shop-signboard.locked .td-shop-sign-short {
+  color: #cfc5b8;
+}
+
+.td-shop-signboard .td-stage-name {
+  font-size: 13.5px;
+  color: #fff6e0;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.td-shop-signboard.locked .td-stage-name {
+  color: #e4dbd0;
+}
+
+.td-shop-signboard .td-stage-stars {
+  font-size: 11.5px;
+  padding: 2px 6px;
+  flex-shrink: 0;
+}
+
+.td-shop-facade-wrap {
+  position: relative;
+  width: 100%;
+  background: #38495c;
+  line-height: 0;
+}
+
+.td-shop-facade-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.td-facade-inspect-pill {
+  position: absolute;
+  right: 7px;
+  bottom: 6px;
+  background: rgba(34, 21, 12, 0.86);
+  color: #fde8a6;
+  border: 1.2px solid rgba(246, 196, 83, 0.72);
+  border-radius: 99px;
+  padding: 3px 8px;
+  font-size: 9.5px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.td-facade-lock-ribbon {
+  position: absolute;
+  left: 50%;
+  bottom: 7px;
+  transform: translateX(-50%);
+  background: rgba(34, 24, 18, 0.92);
+  color: #f3dfc1;
+  border: 1.4px solid #c99a52;
+  border-radius: 99px;
+  padding: 3px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* Thẻ thông tin tiệm đang chọn (tên, đợt, 5 món của chính tiệm đó, quái chính) */
+.td-shop-detail-card {
+  padding: 9px 9px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  background: linear-gradient(180deg, #fffdf6 0%, #f8ebd0 100%);
+  border-top: 1.8px dashed #b4844a;
+}
+
+.td-shop-detail-sub {
+  font-size: 11.5px;
+  line-height: 1.38;
+  color: var(--ink-soft);
+}
+
+.td-shop-detail-stats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #7d4a21;
+}
+
+.td-shop-detail-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.td-shop-detail-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #8a4f1f;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.td-shop-mini-towers {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+}
+
+.td-shop-mini-tower {
+  background: #fffcf4;
+  border: 1.5px solid;
+  border-radius: 8px;
+  padding: 4px 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.td-mini-tower-img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.td-mini-tower-name {
+  font-size: 8.8px;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: center;
+  line-height: 1.12;
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.td-mini-tower-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+}
+
+.td-mini-el-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 8.2px;
+  font-weight: 700;
+  color: var(--ink);
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+.td-mini-el-pill img {
+  width: 10px;
+  height: 10px;
+  object-fit: contain;
+}
+
+.td-mini-cost {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5px;
+  font-size: 8.8px;
+  font-weight: 700;
+  color: #7d4a11;
+}
+
+.td-mini-coin {
+  width: 10px;
+  height: 10px;
+  object-fit: contain;
+}
+
+.td-shop-mini-enemies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.td-shop-enemy-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #fffcf4;
+  border: 1.4px solid;
+  border-radius: 99px;
+  padding: 2px 7px 2px 4px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.td-shop-enemy-chip.is-boss {
+  background: #fef3c7;
+  box-shadow: 0 0 0 1px #d97706;
+}
+
+.td-shop-enemy-chip img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.td-enemy-el-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid #2b1a12;
+}
+
+.td-shop-action-bar {
+  padding: 7px 9px 9px;
+  background: rgba(244, 227, 194, 0.55);
+}
+
+.td-street-open-btn {
+  min-height: 42px;
+  font-size: 14px;
+}
+
+/* Chừa chỗ nối dài con phố dốc */
+.td-street-coming-soon {
+  position: relative;
+  border-radius: 11px;
+  overflow: hidden;
+  border: 1.8px dashed rgba(214, 180, 124, 0.6);
+  margin-top: 2px;
+}
+
+.td-street-more-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.td-street-more-caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px 12px;
+  background: linear-gradient(90deg, rgba(28, 19, 13, 0.78) 0%, rgba(28, 19, 13, 0.35) 65%, transparent 100%);
+  color: #fae8be;
+  pointer-events: none;
+}
+
+.td-street-more-caption strong {
+  font-family: var(--font-display);
+  font-size: 13px;
+}
+
+.td-street-more-caption span {
+  font-size: 10px;
+  color: #e4d4b7;
+  max-width: 225px;
+  line-height: 1.3;
+}
+
+/* Tab chọn nhanh tiệm trong Bảng giới thiệu món */
+.td-guide-shop-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 7px;
+  flex-wrap: wrap;
+}
+
+.td-guide-shop-tab {
+  background: #f5e6c8;
+  border: 1.5px solid #b58c59;
+  color: var(--ink-soft);
+  border-radius: 99px;
+  padding: 3px 9px;
+  font-size: 10.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.td-guide-shop-tab.active {
+  background: #4b2d18;
+  border-color: #e6a938;
+  color: #fde8a6;
+}
+
+
 
 
 
