@@ -888,6 +888,13 @@ test.describe('Gọn Tiệm, Sạch Phố — Kiểm thử trình duyệt (Đi�
       expect(res.status()).toBe(200);
     }
 
+    // 1b. Kiểm tra thẻ Open Graph chia sẻ link và tệp /og-image.png trả về 200
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', /Gọn Tiệm, Sạch Phố/);
+    await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content', /Đà Lạt/);
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /og-image\.png/);
+    const ogRes = await request.get('/og-image.png');
+    expect(ogRes.status()).toBe(200);
+
     // 2. Kiểm tra màn hình chờ BootScene: nền hộp giày, logo, thanh tải, phụ đề "Ngũ hành giữ tiệm"
     const splash = page.getByTestId('td-boot-splash');
     await expect(splash).toBeVisible();
