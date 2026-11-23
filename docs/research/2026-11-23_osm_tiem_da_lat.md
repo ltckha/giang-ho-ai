@@ -23,3 +23,8 @@ Hoàng Hoa Thám 5 (cà phê), Khu Hòa Bình 5 (4 cà phê, 1 quần áo), Hai 
 - Dùng được: **hình dạng con phố thật** (đường đi của quái) + **loại tiệm phổ biến** (cà phê nhiều nhất → hợp làm "Phố Cà Phê"; Triệu Việt Vương / Bùi Thị Xuân có tiệm bánh).
 - Tiệm trong game vẫn đặt tên chung ("tiệm giày", "tiệm bánh"), không dùng tên quán thật khi chưa được phép.
 - Google Maps có nhiều tiệm hơn nhưng cần khoá API, tài khoản thanh toán → chưa dùng.
+
+## Phố thật đầu tiên (anh Kha chọn 23/11)
+1. **Phố Tăng Bạt Hổ – Trương Công Định** (tiệm): 2 cửa vào (đầu bắc và đầu nam Trương Công Định) gặp nhau ở ngã Tăng Bạt Hổ, chạy hết Tăng Bạt Hổ. Mỗi tuyến ~325–330 m thật.
+2. **Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành**: vào từ đầu Nguyễn Chí Thanh (tuyến dài ~940 m) và nhánh ngắn Nguyễn Chí Thanh gần ngã ba (~370 m), gặp nhau ở ngã ba với Lê Đại Hành, chạy xuống Lê Đại Hành.
+- Dữ liệu đường: `docs/research/streets/osm_ways_2026-11-23.json`; chuyển sang đường đi game bằng `tools/osm_street_to_stage.py` → `src/core/streets/realStreets.generated.json` (+ ảnh xem trước `docs/research/streets/*.png`). Ghi nguồn © OpenStreetMap contributors.
