@@ -3,10 +3,12 @@
  * Màn hình chọn màn (Antigravity vẽ) đọc danh sách này.
  */
 import { STAGES } from './tdDefinitions';
-import type { StageDefinition, TdSaveData } from './types';
+import type { StageDefinition, StageId, TdSaveData } from './types';
 
 export interface ShopOnStreet {
-  stageId: 'stage_1' | 'stage_2' | 'stage_3';
+  stageId: StageId;
+  /** Trận trùm phố (không phải tiệm) */
+  isBoss?: boolean;
   order: number;
   /** Tên ngắn trên biển hiệu */
   sign: string;
@@ -20,6 +22,7 @@ export const SHOP_STREET: ShopOnStreet[] = [
   { stageId: 'stage_1', order: 1, sign: 'Tiệm Giày', lifeUnit: 'đôi giày', facadeHint: 'mặt tiền gỗ, kệ giày sau kính, mái hiên sọc' },
   { stageId: 'stage_2', order: 2, sign: 'Tiệm Bánh', lifeUnit: 'ổ bánh', facadeHint: 'tủ kính bánh mì, bao bột, đèn vàng ấm' },
   { stageId: 'stage_3', order: 3, sign: 'Tiệm Hoa', lifeUnit: 'chậu hoa', facadeHint: 'chậu đất nung, nhà kính nhỏ, hoa nhiều màu' },
+  { stageId: 'stage_4', order: 4, sign: 'Trùm Phố', lifeUnit: 'mạng phố', facadeHint: 'cuối dốc, mây đen xoáy, cả phố tối lại; mở khi qua cả 3 tiệm', isBoss: true },
 ];
 
 export function getShopStage(shop: ShopOnStreet): StageDefinition {

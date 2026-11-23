@@ -22,6 +22,7 @@ import type {
   TowerBranch,
   TowerId,
   TowerRole,
+  StageId,
 } from '../core/types';
 import {
   ATLAS_KEY,
@@ -228,21 +229,22 @@ export class TdStageScene extends Phaser.Scene {
     super({ key: SCENE_KEYS.TD_STAGE });
   }
 
-  public create(data?: { stageId?: 'stage_1' | 'stage_2' | 'stage_3'; forceTutorial?: boolean }): void {
+  public create(data?: { stageId?: StageId; forceTutorial?: boolean }): void {
     // Chọn màn: từ nút ở màn hình đầu, hoặc thêm ?stage=2 / ?stage=3 vào link (để thử / quay video)
     const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
-    let stageId: 'stage_1' | 'stage_2' | 'stage_3' = data?.stageId ?? 'stage_1';
+    let stageId: StageId = data?.stageId ?? 'stage_1';
     if (!data?.stageId && params) {
       const q = params.get('stage');
       if (q === '2') stageId = 'stage_2';
       if (q === '3') stageId = 'stage_3';
+      if (q === '4') stageId = 'stage_4';
     }
     const isVideoMode = params?.get('video') === '1';
     const isBotQuery = params?.get('bot') === '1';
 
     // Trang bị chủ tiệm đang mặc (lưu trên máy)
-    this.engine = new TowerDefenseEngine(STAGES[stageId], { gear: getGearBonus(loadTdSave()) });
-    music.setTrack(stageId);
+    this.engine = new TowerDefenseEngine(STAGES[stageId], { gear: getGearBonus(loadTdSave()), loadout: loadTdSave().streetLoadout });
+    music.setTrack(stageId === 'stage_4' ? 'boss' : stageId);
     this.lastDrops = [];
     this.speedMultiplier = isVideoMode ? 2 : 1;
     this.paused = false;
@@ -283,7 +285,9 @@ export class TdStageScene extends Phaser.Scene {
         ? STAGE1_MAP_KEY
         : this.engine.stage.id === 'stage_2'
           ? STAGE2_MAP_KEY
-          : STAGE3_MAP_KEY;
+          : this.engine.stage.id === 'stage_3'
+            ? STAGE3_MAP_KEY
+            : undefined; // Trùm phố: hình tạm cho tới khi Antigravity vẽ nền
     if (mapKey && this.textures.exists(mapKey)) {
       this.mapImage = this.add
         .image(this.mapOffsetX, this.mapOffsetY, mapKey)
@@ -603,9 +607,9 @@ export class TdStageScene extends Phaser.Scene {
     // Chuyển sang nhịp dồn khi Trùm Mùa Nồm xuất hiện trên sân
     if (this.engine.status === 'playing') {
       const hasBoss = this.engine.enemies.some(
-        (e) => e.defId === 'fl_monsoon' || e.defId === 'boss_water',
+        (e) => e.defId === 'fl_monsoon' || e.defId === 'boss_water' || e.defId === 'st_bao_loc',
       );
-      music.setTrack(hasBoss ? 'boss' : this.engine.stage.id);
+      music.setTrack(hasBoss || this.engine.stage.id === 'stage_4' ? 'boss' : this.engine.stage.id);
     }
 
     if (this.engine.status !== 'playing' && !this.resultShown) {
@@ -2899,7 +2903,7 @@ export class TdStageScene extends Phaser.Scene {
     const coinImgHtml = coinUrl ? `<img class="td-inline-coin" src="${coinUrl}" alt="xu" />` : '🪙';
 
     if (!existingTower) {
-      const cardsHtml = getStageTowerList(this.engine.stage).map((def) => {
+      const cardsHtml = getStageTowerList(this.engine.stage, this.engine.loadout ?? undefined).map((def) => {
         const elInfo = ELEMENT_INFO[def.element];
         const buildCost = this.engine.getBuildCost(def.id);
         const canAfford = this.engine.essence >= buildCost;

@@ -292,3 +292,11 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 3. **Quay clip:** công cụ quay bỏ qua hướng dẫn, mở sẵn 3 tiệm, dùng `?bot=1&video=1`; quay thử 3 clip 22 giây (mỗi tiệm 1 clip) có chữ tiêu đề và thẻ tên game cuối clip, ~4 MB mỗi clip. Chưa đăng.
 
 **Anh Kha chốt (23/11):** không sửa độ khó / sức đồ ở 3 tiệm đầu; tăng độ khó ở nội dung làm sau, đồ rơi tốt dần.
+
+---
+
+## 23/11/2026 — Sườn Trận trùm phố (Claude)
+- `src/core/shops/streetBoss.ts`: cả con phố dốc (chữ S 3 tầng), 11 ô, 12 đợt trộn quái cả 3 tiệm; trùm **Bão Lốc Cuối Mùa** (5200 máu, đổi đủ 5 hành theo máu, gọi quân theo hành mỗi 7 giây, khiên, làm món đứng im). Mang tối đa **6 loại món** trong 15 món của 3 tiệm.
+- Mở khi qua Tiệm Hoa (`unlockedStage` 4). Thắng: huy hiệu "Giữ trọn phố" + 1 món Hàng hiệu chắc chắn.
+- Cân bằng **tính cả đồ** (anh Kha chốt độ khó tăng dần): với ~8 món ngẫu nhiên sau 3 tiệm — đặt kín ô bừa thắng 71/150, 200 kế hoạch thua 163 (~81%), vẫn có 3 sao; không đồ — chỉ xếp tốt mới thắng (bot còn 4/20). Script: docs/review/sim_streetboss_gear.ts.
+- `npm test` 50/50, e2e 12/12; chơi thử điện thoại không lỗi (hình tạm).

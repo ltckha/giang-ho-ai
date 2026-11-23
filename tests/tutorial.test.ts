@@ -48,8 +48,9 @@ describe('Hướng dẫn lần đầu — luật bước', () => {
 });
 
 describe('Con phố dốc', () => {
-  it('3 tiệm theo thứ tự, mở dần theo màn đã qua', () => {
-    expect(SHOP_STREET.map((s) => s.stageId)).toEqual(['stage_1', 'stage_2', 'stage_3']);
+  it('3 tiệm + trùm phố theo thứ tự, mở dần theo màn đã qua', () => {
+    expect(SHOP_STREET.map((s) => s.stageId)).toEqual(['stage_1', 'stage_2', 'stage_3', 'stage_4']);
+    expect(SHOP_STREET[3]!.isBoss).toBe(true);
     const save = { unlockedStage: 2 as const, starsByStage: { stage_1: 3 as const } };
     expect(isShopUnlocked(save, SHOP_STREET[0]!)).toBe(true);
     expect(isShopUnlocked(save, SHOP_STREET[1]!)).toBe(true);

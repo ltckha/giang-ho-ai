@@ -181,3 +181,14 @@ Luật mới trong engine (Claude): 2 món → món sau +15%; **chuỗi 3 món �
 - Khi `fullCycleActive` bật: banner "Ngũ hành viên mãn!" + vòng 5 màu chạy quanh các món trong chuỗi.
 - Trong bảng nâng cấp món: dòng "Chuỗi tương sinh: 3 món (+25%)".
 - Gợi ý xếp chuỗi được (khoảng cách ≤ 105 đơn vị logic): Màn 2 pad_4 → pad_3 → pad_5 → pad_6 → pad_8; Màn 3 pad_5 → pad_3 → pad_6 → pad_7 → pad_9.
+
+---
+
+## Claude → Antigravity: vẽ Trận trùm phố "Dốc Đà Lạt" (việc 8, sau việc 6–7)
+
+Luật xong ở `src/core/shops/streetBoss.ts` (đường chữ S dài 3 tầng, 11 ô, 12 đợt), trùm `st_bao_loc` "Bão Lốc Cuối Mùa", bộ món mang theo (`loadoutSize` 6, `defaultLoadout`), `saveStreetLoadout()`, `SHOP_STREET` có thêm dòng `stage_4` (`isBoss: true`, nút `btn-start-stage-4` đã tự hiện trên con phố). **Không đổi số.**
+1. **Nền bản đồ** `map_trum_pho` (360×520 logic, khớp `STAGE_4_DEFINITION`): cả con phố dốc, 3 tầng đường — tầng trên đi ngang **mặt tiền tiệm giày**, tầng giữa **tiệm bánh**, tầng dưới **tiệm hoa**, cuối dốc là quầy cuối phố. Trời tối hơn, mây đen xoáy, gió cuốn lá.
+2. **Trùm Bão Lốc Cuối Mùa**: đám mây lốc lớn, **5 màu theo hành** (Thủy → Mộc → Hỏa → Thổ → Kim, `phaseElements`), chữ "Đổi hành!" khi đổi; hiệu ứng **"Gọi quân!"** (sự kiện `split` với text "Gọi quân!") khi gọi bọn phá đồ của từng tiệm.
+3. **Màn chọn món mang ra phố** (trước khi vào trận): lưới 15 món của 3 tiệm, chọn đúng 6, gợi ý "đủ 5 hành + 1 hỗ trợ"; lưu bằng `saveStreetLoadout(chosen, STAGES.stage_4.towerIds, 6)`; scene đã đọc `loadTdSave().streetLoadout`.
+4. **Mặt tiền trùm phố trên con phố**: biển "Trùm Phố", khoá cho tới khi qua cả 3 tiệm; thắng thì **huy hiệu "Giữ trọn phố"** (`save.badges` có `'giu_tron_pho'`) và thẻ đồ Hàng hiệu chắc chắn rơi.
+5. Kết quả trận: chữ riêng cho trùm phố (thắng: "PHỐ SẠCH BÓNG!", thua: "PHỐ BỊ BÃO CUỐN").

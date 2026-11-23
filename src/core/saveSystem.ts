@@ -1,5 +1,7 @@
 import { computeGearBonus, migrateGearItem, rollStageDrops, starterGear, type Equipped, type GearBonus, type GearItem, type GearSlotId } from './equipment';
-import type { TdSaveData } from './types';
+import type { StageId, TdSaveData, TowerId } from './types';
+import { makeGearItem as makeGear, GEAR_SLOTS as SLOTS } from './equipment';
+import { ALL_ELEMENTS as ELS } from './elements';
 
 /**
  * Khoá lưu trữ mới riêng cho bản Thủ Thành — tuyệt đối không đọc bản lưu nhập vai cũ.
@@ -30,10 +32,12 @@ export function loadTdSave(storage?: Pick<Storage, 'getItem'>): TdSaveData {
     return {
       version: 1,
       unlockedStage:
-        parsed.unlockedStage === 2 || parsed.unlockedStage === 3 ? parsed.unlockedStage : 1,
+        parsed.unlockedStage === 2 || parsed.unlockedStage === 3 || parsed.unlockedStage === 4 ? parsed.unlockedStage : 1,
       starsByStage: parsed.starsByStage ?? {},
       bestLivesByStage: parsed.bestLivesByStage ?? {},
       tutorialDone: parsed.tutorialDone === true,
+      badges: Array.isArray(parsed.badges) ? parsed.badges : [],
+      streetLoadout: Array.isArray(parsed.streetLoadout) ? parsed.streetLoadout : undefined,
       gearInventory: Array.isArray(parsed.gearInventory)
         ? parsed.gearInventory.map(migrateGearItem).filter((x): x is GearItem => x !== null)
         : starterGear(),
@@ -46,7 +50,7 @@ export function loadTdSave(storage?: Pick<Storage, 'getItem'>): TdSaveData {
 }
 
 export function saveTdProgress(
-  stageId: 'stage_1' | 'stage_2' | 'stage_3',
+  stageId: StageId,
   stars: 1 | 2 | 3,
   livesRemaining: number,
   storage?: Pick<Storage, 'getItem' | 'setItem'>,
@@ -68,6 +72,10 @@ export function saveTdProgress(
     current.unlockedStage = 2;
   } else if (stageId === 'stage_2' && current.unlockedStage < 3) {
     current.unlockedStage = 3;
+  } else if (stageId === 'stage_3' && current.unlockedStage < 4) {
+    current.unlockedStage = 4; // mở trận trùm phố
+  } else if (stageId === 'stage_4') {
+    current.badges = Array.from(new Set([...(current.badges ?? []), 'giu_tron_pho']));
   }
 
   current.updatedAt = Date.now();
@@ -134,7 +142,14 @@ export function grantStageDrops(
   const store = resolveStore(storage);
   const cur = loadTdSave(store);
   const extra = getGearBonus(cur).stats.extra_drop; // "Khách quen"
-  const drops = rollStageDrops(stageNumber, stars, rng, `g${Date.now().toString(36)}${Math.floor(rng() * 1e6).toString(36)}`, extra);
+  const prefix = `g${Date.now().toString(36)}${Math.floor(rng() * 1e6).toString(36)}`;
+  const drops = rollStageDrops(stageNumber, stars, rng, prefix, extra);
+  if (stageNumber === 4) {
+    // Thắng trùm phố: chắc chắn 1 món Hàng hiệu
+    const slot = SLOTS[Math.floor(rng() * SLOTS.length)]!.id;
+    const el = ELS[Math.floor(rng() * ELS.length)]!;
+    drops.push(makeGear(slot, el, 'hieu', `${prefix}_hieu`, rng));
+  }
   cur.gearInventory = [...(cur.gearInventory ?? []), ...drops];
   cur.updatedAt = Date.now();
   writeSave(store, cur);
@@ -153,4 +168,15 @@ export function markTutorialDone(storage?: Pick<Storage, 'getItem' | 'setItem'>)
   cur.tutorialDone = true;
   cur.updatedAt = Date.now();
   writeSave(store, cur);
+}
+
+/** Bộ món mang ra trận trùm phố (lưu trên máy). Trả về bộ đã lọc hợp lệ. */
+export function saveStreetLoadout(loadout: TowerId[], allowed: TowerId[], size: number, storage?: Pick<Storage, 'getItem' | 'setItem'>): TowerId[] {
+  const clean = Array.from(new Set(loadout.filter((id) => allowed.includes(id)))).slice(0, size);
+  const store = resolveStore(storage);
+  const cur = loadTdSave(store);
+  cur.streetLoadout = clean;
+  cur.updatedAt = Date.now();
+  writeSave(store, cur);
+  return clean;
 }

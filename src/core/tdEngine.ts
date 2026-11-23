@@ -78,8 +78,14 @@ export class TowerDefenseEngine {
   /** Sự kiện phát sinh ngoài step() (vd tuyệt chiêu) — trả ra ở lần step() kế tiếp */
   private queuedEvents: CombatEvent[] = [];
 
-  constructor(stage: StageDefinition, options?: { gear?: GearBonus }) {
+  /** Trận trùm phố: các loại món được phép đặt */
+  public readonly loadout: TowerId[] | null;
+
+  constructor(stage: StageDefinition, options?: { gear?: GearBonus; loadout?: TowerId[] }) {
     this.stage = stage;
+    this.loadout = stage.loadoutSize
+      ? (options?.loadout && options.loadout.length ? options.loadout : stage.defaultLoadout ?? []).slice(0, stage.loadoutSize)
+      : null;
     this.gear = options?.gear ?? EMPTY_GEAR_BONUS;
     this.essence = stage.startingEssence + this.gear.startCoins;
     this.lives = stage.startingLives + this.gear.lives;
@@ -180,6 +186,7 @@ export class TowerDefenseEngine {
     if (!pad) return null;
     if (this.getTowerAtPad(padId)) return null;
 
+    if (this.loadout && !this.loadout.includes(defId)) return null;
     const def = ALL_TOWER_DEFINITIONS[defId];
     const cost = this.getBuildCost(defId);
     if (this.essence < cost) return null;
@@ -583,6 +590,7 @@ export class TowerDefenseEngine {
     // 3. Cập nhật quái di chuyển, hiệu ứng đốt, kỹ năng quái (phá bùa / hồi máu / khiên trùm)
     const leakedIds = new Set<string>();
     const burnKilled: ActiveEnemy[] = [];
+    const summoned: { id: EnemyId; enemy: ActiveEnemy; scale: number; offset: number }[] = [];
 
     for (const enemy of this.enemies) {
       if (enemy.hitFlashRemaining > 0) {
@@ -679,6 +687,21 @@ export class TowerDefenseEngine {
         }
       }
 
+      // Trùm phố gọi quân theo hành hiện tại
+      if (def.summonIds && def.summonIds.length && def.summonIntervalSec && def.summonCount) {
+        enemy.summonTimer = (enemy.summonTimer ?? 0) + dtSec;
+        if (enemy.summonTimer >= def.summonIntervalSec) {
+          enemy.summonTimer = 0;
+          const idx = Math.max(0, (def.phaseElements ?? []).indexOf(enemy.element));
+          const minion = def.summonIds[idx % def.summonIds.length]!;
+          const scale = (enemy.maxHp / def.maxHp) * 2.5;
+          for (let i = 0; i < def.summonCount; i += 1) {
+            summoned.push({ id: minion, enemy, scale, offset: (i === 0 ? -1 : 1) * 10 });
+          }
+          events.push({ type: 'split', x: enemy.x, y: enemy.y, element: enemy.element, enemyDefId: enemy.defId, text: 'Gọi quân!' });
+        }
+      }
+
       // Trùm Mùa Nồm tạo màn ẩm giảm sát thương
       if (def.shieldIntervalSec && def.shieldDurationSec) {
         enemy.shieldTimer += dtSec;
@@ -708,6 +731,17 @@ export class TowerDefenseEngine {
     }
 
     // Xử lý quái chết vì đốt
+    // Quân do trùm gọi ra (tạo sau vòng lặp để không đổi danh sách đang duyệt)
+    for (const sm of summoned) {
+      if (sm.enemy.hp <= 0) continue;
+      this.spawnEnemy(sm.id, sm.enemy.pathIndex, sm.scale, {
+        x: sm.enemy.x + sm.offset,
+        y: sm.enemy.y + sm.offset * 0.5,
+        waypointIndex: sm.enemy.waypointIndex,
+        distanceTraveled: sm.enemy.distanceTraveled,
+      });
+    }
+
     for (const dead of burnKilled) {
       this.handleEnemyDeath(dead, undefined, events);
     }

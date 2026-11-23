@@ -1,5 +1,8 @@
 export type ElementType = 'kim' | 'moc' | 'thuy' | 'hoa' | 'tho';
 
+/** Mã màn: 3 tiệm + trận trùm phố */
+export type StageId = 'stage_1' | 'stage_2' | 'stage_3' | 'stage_4';
+
 export type TowerRole = 'single_far' | 'heavy_slow' | 'slow_aura' | 'aoe_splash' | 'support_buff';
 
 export type ShoeTowerId = 'wood_tower' | 'metal_tower' | 'water_tower' | 'fire_tower' | 'earth_tower';
@@ -55,7 +58,10 @@ export type BakeryEnemyId = 'bk_humid' | 'bk_flour' | 'bk_fly' | 'bk_mold' | 'bk
 /** Quái tiệm hoa (Màn 3). Nắng Gắt dùng lại 'fly_wood'. */
 export type FlowerEnemyId = 'fl_aphid' | 'fl_snail' | 'fl_dust' | 'fl_dust_mini' | 'fl_frost' | 'fl_rot' | 'fl_monsoon';
 
-export type EnemyId = ShoeEnemyId | BakeryEnemyId | FlowerEnemyId;
+/** Trùm phố (Màn trùm phố) */
+export type StreetBossEnemyId = 'st_bao_loc';
+
+export type EnemyId = ShoeEnemyId | BakeryEnemyId | FlowerEnemyId | StreetBossEnemyId;
 
 export type ShoeEnemyId =
   | 'fast_metal'
@@ -95,6 +101,10 @@ export interface EnemyDefinition {
   shieldReductionPct?: number;
   /** Trùm đổi hành: mỗi khi mất 1 phần máu bằng nhau thì sang hành kế tiếp trong danh sách */
   phaseElements?: ElementType[];
+  /** Trùm gọi quân: mỗi summonIntervalSec giây gọi summonCount con; loại quân theo hành hiện tại (cùng chỉ số với phaseElements) */
+  summonIds?: EnemyId[];
+  summonIntervalSec?: number;
+  summonCount?: number;
 }
 
 export interface Point2D {
@@ -127,8 +137,8 @@ export interface WaveDefinition {
 }
 
 export interface StageDefinition {
-  id: 'stage_1' | 'stage_2' | 'stage_3';
-  stageNumber: 1 | 2 | 3;
+  id: StageId;
+  stageNumber: number;
   name: string;
   subtitle: string;
   startingEssence: number;
@@ -140,6 +150,10 @@ export interface StageDefinition {
   towerIds?: TowerId[];
   /** Bật tương sinh: món đặt cạnh món sinh ra hành của nó được +15% sức (từ Màn 2) */
   enableSynergy?: boolean;
+  /** Trận trùm phố: chỉ mang được bấy nhiêu loại món (chọn từ towerIds) */
+  loadoutSize?: number;
+  /** Bộ món mang theo mặc định nếu người chơi chưa chọn */
+  defaultLoadout?: TowerId[];
 }
 
 export interface ActiveTower {
@@ -200,6 +214,8 @@ export interface ActiveEnemy {
   abilityTimer: number;
   shieldRemaining: number;
   shieldTimer: number;
+  /** Trùm gọi quân: đếm giờ */
+  summonTimer?: number;
   hitFlashRemaining: number;
 }
 
@@ -239,9 +255,13 @@ export interface CombatEvent {
 
 export interface TdSaveData {
   version: 1;
-  unlockedStage: 1 | 2 | 3;
-  starsByStage: Partial<Record<'stage_1' | 'stage_2' | 'stage_3', 1 | 2 | 3>>;
-  bestLivesByStage: Partial<Record<'stage_1' | 'stage_2' | 'stage_3', number>>;
+  unlockedStage: 1 | 2 | 3 | 4;
+  starsByStage: Partial<Record<StageId, 1 | 2 | 3>>;
+  bestLivesByStage: Partial<Record<StageId, number>>;
+  /** Huy hiệu (vd 'giu_tron_pho') */
+  badges?: string[];
+  /** Bộ món mang ra trận trùm phố */
+  streetLoadout?: TowerId[];
   /** Kho trang bị chủ tiệm (equipment.ts) */
   gearInventory?: import('./equipment').GearItem[];
   /** Đã xem / bỏ qua hướng dẫn chơi lần đầu */

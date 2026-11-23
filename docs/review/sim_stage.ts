@@ -3,7 +3,7 @@
 import { TowerDefenseEngine } from '../../src/core/tdEngine';
 import { runBotTurn } from '../../src/core/tdBot';
 import { STAGES, getStageTowerList, getTowerTierStats } from '../../src/core/tdDefinitions';
-const stageId = (process.argv[2] || 'stage_2') as 'stage_1' | 'stage_2' | 'stage_3';
+const stageId = (process.argv[2] || 'stage_2') as 'stage_1' | 'stage_2' | 'stage_3' | 'stage_4';
 const STAGE = STAGES[stageId];
 const TYPES = getStageTowerList(STAGE).map((t) => t.id);
 const SUPPORT = getStageTowerList(STAGE).find((t) => t.role === 'support_buff')!.id;
