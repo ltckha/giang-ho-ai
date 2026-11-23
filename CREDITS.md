@@ -18,10 +18,12 @@ Toàn bộ tài nguyên trong **Gọn Tiệm, Sạch Phố — Ngũ hành giữ 
 
 ---
 
-## 2. Âm thanh
-- **Tác giả:** Tự tổng hợp trực tiếp bằng Web Audio API trong [`src/game/sound.ts`](src/game/sound.ts).
+## 2. Âm thanh & Nhạc nền
+- **Tác giả:** 100% tự tạo, tổng hợp trực tiếp bằng Web Audio API trong [`src/game/sound.ts`](src/game/sound.ts) (tiếng hiệu ứng) và [`src/game/music.ts`](src/game/music.ts) (nhạc nền nhẹ âm giai ngũ cung).
 - **Giấy phép:** CC0 / tự tạo cho dự án này.
-- **Đặc điểm:** Không tải tệp MP3/WAV từ mạng ngoài, chạy hoàn toàn offline cho các hiệu ứng bắn, trúng đòn, "Trúng tủ!", dọn quái, Trùm đổi hành, mất mạng, đặt/nâng món, gọi đợt, mở khóa & tung 5 tuyệt chiêu Bậc 4 theo vai, mở rương trang bị và thắng màn.
+- **Đặc điểm:** Không dùng bất kỳ tệp nhạc hay âm thanh ngoài (MP3/WAV/OGG) nào, chạy 100% offline:
+  - **Nhạc nền nhẹ Web Audio (5 giai điệu ngũ cung riêng):** Màn hình đầu Con phố dốc (*Phố Dốc Chiều Mưa*), Tiệm Giày (*ấm áp*), Tiệm Bánh (*vui tươi*), Tiệm Hoa (*trong trẻo*) và Trận Trùm Mùa Nồm (*nhịp dồn kịch tính*). Âm lượng nhỏ hơn tiếng hiệu ứng, chỉ phát sau lần chạm đầu tiên của người chơi, có nút tắt **Nhạc** riêng với nút tắt **Tiếng** và lưu trên máy.
+  - **Tiếng hiệu ứng (SFX):** bắn, trúng đòn, "Trúng tủ!", dọn quái, Trùm đổi hành, mất mạng, đặt/nâng món, gọi đợt, mở khóa & tung 5 tuyệt chiêu Bậc 4 theo vai, mở rương trang bị và thắng màn.
 
 ---
 

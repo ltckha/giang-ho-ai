@@ -898,7 +898,107 @@ test.describe('Gọn Tiệm, Sạch Phố — Kiểm thử trình duyệt (Đi�
     await page.waitForTimeout(200);
     await page.screenshot({ path: 'docs/screenshots/c3_03_boot_splash.png' });
   });
+
+  test('Nhạc nền Web Audio tự tạo: chỉ mở sau lần chạm đầu, tắt Nhạc riêng với Tiếng, nhớ trên máy, đổi giai điệu theo tiệm & Trùm Mùa Nồm, chụp c3_04_audio_pause_menu.png', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/?bot=1');
+
+    // 1. Đợi TitleScene dựng xong; trước lần chạm đầu tiên: nhạc chọn bài 'title' nhưng chưa unlock (tôn trọng luật chặn tự phát)
+    const musicBtn = page.getByTestId('btn-toggle-music');
+    const sfxBtn = page.getByTestId('btn-toggle-sfx');
+    await expect(musicBtn).toContainText('Nhạc: BẬT');
+    await expect(sfxBtn).toContainText('Tiếng: BẬT');
+
+    const beforeTouch = await page.evaluate(() => {
+      const a = (window as unknown as {
+        __GON_TIEM_AUDIO__?: {
+          music: { getCurrentTrack: () => string | null; isUnlocked: () => boolean; isMuted: () => boolean };
+          sound: { isMuted: () => boolean };
+        };
+      }).__GON_TIEM_AUDIO__;
+      return a
+        ? {
+            track: a.music.getCurrentTrack(),
+            unlocked: a.music.isUnlocked(),
+            mMuted: a.music.isMuted(),
+            sMuted: a.sound.isMuted(),
+          }
+        : null;
+    });
+    expect(beforeTouch).toEqual({ track: 'title', unlocked: false, mMuted: false, sMuted: false });
+
+    // 2. Bấm tắt Nhạc -> chỉ tắt Nhạc (Tiếng vẫn BẬT) và kích hoạt lần chạm đầu
+
+    await musicBtn.click();
+    await expect(musicBtn).toContainText('Nhạc: TẮT');
+    await expect(sfxBtn).toContainText('Tiếng: BẬT');
+
+    // Tải lại trang -> vẫn nhớ Nhạc: TẮT, Tiếng: BẬT
+    await page.goto('/?bot=1');
+    await expect(page.getByTestId('btn-toggle-music')).toContainText('Nhạc: TẮT');
+    await expect(page.getByTestId('btn-toggle-sfx')).toContainText('Tiếng: BẬT');
+
+    // Bật lại Nhạc, tắt Tiếng riêng -> nhớ trên máy
+    await page.getByTestId('btn-toggle-music').click();
+    await page.getByTestId('btn-toggle-sfx').click();
+    await expect(page.getByTestId('btn-toggle-music')).toContainText('Nhạc: BẬT');
+    await expect(page.getByTestId('btn-toggle-sfx')).toContainText('Tiếng: TẮT');
+
+    // 3. Vào Tiệm Hoa (Màn 3): đổi sang giai điệu 'stage_3'; mở menu ⏸ thấy nút tắt Nhạc/Tiếng riêng
+    await page.getByTestId('btn-start-stage-3').click();
+    await expect(page.getByTestId('td-wave-val')).toHaveText('0/12');
+    const s3Track = await page.evaluate(() => {
+      const a = (window as unknown as {
+        __GON_TIEM_AUDIO__?: { music: { getCurrentTrack: () => string | null; isUnlocked: () => boolean } };
+      }).__GON_TIEM_AUDIO__;
+      return a ? { track: a.music.getCurrentTrack(), unlocked: a.music.isUnlocked() } : null;
+    });
+    expect(s3Track).toEqual({ track: 'stage_3', unlocked: true });
+
+    await page.getByTestId('btn-pause-toggle').click();
+    await expect(page.getByTestId('td-pause-menu')).toBeVisible();
+    await expect(page.getByTestId('btn-toggle-music')).toContainText('Nhạc: BẬT');
+    await expect(page.getByTestId('btn-toggle-sfx')).toContainText('Tiếng: TẮT');
+    await page.waitForTimeout(180);
+    await page.screenshot({ path: 'docs/screenshots/c3_04_audio_pause_menu.png' });
+    await page.getByTestId('btn-resume-game').click();
+
+    // 4. Khi Trùm Mùa Nồm xuất hiện -> tự chuyển sang giai điệu nhịp dồn 'boss'
+    await page.evaluate(() => {
+      const s = (window as unknown as {
+        __TD_SCENE__?: {
+          engine: {
+            status: string;
+            enemies: Array<{ defId: string }>;
+            startNextWave: (early: boolean) => unknown;
+          };
+          autoBotEnabled: boolean;
+          tickSimulation: (dt: number) => void;
+        };
+      }).__TD_SCENE__;
+      if (!s) return;
+      s.autoBotEnabled = true;
+      s.engine.startNextWave(false);
+      let guard = 0;
+      while (s.engine.status === 'playing' && guard < 36000) {
+        s.tickSimulation(0.05);
+        guard += 1;
+        if (s.engine.enemies.some((e) => e.defId === 'fl_monsoon')) break;
+      }
+    });
+    await page.waitForTimeout(120);
+    const bossTrack = await page.evaluate(() => {
+      const a = (window as unknown as {
+        __GON_TIEM_AUDIO__?: { music: { getCurrentTrack: () => string | null } };
+      }).__GON_TIEM_AUDIO__;
+      return a?.music.getCurrentTrack() ?? null;
+    });
+    expect(bossTrack).toBe('boss');
+  });
 });
+
 
 
 
