@@ -12,7 +12,7 @@ import {
 } from '../game/atlasIcons';
 import { renderBrandLogoSvg } from '../game/brandLogo';
 import { SCENE_KEYS } from '../game/sceneKeys';
-import { mergeSparkAtlas, registerSparkAnimations, SPARK_ATLAS_KEY } from '../game/sparkArt';
+import { FACADE_ATLAS_KEY, mergeSparkAtlas, registerSparkAnimations, SPARK_ATLAS_KEY } from '../game/sparkArt';
 import { generateGameTextures } from '../game/textures';
 
 const CORE_TOWER_IDS = [
@@ -107,6 +107,7 @@ export class BootScene extends Phaser.Scene {
 
     this.load.atlas(ATLAS_KEY, './assets/gon_tiem_atlas.webp', './assets/gon_tiem_atlas.json');
     this.load.atlas(SPARK_ATLAS_KEY, './assets/spark_atlas.webp', './assets/spark_atlas.json');
+    this.load.atlas(FACADE_ATLAS_KEY, './assets/facade_atlas.webp', './assets/facade_atlas.json');
     this.load.atlas(STREETS_ATLAS_KEY, './assets/streets_atlas.webp', './assets/streets_atlas.json');
     this.load.atlas(GEAR_ATLAS_KEY, './assets/gear_atlas.webp', './assets/gear_atlas.json');
     this.load.image(STAGE1_MAP_KEY, './assets/map_man1_tiem_giay.webp');

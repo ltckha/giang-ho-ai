@@ -25,7 +25,8 @@ def main(src: str) -> int:
         im.save(os.path.join(DST, f), optimize=True)
         n += 1
     print(f'nhận {n} hình')
-    return subprocess.call([sys.executable, os.path.join(ROOT, 'tools', 'pack_spark_atlas.py')])
+    rc = subprocess.call([sys.executable, os.path.join(ROOT, 'tools', 'pack_spark_atlas.py')])
+    return rc or subprocess.call([sys.executable, os.path.join(ROOT, 'tools', 'pack_facades.py')])
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1]))

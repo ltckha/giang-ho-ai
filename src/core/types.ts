@@ -180,6 +180,9 @@ export interface StageDefinition {
   mapStageId?: StageId;
   /** Món của tiệm chính trong màn tiệm */
   featuredTowerId?: TowerId;
+  /** Màn tiệm: mặt tiền tiệm chính (khung trong facade_atlas) và chỗ đặt trên nền (toạ độ khung 360×520) */
+  facadeKey?: string;
+  facadeSpot?: { x: number; y: number; size: number };
   /** Màn phố: đồ dọn phố (luôn được mang) và số món tiệm tối đa được mang thêm */
   cleanTowerIds?: TowerId[];
   maxShopTowers?: number;

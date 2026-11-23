@@ -7,6 +7,8 @@ import { ALL_ENEMY_DEFINITIONS, ALL_TOWER_DEFINITIONS } from '../core/tdDefiniti
  * Món / quái có trường `art` sẽ dùng khung tower_art_<art>_* / enemy_art_<art>_*.
  */
 export const SPARK_ATLAS_KEY = 'spark_atlas';
+/** Mặt tiền tiệm (tools/pack_facades.py) */
+export const FACADE_ATLAS_KEY = 'facade_atlas';
 
 const TIER_KEYS = ['t1', 't2', 't3a', 't3b'] as const;
 

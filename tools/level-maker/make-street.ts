@@ -285,6 +285,26 @@ function tune(label: string, build: (k: number) => StageDefinition, loadout: str
   return best;
 }
 
+/** Chỗ trống rộng nhất (xa đường đi và ô đặt món) để đặt mặt tiền tiệm chính */
+function findFacadeSpot(paths: { x: number; y: number }[][], pads: { x: number; y: number }[]) {
+  const segs: [{ x: number; y: number }, { x: number; y: number }][] = [];
+  for (const r of paths) for (let i = 0; i < r.length - 1; i++) segs.push([r[i]!, r[i + 1]!]);
+  const segD = (x: number, y: number, a: { x: number; y: number }, b: { x: number; y: number }) => {
+    const dx = b.x - a.x, dy = b.y - a.y;
+    const t = Math.max(0, Math.min(1, ((x - a.x) * dx + (y - a.y) * dy) / (dx * dx + dy * dy || 1)));
+    return Math.hypot(x - a.x - t * dx, y - a.y - t * dy);
+  };
+  let best = { x: 300, y: 60, size: 70, score: -1 };
+  for (let y = 40; y <= 470; y += 6) for (let x = 40; x <= 320; x += 6) {
+    const dPath = Math.min(...segs.map(([a, b]) => segD(x, y, a, b))) - 22;
+    const dPad = Math.min(...pads.map((p) => Math.hypot(x - p.x, y - p.y))) - 22;
+    const dEdge = Math.min(x, 360 - x, y, 500 - y);
+    const r = Math.min(dPath, dPad, dEdge, 60);
+    if (r > best.score) best = { x, y, size: Math.round(r * 2), score: r };
+  }
+  return { x: best.x, y: best.y, size: best.size };
+}
+
 /** Quái của màn tiệm: con bị món tiệm khắc + vài con khác của phố, tăng dần theo thứ tự tiệm */
 function shopPests(spec: StreetSpec, ids: string[], enemies: Record<string, EnemyDefinition>, featuredEl: ElementType, idx: number, n: number): string[] {
   const want = idx <= Math.ceil(n / 3) ? 3 : idx <= Math.ceil((2 * n) / 3) ? 4 : 5;
@@ -357,6 +377,7 @@ function make(id: string) {
         towerIds: pool as never, loadoutSize: spec.loadoutSize, defaultLoadout: loadout as never,
         enableSynergy: true, attribution: geo.attribution, places,
         streetId: spec.id as never, shopIndex: idx, mapStageId: spec.id as never, featuredTowerId: featured as never,
+        facadeKey: `mat_tien_${p.key}`, facadeSpot: findFacadeSpot(geo.paths, geo.pads),
       };
       stage.botPlan = makeBotPlan(stage, loadout, ALL_TOWER_DEFINITIONS as never) as never;
       return stage;

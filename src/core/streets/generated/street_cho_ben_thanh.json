@@ -1112,6 +1112,12 @@
     "shopIndex": 1,
     "mapStageId": "street_cho_ben_thanh",
     "featuredTowerId": "gt_cho_ben_thanh_luu_niem",
+    "facadeKey": "mat_tien_luu_niem",
+    "facadeSpot": {
+     "x": 64,
+     "y": 64,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_4",
@@ -1603,6 +1609,12 @@
     "shopIndex": 2,
     "mapStageId": "street_cho_ben_thanh",
     "featuredTowerId": "gt_cho_ben_thanh_vai",
+    "facadeKey": "mat_tien_vai",
+    "facadeSpot": {
+     "x": 64,
+     "y": 64,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_3",
@@ -2087,6 +2099,12 @@
     "shopIndex": 3,
     "mapStageId": "street_cho_ben_thanh",
     "featuredTowerId": "gt_cho_ben_thanh_do_kho",
+    "facadeKey": "mat_tien_do_kho",
+    "facadeSpot": {
+     "x": 64,
+     "y": 64,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_4",
@@ -2562,6 +2580,12 @@
     "shopIndex": 4,
     "mapStageId": "street_cho_ben_thanh",
     "featuredTowerId": "gt_cho_ben_thanh_trai_cay",
+    "facadeKey": "mat_tien_trai_cay",
+    "facadeSpot": {
+     "x": 64,
+     "y": 64,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_3",
@@ -3029,6 +3053,12 @@
     "shopIndex": 5,
     "mapStageId": "street_cho_ben_thanh",
     "featuredTowerId": "gt_cho_ben_thanh_quay_an",
+    "facadeKey": "mat_tien_quay_an",
+    "facadeSpot": {
+     "x": 64,
+     "y": 64,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_4",
@@ -3505,6 +3535,12 @@
     "shopIndex": 6,
     "mapStageId": "street_cho_ben_thanh",
     "featuredTowerId": "gt_cho_ben_thanh_tiem_vang",
+    "facadeKey": "mat_tien_tiem_vang",
+    "facadeSpot": {
+     "x": 64,
+     "y": 64,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_3",
@@ -3998,6 +4034,12 @@
     "shopIndex": 7,
     "mapStageId": "street_cho_ben_thanh",
     "featuredTowerId": "gt_cho_ben_thanh_nuong_dem",
+    "facadeKey": "mat_tien_nuong_dem",
+    "facadeSpot": {
+     "x": 64,
+     "y": 64,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_4",
@@ -4504,6 +4546,12 @@
     "shopIndex": 8,
     "mapStageId": "street_cho_ben_thanh",
     "featuredTowerId": "gt_cho_ben_thanh_nuoc_dua",
+    "facadeKey": "mat_tien_nuoc_dua",
+    "facadeSpot": {
+     "x": 64,
+     "y": 64,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_3",

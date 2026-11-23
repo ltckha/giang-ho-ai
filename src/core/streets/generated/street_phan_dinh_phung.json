@@ -1182,6 +1182,12 @@
     "shopIndex": 1,
     "mapStageId": "street_phan_dinh_phung",
     "featuredTowerId": "gt_phan_dinh_phung_nha_thuoc",
+    "facadeKey": "mat_tien_nha_thuoc",
+    "facadeSpot": {
+     "x": 64,
+     "y": 184,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_1",
@@ -1709,6 +1715,12 @@
     "shopIndex": 2,
     "mapStageId": "street_phan_dinh_phung",
     "featuredTowerId": "gt_phan_dinh_phung_tiem_toc",
+    "facadeKey": "mat_tien_tiem_toc",
+    "facadeSpot": {
+     "x": 64,
+     "y": 184,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_1",
@@ -2237,6 +2249,12 @@
     "shopIndex": 3,
     "mapStageId": "street_phan_dinh_phung",
     "featuredTowerId": "gt_phan_dinh_phung_nha_sach",
+    "facadeKey": "mat_tien_nha_sach",
+    "facadeSpot": {
+     "x": 64,
+     "y": 184,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_1",
@@ -2748,6 +2766,12 @@
     "shopIndex": 4,
     "mapStageId": "street_phan_dinh_phung",
     "featuredTowerId": "gt_phan_dinh_phung_studio",
+    "facadeKey": "mat_tien_studio",
+    "facadeSpot": {
+     "x": 64,
+     "y": 184,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_1",
@@ -3260,6 +3284,12 @@
     "shopIndex": 5,
     "mapStageId": "street_phan_dinh_phung",
     "featuredTowerId": "gt_phan_dinh_phung_pho",
+    "facadeKey": "mat_tien_pho",
+    "facadeSpot": {
+     "x": 64,
+     "y": 184,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_1",
@@ -3773,6 +3803,12 @@
     "shopIndex": 6,
     "mapStageId": "street_phan_dinh_phung",
     "featuredTowerId": "gt_phan_dinh_phung_xe_may",
+    "facadeKey": "mat_tien_xe_may",
+    "facadeSpot": {
+     "x": 64,
+     "y": 184,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_1",
@@ -4314,6 +4350,12 @@
     "shopIndex": 7,
     "mapStageId": "street_phan_dinh_phung",
     "featuredTowerId": "gt_phan_dinh_phung_tap_hoa",
+    "facadeKey": "mat_tien_tap_hoa",
+    "facadeSpot": {
+     "x": 64,
+     "y": 184,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_1",
@@ -4855,6 +4897,12 @@
     "shopIndex": 8,
     "mapStageId": "street_phan_dinh_phung",
     "featuredTowerId": "gt_phan_dinh_phung_giat_say",
+    "facadeKey": "mat_tien_giat_say",
+    "facadeSpot": {
+     "x": 64,
+     "y": 184,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_1",

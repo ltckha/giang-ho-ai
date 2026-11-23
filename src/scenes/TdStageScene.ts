@@ -40,6 +40,7 @@ import {
   getTowerFrameName,
   getTowerTierKey,
 } from '../game/atlasIcons';
+import { FACADE_ATLAS_KEY } from '../game/sparkArt';
 import { getStatMiniIconSvg, RARITY_THEME } from '../game/gearUiHelpers';
 import { music } from '../game/music';
 import { getInitialReduceMotion, loadRealStreetLoadout, saveReduceMotion } from '../game/preferences';
@@ -184,6 +185,8 @@ export class TdStageScene extends Phaser.Scene {
   public selectedPadId: string | null = null;
 
   private mapImage: Phaser.GameObjects.Image | null = null;
+  /** Màn tiệm phố thật: mặt tiền tiệm chính (Spark vẽ) đặt trên nền */
+  private facadeImage: Phaser.GameObjects.Image | null = null;
   private placeholderMap: Phaser.GameObjects.Graphics | null = null;
   private padGraphics!: Phaser.GameObjects.Graphics;
   private synergyGraphics!: Phaser.GameObjects.Graphics;
@@ -333,6 +336,13 @@ export class TdStageScene extends Phaser.Scene {
       this.layoutMapImage();
     }
 
+    this.facadeImage = null;
+    const fk = this.engine.stage.facadeKey;
+    if (fk && this.engine.stage.facadeSpot && this.textures.exists(FACADE_ATLAS_KEY) && this.textures.get(FACADE_ATLAS_KEY).has(fk)) {
+      this.facadeImage = this.add.image(0, 0, FACADE_ATLAS_KEY, fk).setOrigin(0.5, 0.5).setDepth(2);
+      this.layoutMapImage();
+    }
+
     this.padGraphics = this.add.graphics().setDepth(4);
     this.synergyGraphics = this.add.graphics().setDepth(7);
     this.overlayGraphics = this.add.graphics().setDepth(22);
@@ -475,6 +485,11 @@ export class TdStageScene extends Phaser.Scene {
       const end = this.engine.stage.paths[0]?.[this.engine.stage.paths[0].length - 1];
       if (end) { const sp = this.toScreen(end.x, end.y); g.fillStyle(0xe8c468, 1); g.fillRect(sp.x - 16 * this.mapScale, sp.y - 12 * this.mapScale, 32 * this.mapScale, 24 * this.mapScale); }
       return;
+    }
+    const spot = this.engine.stage.facadeSpot;
+    if (this.facadeImage && spot) {
+      const sp = this.toScreen(spot.x, spot.y);
+      this.facadeImage.setPosition(sp.x, sp.y).setDisplaySize(spot.size * this.mapScale, spot.size * this.mapScale);
     }
     if (!this.mapImage) return;
     this.mapImage.setPosition(this.mapOffsetX, this.mapOffsetY);

@@ -1166,6 +1166,12 @@
     "shopIndex": 1,
     "mapStageId": "street_pho_ca_phe",
     "featuredTowerId": "gt_pho_ca_phe_cafe_som",
+    "facadeKey": "mat_tien_cafe_som",
+    "facadeSpot": {
+     "x": 64,
+     "y": 64,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_2",
@@ -1712,6 +1718,12 @@
     "shopIndex": 2,
     "mapStageId": "street_pho_ca_phe",
     "featuredTowerId": "gt_pho_ca_phe_o_long",
+    "facadeKey": "mat_tien_o_long",
+    "facadeSpot": {
+     "x": 64,
+     "y": 64,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_5",
@@ -2215,6 +2227,12 @@
     "shopIndex": 3,
     "mapStageId": "street_pho_ca_phe",
     "featuredTowerId": "gt_pho_ca_phe_kem_ly",
+    "facadeKey": "mat_tien_kem_ly",
+    "facadeSpot": {
+     "x": 64,
+     "y": 64,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_2",
@@ -2745,6 +2763,12 @@
     "shopIndex": 4,
     "mapStageId": "street_pho_ca_phe",
     "featuredTowerId": "gt_pho_ca_phe_banh_mi_chao",
+    "facadeKey": "mat_tien_banh_mi_chao",
+    "facadeSpot": {
+     "x": 64,
+     "y": 64,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_5",
@@ -3231,6 +3255,12 @@
     "shopIndex": 5,
     "mapStageId": "street_pho_ca_phe",
     "featuredTowerId": "gt_pho_ca_phe_retro",
+    "facadeKey": "mat_tien_retro",
+    "facadeSpot": {
+     "x": 64,
+     "y": 64,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_2",
@@ -3763,6 +3793,12 @@
     "shopIndex": 6,
     "mapStageId": "street_pho_ca_phe",
     "featuredTowerId": "gt_pho_ca_phe_kem_bo",
+    "facadeKey": "mat_tien_kem_bo",
+    "facadeSpot": {
+     "x": 64,
+     "y": 64,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_5",
@@ -4279,6 +4315,12 @@
     "shopIndex": 7,
     "mapStageId": "street_pho_ca_phe",
     "featuredTowerId": "gt_pho_ca_phe_cafe_xua",
+    "facadeKey": "mat_tien_cafe_xua",
+    "facadeSpot": {
+     "x": 64,
+     "y": 64,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_2",
@@ -4838,6 +4880,12 @@
     "shopIndex": 8,
     "mapStageId": "street_pho_ca_phe",
     "featuredTowerId": "gt_pho_ca_phe_san_thuong",
+    "facadeKey": "mat_tien_san_thuong",
+    "facadeSpot": {
+     "x": 64,
+     "y": 64,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_5",
@@ -5354,6 +5402,12 @@
     "shopIndex": 9,
     "mapStageId": "street_pho_ca_phe",
     "featuredTowerId": "gt_pho_ca_phe_banh_trung",
+    "facadeKey": "mat_tien_banh_trung",
+    "facadeSpot": {
+     "x": 64,
+     "y": 64,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_2",

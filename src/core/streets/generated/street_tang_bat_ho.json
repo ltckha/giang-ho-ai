@@ -1218,6 +1218,12 @@
     "shopIndex": 1,
     "mapStageId": "street_tang_bat_ho",
     "featuredTowerId": "gt_tang_bat_ho_banh_qua",
+    "facadeKey": "mat_tien_banh_qua",
+    "facadeSpot": {
+     "x": 280,
+     "y": 232,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_2",
@@ -1776,6 +1782,12 @@
     "shopIndex": 2,
     "mapStageId": "street_tang_bat_ho",
     "featuredTowerId": "gt_tang_bat_ho_sua_nanh",
+    "facadeKey": "mat_tien_sua_nanh",
+    "facadeSpot": {
+     "x": 280,
+     "y": 232,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_1",
@@ -2299,6 +2311,12 @@
     "shopIndex": 3,
     "mapStageId": "street_tang_bat_ho",
     "featuredTowerId": "gt_tang_bat_ho_banh_can",
+    "facadeKey": "mat_tien_banh_can",
+    "facadeSpot": {
+     "x": 280,
+     "y": 232,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_2",
@@ -2841,6 +2859,12 @@
     "shopIndex": 4,
     "mapStageId": "street_tang_bat_ho",
     "featuredTowerId": "gt_tang_bat_ho_goc_cay",
+    "facadeKey": "mat_tien_goc_cay",
+    "facadeSpot": {
+     "x": 280,
+     "y": 232,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_1",
@@ -3347,6 +3371,12 @@
     "shopIndex": 5,
     "mapStageId": "street_tang_bat_ho",
     "featuredTowerId": "gt_tang_bat_ho_khach_san",
+    "facadeKey": "mat_tien_khach_san",
+    "facadeSpot": {
+     "x": 280,
+     "y": 232,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_2",
@@ -3891,6 +3921,12 @@
     "shopIndex": 6,
     "mapStageId": "street_tang_bat_ho",
     "featuredTowerId": "gt_tang_bat_ho_thue_xe",
+    "facadeKey": "mat_tien_thue_xe",
+    "facadeSpot": {
+     "x": 280,
+     "y": 232,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_1",
@@ -4426,6 +4462,12 @@
     "shopIndex": 7,
     "mapStageId": "street_tang_bat_ho",
     "featuredTowerId": "gt_tang_bat_ho_bar_ham",
+    "facadeKey": "mat_tien_bar_ham",
+    "facadeSpot": {
+     "x": 280,
+     "y": 232,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_2",
@@ -4998,6 +5040,12 @@
     "shopIndex": 8,
     "mapStageId": "street_tang_bat_ho",
     "featuredTowerId": "gt_tang_bat_ho_cafe_xe_dap",
+    "facadeKey": "mat_tien_cafe_xe_dap",
+    "facadeSpot": {
+     "x": 280,
+     "y": 232,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_1",
@@ -5536,6 +5584,12 @@
     "shopIndex": 9,
     "mapStageId": "street_tang_bat_ho",
     "featuredTowerId": "gt_tang_bat_ho_an_vat",
+    "facadeKey": "mat_tien_an_vat",
+    "facadeSpot": {
+     "x": 280,
+     "y": 232,
+     "size": 120
+    },
     "botPlan": [
      {
       "padId": "pad_2",

@@ -354,3 +354,9 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - tools/level-maker/make_street_map.py: vẽ nền 720×1040 theo đúng đường đi (đường có viền + vạch giữa), vỉa hè lát gạch, dãy nhà mái hiên sọc, cây ở chỗ trống; tránh đường và ô đặt món; bộ màu theo thành phố (`mapTheme`: dalat / saigon). Phố đã có nền vẽ tay thì giữ nguyên.
 - STREET_MAP_KEYS tự lấy theo danh sách phố thật (map_<id>.webp). Bản đồ chọn phố đổi tên "Bản đồ phố thật", ghim Chợ Bến Thành ghi rõ Sài Gòn.
 - `npm test` 78/78, e2e 17/17. Đã lên link game.
+
+## 23/11/2026 — Spark đợt 7–10 (73 hình) (Claude)
+- Đợt 7: 26 mặt tiền tiệm (3 phố) → public/assets/facade_atlas.* (tools/pack_facades.py); mỗi màn tiệm đặt mặt tiền tiệm chính ở chỗ trống rộng nhất (máy làm màn tính `facadeSpot`, tránh đường và ô).
+- Đợt 8: 7 xe (hiện ở chỗ chọn xe, nút chiêu xe, màn kết quả). Đợt 9: đồ dọn phố. Đợt 10: 5 loại món Chợ Bến Thành. Kho Spark: 25 loại món, 42 quái, 26 mặt tiền, 7 xe.
+- Rà: 73/73 nền trong suốt. Cần vẽ lại: mon_don_bao_cat_b3a (giống máy nướng bánh mì); mat_tien_cafe_som, mat_tien_kem_bo có chữ. Ghi chú nhẹ: tiem_vang b2≈b3b, trai_cay b1≈b3a.
+- `npm test` 78/78, e2e 17/17.
