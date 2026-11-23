@@ -20,6 +20,7 @@ export const STAGE4_MAP_KEY = 'map_trum_pho';
 export const STREET_MAP_KEYS: Record<string, string> = {
   street_tang_bat_ho: 'map_street_tang_bat_ho',
   street_pho_ca_phe: 'map_street_pho_ca_phe',
+  street_phan_dinh_phung: 'map_street_phan_dinh_phung',
 };
 
 const iconDataUrlCache = new Map<string, string>();

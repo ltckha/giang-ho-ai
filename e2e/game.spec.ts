@@ -1473,4 +1473,99 @@ test.describe('Gọn Tiệm, Sạch Phố — Kiểm thử trình duyệt (Đi�
     expect(consoleErrors).toEqual([]);
     expect(externalRequests).toEqual([]);
   });
+
+  test('Việc 10 — Phố Phan Đình Phùng (/#street_phan_dinh_phung): nền Cầu Quẹo riêng, ghim Phố 3 trên bản đồ Đà Lạt, hình Spark món/quái chạy mượt, 0 lỗi console, 0 mạng ngoài', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    const consoleErrors: string[] = [];
+    const externalRequests: string[] = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') consoleErrors.push(msg.text());
+    });
+    page.on('pageerror', (err) => consoleErrors.push(err.message));
+    await page.route('**/*', async (route) => {
+      const url = route.request().url();
+      if (
+        url.startsWith('http://127.0.0.1') ||
+        url.startsWith('http://localhost') ||
+        url.startsWith('data:') ||
+        url.startsWith('blob:')
+      ) {
+        await route.continue();
+      } else {
+        externalRequests.push(url);
+        await route.abort();
+      }
+    });
+
+    // 1. Mở thẳng /#street_phan_dinh_phung
+    await page.goto('/#street_phan_dinh_phung');
+    await expect(page.getByTestId('td-wave-val')).toHaveText('0/12');
+    const pdpInfo = await page.evaluate(() => {
+      const s = (window as unknown as {
+        __TD_SCENE__?: {
+          placeholderMap: unknown;
+          mapImage?: { texture?: { key?: string } };
+          engine: { stage: { id: string } };
+        };
+      }).__TD_SCENE__;
+      return {
+        stageId: s?.engine.stage.id,
+        hasPlaceholder: Boolean(s?.placeholderMap),
+        mapKey: s?.mapImage?.texture?.key ?? '',
+      };
+    });
+    expect(pdpInfo).toEqual({
+      stageId: 'street_phan_dinh_phung',
+      hasPlaceholder: false,
+      mapKey: 'map_street_phan_dinh_phung',
+    });
+
+    // 2. Mở bảng đặt món ô 1 (hiện món Spark của Phố Phan Đình Phùng) & đặt 3 món -> gọi đợt 1 giao tranh
+    await page.evaluate(() => {
+      const s = (window as unknown as { __TD_SCENE__?: { selectPadById: (p: string) => void } }).__TD_SCENE__;
+      s?.selectPadById('pad_1');
+    });
+    const buildSheet = page.getByTestId('td-build-sheet');
+    await expect(buildSheet).toBeVisible();
+    await page.waitForTimeout(160);
+    await page.screenshot({ path: 'docs/screenshots/v10_phan_dinh_phung_build.png' });
+
+    await buildSheet.locator('.td-build-option').first().click();
+    await page.evaluate(() => {
+      const s = (window as unknown as {
+        __TD_SCENE__?: {
+          engine: {
+            essence: number;
+            stage: { towerIds?: string[] };
+            buildTower: (p: string, t: string) => unknown;
+            startNextWave: (e: boolean) => unknown;
+          };
+          tickSimulation: (dt: number) => void;
+        };
+      }).__TD_SCENE__;
+      if (!s) return;
+      s.engine.essence = 500;
+      const tids = s.engine.stage.towerIds ?? [];
+      if (tids[1]) s.engine.buildTower('pad_3', tids[1]);
+      if (tids[2]) s.engine.buildTower('pad_4', tids[2]);
+      s.engine.startNextWave(false);
+      for (let i = 0; i < 140; i += 1) s.tickSimulation(0.05);
+    });
+    await page.waitForTimeout(220);
+    await page.screenshot({ path: 'docs/screenshots/v10_phan_dinh_phung_combat.png' });
+
+    // 3. Về Màn Chính kiểm tra ghim Phố 3 Phan Đình Phùng hiện trên Bản đồ Đà Lạt
+    await page.getByTestId('btn-pause-toggle').click();
+    await page.getByTestId('btn-pause-title').click();
+    const pdpPin = page.getByTestId('real-street-pin-street_phan_dinh_phung');
+    await expect(pdpPin).toBeVisible();
+    await pdpPin.scrollIntoViewIfNeeded();
+    await pdpPin.click();
+    await expect(page.getByTestId('real-street-detail')).toContainText('Phố Phan Đình Phùng');
+
+    expect(consoleErrors).toEqual([]);
+    expect(externalRequests).toEqual([]);
+  });
 });

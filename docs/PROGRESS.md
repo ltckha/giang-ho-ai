@@ -1,3 +1,4 @@
+VIỆC 10 NỀN PHỐ 3 XONG
 VIỆC 9 PHỐ THẬT XONG
 VIỆC 8 TRÙM PHỐ XONG
 VIỆC 7 CHUỖI TƯƠNG SINH XONG
@@ -11,7 +12,24 @@ LÀM ĐẸP XONG
 
 # Tiến độ phát triển — Gọn Tiệm, Sạch Phố ("Ngũ hành giữ tiệm")
 
-Cập nhật: 23/11/2026 • Nhánh: `main` • Trạng thái hiện tại: **Đã hoàn thành trọn vẹn Việc 6 (Gọn chữ bảng trang bị), Việc 7 (Chuỗi tương sinh & Ngũ hành viên mãn trên sân), Việc 8 (Trận trùm phố Dốc Đà Lạt + Bão Lốc 5 màu + bảng chọn 6/15 món + huy hiệu vàng *Giữ trọn phố*) và Việc 9 (2 Phố thật Đà Lạt: Tăng Bạt Hổ – Trương Công Định & Phố Cà Phê, bản đồ ghi nguồn OSM, 18 món × 4 bậc + 14 quái vẽ riêng vào `streets_atlas.webp`, xoá hình tạm trong `atlasIcons.ts`, thêm 2 ghim trên Bản đồ Đà Lạt). Không sửa bất kỳ tệp nào trong `src/core/`.**
+Cập nhật: 23/11/2026 • Nhánh: `main` • Trạng thái hiện tại: **Đã hoàn thành Việc 10 (Nền bản đồ vector Phố 3 Phan Đình Phùng – Cầu Quẹo `public/assets/map_street_phan_dinh_phung.webp`, nối vào `STREET_MAP_KEYS` & `REAL_STREET_MAP_PINS`, giữ nguyên 100% `src/core/`, `art/spark/` và `public/assets/spark_atlas.*`) cùng trọn vẹn Việc 6–9.**
+
+---
+
+## 0F. Việc 10 — Nền Phố 3 Phan Đình Phùng (Cầu Quẹo) — Đã hoàn thành (Antigravity)
+
+- **Nền bản đồ `public/assets/map_street_phan_dinh_phung.webp` (`720×1040`, 71.7 KB, sinh từ `scripts/build_street_maps.py`):**
+  - Bám chính xác đường đi (`stage.paths`) và 11 ô đặt món (`stage.pads`) trong `src/core/streets/generated/street_phan_dinh_phung.json`.
+  - Vẽ đủ cảnh phố cũ xóm Cầu Quẹo buổi sáng Đà Lạt cùng nét với 2 phố thật trước: **Quán Phở Sáng**, **Nhà Thuốc Atiso**, **Salon Tóc Mai Anh Đào**, **Nhà Sách Thông Ba Lá**, **Studio Ảnh Cưới Cẩm Tú Cầu**, **Tiệm Xe Máy Phố Núi**, dòng suối & lan can đá nhỏ **Cầu Quẹo**, và cảnh **góc trái dưới** đầy đặn gồm **dãy nhà phố cũ**, **chợ nhỏ xóm Cầu Quẹo** và **rặng thông xanh**, kèm dòng `"© OpenStreetMap contributors"` rõ nét.
+- **Gắn vào game (`src/game/atlasIcons.ts`, `src/scenes/BootScene.ts`, `src/scenes/TitleScene.ts`, `src/game/shopStreetArt.ts`):**
+  - Thêm `street_phan_dinh_phung: 'map_street_phan_dinh_phung'` vào `STREET_MAP_KEYS` và lời tải vào `BootScene.ts`.
+  - Ghim Phố 3 trên `REAL_STREET_MAP_PINS` cùng nhánh đường Cầu Quẹo trên Bản đồ Đà Lạt SVG.
+  - **Không sửa** `src/core/`, `art/spark/`, `public/assets/spark_atlas.*` — giữ nguyên hình Spark cho món & quái Phố 3.
+
+| Cảnh Phố 3 (`/#street_phan_dinh_phung`, `390×844`) | Ảnh kiểm chứng |
+|---|---|
+| Bảng đặt món Spark & nền Phố Phan Đình Phùng | ![Phố 3 bảng đặt món](screenshots/v10_phan_dinh_phung_build.png) |
+| Giao tranh đường Cầu Quẹo, chợ nhỏ & dãy nhà cũ góc trái dưới | ![Phố 3 giao tranh](screenshots/v10_phan_dinh_phung_combat.png) |
 
 ---
 

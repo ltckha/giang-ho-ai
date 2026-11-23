@@ -437,13 +437,16 @@ export function renderDalatMapBgSvg(unlocked: boolean): string {
         <circle cx="176" cy="158" r="10"/><circle cx="190" cy="164" r="8"/>
       </g>
 
-      <!-- Mạng đường dốc Đà Lạt nối Chợ Đà Lạt -> Tăng Bạt Hổ -> Phố Cà Phê Khu Hoà Bình -->
+      <!-- Mạng đường dốc Đà Lạt nối Chợ Đà Lạt -> Tăng Bạt Hổ -> Phố Cà Phê & nhánh Phan Đình Phùng (Cầu Quẹo) -->
+      <path d="M124 88 Q96 68 68 54 Q46 44 26 52" fill="none" stroke="${INK}" stroke-width="9.5" stroke-linecap="round"/>
+      <path d="M124 88 Q96 68 68 54 Q46 44 26 52" fill="none" stroke="${unlocked ? '#efe0be' : '#a6ada8'}" stroke-width="6" stroke-linecap="round"/>
       <path d="M36 130 Q84 106 124 88 Q166 68 228 62 Q278 58 318 82" fill="none" stroke="${INK}" stroke-width="11" stroke-linecap="round"/>
       <path d="M36 130 Q84 106 124 88 Q166 68 228 62 Q278 58 318 82" fill="none" stroke="${unlocked ? '#f3e3c3' : '#aeb5b0'}" stroke-width="7" stroke-linecap="round"/>
       <path d="M124 88 Q144 120 186 128 Q232 136 266 116" fill="none" stroke="${INK}" stroke-width="9" stroke-linecap="round"/>
       <path d="M124 88 Q144 120 186 128 Q232 136 266 116" fill="none" stroke="${unlocked ? '#efe0be' : '#a6ada8'}" stroke-width="5.5" stroke-linecap="round"/>
       <!-- Nét đứt chỉ dẫn tuyến phố -->
       <path d="M56 120 Q116 92 228 62" fill="none" stroke="#9b784f" stroke-width="1.6" stroke-dasharray="5 5"/>
+      <path d="M120 85 Q92 66 56 50" fill="none" stroke="#9b784f" stroke-width="1.4" stroke-dasharray="4 4"/>
 
       <!-- Biểu tượng nhỏ Chợ Đà Lạt ở gần góc trái dưới đường -->
       <g transform="translate(56 128)">

@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """
-Vẽ 3 nền bản đồ vector SVG + ghép Pillow (720x1040 = 2x khung logic 360x520):
+Vẽ 4 nền bản đồ vector SVG + ghép Pillow (720x1040 = 2x khung logic 360x520):
 1. `public/assets/map_trum_pho.webp` (Việc 8 — Trận trùm phố Dốc Đà Lạt, khớp `STAGE_4_DEFINITION`)
 2. `public/assets/map_street_tang_bat_ho.webp` (Việc 9 — Phố Tăng Bạt Hổ – Trương Công Định, khớp `street_tang_bat_ho.json`)
 3. `public/assets/map_street_pho_ca_phe.webp` (Việc 9 — Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành, khớp `street_pho_ca_phe.json`)
+4. `public/assets/map_street_phan_dinh_phung.webp` (Việc 10 — Phố Phan Đình Phùng (Cầu Quẹo), khớp `street_phan_dinh_phung.json`)
 
-Cả 2 phố thật đều ghi rõ "© OpenStreetMap contributors" ở góc dưới nền.
+Các phố thật đều ghi rõ "© OpenStreetMap contributors" ở góc dưới nền.
 Tất cả đạo cụ render từ vector SVG viền nâu đậm (#2b1a12) bằng `scripts/render_svgs.mjs`.
 """
 
@@ -342,6 +343,261 @@ def write_map_prop_svgs():
       <circle cx="65" cy="65" r="16" fill="#5c3317"/>
       <path d="M58 60 Q65 55 72 60" stroke="#d9a574" stroke-width="3" fill="none" stroke-linecap="round"/>
       <circle cx="96" cy="36" r="8" fill="#ffe066" stroke="#2b1a12" stroke-width="2.5"/>
+    </svg>"""
+
+    # 15. Ô đặt món lát gạch gốm cổ ấm (Phố Phan Đình Phùng — Cầu Quẹo)
+    svgs["street_pad_old_town"] = """<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+      <circle cx="60" cy="63" r="49" fill="#2b1a12" opacity="0.34"/>
+      <circle cx="60" cy="60" r="48" fill="#9a5b3c" stroke="#2b1a12" stroke-width="5"/>
+      <circle cx="60" cy="60" r="40" fill="#efe0be" stroke="#7d4a2d" stroke-width="3.2"/>
+      <circle cx="60" cy="60" r="31" fill="#f9eed6" stroke="#c4945c" stroke-width="2.2" stroke-dasharray="8 6"/>
+      <circle cx="60" cy="60" r="20" fill="#fff7e6" opacity="0.72"/>
+    </svg>"""
+
+    # 16. Quán Phở Sáng (Phở Sương Mai — nồi nước lèo bốc hơi, 2 tô phở nóng, mái ngói cũ)
+    svgs["pho_morning_shop"] = """<svg xmlns="http://www.w3.org/2000/svg" width="220" height="156" viewBox="0 0 220 156">
+      <rect x="14" y="16" width="194" height="128" rx="12" fill="#2b1a12" opacity="0.28"/>
+      <!-- Mái ngói nâu đỏ Đà Lạt xưa -->
+      <rect x="10" y="10" width="194" height="68" rx="10" fill="#9e4328" stroke="#2b1a12" stroke-width="5"/>
+      <path d="M12 34 L202 34 M12 56 L202 56" stroke="#6b2917" stroke-width="2.8" opacity="0.65"/>
+      <path d="M44 10 L44 78 M86 10 L86 78 M128 10 L128 78 M170 10 L170 78" stroke="#742e1b" stroke-width="2.2" opacity="0.55"/>
+      <!-- Biển tròn tô phở bốc khói trên mái -->
+      <circle cx="106" cy="42" r="21" fill="#fff6d6" stroke="#2b1a12" stroke-width="4"/>
+      <path d="M92 43 Q106 54 120 43 Z" fill="#e53935" stroke="#2b1a12" stroke-width="2.4"/>
+      <ellipse cx="106" cy="42" rx="14" ry="4.5" fill="#fde68a" stroke="#2b1a12" stroke-width="2"/>
+      <path d="M98 32 Q100 26 98 22 M106 31 Q109 25 106 20 M114 32 Q116 26 114 22" fill="none" stroke="#a85528" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Mái hiên sọc vàng kem -->
+      <path d="M6 74 L208 74 L214 98 L2 98 Z" fill="#fff3d1" stroke="#2b1a12" stroke-width="4.5" stroke-linejoin="round"/>
+      <path d="M24 74 L20 98 L50 98 L52 74 Z M78 74 L76 98 L106 98 L108 74 Z M132 74 L134 98 L164 98 L160 74 Z M184 74 L188 98 L208 98 L202 74 Z" fill="#d97724"/>
+      <!-- Sân hiên: nồi nước lèo đồng + 2 bàn gỗ có tô phở hành xanh -->
+      <rect x="16" y="98" width="182" height="44" rx="7" fill="#e3c391" stroke="#2b1a12" stroke-width="4"/>
+      <!-- Nồi nước lèo tròn to góc trái -->
+      <circle cx="52" cy="120" r="17" fill="#d48836" stroke="#2b1a12" stroke-width="3.5"/>
+      <circle cx="52" cy="120" r="11" fill="#fff2b2" stroke="#2b1a12" stroke-width="2"/>
+      <circle cx="48" cy="118" r="2.5" fill="#2f9e44"/>
+      <circle cx="56" cy="122" r="2.5" fill="#2f9e44"/>
+      <!-- 2 bàn gỗ & tô phở sáng -->
+      <rect x="86" y="106" width="44" height="28" rx="5" fill="#a86a38" stroke="#2b1a12" stroke-width="3"/>
+      <circle cx="98" cy="120" r="7" fill="#fffef5" stroke="#2b1a12" stroke-width="2"/>
+      <circle cx="98" cy="120" r="3" fill="#52b768"/>
+      <circle cx="118" cy="120" r="7" fill="#fffef5" stroke="#2b1a12" stroke-width="2"/>
+      <circle cx="118" cy="120" r="3" fill="#52b768"/>
+      <rect x="142" y="106" width="44" height="28" rx="5" fill="#a86a38" stroke="#2b1a12" stroke-width="3"/>
+      <circle cx="156" cy="120" r="7" fill="#fffef5" stroke="#2b1a12" stroke-width="2"/>
+      <circle cx="174" cy="120" r="5" fill="#ffe066" stroke="#2b1a12" stroke-width="2"/>
+    </svg>"""
+
+    # 17. Nhà Thuốc Atiso (mái xanh ngọc xưa, dấu chữ thập xanh y tế, tủ thuốc kính & lọ thảo dược)
+    svgs["pharmacy_shop"] = """<svg xmlns="http://www.w3.org/2000/svg" width="200" height="154" viewBox="0 0 200 154">
+      <rect x="14" y="16" width="176" height="126" rx="12" fill="#2b1a12" opacity="0.28"/>
+      <!-- Mái ngói xanh lục đậm Đà Lạt -->
+      <rect x="10" y="10" width="176" height="72" rx="10" fill="#2e7a62" stroke="#2b1a12" stroke-width="5"/>
+      <path d="M12 34 L184 34 M12 58 L184 58" stroke="#1e5443" stroke-width="2.6" opacity="0.65"/>
+      <!-- Biển tròn chữ thập xanh lá y tế (không chữ nước ngoài) -->
+      <circle cx="98" cy="46" r="22" fill="#f0fdf4" stroke="#2b1a12" stroke-width="4"/>
+      <rect x="92" y="32" width="12" height="28" rx="3" fill="#16a34a" stroke="#2b1a12" stroke-width="2"/>
+      <rect x="84" y="40" width="28" height="12" rx="3" fill="#16a34a" stroke="#2b1a12" stroke-width="2"/>
+      <!-- Mái hiên trắng-xanh sạch sẽ -->
+      <path d="M6 76 L190 76 L194 98 L2 98 Z" fill="#f0fdf4" stroke="#2b1a12" stroke-width="4.5" stroke-linejoin="round"/>
+      <path d="M24 76 L20 98 L48 98 L50 76 Z M78 76 L76 98 L104 98 L106 76 Z M132 76 L134 98 L162 98 L158 76 Z" fill="#38a169"/>
+      <!-- Quầy tủ thuốc kính sáng đèn & hũ thảo dược Atiso -->
+      <rect x="18" y="98" width="160" height="42" rx="7" fill="#d9f4e6" stroke="#2b1a12" stroke-width="4"/>
+      <rect x="28" y="108" width="44" height="22" rx="4" fill="#ffffff" stroke="#2b1a12" stroke-width="2.5"/>
+      <circle cx="40" cy="119" r="5" fill="#4ade80" stroke="#2b1a12" stroke-width="1.8"/>
+      <circle cx="58" cy="119" r="5" fill="#fb923c" stroke="#2b1a12" stroke-width="1.8"/>
+      <rect x="84" y="108" width="82" height="22" rx="4" fill="#fffbeb" stroke="#2b1a12" stroke-width="2.5"/>
+      <rect x="92" y="113" width="12" height="12" rx="2" fill="#38bdf8" stroke="#2b1a12" stroke-width="1.5"/>
+      <rect x="110" y="113" width="12" height="12" rx="2" fill="#4ade80" stroke="#2b1a12" stroke-width="1.5"/>
+      <rect x="128" y="113" width="12" height="12" rx="2" fill="#facc15" stroke="#2b1a12" stroke-width="1.5"/>
+      <rect x="146" y="113" width="12" height="12" rx="2" fill="#fb7185" stroke="#2b1a12" stroke-width="1.5"/>
+    </svg>"""
+
+    # 18. Salon Tóc Mai Anh Đào (mái hồng đất Đà Lạt, trụ đèn xoay sọc xanh-đỏ, biển cây kéo)
+    svgs["hair_salon_shop"] = """<svg xmlns="http://www.w3.org/2000/svg" width="210" height="154" viewBox="0 0 210 154">
+      <rect x="14" y="16" width="184" height="126" rx="12" fill="#2b1a12" opacity="0.28"/>
+      <!-- Mái ngói màu hồng đào trầm ấm -->
+      <rect x="10" y="10" width="184" height="72" rx="10" fill="#b85a68" stroke="#2b1a12" stroke-width="5"/>
+      <path d="M12 34 L192 34 M12 58 L192 58" stroke="#853c48" stroke-width="2.6" opacity="0.65"/>
+      <!-- Biển tròn cây kéo cắt tóc -->
+      <circle cx="102" cy="46" r="22" fill="#fff5f5" stroke="#2b1a12" stroke-width="4"/>
+      <line x1="90" y1="36" x2="114" y2="54" stroke="#475569" stroke-width="4" stroke-linecap="round"/>
+      <line x1="114" y1="36" x2="90" y2="54" stroke="#475569" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="91" cy="54" r="5" fill="#fb7185" stroke="#2b1a12" stroke-width="2"/>
+      <circle cx="113" cy="54" r="5" fill="#fb7185" stroke="#2b1a12" stroke-width="2"/>
+      <!-- Mái hiên sọc kem-hồng -->
+      <path d="M6 76 L198 76 L202 98 L2 98 Z" fill="#fff5f7" stroke="#2b1a12" stroke-width="4.5" stroke-linejoin="round"/>
+      <path d="M24 76 L20 98 L48 98 L50 76 Z M78 76 L76 98 L104 98 L106 76 Z M132 76 L134 98 L162 98 L158 76 Z M178 76 L182 98 L198 98 L192 76 Z" fill="#e06c82"/>
+      <!-- Cửa kính tiệm tóc + 2 ghế xoay & trụ đèn barber sọc đỏ-trắng-xanh -->
+      <rect x="18" y="98" width="168" height="42" rx="7" fill="#fde2e4" stroke="#2b1a12" stroke-width="4"/>
+      <!-- Trụ đèn xoay tiệm tóc bên trái -->
+      <rect x="26" y="102" width="16" height="34" rx="7" fill="#ffffff" stroke="#2b1a12" stroke-width="3"/>
+      <path d="M27 110 L41 104 M27 120 L41 114 M27 130 L41 124" stroke="#ef4444" stroke-width="4"/>
+      <path d="M27 115 L41 109 M27 125 L41 119" stroke="#2563eb" stroke-width="3"/>
+      <!-- 2 ghế cắt tóc & gương sáng -->
+      <rect x="54" y="106" width="122" height="26" rx="5" fill="#fffbeb" stroke="#2b1a12" stroke-width="2.5"/>
+      <circle cx="84" cy="119" r="9" fill="#d9778c" stroke="#2b1a12" stroke-width="2.2"/>
+      <circle cx="122" cy="119" r="9" fill="#d9778c" stroke="#2b1a12" stroke-width="2.2"/>
+      <circle cx="156" cy="119" r="8" fill="#52b768" stroke="#2b1a12" stroke-width="2"/>
+    </svg>"""
+
+    # 19. Nhà Sách Thông Ba Lá (nhà vàng nghệ cổ Đà Lạt, biển quyển sách mở, tủ sách rực rỡ)
+    svgs["bookstore_shop"] = """<svg xmlns="http://www.w3.org/2000/svg" width="200" height="162" viewBox="0 0 200 162">
+      <rect x="14" y="16" width="176" height="134" rx="12" fill="#2b1a12" opacity="0.28"/>
+      <!-- Mái nhà vàng nghệ & ngói nâu xưa -->
+      <rect x="10" y="10" width="176" height="76" rx="10" fill="#c98934" stroke="#2b1a12" stroke-width="5"/>
+      <path d="M12 46 L184 46" stroke="#8f5a1d" stroke-width="4"/>
+      <path d="M44 10 L44 86 M82 10 L82 86 M120 10 L120 86 M156 10 L156 86" stroke="#9e6622" stroke-width="2.2" opacity="0.65"/>
+      <!-- Biển tròn quyển sách mở -->
+      <circle cx="98" cy="48" r="23" fill="#fffbeb" stroke="#2b1a12" stroke-width="4"/>
+      <path d="M80 42 Q89 37 98 43 Q107 37 116 42 L116 56 Q107 51 98 56 Q89 51 80 56 Z" fill="#fef08a" stroke="#2b1a12" stroke-width="2.6" stroke-linejoin="round"/>
+      <line x1="98" y1="43" x2="98" y2="56" stroke="#2b1a12" stroke-width="2.2"/>
+      <!-- Mái hiên xanh thông -->
+      <path d="M6 80 L190 80 L194 102 L2 102 Z" fill="#faf0da" stroke="#2b1a12" stroke-width="4.5" stroke-linejoin="round"/>
+      <path d="M24 80 L20 102 L48 102 L50 80 Z M78 80 L76 102 L104 102 L106 80 Z M132 80 L134 102 L162 102 L158 80 Z" fill="#3a7d4c"/>
+      <!-- Kệ sách trưng bày đầy gáy sách màu -->
+      <rect x="16" y="102" width="164" height="44" rx="7" fill="#f5deb3" stroke="#2b1a12" stroke-width="4"/>
+      <rect x="26" y="110" width="108" height="28" rx="4" fill="#7c4720" stroke="#2b1a12" stroke-width="2.5"/>
+      <rect x="32" y="114" width="11" height="20" rx="2" fill="#ef4444" stroke="#2b1a12" stroke-width="1.5"/>
+      <rect x="46" y="114" width="11" height="20" rx="2" fill="#38bdf8" stroke="#2b1a12" stroke-width="1.5"/>
+      <rect x="60" y="114" width="11" height="20" rx="2" fill="#facc15" stroke="#2b1a12" stroke-width="1.5"/>
+      <rect x="74" y="114" width="11" height="20" rx="2" fill="#4ade80" stroke="#2b1a12" stroke-width="1.5"/>
+      <rect x="88" y="114" width="11" height="20" rx="2" fill="#fb923c" stroke="#2b1a12" stroke-width="1.5"/>
+      <rect x="102" y="114" width="11" height="20" rx="2" fill="#a855f7" stroke="#2b1a12" stroke-width="1.5"/>
+      <rect x="116" y="114" width="11" height="20" rx="2" fill="#fb7185" stroke="#2b1a12" stroke-width="1.5"/>
+      <!-- Chậu cây thông nhỏ bên cửa nhà sách -->
+      <circle cx="158" cy="124" r="14" fill="#48995a" stroke="#2b1a12" stroke-width="3"/>
+      <circle cx="154" cy="120" r="6" fill="#74c67a"/>
+    </svg>"""
+
+    # 20. Studio Ảnh Cưới Cẩm Tú Cầu (mái xanh xám cổ điển, biển máy ảnh, khung kính váy cưới & hoa cẩm tú cầu)
+    svgs["wedding_studio_shop"] = """<svg xmlns="http://www.w3.org/2000/svg" width="224" height="158" viewBox="0 0 224 158">
+      <rect x="14" y="16" width="198" height="130" rx="12" fill="#2b1a12" opacity="0.28"/>
+      <!-- Mái ngói xanh lam dịu kiểu biệt thự ảnh cưới Đà Lạt -->
+      <rect x="10" y="10" width="198" height="74" rx="10" fill="#5e7e99" stroke="#2b1a12" stroke-width="5"/>
+      <path d="M12 36 L206 36 M12 60 L206 60" stroke="#3f5a70" stroke-width="2.6" opacity="0.65"/>
+      <!-- Biển tròn máy ảnh cổ điển -->
+      <circle cx="109" cy="46" r="23" fill="#fffaf0" stroke="#2b1a12" stroke-width="4"/>
+      <rect x="93" y="38" width="32" height="20" rx="4" fill="#334155" stroke="#2b1a12" stroke-width="2.5"/>
+      <rect x="101" y="33" width="14" height="6" rx="2" fill="#475569" stroke="#2b1a12" stroke-width="2"/>
+      <circle cx="109" cy="48" r="7" fill="#7dd3fc" stroke="#2b1a12" stroke-width="2.2"/>
+      <circle cx="107" cy="46" r="2.2" fill="#ffffff"/>
+      <!-- Mái hiên trắng kem viền vàng + dây đèn ấm -->
+      <path d="M6 78 L212 78 L216 100 L2 100 Z" fill="#fffaf0" stroke="#2b1a12" stroke-width="4.5" stroke-linejoin="round"/>
+      <circle cx="34" cy="90" r="4.5" fill="#fde047" stroke="#2b1a12" stroke-width="1.5"/>
+      <circle cx="72" cy="90" r="4.5" fill="#fde047" stroke="#2b1a12" stroke-width="1.5"/>
+      <circle cx="110" cy="90" r="4.5" fill="#fde047" stroke="#2b1a12" stroke-width="1.5"/>
+      <circle cx="148" cy="90" r="4.5" fill="#fde047" stroke="#2b1a12" stroke-width="1.5"/>
+      <circle cx="186" cy="90" r="4.5" fill="#fde047" stroke="#2b1a12" stroke-width="1.5"/>
+      <!-- Cửa kính trưng bày váy cưới & bó cẩm tú cầu xanh -->
+      <rect x="16" y="100" width="186" height="44" rx="7" fill="#f8edf2" stroke="#2b1a12" stroke-width="4"/>
+      <!-- Khung váy cưới trắng tinh -->
+      <rect x="28" y="106" width="54" height="32" rx="5" fill="#fffbeb" stroke="#d4a373" stroke-width="2.5"/>
+      <path d="M55 110 L43 134 L67 134 Z" fill="#ffffff" stroke="#2b1a12" stroke-width="2"/>
+      <circle cx="55" cy="112" r="4" fill="#fde68a" stroke="#2b1a12" stroke-width="1.5"/>
+      <!-- Khung ảnh cưới + trái tim hồng -->
+      <rect x="92" y="106" width="52" height="32" rx="5" fill="#e0f2fe" stroke="#2b1a12" stroke-width="2.5"/>
+      <circle cx="118" cy="122" r="9" fill="#fb7185" stroke="#2b1a12" stroke-width="2"/>
+      <circle cx="118" cy="122" r="4" fill="#fff5f5"/>
+      <!-- Chậu cẩm tú cầu xanh lam -->
+      <circle cx="174" cy="122" r="15" fill="#4ea353" stroke="#2b1a12" stroke-width="3"/>
+      <circle cx="170" cy="118" r="6" fill="#60a5fa"/>
+      <circle cx="179" cy="120" r="6" fill="#93c5fd"/>
+      <circle cx="174" cy="127" r="5.5" fill="#bfdbfe"/>
+    </svg>"""
+
+    # 21. Tiệm Xe Máy Phố Núi (mái tôn xanh xám, biển bánh xe + cờ lê, 2 xe máy đậu trước sân)
+    svgs["motorbike_shop"] = """<svg xmlns="http://www.w3.org/2000/svg" width="204" height="158" viewBox="0 0 204 158">
+      <rect x="14" y="16" width="180" height="130" rx="12" fill="#2b1a12" opacity="0.28"/>
+      <!-- Mái tôn xưởng xe máy xám xanh -->
+      <rect x="10" y="10" width="180" height="72" rx="10" fill="#526478" stroke="#2b1a12" stroke-width="5"/>
+      <path d="M36 10 L36 82 M66 10 L66 82 M96 10 L96 82 M126 10 L126 82 M156 10 L156 82" stroke="#394757" stroke-width="2.6" opacity="0.7"/>
+      <!-- Biển tròn bánh xe & cờ lê -->
+      <circle cx="100" cy="46" r="22" fill="#e2e8f0" stroke="#2b1a12" stroke-width="4"/>
+      <circle cx="100" cy="46" r="13" fill="none" stroke="#334155" stroke-width="4"/>
+      <line x1="88" y1="46" x2="112" y2="46" stroke="#334155" stroke-width="2.5"/>
+      <line x1="100" y1="34" x2="100" y2="58" stroke="#334155" stroke-width="2.5"/>
+      <circle cx="100" cy="46" r="4" fill="#f59e0b" stroke="#2b1a12" stroke-width="1.8"/>
+      <!-- Sân bê tông phía trước + 2 xe máy & thùng đồ nghề đỏ -->
+      <rect x="14" y="84" width="172" height="60" rx="8" fill="#8b8882" stroke="#2b1a12" stroke-width="4.5"/>
+      <!-- Xe máy đỏ nhìn từ trên -->
+      <g stroke="#2b1a12" stroke-width="3">
+        <rect x="34" y="96" width="24" height="36" rx="8" fill="#ef4444"/>
+        <line x1="26" y1="104" x2="66" y2="104" stroke-width="4.2" stroke-linecap="round"/>
+        <!-- Xe máy xanh dương -->
+        <rect x="88" y="96" width="24" height="36" rx="8" fill="#38bdf8"/>
+        <line x1="80" y1="104" x2="120" y2="104" stroke-width="4.2" stroke-linecap="round"/>
+      </g>
+      <!-- Lốp xe dự phòng & hộp đồ nghề đỏ góc phải -->
+      <circle cx="154" cy="106" r="13" fill="#334155" stroke="#2b1a12" stroke-width="3"/>
+      <circle cx="154" cy="106" r="6" fill="#94a3b8"/>
+      <rect x="138" y="124" width="32" height="14" rx="3" fill="#dc2626" stroke="#2b1a12" stroke-width="2.5"/>
+    </svg>"""
+
+    # 22. Dãy nhà phố cũ Xóm Cầu Quẹo (2 căn nhà phố xưa liền kề mái ngói đỏ & tường vàng/xanh cốm Đà Lạt)
+    svgs["old_townhouse_row"] = """<svg xmlns="http://www.w3.org/2000/svg" width="248" height="164" viewBox="0 0 248 164">
+      <rect x="14" y="16" width="222" height="134" rx="12" fill="#2b1a12" opacity="0.28"/>
+      <!-- Căn 1 (trái): nhà cũ tường vàng nhạt, mái ngói đỏ rêu -->
+      <rect x="10" y="10" width="110" height="86" rx="8" fill="#b34d30" stroke="#2b1a12" stroke-width="5"/>
+      <path d="M12 52 L118 52" stroke="#782f1b" stroke-width="4.5"/>
+      <path d="M36 10 L36 96 M64 10 L64 96 M92 10 L92 96" stroke="#85351f" stroke-width="2.2" opacity="0.65"/>
+      <rect x="26" y="22" width="28" height="22" rx="4" fill="#ffe699" stroke="#2b1a12" stroke-width="3"/>
+      <rect x="14" y="96" width="102" height="48" rx="6" fill="#f3d88e" stroke="#2b1a12" stroke-width="4"/>
+      <rect x="24" y="106" width="30" height="26" rx="4" fill="#3e7c59" stroke="#2b1a12" stroke-width="2.5"/>
+      <rect x="64" y="106" width="40" height="26" rx="4" fill="#ffe082" stroke="#2b1a12" stroke-width="2.5"/>
+      <!-- Căn 2 (phải): nhà gỗ-tôn xanh cổ, ban công trồng hoa -->
+      <rect x="122" y="16" width="110" height="80" rx="8" fill="#6b523b" stroke="#2b1a12" stroke-width="5"/>
+      <path d="M124 56 L230 56" stroke="#453323" stroke-width="4.5"/>
+      <path d="M150 16 L150 96 M178 16 L178 96 M206 16 L206 96" stroke="#4f3b29" stroke-width="2.2" opacity="0.65"/>
+      <rect x="184" y="26" width="26" height="22" rx="4" fill="#ffd166" stroke="#2b1a12" stroke-width="3"/>
+      <rect x="126" y="96" width="102" height="48" rx="6" fill="#d9e5c8" stroke="#2b1a12" stroke-width="4"/>
+      <rect x="136" y="106" width="42" height="26" rx="4" fill="#fff0b3" stroke="#2b1a12" stroke-width="2.5"/>
+      <!-- Bồn hoa nhỏ trước hiên -->
+      <circle cx="198" cy="122" r="14" fill="#4ea353" stroke="#2b1a12" stroke-width="2.8"/>
+      <circle cx="194" cy="118" r="4.5" fill="#fb7185"/>
+      <circle cx="203" cy="120" r="4.5" fill="#facc15"/>
+      <circle cx="198" cy="127" r="4" fill="#fb923c"/>
+    </svg>"""
+
+    # 23. Chợ nhỏ xóm Cầu Quẹo (góc trái dưới: sân lát đá, 2 sạp bạt sọc rau củ hoa Đà Lạt, thúng mủng)
+    svgs["cau_queo_mini_market"] = """<svg xmlns="http://www.w3.org/2000/svg" width="272" height="218" viewBox="0 0 272 218">
+      <rect x="12" y="14" width="248" height="194" rx="16" fill="#2b1a12" opacity="0.24"/>
+      <!-- Sân chợ nhỏ lát gạch ấm -->
+      <rect x="8" y="8" width="252" height="196" rx="14" fill="#d9c6a3" stroke="#2b1a12" stroke-width="5"/>
+      <path d="M14 54 L254 54 M14 102 L254 102 M14 150 L254 150" stroke="#bba279" stroke-width="2.2" opacity="0.6"/>
+      <path d="M72 14 L72 198 M136 14 L136 198 M200 14 L200 198" stroke="#bba279" stroke-width="2.2" opacity="0.6"/>
+      <!-- Sạp 1 trên (bạt sọc đỏ-kem: dâu tây, cà rốt, bắp cải Đà Lạt) -->
+      <rect x="22" y="22" width="114" height="72" rx="8" fill="#fff0d4" stroke="#2b1a12" stroke-width="4.5"/>
+      <path d="M22 22 L46 22 L46 60 L22 60 Z M70 22 L94 22 L94 60 L70 60 Z M116 22 L136 22 L136 60 L116 60 Z" fill="#d64933"/>
+      <line x1="22" y1="60" x2="136" y2="60" stroke="#2b1a12" stroke-width="3.5"/>
+      <!-- Mẹt rau củ quả trước sạp 1 -->
+      <circle cx="44" cy="77" r="12" fill="#4ea353" stroke="#2b1a12" stroke-width="2.5"/>
+      <circle cx="78" cy="77" r="12" fill="#fb923c" stroke="#2b1a12" stroke-width="2.5"/>
+      <circle cx="112" cy="77" r="12" fill="#ef4444" stroke="#2b1a12" stroke-width="2.5"/>
+      <!-- Sạp 2 phải (bạt sọc xanh lá-kem: hoa tươi Đà Lạt & mứt) -->
+      <rect x="150" y="24" width="96" height="82" rx="8" fill="#f4fbe8" stroke="#2b1a12" stroke-width="4.5"/>
+      <path d="M150 24 L174 24 L174 68 L150 68 Z M198 24 L222 24 L222 68 L198 68 Z" fill="#3a8d54"/>
+      <line x1="150" y1="68" x2="246" y2="68" stroke="#2b1a12" stroke-width="3.5"/>
+      <circle cx="174" cy="87" r="12" fill="#facc15" stroke="#2b1a12" stroke-width="2.5"/>
+      <circle cx="204" cy="87" r="12" fill="#60a5fa" stroke="#2b1a12" stroke-width="2.5"/>
+      <circle cx="230" cy="87" r="10" fill="#fb7185" stroke="#2b1a12" stroke-width="2.5"/>
+      <!-- Sạp 3 dưới trái (ô tròn xanh-vàng & 3 thúng mủng tre) -->
+      <circle cx="82" cy="154" r="36" fill="#fff5d6" stroke="#2b1a12" stroke-width="4.5"/>
+      <path d="M82 154 L82 118 A36 36 0 0 1 113 136 Z" fill="#3b82f6"/>
+      <path d="M82 154 L113 172 A36 36 0 0 1 82 190 Z" fill="#3b82f6"/>
+      <path d="M82 154 L51 172 A36 36 0 0 1 51 136 Z" fill="#3b82f6"/>
+      <circle cx="82" cy="154" r="6" fill="#d97706" stroke="#2b1a12" stroke-width="2.5"/>
+      <!-- Các thúng tre & sọt hàng bên phải -->
+      <circle cx="164" cy="154" r="19" fill="#d4a36a" stroke="#2b1a12" stroke-width="3.5"/>
+      <circle cx="164" cy="154" r="12" fill="#68ba76"/>
+      <circle cx="212" cy="154" r="19" fill="#d4a36a" stroke="#2b1a12" stroke-width="3.5"/>
+      <circle cx="212" cy="154" r="12" fill="#f59e0b"/>
+      <circle cx="188" cy="182" r="13" fill="#d4a36a" stroke="#2b1a12" stroke-width="3"/>
+      <circle cx="188" cy="182" r="7" fill="#ef4444"/>
+      <!-- Dây đèn vàng chợ sớm -->
+      <path d="M22 110 Q136 128 246 112" fill="none" stroke="#2b1a12" stroke-width="2"/>
+      <circle cx="64" cy="117" r="4.5" fill="#ffe066"/>
+      <circle cx="136" cy="121" r="5" fill="#ffe066"/>
+      <circle cx="208" cy="117" r="4.5" fill="#ffe066"/>
     </svg>"""
 
     for name, content in svgs.items():
@@ -746,12 +1002,150 @@ def build_pho_ca_phe_map(props: dict[str, Image.Image]):
     print(f"Saved {out_path.name}: {out_path.stat().st_size / 1024:.1f} KB")
 
 
+def build_phan_dinh_phung_map(props: dict[str, Image.Image]):
+    """Việc 10: Phố Phan Đình Phùng (Cầu Quẹo) — phố cũ xóm Cầu Quẹo, 6 tiệm dân sinh, dãy nhà cũ, cây thông, chợ nhỏ."""
+    paths, pads = load_street_json("street_phan_dinh_phung.json")
+
+    bg = Image.new("RGBA", (W, H), (146, 134, 114, 255))
+    d = ImageDraw.Draw(bg)
+
+    # Nền phố cũ xóm Cầu Quẹo buổi sáng Đà Lạt: đá vỉa hè nâu rêu ấm dịu chuyển sang sắc đất đồi xanh nhẹ
+    for y in range(H):
+        t = y / H
+        r = int(146 - t * 14)
+        g = int(138 - t * 4)
+        b = int(116 - t * 14)
+        d.line([(0, y), (W, y)], fill=(r, g, b, 255))
+
+    # Gạch vỉa hè phố cũ Đà Lạt đều mắt, nổi bật các món Spark & đường cong Cầu Quẹo
+    tile_w, tile_h = 44, 32
+    for r_i, y in enumerate(range(0, H + tile_h, tile_h)):
+        x_off = (r_i % 2) * 22
+        for c_i, x in enumerate(range(-22 + x_off, W + tile_w, tile_w)):
+            shade = ((r_i * 5 + c_i * 3) % 3) * 4 - 4
+            base = bg.getpixel((max(0, min(W - 1, x + 12)), max(0, min(H - 1, y + 12))))
+            col = (max(0, base[0] + shade), max(0, base[1] + shade), max(0, base[2] + shade), 255)
+            d.rounded_rectangle(
+                [x + 2, y + 2, x + tile_w - 2, y + tile_h - 2],
+                radius=5,
+                fill=col,
+                outline=(104, 92, 76, 115),
+                width=1,
+            )
+
+    # Đường đồng mức đồi phố cổ & mảng cỏ xanh góc dưới trái (khu rừng thông & chợ nhỏ xóm Cầu Quẹo)
+    land = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ld = ImageDraw.Draw(land)
+    for cy in (190, 410, 650, 880):
+        ld.arc([-150, cy - 110, W + 150, cy + 110], 10, 170, fill=(232, 220, 196, 46), width=3)
+    # Thảm cỏ thông mềm phía góc dưới trái và ven dốc phải
+    ld.ellipse([-70, 826, 535, 1095], fill=(104, 142, 92, 165))
+    ld.ellipse([580, 488, 765, 725], fill=(104, 142, 92, 130))
+    # Hẻm lát đá nhỏ nối các tiệm dân sinh bên trái xuống chợ nhỏ Xóm Cầu Quẹo và nhập vào mặt đường chính
+    ld.rounded_rectangle([190, 290, 212, 722], radius=8, fill=(198, 184, 158, 175), outline=(122, 102, 82, 140), width=2)
+    ld.rounded_rectangle([18, 700, 578, 722], radius=8, fill=(198, 184, 158, 175), outline=(122, 102, 82, 140), width=2)
+    # Dòng suối nhỏ Cầu Quẹo chảy qua cống đá dưới khúc cua đường phải tại y ~ 438..490
+    ld.polygon([(556, 434), (720, 456), (720, 498), (552, 474)], fill=(96, 174, 204, 190))
+    ld.line([(556, 434), (720, 456)], fill=(64, 92, 84, 210), width=4)
+    ld.line([(552, 474), (720, 498)], fill=(64, 92, 84, 210), width=4)
+    ld.line([(562, 448), (716, 469)], fill=(214, 245, 255, 175), width=3)
+    ld.line([(560, 462), (716, 484)], fill=(68, 130, 162, 160), width=3)
+    # Bờ cống đá nhỏ bên trái suối (tránh mép cắt cụt gần pad_8)
+    ld.rounded_rectangle([546, 430, 562, 478], radius=5, fill=(154, 140, 122, 235), outline=INK, width=3)
+    bg.alpha_composite(land)
+
+    # ĐẠO CỤ PHỐ CŨ PHAN ĐÌNH PHÙNG (XÓM CẦU QUẸO) — kiểm tra kỹ KHÔNG chạm bất kỳ pad (11 ô) hay đường đi!
+    # 1. Góc trên phải thoáng (x=498..704, y=12..152 — trên pad_6(564,204) & phải pad_2(444,132)): Quán Phở Sáng!
+    bg.alpha_composite(trim_and_fit(props["pho_morning_shop"], 204, 138, pad=2), (498, 12))
+    #    Cây thông nhỏ kẽ thoáng giữa pad_3(324,84) và pad_2(444,132)
+    bg.alpha_composite(trim_and_fit(props["pine_single"], 72, 72, pad=2), (380, 6))
+
+    # 2. Dãy 5 tiệm đặc trưng bên trái con phố (khối phố cũ phía trái các pad 7/1/4/5/8/11):
+    #    - Nhà Thuốc Atiso: (12, 248), 174x134 -> cách pad_7(108,180) & pad_1(228,228) hoàn toàn sạch!
+    bg.alpha_composite(trim_and_fit(props["pharmacy_shop"], 174, 134, pad=2), (12, 248))
+    #    - Nhà Sách Thông Ba Lá: (12, 396), 176x144
+    bg.alpha_composite(trim_and_fit(props["bookstore_shop"], 176, 144, pad=2), (12, 396))
+    #    - Salon Tóc Mai Anh Đào: (212, 366), 196x144 -> dưới pad_4(348,300), trái pad_5(468,372) & pad_8(516,492)
+    bg.alpha_composite(trim_and_fit(props["hair_salon_shop"], 196, 144, pad=2), (212, 366))
+    #    - Tiệm Xe Máy Phố Núi: (12, 554), 178x142
+    bg.alpha_composite(trim_and_fit(props["motorbike_shop"], 178, 142, pad=2), (12, 554))
+    #    - Studio Ảnh Cưới Cẩm Tú Cầu: (212, 526), 216x150 -> trái pad_11(492,636) sạch 26px!
+    bg.alpha_composite(trim_and_fit(props["wedding_studio_shop"], 216, 150, pad=2), (212, 526))
+
+    # 3. GÓC TRÁI DƯỚI — Dãy nhà phố cũ + Chợ nhỏ Xóm Cầu Quẹo + Rặng thông xanh Đà Lạt:
+    #    - Dãy nhà phố cũ: (12, 726), 236x152
+    bg.alpha_composite(trim_and_fit(props["old_townhouse_row"], 236, 152, pad=2), (12, 726))
+    #    - Chợ nhỏ xóm Cầu Quẹo: (262, 712), 266x208 -> dưới pad_11(492,636), trái đường chính x=582!
+    bg.alpha_composite(trim_and_fit(props["cau_queo_mini_market"], 266, 208, pad=2), (262, 712))
+    #    - Cụm thông xanh ven góc dưới (chừa đáy trái y>=992 cho ghi nguồn OSM!)
+    bg.alpha_composite(trim_and_fit(props["pine_cluster"], 118, 102, pad=2), (12, 884))
+    bg.alpha_composite(trim_and_fit(props["pine_cluster"], 110, 98, pad=2), (138, 888))
+    bg.alpha_composite(trim_and_fit(props["pine_single"], 82, 82, pad=2), (294, 926))
+    bg.alpha_composite(trim_and_fit(props["pine_single"], 86, 86, pad=2), (414, 924))
+
+    # 4. Cây thông xanh bên sườn phải (giữa khúc Cầu Quẹo & pad_10(660,756))
+    bg.alpha_composite(trim_and_fit(props["pine_single"], 78, 78, pad=2), (626, 540))
+    bg.alpha_composite(trim_and_fit(props["pine_single"], 72, 72, pad=2), (630, 628))
+
+    # Vẽ đường phố Phan Đình Phùng (Cầu Quẹo) khớp 100% stage.paths
+    draw_polyline_road(
+        bg,
+        paths,
+        road_w=42,
+        border_col=(74, 52, 38, 255),
+        fill_col=(228, 214, 190, 255),
+        dash_col=(154, 126, 94, 160),
+        entrance_col=(72, 176, 236, 235),
+    )
+
+    # Lan can đá nhỏ hai bên "Cầu Quẹo" ngay khúc đường bắc qua suối (khoảng x=582..648, y=428..496)
+    bridge = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    bd = ImageDraw.Draw(bridge)
+    bd.line([(586, 424), (596, 466)], fill=(122, 102, 84, 255), width=9)
+    bd.line([(586, 424), (596, 466)], fill=(238, 224, 198, 255), width=4)
+    bd.line([(640, 434), (632, 480)], fill=(122, 102, 84, 255), width=9)
+    bd.line([(640, 434), (632, 480)], fill=(238, 224, 198, 255), width=4)
+    bg.alpha_composite(bridge)
+
+    # Dán 11 ô đặt món gạch gốm ấm khớp 100% stage.pads
+    pad_im = trim_and_fit(props["street_pad_old_town"], 76, 76, pad=1)
+    for _, px, py in pads:
+        bg.alpha_composite(pad_im, (px * S - 38, py * S - 38))
+
+    # Quầy đèn vàng ấm cuối phố tại (325*2=650, 490*2=980)
+    glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    gd = ImageDraw.Draw(glow)
+    for rad, a in [(98, 26), (62, 38), (36, 48)]:
+        gd.ellipse([650 - rad, 976 - rad, 650 + rad, 976 + rad], fill=(255, 222, 118, a))
+    bg.alpha_composite(glow)
+    stall = trim_and_fit(props["end_street_stall"], 114, 100, pad=2)
+    bg.alpha_composite(stall, (592, 926))
+
+    # Viền khung + dòng ghi nguồn OSM góc dưới trái (tránh điểm cuối đường ở góc dưới phải!)
+    fd = ImageDraw.Draw(bg)
+    fd.rectangle([0, 0, W - 1, H - 1], outline=(54, 36, 24, 235), width=8)
+    draw_osm_attribution(bg, "© OpenStreetMap contributors", align="left")
+
+    out_path = OUT_DIR / "map_street_phan_dinh_phung.webp"
+    bg.convert("RGB").save(out_path, format="WEBP", quality=78, method=6)
+    save_verify(bg, paths, pads, "map_phan_dinh_phung")
+    print(f"Saved {out_path.name}: {out_path.stat().st_size / 1024:.1f} KB")
+
+
 def main():
+    import sys
+
+    only = sys.argv[1] if len(sys.argv) > 1 else ""
     write_map_prop_svgs()
     props = {p.stem: Image.open(p).convert("RGBA") for p in sorted(PNG_DIR.glob("*.png"))}
-    build_stage4_boss_map(props)
-    build_tang_bat_ho_map(props)
-    build_pho_ca_phe_map(props)
+    if not only or only == "trum_pho":
+        build_stage4_boss_map(props)
+    if not only or only == "tang_bat_ho":
+        build_tang_bat_ho_map(props)
+    if not only or only == "pho_ca_phe":
+        build_pho_ca_phe_map(props)
+    if not only or only == "phan_dinh_phung":
+        build_phan_dinh_phung_map(props)
 
 
 if __name__ == "__main__":

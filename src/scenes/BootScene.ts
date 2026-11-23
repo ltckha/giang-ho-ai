@@ -80,6 +80,7 @@ const FILE_STATUS_LABELS: Record<string, string> = {
   [STAGE4_MAP_KEY]: 'Đang thắp đèn Dốc Đà Lạt Trùm Phố...',
   [STREET_MAP_KEYS.street_tang_bat_ho!]: 'Đang lên đèn Phố Tăng Bạt Hổ – Trương Công Định...',
   [STREET_MAP_KEYS.street_pho_ca_phe!]: 'Đang pha phin Phố Cà Phê Đà Lạt...',
+  [STREET_MAP_KEYS.street_phan_dinh_phung!]: 'Đang mở sớm Phố Phan Đình Phùng (Cầu Quẹo)...',
 };
 
 export class BootScene extends Phaser.Scene {
