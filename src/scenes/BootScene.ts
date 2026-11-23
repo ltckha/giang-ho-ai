@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { mergeSparkAtlas, registerSparkAnimations, SPARK_ATLAS_KEY } from '../game/sparkArt';
 import { ATLAS_KEY, GEAR_ATLAS_KEY, STAGE1_MAP_KEY, STAGE2_MAP_KEY, STAGE3_MAP_KEY } from '../game/atlasIcons';
 import { renderBrandLogoSvg } from '../game/brandLogo';
 import { SCENE_KEYS } from '../game/sceneKeys';
@@ -79,6 +80,7 @@ export class BootScene extends Phaser.Scene {
     });
 
     this.load.atlas(ATLAS_KEY, './assets/gon_tiem_atlas.webp', './assets/gon_tiem_atlas.json');
+    this.load.atlas(SPARK_ATLAS_KEY, './assets/spark_atlas.webp', './assets/spark_atlas.json');
     this.load.atlas(GEAR_ATLAS_KEY, './assets/gear_atlas.webp', './assets/gear_atlas.json');
     this.load.image(STAGE1_MAP_KEY, './assets/map_man1_tiem_giay.webp');
     this.load.image(STAGE2_MAP_KEY, './assets/map_man2_tiem_banh.webp');
@@ -93,7 +95,9 @@ export class BootScene extends Phaser.Scene {
     this.updateSplashProgress(1);
     this.updateSplashStatus('Mở cửa phố nhỏ Đà Lạt...');
     generateGameTextures(this);
+    mergeSparkAtlas(this, ATLAS_KEY);
     this.registerSpriteAnimations();
+    registerSparkAnimations(this, ATLAS_KEY);
 
     const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
     if (params?.get('splash') === '1') {

@@ -23,10 +23,10 @@ const ROOT = process.cwd();
 const GEO = JSON.parse(readFileSync(join(ROOT, 'src/core/streets/realStreets.generated.json'), 'utf8'));
 
 interface PlaceSpec {
-  key: string; name: string; type: string; trait: string;
+  key: string; name: string; type: string; trait: string; art?: string;
   tower: { element: ElementType; role: TowerRole; names: [string, string, string, string]; ult: string; why: string };
 }
-interface PestSpec { name: string; element: ElementType; trait: Exclude<EnemyTrait, 'mini' | 'boss'>; reason: string }
+interface PestSpec { art?: string; name: string; element: ElementType; trait: Exclude<EnemyTrait, 'mini' | 'boss'>; reason: string }
 interface StreetSpec {
   id: `street_${string}`; name: string; subtitle: string; geometry: string; waves: number;
   startingEssence: number; startingLives: number; loadoutSize: number;
@@ -77,6 +77,7 @@ function buildTowers(spec: StreetSpec): Record<string, TowerDefinition> {
     const khac = ELEMENT_LABEL[ELEMENT_COUNTERS[p.tower.element]];
     out[id] = {
       id,
+      ...(p.art ? { art: p.art } : {}),
       element: p.tower.element,
       role: p.tower.role,
       roleLabel: t.roleLabel,
@@ -96,11 +97,11 @@ function buildEnemies(spec: StreetSpec): { enemies: Record<string, EnemyDefiniti
   spec.pests.forEach((p, i) => {
     const base = TRAIT_TEMPLATE[p.trait]!;
     const id = `ge_${shortId(spec.id)}_${i + 1}` as const;
-    const def: EnemyDefinition = { ...base, id, name: p.name, element: p.element, trait: p.trait, traitLabel: TRAIT_LABEL[p.trait]! };
+    const def: EnemyDefinition = { ...base, id, ...(p.art ? { art: p.art } : {}), name: p.name, element: p.element, trait: p.trait, traitLabel: TRAIT_LABEL[p.trait]! };
     if (p.trait === 'splitter') {
       const mini = ENEMY_DEFINITIONS.split_fire_mini;
       const miniId = `ge_${shortId(spec.id)}_${i + 1}_nho` as const;
-      enemies[miniId] = { ...mini, id: miniId, name: `${p.name} Nhỏ`, element: p.element, traitLabel: 'Tản ra chạy nhanh' };
+      enemies[miniId] = { ...mini, id: miniId, ...(p.art ? { art: p.art } : {}), name: `${p.name} Nhỏ`, element: p.element, traitLabel: 'Tản ra chạy nhanh' };
       def.splitChildId = miniId;
     }
     enemies[id] = def;

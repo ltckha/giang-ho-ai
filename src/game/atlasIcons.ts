@@ -29,7 +29,8 @@ export function getAtlasFrameDataUrlFrom(
   const frame = texture.get(frameName);
   if (!frame || frame.name === '__MISSING') return '';
 
-  const sourceImg = texture.getSourceImage() as HTMLImageElement | HTMLCanvasElement | undefined;
+  // khung có thể nằm ở tấm hình phụ (hình Spark gắn thêm) -> lấy đúng ảnh nguồn của khung
+  const sourceImg = (frame.source?.image ?? texture.getSourceImage()) as HTMLImageElement | HTMLCanvasElement | undefined;
   if (!sourceImg) return '';
 
   try {
@@ -92,11 +93,15 @@ const TRAIT_FALLBACK_ENEMY: Record<string, string> = {
   fast: 'fast_metal', tank: 'tank_earth', flying: 'fly_wood', splitter: 'split_fire', mini: 'split_fire_mini', disruptor: 'disrupt_water', healer: 'healer_wood', boss: 'fl_monsoon',
 };
 function placeholderTowerId(defId: string): string {
+  const art = ALL_TOWER_DEFINITIONS[defId as TowerId]?.art;
+  if (art) return `art_${art}`;
   if (!defId.startsWith('gt_')) return defId;
   const role = ALL_TOWER_DEFINITIONS[defId as TowerId]?.role;
   return (role && ROLE_FALLBACK_TOWER[role]) || 'wood_tower';
 }
 function placeholderEnemyId(enemyId: string): string {
+  const art = ALL_ENEMY_DEFINITIONS[enemyId as EnemyId]?.art;
+  if (art) return `art_${art}`;
   if (enemyId === 'st_bao_loc') return 'fl_monsoon';
   if (!enemyId.startsWith('ge_')) return enemyId;
   const trait = ALL_ENEMY_DEFINITIONS[enemyId as EnemyId]?.trait;
@@ -115,7 +120,8 @@ export function getEnemyFrameName(enemyIdRaw: string, frameIdx = 0, element?: El
   return `enemy_${enemyId}_f${frameIdx}`;
 }
 
-export function getEnemyWalkAnimKey(enemyId: string, element?: ElementType): string {
+export function getEnemyWalkAnimKey(enemyIdRaw: string, element?: ElementType): string {
+  const enemyId = placeholderEnemyId(enemyIdRaw);
   if (enemyId === 'fl_monsoon' && (element === 'moc' || element === 'kim')) {
     return `anim_walk_fl_monsoon_${element}`;
   }

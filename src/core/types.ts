@@ -46,6 +46,8 @@ export interface TowerTierStats {
 
 export interface TowerDefinition {
   id: TowerId;
+  /** Hình Spark vẽ theo loại địa điểm (art/spark/mon_<art>_b*.png) — game dùng thay hình tạm */
+  art?: string;
   /** Tên tuyệt chiêu bậc 4 (món sinh tự động) */
   ultimateName?: string;
   element: ElementType;
@@ -85,6 +87,8 @@ export type EnemyTrait = 'fast' | 'tank' | 'flying' | 'splitter' | 'mini' | 'dis
 
 export interface EnemyDefinition {
   id: EnemyId;
+  /** Hình Spark vẽ (art/spark/quai_<art>.png) */
+  art?: string;
   name: string;
   element: ElementType;
   trait: EnemyTrait;
