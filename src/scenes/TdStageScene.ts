@@ -37,6 +37,7 @@ import {
   STAGE3_MAP_KEY,
 } from '../game/atlasIcons';
 import { getStatMiniIconSvg, RARITY_THEME } from '../game/gearUiHelpers';
+import { music } from '../game/music';
 import { getInitialReduceMotion, saveReduceMotion } from '../game/preferences';
 import { SCENE_KEYS } from '../game/sceneKeys';
 import { sound } from '../game/sound';
@@ -241,6 +242,7 @@ export class TdStageScene extends Phaser.Scene {
 
     // Trang bị chủ tiệm đang mặc (lưu trên máy)
     this.engine = new TowerDefenseEngine(STAGES[stageId], { gear: getGearBonus(loadTdSave()) });
+    music.setTrack(stageId);
     this.lastDrops = [];
     this.speedMultiplier = isVideoMode ? 2 : 1;
     this.paused = false;
@@ -597,6 +599,14 @@ export class TdStageScene extends Phaser.Scene {
     this.refreshHud();
     this.refreshUltimateButtons();
     this.syncTutorialOverlay();
+
+    // Chuyển sang nhịp dồn khi Trùm Mùa Nồm xuất hiện trên sân
+    if (this.engine.status === 'playing') {
+      const hasBoss = this.engine.enemies.some(
+        (e) => e.defId === 'fl_monsoon' || e.defId === 'boss_water',
+      );
+      music.setTrack(hasBoss ? 'boss' : this.engine.stage.id);
+    }
 
     if (this.engine.status !== 'playing' && !this.resultShown) {
       this.resultShown = true;
@@ -3396,6 +3406,7 @@ export class TdStageScene extends Phaser.Scene {
   private showPauseMenu(): void {
     if (!this.pauseMenuRoot || this.engine.status !== 'playing') return;
     const stageName = this.engine.stage.name;
+    const trackName = music.getTrackLabel() || stageName;
     this.pauseMenuRoot.innerHTML = `
       <div class="td-pause-backdrop" data-testid="td-pause-menu">
         <div class="td-pause-card td-shoebox-panel">
@@ -3404,6 +3415,27 @@ export class TdStageScene extends Phaser.Scene {
             <span>TẠM DỪNG • ${stageName.toUpperCase()}</span>
           </div>
           <h2 class="td-pause-title">Nghỉ tay một chút</h2>
+          <div class="td-pause-track-caption">♪ Giai điệu: ${trackName}</div>
+          <div class="td-audio-toggle-row" data-testid="td-pause-audio-controls">
+            <button
+              type="button"
+              id="btn-pause-music"
+              data-testid="btn-toggle-music"
+              class="td-audio-pill ${music.isMuted() ? 'muted' : ''}"
+              aria-pressed="${music.isMuted() ? 'false' : 'true'}"
+            >
+              ${music.isMuted() ? '🔇 Nhạc: TẮT' : '🎵 Nhạc: BẬT'}
+            </button>
+            <button
+              type="button"
+              id="btn-pause-sfx"
+              data-testid="btn-toggle-sfx"
+              class="td-audio-pill ${sound.isMuted() ? 'muted' : ''}"
+              aria-pressed="${sound.isMuted() ? 'false' : 'true'}"
+            >
+              ${sound.isMuted() ? '🔕 Tiếng: TẮT' : '🔊 Tiếng: BẬT'}
+            </button>
+          </div>
           <div class="td-pause-actions">
             <button type="button" id="btn-resume-game" data-testid="btn-resume-game" class="td-btn-primary">
               ▶ Tiếp tục giữ tiệm
@@ -3421,6 +3453,35 @@ export class TdStageScene extends Phaser.Scene {
         </div>
       </div>
     `;
+
+    const syncPauseAudio = (): void => {
+      const mBtn = this.pauseMenuRoot?.querySelector<HTMLButtonElement>('#btn-pause-music');
+      if (mBtn) {
+        const mOff = music.isMuted();
+        mBtn.textContent = mOff ? '🔇 Nhạc: TẮT' : '🎵 Nhạc: BẬT';
+        mBtn.classList.toggle('muted', mOff);
+        mBtn.setAttribute('aria-pressed', mOff ? 'false' : 'true');
+      }
+      const sBtn = this.pauseMenuRoot?.querySelector<HTMLButtonElement>('#btn-pause-sfx');
+      if (sBtn) {
+        const sOff = sound.isMuted();
+        sBtn.textContent = sOff ? '🔕 Tiếng: TẮT' : '🔊 Tiếng: BẬT';
+        sBtn.classList.toggle('muted', sOff);
+        sBtn.setAttribute('aria-pressed', sOff ? 'false' : 'true');
+      }
+    };
+
+    this.pauseMenuRoot.querySelector('#btn-pause-music')?.addEventListener('click', () => {
+      music.toggleMute();
+      sound.playUiClick();
+      syncPauseAudio();
+    });
+
+    this.pauseMenuRoot.querySelector('#btn-pause-sfx')?.addEventListener('click', () => {
+      sound.toggleMute();
+      if (!sound.isMuted()) sound.playUiClick();
+      syncPauseAudio();
+    });
 
     this.pauseMenuRoot.querySelector('#btn-resume-game')?.addEventListener('click', () => {
       sound.playUiClick();

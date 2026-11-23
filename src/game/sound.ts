@@ -1,10 +1,12 @@
+import { getInitialSfxMuted, saveSfxMuted } from './preferences';
+
 /**
- * Bộ tổng hợp âm thanh Web Audio API thuần offline (không tải tệp ngoài, không gọi mạng).
- * Dùng âm sắc ngũ cung cổ trang cho bắn, trúng đích, khắc hệ, quái nổ, mất mạng, nâng cấp.
+ * Bộ tổng hợp âm thanh hiệu ứng (SFX) Web Audio API thuần offline (không tải tệp ngoài, không gọi mạng).
+ * Dùng âm sắc ngũ cung cho bắn, trúng đích, khắc hệ, quái nổ, mất mạng, nâng cấp.
  */
 class SoundManager {
   private ctx: AudioContext | null = null;
-  private muted = false;
+  private muted = getInitialSfxMuted();
 
   private ensureContext(): AudioContext | null {
     if (this.muted || typeof window === 'undefined') return null;
@@ -29,8 +31,13 @@ class SoundManager {
     return this.muted;
   }
 
+  public setMuted(muted: boolean): void {
+    this.muted = muted;
+    saveSfxMuted(muted);
+  }
+
   public toggleMute(): boolean {
-    this.muted = !this.muted;
+    this.setMuted(!this.muted);
     return this.muted;
   }
 

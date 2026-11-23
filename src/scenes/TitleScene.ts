@@ -30,6 +30,7 @@ import {
   getStatMiniIconSvg,
   RARITY_THEME,
 } from '../game/gearUiHelpers';
+import { music } from '../game/music';
 import { getInitialReduceMotion } from '../game/preferences';
 import { SCENE_KEYS } from '../game/sceneKeys';
 import { renderShopkeeperAvatarSvg } from '../game/shopkeeperAvatar';
@@ -77,6 +78,7 @@ export class TitleScene extends Phaser.Scene {
 
   public create(): void {
     this.reduceMotion = getInitialReduceMotion();
+    music.setTrack('title');
     this.rainLines = [];
     const { width, height } = this.scale;
     this.cameras.main.setBackgroundColor('#241811');
@@ -156,6 +158,27 @@ export class TitleScene extends Phaser.Scene {
           Chạm vào từng cửa tiệm dọc con phố dốc Đà Lạt để xem 5 món giữ tiệm &amp; bầy quái, rồi mở cửa giữ sạch phố nhé!
         </p>
 
+        <div class="td-audio-toggle-row" data-testid="td-audio-controls">
+          <button
+            type="button"
+            id="btn-toggle-music"
+            data-testid="btn-toggle-music"
+            class="td-audio-pill ${music.isMuted() ? 'muted' : ''}"
+            aria-pressed="${music.isMuted() ? 'false' : 'true'}"
+          >
+            ${music.isMuted() ? '🔇 Nhạc: TẮT' : '🎵 Nhạc: BẬT'}
+          </button>
+          <button
+            type="button"
+            id="btn-toggle-sfx"
+            data-testid="btn-toggle-sfx"
+            class="td-audio-pill ${sound.isMuted() ? 'muted' : ''}"
+            aria-pressed="${sound.isMuted() ? 'false' : 'true'}"
+          >
+            ${sound.isMuted() ? '🔕 Tiếng: TẮT' : '🔊 Tiếng: BẬT'}
+          </button>
+        </div>
+
         <button type="button" id="btn-jump-gear" class="td-gear-jump-pill">
           <span class="td-gear-jump-dot">✦</span>
           <span id="td-gear-jump-label">Trang bị chủ tiệm</span>
@@ -200,6 +223,35 @@ export class TitleScene extends Phaser.Scene {
     `;
 
     container.appendChild(root);
+
+    const syncAudioButtons = (): void => {
+      const mBtn = root.querySelector<HTMLButtonElement>('#btn-toggle-music');
+      if (mBtn) {
+        const mOff = music.isMuted();
+        mBtn.textContent = mOff ? '🔇 Nhạc: TẮT' : '🎵 Nhạc: BẬT';
+        mBtn.classList.toggle('muted', mOff);
+        mBtn.setAttribute('aria-pressed', mOff ? 'false' : 'true');
+      }
+      const sBtn = root.querySelector<HTMLButtonElement>('#btn-toggle-sfx');
+      if (sBtn) {
+        const sOff = sound.isMuted();
+        sBtn.textContent = sOff ? '🔕 Tiếng: TẮT' : '🔊 Tiếng: BẬT';
+        sBtn.classList.toggle('muted', sOff);
+        sBtn.setAttribute('aria-pressed', sOff ? 'false' : 'true');
+      }
+    };
+
+    root.querySelector<HTMLButtonElement>('#btn-toggle-music')?.addEventListener('click', () => {
+      music.toggleMute();
+      sound.playUiClick();
+      syncAudioButtons();
+    });
+
+    root.querySelector<HTMLButtonElement>('#btn-toggle-sfx')?.addEventListener('click', () => {
+      sound.toggleMute();
+      if (!sound.isMuted()) sound.playUiClick();
+      syncAudioButtons();
+    });
 
     root.querySelector<HTMLButtonElement>('#btn-jump-gear')?.addEventListener('click', () => {
       sound.playUiClick();
