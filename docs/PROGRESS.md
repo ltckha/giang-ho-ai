@@ -1,3 +1,4 @@
+CHẶNG 3 CHUẨN BỊ XONG
 TRANG BỊ VẼ XONG
 MÀN 1 VẼ LẠI XONG
 MÀN 3 VẼ XONG
@@ -6,7 +7,42 @@ LÀM ĐẸP XONG
 
 # Tiến độ phát triển — Gọn Tiệm, Sạch Phố ("Ngũ hành giữ tiệm")
 
-Cập nhật: 22/11/2026 • Nhánh: `main` • Trạng thái hiện tại: **Đã hoàn thành vẽ Trang bị chủ tiệm v2 (`TRANG BỊ VẼ XONG`) và làm đẹp Bậc 4 tuyệt chiêu (giữ nguyên toàn bộ `data-testid`, 288 khung `gon_tiem_atlas.webp` & 100% số liệu trong `src/core/`).**
+Cập nhật: 22/11/2026 • Nhánh: `main` • Trạng thái hiện tại: **Đã hoàn thành cả 5 việc chuẩn bị cho người lạ chơi (`CHẶNG 3 CHUẨN BỊ XONG`): Con phố dốc Đà Lạt, Hướng dẫn chơi lần đầu 5 bước, Logo + 4 biểu tượng app + màn hình chờ hộp giày, Nhạc nền ngũ cung tự tạo bằng Web Audio, và Bộ ảnh kênh Gọn + chia sẻ link (giữ nguyên toàn bộ `data-testid` và 100% số liệu trong `src/core/`).**
+
+---
+
+## 0D. Chuẩn bị cho người lạ chơi (Chặng 3 — 5 việc) — Đã hoàn thành (Antigravity)
+
+1. **Màn chọn màn "Con phố dốc" (`src/scenes/TitleScene.ts`, `src/game/shopStreetArt.ts`, `src/ui/styles.css`):**
+   - Đọc động từ `SHOP_STREET`, `isShopUnlocked`, `shopStars`, `getShopStage` trong `src/core/shopStreet.ts` (không đổi số liệu `src/core/`).
+   - Thay 3 ô chữ bằng **con phố dốc Đà Lạt mùa mưa** với 3 mặt tiền vẽ riêng (**Tiệm Giày Hẻm Dốc → Tiệm Bánh Đầu Phố → Tiệm Hoa Cuối Dốc**), ánh đèn vàng ấm, biển hiệu gắn số sao, cửa cuốn kéo xuống + ổ khóa đồng + dòng *"Qua tiệm trước để mở"* cho tiệm chưa mở, và góc *"Con dốc còn dài..."* chừa sẵn mặt bằng nối dài phố.
+   - Chạm bất kỳ tiệm nào hiện thẻ thông tin đầy đủ (tên, số đợt, 5 món của chính tiệm đó từ `getStageTowerList`, các quái chính, nút `Mở Cửa ...` giữ nguyên `btn-start-stage-1/2/3`), đồng thời đồng bộ **Bảng giới thiệu 5 món** phía dưới theo tiệm đang chọn.
+2. **Hướng dẫn chơi lần đầu (`src/game/tutorialOverlay.ts`, `src/scenes/TdStageScene.ts`, `src/ui/styles.css`):**
+   - Gắn trực tiếp `TutorialController` (`src/core/tutorial.ts`) và `shouldShowTutorial()` / `markTutorialDone()` (`src/core/saveSystem.ts`) — không viết lại luật bước.
+   - Hiện avatar **Chủ tiệm Đà Lạt** (dùng lại `renderShopkeeperAvatarSvg` mặc đúng đồ đang đeo), bong bóng lời, tiến độ 5 bước, mũi tên vàng nảy chỉ đúng từng mục tiêu (`pad:pad_1`, `build:wood_tower`, `testid:td-upcoming-box`, sơ đồ vòng Ngũ Hành `element_guide`, `testid:btn-call-wave`), nút **Tiếp** / **Bỏ qua** ở mọi bước, tạm dừng theo `tutorial.shouldPause()`.
+   - Thêm **Menu Tạm dừng (`⏸`)** có nút **"Xem lại hướng dẫn"** (`btn-replay-tutorial`) và e2e xác nhận người mới vào Màn 1 thấy hướng dẫn, bấm Bỏ qua không hiện lại, bấm Xem lại trong `⏸` hiện lại đủ.
+3. **Biểu tượng app + Màn hình chờ (`src/game/brandLogo.ts`, `scripts/build_icons.mjs`, `public/icons/`, `index.html`, `src/scenes/BootScene.ts`):**
+   - Logo vuông **"Gọn Tiệm, Sạch Phố"** (mái hiên sọc đỏ-kem Đà Lạt, đèn vàng, chiếc Dép Tông hoạt hình, 5 hạt Ngũ Hành, biển gỗ chữ Việt rõ nét).
+   - Đủ 4 biểu tượng app trong `public/icons/`: `icon-512.png` (512×512), `icon-192.png` (192×192), `apple-touch-icon-180.png` (180×180), `favicon-32.png` (32×32) khai báo đầy đủ trong `index.html`.
+   - **Màn hình chờ (`BootScene`):** nền hộp giày giấy kraft ấm, logo vuông, dòng phụ **"Ngũ hành giữ tiệm"** và thanh tải chạy theo đúng tiến độ `this.load.on('progress')`.
+4. **Nhạc nền nhẹ tự tạo bằng Web Audio (`src/game/music.ts`, `src/game/sound.ts`, `src/game/preferences.ts`, `CREDITS.md`):**
+   - 5 giai điệu ngũ cung ngắn tự tổng hợp bằng Web Audio API (không tệp nhạc ngoài): **Màn hình đầu** (*Phố Dốc Chiều Mưa*), **Tiệm Giày** (*ấm áp*), **Tiệm Bánh** (*vui tươi*), **Tiệm Hoa** (*trong trẻo*) và **Trận Trùm Mùa Nồm** (*nhịp dồn hơn*, tự chuyển khi Trùm xuất hiện).
+   - Âm lượng nhẹ hơn tiếng hiệu ứng SFX, chỉ khởi chạy sau lần chạm đầu tiên, nút tắt **Nhạc** (`btn-toggle-music`) riêng với nút tắt **Tiếng** (`btn-toggle-sfx`) ở cả màn hình chính & menu `⏸`, nhớ trên máy qua `localStorage`, đã ghi rõ tự tạo trong `CREDITS.md`.
+5. **Ảnh cho kênh Gọn & khi chia sẻ link (`scripts/build_marketing_assets.mjs`, `docs/marketing/`, `public/og-image.png`, `index.html`):**
+   - **3 ảnh bìa video dọc 1080×1920** chữ Việt to kèm logo: [`cover_01_dat_sai_mon.png`](marketing/cover_01_dat_sai_mon.png) (*"Đặt sai món là thua ngay!"*), [`cover_02_trung_tu.png`](marketing/cover_02_trung_tu.png) (*"Trúng tủ! ×1.75 — Quét sạch phố!"*), [`cover_03_trum_doi_hanh.png`](marketing/cover_03_trum_doi_hanh.png) (*"Trùm Mùa Nồm đổi 3 hành!"*).
+   - **1 ảnh chia sẻ link 1200×630** ([`public/og-image.png`](../public/og-image.png), nén gọn 147 KB) + khai báo đầy đủ `og:title`, `og:description`, `og:image`, `twitter:card` trong `index.html`.
+   - **1 logo vuông 1080×1080** ([`docs/marketing/logo_vuong_1080.png`](marketing/logo_vuong_1080.png)) cho ảnh đại diện / bài đăng.
+
+| Hạng mục Chặng 3 (`390×844`) | Ảnh kiểm chứng |
+|---|---|
+| 1. Con phố dốc — đầu phố & Tiệm Giày | ![Con phố dốc đầu phố](screenshots/c3_01_street_top.png) |
+| 1. Chạm Tiệm Bánh xem 5 món & bầy quái | ![Chi tiết Tiệm Bánh](screenshots/c3_01_street_bakery_detail.png) |
+| 1. Tiệm Hoa đang kéo cửa cuốn khóa | ![Tiệm Hoa khóa](screenshots/c3_01_street_flower_locked.png) |
+| 2. Hướng dẫn Bước 1/5 — Avatar chủ tiệm & mũi tên ô trống | ![Hướng dẫn bước 1](screenshots/c3_02_tut_step1_pad.png) |
+| 2. Hướng dẫn Bước 2/5 — Chỉ vào thẻ Dép Tông | ![Hướng dẫn bước 2](screenshots/c3_02_tut_step2_build.png) |
+| 2. Hướng dẫn Bước 4/5 — Sơ đồ Vòng Ngũ Hành | ![Hướng dẫn bước 4](screenshots/c3_02_tut_step4_counter.png) |
+| 3. Màn hình chờ hộp giày (`BootScene`) & Logo | ![Màn hình chờ BootScene](screenshots/c3_03_boot_splash.png) |
+| 4. Menu tạm dừng `⏸` với nút tắt Nhạc / Tiếng riêng & Xem lại hướng dẫn | ![Menu tạm dừng & âm thanh](screenshots/c3_04_audio_pause_menu.png) |
 
 ---
 

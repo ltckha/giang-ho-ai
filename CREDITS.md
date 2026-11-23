@@ -15,6 +15,9 @@ Toàn bộ tài nguyên trong **Gọn Tiệm, Sạch Phố — Ngũ hành giữ 
   - [`public/assets/map_man1_tiem_giay.webp`](public/assets/map_man1_tiem_giay.webp) (nền vector vẽ lại Màn 1 **Tiệm Giày Hẻm Dốc** 720×960 khớp 100% đường chữ S và 9 ô đặt món).
   - [`public/assets/map_man2_tiem_banh.webp`](public/assets/map_man2_tiem_banh.webp) (nền vector Màn 2 **Tiệm Bánh Đầu Phố** 720×1040 = 2× khung 360×520 khớp 100% 2 ngả đường vòng quanh quầy bánh và 10 ô đặt món).
   - [`public/assets/map_man3_tiem_hoa.webp`](public/assets/map_man3_tiem_hoa.webp) (nền vector Màn 3 **Tiệm Hoa Cuối Dốc** 720×1040 = 2× khung 360×520 khớp 100% 2 cửa vào độc lập, lối hợp ngả, giàn hoa trưng bày và 11 ô đặt món).
+  - [`src/game/shopStreetArt.ts`](src/game/shopStreetArt.ts) & [`src/game/brandLogo.ts`](src/game/brandLogo.ts) (mặt tiền Con phố dốc Đà Lạt, cửa cuốn khóa & logo bản vuông **"Gọn Tiệm, Sạch Phố"** tự vẽ vector SVG).
+  - [`public/icons/`](public/icons/) (`icon-512.png`, `icon-192.png`, `apple-touch-icon-180.png`, `favicon-32.png`) sinh từ [`scripts/build_icons.mjs`](scripts/build_icons.mjs).
+  - [`public/og-image.png`](public/og-image.png) (ảnh chia sẻ link 1200×630) và [`docs/marketing/`](docs/marketing/) (`logo_vuong_1080.png` 1080×1080 + 3 ảnh bìa video dọc 1080×1920 `cover_01_dat_sai_mon.png`, `cover_02_trung_tu.png`, `cover_03_trum_doi_hanh.png`) sinh từ [`scripts/build_marketing_assets.mjs`](scripts/build_marketing_assets.mjs).
 
 ---
 
