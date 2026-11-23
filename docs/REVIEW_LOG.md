@@ -261,3 +261,10 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 ## 22/11/2026 — Rà "TRANG BỊ VẼ XONG" (75bbe41 → b8a1e50)
 
 **Kết luận:** ĐẠT. Không đụng `src/core/`. Hình chủ tiệm mặc đúng đồ, 10 ô xếp vòng quanh người có đường chống lưng, 50 biểu tượng đồ, huy hiệu 4 bộ, thẻ đồ rơi mở rương, tuyệt chiêu bậc 4 có nút nổi + vòng hồi chiêu + 5 hiệu ứng. `npm test` 37/37, e2e 8/8, build 3,0 MB (≤ 5 MB). Mở trên điện thoại dọc không lỗi, không gọi mạng ngoài.
+
+---
+
+## 23/11/2026 — Sườn chặng 3 (Claude)
+- `src/core/shopStreet.ts`: danh sách tiệm trên con phố + mở khóa / sao.
+- `src/core/tutorial.ts`: luật 5 bước hướng dẫn lần đầu (tự sang bước khi chạm ô, đặt món, gọi đợt; tạm dừng; bỏ qua) + cờ trong bản lưu.
+- `npm test` 42/42.

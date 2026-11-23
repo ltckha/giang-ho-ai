@@ -125,6 +125,7 @@ Luật xong ở `src/core/equipment.ts` (10 ô, đồ 5 hành, dòng chính / d�
 **Không đổi số liệu trong `src/core/`; giữ các data-testid đang có (btn-start-stage-1/2/3, td-gear-box, gear-slot-*…) để test chạy.** Mỗi việc xong: commit + push, ảnh chụp điện thoại dọc trong `docs/screenshots/c3_*.png`. Dist vẫn ≤ 5 MB.
 
 ### 1. Màn chọn màn "Con phố dốc"
+- **Sườn Claude đã có:** `src/core/shopStreet.ts` — `SHOP_STREET` (thứ tự, biển hiệu, đơn vị mạng, gợi ý mặt tiền), `isShopUnlocked(save, shop)`, `shopStars(save, shop)`, `getShopStage(shop)`. Vẽ con phố bằng cách lặp qua `SHOP_STREET` (thêm tiệm sau này chỉ thêm dòng ở đó).
 - Thay 3 ô chữ chọn màn bằng **một con phố dốc Đà Lạt** (cuộn dọc trên điện thoại): mặt tiền **Tiệm Giày Hẻm Dốc → Tiệm Bánh Đầu Phố → Tiệm Hoa Cuối Dốc**, cùng nét đã duyệt, trời mưa nhẹ, đèn vàng.
 - Tiệm chưa mở: cửa kéo xuống + ổ khóa + dòng "Qua tiệm trước để mở" (dùng `unlockedStage`; `?stage=` / `?bot=1` vẫn mở được như hiện tại). Tiệm đã qua: số sao trên biển hiệu.
 - Chạm tiệm → thẻ thông tin: tên, số đợt, 5 món của **chính tiệm đó** (`getStageTowerList(STAGES[id])`), các quái chính, nút "Mở cửa" (giữ testid `btn-start-stage-N`).
@@ -132,7 +133,7 @@ Luật xong ở `src/core/equipment.ts` (10 ô, đồ 5 hành, dòng chính / d�
 - Chừa chỗ để sau này nối dài phố thêm tiệm.
 
 ### 2. Hướng dẫn chơi lần đầu
-- Luật đã có: `shouldShowTutorial()` (true khi chưa xem và chưa thắng màn nào) và `markTutorialDone()` trong `src/core/saveSystem.ts`.
+- **Sườn Claude đã có:** `src/core/tutorial.ts` — `TutorialController` (5 bước, tự sang bước theo thao tác thật, tạm dừng theo bước, bỏ qua), `TUTORIAL_STEPS` (lời thoại + mục tiêu mũi tên: `pad:`, `build:`, `testid:`, `element_guide`), `TUTORIAL_PAD`, `TUTORIAL_TOWER`; cách gắn vào scene ghi ở đầu file. Cùng `shouldShowTutorial()` / `markTutorialDone()` trong `src/core/saveSystem.ts`. **Antigravity chỉ vẽ** bong bóng lời, mũi tên chỉ đúng mục tiêu, avatar, nút Tiếp / Bỏ qua, và gọi các hàm theo hướng dẫn trong file — không tự viết lại luật bước. Lời thoại sửa trong `TUTORIAL_STEPS` nếu cần (ghi vào YEU_CAU để Claude biết).
 - Khi vào Màn 1 mà `shouldShowTutorial()` đúng: hình **chủ tiệm** (dùng lại avatar) hiện ở góc, bong bóng lời + mũi tên chỉ, 5 bước, **game tạm dừng** trong lúc hướng dẫn:
   1. "Chạm vào ô tròn trống để đặt món" (chỉ vào 1 ô gần đường).
   2. "Chọn Dép Tông — món ném nhanh" (chỉ vào thẻ món).
