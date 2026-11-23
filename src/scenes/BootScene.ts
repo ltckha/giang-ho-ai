@@ -1,11 +1,21 @@
 import Phaser from 'phaser';
-import { mergeSparkAtlas, registerSparkAnimations, SPARK_ATLAS_KEY } from '../game/sparkArt';
-import { ATLAS_KEY, GEAR_ATLAS_KEY, STAGE1_MAP_KEY, STAGE2_MAP_KEY, STAGE3_MAP_KEY } from '../game/atlasIcons';
+import { ALL_ENEMY_DEFINITIONS, REAL_STREET_STAGES } from '../core/tdDefinitions';
+import {
+  ATLAS_KEY,
+  GEAR_ATLAS_KEY,
+  STAGE1_MAP_KEY,
+  STAGE2_MAP_KEY,
+  STAGE3_MAP_KEY,
+  STAGE4_MAP_KEY,
+  STREET_MAP_KEYS,
+  STREETS_ATLAS_KEY,
+} from '../game/atlasIcons';
 import { renderBrandLogoSvg } from '../game/brandLogo';
 import { SCENE_KEYS } from '../game/sceneKeys';
+import { mergeSparkAtlas, registerSparkAnimations, SPARK_ATLAS_KEY } from '../game/sparkArt';
 import { generateGameTextures } from '../game/textures';
 
-const TOWER_IDS = [
+const CORE_TOWER_IDS = [
   'wood_tower',
   'metal_tower',
   'water_tower',
@@ -22,8 +32,10 @@ const TOWER_IDS = [
   'fl_heater',
   'fl_vent',
 ] as const;
+
 const TIER_KEYS = ['t1', 't2', 't3a', 't3b'] as const;
-const ENEMY_IDS = [
+
+const CORE_ENEMY_IDS = [
   'fast_metal',
   'tank_earth',
   'split_fire',
@@ -49,12 +61,25 @@ const ENEMY_IDS = [
   'fl_monsoon_kim',
 ] as const;
 
+const STREET_BOSS_VARIANTS = [
+  'st_bao_loc',
+  'st_bao_loc_moc',
+  'st_bao_loc_hoa',
+  'st_bao_loc_tho',
+  'st_bao_loc_kim',
+] as const;
+
 const FILE_STATUS_LABELS: Record<string, string> = {
   [ATLAS_KEY]: 'Đang xếp đồ giữ tiệm & bầy quái...',
+  [SPARK_ATLAS_KEY]: 'Đang ghép hình phố mới Đà Lạt...',
+  [STREETS_ATLAS_KEY]: 'Đang mở đồ phố Đà Lạt & Trùm Bão Lốc...',
   [GEAR_ATLAS_KEY]: 'Đang mở tủ trang bị chủ tiệm...',
   [STAGE1_MAP_KEY]: 'Đang lau sàn Tiệm Giày Hẻm Dốc...',
   [STAGE2_MAP_KEY]: 'Đang nhóm lò Tiệm Bánh Đầu Phố...',
   [STAGE3_MAP_KEY]: 'Đang tưới hoa Tiệm Hoa Cuối Dốc...',
+  [STAGE4_MAP_KEY]: 'Đang thắp đèn Dốc Đà Lạt Trùm Phố...',
+  [STREET_MAP_KEYS.street_tang_bat_ho!]: 'Đang lên đèn Phố Tăng Bạt Hổ – Trương Công Định...',
+  [STREET_MAP_KEYS.street_pho_ca_phe!]: 'Đang pha phin Phố Cà Phê Đà Lạt...',
 };
 
 export class BootScene extends Phaser.Scene {
@@ -81,10 +106,15 @@ export class BootScene extends Phaser.Scene {
 
     this.load.atlas(ATLAS_KEY, './assets/gon_tiem_atlas.webp', './assets/gon_tiem_atlas.json');
     this.load.atlas(SPARK_ATLAS_KEY, './assets/spark_atlas.webp', './assets/spark_atlas.json');
+    this.load.atlas(STREETS_ATLAS_KEY, './assets/streets_atlas.webp', './assets/streets_atlas.json');
     this.load.atlas(GEAR_ATLAS_KEY, './assets/gear_atlas.webp', './assets/gear_atlas.json');
     this.load.image(STAGE1_MAP_KEY, './assets/map_man1_tiem_giay.webp');
     this.load.image(STAGE2_MAP_KEY, './assets/map_man2_tiem_banh.webp');
     this.load.image(STAGE3_MAP_KEY, './assets/map_man3_tiem_hoa.webp');
+    this.load.image(STAGE4_MAP_KEY, './assets/map_trum_pho.webp');
+    for (const mapKey of Object.values(STREET_MAP_KEYS)) {
+      this.load.image(mapKey, `./assets/${mapKey}.webp`);
+    }
 
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.unmountSplashScreen();
@@ -179,55 +209,75 @@ export class BootScene extends Phaser.Scene {
     }
   }
 
-  private registerSpriteAnimations(): void {
-    if (!this.textures.exists(ATLAS_KEY)) return;
-
-    for (const tid of TOWER_IDS) {
+  private registerTowerAnims(atlasKey: string, towerIds: readonly string[]): void {
+    if (!this.textures.exists(atlasKey)) return;
+    const tex = this.textures.get(atlasKey);
+    for (const tid of towerIds) {
       for (const tk of TIER_KEYS) {
         const key = `anim_fire_${tid}_${tk}`;
-        if (!this.anims.exists(key)) {
-          this.anims.create({
-            key,
-            frames: [
-              { key: ATLAS_KEY, frame: `tower_${tid}_${tk}_f1` },
-              { key: ATLAS_KEY, frame: `tower_${tid}_${tk}_f2` },
-              { key: ATLAS_KEY, frame: `tower_${tid}_${tk}_f0` },
-            ],
-            frameRate: 14,
-            repeat: 0,
-          });
-        }
-      }
-    }
-
-    for (const eid of ENEMY_IDS) {
-      const key = `anim_walk_${eid}`;
-      if (!this.anims.exists(key)) {
-        const isZippy =
-          eid === 'fast_metal' ||
-          eid === 'split_fire_mini' ||
-          eid === 'bk_humid' ||
-          eid === 'bk_fly' ||
-          eid === 'bk_ember_mini' ||
-          eid === 'fl_aphid' ||
-          eid === 'fl_dust_mini';
-        const isHeavy =
-          eid === 'fl_snail' ||
-          eid === 'fl_monsoon' ||
-          eid === 'fl_monsoon_moc' ||
-          eid === 'fl_monsoon_kim';
+        if (this.anims.exists(key)) continue;
+        const f0 = `tower_${tid}_${tk}_f0`;
+        if (!tex.has(f0)) continue;
         this.anims.create({
           key,
           frames: [
-            { key: ATLAS_KEY, frame: `enemy_${eid}_f0` },
-            { key: ATLAS_KEY, frame: `enemy_${eid}_f1` },
-            { key: ATLAS_KEY, frame: `enemy_${eid}_f2` },
-            { key: ATLAS_KEY, frame: `enemy_${eid}_f3` },
+            { key: atlasKey, frame: `tower_${tid}_${tk}_f1` },
+            { key: atlasKey, frame: `tower_${tid}_${tk}_f2` },
+            { key: atlasKey, frame: f0 },
           ],
-          frameRate: isZippy ? 10 : isHeavy ? 5 : 7,
-          repeat: -1,
+          frameRate: 14,
+          repeat: 0,
         });
       }
     }
+  }
+
+  private registerEnemyAnims(atlasKey: string, enemyIds: readonly string[]): void {
+    if (!this.textures.exists(atlasKey)) return;
+    const tex = this.textures.get(atlasKey);
+    for (const eid of enemyIds) {
+      const key = `anim_walk_${eid}`;
+      if (this.anims.exists(key)) continue;
+      const f0 = `enemy_${eid}_f0`;
+      if (!tex.has(f0)) continue;
+      const def = ALL_ENEMY_DEFINITIONS[eid as keyof typeof ALL_ENEMY_DEFINITIONS];
+      const isZippy =
+        def?.trait === 'fast' ||
+        def?.trait === 'mini' ||
+        eid === 'fast_metal' ||
+        eid === 'split_fire_mini' ||
+        eid === 'bk_humid' ||
+        eid === 'bk_fly' ||
+        eid === 'bk_ember_mini' ||
+        eid === 'fl_aphid' ||
+        eid === 'fl_dust_mini';
+      const isHeavy =
+        def?.trait === 'boss' ||
+        def?.trait === 'tank' ||
+        eid.startsWith('fl_monsoon') ||
+        eid.startsWith('st_bao_loc') ||
+        eid === 'fl_snail';
+      this.anims.create({
+        key,
+        frames: [
+          { key: atlasKey, frame: `enemy_${eid}_f0` },
+          { key: atlasKey, frame: `enemy_${eid}_f1` },
+          { key: atlasKey, frame: `enemy_${eid}_f2` },
+          { key: atlasKey, frame: `enemy_${eid}_f3` },
+        ],
+        frameRate: isZippy ? 10 : isHeavy ? 5 : 7,
+        repeat: -1,
+      });
+    }
+  }
+
+  private registerSpriteAnimations(): void {
+    this.registerTowerAnims(ATLAS_KEY, CORE_TOWER_IDS);
+    this.registerEnemyAnims(ATLAS_KEY, CORE_ENEMY_IDS);
+
+    const realStreetTowerIds = REAL_STREET_STAGES.flatMap((st) => st.towerIds ?? []);
+    const realStreetEnemyIds = Object.keys(ALL_ENEMY_DEFINITIONS).filter((id) => id.startsWith('ge_'));
+    this.registerTowerAnims(STREETS_ATLAS_KEY, realStreetTowerIds);
+    this.registerEnemyAnims(STREETS_ATLAS_KEY, [...STREET_BOSS_VARIANTS, ...realStreetEnemyIds]);
   }
 }

@@ -27,27 +27,28 @@ import type {
 import {
   ATLAS_KEY,
   getAtlasFrameDataUrl,
+  getEnemyAtlasKey,
   getEnemyFrameName,
   getEnemyWalkAnimKey,
   getGearAtlasFrameDataUrl,
   getGearIconFrameName,
+  getStageMapKey,
+  getTowerAtlasKey,
   getTowerFrameName,
   getTowerTierKey,
-  STAGE1_MAP_KEY,
-  STAGE2_MAP_KEY,
-  STAGE3_MAP_KEY,
 } from '../game/atlasIcons';
 import { getStatMiniIconSvg, RARITY_THEME } from '../game/gearUiHelpers';
 import { music } from '../game/music';
-import { getInitialReduceMotion, saveReduceMotion } from '../game/preferences';
+import { getInitialReduceMotion, loadRealStreetLoadout, saveReduceMotion } from '../game/preferences';
 import { SCENE_KEYS } from '../game/sceneKeys';
 import { sound } from '../game/sound';
-import { getSynergyExplanation } from '../game/synergyText';
+import { getSynergyChainBonusPct, getSynergyExplanation } from '../game/synergyText';
 import { TutorialOverlayView } from '../game/tutorialOverlay';
 
 const LOGICAL_WIDTH = 360;
 const LOGICAL_HEIGHT = 480;
 const STAGE2_LOGICAL_HEIGHT = 520;
+const FIVE_EL_COLORS = [0xcbd5e1, 0x38bdf8, 0x59c173, 0xef4444, 0xd97706] as const;
 
 interface ProjectileVisual {
   kind: TowerId;
@@ -192,6 +193,8 @@ export class TdStageScene extends Phaser.Scene {
 
   private hudRoot: HTMLDivElement | null = null;
   private ultButtonsRoot: HTMLDivElement | null = null;
+  private chainLabelsRoot: HTMLDivElement | null = null;
+  private fullCycleBannerRoot: HTMLDivElement | null = null;
   private modalRoot: HTMLDivElement | null = null;
   private pauseMenuRoot: HTMLDivElement | null = null;
   private synergyTooltipRoot: HTMLDivElement | null = null;
@@ -200,6 +203,8 @@ export class TdStageScene extends Phaser.Scene {
   private tutorialView: TutorialOverlayView | null = null;
   private bossBannerTimer = 0;
   private activeSynergyLinks = new Set<string>();
+  private wasFullCycleActive = false;
+  private lastChainLabelsKey = '';
   private resultShown = false;
   private lastDrops: GearItem[] = [];
   private lastUpcomingWaveNum = -999;
@@ -217,6 +222,7 @@ export class TdStageScene extends Phaser.Scene {
   private floatingLabels: FloatingLabel[] = [];
   private rainDrops: RainDrop[] = [];
   private ripples: PuddleRipple[] = [];
+  private windLeaves: Array<{ lx: number; ly: number; vx: number; vy: number; rot: number; color: number }> = [];
   private fireworkTimer = 0;
   private animTimeSec = 0;
   private walletBounceTimer = 0;
@@ -229,8 +235,8 @@ export class TdStageScene extends Phaser.Scene {
     super({ key: SCENE_KEYS.TD_STAGE });
   }
 
-  public create(data?: { stageId?: StageId; forceTutorial?: boolean }): void {
-    // Chọn màn: từ nút ở màn hình đầu, hoặc thêm ?stage=2 / ?stage=3 vào link (để thử / quay video)
+  public create(data?: { stageId?: StageId; forceTutorial?: boolean; loadout?: TowerId[] }): void {
+    // Chọn màn: từ nút ở màn hình đầu, hoặc thêm ?stage=2 / ?stage=3 / ?stage=4 vào link (để thử / quay video)
     const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
     let stageId: StageId = data?.stageId ?? 'stage_1';
     if (!data?.stageId && params) {
@@ -242,9 +248,31 @@ export class TdStageScene extends Phaser.Scene {
     const isVideoMode = params?.get('video') === '1';
     const isBotQuery = params?.get('bot') === '1';
 
+    const stageDef = STAGES[stageId];
+    const save = loadTdSave();
+    let resolvedLoadout: TowerId[] | undefined;
+    if (stageDef.loadoutSize) {
+      const allowed = stageDef.towerIds ?? [];
+      const candidate =
+        data?.loadout ??
+        (stageId === 'stage_4'
+          ? save.streetLoadout
+          : (loadRealStreetLoadout(stageId, allowed, stageDef.loadoutSize) as TowerId[] | null) ?? undefined);
+      const valid = candidate?.filter((id) => allowed.includes(id)).slice(0, stageDef.loadoutSize);
+      resolvedLoadout = valid && valid.length === stageDef.loadoutSize ? valid : stageDef.defaultLoadout;
+    }
+
     // Trang bị chủ tiệm đang mặc (lưu trên máy)
-    this.engine = new TowerDefenseEngine(STAGES[stageId], { gear: getGearBonus(loadTdSave()), loadout: loadTdSave().streetLoadout });
-    music.setTrack(stageId === 'stage_1' || stageId === 'stage_2' || stageId === 'stage_3' ? stageId : stageId === 'stage_4' ? 'boss' : 'stage_1');
+    this.engine = new TowerDefenseEngine(stageDef, { gear: getGearBonus(save), loadout: resolvedLoadout });
+    music.setTrack(
+      stageId === 'stage_4'
+        ? 'boss'
+        : stageId === 'stage_1' || stageId === 'stage_2' || stageId === 'stage_3'
+          ? stageId
+          : stageId === 'street_pho_ca_phe'
+            ? 'stage_3'
+            : 'stage_2',
+    );
     this.lastDrops = [];
     this.speedMultiplier = isVideoMode ? 2 : 1;
     this.paused = false;
@@ -252,6 +280,8 @@ export class TdStageScene extends Phaser.Scene {
     this.reduceMotion = getInitialReduceMotion();
     this.selectedPadId = null;
     this.activeSynergyLinks = new Set();
+    this.wasFullCycleActive = false;
+    this.lastChainLabelsKey = '';
     this.bossBannerTimer = 0;
     this.resultShown = false;
     this.lastUpcomingWaveNum = -999;
@@ -268,6 +298,7 @@ export class TdStageScene extends Phaser.Scene {
     this.dyingSprites = [];
     this.flyingMoney = [];
     this.floatingLabels = [];
+    this.windLeaves = [];
     this.towerSprites.clear();
     this.enemySprites.clear();
     this.animTimeSec = 0;
@@ -280,14 +311,7 @@ export class TdStageScene extends Phaser.Scene {
 
     this.mapImage = null;
     this.placeholderMap = null;
-    const mapKey =
-      this.engine.stage.id === 'stage_1'
-        ? STAGE1_MAP_KEY
-        : this.engine.stage.id === 'stage_2'
-          ? STAGE2_MAP_KEY
-          : this.engine.stage.id === 'stage_3'
-            ? STAGE3_MAP_KEY
-            : undefined; // Trùm phố: hình tạm cho tới khi Antigravity vẽ nền
+    const mapKey = getStageMapKey(this.engine.stage.id);
     if (mapKey && this.textures.exists(mapKey)) {
       this.mapImage = this.add
         .image(this.mapOffsetX, this.mapOffsetY, mapKey)
@@ -341,7 +365,44 @@ export class TdStageScene extends Phaser.Scene {
 
   private initRainDrops(): void {
     this.rainDrops = [];
+    this.ripples = [];
+    this.windLeaves = [];
     const stageId = this.engine.stage.id;
+    if (stageId === 'stage_4') {
+      // Trận Trùm Phố: mưa bão xiên mạnh phủ toàn phố dốc + gió cuốn lá
+      for (let i = 0; i < 34; i += 1) {
+        this.rainDrops.push({
+          lx: Math.random() * LOGICAL_WIDTH,
+          ly: Math.random() * STAGE2_LOGICAL_HEIGHT,
+          len: 10 + Math.random() * 8,
+          speed: 145 + Math.random() * 70,
+        });
+      }
+      const leafPalette = [0x74c365, 0x59a653, 0xe8a547, 0xd97706];
+      for (let i = 0; i < 12; i += 1) {
+        this.windLeaves.push({
+          lx: Math.random() * LOGICAL_WIDTH,
+          ly: Math.random() * STAGE2_LOGICAL_HEIGHT,
+          vx: -38 - Math.random() * 44,
+          vy: 28 + Math.random() * 34,
+          rot: Math.random() * Math.PI * 2,
+          color: leafPalette[i % leafPalette.length]!,
+        });
+      }
+      return;
+    }
+    if (stageId.startsWith('street_')) {
+      const isNight = stageId === 'street_tang_bat_ho';
+      for (let i = 0; i < (isNight ? 20 : 12); i += 1) {
+        this.rainDrops.push({
+          lx: Math.random() * LOGICAL_WIDTH,
+          ly: Math.random() * STAGE2_LOGICAL_HEIGHT,
+          len: isNight ? 7 + Math.random() * 5 : 5 + Math.random() * 4,
+          speed: isNight ? 88 + Math.random() * 40 : 52 + Math.random() * 28,
+        });
+      }
+      return;
+    }
     if (stageId === 'stage_3') {
       // Sương sớm & mưa phùn nhẹ ngoài cả 2 cửa Tiệm Hoa (cửa chính trên trái & cửa nhà kính trên phải)
       for (let i = 0; i < 20; i += 1) {
@@ -604,15 +665,21 @@ export class TdStageScene extends Phaser.Scene {
     this.refreshUltimateButtons();
     this.syncTutorialOverlay();
 
-    // Chuyển sang nhịp dồn khi Trùm Mùa Nồm xuất hiện trên sân
+    // Chuyển sang nhịp dồn khi Trùm xuất hiện trên sân
     if (this.engine.status === 'playing') {
       const hasBoss = this.engine.enemies.some(
         (e) => e.defId === 'fl_monsoon' || e.defId === 'boss_water' || e.defId === 'st_bao_loc',
       );
-      {
-        const sid = this.engine.stage.id;
-        music.setTrack(hasBoss || sid === 'stage_4' ? 'boss' : sid === 'stage_1' || sid === 'stage_2' || sid === 'stage_3' ? sid : 'stage_1');
-      }
+      const sid = this.engine.stage.id;
+      music.setTrack(
+        hasBoss || sid === 'stage_4'
+          ? 'boss'
+          : sid === 'stage_1' || sid === 'stage_2' || sid === 'stage_3'
+            ? sid
+            : sid === 'street_pho_ca_phe'
+              ? 'stage_3'
+              : 'stage_2',
+      );
     }
 
     if (this.engine.status !== 'playing' && !this.resultShown) {
@@ -622,6 +689,8 @@ export class TdStageScene extends Phaser.Scene {
       this.tutorial?.skip();
       this.syncTutorialOverlay();
       if (this.bossBannerRoot) this.bossBannerRoot.innerHTML = '';
+      if (this.fullCycleBannerRoot) this.fullCycleBannerRoot.innerHTML = '';
+      if (this.chainLabelsRoot) this.chainLabelsRoot.innerHTML = '';
       if (this.engine.status === 'won' && !this.reduceMotion) {
         for (let i = 0; i < 3; i += 1) this.spawnVictoryFirework();
       }
@@ -647,20 +716,19 @@ export class TdStageScene extends Phaser.Scene {
   }
 
   private syncSprites(dt: number): void {
-    const hasAtlas = this.textures.exists(ATLAS_KEY);
-
-    // 1. Đồng bộ Sprite các món giữ tiệm
+    // 1. Đồng bộ Sprite các món giữ tiệm (tự chọn gon_tiem_atlas hoặc streets_atlas)
     const activeTowerUids = new Set<string>();
     for (const tower of this.engine.towers) {
       activeTowerUids.add(tower.uid);
       const tierKey = getTowerTierKey(tower.tier, tower.branch);
       const sp = this.toScreen(tower.x, tower.y - 4);
       const baseDisplay = (tower.tier === 3 ? 47 : tower.tier === 2 ? 44 : 41) * this.mapScale;
+      const atlasKey = getTowerAtlasKey(tower.defId);
 
       let rec = this.towerSprites.get(tower.uid);
-      if (!rec && hasAtlas) {
+      if (!rec && this.textures.exists(atlasKey)) {
         const frame = getTowerFrameName(tower.defId, tower.tier, tower.branch, 0);
-        const sprite = this.add.sprite(sp.x, sp.y, ATLAS_KEY, frame).setDepth(10 + tower.y * 0.01);
+        const sprite = this.add.sprite(sp.x, sp.y, atlasKey, frame).setDepth(10 + tower.y * 0.01);
         rec = { sprite, tierKey, recoilTimer: 0, flashTimer: 0 };
         this.towerSprites.set(tower.uid, rec);
       }
@@ -708,19 +776,20 @@ export class TdStageScene extends Phaser.Scene {
       }
     }
 
-    // 2. Đồng bộ Sprite bọn phá đồ
+    // 2. Đồng bộ Sprite bọn phá đồ & Trùm
     const activeEnemyUids = new Set<string>();
     for (const enemy of this.engine.enemies) {
       activeEnemyUids.add(enemy.uid);
       const def = ENEMY_DEFINITIONS[enemy.defId];
       const sp = this.toScreen(enemy.x, enemy.y);
-      const isMonsoonBoss = enemy.defId === 'fl_monsoon';
-      const targetDim = Math.max(24, def.radius * (isMonsoonBoss ? 3.15 : 2.75)) * this.mapScale;
+      const isMajorBoss = enemy.defId === 'fl_monsoon' || enemy.defId === 'st_bao_loc';
+      const targetDim = Math.max(24, def.radius * (enemy.defId === 'st_bao_loc' ? 3.35 : isMajorBoss ? 3.15 : 2.75)) * this.mapScale;
+      const atlasKey = getEnemyAtlasKey(enemy.defId);
 
       let rec = this.enemySprites.get(enemy.uid);
-      if (!rec && hasAtlas) {
+      if (!rec && this.textures.exists(atlasKey)) {
         const frame = getEnemyFrameName(enemy.defId, 0, enemy.element);
-        const sprite = this.add.sprite(sp.x, sp.y, ATLAS_KEY, frame).setDepth(15 + enemy.y * 0.01);
+        const sprite = this.add.sprite(sp.x, sp.y, atlasKey, frame).setDepth(15 + enemy.y * 0.01);
         const animKey = getEnemyWalkAnimKey(enemy.defId, enemy.element);
         if (this.anims.exists(animKey)) {
           sprite.play(animKey);
@@ -735,7 +804,7 @@ export class TdStageScene extends Phaser.Scene {
       }
 
       if (rec) {
-        // Khi Trùm Mùa Nồm đổi hành (Thủy -> Mộc -> Kim), chuyển sang bộ khung màu hành tương ứng
+        // Khi Trùm đổi hành (Mùa Nồm 3 hành / Bão Lốc Cuối Mùa 5 hành), chuyển sang bộ khung màu hành tương ứng
         if (rec.currentElement !== enemy.element) {
           rec.currentElement = enemy.element;
           const nextAnim = getEnemyWalkAnimKey(enemy.defId, enemy.element);
@@ -748,14 +817,12 @@ export class TdStageScene extends Phaser.Scene {
 
         const dx = enemy.x - rec.lastX;
         if (Math.abs(dx) > 0.15) {
-          // Hướng mặc định sprite: quay mặt về bên phải/trái tuỳ hướng đi
           const faceRight = dx > 0;
           const defaultFacesLeft = enemy.defId === 'split_fire' || enemy.defId === 'split_fire_mini';
           rec.sprite.setFlipX(defaultFacesLeft ? faceRight : !faceRight);
         }
         rec.lastX = enemy.x;
 
-        // Ốc sên để lại vệt nhớt lấp lánh nhẹ trên lối đi
         if (enemy.defId === 'fl_snail' && !this.reduceMotion && Math.random() < dt * 3.5) {
           this.particles.push({
             x: sp.x + (Math.random() - 0.5) * 6 * this.mapScale,
@@ -774,7 +841,7 @@ export class TdStageScene extends Phaser.Scene {
         const bob = this.reduceMotion
           ? 0
           : Math.abs(Math.sin(this.animTimeSec * (enemy.flying ? 7 : 9) + rec.bobPhase)) *
-            (enemy.flying ? 4.2 : isMonsoonBoss ? 3.4 : 2.6) *
+            (enemy.flying ? 4.2 : isMajorBoss ? 3.4 : 2.6) *
             this.mapScale;
 
         rec.sprite.setPosition(sp.x, sp.y - bob - (enemy.flying ? 4 * this.mapScale : 0));
@@ -1130,6 +1197,111 @@ export class TdStageScene extends Phaser.Scene {
             life: 0.38,
             maxLife: 0.38,
           });
+        } else if (towerDefId.startsWith('gt_')) {
+          // 18 món phố thật: hiệu ứng đòn đánh khớp vai trò & màu hành
+          const tDef = TOWER_DEFINITIONS[towerDefId];
+          const role = tDef?.role ?? 'single_far';
+          const elCol = tDef ? ELEMENT_INFO[tDef.element].colorInt : color;
+          if (role === 'single_far') {
+            this.projectiles.push({
+              kind: towerDefId,
+              x: sPos.x,
+              y: sPos.y,
+              tx: tPos.x,
+              ty: tPos.y,
+              color: elCol,
+              progress: 0,
+              speed: 8.6,
+              arcHeight: 10 * this.mapScale,
+            });
+            this.spawnDustBurst(tPos.x, tPos.y, elCol, this.reduceMotion ? 2 : 5);
+          } else if (role === 'heavy_slow') {
+            this.projectiles.push({
+              kind: towerDefId,
+              x: sPos.x,
+              y: sPos.y,
+              tx: tPos.x,
+              ty: tPos.y,
+              color: elCol,
+              progress: 0,
+              speed: 6.4,
+              arcHeight: 20 * this.mapScale,
+            });
+            this.areaEffects.push({
+              kind: 'stomp',
+              x: tPos.x,
+              y: tPos.y,
+              radius: 26 * this.mapScale,
+              color: elCol,
+              life: 0.28,
+              maxLife: 0.28,
+            });
+            this.spawnDustBurst(tPos.x, tPos.y, elCol, this.reduceMotion ? 3 : 6);
+          } else if (role === 'slow_aura') {
+            this.projectiles.push({
+              kind: towerDefId,
+              x: sPos.x,
+              y: sPos.y,
+              tx: tPos.x,
+              ty: tPos.y,
+              color: elCol,
+              progress: 0,
+              speed: 7.6,
+              arcHeight: 0,
+            });
+            this.areaEffects.push({
+              kind: 'mist',
+              x: tPos.x,
+              y: tPos.y,
+              radius: (ev.splashRadius ?? 50) * this.mapScale,
+              color: elCol,
+              life: 0.44,
+              maxLife: 0.44,
+            });
+          } else if (role === 'aoe_splash') {
+            this.projectiles.push({
+              kind: towerDefId,
+              x: sPos.x,
+              y: sPos.y,
+              tx: tPos.x,
+              ty: tPos.y,
+              color: elCol,
+              progress: 0,
+              speed: 5.8,
+              arcHeight: 24 * this.mapScale,
+            });
+            this.areaEffects.push({
+              kind: 'oven',
+              x: tPos.x,
+              y: tPos.y,
+              radius: (ev.splashRadius ?? 54) * this.mapScale,
+              color: elCol,
+              life: 0.36,
+              maxLife: 0.36,
+            });
+            this.spawnDustBurst(tPos.x, tPos.y, elCol, this.reduceMotion ? 3 : 6);
+          } else {
+            this.projectiles.push({
+              kind: towerDefId,
+              x: sPos.x,
+              y: sPos.y,
+              tx: tPos.x,
+              ty: tPos.y,
+              color: elCol,
+              progress: 0,
+              speed: 7.4,
+              arcHeight: 0,
+            });
+            this.areaEffects.push({
+              kind: 'wind',
+              x: sPos.x,
+              y: sPos.y,
+              radius: 38 * this.mapScale,
+              color: elCol,
+              life: 0.36,
+              maxLife: 0.36,
+            });
+          }
         } else {
           // Máy sấy giày / mặc định: thổi hơi ấm đỏ cam
           this.projectiles.push({
@@ -1204,7 +1376,7 @@ export class TdStageScene extends Phaser.Scene {
           this.spawnFloatingLabel(sPos.x, sPos.y - 18, `+${ev.reward} xu`, '#ffe066', 11, false);
         }
       } else if (ev.type === 'element_shift' && ev.element) {
-        // Trùm Mùa Nồm đổi hành (Thủy -> Mộc -> Kim): đổi hình/màu Trùm, chữ lớn "Đổi hành!" + biểu tượng, rung nhẹ
+        // Trùm đổi hành (Mùa Nồm 3 hành / Bão Lốc Cuối Mùa 5 hành): đổi hình/màu Trùm, chữ lớn "Đổi hành!" + biểu tượng, rung nhẹ
         sound.playBossShift();
         const elInfo = ELEMENT_INFO[ev.element];
         if (ev.enemyUid) {
@@ -1237,7 +1409,7 @@ export class TdStageScene extends Phaser.Scene {
           17,
           true,
         );
-        this.showBossShiftBanner(ev.element);
+        this.showBossShiftBanner(ev.element, ev.enemyDefId);
         if (!this.reduceMotion) {
           this.cameras.main.shake(220, 0.0055);
         }
@@ -1266,19 +1438,43 @@ export class TdStageScene extends Phaser.Scene {
           this.spawnFloatingLabel(sPos.x, sPos.y - 14, ev.text, '#86efac', 11, false);
         }
       } else if (ev.type === 'split') {
-        const splitText =
-          ev.enemyDefId === 'bk_ember'
-            ? 'Vỡ 2 Than Vụn!'
-            : ev.enemyDefId === 'fl_dust'
-              ? 'Vỡ 2 Bụi Nhỏ!'
-              : (ev.text ?? 'Tách 2 Gián!');
-        const splitColor =
-          ev.enemyDefId === 'bk_ember'
-            ? '#ffb36b'
-            : ev.enemyDefId === 'fl_dust'
-              ? '#e7c382'
-              : '#8df59b';
-        this.spawnFloatingLabel(sPos.x, sPos.y - 14, splitText, splitColor, 12, true);
+        const isBossSummon = ev.text === 'Gọi quân!' || ev.enemyDefId === 'st_bao_loc';
+        if (isBossSummon) {
+          const summonCol = ev.element ? ELEMENT_INFO[ev.element].colorInt : 0xc084fc;
+          const summonHex = ev.element ? ELEMENT_INFO[ev.element].colorHex : '#fde047';
+          this.areaEffects.push({
+            kind: 'boss_shift',
+            x: sPos.x,
+            y: sPos.y,
+            radius: 52 * this.mapScale,
+            color: summonCol,
+            life: 0.62,
+            maxLife: 0.62,
+          });
+          this.spawnDustBurst(sPos.x, sPos.y, summonCol, this.reduceMotion ? 4 : 12);
+          this.spawnFloatingLabel(sPos.x, sPos.y - 26 * this.mapScale, '🌪 Gọi quân!', summonHex, 16, true);
+          if (!this.reduceMotion) {
+            this.cameras.main.shake(120, 0.0035);
+          }
+        } else {
+          const splitText =
+            ev.enemyDefId === 'bk_ember'
+              ? 'Vỡ 2 Than Vụn!'
+              : ev.enemyDefId === 'fl_dust'
+                ? 'Vỡ 2 Bụi Nhỏ!'
+                : ev.enemyDefId?.startsWith('ge_')
+                  ? `Tách 2 ${ENEMY_DEFINITIONS[ev.enemyDefId]?.name ?? 'con nhỏ'}!`
+                  : (ev.text ?? 'Tách 2 Gián!');
+          const splitColor =
+            ev.enemyDefId === 'bk_ember'
+              ? '#ffb36b'
+              : ev.enemyDefId === 'fl_dust'
+                ? '#e7c382'
+                : ev.element
+                  ? ELEMENT_INFO[ev.element].colorHex
+                  : '#8df59b';
+          this.spawnFloatingLabel(sPos.x, sPos.y - 14, splitText, splitColor, 12, true);
+        }
       } else if (ev.type === 'disrupt') {
         const disruptText =
           this.engine.stage.id === 'stage_3' ? 'Bị Cóng!' : (ev.text ?? 'Chuột Gặm!');
@@ -1300,8 +1496,9 @@ export class TdStageScene extends Phaser.Scene {
           this.cameras.main.shake(180, 0.008);
         }
         const stageId = this.engine.stage.id;
-        const leakUnit = stageId === 'stage_3' ? 'chậu' : stageId === 'stage_2' ? 'ổ' : 'đôi';
-        const leakPrefix = stageId === 'stage_3' ? 'Héo' : stageId === 'stage_2' ? 'Hỏng' : 'Bẩn';
+        const isStreetStage = stageId === 'stage_4' || stageId.startsWith('street_');
+        const leakUnit = isStreetStage ? 'mạng phố' : stageId === 'stage_3' ? 'chậu' : stageId === 'stage_2' ? 'ổ' : 'đôi';
+        const leakPrefix = isStreetStage ? 'Lọt' : stageId === 'stage_3' ? 'Héo' : stageId === 'stage_2' ? 'Hỏng' : 'Bẩn';
         this.spawnFloatingLabel(
           sPos.x,
           sPos.y - 18,
@@ -1691,35 +1888,68 @@ export class TdStageScene extends Phaser.Scene {
           shape: 'circle',
         });
       }
-    } else if (enemyDefId === 'fl_monsoon') {
-      // Trùm Mùa Nồm: tan mây bùng nổ lớn với sóng xung kích & hạt đủ 3 sắc Thủy-Mộc-Kim!
+    } else if (enemyDefId === 'fl_monsoon' || enemyDefId === 'st_bao_loc') {
+      // Trùm Mùa Nồm / Trùm Bão Lốc Cuối Mùa: tan bão bùng nổ lớn với sóng xung kích đủ 5 hành!
+      const isStreetBoss = enemyDefId === 'st_bao_loc';
       this.areaEffects.push({
         kind: 'boss_shift',
         x: sx,
         y: sy,
-        radius: 68 * this.mapScale,
+        radius: (isStreetBoss ? 86 : 68) * this.mapScale,
         color: 0xffe066,
-        life: 0.65,
-        maxLife: 0.65,
+        life: 0.78,
+        maxLife: 0.78,
       });
-      const palette = [0x38bdf8, 0x59c173, 0xe2e8f0, 0xffe066];
-      const burstCount = this.reduceMotion ? 8 : 22;
+      const palette = isStreetBoss
+        ? [0x38bdf8, 0x59c173, 0xef4444, 0xd97706, 0xe2e8f0, 0xffe066]
+        : [0x38bdf8, 0x59c173, 0xe2e8f0, 0xffe066];
+      const burstCount = this.reduceMotion ? 10 : isStreetBoss ? 30 : 22;
       for (let i = 0; i < burstCount; i += 1) {
         const ang = (Math.PI * 2 * i) / burstCount + Math.random() * 0.25;
-        const spd = 48 + Math.random() * 82;
+        const spd = 52 + Math.random() * 92;
         this.particles.push({
           x: sx,
           y: sy,
           vx: Math.cos(ang) * spd,
-          vy: Math.sin(ang) * spd - 16,
+          vy: Math.sin(ang) * spd - 18,
           gravity: 70,
           color: palette[i % palette.length]!,
-          life: 0.72,
-          maxLife: 0.72,
-          size: 5.8,
+          life: 0.78,
+          maxLife: 0.78,
+          size: 6.2,
           shape: i % 2 === 0 ? 'circle' : 'drop',
         });
       }
+    } else if (enemyDefId.startsWith('ge_')) {
+      const def = ENEMY_DEFINITIONS[enemyDefId];
+      const elCol = def ? ELEMENT_INFO[def.element].colorInt : 0xffe066;
+      const eAtlas = getEnemyAtlasKey(enemyDefId);
+      if ((def?.trait === 'disruptor' || def?.trait === 'flying') && this.textures.exists(eAtlas)) {
+        const ghost = this.add
+          .sprite(sx, sy, eAtlas, getEnemyFrameName(enemyDefId, 0))
+          .setDisplaySize(32 * this.mapScale, 32 * this.mapScale)
+          .setFlipY(def.trait === 'flying')
+          .setDepth(25);
+        this.dyingSprites.push({
+          sprite: ghost,
+          kind: def.trait === 'flying' ? 'flip_spin' : 'scurry',
+          vx: def.trait === 'flying' ? (Math.random() - 0.5) * 34 : 105 * (Math.random() < 0.5 ? -1 : 1),
+          vy: -28,
+          spinSpeed: def.trait === 'flying' ? 9.5 : 0,
+          life: 0.42,
+          maxLife: 0.42,
+        });
+      }
+      this.areaEffects.push({
+        kind: 'snuff',
+        x: sx,
+        y: sy,
+        radius: 22 * this.mapScale,
+        color: elCol,
+        life: 0.28,
+        maxLife: 0.28,
+      });
+      this.spawnDustBurst(sx, sy, elCol, Math.max(4, count));
     } else if (enemyDefId === 'bk_ember' || enemyDefId === 'bk_ember_mini') {
       // Than Hồng / Than Vụn: bắn tóe tia lửa đỏ cam & mảnh than xám đen
       this.areaEffects.push({
@@ -2028,6 +2258,21 @@ export class TdStageScene extends Phaser.Scene {
       pg.strokeCircle(sx, sy + 2 * this.mapScale, r + 5.2 * this.mapScale + hpulse);
     }
 
+    // Vòng 5 màu Ngũ Hành xoay quanh các món trong chuỗi đủ 5 hành khi Ngũ hành viên mãn bật (Việc 7)
+    if (this.engine.fullCycleActive && (tower.synergyChainLength ?? 1) >= 5) {
+      const cycleR = r + 6.5 * this.mapScale;
+      const baseAng = this.reduceMotion ? 0 : this.animTimeSec * 2.2;
+      const segArc = (Math.PI * 2) / 5;
+      for (let cIdx = 0; cIdx < 5; cIdx += 1) {
+        const a0 = baseAng + cIdx * segArc;
+        const a1 = a0 + segArc * 0.78;
+        pg.lineStyle(3.2 * this.mapScale, FIVE_EL_COLORS[cIdx]!, 0.94);
+        pg.beginPath();
+        pg.arc(sx, sy + 2 * this.mapScale, cycleR, a0, a1, false);
+        pg.strokePath();
+      }
+    }
+
     // Vòng màu hành mảnh dưới chân món giúp nhận ra hành ngay lập tức
     pg.lineStyle(2.2, elInfo.colorInt, 0.92);
     pg.strokeCircle(sx, sy + 2 * this.mapScale, r);
@@ -2061,29 +2306,29 @@ export class TdStageScene extends Phaser.Scene {
   private drawEnemyOverlay(og: Phaser.GameObjects.Graphics, enemy: ActiveEnemy): void {
     const def = ENEMY_DEFINITIONS[enemy.defId];
     const sp = this.toScreen(enemy.x, enemy.y);
-    const isMonsoonBoss = enemy.defId === 'fl_monsoon';
+    const isMajorBoss = enemy.defId === 'fl_monsoon' || enemy.defId === 'st_bao_loc';
 
-    // Vòng hào quang hành & khiên Màn Ẩm Dày cho Trùm Mùa Nồm
-    if (isMonsoonBoss) {
+    // Vòng hào quang hành & khiên cho Trùm Mùa Nồm / Trùm Bão Lốc Cuối Mùa
+    if (isMajorBoss) {
       const elInfo = ELEMENT_INFO[enemy.element];
       const pulse = this.reduceMotion ? 0 : Math.sin(this.animTimeSec * 4.5) * 2 * this.mapScale;
       og.lineStyle(3 * this.mapScale, elInfo.colorInt, 0.9);
-      og.strokeCircle(sp.x, sp.y + 4 * this.mapScale, 25 * this.mapScale + pulse);
+      og.strokeCircle(sp.x, sp.y + 4 * this.mapScale, (enemy.defId === 'st_bao_loc' ? 28 : 25) * this.mapScale + pulse);
       if (enemy.shieldRemaining > 0) {
         og.lineStyle(2.5 * this.mapScale, 0xbae6fd, 0.85);
-        og.strokeCircle(sp.x, sp.y, 31 * this.mapScale);
+        og.strokeCircle(sp.x, sp.y, (enemy.defId === 'st_bao_loc' ? 34 : 31) * this.mapScale);
       }
     }
 
-    const barW = Math.max(22, def.radius * (isMonsoonBoss ? 2.8 : 2.1)) * this.mapScale;
-    const barH = (isMonsoonBoss ? 6.5 : 4.5) * this.mapScale;
+    const barW = Math.max(22, def.radius * (isMajorBoss ? 2.8 : 2.1)) * this.mapScale;
+    const barH = (isMajorBoss ? 6.5 : 4.5) * this.mapScale;
     const barX = sp.x - barW * 0.5;
-    const barY = sp.y - def.radius * (isMonsoonBoss ? 1.85 : 1.55) * this.mapScale - 5 * this.mapScale;
+    const barY = sp.y - def.radius * (isMajorBoss ? 1.85 : 1.55) * this.mapScale - 5 * this.mapScale;
     const hpRatio = Math.max(0, Math.min(1, enemy.hp / enemy.maxHp));
 
     og.fillStyle(0x2b1a12, 0.92);
     og.fillRoundedRect(barX - 1.5, barY - 1.5, barW + 3, barH + 3, 2);
-    if (isMonsoonBoss) {
+    if (isMajorBoss) {
       og.lineStyle(1.4, ELEMENT_INFO[enemy.element].colorInt, 0.95);
       og.strokeRoundedRect(barX - 1.5, barY - 1.5, barW + 3, barH + 3, 2);
     }
@@ -2091,16 +2336,26 @@ export class TdStageScene extends Phaser.Scene {
     og.fillRect(barX, barY, barW * hpRatio, barH);
   }
 
-  private showBossShiftBanner(element: ElementType): void {
+  private showBossShiftBanner(element: ElementType, enemyDefId?: EnemyId): void {
     if (!this.bossBannerRoot) return;
     const elInfo = ELEMENT_INFO[element];
     const iconUrl = getAtlasFrameDataUrl(this, `el_${element}`);
-    const counterTip =
-      element === 'moc'
-        ? 'Sang Hành Mộc • Kéo Tỉa (Kim) khắc chế!'
-        : element === 'kim'
-          ? 'Sang Hành Kim • Đèn Sưởi (Hỏa) khắc chế!'
-          : 'Sang Hành Thủy • Vôi Bột (Thổ) khắc chế!';
+    const isStreetBoss = enemyDefId === 'st_bao_loc';
+    const counterTipByEl: Record<ElementType, string> = isStreetBoss
+      ? {
+          thuy: 'Sang Hành Thủy • Dùng món Thổ khắc chế!',
+          moc: 'Sang Hành Mộc • Dùng món Kim khắc chế!',
+          hoa: 'Sang Hành Hỏa • Dùng món Thủy khắc chế!',
+          tho: 'Sang Hành Thổ • Dùng món Mộc khắc chế!',
+          kim: 'Sang Hành Kim • Dùng món Hỏa khắc chế!',
+        }
+      : {
+          moc: 'Sang Hành Mộc • Kéo Tỉa (Kim) khắc chế!',
+          kim: 'Sang Hành Kim • Đèn Sưởi (Hỏa) khắc chế!',
+          thuy: 'Sang Hành Thủy • Vôi Bột (Thổ) khắc chế!',
+          hoa: 'Sang Hành Hỏa • Bình Tưới (Thủy) khắc chế!',
+          tho: 'Sang Hành Thổ • Quạt Thông Gió (Mộc) khắc chế!',
+        };
 
     this.bossBannerTimer = 2.8;
     this.bossBannerRoot.innerHTML = `
@@ -2113,7 +2368,7 @@ export class TdStageScene extends Phaser.Scene {
         ${iconUrl ? `<img class="td-boss-shift-icon" src="${iconUrl}" alt="${elInfo.label}" />` : ''}
         <div class="td-boss-shift-text">
           <div class="td-boss-shift-title" style="color:${elInfo.colorHex}">Đổi hành! • ${elInfo.label}</div>
-          <div class="td-boss-shift-sub">${counterTip}</div>
+          <div class="td-boss-shift-sub">${counterTipByEl[element]}</div>
         </div>
       </div>
     `;
@@ -2154,12 +2409,20 @@ export class TdStageScene extends Phaser.Scene {
     const links = this.getActiveSynergyLinks();
     const nextKeys = new Set<string>();
 
+    // Nhãn chuỗi nhỏ gọn cho các chuỗi >= 3 (nhóm theo thành phần liên thông để không lặp chữ)
+    const chainBadges: Array<{ x: number; y: number; len: number; pct: number; colorHex: string }> = [];
+    const seenChainUids = new Set<string>();
+
     for (const link of links) {
       nextKeys.add(link.key);
       const giverEl = ELEMENT_INFO[link.giver.element];
+      const chainLen = Math.max(
+        2,
+        Math.min(link.giver.synergyChainLength ?? 2, link.receiver.synergyChainLength ?? 2),
+      );
 
-      // Khi mới nối cặp tương sinh, bật chữ nhỏ "+15%" ngay giữa đường nối
-      if (!this.activeSynergyLinks.has(link.key)) {
+      // Khi mới nối cặp (+15%) -> bật chữ nổi nhẹ (chuỗi >= 3 đã có nhãn DOM sắc nét, không đè chữ)
+      if (!this.activeSynergyLinks.has(link.key) && chainLen === 2) {
         this.spawnFloatingLabel(
           link.midScreen.x,
           link.midScreen.y - 6 * this.mapScale,
@@ -2172,21 +2435,23 @@ export class TdStageScene extends Phaser.Scene {
 
       const p1 = this.toScreen(link.giver.x, link.giver.y);
       const p2 = this.toScreen(link.receiver.x, link.receiver.y);
-      const pulse = this.reduceMotion ? 0.5 : 0.5 + 0.5 * Math.sin(this.animTimeSec * 4.2);
+      const pulse = this.reduceMotion ? 0.5 : 0.5 + 0.5 * Math.sin(this.animTimeSec * (chainLen >= 4 ? 6.2 : 4.2));
 
-      // Vầng sáng mềm bên ngoài (màu hành của món cho)
-      sg.lineStyle(6.5 * this.mapScale, giverEl.colorInt, 0.22 + pulse * 0.12);
+      // Đường sáng dày và rực dần theo độ dài chuỗi (2 -> 3 -> 4..5)
+      const outerW = (chainLen >= 4 ? 12.2 : chainLen === 3 ? 9.4 : 6.5) * this.mapScale;
+      const innerW = (chainLen >= 4 ? 4.2 : chainLen === 3 ? 3.2 : 2.2) * this.mapScale;
+      const coreW = (chainLen >= 4 ? 2.0 : chainLen === 3 ? 1.4 : 1.0) * this.mapScale;
+      const outerAlpha = (chainLen >= 4 ? 0.36 : chainLen === 3 ? 0.28 : 0.22) + pulse * 0.14;
+
+      sg.lineStyle(outerW, giverEl.colorInt, outerAlpha);
       sg.lineBetween(p1.x, p1.y, p2.x, p2.y);
 
-      // Đường sáng mảnh sắc nét bên trong
-      sg.lineStyle(2.2 * this.mapScale, giverEl.colorInt, 0.92);
+      sg.lineStyle(innerW, giverEl.colorInt, 0.96);
       sg.lineBetween(p1.x, p1.y, p2.x, p2.y);
 
-      // Lõi trắng nhẹ tạo cảm giác phát sáng
-      sg.lineStyle(1 * this.mapScale, 0xfffdf2, 0.65);
+      sg.lineStyle(coreW, chainLen >= 4 ? 0xfff3b0 : 0xfffdf2, chainLen >= 4 ? 0.88 : 0.68);
       sg.lineBetween(p1.x, p1.y, p2.x, p2.y);
 
-      // Hạt sáng trôi từ món cho -> món nhận + mũi tên nhỏ giữa đường gợi hướng & gợi chạm
       const dx = p2.x - p1.x;
       const dy = p2.y - p1.y;
       const len = Math.hypot(dx, dy) || 1;
@@ -2195,13 +2460,12 @@ export class TdStageScene extends Phaser.Scene {
       const mx = (p1.x + p2.x) * 0.5;
       const my = (p1.y + p2.y) * 0.5;
 
-      // Dấu mũi tên nhỏ chỉ chiều sinh ở điểm giữa
-      const arrowSize = 4.6 * this.mapScale;
+      const arrowSize = (chainLen >= 4 ? 5.8 : chainLen === 3 ? 5.2 : 4.6) * this.mapScale;
       const px = -uy;
       const py = ux;
-      sg.fillStyle(0x2b1a12, 0.72);
-      sg.fillCircle(mx, my, 5.6 * this.mapScale);
-      sg.fillStyle(giverEl.colorInt, 0.98);
+      sg.fillStyle(0x2b1a12, 0.78);
+      sg.fillCircle(mx, my, (chainLen >= 4 ? 6.8 : 5.6) * this.mapScale);
+      sg.fillStyle(chainLen >= 4 ? 0xffe066 : giverEl.colorInt, 0.98);
       sg.fillTriangle(
         mx + ux * arrowSize,
         my + uy * arrowSize,
@@ -2212,13 +2476,67 @@ export class TdStageScene extends Phaser.Scene {
       );
 
       if (!this.reduceMotion) {
-        for (let k = 0; k < 2; k += 1) {
-          const t = (this.animTimeSec * 0.65 + k * 0.5) % 1;
+        const sparkCount = chainLen >= 4 ? 3 : 2;
+        const speedMul = chainLen >= 4 ? 0.95 : chainLen === 3 ? 0.8 : 0.65;
+        for (let k = 0; k < sparkCount; k += 1) {
+          const t = (this.animTimeSec * speedMul + k / sparkCount) % 1;
           const bx = p1.x + dx * t;
           const by = p1.y + dy * t;
-          sg.fillStyle(0xffffff, 0.85 * Math.sin(t * Math.PI));
-          sg.fillCircle(bx, by, 2.6 * this.mapScale);
+          sg.fillStyle(chainLen >= 4 ? 0xfff3b0 : 0xffffff, 0.9 * Math.sin(t * Math.PI));
+          sg.fillCircle(bx, by, (chainLen >= 4 ? 3.2 : 2.6) * this.mapScale);
         }
+      }
+
+      // Thu thập 1 nhãn nhỏ "Chuỗi 3 +25%" / "Chuỗi 4 +40%" cho mỗi nhóm chuỗi >= 3
+      if (chainLen >= 3 && !seenChainUids.has(link.giver.uid) && !seenChainUids.has(link.receiver.uid)) {
+        seenChainUids.add(link.giver.uid);
+        seenChainUids.add(link.receiver.uid);
+        chainBadges.push({
+          x: Math.round(mx),
+          y: Math.round(my - 14 * this.mapScale),
+          len: chainLen,
+          pct: getSynergyChainBonusPct(chainLen),
+          colorHex: chainLen >= 4 ? '#f59e0b' : giverEl.colorHex,
+        });
+      } else if (chainLen >= 3) {
+        seenChainUids.add(link.giver.uid);
+        seenChainUids.add(link.receiver.uid);
+      }
+    }
+
+    // Đồng bộ nhãn chuỗi DOM nhỏ gọn (chỉ cập nhật khi thay đổi toạ độ / độ dài)
+    if (this.chainLabelsRoot) {
+      const renderKey =
+        this.engine.status !== 'playing'
+          ? ''
+          : chainBadges.map((b) => `${b.x},${b.y},${b.len}`).join('|');
+      if (renderKey !== this.lastChainLabelsKey) {
+        this.lastChainLabelsKey = renderKey;
+        this.chainLabelsRoot.innerHTML =
+          this.engine.status !== 'playing'
+            ? ''
+            : chainBadges
+                .map(
+                  (b) =>
+                    `<div class="td-chain-pill ${b.len >= 4 ? 'high' : ''}" data-testid="td-chain-label" data-chain-len="${b.len}" style="left:${b.x}px;top:${b.y}px;border-color:${b.colorHex}">Chuỗi ${b.len} +${b.pct}%</div>`,
+                )
+                .join('');
+      }
+    }
+
+    // Banner "Ngũ hành viên mãn!" khi fullCycleActive bật trên sân (Việc 7)
+    const isFullCycle = this.engine.status === 'playing' && this.engine.fullCycleActive;
+    if (isFullCycle !== this.wasFullCycleActive) {
+      this.wasFullCycleActive = isFullCycle;
+      if (this.fullCycleBannerRoot) {
+        this.fullCycleBannerRoot.innerHTML = isFullCycle
+          ? `<div class="td-full-cycle-banner ${this.reduceMotion ? 'no-anim' : ''}" data-testid="td-full-cycle-banner">
+               ✦ Ngũ hành viên mãn! Mọi món nhanh +20% ✦
+             </div>`
+          : '';
+      }
+      if (isFullCycle) {
+        sound.playUltimateUnlock();
       }
     }
 
@@ -2227,7 +2545,11 @@ export class TdStageScene extends Phaser.Scene {
 
   private showSynergyTooltip(giver: ActiveTower, receiver: ActiveTower): void {
     if (!this.synergyTooltipRoot) return;
-    const desc = getSynergyExplanation(giver.defId, giver.element, receiver.defId, receiver.element);
+    const chainLen = Math.max(
+      2,
+      Math.min(giver.synergyChainLength ?? 2, receiver.synergyChainLength ?? 2),
+    );
+    const desc = getSynergyExplanation(giver.defId, giver.element, receiver.defId, receiver.element, chainLen);
     const gEl = ELEMENT_INFO[giver.element];
     const rEl = ELEMENT_INFO[receiver.element];
     const gIcon = getAtlasFrameDataUrl(this, `el_${giver.element}`);
@@ -2306,6 +2628,38 @@ export class TdStageScene extends Phaser.Scene {
         fx.lineBetween(p.x, p.y, cx, cy);
         fx.fillStyle(0xc4f7ce, 0.8);
         fx.fillCircle(cx, cy, 5.5 * this.mapScale);
+      } else if (p.kind.startsWith('gt_')) {
+        const role = TOWER_DEFINITIONS[p.kind]?.role;
+        if (role === 'single_far') {
+          fx.lineStyle(2.8 * this.mapScale, p.color, 0.82);
+          fx.lineBetween(p.x, p.y, cx, cy);
+          fx.fillStyle(0xfffbeb, 0.94);
+          fx.fillCircle(cx, cy, 4.4 * this.mapScale);
+        } else if (role === 'heavy_slow') {
+          fx.lineStyle(2.2 * this.mapScale, p.color, 0.52);
+          fx.lineBetween(p.x, p.y, cx, cy);
+          fx.fillStyle(p.color, 0.95);
+          fx.fillCircle(cx, cy, 6.2 * this.mapScale);
+          fx.lineStyle(1.6, 0x2b1a12, 0.95);
+          fx.strokeCircle(cx, cy, 6.2 * this.mapScale);
+        } else if (role === 'slow_aura') {
+          fx.lineStyle(3.4 * this.mapScale, p.color, 0.64);
+          fx.lineBetween(p.x, p.y, cx, cy);
+          fx.fillStyle(0xdcf6ff, 0.88);
+          fx.fillCircle(cx, cy, 5.4 * this.mapScale);
+        } else if (role === 'aoe_splash') {
+          fx.lineStyle(3.2 * this.mapScale, p.color, 0.68);
+          fx.lineBetween(p.x, p.y, cx, cy);
+          fx.fillStyle(p.color, 0.94);
+          fx.fillCircle(cx, cy, 5.8 * this.mapScale);
+          fx.fillStyle(0xfff3b0, 0.9);
+          fx.fillCircle(cx, cy, 3 * this.mapScale);
+        } else {
+          fx.lineStyle(3 * this.mapScale, p.color, 0.72);
+          fx.lineBetween(p.x, p.y, cx, cy);
+          fx.fillStyle(0xffe066, 0.92);
+          fx.fillCircle(cx, cy, 4.8 * this.mapScale);
+        }
       }
     }
 
@@ -2472,84 +2826,147 @@ export class TdStageScene extends Phaser.Scene {
       }
     }
 
-    // Không khí Đà Lạt ngày mưa / sương sớm (mưa ngoài cửa, vũng nước, đèn vàng ấm trên kệ/giàn cuối đường)
+    // Không khí Đà Lạt ngày mưa / sương sớm / bão phố
     const wg = this.weatherGraphics;
     wg.clear();
     const stageId = this.engine.stage.id;
     const isStage2 = stageId === 'stage_2';
     const isStage3 = stageId === 'stage_3';
+    const isStage4 = stageId === 'stage_4';
+    const isRealStreet = stageId.startsWith('street_');
 
-    const lampPos = isStage3
-      ? this.toScreen(62, 474)
-      : isStage2
-        ? this.toScreen(308, 456)
-        : this.toScreen(314, 442);
+    const path0 = this.engine.stage.paths[0];
+    const lastPt = path0?.[path0.length - 1];
+    const lampPos =
+      (isStage4 || isRealStreet) && lastPt
+        ? this.toScreen(lastPt.x, lastPt.y)
+        : isStage3
+          ? this.toScreen(62, 474)
+          : isStage2
+            ? this.toScreen(308, 456)
+            : this.toScreen(314, 442);
     const glowPulse = this.reduceMotion ? 1 : 0.88 + Math.sin(this.animTimeSec * 2.2) * 0.12;
-    wg.fillStyle(0xffe082, 0.11 * glowPulse);
+    wg.fillStyle(0xffe082, (isStage4 ? 0.15 : 0.11) * glowPulse);
     wg.fillCircle(lampPos.x, lampPos.y, 44 * this.mapScale);
-    wg.fillStyle(0xffd452, 0.08 * glowPulse);
+    wg.fillStyle(0xffd452, (isStage4 ? 0.11 : 0.08) * glowPulse);
     wg.fillCircle(lampPos.x, lampPos.y, 68 * this.mapScale);
 
     if (!this.reduceMotion) {
-      // Mưa rơi xiên ngoài vỉa hè (Màn 1: cửa trên trái; Màn 2: cửa giữa trên; Màn 3: cả 2 cửa trên trái & nhà kính trên phải)
-      wg.lineStyle(1.4, isStage3 ? 0xd8f3ff : 0xc8ebff, isStage3 ? 0.5 : 0.58);
-      for (const drop of this.rainDrops) {
-        drop.lx -= drop.speed * 0.25 * dt;
-        drop.ly += drop.speed * dt;
-        if (isStage3) {
-          if (drop.doorIdx === 1) {
-            if (drop.ly > 40 || drop.lx < 294) {
-              drop.lx = 300 + Math.random() * 58;
+      if (isStage4) {
+        // Trận Trùm Phố: mưa bão xiên mạnh + lá cây cuốn trong gió
+        wg.lineStyle(1.6, 0xd4ecff, 0.52);
+        for (const drop of this.rainDrops) {
+          drop.lx -= drop.speed * 0.36 * dt;
+          drop.ly += drop.speed * dt;
+          if (drop.ly > STAGE2_LOGICAL_HEIGHT + 8 || drop.lx < -12) {
+            drop.lx = Math.random() * (LOGICAL_WIDTH + 80);
+            drop.ly = -10;
+          }
+          const p1 = this.toScreen(drop.lx, drop.ly);
+          const p2 = this.toScreen(drop.lx - drop.len * 0.36, drop.ly + drop.len);
+          wg.lineBetween(p1.x, p1.y, p2.x, p2.y);
+        }
+        // Gió cuốn lá trên phố dốc
+        for (const leaf of this.windLeaves) {
+          leaf.lx += (leaf.vx + Math.sin(this.animTimeSec * 2.8 + leaf.rot) * 14) * dt;
+          leaf.ly += (leaf.vy + Math.cos(this.animTimeSec * 3.1 + leaf.rot) * 10) * dt;
+          leaf.rot += dt * 4.5;
+          if (leaf.lx < -12 || leaf.ly > STAGE2_LOGICAL_HEIGHT + 12) {
+            leaf.lx = LOGICAL_WIDTH + 10 + Math.random() * 40;
+            leaf.ly = Math.random() * (STAGE2_LOGICAL_HEIGHT * 0.72);
+          }
+          const lp = this.toScreen(leaf.lx, leaf.ly);
+          const rx = Math.cos(leaf.rot) * 4.5 * this.mapScale;
+          const ry = Math.sin(leaf.rot) * 4.5 * this.mapScale;
+          wg.fillStyle(leaf.color, 0.86);
+          wg.fillEllipse(lp.x, lp.y, 7.2 * this.mapScale, 3.6 * this.mapScale);
+          wg.lineStyle(1, 0x2b1a12, 0.45);
+          wg.lineBetween(lp.x - rx * 0.7, lp.y - ry * 0.7, lp.x + rx * 0.7, lp.y + ry * 0.7);
+        }
+      } else if (isRealStreet) {
+        const isNightStreet = stageId === 'street_tang_bat_ho';
+        wg.lineStyle(1.2, isNightStreet ? 0xc5e4ff : 0xe3f6ff, isNightStreet ? 0.38 : 0.28);
+        for (const drop of this.rainDrops) {
+          drop.lx -= drop.speed * 0.22 * dt;
+          drop.ly += drop.speed * dt;
+          if (drop.ly > STAGE2_LOGICAL_HEIGHT + 6 || drop.lx < -8) {
+            drop.lx = Math.random() * (LOGICAL_WIDTH + 40);
+            drop.ly = -8;
+          }
+          const p1 = this.toScreen(drop.lx, drop.ly);
+          const p2 = this.toScreen(drop.lx - drop.len * 0.22, drop.ly + drop.len);
+          wg.lineBetween(p1.x, p1.y, p2.x, p2.y);
+        }
+        if (!isNightStreet) {
+          // Làn sương sáng nhẹ trôi qua Phố Cà Phê
+          const drift = Math.sin(this.animTimeSec * 0.55) * 18;
+          const m1 = this.toScreen(110 + drift, 54);
+          const m2 = this.toScreen(265 - drift * 0.8, 128);
+          wg.fillStyle(0xf0fbff, 0.12);
+          wg.fillEllipse(m1.x, m1.y, 110 * this.mapScale, 24 * this.mapScale);
+          wg.fillEllipse(m2.x, m2.y, 92 * this.mapScale, 20 * this.mapScale);
+        }
+      } else {
+        // Mưa rơi xiên ngoài vỉa hè (Màn 1: cửa trên trái; Màn 2: cửa giữa trên; Màn 3: cả 2 cửa trên trái & nhà kính trên phải)
+        wg.lineStyle(1.4, isStage3 ? 0xd8f3ff : 0xc8ebff, isStage3 ? 0.5 : 0.58);
+        for (const drop of this.rainDrops) {
+          drop.lx -= drop.speed * 0.25 * dt;
+          drop.ly += drop.speed * dt;
+          if (isStage3) {
+            if (drop.doorIdx === 1) {
+              if (drop.ly > 40 || drop.lx < 294) {
+                drop.lx = 300 + Math.random() * 58;
+                drop.ly = -4;
+              }
+            } else if (drop.ly > 40 || drop.lx < 4) {
+              drop.lx = 12 + Math.random() * 62;
               drop.ly = -4;
             }
-          } else if (drop.ly > 40 || drop.lx < 4) {
-            drop.lx = 12 + Math.random() * 62;
-            drop.ly = -4;
-          }
-        } else if (isStage2) {
-          if (drop.ly > 42 || drop.lx < 138) {
-            drop.lx = 144 + Math.random() * 82;
-            drop.ly = -4;
-          }
-        } else if (drop.ly > 64 || drop.lx < 0) {
-          drop.lx = 8 + Math.random() * 102;
-          drop.ly = -4;
-        }
-        const p1 = this.toScreen(drop.lx, drop.ly);
-        const p2 = this.toScreen(drop.lx - drop.len * 0.25, drop.ly + drop.len);
-        wg.lineBetween(p1.x, p1.y, p2.x, p2.y);
-      }
-
-      // Làn sương sớm Đà Lạt lững lờ nhẹ quanh mép nhà kính Màn 3
-      if (isStage3) {
-        const drift = Math.sin(this.animTimeSec * 0.7) * 14;
-        const m1 = this.toScreen(285 + drift, 26);
-        const m2 = this.toScreen(95 - drift * 0.7, 22);
-        wg.fillStyle(0xeaf9ff, 0.14);
-        wg.fillEllipse(m1.x, m1.y, 92 * this.mapScale, 20 * this.mapScale);
-        wg.fillEllipse(m2.x, m2.y, 76 * this.mapScale, 16 * this.mapScale);
-      }
-
-      // Vũng nước ngoài cửa kính lăn tăn gợn sóng tròn
-      for (const rp of this.ripples) {
-        rp.life += dt;
-        if (rp.life >= rp.maxLife) {
-          rp.life = 0;
-          if (isStage3) {
-            rp.lx = rp.doorIdx === 1 ? 308 + Math.random() * 40 : 18 + Math.random() * 42;
-            rp.ly = 10 + Math.random() * 16;
           } else if (isStage2) {
-            rp.lx = 152 + Math.random() * 56;
-            rp.ly = 10 + Math.random() * 18;
-          } else {
-            rp.lx = 16 + Math.random() * 58;
-            rp.ly = 12 + Math.random() * 38;
+            if (drop.ly > 42 || drop.lx < 138) {
+              drop.lx = 144 + Math.random() * 82;
+              drop.ly = -4;
+            }
+          } else if (drop.ly > 64 || drop.lx < 0) {
+            drop.lx = 8 + Math.random() * 102;
+            drop.ly = -4;
           }
+          const p1 = this.toScreen(drop.lx, drop.ly);
+          const p2 = this.toScreen(drop.lx - drop.len * 0.25, drop.ly + drop.len);
+          wg.lineBetween(p1.x, p1.y, p2.x, p2.y);
         }
-        const t = rp.life / rp.maxLife;
-        const p = this.toScreen(rp.lx, rp.ly);
-        wg.lineStyle(1.3, 0xd9f3ff, (1 - t) * 0.65);
-        wg.strokeEllipse(p.x, p.y, rp.maxR * 2 * t * this.mapScale, rp.maxR * 1.15 * t * this.mapScale);
+
+        // Làn sương sớm Đà Lạt lững lờ nhẹ quanh mép nhà kính Màn 3
+        if (isStage3) {
+          const drift = Math.sin(this.animTimeSec * 0.7) * 14;
+          const m1 = this.toScreen(285 + drift, 26);
+          const m2 = this.toScreen(95 - drift * 0.7, 22);
+          wg.fillStyle(0xeaf9ff, 0.14);
+          wg.fillEllipse(m1.x, m1.y, 92 * this.mapScale, 20 * this.mapScale);
+          wg.fillEllipse(m2.x, m2.y, 76 * this.mapScale, 16 * this.mapScale);
+        }
+
+        // Vũng nước ngoài cửa kính lăn tăn gợn sóng tròn
+        for (const rp of this.ripples) {
+          rp.life += dt;
+          if (rp.life >= rp.maxLife) {
+            rp.life = 0;
+            if (isStage3) {
+              rp.lx = rp.doorIdx === 1 ? 308 + Math.random() * 40 : 18 + Math.random() * 42;
+              rp.ly = 10 + Math.random() * 16;
+            } else if (isStage2) {
+              rp.lx = 152 + Math.random() * 56;
+              rp.ly = 10 + Math.random() * 18;
+            } else {
+              rp.lx = 16 + Math.random() * 58;
+              rp.ly = 12 + Math.random() * 38;
+            }
+          }
+          const t = rp.life / rp.maxLife;
+          const p = this.toScreen(rp.lx, rp.ly);
+          wg.lineStyle(1.3, 0xd9f3ff, (1 - t) * 0.65);
+          wg.strokeEllipse(p.x, p.y, rp.maxR * 2 * t * this.mapScale, rp.maxR * 1.15 * t * this.mapScale);
+        }
       }
     }
   }
@@ -2569,18 +2986,27 @@ export class TdStageScene extends Phaser.Scene {
     const stageId = this.engine.stage.id;
     const isStage2 = stageId === 'stage_2';
     const isStage3 = stageId === 'stage_3';
+    const isStreetStage = stageId === 'stage_4' || stageId.startsWith('street_');
     const walletUrl = getAtlasFrameDataUrl(this, 'icon_wallet');
     const lifeIconUrl = getAtlasFrameDataUrl(
       this,
-      isStage3 ? 'icon_flower_life' : isStage2 ? 'icon_bread_life' : 'icon_shoe_life',
+      isStreetStage
+        ? 'icon_street_life'
+        : isStage3
+          ? 'icon_flower_life'
+          : isStage2
+            ? 'icon_bread_life'
+            : 'icon_shoe_life',
     );
-    const lifeTitle = isStage3
-      ? 'Số chậu hoa còn tươi trên giàn'
-      : isStage2
-        ? 'Số ổ bánh còn lành trên kệ'
-        : 'Số đôi giày lành còn lại trên kệ';
-    const lifeFallback = isStage3 ? '🌸' : isStage2 ? '🥖' : '👟';
-    const lifeAlt = isStage3 ? 'Hoa' : isStage2 ? 'Bánh' : 'Giày';
+    const lifeTitle = isStreetStage
+      ? 'Sức giữ phố còn lại'
+      : isStage3
+        ? 'Số chậu hoa còn tươi trên giàn'
+        : isStage2
+          ? 'Số ổ bánh còn lành trên kệ'
+          : 'Số đôi giày lành còn lại trên kệ';
+    const lifeFallback = isStreetStage ? '🏠' : isStage3 ? '🌸' : isStage2 ? '🥖' : '👟';
+    const lifeAlt = isStreetStage ? 'Phố' : isStage3 ? 'Hoa' : isStage2 ? 'Bánh' : 'Giày';
 
     hud.innerHTML = `
       <div class="td-top-bar">
@@ -2614,6 +3040,12 @@ export class TdStageScene extends Phaser.Scene {
       </div>
     `;
 
+    const chainLabelsLayer = document.createElement('div');
+    chainLabelsLayer.className = 'td-chain-labels-layer';
+    chainLabelsLayer.id = 'td-chain-labels-layer';
+    container.appendChild(chainLabelsLayer);
+    this.chainLabelsRoot = chainLabelsLayer;
+
     const ultLayer = document.createElement('div');
     ultLayer.className = 'td-ult-layer';
     ultLayer.id = 'td-ult-layer';
@@ -2622,6 +3054,12 @@ export class TdStageScene extends Phaser.Scene {
 
     container.appendChild(hud);
     this.hudRoot = hud;
+
+    const fullCycleHolder = document.createElement('div');
+    fullCycleHolder.className = 'td-full-cycle-holder';
+    fullCycleHolder.id = 'td-full-cycle-holder';
+    container.appendChild(fullCycleHolder);
+    this.fullCycleBannerRoot = fullCycleHolder;
 
     const synergyHolder = document.createElement('div');
     synergyHolder.className = 'td-synergy-holder';
@@ -2765,7 +3203,8 @@ export class TdStageScene extends Phaser.Scene {
             <div class="td-up-elements">${enemyPreviews}</div>
           `;
         } else {
-          upcomingBox.innerHTML = `<div class="td-up-title">Đợt cuối đang kéo vào tiệm!</div>`;
+          const isStreet = this.engine.stage.id === 'stage_4' || this.engine.stage.id.startsWith('street_');
+          upcomingBox.innerHTML = `<div class="td-up-title">${isStreet ? 'Đợt cuối đang tràn xuống phố!' : 'Đợt cuối đang kéo vào tiệm!'}</div>`;
         }
       }
     }
@@ -2904,6 +3343,7 @@ export class TdStageScene extends Phaser.Scene {
     const existingTower = this.engine.getTowerAtPad(padId);
     const coinUrl = getAtlasFrameDataUrl(this, 'icon_coin');
     const coinImgHtml = coinUrl ? `<img class="td-inline-coin" src="${coinUrl}" alt="xu" />` : '🪙';
+    const isStreetStage = this.engine.stage.id === 'stage_4' || this.engine.stage.id.startsWith('street_');
 
     if (!existingTower) {
       const cardsHtml = getStageTowerList(this.engine.stage, this.engine.loadout ?? undefined).map((def) => {
@@ -2939,7 +3379,7 @@ export class TdStageScene extends Phaser.Scene {
           <div class="td-sheet-head">
             <div class="td-sheet-title-wrap">
               <span class="td-tag-hole"></span>
-              <strong>Đặt món giữ tiệm • Ô #${padId.replace('pad_', '')}</strong>
+              <strong>${isStreetStage ? 'Đặt món giữ phố' : 'Đặt món giữ tiệm'} • Ô #${padId.replace('pad_', '')}</strong>
             </div>
             <button class="td-close-btn" id="btn-close-sheet" aria-label="Đóng">✕</button>
           </div>
@@ -3104,6 +3544,14 @@ export class TdStageScene extends Phaser.Scene {
       const synergyGiver = existingTower.synergyFromUid
         ? this.engine.towers.find((t) => t.uid === existingTower.synergyFromUid)
         : undefined;
+      const chainLen = existingTower.synergyChainLength ?? (synergyGiver ? 2 : 1);
+      const chainBonusPct = getSynergyChainBonusPct(chainLen);
+      const chainInlineHtml =
+        chainLen >= 3
+          ? `<div class="td-synergy-chain-inline ${chainLen >= 4 ? 'high' : ''}" data-testid="td-upgrade-synergy-chain">
+               ✦ Chuỗi tương sinh: <strong>${chainLen} món (+${chainBonusPct}% sức)</strong>${this.engine.fullCycleActive && chainLen >= 5 ? ' • Ngũ hành viên mãn (+20% tốc)!' : ''}
+             </div>`
+          : '';
       const synergyInlineHtml = synergyGiver
         ? (() => {
             const desc = getSynergyExplanation(
@@ -3111,8 +3559,9 @@ export class TdStageScene extends Phaser.Scene {
               synergyGiver.element,
               existingTower.defId,
               existingTower.element,
+              chainLen,
             );
-            return `<div class="td-synergy-badge-inline">✨ Tương sinh (+15% sức): ${desc.explanation}</div>`;
+            return `<div class="td-synergy-badge-inline">✨ Tương sinh (+${chainBonusPct}% sức): ${desc.explanation}</div>`;
           })()
         : '';
 
@@ -3133,6 +3582,7 @@ export class TdStageScene extends Phaser.Scene {
             Sức đánh: <strong>${Math.round(curStats.damage * existingTower.buffDamageMultiplier)}</strong> •
             Tầm: <strong>${Math.round(curStats.range * existingTower.buffRangeMultiplier)}</strong> •
             Nhịp: <strong>${(curStats.cooldownSec / existingTower.buffSpeedMultiplier).toFixed(2)}s</strong>
+            ${chainInlineHtml}
             ${synergyInlineHtml}
           </div>
           ${upgradeSectionHtml}
@@ -3201,12 +3651,25 @@ export class TdStageScene extends Phaser.Scene {
     }
   }
 
+  private goToTitle(): void {
+    if (typeof window !== 'undefined' && window.location.hash) {
+      try {
+        window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+      } catch {
+        // Ignore history errors
+      }
+    }
+    this.scene.start(SCENE_KEYS.TITLE);
+  }
+
   private showStageResultModal(): void {
     if (!this.modalRoot) return;
     const isWin = this.engine.status === 'won';
     const stageId = this.engine.stage.id;
     const isStage2 = stageId === 'stage_2';
     const isStage3 = stageId === 'stage_3';
+    const isStage4 = stageId === 'stage_4';
+    const isRealStreet = stageId.startsWith('street_');
     const stageNum = this.engine.stage.stageNumber;
     const stageName = this.engine.stage.name;
     const stars = calculateStarRating(this.engine.lives, this.engine.maxLives);
@@ -3219,25 +3682,64 @@ export class TdStageScene extends Phaser.Scene {
       .join('');
 
     const ribbonText = isWin
-      ? isStage3
-        ? 'TIỆM HOA RỰC RỠ!'
-        : isStage2
-          ? 'TIỆM BÁNH THƠM LỪNG!'
-          : 'TIỆM SẠCH BÓNG!'
-      : isStage3
-        ? 'GIÀN HOA BỊ HÉO'
-        : isStage2
-          ? 'KỆ BÁNH BỊ HỎNG'
-          : 'KỆ GIÀY BỊ BẨN';
-    const titleText = isWin ? 'Giữ Tiệm Thành Công!' : `${stageName} Thất Thủ`;
-    const unitLabel = isStage3 ? 'chậu hoa' : isStage2 ? 'ổ bánh' : 'đôi giày';
+      ? isStage4 || isRealStreet
+        ? 'PHỐ SẠCH BÓNG!'
+        : isStage3
+          ? 'TIỆM HOA RỰC RỠ!'
+          : isStage2
+            ? 'TIỆM BÁNH THƠM LỪNG!'
+            : 'TIỆM SẠCH BÓNG!'
+      : isStage4
+        ? 'PHỐ BỊ BÃO CUỐN'
+        : isRealStreet
+          ? 'PHỐ BỊ QUÁI TRÀN'
+          : isStage3
+            ? 'GIÀN HOA BỊ HÉO'
+            : isStage2
+              ? 'KỆ BÁNH BỊ HỎNG'
+              : 'KỆ GIÀY BỊ BẨN';
+    const titleText = isWin
+      ? isStage4
+        ? 'Giữ Trọn Phố Đà Lạt!'
+        : isRealStreet
+          ? `Giữ Trọn ${stageName}!`
+          : 'Giữ Tiệm Thành Công!'
+      : isStage4
+        ? 'Phố Dốc Bị Bão Cuốn'
+        : `${stageName} Thất Thủ`;
+    const unitLabel =
+      isStage4 || isRealStreet
+        ? 'điểm giữ phố'
+        : isStage3
+          ? 'chậu hoa'
+          : isStage2
+            ? 'ổ bánh'
+            : 'đôi giày';
     const descText = isWin
       ? `Bạn đã giữ gọn ${stageName} qua cả ${this.engine.getTotalWaves()} đợt! Còn lành: ${this.engine.lives}/${this.engine.maxLives} ${unitLabel}.`
-      : isStage3
-        ? 'Rệp, sương muối và Trùm Mùa Nồm đã làm héo giàn hoa. Hãy đổi món khắc chế theo từng hành của Trùm và ghép cặp tương sinh (+15%) nhé!'
-        : isStage2
-          ? 'Hơi ẩm, ruồi và than hồng đã tràn lên kệ bánh. Hãy ghép cặp tương sinh (+15%) và đặt món khắc chế "Trúng tủ!" nhé!'
-          : 'Mưa bùn và gián đã tràn lên kệ giày. Hãy xem hành đợt sắp tới để đặt món khắc chế "Trúng tủ!" nhé!';
+      : isStage4
+        ? 'Bão Lốc Cuối Mùa và quân 3 tiệm đã cuốn qua dốc. Hãy chọn đủ 5 hành + 1 món hỗ trợ, ghép chuỗi tương sinh dài và dùng Tuyệt chiêu Bậc 4 nhé!'
+        : isRealStreet
+          ? `Quái phố ${stageName} đã tràn đến cuối dốc. Hãy chọn 6 món khắc chế hành chủ đạo và ghép chuỗi tương sinh (+25% / +40%) nhé!`
+          : isStage3
+            ? 'Rệp, sương muối và Trùm Mùa Nồm đã làm héo giàn hoa. Hãy đổi món khắc chế theo từng hành của Trùm và ghép cặp tương sinh (+15%) nhé!'
+            : isStage2
+              ? 'Hơi ẩm, ruồi và than hồng đã tràn lên kệ bánh. Hãy ghép cặp tương sinh (+15%) và đặt món khắc chế "Trúng tủ!" nhé!'
+              : 'Mưa bùn và gián đã tràn lên kệ giày. Hãy xem hành đợt sắp tới để đặt món khắc chế "Trúng tủ!" nhé!';
+
+    const badgeIconUrl = getAtlasFrameDataUrl(this, 'icon_badge_giu_tron_pho');
+    const stage4BadgeHtml =
+      isWin && isStage4
+        ? `
+          <div class="td-result-badge-card" data-testid="td-result-badge">
+            ${badgeIconUrl ? `<img class="td-result-badge-ico" src="${badgeIconUrl}" alt="Giữ trọn phố" />` : `<span aria-hidden="true">🏆</span>`}
+            <div class="td-result-badge-text">
+              <strong>Huy hiệu vàng: Giữ trọn phố</strong>
+              <span>Đã mở 2 Phố Thật trên Bản đồ Đà Lạt • Rơi chắc chắn 1 món Hàng hiệu ★</span>
+            </div>
+          </div>
+        `
+        : '';
 
     const chestClosedUrl = getGearAtlasFrameDataUrl(this, 'gear_chest_closed');
     const chestOpenUrl = getGearAtlasFrameDataUrl(this, 'gear_chest_open');
@@ -3301,7 +3803,7 @@ export class TdStageScene extends Phaser.Scene {
             </div>
             <div class="td-chest-caption">
               <strong>Mở Rương Trang Bị (+${this.lastDrops.length} món)</strong>
-              <span>Đã cất vào kho chủ tiệm • Về Màn Chính để mặc ngay!</span>
+              <span>${isStage4 ? 'Quà Trùm Phố: có món Hàng hiệu ★! ' : ''}Đã cất vào kho chủ tiệm • Về Màn Chính để mặc ngay!</span>
             </div>
           </div>
           <div class="td-drop-card-list">${cardsHtml}</div>
@@ -3309,15 +3811,22 @@ export class TdStageScene extends Phaser.Scene {
       `;
     }
 
+    const retryLabel = isStage4
+      ? 'Chơi Lại Trùm Phố'
+      : isRealStreet
+        ? 'Chơi Lại Phố Này'
+        : `Chơi Lại Màn ${stageNum}`;
+
     this.modalRoot.innerHTML = `
       <div class="td-result-modal td-shoebox-panel" data-testid="td-result-modal">
         <div class="td-result-ribbon">${ribbonText}</div>
         <h2 class="td-result-title">${titleText}</h2>
         <div class="td-result-stars ${this.reduceMotion ? 'no-anim' : ''}" data-testid="td-result-stars">${starsHtml}</div>
+        ${stage4BadgeHtml}
         <p class="td-result-desc">${descText}</p>
         ${dropsHtml}
         <div class="td-result-actions">
-          <button id="btn-retry-stage" data-testid="btn-retry-stage" class="td-btn-primary">Chơi Lại Màn ${stageNum}</button>
+          <button id="btn-retry-stage" data-testid="btn-retry-stage" class="td-btn-primary">${retryLabel}</button>
           <button id="btn-back-title" data-testid="btn-back-title" class="td-btn-secondary">Về Màn Chính</button>
         </div>
       </div>
@@ -3345,7 +3854,7 @@ export class TdStageScene extends Phaser.Scene {
 
     this.modalRoot.querySelector('#btn-back-title')?.addEventListener('click', () => {
       sound.playUiClick();
-      this.scene.start(SCENE_KEYS.TITLE);
+      this.goToTitle();
     });
   }
 
@@ -3414,6 +3923,7 @@ export class TdStageScene extends Phaser.Scene {
     if (!this.pauseMenuRoot || this.engine.status !== 'playing') return;
     const stageName = this.engine.stage.name;
     const trackName = music.getTrackLabel() || stageName;
+    const isStreet = this.engine.stage.id === 'stage_4' || this.engine.stage.id.startsWith('street_');
     this.pauseMenuRoot.innerHTML = `
       <div class="td-pause-backdrop" data-testid="td-pause-menu">
         <div class="td-pause-card td-shoebox-panel">
@@ -3445,7 +3955,7 @@ export class TdStageScene extends Phaser.Scene {
           </div>
           <div class="td-pause-actions">
             <button type="button" id="btn-resume-game" data-testid="btn-resume-game" class="td-btn-primary">
-              ▶ Tiếp tục giữ tiệm
+              ▶ ${isStreet ? 'Tiếp tục giữ phố' : 'Tiếp tục giữ tiệm'}
             </button>
             <button type="button" id="btn-replay-tutorial" data-testid="btn-replay-tutorial" class="td-btn-secondary td-pause-btn">
               📖 Xem lại hướng dẫn
@@ -3519,7 +4029,7 @@ export class TdStageScene extends Phaser.Scene {
 
     this.pauseMenuRoot.querySelector('#btn-pause-title')?.addEventListener('click', () => {
       sound.playUiClick();
-      this.scene.start(SCENE_KEYS.TITLE);
+      this.goToTitle();
     });
   }
 
@@ -3545,6 +4055,15 @@ export class TdStageScene extends Phaser.Scene {
   }
 
   private unmountDom(): void {
+    if (this.chainLabelsRoot) {
+      this.chainLabelsRoot.remove();
+      this.chainLabelsRoot = null;
+    }
+    this.lastChainLabelsKey = '';
+    if (this.fullCycleBannerRoot) {
+      this.fullCycleBannerRoot.remove();
+      this.fullCycleBannerRoot = null;
+    }
     if (this.ultButtonsRoot) {
       this.ultButtonsRoot.remove();
       this.ultButtonsRoot = null;

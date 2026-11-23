@@ -1004,8 +1004,473 @@ test.describe('Gọn Tiệm, Sạch Phố — Kiểm thử trình duyệt (Đi�
     });
     expect(bossTrack).toBe('boss');
   });
+
+  test('Việc 6 — Bảng trang bị gọn chữ: gợi ý 1 dòng + nút ?, statShort (chạm 2 lần mở statText), so sánh previewEquip, thu gọn bộ đồ & chip tổng sức mạnh', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    const consoleErrors: string[] = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') consoleErrors.push(msg.text());
+    });
+    page.on('pageerror', (err) => consoleErrors.push(err.message));
+
+    // Nạp kho gồm 2 đồ khởi đầu (đang mặc) + 1 chiếc kính thứ 2 để hiện đủ chip tổng sức mạnh & dòng so sánh previewEquip
+    await page.goto('/');
+    await page.evaluate(() => {
+      window.localStorage.setItem(
+        'giang_ho_ai_thu_thanh_save_v1',
+        JSON.stringify({
+          version: 1,
+          unlockedStage: 1,
+          starsByStage: {},
+          bestLivesByStage: {},
+          gearInventory: [
+            {
+              uid: 'starter_hat',
+              slot: 'hat',
+              name: 'Mũ Len Xanh Rêu',
+              element: 'moc',
+              rarity: 'tot',
+              visible: [{ kind: 'el_moc', value: 0.07 }],
+              hidden: [
+                { kind: 'speed', value: 0.05 },
+                { kind: 'coin_pct', value: 0.06 },
+              ],
+            },
+            {
+              uid: 'starter_glasses',
+              slot: 'glasses',
+              name: 'Kính Râm Tròng Cam',
+              element: 'hoa',
+              rarity: 'tot',
+              visible: [
+                { kind: 'range', value: 0.06 },
+                { kind: 'boss_dmg', value: 0.08 },
+              ],
+              hidden: [
+                { kind: 'all_dmg', value: 0.04 },
+                { kind: 'crit', value: 0.08 },
+              ],
+            },
+            {
+              uid: 'extra_glasses_test',
+              slot: 'glasses',
+              name: 'Kính Chống Nắng Vàng',
+              element: 'hoa',
+              rarity: 'xin',
+              visible: [
+                { kind: 'all_dmg', value: 0.08 },
+                { kind: 'crit', value: 0.1 },
+              ],
+              hidden: [
+                { kind: 'speed', value: 0.06 },
+                { kind: 'range', value: 0.07 },
+              ],
+            },
+          ],
+          gearEquipped: { hat: 'starter_hat', glasses: 'starter_glasses' },
+          updatedAt: Date.now(),
+        }),
+      );
+    });
+    await page.goto('/');
+
+    const gearBox = page.getByTestId('td-gear-box');
+    await gearBox.scrollIntoViewIfNeeded();
+    await expect(gearBox).toContainText('Món chống lưng đúng hành sẽ sáng dòng ẩn');
+
+    // Nút ? mở bảng luật đầy đủ rồi đóng lại
+    await page.locator('#btn-gear-rules').click();
+    const rulesPanel = page.getByTestId('td-gear-rules-panel');
+    await expect(rulesPanel).toBeVisible();
+    await expect(rulesPanel).toContainText('2 món chống lưng');
+    await page.locator('#btn-close-gear-rules').click();
+    await expect(rulesPanel).toHaveCount(0);
+
+    // 10 ô quanh chủ tiệm không còn dòng chữ tên ô ở dưới
+    const emptyJacketText = (await page.getByTestId('gear-slot-jacket').innerText()).trim();
+    expect(emptyJacketText).toBe('');
+
+    // Bộ đồ mặc định thu gọn (1 nút Đủ 4 bộ ▾), bấm mở ra đủ 4 bộ
+    await expect(page.getByTestId('gear-set-di_mua')).toHaveCount(0);
+    await page.getByTestId('btn-toggle-gear-sets').click();
+    await expect(page.getByTestId('gear-set-di_mua')).toBeVisible();
+    await expect(page.getByTestId('gear-set-chu_tiem_xin')).toBeVisible();
+    await page.getByTestId('btn-toggle-gear-sets').click();
+
+    // Bấm chip tổng sức mạnh hiện câu đầy đủ
+    await page.getByTestId('gear-bonus-chip-0').click();
+    await expect(page.getByTestId('td-bonus-chip-detail')).toBeVisible();
+
+    // Mở picker Kính mắt: thấy previewEquip so sánh & chạm 2 lần vào 1 dòng statShort mở câu đầy đủ
+    await page.getByTestId('gear-slot-glasses').click();
+    const picker = page.getByTestId('td-gear-picker');
+    await expect(picker).toBeVisible();
+    await expect(page.getByTestId('gear-preview-extra_glasses_test')).toBeVisible();
+    const firstStatRow = picker.locator('[data-stat-key]').first();
+    const shortBefore = (await firstStatRow.innerText()).trim();
+    await firstStatRow.dblclick();
+    const fullAfter = (await picker.locator('[data-stat-key]').first().innerText()).trim();
+    expect(fullAfter.length).toBeGreaterThan(shortBefore.length);
+
+    await page.waitForTimeout(160);
+    await page.screenshot({ path: 'docs/screenshots/v6_gear_compact.png' });
+    expect(consoleErrors).toEqual([]);
+  });
+
+  test('Việc 7 — Chuỗi tương sinh trên sân (Chuỗi 3 +25%, Chuỗi 5 +40%), banner Ngũ hành viên mãn & dòng chuỗi trong bảng nâng cấp', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    const consoleErrors: string[] = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') consoleErrors.push(msg.text());
+    });
+    page.on('pageerror', (err) => consoleErrors.push(err.message));
+
+    await page.goto('/?stage=2');
+    await page.getByTestId('btn-start-stage-2').click();
+    await expect(page.getByTestId('td-wave-val')).toHaveText('0/10');
+
+    // Đặt chuỗi 3 món (Kim -> Thủy -> Mộc) trên pad_4 -> pad_3 -> pad_5
+    await page.evaluate(() => {
+      const s = (window as unknown as {
+        __TD_SCENE__?: {
+          engine: { essence: number; buildTower: (p: string, t: string) => unknown };
+          tickSimulation: (dt: number) => void;
+        };
+      }).__TD_SCENE__;
+      if (!s) return;
+      s.engine.essence = 900;
+      s.engine.buildTower('pad_4', 'bk_swatter'); // Kim
+      s.engine.buildTower('pad_3', 'bk_fridge'); // Thủy
+      s.engine.buildTower('pad_5', 'bk_fan'); // Mộc
+      s.tickSimulation(0.05);
+    });
+    await page.waitForTimeout(200);
+    await expect(page.getByTestId('td-chain-label').first()).toContainText('Chuỗi 3 +25%');
+
+    // Nối thêm Hỏa (pad_6) và Thổ (pad_8) -> Chuỗi 5 (+40%) + Ngũ hành viên mãn!
+    await page.evaluate(() => {
+      const s = (window as unknown as {
+        __TD_SCENE__?: {
+          engine: { buildTower: (p: string, t: string) => unknown };
+          tickSimulation: (dt: number) => void;
+        };
+      }).__TD_SCENE__;
+      if (!s) return;
+      s.engine.buildTower('pad_6', 'bk_oven'); // Hỏa
+      s.engine.buildTower('pad_8', 'bk_jar'); // Thổ
+      s.tickSimulation(0.05);
+    });
+    await page.waitForTimeout(250);
+    await expect(page.getByTestId('td-full-cycle-banner')).toBeVisible();
+    await expect(page.getByTestId('td-full-cycle-banner')).toContainText('Ngũ hành viên mãn!');
+    await expect(page.locator('[data-testid="td-chain-label"][data-chain-len="5"]')).toContainText('Chuỗi 5 +40%');
+    await page.screenshot({ path: 'docs/screenshots/v7_synergy_full_cycle.png' });
+
+    // Mở bảng nâng cấp món cuối chuỗi (pad_8) -> thấy dòng "Chuỗi tương sinh: 5 món (+40% sức)"
+    await page.evaluate(() => {
+      const s = (window as unknown as { __TD_SCENE__?: { selectPadById: (p: string) => void } }).__TD_SCENE__;
+      s?.selectPadById('pad_8');
+    });
+    const chainRow = page.getByTestId('td-upgrade-synergy-chain');
+    await expect(chainRow).toBeVisible();
+    await expect(chainRow).toContainText('Chuỗi tương sinh: 5 món (+40% sức)');
+    await page.waitForTimeout(150);
+    await page.screenshot({ path: 'docs/screenshots/v7_upgrade_chain.png' });
+
+    expect(consoleErrors).toEqual([]);
+  });
+
+  test('Việc 8 — Trận Trùm Phố Dốc Đà Lạt: khóa trước khi qua 3 tiệm, bảng chọn 6/15 món, bản đồ dốc 3 tiệm, Bão Lốc 5 màu, thắng nhận huy hiệu Giữ trọn phố & mở 2 Phố Thật', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    const consoleErrors: string[] = [];
+    const externalRequests: string[] = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') consoleErrors.push(msg.text());
+    });
+    page.on('pageerror', (err) => consoleErrors.push(err.message));
+    await page.route('**/*', async (route) => {
+      const url = route.request().url();
+      if (
+        url.startsWith('http://127.0.0.1') ||
+        url.startsWith('http://localhost') ||
+        url.startsWith('data:') ||
+        url.startsWith('blob:')
+      ) {
+        await route.continue();
+      } else {
+        externalRequests.push(url);
+        await route.abort();
+      }
+    });
+
+    // 1. Khi mới chơi: Trùm Phố khóa & các Phố Thật trên bản đồ Đà Lạt khóa
+    await page.goto('/');
+    await expect(page.getByTestId('btn-start-stage-4')).toBeDisabled();
+    await expect(page.getByTestId('real-streets-status')).toContainText('Thắng Trùm Phố để mở');
+    await page.getByTestId('real-street-pin-street_pho_ca_phe').click();
+    await expect(page.getByTestId('btn-start-street_pho_ca_phe')).toBeDisabled();
+    await page.getByTestId('real-street-pin-street_tang_bat_ho').click();
+    await expect(page.getByTestId('btn-start-street_tang_bat_ho')).toBeDisabled();
+
+    // 2. Đã qua 3 tiệm (unlockedStage=4): mở nút Ra Phố Đánh Trùm -> mở bảng chọn 6/15 món
+    await page.evaluate(() => {
+      window.localStorage.setItem(
+        'giang_ho_ai_thu_thanh_save_v1',
+        JSON.stringify({
+          version: 1,
+          unlockedStage: 4,
+          starsByStage: { stage_1: 3, stage_2: 3, stage_3: 3 },
+          bestLivesByStage: { stage_1: 20, stage_2: 20, stage_3: 20 },
+          tutorialDone: true,
+          updatedAt: Date.now(),
+        }),
+      );
+    });
+    await page.goto('/');
+    const startStage4 = page.getByTestId('btn-start-stage-4');
+    await expect(startStage4).toBeEnabled();
+    await startStage4.scrollIntoViewIfNeeded();
+    await startStage4.click();
+
+    const loModal = page.getByTestId('td-loadout-modal');
+    await expect(loModal).toBeVisible();
+    await expect(loModal).toContainText('Đủ 5 hành + 1 hỗ trợ');
+    await page.waitForTimeout(180);
+    await page.screenshot({ path: 'docs/screenshots/v8_loadout_modal.png' });
+
+    // Xác nhận bộ 6 món -> vào Trận Trùm Phố dùng bản đồ map_trum_pho
+    await page.getByTestId('btn-confirm-loadout').click();
+    await expect(page.getByTestId('td-wave-val')).toHaveText('0/12');
+
+    const mapCheck = await page.evaluate(() => {
+      const s = (window as unknown as {
+        __TD_SCENE__?: { placeholderMap: unknown; mapImage?: { texture?: { key?: string } } };
+      }).__TD_SCENE__;
+      return { hasPlaceholder: Boolean(s?.placeholderMap), mapKey: s?.mapImage?.texture?.key ?? '' };
+    });
+    expect(mapCheck).toEqual({ hasPlaceholder: false, mapKey: 'map_trum_pho' });
+
+    // Bật Bot tự động đánh qua đợt đầu & chụp giao tranh trên bản đồ 3 tiệm
+    await page.evaluate(() => {
+      const s = (window as unknown as {
+        __TD_SCENE__?: {
+          autoBotEnabled: boolean;
+          engine: { startNextWave: (e: boolean) => unknown };
+          tickSimulation: (dt: number) => void;
+        };
+      }).__TD_SCENE__;
+      if (!s) return;
+      s.autoBotEnabled = true;
+      s.engine.startNextWave(false);
+      for (let i = 0; i < 160; i += 1) s.tickSimulation(0.05);
+    });
+    await page.waitForTimeout(200);
+    await page.screenshot({ path: 'docs/screenshots/v8_stage4_combat.png' });
+
+    // Chạy tới Đợt 12 gặp Trùm Bão Lốc Cuối Mùa & đợi Trùm đổi hành
+    const bossShifted = await page.evaluate(() => {
+      const s = (window as unknown as {
+        __TD_SCENE__?: {
+          engine: { status: string; enemies: Array<{ defId: string; element: string }> };
+          tickSimulation: (dt: number) => void;
+        };
+      }).__TD_SCENE__;
+      if (!s) return false;
+      let seenBoss = false;
+      let firstEl = '';
+      for (let i = 0; i < 42000 && s.engine.status === 'playing'; i += 1) {
+        s.tickSimulation(0.05);
+        const boss = s.engine.enemies.find((e) => e.defId === 'st_bao_loc');
+        if (boss) {
+          if (!seenBoss) {
+            seenBoss = true;
+            firstEl = boss.element;
+          } else if (boss.element !== firstEl) {
+            return true;
+          }
+        }
+      }
+      return false;
+    });
+    expect(bossShifted).toBe(true);
+    await expect(page.getByTestId('td-boss-shift-banner')).toBeVisible();
+    await page.waitForTimeout(160);
+    await page.screenshot({ path: 'docs/screenshots/v8_boss_bao_loc.png' });
+
+    // Tiếp tục tới chiến thắng Trận Trùm Phố
+    await page.evaluate(() => {
+      const s = (window as unknown as {
+        __TD_SCENE__?: { engine: { status: string }; tickSimulation: (dt: number) => void };
+      }).__TD_SCENE__;
+      if (!s) return;
+      for (let i = 0; i < 30000 && s.engine.status === 'playing'; i += 1) {
+        s.tickSimulation(0.05);
+      }
+    });
+
+    const resultModal = page.getByTestId('td-result-modal');
+    await expect(resultModal).toBeVisible();
+    await expect(resultModal).toContainText('PHỐ SẠCH BÓNG!');
+    await expect(page.getByTestId('td-result-badge')).toContainText('Giữ trọn phố');
+    await expect(page.getByTestId('td-result-drops')).toContainText('Hàng hiệu');
+    await page.waitForTimeout(950);
+    await page.screenshot({ path: 'docs/screenshots/v8_stage4_victory.png' });
+
+    // Về Màn Chính -> thấy huy hiệu vàng "Giữ trọn phố" & các Phố Thật trên Bản đồ Đà Lạt đã mở khóa!
+    await page.getByTestId('btn-back-title').click();
+    await expect(page.getByTestId('real-streets-status')).toContainText('Đã mở khóa');
+    await page.getByTestId('real-street-pin-street_pho_ca_phe').click();
+    await expect(page.getByTestId('btn-start-street_pho_ca_phe')).toBeEnabled();
+    await page.getByTestId('real-street-pin-street_tang_bat_ho').click();
+    await expect(page.getByTestId('btn-start-street_tang_bat_ho')).toBeEnabled();
+    await page.getByTestId('real-street-pin-street_pho_ca_phe').scrollIntoViewIfNeeded();
+    await page.waitForTimeout(200);
+    await page.screenshot({ path: 'docs/screenshots/v8_title_dalat_unlocked.png' });
+
+    expect(consoleErrors).toEqual([]);
+    expect(externalRequests).toEqual([]);
+  });
+
+  test('Việc 9 — 2 Phố Thật Đà Lạt (/#street_tang_bat_ho và /#street_pho_ca_phe): bản đồ thật có ghi nguồn OSM, 18 món & 14 quái vẽ riêng, 0 lỗi console, 0 mạng ngoài', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    const consoleErrors: string[] = [];
+    const externalRequests: string[] = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') consoleErrors.push(msg.text());
+    });
+    page.on('pageerror', (err) => consoleErrors.push(err.message));
+    await page.route('**/*', async (route) => {
+      const url = route.request().url();
+      if (
+        url.startsWith('http://127.0.0.1') ||
+        url.startsWith('http://localhost') ||
+        url.startsWith('data:') ||
+        url.startsWith('blob:')
+      ) {
+        await route.continue();
+      } else {
+        externalRequests.push(url);
+        await route.abort();
+      }
+    });
+
+    // 1. Mở thẳng /#street_tang_bat_ho
+    await page.goto('/#street_tang_bat_ho');
+    await expect(page.getByTestId('td-wave-val')).toHaveText('0/11');
+    const tbhInfo = await page.evaluate(() => {
+      const s = (window as unknown as {
+        __TD_SCENE__?: {
+          placeholderMap: unknown;
+          mapImage?: { texture?: { key?: string } };
+          engine: { stage: { id: string } };
+        };
+      }).__TD_SCENE__;
+      return {
+        stageId: s?.engine.stage.id,
+        hasPlaceholder: Boolean(s?.placeholderMap),
+        mapKey: s?.mapImage?.texture?.key ?? '',
+      };
+    });
+    expect(tbhInfo).toEqual({
+      stageId: 'street_tang_bat_ho',
+      hasPlaceholder: false,
+      mapKey: 'map_street_tang_bat_ho',
+    });
+
+    // Mở bảng đặt món ô 1 & đặt 2 món đặc trưng Tăng Bạt Hổ -> gọi đợt 1 giao tranh
+    await page.evaluate(() => {
+      const s = (window as unknown as { __TD_SCENE__?: { selectPadById: (p: string) => void } }).__TD_SCENE__;
+      s?.selectPadById('pad_1');
+    });
+    const buildSheet1 = page.getByTestId('td-build-sheet');
+    await expect(buildSheet1).toBeVisible();
+    await page.waitForTimeout(160);
+    await page.screenshot({ path: 'docs/screenshots/v9_tang_bat_ho_build.png' });
+
+    await buildSheet1.locator('.td-build-option').first().click();
+    await page.evaluate(() => {
+      const s = (window as unknown as {
+        __TD_SCENE__?: {
+          engine: { essence: number; stage: { towerIds?: string[] }; buildTower: (p: string, t: string) => unknown; startNextWave: (e: boolean) => unknown };
+          tickSimulation: (dt: number) => void;
+        };
+      }).__TD_SCENE__;
+      if (!s) return;
+      s.engine.essence = 500;
+      const tids = s.engine.stage.towerIds ?? [];
+      if (tids[1]) s.engine.buildTower('pad_2', tids[1]);
+      if (tids[2]) s.engine.buildTower('pad_3', tids[2]);
+      s.engine.startNextWave(false);
+      for (let i = 0; i < 130; i += 1) s.tickSimulation(0.05);
+    });
+    await page.waitForTimeout(220);
+    await page.screenshot({ path: 'docs/screenshots/v9_tang_bat_ho_combat.png' });
+
+    // Mở menu Tạm dừng -> Về Con phố dốc phải xoá hash và về được TitleScene
+    await page.getByTestId('btn-pause-toggle').click();
+    await page.getByTestId('btn-pause-title').click();
+    await expect(page.getByTestId('shop-street')).toBeVisible();
+
+    // 2. Mở thẳng /#street_pho_ca_phe
+    await page.goto('/#street_pho_ca_phe');
+    await expect(page.getByTestId('td-wave-val')).toHaveText('0/11');
+    const pcpInfo = await page.evaluate(() => {
+      const s = (window as unknown as {
+        __TD_SCENE__?: {
+          placeholderMap: unknown;
+          mapImage?: { texture?: { key?: string } };
+          engine: { stage: { id: string } };
+        };
+      }).__TD_SCENE__;
+      return {
+        stageId: s?.engine.stage.id,
+        hasPlaceholder: Boolean(s?.placeholderMap),
+        mapKey: s?.mapImage?.texture?.key ?? '',
+      };
+    });
+    expect(pcpInfo).toEqual({
+      stageId: 'street_pho_ca_phe',
+      hasPlaceholder: false,
+      mapKey: 'map_street_pho_ca_phe',
+    });
+
+    await page.evaluate(() => {
+      const s = (window as unknown as { __TD_SCENE__?: { selectPadById: (p: string) => void } }).__TD_SCENE__;
+      s?.selectPadById('pad_1');
+    });
+    const buildSheet2 = page.getByTestId('td-build-sheet');
+    await expect(buildSheet2).toBeVisible();
+    await page.waitForTimeout(160);
+    await page.screenshot({ path: 'docs/screenshots/v9_pho_ca_phe_build.png' });
+
+    await buildSheet2.locator('.td-build-option').first().click();
+    await page.evaluate(() => {
+      const s = (window as unknown as {
+        __TD_SCENE__?: {
+          engine: { essence: number; stage: { towerIds?: string[] }; buildTower: (p: string, t: string) => unknown; startNextWave: (e: boolean) => unknown };
+          tickSimulation: (dt: number) => void;
+        };
+      }).__TD_SCENE__;
+      if (!s) return;
+      s.engine.essence = 500;
+      const tids = s.engine.stage.towerIds ?? [];
+      if (tids[1]) s.engine.buildTower('pad_2', tids[1]);
+      if (tids[2]) s.engine.buildTower('pad_3', tids[2]);
+      s.engine.startNextWave(false);
+      for (let i = 0; i < 130; i += 1) s.tickSimulation(0.05);
+    });
+    await page.waitForTimeout(220);
+    await page.screenshot({ path: 'docs/screenshots/v9_pho_ca_phe_combat.png' });
+
+    expect(consoleErrors).toEqual([]);
+    expect(externalRequests).toEqual([]);
+  });
 });
-
-
-
-

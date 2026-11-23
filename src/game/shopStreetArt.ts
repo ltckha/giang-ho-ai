@@ -187,7 +187,50 @@ function renderFacadeInterior(stageId: string): string {
     `;
   }
 
-  // Fallback mặt tiền gỗ Đà Lạt chung nếu sau này thêm tiệm thứ 4, 5 vào SHOP_STREET
+  if (stageId === 'stage_4') {
+    // Trận Trùm Phố Dốc Đà Lạt: trời tối mây lốc xoáy, sấm chớp, dãy 3 mái tiệm dưới dốc và cổng đèn cuối phố
+    return `
+      <!-- Bầu trời bão lốc tối hơn & mây xoáy tím-xanh -->
+      <rect x="0" y="0" width="360" height="140" rx="10" fill="#1e2438"/>
+      <ellipse cx="180" cy="30" rx="156" ry="34" fill="#2d3652" opacity="0.9"/>
+      <ellipse cx="102" cy="24" rx="76" ry="22" fill="#161c2e"/>
+      <ellipse cx="264" cy="24" rx="80" ry="22" fill="#161c2e"/>
+      <!-- Cơn lốc xoáy ở chính giữa bầu trời dốc phố -->
+      <g transform="translate(180 54)">
+        <path d="M-38 -22 Q0 -34 38 -22 Q46 -4 26 6 Q0 14 -26 6 Q-46 -4 -38 -22 Z" fill="#324b6b" stroke="${INK}" stroke-width="2.6"/>
+        <path d="M-22 6 C-12 18, 18 18, 22 6 C14 26, -10 26, -12 36 C-2 42, 8 42, 6 48 C-2 52, -6 46, -4 38" fill="#4f83b8" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>
+        <!-- Tia sét vàng sắc lẹm hai bên cơn bão -->
+        <path d="M-54 -14 L-66 4 L-56 6 L-64 24" fill="none" stroke="#fde047" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M54 -14 L66 4 L56 6 L64 24" fill="none" stroke="#fde047" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Mắt bão sáng rực -->
+        <ellipse cx="-11" cy="-8" rx="6" ry="4" fill="#7dd3fc" stroke="${INK}" stroke-width="1.6"/>
+        <ellipse cx="11" cy="-8" rx="6" ry="4" fill="#7dd3fc" stroke="${INK}" stroke-width="1.6"/>
+      </g>
+      <!-- Rặng thông dốc hai bên -->
+      <path d="M0 100 L18 54 L36 100 L54 64 L74 108 L286 108 L306 62 L326 100 L344 56 L360 100 L360 138 L0 138 Z" fill="#1d3033" stroke="${INK}" stroke-width="2"/>
+      <!-- 3 mái tiệm nhỏ nối tiếp xuống dốc (Giày -> Bánh -> Hoa) -->
+      <!-- Tiệm Giày bên trái -->
+      <rect x="26" y="88" width="84" height="50" rx="4" fill="#a86836" stroke="${INK}" stroke-width="2.6"/>
+      <path d="M22 88 L114 88 L118 100 L18 100 Z" fill="#c94a38" stroke="${INK}" stroke-width="2.4"/>
+      <rect x="38" y="106" width="32" height="22" rx="3" fill="#ffe082" stroke="${INK}" stroke-width="2"/>
+      <rect x="78" y="106" width="22" height="32" rx="3" fill="#7c4720" stroke="${INK}" stroke-width="2"/>
+      <!-- Tiệm Hoa bên phải -->
+      <rect x="250" y="88" width="84" height="50" rx="4" fill="#89b8a2" stroke="${INK}" stroke-width="2.6"/>
+      <path d="M246 88 L338 88 L342 100 L242 100 Z" fill="#3c8d5e" stroke="${INK}" stroke-width="2.4"/>
+      <rect x="262" y="106" width="32" height="22" rx="3" fill="#e6f7d6" stroke="${INK}" stroke-width="2"/>
+      <rect x="302" y="106" width="22" height="32" rx="3" fill="#3a7a61" stroke="${INK}" stroke-width="2"/>
+      <!-- Con dốc đá chính giữa & Quầy cuối phố có đèn vàng rực -->
+      <path d="M132 138 L156 104 L204 104 L228 138 Z" fill="#747e8c" stroke="${INK}" stroke-width="2.4"/>
+      <rect x="144" y="110" width="72" height="28" rx="4" fill="#9c5628" stroke="${INK}" stroke-width="2.6"/>
+      <path d="M138 112 L148 98 L212 98 L222 112 Z" fill="#f5b74e" stroke="${INK}" stroke-width="2.4"/>
+      <circle cx="180" cy="119" r="7" fill="#ffe066" stroke="${INK}" stroke-width="1.8"/>
+      <!-- Lá bay trong gió -->
+      <ellipse cx="122" cy="72" rx="6" ry="2.8" transform="rotate(-24 122 72)" fill="#74c365" stroke="${INK}" stroke-width="1.4"/>
+      <ellipse cx="236" cy="78" rx="6" ry="2.8" transform="rotate(20 236 78)" fill="#f59e0b" stroke="${INK}" stroke-width="1.4"/>
+    `;
+  }
+
+  // Fallback mặt tiền gỗ Đà Lạt chung nếu sau này thêm tiệm mới vào SHOP_STREET
   return `
     <path d="M12 42 L30 14 L330 14 L348 42 Z" fill="#7c5032" stroke="${INK}" stroke-width="3.2" stroke-linejoin="round"/>
     <rect x="22" y="42" width="316" height="96" fill="#ebd4ae" stroke="${INK}" stroke-width="3.2"/>
@@ -355,3 +398,69 @@ export function renderStreetExtensionSvg(): string {
     </svg>
   `;
 }
+
+/**
+ * Bản đồ minh hoạ trung tâm Đà Lạt (Khu Hoà Bình • Chợ Đà Lạt • Hồ Xuân Hương)
+ * dùng làm nền cho các điểm chọn phố thật trong REAL_STREET_STAGES.
+ */
+export function renderDalatMapBgSvg(unlocked: boolean): string {
+  return `
+    <svg class="td-dalat-map-svg ${unlocked ? '' : 'locked'}" viewBox="0 0 360 190" aria-hidden="true">
+      <defs>
+        <linearGradient id="dalatHillBg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="${unlocked ? '#cfe2b8' : '#7a877d'}"/>
+          <stop offset="55%" stop-color="${unlocked ? '#b7d4a0' : '#65726b'}"/>
+          <stop offset="100%" stop-color="${unlocked ? '#9ec08d' : '#56625c'}"/>
+        </linearGradient>
+        <linearGradient id="xuanHuongLake" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="${unlocked ? '#70c5ea' : '#58788a'}"/>
+          <stop offset="100%" stop-color="${unlocked ? '#4697c8' : '#456070'}"/>
+        </linearGradient>
+      </defs>
+      <!-- Nền đồi thông Đà Lạt -->
+      <rect x="0" y="0" width="360" height="190" rx="12" fill="url(#dalatHillBg)" stroke="${INK}" stroke-width="2.6"/>
+      <!-- Đường đồng mức đồi dốc -->
+      <path d="M-10 46 Q95 20 185 48 T370 36" fill="none" stroke="#ffffff" stroke-width="1.6" opacity="0.28"/>
+      <path d="M-10 112 Q110 88 210 116 T370 100" fill="none" stroke="#ffffff" stroke-width="1.6" opacity="0.24"/>
+      <path d="M-10 162 Q130 144 240 166 T370 150" fill="none" stroke="#ffffff" stroke-width="1.6" opacity="0.22"/>
+
+      <!-- Hồ Xuân Hương góc dưới phải -->
+      <path d="M236 188 C242 152, 274 134, 314 132 C336 131, 352 138, 360 148 L360 188 Z" fill="url(#xuanHuongLake)" stroke="#2c5d7a" stroke-width="2.2"/>
+      <path d="M276 156 Q304 150 330 156" fill="none" stroke="#d9f4ff" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+      <text x="308" y="176" text-anchor="middle" font-size="8.5" font-weight="700" fill="#eef9ff" opacity="0.9">Hồ Xuân Hương</text>
+
+      <!-- Cụm thông xanh Đà Lạt rải rác -->
+      <g fill="${unlocked ? '#3d824d' : '#4a5a52'}" stroke="${INK}" stroke-width="1.6">
+        <circle cx="26" cy="34" r="11"/><circle cx="38" cy="28" r="9"/>
+        <circle cx="330" cy="36" r="12"/><circle cx="316" cy="28" r="9"/>
+        <circle cx="28" cy="156" r="12"/><circle cx="42" cy="166" r="10"/>
+        <circle cx="176" cy="158" r="10"/><circle cx="190" cy="164" r="8"/>
+      </g>
+
+      <!-- Mạng đường dốc Đà Lạt nối Chợ Đà Lạt -> Tăng Bạt Hổ -> Phố Cà Phê Khu Hoà Bình -->
+      <path d="M36 130 Q84 106 124 88 Q166 68 228 62 Q278 58 318 82" fill="none" stroke="${INK}" stroke-width="11" stroke-linecap="round"/>
+      <path d="M36 130 Q84 106 124 88 Q166 68 228 62 Q278 58 318 82" fill="none" stroke="${unlocked ? '#f3e3c3' : '#aeb5b0'}" stroke-width="7" stroke-linecap="round"/>
+      <path d="M124 88 Q144 120 186 128 Q232 136 266 116" fill="none" stroke="${INK}" stroke-width="9" stroke-linecap="round"/>
+      <path d="M124 88 Q144 120 186 128 Q232 136 266 116" fill="none" stroke="${unlocked ? '#efe0be' : '#a6ada8'}" stroke-width="5.5" stroke-linecap="round"/>
+      <!-- Nét đứt chỉ dẫn tuyến phố -->
+      <path d="M56 120 Q116 92 228 62" fill="none" stroke="#9b784f" stroke-width="1.6" stroke-dasharray="5 5"/>
+
+      <!-- Biểu tượng nhỏ Chợ Đà Lạt ở gần góc trái dưới đường -->
+      <g transform="translate(56 128)">
+        <rect x="-14" y="-8" width="28" height="16" rx="3" fill="${unlocked ? '#e39c44' : '#7b7870'}" stroke="${INK}" stroke-width="1.8"/>
+        <path d="M-16 -8 L0 -16 L16 -8 Z" fill="${unlocked ? '#b84830' : '#5e5a55'}" stroke="${INK}" stroke-width="1.8"/>
+        <text x="0" y="20" text-anchor="middle" font-size="8" font-weight="700" fill="${INK}">Chợ Đà Lạt</text>
+      </g>
+
+      <!-- Biểu tượng Khu Hoà Bình ở phía trên -->
+      <g transform="translate(186 32)">
+        <circle cx="0" cy="0" r="9" fill="${unlocked ? '#f5cb5c' : '#85857f'}" stroke="${INK}" stroke-width="1.8"/>
+        <text x="0" y="-12" text-anchor="middle" font-size="8" font-weight="700" fill="${INK}">Khu Hoà Bình</text>
+      </g>
+
+      <!-- Ghi nguồn OpenStreetMap trên bản đồ -->
+      <text x="8" y="183" font-size="7.5" font-weight="600" fill="${INK}" opacity="0.72">© OpenStreetMap contributors</text>
+    </svg>
+  `;
+}
+

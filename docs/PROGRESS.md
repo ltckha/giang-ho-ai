@@ -1,3 +1,7 @@
+VIỆC 9 PHỐ THẬT XONG
+VIỆC 8 TRÙM PHỐ XONG
+VIỆC 7 CHUỖI TƯƠNG SINH XONG
+VIỆC 6 GỌN TRANG BỊ XONG
 CHẶNG 3 CHUẨN BỊ XONG
 TRANG BỊ VẼ XONG
 MÀN 1 VẼ LẠI XONG
@@ -7,7 +11,47 @@ LÀM ĐẸP XONG
 
 # Tiến độ phát triển — Gọn Tiệm, Sạch Phố ("Ngũ hành giữ tiệm")
 
-Cập nhật: 22/11/2026 • Nhánh: `main` • Trạng thái hiện tại: **Đã hoàn thành cả 5 việc chuẩn bị cho người lạ chơi (`CHẶNG 3 CHUẨN BỊ XONG`): Con phố dốc Đà Lạt, Hướng dẫn chơi lần đầu 5 bước, Logo + 4 biểu tượng app + màn hình chờ hộp giày, Nhạc nền ngũ cung tự tạo bằng Web Audio, và Bộ ảnh kênh Gọn + chia sẻ link (giữ nguyên toàn bộ `data-testid` và 100% số liệu trong `src/core/`).**
+Cập nhật: 23/11/2026 • Nhánh: `main` • Trạng thái hiện tại: **Đã hoàn thành trọn vẹn Việc 6 (Gọn chữ bảng trang bị), Việc 7 (Chuỗi tương sinh & Ngũ hành viên mãn trên sân), Việc 8 (Trận trùm phố Dốc Đà Lạt + Bão Lốc 5 màu + bảng chọn 6/15 món + huy hiệu vàng *Giữ trọn phố*) và Việc 9 (2 Phố thật Đà Lạt: Tăng Bạt Hổ – Trương Công Định & Phố Cà Phê, bản đồ ghi nguồn OSM, 18 món × 4 bậc + 14 quái vẽ riêng vào `streets_atlas.webp`, xoá hình tạm trong `atlasIcons.ts`, thêm 2 ghim trên Bản đồ Đà Lạt). Không sửa bất kỳ tệp nào trong `src/core/`.**
+
+---
+
+## 0E. Việc 6, 7, 8 & 9 — Bảng trang bị gọn, Chuỗi tương sinh, Trận Trùm Phố & 2 Phố Thật Đà Lạt — Đã hoàn thành (Antigravity)
+
+1. **Việc 6 — Gọn chữ bảng trang bị (`src/scenes/TitleScene.ts`, `src/ui/styles.css`):**
+   - Dùng trực tiếp các hàm có sẵn trong `src/core/equipment.ts` (`statShort`, `bonusChips`, `previewEquip`).
+   - Dòng giải thích thu gọn thành 1 dòng `"Món chống lưng đúng hành sẽ sáng dòng ẩn ●"` kèm nút `?` mở bảng luật đầy đủ.
+   - 10 ô vòng quanh chủ tiệm chỉ hiển thị hình món + chấm sáng `●○` (bỏ chữ tên ô dưới chân ô).
+   - Danh sách chọn món hiện 1 dòng so sánh từ `previewEquip` (xanh khi mạnh hơn, đỏ khi yếu hơn, kèm huy hiệu `"✦ Viên mãn!"`), chỉ số rút gọn bằng `statShort` (bấm giữ hoặc chạm 2 lần mở `statText` đầy đủ).
+   - Bộ đồ mặc định gấp gọn chỉ hiện bộ đang mặc dở, nút `"Đủ 4 bộ ▾"` mở đủ 4 bộ; tổng sức mạnh dùng hàng chip gọn từ `bonusChips`, chạm từng chip xem câu đầy đủ.
+2. **Việc 7 — Hiện chuỗi tương sinh trên sân (`src/scenes/TdStageScene.ts`, `src/game/synergyText.ts`, `src/ui/styles.css`):**
+   - Tia nối tương sinh dày và rực dần theo `tower.synergyChainLength` (2 → 3 → 4..5), gắn nhãn nhỏ sắc nét `"Chuỗi 3 +25%"` / `"Chuỗi 4 +40%"` / `"Chuỗi 5 +40%"`.
+   - Khi `engine.fullCycleActive` bật: hiện banner cầu vồng `"✦ Ngũ hành viên mãn! Mọi món nhanh +20% ✦"` cùng vòng sáng 5 màu quay quanh các món trong chuỗi 5 hành.
+   - Bảng nâng cấp món hiển thị thêm dòng `"✦ Chuỗi tương sinh: X món (+25% / +40% sức)"`.
+3. **Việc 8 — Vẽ Trận trùm phố "Dốc Đà Lạt" (`stage_4`) (`public/assets/map_trum_pho.webp`, `public/assets/streets_atlas.webp`, `src/game/shopStreetArt.ts`, `src/scenes/TitleScene.ts`, `src/scenes/TdStageScene.ts`):**
+   - Nền vector `public/assets/map_trum_pho.webp` (`720×1040`, 51.6 KB) vẽ con dốc 3 tầng đi qua Tiệm Giày → Tiệm Bánh → Tiệm Hoa → Quầy cuối phố dưới trời giông tối, kèm mưa bão xiên và lá cây cuốn trong gió.
+   - Trùm **Bão Lốc Cuối Mùa** (`st_bao_loc`) vẽ đủ 5 màu theo 5 hành (`thuy`, `moc`, `hoa`, `tho`, `kim`), đổi hình + banner `"Đổi hành!"` và hiệu ứng `"Gọi quân!"` khi gọi lính.
+   - Bảng chọn bộ 6/15 món trước khi vào trận có gợi ý `"Đủ 5 hành + 1 hỗ trợ"` và lưu qua `saveStreetLoadout`.
+   - Mặt tiền **Trùm Phố** trên Con phố dốc (khóa cho tới khi qua 3 tiệm), thắng nhận huy hiệu vàng **"Giữ trọn phố"** (`icon_badge_giu_tron_pho`) & nhấn mạnh quà rơi **Hàng hiệu ★** chắc chắn; bảng kết quả hiện `"PHỐ SẠCH BÓNG!"` / `"PHỐ BỊ BÃO CUỐN"`.
+4. **Việc 9 — Vẽ 2 Phố thật Đà Lạt (`street_tang_bat_ho` & `street_pho_ca_phe`) (`scripts/build_street_maps.py`, `scripts/build_streets_atlas.py`, `src/game/atlasIcons.ts`, `src/scenes/BootScene.ts`, `src/scenes/TitleScene.ts`, `src/scenes/TdStageScene.ts`):**
+   - 2 nền vector khớp 100% `stage.paths` & `stage.pads`, ghi rõ `"© OpenStreetMap contributors"` ở góc dưới:
+     - `public/assets/map_street_tang_bat_ho.webp` (55.8 KB): dốc đêm gần chợ, quán ăn đêm, hostel có xe máy đậu, bar dưới hầm.
+     - `public/assets/map_street_pho_ca_phe.webp` (77.5 KB): quán cà phê xưa, sân thượng dù gỗ đèn dây, nhiều cây thông xanh.
+   - Atlas riêng `public/assets/streets_atlas.webp` (`1536×1600`, 699.7 KB, ≤ 2048×2048 GPU di động) + `streets_atlas.json` (**294 khung hình**): 18 món × 4 bậc (`t1`, `t2`, `t3a`, `t3b`) × 3 khung đánh + 14 quái (12 quái chính + 2 quái con) × 4 khung đi + Trùm `st_bao_loc` 5 hành × 4 khung đi + 2 biểu tượng (`icon_street_life`, `icon_badge_giu_tron_pho`).
+   - Đã **xoá sạch phần hình tạm** `ROLE_FALLBACK_TOWER` và `TRAIT_FALLBACK_ENEMY` trong `src/game/atlasIcons.ts`.
+   - Thêm khu **Bản đồ Đà Lạt** trên màn hình chính đọc từ `REAL_STREET_STAGES` với 2 điểm ghim chọn phố thật, khóa tới khi thắng Trận trùm phố; hỗ trợ mở thử trực tiếp `/#street_tang_bat_ho` và `/#street_pho_ca_phe` (kể cả đổi hash trực tiếp trên thanh địa chỉ).
+- **Kiểm chứng:** `npm test` **59/59** qua, `npm run build` qua, `npm run test:e2e` **16/16** qua (0 lỗi console, 0 gọi mạng ngoài), tổng `dist/` = **4.4 MB** (≤ 5 MB), **`git diff src/core/` hoàn toàn trống**.
+
+| Hạng mục Việc 6–9 (`390×844`) | Ảnh kiểm chứng |
+|---|---|
+| Việc 6 — Bảng trang bị gọn chữ + `statShort` chạm 2 lần mở `statText` | ![Bảng trang bị gọn](screenshots/v6_gear_compact.png) |
+| Việc 7 — Chuỗi 5 món (+40%) + Ngũ hành viên mãn trên sân | ![Chuỗi tương sinh 5 món](screenshots/v7_synergy_full_cycle.png) |
+| Việc 7 — Dòng chuỗi tương sinh trong bảng nâng cấp | ![Bảng nâng cấp chuỗi](screenshots/v7_upgrade_chain.png) |
+| Việc 8 — Bảng chọn 6/15 món ra phố (`Đủ 5 hành + 1 hỗ trợ`) | ![Chọn 6 món ra phố](screenshots/v8_loadout_modal.png) |
+| Việc 8 — Trận Trùm Phố Dốc Đà Lạt & Bão Lốc đổi hành | ![Trùm Bão Lốc đổi hành](screenshots/v8_boss_bao_loc.png) |
+| Việc 8 — Thắng Trùm Phố: `PHỐ SẠCH BÓNG!`, huy hiệu vàng & Hàng hiệu ★ | ![Thắng Trùm Phố](screenshots/v8_stage4_victory.png) |
+| Việc 9 — Bản đồ Đà Lạt mở 2 Phố Thật sau khi thắng Trùm Phố | ![Bản đồ Đà Lạt mở khóa](screenshots/v8_title_dalat_unlocked.png) |
+| Việc 9 — `/#street_tang_bat_ho`: bảng đặt món riêng & giao tranh | ![Tăng Bạt Hổ giao tranh](screenshots/v9_tang_bat_ho_combat.png) |
+| Việc 9 — `/#street_pho_ca_phe`: nền cà phê sân thượng & giao tranh | ![Phố Cà Phê giao tranh](screenshots/v9_pho_ca_phe_combat.png) |
 
 ---
 

@@ -51,3 +51,32 @@ export function getInitialMusicMuted(): boolean {
 export function saveMusicMuted(muted: boolean): void {
   writeBoolPref(MUSIC_MUTED_KEY, muted);
 }
+
+const REAL_STREET_LOADOUT_PREFIX = 'gon_tiem_real_street_loadout_v1_';
+
+export function loadRealStreetLoadout(stageId: string, allowed: string[], size: number): string[] | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const raw = window.localStorage.getItem(`${REAL_STREET_LOADOUT_PREFIX}${stageId}`);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return null;
+    const clean = Array.from(new Set(parsed.filter((id): id is string => typeof id === 'string' && allowed.includes(id)))).slice(0, size);
+    return clean.length === size ? clean : null;
+  } catch {
+    return null;
+  }
+}
+
+export function saveRealStreetLoadout(stageId: string, loadout: string[], allowed: string[], size: number): string[] {
+  const clean = Array.from(new Set(loadout.filter((id) => allowed.includes(id)))).slice(0, size);
+  if (typeof window !== 'undefined') {
+    try {
+      window.localStorage.setItem(`${REAL_STREET_LOADOUT_PREFIX}${stageId}`, JSON.stringify(clean));
+    } catch {
+      // Ignore storage errors
+    }
+  }
+  return clean;
+}
+

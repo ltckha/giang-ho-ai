@@ -25,11 +25,19 @@ const SPECIFIC_PAIR_EXPLANATIONS: Partial<Record<`${TowerId}->${TowerId}`, strin
   'fl_shears->fl_can': 'Cắt tỉa gọn cho tia nước tưới thấm đều — Kim sinh Thủy',
 };
 
+export function getSynergyChainBonusPct(chainLength: number): number {
+  if (chainLength >= 4) return 40;
+  if (chainLength === 3) return 25;
+  if (chainLength === 2) return 15;
+  return 0;
+}
+
 export function getSynergyExplanation(
   giverDefId: TowerId,
   giverElement: ElementType,
   receiverDefId: TowerId,
   receiverElement: ElementType,
+  chainLength = 2,
 ): SynergyDescription {
   const gEl = ELEMENT_INFO[giverElement];
   const rEl = ELEMENT_INFO[receiverElement];
@@ -37,9 +45,16 @@ export function getSynergyExplanation(
   const rName = ALL_TOWER_DEFINITIONS[receiverDefId].tier1.name;
   const elementPairLabel = `${gEl.label} sinh ${rEl.label}`;
   const specific = SPECIFIC_PAIR_EXPLANATIONS[`${giverDefId}->${receiverDefId}`];
+  const bonusPct = getSynergyChainBonusPct(Math.max(2, chainLength));
+  const chainTag =
+    chainLength >= 5
+      ? `Chuỗi 5 • +${bonusPct}% & Viên mãn`
+      : chainLength >= 3
+        ? `Chuỗi ${chainLength} • +${bonusPct}% sức`
+        : `+${bonusPct}% sức`;
 
   return {
-    title: `${gName} → ${rName} (+15% sức)`,
+    title: `${gName} → ${rName} (${chainTag})`,
     explanation: specific ?? `${gName} tiếp sức cho ${rName} — ${elementPairLabel}`,
     elementPairLabel,
   };

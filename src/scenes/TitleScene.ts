@@ -2,19 +2,26 @@ import Phaser from 'phaser';
 import { ALL_ELEMENTS, ELEMENT_INFO } from '../core/elements';
 import {
   activatedHiddenCount,
+  bonusChips,
   GEAR_SETS,
   GEAR_SLOTS,
+  previewEquip,
   RARITY_LABEL,
+  statShort,
   statText,
   supporterSlots,
   type GearSlotId,
-  type GearStatKind,
 } from '../core/equipment';
-import { equipGear, getEquipped, getGearBonus, loadTdSave } from '../core/saveSystem';
-import { STAGES } from '../core/tdDefinitions';
+import { equipGear, getEquipped, getGearBonus, loadTdSave, saveStreetLoadout } from '../core/saveSystem';
 import { getShopStage, isShopUnlocked, SHOP_STREET, shopStars, type ShopOnStreet } from '../core/shopStreet';
-import { ALL_ENEMY_DEFINITIONS, getStageTowerList } from '../core/tdDefinitions';
-import type { EnemyId } from '../core/types';
+import {
+  ALL_ENEMY_DEFINITIONS,
+  ALL_TOWER_DEFINITIONS,
+  getStageTowerList,
+  REAL_STREET_STAGES,
+  STAGES,
+} from '../core/tdDefinitions';
+import type { ElementType, EnemyId, StageDefinition, StageId, TowerId } from '../core/types';
 import {
   getAtlasFrameDataUrl,
   getEnemyFrameName,
@@ -28,14 +35,13 @@ import {
   getEmptySlotSilhouetteSvg,
   getGeneratorElementFor,
   getSlotSupportState,
-  getStatMiniIconSvg,
   RARITY_THEME,
 } from '../game/gearUiHelpers';
 import { music } from '../game/music';
-import { getInitialReduceMotion } from '../game/preferences';
+import { getInitialReduceMotion, loadRealStreetLoadout, saveRealStreetLoadout } from '../game/preferences';
 import { SCENE_KEYS } from '../game/sceneKeys';
 import { renderShopkeeperAvatarSvg } from '../game/shopkeeperAvatar';
-import { renderShopFacadeSvg, renderStreetExtensionSvg } from '../game/shopStreetArt';
+import { renderDalatMapBgSvg, renderShopFacadeSvg, renderStreetExtensionSvg } from '../game/shopStreetArt';
 import { sound } from '../game/sound';
 
 const RING_SIZE = 340;
@@ -50,14 +56,14 @@ function getRingSlotPos(index: number): { x: number; y: number } {
   };
 }
 
-function getShopLifeIconFrame(stageId: ShopOnStreet['stageId']): string {
+function getShopLifeIconFrame(stageId: StageId): string {
   if (stageId === 'stage_2') return 'icon_bread_life';
   if (stageId === 'stage_3') return 'icon_flower_life';
+  if (stageId === 'stage_4' || stageId.startsWith('street_')) return 'icon_street_life';
   return 'icon_shoe_life';
 }
 
-function getStageMainEnemies(shop: ShopOnStreet): EnemyId[] {
-  const stage = getShopStage(shop);
+function getStageMainEnemies(stage: StageDefinition): EnemyId[] {
   const seen = new Set<EnemyId>();
   for (const wave of stage.waves) {
     for (const grp of wave.groups) {
@@ -67,11 +73,40 @@ function getStageMainEnemies(shop: ShopOnStreet): EnemyId[] {
   return Array.from(seen);
 }
 
+/** Vị trí ghim chọn phố trên Bản đồ Đà Lạt SVG (viewBox 360×190) */
+const REAL_STREET_MAP_PINS: Record<string, { leftPct: number; topPct: number; shortName: string; tag: string }> = {
+  street_phan_dinh_phung: {
+    leftPct: 30,
+    topPct: 28,
+    shortName: 'Phan Đình Phùng',
+    tag: 'Cầu Quẹo • Phố tiệm dân sinh',
+  },
+  street_tang_bat_ho: {
+    leftPct: 38,
+    topPct: 62,
+    shortName: 'Tăng Bạt Hổ – Trương Công Định',
+    tag: 'Dốc chợ • Quán đêm • Bar hầm',
+  },
+  street_pho_ca_phe: {
+    leftPct: 72,
+    topPct: 32,
+    shortName: 'Phố Cà Phê',
+    tag: 'Cà phê xưa • Sân thượng • Cây xanh',
+  },
+};
+
+const SHOP_GROUPS_FOR_BOSS: Array<{ label: string; ids: TowerId[] }> = [
+  { label: '👟 Tiệm Giày Hẻm Dốc', ids: ['wood_tower', 'metal_tower', 'water_tower', 'fire_tower', 'earth_tower'] },
+  { label: '🥖 Tiệm Bánh Đầu Phố', ids: ['bk_swatter', 'bk_jar', 'bk_fan', 'bk_oven', 'bk_fridge'] },
+  { label: '🌸 Tiệm Hoa Cuối Dốc', ids: ['fl_can', 'fl_shears', 'fl_lime', 'fl_heater', 'fl_vent'] },
+];
+
 export class TitleScene extends Phaser.Scene {
   private overlayEl: HTMLDivElement | null = null;
   private rainLines: Array<{ x: number; y: number; len: number; speed: number }> = [];
   private weatherGfx: Phaser.GameObjects.Graphics | null = null;
   private reduceMotion = false;
+  private hashChangeHandler: (() => void) | null = null;
 
   constructor() {
     super({ key: SCENE_KEYS.TITLE });
@@ -81,7 +116,7 @@ export class TitleScene extends Phaser.Scene {
     // Lối vào thử phố thật / trùm phố: thêm #<mã màn> vào link (vd #street_pho_ca_phe) — Claude
     const hashStage = typeof window !== 'undefined' ? window.location.hash.replace('#', '') : '';
     if (hashStage && hashStage in STAGES && (hashStage.startsWith('street_') || hashStage === 'stage_4')) {
-      this.scene.start(SCENE_KEYS.TD_STAGE, { stageId: hashStage as never });
+      this.scene.start(SCENE_KEYS.TD_STAGE, { stageId: hashStage as StageId });
       return;
     }
     this.reduceMotion = getInitialReduceMotion();
@@ -109,7 +144,22 @@ export class TitleScene extends Phaser.Scene {
 
     this.mountTitleOverlay();
 
+    if (typeof window !== 'undefined') {
+      this.hashChangeHandler = () => {
+        const nextHash = window.location.hash.replace('#', '');
+        if (nextHash && nextHash in STAGES && (nextHash.startsWith('street_') || nextHash === 'stage_4')) {
+          this.unmountOverlay();
+          this.scene.start(SCENE_KEYS.TD_STAGE, { stageId: nextHash as StageId });
+        }
+      };
+      window.addEventListener('hashchange', this.hashChangeHandler);
+    }
+
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+      if (typeof window !== 'undefined' && this.hashChangeHandler) {
+        window.removeEventListener('hashchange', this.hashChangeHandler);
+        this.hashChangeHandler = null;
+      }
       this.unmountOverlay();
     });
   }
@@ -132,6 +182,22 @@ export class TitleScene extends Phaser.Scene {
     }
   }
 
+  private resolveSavedLoadoutForStage(stage: StageDefinition): TowerId[] {
+    const allowed = stage.towerIds ?? [];
+    const size = stage.loadoutSize ?? 6;
+    const fallback = (stage.defaultLoadout ?? allowed.slice(0, size)).slice(0, size);
+    if (stage.id === 'stage_4') {
+      const saved = loadTdSave().streetLoadout;
+      if (saved && saved.length > 0) {
+        const clean = saved.filter((id) => allowed.includes(id)).slice(0, size);
+        if (clean.length === size) return clean;
+      }
+      return fallback;
+    }
+    const savedReal = loadRealStreetLoadout(stage.id, allowed, size);
+    return (savedReal as TowerId[] | null) ?? fallback;
+  }
+
   private mountTitleOverlay(): void {
     this.unmountOverlay();
     const container = document.getElementById('game-container');
@@ -142,11 +208,19 @@ export class TitleScene extends Phaser.Scene {
     const queryStage = params?.get('stage');
     const isBotBypass = params?.get('bot') === '1';
 
+    const hasStreetChampionBadge =
+      Boolean(save.badges?.includes('giu_tron_pho')) || (save.starsByStage.stage_4 ?? 0) > 0;
+    const isRealStreetsUnlocked = hasStreetChampionBadge || isBotBypass;
+
     const isUnlocked = (shop: ShopOnStreet): boolean =>
       isShopUnlocked(save, shop) || isBotBypass || queryStage === String(shop.order);
 
     let selectedShopId: ShopOnStreet['stageId'] =
       SHOP_STREET.find((s) => String(s.order) === queryStage)?.stageId ?? SHOP_STREET[0]!.stageId;
+    let selectedRealStreetId: StageId = REAL_STREET_STAGES[0]?.id ?? 'street_tang_bat_ho';
+
+    const championBadgeUrl = getAtlasFrameDataUrl(this, 'icon_badge_giu_tron_pho');
+    const shopCountOnly = SHOP_STREET.filter((s) => !s.isBoss).length;
 
     const root = document.createElement('div');
     root.className = 'td-title-overlay';
@@ -161,8 +235,19 @@ export class TitleScene extends Phaser.Scene {
 
         <h1 class="td-title-heading">Gọn Tiệm, Sạch Phố</h1>
         <p class="td-title-sub">Ngũ hành giữ tiệm</p>
+        ${
+          hasStreetChampionBadge
+            ? `<div class="td-champion-banner" data-testid="badge-giu-tron-pho">
+                 ${championBadgeUrl ? `<img class="td-champion-medal" src="${championBadgeUrl}" alt="" />` : '🏆'}
+                 <div>
+                   <strong>Huy hiệu: Giữ trọn phố</strong>
+                   <span>Đã đẩy lùi Bão Lốc Cuối Mùa &amp; mở 2 Phố Thật Đà Lạt</span>
+                 </div>
+               </div>`
+            : ''
+        }
         <p class="td-title-desc">
-          Chạm vào từng cửa tiệm dọc con phố dốc Đà Lạt để xem 5 món giữ tiệm &amp; bầy quái, rồi mở cửa giữ sạch phố nhé!
+          Chạm vào từng cửa tiệm dọc con phố dốc Đà Lạt để xem món giữ tiệm &amp; bầy quái, rồi mở cửa giữ sạch phố nhé!
         </p>
 
         <div class="td-audio-toggle-row" data-testid="td-audio-controls">
@@ -194,15 +279,19 @@ export class TitleScene extends Phaser.Scene {
 
         <section class="td-street-section ${this.reduceMotion ? 'no-anim' : ''}" data-testid="shop-street">
           <div class="td-street-lane-header">
-            <span class="td-street-sign-post">⛰ Dốc Đà Lạt • ${SHOP_STREET.length} tiệm</span>
+            <span class="td-street-sign-post">⛰ Dốc Đà Lạt • ${shopCountOnly} tiệm &amp; Trùm Phố</span>
             <span class="td-street-rain-tag">🌧 Mưa nhẹ • Đèn vàng</span>
           </div>
           <div class="td-street-list" id="td-street-list"></div>
+
+          <!-- Việc 9: Bản đồ Đà Lạt chọn 2 phố thật (khóa đến khi thắng Trận trùm phố) -->
+          <div class="td-dalat-real-section" id="td-dalat-real-streets" data-testid="dalat-real-streets"></div>
+
           <div class="td-street-coming-soon" data-testid="street-coming-soon">
             ${renderStreetExtensionSvg()}
             <div class="td-street-more-caption">
-              <strong>Con dốc còn dài...</strong>
-              <span>Chừa sẵn mặt bằng nối dài phố thêm tiệm mới ở chặng sau!</span>
+              <strong>Bản đồ Đà Lạt còn mở rộng...</strong>
+              <span>Thêm nhiều con phố thật Đà Lạt ở các chặng tiếp theo!</span>
             </div>
           </div>
         </section>
@@ -210,16 +299,20 @@ export class TitleScene extends Phaser.Scene {
         <div class="td-stage-tag-box td-gear-panel ${this.reduceMotion ? 'no-anim' : ''}" id="td-gear-box" data-testid="td-gear-box">
           <div class="td-gear-header-row">
             <div>
-              <div class="td-stage-kicker">TRANG BỊ CHỦ TIỆM • VÒNG NGŨ HÀNH 10 MÓN</div>
+              <div class="td-stage-kicker">TRANG BỊ CHỦ TIỆM • 10 Ô NGŨ HÀNH</div>
               <div class="td-gear-title" id="td-gear-head"></div>
             </div>
-            <div class="td-gear-bag-pill" id="td-gear-inv-count"></div>
+            <div class="td-gear-header-right">
+              <div class="td-gear-bag-pill" id="td-gear-inv-count"></div>
+            </div>
           </div>
+          <div class="td-gear-compact-hint">
+            <span>Món chống lưng đúng hành sẽ sáng dòng ẩn <strong>●</strong></span>
+            <button type="button" class="td-gear-help-btn" id="btn-gear-rules" data-testid="btn-gear-rules" aria-expanded="false" title="Xem luật trang bị đầy đủ">?</button>
+          </div>
+          <div id="td-gear-rules-wrap"></div>
           <div id="td-gear-fullring-banner"></div>
           <div class="td-gear-ring-stage" id="td-gear-ring-stage"></div>
-          <div class="td-gear-hint-line">
-            Chạm từng ô quanh chủ tiệm để đổi đồ. <strong>2 đường nối</strong> là 2 món chống lưng sinh ra hành món này (●); đủ 10 món viên mãn sáng thêm dòng ẩn thứ 3 (✦).
-          </div>
           <div id="td-gear-pick"></div>
           <div class="td-gear-sets-wrap" id="td-gear-sets"></div>
           <div class="td-gear-sum-wrap" id="td-gear-sum"></div>
@@ -227,9 +320,182 @@ export class TitleScene extends Phaser.Scene {
 
         <div class="td-element-guide" id="td-element-guide" data-testid="td-element-guide"></div>
       </div>
+      <div id="td-loadout-modal-host"></div>
     `;
 
     container.appendChild(root);
+
+    const launchStage = (stageId: StageId, loadout?: TowerId[]): void => {
+      sound.playUiClick();
+      this.unmountOverlay();
+      this.scene.start(SCENE_KEYS.TD_STAGE, loadout ? { stageId, loadout } : { stageId });
+    };
+
+    /** Việc 8 & 9: Màn chọn bộ 6 món mang ra phố (cho Trận Trùm Phố 15→6 và 2 Phố Thật 9→6) */
+    const openLoadoutPicker = (stage: StageDefinition): void => {
+      const host = root.querySelector<HTMLDivElement>('#td-loadout-modal-host');
+      if (!host) return;
+      const limit = stage.loadoutSize ?? 6;
+      const allowed = stage.towerIds ?? [];
+      let chosen: TowerId[] = [...this.resolveSavedLoadoutForStage(stage)];
+      const coinUrl = getAtlasFrameDataUrl(this, 'icon_coin');
+
+      const placeByTower = new Map<string, { name: string; trait: string }>();
+      for (const pl of stage.places ?? []) {
+        placeByTower.set(pl.towerId, { name: pl.name, trait: pl.trait });
+      }
+
+      const renderModal = (): void => {
+        const chosenDefs = chosen.map((id) => ALL_TOWER_DEFINITIONS[id]).filter(Boolean);
+        const coveredEls = new Set<ElementType>(chosenDefs.map((d) => d.element));
+        const hasSupport = chosenDefs.some((d) => d.role === 'support_buff');
+        const ready = chosen.length === limit;
+
+        const elCheckHtml = ALL_ELEMENTS.map((el) => {
+          const info = ELEMENT_INFO[el];
+          const ok = coveredEls.has(el);
+          const ico = getAtlasFrameDataUrl(this, `el_${el}`);
+          return `<span class="td-lo-check ${ok ? 'ok' : ''}" style="--el-c:${info.colorHex}">
+            ${ico ? `<img src="${ico}" alt="" />` : ''}${info.label}${ok ? ' ✓' : ''}
+          </span>`;
+        }).join('');
+
+        const renderTowerCard = (tid: TowerId): string => {
+          const def = ALL_TOWER_DEFINITIONS[tid];
+          if (!def) return '';
+          const el = ELEMENT_INFO[def.element];
+          const spUrl = getAtlasFrameDataUrl(this, getTowerFrameName(tid, 1, undefined, 0));
+          const elUrl = getAtlasFrameDataUrl(this, `el_${def.element}`);
+          const isSel = chosen.includes(tid);
+          const placeInfo = placeByTower.get(tid);
+          const roleShort =
+            def.role === 'support_buff'
+              ? 'Hỗ trợ'
+              : def.role === 'aoe_splash'
+                ? 'Đánh lan'
+                : def.role === 'slow_aura'
+                  ? 'Làm chậm'
+                  : def.role === 'heavy_slow'
+                    ? 'Đánh nặng'
+                    : 'Bắn nhanh';
+          return `
+            <button
+              type="button"
+              class="td-lo-tower-card ${isSel ? 'selected' : ''}"
+              data-lo-tower="${tid}"
+              data-testid="loadout-pick-${tid}"
+              style="--el-c:${el.colorHex}"
+            >
+              ${isSel ? '<span class="td-lo-tick">✓</span>' : ''}
+              ${spUrl ? `<img class="td-lo-sprite" src="${spUrl}" alt="${def.tier1.name}" />` : ''}
+              <div class="td-lo-name">${def.tier1.name}</div>
+              ${placeInfo ? `<div class="td-lo-place">${placeInfo.name}</div>` : ''}
+              <div class="td-lo-meta">
+                <span class="td-mini-el-pill" style="background:${el.colorHex}">
+                  ${elUrl ? `<img src="${elUrl}" alt="" />` : ''}${el.label}
+                </span>
+                <span class="td-lo-role">${roleShort}</span>
+                <span class="td-mini-cost">${def.tier1.cost}${coinUrl ? `<img class="td-mini-coin" src="${coinUrl}" alt="" />` : ''}</span>
+              </div>
+            </button>
+          `;
+        };
+
+        const groupsHtml =
+          stage.id === 'stage_4'
+            ? SHOP_GROUPS_FOR_BOSS.map(
+                (grp) => `
+                <div class="td-lo-group">
+                  <div class="td-lo-group-title">${grp.label}</div>
+                  <div class="td-lo-grid">${grp.ids.map(renderTowerCard).join('')}</div>
+                </div>
+              `,
+              ).join('')
+            : `<div class="td-lo-group">
+                 <div class="td-lo-group-title">📍 ${allowed.length} địa điểm dọc ${stage.name}</div>
+                 <div class="td-lo-grid">${allowed.map(renderTowerCard).join('')}</div>
+               </div>`;
+
+        host.innerHTML = `
+          <div class="td-loadout-backdrop" data-testid="td-loadout-modal">
+            <div class="td-loadout-sheet td-shoebox-panel">
+              <div class="td-sheet-head">
+                <div class="td-sheet-title-wrap">
+                  <span class="td-tag-hole"></span>
+                  <strong>Chọn ${limit} món mang ra phố</strong>
+                </div>
+                <button type="button" class="td-close-btn" id="btn-close-loadout" aria-label="Đóng">✕</button>
+              </div>
+              <div class="td-lo-subtitle">${stage.name} • Chọn đúng <strong>${chosen.length}/${limit}</strong> loại món</div>
+              <div class="td-lo-hint-bar">
+                <span class="td-lo-hint-title">Gợi ý: Đủ 5 hành + 1 hỗ trợ</span>
+                <div class="td-lo-checks">
+                  ${elCheckHtml}
+                  <span class="td-lo-check ${hasSupport ? 'ok' : ''}" style="--el-c:#eab308">✨ Hỗ trợ${hasSupport ? ' ✓' : ''}</span>
+                </div>
+              </div>
+              <div class="td-lo-scroll">${groupsHtml}</div>
+              <div class="td-lo-footer">
+                <button type="button" class="td-btn-secondary td-lo-reset-btn" id="btn-reset-loadout" data-testid="btn-reset-loadout">
+                  Gợi ý chuẩn
+                </button>
+                <button
+                  type="button"
+                  class="${ready ? 'td-btn-primary' : 'td-btn-locked'} td-lo-confirm-btn"
+                  id="btn-confirm-loadout"
+                  data-testid="btn-confirm-loadout"
+                  ${ready ? '' : 'disabled'}
+                >
+                  ${ready ? `Ra Phố Ngay! (${chosen.length}/${limit})` : `Chọn đủ ${limit} món (${chosen.length}/${limit})`}
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+
+        host.querySelector('#btn-close-loadout')?.addEventListener('click', () => {
+          sound.playUiClick();
+          host.innerHTML = '';
+        });
+
+        host.querySelector('#btn-reset-loadout')?.addEventListener('click', () => {
+          sound.playUiClick();
+          chosen = [...(stage.defaultLoadout ?? allowed.slice(0, limit))].slice(0, limit);
+          renderModal();
+        });
+
+        host.querySelectorAll<HTMLButtonElement>('[data-lo-tower]').forEach((btn) => {
+          btn.onclick = () => {
+            const tid = btn.dataset.loTower as TowerId;
+            if (chosen.includes(tid)) {
+              chosen = chosen.filter((x) => x !== tid);
+              sound.playUiClick();
+            } else if (chosen.length < limit) {
+              chosen = [...chosen, tid];
+              sound.playBuildOrUpgrade();
+            } else {
+              // Đã đủ 6 món: thay món chọn đầu tiên để người chơi dễ xoay chuyển nhanh
+              sound.playUiClick();
+              return;
+            }
+            renderModal();
+          };
+        });
+
+        host.querySelector<HTMLButtonElement>('#btn-confirm-loadout')?.addEventListener('click', () => {
+          if (chosen.length !== limit) return;
+          if (stage.id === 'stage_4') {
+            saveStreetLoadout(chosen, allowed, limit);
+          } else {
+            saveRealStreetLoadout(stage.id, chosen, allowed, limit);
+          }
+          host.innerHTML = '';
+          launchStage(stage.id, chosen);
+        });
+      };
+
+      renderModal();
+    };
 
     const syncAudioButtons = (): void => {
       const mBtn = root.querySelector<HTMLButtonElement>('#btn-toggle-music');
@@ -270,7 +536,8 @@ export class TitleScene extends Phaser.Scene {
       if (!guideEl) return;
       const activeShop = SHOP_STREET.find((s) => s.stageId === selectedShopId) ?? SHOP_STREET[0]!;
       const activeStage = getShopStage(activeShop);
-      const towers = getStageTowerList(activeStage);
+      const savedLoadout = activeStage.loadoutSize ? this.resolveSavedLoadoutForStage(activeStage) : undefined;
+      const towers = getStageTowerList(activeStage, savedLoadout);
 
       const tabsHtml = SHOP_STREET.map((shop) => {
         const isSel = shop.stageId === activeShop.stageId;
@@ -295,8 +562,9 @@ export class TitleScene extends Phaser.Scene {
         })
         .join('');
 
+      const countLabel = activeStage.loadoutSize ? `Bộ ${towers.length} món mang ra phố` : `${towers.length} món của ${activeStage.name}`;
       guideEl.innerHTML = `
-        <div class="td-guide-title">5 món của ${activeStage.name} • Vòng khắc: Kim → Mộc → Thổ → Thủy → Hỏa → Kim</div>
+        <div class="td-guide-title">${countLabel} • Vòng khắc: Kim → Mộc → Thổ → Thủy → Hỏa → Kim</div>
         <div class="td-guide-shop-tabs">${tabsHtml}</div>
         <div class="td-showcase-grid">${towerShowcase}</div>
       `;
@@ -332,8 +600,9 @@ export class TitleScene extends Phaser.Scene {
             ? '★'.repeat(stars) + '☆'.repeat(3 - stars)
             : 'Chưa qua';
 
-        const towers = getStageTowerList(stage);
-        const mainEnemies = getStageMainEnemies(shop);
+        const savedLoadout = stage.loadoutSize ? this.resolveSavedLoadoutForStage(stage) : undefined;
+        const towers = getStageTowerList(stage, savedLoadout);
+        const mainEnemies = getStageMainEnemies(stage);
 
         const detailHtml = isSelected
           ? `
@@ -346,9 +615,18 @@ export class TitleScene extends Phaser.Scene {
                 <span>•</span>
                 <span>Vốn đầu ${stage.startingEssence} xu</span>
               </div>
+              ${
+                shop.isBoss
+                  ? `<div class="td-boss-reward-strip">
+                       <span>🏆 Thắng nhận <strong>Huy hiệu "Giữ trọn phố"</strong> &amp; chắc chắn rơi <strong>1 món Hàng hiệu ★</strong>!</span>
+                     </div>`
+                  : ''
+              }
 
               <div class="td-shop-detail-block">
-                <div class="td-shop-detail-label">5 món giữ tiệm của ${shop.sign}</div>
+                <div class="td-shop-detail-label">
+                  ${shop.isBoss ? `Bộ ${towers.length} món mang ra phố (chọn từ 15 món của 3 tiệm)` : `5 món giữ tiệm của ${shop.sign}`}
+                </div>
                 <div class="td-shop-mini-towers">
                   ${towers
                     .map((t) => {
@@ -359,7 +637,7 @@ export class TitleScene extends Phaser.Scene {
                         <div class="td-shop-mini-tower" style="border-color:${el.colorHex}" title="${t.tier1.name} (${el.label}) — ${t.tier1.cost} xu">
                           ${spUrl ? `<img class="td-mini-tower-img" src="${spUrl}" alt="${t.tier1.name}" />` : ''}
                           <div class="td-mini-tower-name">${t.tier1.name}</div>
-                          <div class="td-mini-tower-meta">
+                          <div class="td-shop-mini-tower-meta td-mini-tower-meta">
                             <span class="td-mini-el-pill" style="background:${el.colorHex}">
                               ${elUrl ? `<img src="${elUrl}" alt="" />` : ''}${el.label}
                             </span>
@@ -373,9 +651,10 @@ export class TitleScene extends Phaser.Scene {
               </div>
 
               <div class="td-shop-detail-block">
-                <div class="td-shop-detail-label">Bầy quái chính kéo vào tiệm</div>
+                <div class="td-shop-detail-label">${shop.isBoss ? 'Bầy quái cả phố & Trùm Bão Lốc Cuối Mùa' : 'Bầy quái chính kéo vào tiệm'}</div>
                 <div class="td-shop-mini-enemies">
                   ${mainEnemies
+                    .slice(0, shop.isBoss ? 8 : mainEnemies.length)
                     .map((eid) => {
                       const edef = ALL_ENEMY_DEFINITIONS[eid];
                       const el = ELEMENT_INFO[edef.element];
@@ -400,15 +679,18 @@ export class TitleScene extends Phaser.Scene {
           idx > 0
             ? `<div class="td-street-slope-connector" aria-hidden="true">
                  <span class="td-slope-line"></span>
-                 <span class="td-slope-step-pill">↓ Xuống dốc • Tiệm ${shop.order}</span>
+                 <span class="td-slope-step-pill">${shop.isBoss ? '⛈ Cuối Dốc • Trận Trùm Phố' : `↓ Xuống dốc • Tiệm ${shop.order}`}</span>
                  <span class="td-slope-line"></span>
                </div>`
             : '';
 
+        const lockMsg = shop.isBoss ? '🔒 Qua cả 3 tiệm để mở' : '🔒 Qua tiệm trước để mở';
+        const openBtnLabel = shop.isBoss ? '⛈ Chọn 6 Món & Chặn Bão Phố' : `Mở Cửa ${shop.sign}`;
+
         return `
           ${slopeStepHtml}
           <article
-            class="td-street-shop ${unlocked ? 'unlocked' : 'locked td-stage-locked'} ${isSelected ? 'selected' : ''}"
+            class="td-street-shop ${shop.isBoss ? 'is-boss-shop' : ''} ${unlocked ? 'unlocked' : 'locked td-stage-locked'} ${isSelected ? 'selected' : ''}"
             data-testid="stage${shop.order}-card"
             data-shop-id="${shop.stageId}"
           >
@@ -421,26 +703,26 @@ export class TitleScene extends Phaser.Scene {
               aria-expanded="${isSelected ? 'true' : 'false'}"
               aria-label="Xem thông tin ${stage.name}"
             >
-              <!-- Biển hiệu gỗ treo trên mái tiệm -->
-              <div class="td-shop-signboard ${unlocked ? '' : 'locked'}">
+              <div class="td-shop-signboard ${shop.isBoss ? 'is-boss' : ''} ${unlocked ? '' : 'locked'}">
                 <div class="td-shop-sign-left">
-                  <span class="td-shop-order-badge">${shop.order}</span>
+                  <span class="td-shop-order-badge">${shop.isBoss ? '⛈' : shop.order}</span>
                   ${lifeUrl ? `<img class="td-shop-life-ico" src="${lifeUrl}" alt="" />` : ''}
                   <div class="td-shop-sign-titles">
                     <span class="td-shop-sign-short">${shop.sign.toUpperCase()} • ${stage.waves.length} ĐỢT</span>
                     <span class="td-stage-name">${stage.name}</span>
                   </div>
                 </div>
-                <div class="td-stage-stars ${unlocked ? '' : 'locked'}" data-testid="stage${shop.order}-stars">${starText}</div>
+                <div class="td-stage-stars ${unlocked ? '' : 'locked'}" data-testid="stage${shop.order}-stars">
+                  ${shop.isBoss && hasStreetChampionBadge ? '🏆 ' : ''}${starText}
+                </div>
               </div>
 
-              <!-- Mặt tiền vẽ theo nét Đà Lạt ngày mưa -->
               <div class="td-shop-facade-wrap">
                 ${renderShopFacadeSvg(shop, unlocked)}
                 ${
                   unlocked
-                    ? `<span class="td-facade-inspect-pill">${isSelected ? '▲ Đang xem chi tiết' : '▼ Chạm xem 5 món & quái'}</span>`
-                    : `<span class="td-facade-lock-ribbon">🔒 Qua tiệm trước để mở</span>`
+                    ? `<span class="td-facade-inspect-pill">${isSelected ? '▲ Đang xem chi tiết' : shop.isBoss ? '▼ Chạm xem bộ 6 món & Trùm Bão Lốc' : '▼ Chạm xem 5 món & quái'}</span>`
+                    : `<span class="td-facade-lock-ribbon">${lockMsg}</span>`
                 }
               </div>
             </div>
@@ -456,7 +738,7 @@ export class TitleScene extends Phaser.Scene {
                 class="${unlocked ? 'td-btn-primary td-street-open-btn' : 'td-btn-locked td-street-open-btn'}"
                 ${unlocked ? '' : 'disabled aria-disabled="true"'}
               >
-                ${unlocked ? `Mở Cửa ${shop.sign}` : '🔒 Qua tiệm trước để mở'}
+                ${unlocked ? openBtnLabel : lockMsg}
               </button>
             </div>
           </article>
@@ -486,18 +768,189 @@ export class TitleScene extends Phaser.Scene {
         btn.onclick = (ev) => {
           ev.stopPropagation();
           if (btn.disabled) return;
-          const stageId = btn.dataset.launchStage as ShopOnStreet['stageId'];
-          sound.playUiClick();
-          this.unmountOverlay();
-          this.scene.start(SCENE_KEYS.TD_STAGE, { stageId });
+          const stageId = btn.dataset.launchStage as StageId;
+          const st = STAGES[stageId];
+          if (st?.loadoutSize && !isBotBypass) {
+            sound.playUiClick();
+            openLoadoutPicker(st);
+          } else {
+            launchStage(stageId);
+          }
         };
       });
     };
 
+    /** Việc 9 bước 4: Bản đồ Đà Lạt thêm 2 điểm chọn phố thật từ REAL_STREET_STAGES */
+    const renderRealStreetsMap = (): void => {
+      const host = root.querySelector<HTMLDivElement>('#td-dalat-real-streets');
+      if (!host) return;
+      const curSave = loadTdSave();
+      const coinUrl = getAtlasFrameDataUrl(this, 'icon_coin');
+
+      const activeStreet =
+        REAL_STREET_STAGES.find((s) => s.id === selectedRealStreetId) ?? REAL_STREET_STAGES[0];
+      if (!activeStreet) return;
+
+      const pinsHtml = REAL_STREET_STAGES.map((st, idx) => {
+        const pinMeta = REAL_STREET_MAP_PINS[st.id] ?? {
+          leftPct: 32 + idx * 36,
+          topPct: 48,
+          shortName: st.name,
+          tag: st.subtitle,
+        };
+        const isSel = st.id === activeStreet.id;
+        const stars = curSave.starsByStage[st.id] ?? 0;
+        const starStr = stars > 0 ? '★'.repeat(stars) : '';
+        return `
+          <button
+            type="button"
+            class="td-dalat-pin ${isRealStreetsUnlocked ? 'unlocked' : 'locked'} ${isSel ? 'selected' : ''}"
+            data-real-pin="${st.id}"
+            data-testid="real-street-pin-${st.id}"
+            style="left:${pinMeta.leftPct}%;top:${pinMeta.topPct}%"
+            aria-pressed="${isSel ? 'true' : 'false'}"
+          >
+            <span class="td-dalat-pin-dot">${isRealStreetsUnlocked ? '📍' : '🔒'}</span>
+            <span class="td-dalat-pin-label">
+              <strong>${pinMeta.shortName}</strong>
+              ${starStr ? `<em class="td-pin-stars">${starStr}</em>` : ''}
+            </span>
+          </button>
+        `;
+      }).join('');
+
+      const activeStars = curSave.starsByStage[activeStreet.id] ?? 0;
+      const activeStarText = !isRealStreetsUnlocked
+        ? '🔒 Khóa'
+        : activeStars > 0
+          ? '★'.repeat(activeStars) + '☆'.repeat(3 - activeStars)
+          : 'Mới mở!';
+      const activeTowers = (activeStreet.towerIds ?? [])
+        .map((id) => ALL_TOWER_DEFINITIONS[id])
+        .filter(Boolean);
+      const activeEnemies = getStageMainEnemies(activeStreet);
+
+      host.innerHTML = `
+        <div class="td-dalat-map-card ${isRealStreetsUnlocked ? 'unlocked' : 'locked'}">
+          <div class="td-dalat-map-head">
+            <div>
+              <div class="td-stage-kicker">BẢN ĐỒ ĐÀ LẠT • ${REAL_STREET_STAGES.length} PHỐ THẬT</div>
+              <div class="td-dalat-map-title">Bảo vệ các tuyến phố thật Đà Lạt</div>
+            </div>
+            <span class="td-dalat-lock-pill ${isRealStreetsUnlocked ? 'open' : ''}" data-testid="real-streets-status">
+              ${isRealStreetsUnlocked ? '🗺 Đã mở khóa' : '🔒 Thắng Trùm Phố để mở'}
+            </span>
+          </div>
+
+          <div class="td-dalat-map-stage">
+            ${renderDalatMapBgSvg(isRealStreetsUnlocked)}
+            ${pinsHtml}
+          </div>
+
+          <div class="td-real-street-detail" data-testid="real-street-detail">
+            <div class="td-real-detail-top">
+              <div>
+                <div class="td-real-detail-name">${activeStreet.name}</div>
+                <div class="td-real-detail-sub">${activeStreet.subtitle}</div>
+              </div>
+              <span class="td-stage-stars ${isRealStreetsUnlocked ? '' : 'locked'}">${activeStarText}</span>
+            </div>
+
+            <div class="td-shop-detail-stats">
+              <span>🌊 ${activeStreet.waves.length} đợt</span>
+              <span>•</span>
+              <span>🏠 ${activeTowers.length} món đặc trưng (mang ${activeStreet.loadoutSize ?? 6})</span>
+              <span>•</span>
+              <span>📍 Dữ liệu OSM</span>
+            </div>
+
+            <div class="td-shop-detail-block">
+              <div class="td-shop-detail-label">9 địa điểm &amp; món giữ phố</div>
+              <div class="td-real-towers-strip">
+                ${activeTowers
+                  .map((t) => {
+                    const el = ELEMENT_INFO[t.element];
+                    const spUrl = getAtlasFrameDataUrl(this, getTowerFrameName(t.id, 1, undefined, 0));
+                    return `
+                      <div class="td-real-tower-chip" style="border-color:${el.colorHex}" title="${t.tier1.name} (${el.label})">
+                        ${spUrl ? `<img src="${spUrl}" alt="${t.tier1.name}" />` : ''}
+                        <span>${t.tier1.name}</span>
+                        <small>${t.tier1.cost}${coinUrl ? `<img class="td-mini-coin" src="${coinUrl}" alt="" />` : ''}</small>
+                      </div>
+                    `;
+                  })
+                  .join('')}
+              </div>
+            </div>
+
+            <div class="td-shop-detail-block">
+              <div class="td-shop-detail-label">Bầy quái đặc trưng trên phố</div>
+              <div class="td-shop-mini-enemies">
+                ${activeEnemies
+                  .map((eid) => {
+                    const edef = ALL_ENEMY_DEFINITIONS[eid];
+                    if (!edef) return '';
+                    const el = ELEMENT_INFO[edef.element];
+                    const eUrl = getAtlasFrameDataUrl(this, getEnemyFrameName(eid, 0));
+                    return `
+                      <span class="td-shop-enemy-chip" style="border-color:${el.colorHex}">
+                        ${eUrl ? `<img src="${eUrl}" alt="${edef.name}" />` : ''}
+                        <span>${edef.name}</span>
+                        <i class="td-enemy-el-dot" style="background:${el.colorHex}"></i>
+                      </span>
+                    `;
+                  })
+                  .join('')}
+              </div>
+            </div>
+
+            <div class="td-shop-action-bar">
+              <button
+                type="button"
+                id="btn-start-${activeStreet.id}"
+                data-testid="btn-start-${activeStreet.id}"
+                class="${isRealStreetsUnlocked ? 'td-btn-primary td-street-open-btn' : 'td-btn-locked td-street-open-btn'}"
+                ${isRealStreetsUnlocked ? '' : 'disabled aria-disabled="true"'}
+              >
+                ${isRealStreetsUnlocked ? `🗺 Chọn 6 Món & Giữ ${REAL_STREET_MAP_PINS[activeStreet.id]?.shortName ?? activeStreet.name}` : '🔒 Thắng Trận Trùm Phố để mở'}
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      host.querySelectorAll<HTMLButtonElement>('[data-real-pin]').forEach((btn) => {
+        btn.onclick = () => {
+          const id = btn.dataset.realPin as StageId;
+          if (id !== selectedRealStreetId) {
+            selectedRealStreetId = id;
+            sound.playUiClick();
+            renderRealStreetsMap();
+          }
+        };
+      });
+
+      host.querySelector<HTMLButtonElement>(`#btn-start-${activeStreet.id}`)?.addEventListener('click', () => {
+        if (!isRealStreetsUnlocked) return;
+        if (activeStreet.loadoutSize && !isBotBypass) {
+          sound.playUiClick();
+          openLoadoutPicker(activeStreet);
+        } else {
+          launchStage(activeStreet.id, this.resolveSavedLoadoutForStage(activeStreet));
+        }
+      });
+    };
+
     renderStreet();
+    renderRealStreetsMap();
     renderSelectedShopShowcase();
 
+    /* ==================== VIỆC 6: GỌN CHỮ BẢNG TRANG BỊ ==================== */
     let pickSlot: GearSlotId | null = null;
+    let showGearRules = false;
+    let expandAllSets = false;
+    let selectedBonusChipIdx: number | null = null;
+    let revealedStatKey: string | null = null;
 
     const renderGear = (): void => {
       const cur = loadTdSave();
@@ -511,35 +964,68 @@ export class TitleScene extends Phaser.Scene {
       if (jumpLabel) {
         jumpLabel.textContent = bonus.fullRing
           ? `Chủ tiệm: NGŨ HÀNH VIÊN MÃN (${wornCount}/10)`
-          : `Trang bị chủ tiệm: ${wornCount}/10 món • ${bonus.activeLines}/${bonus.totalHiddenLines} dòng ẩn`;
+          : `Trang bị chủ tiệm: ${wornCount}/10 món • ${bonus.activeLines}/${bonus.totalHiddenLines} ●`;
       }
 
       const head = root.querySelector<HTMLDivElement>('#td-gear-head');
       if (head) {
         head.textContent = bonus.fullRing
-          ? `Ngũ Hành Viên Mãn! (${bonus.activeLines}/${bonus.totalHiddenLines} dòng ẩn)`
-          : `Dòng ẩn sáng ${bonus.activeLines}/${bonus.totalHiddenLines}`;
+          ? `Ngũ Hành Viên Mãn! (${bonus.activeLines}/${bonus.totalHiddenLines} ●)`
+          : `Đang mặc ${wornCount}/10 • Sáng ${bonus.activeLines}/${bonus.totalHiddenLines} ●`;
       }
 
       const invBadge = root.querySelector<HTMLDivElement>('#td-gear-inv-count');
       if (invBadge) {
-        invBadge.textContent = `Kho: ${invLen} món`;
+        invBadge.textContent = `Kho: ${invLen}`;
+      }
+
+      // 1. Nút "?" mở luật đầy đủ
+      const rulesBtn = root.querySelector<HTMLButtonElement>('#btn-gear-rules');
+      if (rulesBtn) {
+        rulesBtn.setAttribute('aria-expanded', showGearRules ? 'true' : 'false');
+        rulesBtn.classList.toggle('active', showGearRules);
+        rulesBtn.onclick = () => {
+          showGearRules = !showGearRules;
+          sound.playUiClick();
+          renderGear();
+        };
+      }
+      const rulesWrap = root.querySelector<HTMLDivElement>('#td-gear-rules-wrap');
+      if (rulesWrap) {
+        rulesWrap.innerHTML = showGearRules
+          ? `<div class="td-gear-rules-box" data-testid="td-gear-rules-panel">
+               <div class="td-gear-rules-head">
+                 <strong>Luật Trang Bị Chủ Tiệm</strong>
+                 <button type="button" class="td-close-btn td-picker-close" id="btn-close-gear-rules" aria-label="Đóng">✕</button>
+               </div>
+               <ul>
+                 <li>Mỗi ô có <strong>2 món chống lưng</strong> (A = ô liền trước, B = ô cách 6 bước). Chống lưng sinh ra hành món này sẽ sáng 1 dòng ẩn <strong>●</strong>.</li>
+                 <li>Vòng tương sinh: <strong>Kim → Thủy → Mộc → Hỏa → Thổ → Kim</strong>.</li>
+                 <li>Đủ 10 món nối kín vòng = <strong>Ngũ hành viên mãn</strong> (sáng dòng ẩn thứ 3 <strong>✦</strong>, +15% sức mọi món &amp; hồi chiêu nhanh 30%).</li>
+                 <li>4 hạng: <strong>Thường</strong> (xám) • <strong>Tốt</strong> (xanh) • <strong>Xịn</strong> (tím) • <strong>Hàng hiệu</strong> (vàng ★). Bấm giữ hoặc chạm 2 lần vào từng dòng để xem câu giải thích đầy đủ.</li>
+               </ul>
+             </div>`
+          : '';
+        rulesWrap.querySelector('#btn-close-gear-rules')?.addEventListener('click', () => {
+          showGearRules = false;
+          sound.playUiClick();
+          renderGear();
+        });
       }
 
       const fullBanner = root.querySelector<HTMLDivElement>('#td-gear-fullring-banner');
       if (fullBanner) {
         fullBanner.innerHTML = bonus.fullRing
-          ? `<div class="td-fullring-ribbon" data-testid="td-fullring-banner">✦ NGŨ HÀNH VIÊN MÃN! +15% sức mọi món • Tuyệt chiêu hồi nhanh 30% • Sáng đủ dòng ẩn 3 ✦</div>`
+          ? `<div class="td-fullring-ribbon" data-testid="td-fullring-banner">✦ NGŨ HÀNH VIÊN MÃN! +15% sức • Hồi chiêu nhanh 30% • Sáng dòng ẩn 3 ✦</div>`
           : '';
       }
 
-      // 1. Vòng 10 ô + 2 đường nối chống lưng + Hình chủ tiệm mặc đúng đồ ở giữa
+      // 3. Vòng 10 ô quanh chủ tiệm: CHỈ hình đồ + chấm ●○ (không chữ dưới ô!)
       const ringStage = root.querySelector<HTMLDivElement>('#td-gear-ring-stage');
       if (ringStage) {
         const slotIndexMap = new Map<GearSlotId, number>(GEAR_SLOTS.map((s, idx) => [s.id, idx]));
         const selectedSupporters = pickSlot ? supporterSlots(pickSlot) : null;
 
-        // Vẽ đường nối SVG (vòng ngoài chống lưng A = i-1 -> i, và dây sao trong chống lưng B = i-6 -> i)
         const outerLines: string[] = [];
         const innerLines: string[] = [];
         const arrows: string[] = [];
@@ -553,7 +1039,6 @@ export class TitleScene extends Phaser.Scene {
           const pB = getRingSlotPos(idxB);
           const isSelectedTarget = pickSlot === sl.id;
 
-          // Đường vòng ngoài (Chống lưng A: ô liền trước -> ô này)
           if (st.aActive) {
             const col = ELEMENT_INFO[eq[st.supA]!.element].colorHex;
             outerLines.push(
@@ -578,8 +1063,6 @@ export class TitleScene extends Phaser.Scene {
             );
           }
 
-          // Đường sao bên trong (Chống lưng B: ô cách 6 bước -> ô này)
-          // Vẽ cong nhẹ về tâm để thấy rõ đường sáng mà không che mặt chủ tiệm
           const midBx = (pB.x + pTarget.x) * 0.5;
           const midBy = (pB.y + pTarget.y) * 0.5;
           const ctrlX = midBx * 0.72 + RING_CENTER * 0.28;
@@ -590,7 +1073,6 @@ export class TitleScene extends Phaser.Scene {
               `<path d="M ${pB.x.toFixed(1)} ${pB.y.toFixed(1)} Q ${ctrlX.toFixed(1)} ${ctrlY.toFixed(1)} ${pTarget.x.toFixed(1)} ${pTarget.y.toFixed(1)}" fill="none" stroke="${colB}" stroke-width="5.5" stroke-opacity="0.24" stroke-linecap="round"/>`,
               `<path class="td-gear-beam-active" d="M ${pB.x.toFixed(1)} ${pB.y.toFixed(1)} Q ${ctrlX.toFixed(1)} ${ctrlY.toFixed(1)} ${pTarget.x.toFixed(1)} ${pTarget.y.toFixed(1)}" fill="none" stroke="${colB}" stroke-width="2.2" stroke-opacity="0.88" stroke-linecap="round"/>`,
             );
-            // Mũi tên nhỏ gần ô nhận để nhận biết chiều sinh của chống lưng B
             const t = 0.72;
             const ax = (1 - t) * (1 - t) * pB.x + 2 * (1 - t) * t * ctrlX + t * t * pTarget.x;
             const ay = (1 - t) * (1 - t) * pB.y + 2 * (1 - t) * t * ctrlY + t * t * pTarget.y;
@@ -623,7 +1105,6 @@ export class TitleScene extends Phaser.Scene {
           </svg>
         `;
 
-        // 10 nút ô trang bị đặt quanh vòng tròn
         const slotsHtml = GEAR_SLOTS.map((sl, idx) => {
           const pos = getRingSlotPos(idx);
           const leftPct = ((pos.x / RING_SIZE) * 100).toFixed(2);
@@ -635,7 +1116,7 @@ export class TitleScene extends Phaser.Scene {
           const litCount = act[sl.id] ?? 0;
 
           if (!it) {
-            const shortSlotLabel = sl.id === 'bag' ? 'Túi chéo' : sl.id === 'belt' ? 'Dây nịt' : sl.label;
+            // Chỉ hình bóng đồ, KHÔNG chữ dưới ô!
             return `
               <button
                 type="button"
@@ -644,10 +1125,10 @@ export class TitleScene extends Phaser.Scene {
                 data-testid="gear-slot-${sl.id}"
                 style="left:${leftPct}%;top:${topPct}%"
                 title="${sl.label} — Trống (chạm để đeo)"
+                aria-label="${sl.label} trống"
               >
                 ${isSupA ? '<span class="td-sup-tag">A</span>' : isSupB ? '<span class="td-sup-tag">B</span>' : ''}
                 ${getEmptySlotSilhouetteSvg(sl.id)}
-                <span class="td-slot-mini-label">${shortSlotLabel}</span>
               </button>
             `;
           }
@@ -672,13 +1153,14 @@ export class TitleScene extends Phaser.Scene {
               data-testid="gear-slot-${sl.id}"
               style="left:${leftPct}%;top:${topPct}%;border-color:${theme.border};background:${theme.bg};--slot-glow:${theme.glow}"
               title="${it.name} (${RARITY_LABEL[it.rarity]}, ${elInfo.label})"
+              aria-label="${it.name}"
             >
               ${isSupA ? '<span class="td-sup-tag">A</span>' : isSupB ? '<span class="td-sup-tag">B</span>' : ''}
               ${it.rarity === 'hieu' ? '<span class="td-hieu-crown" aria-hidden="true">★</span>' : ''}
               ${
                 iconUrl
                   ? `<img class="td-slot-gear-img" src="${iconUrl}" alt="${it.name}" />`
-                  : `<span class="td-slot-fallback">${sl.label}</span>`
+                  : ''
               }
               <span class="td-slot-el-dot" style="background:${elInfo.colorHex}" title="Hành ${elInfo.label}">
                 ${elUrl ? `<img src="${elUrl}" alt="${elInfo.label}" />` : ''}
@@ -700,75 +1182,154 @@ export class TitleScene extends Phaser.Scene {
           btn.onclick = () => {
             const clicked = btn.dataset.gearSlot as GearSlotId;
             pickSlot = pickSlot === clicked ? null : clicked;
+            revealedStatKey = null;
             sound.playUiClick();
             renderGear();
           };
         });
       }
 
-      // 2. Bảng 4 Bộ Đồ (Đi Mưa, Phượt Đà Lạt, Dân Văn Phòng, Chủ Tiệm Xịn) với huy hiệu & đếm món
+      // 5. Bộ đồ thu gọn: mặc định chỉ hiện bộ đang mặc dở ("Bộ Đi Mưa 2/3"), bấm mở đủ 4 bộ
       const setsWrap = root.querySelector<HTMLDivElement>('#td-gear-sets');
       if (setsWrap) {
-        const cards = GEAR_SETS.map((gs) => {
+        const setRows = GEAR_SETS.map((gs) => {
           const count = gs.pieces.filter((p) => eq[p.slot]?.element === p.element).length;
           const total = gs.pieces.length;
           const isAnyActive = gs.bonuses.some((b) => count >= b.count);
-          const badgeUrl = getGearAtlasFrameDataUrl(this, getGearSetBadgeFrameName(gs.id));
-          const mainEl = gs.pieces[0]!.element;
-          const elColor = ELEMENT_INFO[mainEl].colorHex;
-          const bonusLines = gs.bonuses
-            .map((b) => {
-              const on = count >= b.count;
-              const txt = b.stats.map((st) => statText(st)).join(', ');
-              return `<div class="td-set-bonus-line ${on ? 'on' : ''}">${on ? '✔' : '○'} ${b.count} món: ${txt}</div>`;
-            })
-            .join('');
-          return `
-            <div class="td-set-card ${isAnyActive ? 'active' : ''}" data-testid="gear-set-${gs.id}" style="${isAnyActive ? `border-color:${elColor}` : ''}">
-              <div class="td-set-top">
-                ${badgeUrl ? `<img class="td-set-badge-img" src="${badgeUrl}" alt="${gs.name}" />` : ''}
-                <div class="td-set-meta">
-                  <div class="td-set-name">${gs.name}</div>
-                  <span class="td-set-count ${isAnyActive ? 'on' : ''}">${count}/${total} món</span>
-                </div>
-              </div>
-              <div class="td-set-bonuses">${bonusLines}</div>
+          return { gs, count, total, isAnyActive };
+        });
+
+        const wornSets = setRows.filter((r) => r.count > 0);
+
+        if (!expandAllSets) {
+          const compactPills = wornSets.length
+            ? wornSets
+                .map(({ gs, count, total, isAnyActive }) => {
+                  const badgeUrl = getGearAtlasFrameDataUrl(this, getGearSetBadgeFrameName(gs.id));
+                  return `<span class="td-set-compact-pill ${isAnyActive ? 'active' : ''}" data-testid="gear-set-${gs.id}">
+                    ${badgeUrl ? `<img src="${badgeUrl}" alt="" />` : ''}
+                    <strong>${gs.name}</strong> ${count}/${total}
+                  </span>`;
+                })
+                .join('')
+            : `<span class="td-set-compact-empty">Chưa mặc món theo bộ</span>`;
+
+          setsWrap.innerHTML = `
+            <div class="td-set-compact-bar">
+              <div class="td-set-compact-pills">${compactPills}</div>
+              <button type="button" class="td-set-toggle-btn" id="btn-toggle-gear-sets" data-testid="btn-toggle-gear-sets">
+                Đủ 4 bộ ▾
+              </button>
             </div>
           `;
-        }).join('');
-        setsWrap.innerHTML = `
-          <div class="td-gear-section-label">Bộ đồ chủ tiệm (mặc đúng loại + đúng hành)</div>
-          <div class="td-set-grid">${cards}</div>
-        `;
+        } else {
+          const cards = setRows
+            .map(({ gs, count, total, isAnyActive }) => {
+              const badgeUrl = getGearAtlasFrameDataUrl(this, getGearSetBadgeFrameName(gs.id));
+              const mainEl = gs.pieces[0]!.element;
+              const elColor = ELEMENT_INFO[mainEl].colorHex;
+              const bonusLines = gs.bonuses
+                .map((b) => {
+                  const on = count >= b.count;
+                  const txt = b.stats.map((st) => statShort(st)).join(' · ');
+                  return `<div class="td-set-bonus-line ${on ? 'on' : ''}">${on ? '✔' : '○'} ${b.count} món: ${txt}</div>`;
+                })
+                .join('');
+              return `
+                <div class="td-set-card ${isAnyActive ? 'active' : ''}" data-testid="gear-set-${gs.id}" style="${isAnyActive ? `border-color:${elColor}` : ''}">
+                  <div class="td-set-top">
+                    ${badgeUrl ? `<img class="td-set-badge-img" src="${badgeUrl}" alt="${gs.name}" />` : ''}
+                    <div class="td-set-meta">
+                      <div class="td-set-name">${gs.name}</div>
+                      <span class="td-set-count ${isAnyActive ? 'on' : ''}">${count}/${total}</span>
+                    </div>
+                  </div>
+                  <div class="td-set-bonuses">${bonusLines}</div>
+                </div>
+              `;
+            })
+            .join('');
+          setsWrap.innerHTML = `
+            <div class="td-set-expanded-head">
+              <span class="td-gear-section-label">Bộ đồ (đúng loại + đúng hành)</span>
+              <button type="button" class="td-set-toggle-btn" id="btn-toggle-gear-sets" data-testid="btn-toggle-gear-sets">
+                Thu gọn ▴
+              </button>
+            </div>
+            <div class="td-set-grid">${cards}</div>
+          `;
+        }
+
+        setsWrap.querySelector<HTMLButtonElement>('#btn-toggle-gear-sets')?.addEventListener('click', () => {
+          expandAllSets = !expandAllSets;
+          sound.playUiClick();
+          renderGear();
+        });
       }
 
-      // 3. Tóm tắt tổng sức mạnh đang có từ trang bị (có biểu tượng nhỏ 19 dòng vui)
+      // 6. Tổng sức mạnh: hàng chip gọn từ bonusChips(bonus); bấm chip hiện câu đầy đủ
       const sum = root.querySelector<HTMLDivElement>('#td-gear-sum');
       if (sum) {
-        const chips: string[] = [];
-        for (const el of ALL_ELEMENTS) {
-          if (bonus.elementDmg[el]) {
-            const elInfo = ELEMENT_INFO[el];
-            const elUrl = getAtlasFrameDataUrl(this, `el_${el}`);
-            chips.push(
-              `<span class="td-sum-chip" style="border-color:${elInfo.colorHex}">${elUrl ? `<img class="td-badge-el-icon" src="${elUrl}" alt="" />` : ''}<strong>${elInfo.label}</strong> +${Math.round(bonus.elementDmg[el]! * 100)}%</span>`,
-            );
-          }
+        const chipsData = bonusChips(bonus);
+        if (selectedBonusChipIdx !== null && selectedBonusChipIdx >= chipsData.length) {
+          selectedBonusChipIdx = null;
         }
-        for (const [k, v] of Object.entries(bonus.stats)) {
-          if (v) {
-            const kind = k as GearStatKind;
-            chips.push(
-              `<span class="td-sum-chip">${getStatMiniIconSvg(kind)}<span>${statText({ kind, value: v })}</span></span>`,
-            );
-          }
+        if (chipsData.length === 0) {
+          sum.innerHTML = `<div class="td-stage-sub">Chưa đeo trang bị. Chạm vào ô quanh chủ tiệm để mặc đồ!</div>`;
+        } else {
+          const chipsHtml = chipsData
+            .map((chip, idx) => {
+              const isSelected = selectedBonusChipIdx === idx;
+              let iconHtml = `<span class="td-bchip-ico">${chip.icon}</span>`;
+              let borderStyle = '';
+              if (chip.icon.startsWith('el:')) {
+                const el = chip.icon.slice(3) as ElementType;
+                const elInfo = ELEMENT_INFO[el];
+                const elUrl = getAtlasFrameDataUrl(this, `el_${el}`);
+                borderStyle = `style="border-color:${elInfo.colorHex}"`;
+                iconHtml = elUrl
+                  ? `<img class="td-badge-el-icon" src="${elUrl}" alt="${elInfo.label}" />`
+                  : `<span class="td-bchip-ico">${elInfo.label}</span>`;
+              }
+              return `
+                <button
+                  type="button"
+                  class="td-sum-chip td-bonus-chip ${isSelected ? 'selected' : ''}"
+                  data-bonus-chip="${idx}"
+                  data-testid="gear-bonus-chip-${idx}"
+                  ${borderStyle}
+                  title="${chip.full}"
+                >
+                  ${iconHtml}
+                  <strong>${chip.value}</strong>
+                </button>
+              `;
+            })
+            .join('');
+
+          const activeChip = selectedBonusChipIdx !== null ? chipsData[selectedBonusChipIdx] : null;
+          sum.innerHTML = `
+            <div class="td-gear-section-label">Tổng sức mạnh (chạm chip xem chi tiết)</div>
+            <div class="td-sum-chips">${chipsHtml}</div>
+            ${
+              activeChip
+                ? `<div class="td-bonus-chip-detail" data-testid="td-bonus-chip-detail">${activeChip.full}</div>`
+                : ''
+            }
+          `;
+
+          sum.querySelectorAll<HTMLButtonElement>('[data-bonus-chip]').forEach((btn) => {
+            btn.onclick = () => {
+              const idx = Number(btn.dataset.bonusChip);
+              selectedBonusChipIdx = selectedBonusChipIdx === idx ? null : idx;
+              sound.playUiClick();
+              renderGear();
+            };
+          });
         }
-        sum.innerHTML = chips.length
-          ? `<div class="td-gear-section-label">Sức mạnh đang cộng thêm (áp cho cả 3 màn)</div><div class="td-sum-chips">${chips.join('')}</div>`
-          : `<div class="td-stage-sub">Chưa đeo trang bị nào. Chạm vào các ô quanh chủ tiệm để mặc đồ!</div>`;
       }
 
-      // 4. Ngăn chọn đồ khi bấm vào 1 trong 10 ô
+      // 2 & 4. Ngăn chọn đồ: dòng gọn bằng statShort (bấm giữ / chạm 2 lần hiện statText) + dòng so sánh previewEquip
       const pick = root.querySelector<HTMLDivElement>('#td-gear-pick');
       if (!pick) return;
       if (!pickSlot) {
@@ -782,29 +1343,23 @@ export class TitleScene extends Phaser.Scene {
       const currentItem = eq[slotId];
       const supState = getSlotSupportState(eq, slotId);
       const supLabel = (id: GearSlotId) => GEAR_SLOTS.find((x) => x.id === id)!.label;
-      const setHint = GEAR_SETS.filter((st) => st.pieces.some((p) => p.slot === slotId))
-        .map((st) => {
-          const piece = st.pieces.find((p) => p.slot === slotId)!;
-          return `${st.name} (${ELEMENT_INFO[piece.element].label})`;
-        })
-        .join(' • ');
-
       const needEl = currentItem ? getGeneratorElementFor(currentItem.element) : null;
+
       const supHintHtml = `
         <div class="td-sup-info-bar">
           <span class="td-sup-pill ${supState.aActive ? 'lit' : ''}">
-            ${supState.aActive ? '●' : '○'} Chống lưng A: <strong>${supLabel(supState.supA)}</strong>${eq[supState.supA] ? ` (${ELEMENT_INFO[eq[supState.supA]!.element].label})` : ' (trống)'}
+            ${supState.aActive ? '●' : '○'} Chống lưng A: <strong>${supLabel(supState.supA)}</strong>${eq[supState.supA] ? ` (${ELEMENT_INFO[eq[supState.supA]!.element].label})` : ''}
           </span>
           <span class="td-sup-pill ${supState.bActive ? 'lit' : ''}">
-            ${supState.bActive ? '●' : '○'} Chống lưng B: <strong>${supLabel(supState.supB)}</strong>${eq[supState.supB] ? ` (${ELEMENT_INFO[eq[supState.supB]!.element].label})` : ' (trống)'}
+            ${supState.bActive ? '●' : '○'} Chống lưng B: <strong>${supLabel(supState.supB)}</strong>${eq[supState.supB] ? ` (${ELEMENT_INFO[eq[supState.supB]!.element].label})` : ''}
           </span>
-          ${needEl ? `<span class="td-sup-need">Cần <strong>${ELEMENT_INFO[needEl].label}</strong> sinh ra ${ELEMENT_INFO[currentItem!.element].label}</span>` : ''}
+          ${needEl ? `<span class="td-sup-need">Cần <strong>${ELEMENT_INFO[needEl].label}</strong></span>` : ''}
         </div>
       `;
 
       const listHtml =
         owned.length === 0
-          ? `<div class="td-gear-empty-box">Chưa có <strong>${slotInfo.label}</strong> nào trong kho. Thắng màn để mở rương rơi thêm trang bị nhé!</div>`
+          ? `<div class="td-gear-empty-box">Chưa có <strong>${slotInfo.label}</strong> trong kho. Thắng màn để mở rương nhé!</div>`
           : owned
               .map((it) => {
                 const theme = RARITY_THEME[it.rarity];
@@ -814,22 +1369,53 @@ export class TitleScene extends Phaser.Scene {
                 const elUrl = getAtlasFrameDataUrl(this, `el_${it.element}`);
                 const activeCount = on ? (act[slotId] ?? 0) : 0;
 
+                // Dòng so sánh nhanh từ previewEquip(eq, it)
+                let previewHtml = '';
+                if (!on) {
+                  const prev = previewEquip(eq, it);
+                  const dmgPct = Math.round(prev.dmgDelta * 100);
+                  const parts: string[] = [];
+                  if (prev.linesDelta !== 0) {
+                    const dots = prev.linesDelta > 0 ? '●'.repeat(Math.min(3, prev.linesDelta)) : '○';
+                    parts.push(`${prev.linesDelta > 0 ? '+' : ''}${prev.linesDelta} ${dots}`);
+                  }
+                  if (dmgPct !== 0) {
+                    parts.push(`${dmgPct > 0 ? '+' : ''}${dmgPct}% sức`);
+                  }
+                  const tone =
+                    prev.fullRing || prev.linesDelta > 0 || (prev.linesDelta === 0 && dmgPct > 0)
+                      ? 'good'
+                      : prev.linesDelta < 0 || dmgPct < 0
+                        ? 'bad'
+                        : 'neutral';
+                  const cmpText = parts.length > 0 ? `Mặc vào: ${parts.join(' · ')}` : 'Mặc vào: ngang sức hiện tại';
+                  previewHtml = `
+                    <div class="td-gear-preview ${tone}" data-testid="gear-preview-${it.uid}">
+                      <span>${cmpText}</span>
+                      ${prev.fullRing ? '<span class="td-preview-fullring">✦ Viên mãn!</span>' : ''}
+                    </div>
+                  `;
+                }
+
                 const visRows = it.visible
-                  .map(
-                    (st) =>
-                      `<div class="td-gear-stat-row">${getStatMiniIconSvg(st.kind)}<span>${statText(st)}</span></div>`,
-                  )
+                  .map((st, sIdx) => {
+                    const key = `${it.uid}:v:${sIdx}`;
+                    const showFull = revealedStatKey === key;
+                    return `<div class="td-gear-stat-row td-stat-compact" data-stat-key="${key}" title="Giữ hoặc chạm 2 lần xem chi tiết">
+                      <span>${showFull ? statText(st) : statShort(st)}</span>
+                    </div>`;
+                  })
                   .join('');
 
                 const hidRows = it.hidden
                   .map((st, idx) => {
+                    const key = `${it.uid}:h:${idx}`;
+                    const showFull = revealedStatKey === key;
                     const isLit = on && idx < activeCount;
-                    const reqTag = idx === 2 ? 'Ngũ hành viên mãn' : `Chống lưng ${idx + 1}`;
                     return `
-                      <div class="td-gear-stat-row hidden ${isLit ? 'lit' : ''}">
+                      <div class="td-gear-stat-row td-stat-compact hidden ${isLit ? 'lit' : ''}" data-stat-key="${key}" title="Giữ hoặc chạm 2 lần xem chi tiết">
                         <span class="td-hidden-dot">${idx === 2 && isLit ? '✦' : isLit ? '●' : '○'}</span>
-                        ${getStatMiniIconSvg(st.kind)}
-                        <span>${statText(st)} <em class="td-req-note">(${reqTag})</em></span>
+                        <span>${showFull ? statText(st) : statShort(st)}</span>
                       </div>
                     `;
                   })
@@ -860,9 +1446,9 @@ export class TitleScene extends Phaser.Scene {
                         </div>
                       </div>
                     </div>
-                    <div class="td-gear-card-stats">
+                    ${previewHtml}
+                    <div class="td-gear-card-stats td-compact-stats-grid">
                       ${visRows}
-                      <div class="td-gear-hidden-sep">Dòng ẩn kích hoạt theo vòng ngũ hành</div>
                       ${hidRows}
                     </div>
                   </button>
@@ -884,18 +1470,58 @@ export class TitleScene extends Phaser.Scene {
             </div>
           </div>
           ${supHintHtml}
-          ${setHint ? `<div class="td-gear-set-hint">Thuộc bộ: ${setHint}</div>` : ''}
+          <div class="td-gear-stat-tip">Giữ hoặc chạm 2 lần vào từng dòng để xem giải thích đầy đủ</div>
           <div class="td-gear-item-list">${listHtml}</div>
         </div>
       `;
 
       pick.querySelector<HTMLButtonElement>('#btn-close-gear-pick')?.addEventListener('click', () => {
         pickSlot = null;
+        revealedStatKey = null;
         sound.playUiClick();
         renderGear();
       });
+
+      // Bấm giữ (>= 380ms) hoặc chạm 2 lần (dblclick) vào dòng chỉ số -> mở statText đầy đủ mà không mặc nhầm
+      let suppressNextCardClick = false;
+      pick.querySelectorAll<HTMLElement>('[data-stat-key]').forEach((row) => {
+        let pressTimer: number | null = null;
+        const key = row.dataset.statKey!;
+        const reveal = () => {
+          suppressNextCardClick = true;
+          revealedStatKey = revealedStatKey === key ? null : key;
+          sound.playUiClick();
+          renderGear();
+        };
+        row.addEventListener('pointerdown', () => {
+          pressTimer = window.setTimeout(() => {
+            pressTimer = null;
+            reveal();
+          }, 380);
+        });
+        const cancelPress = () => {
+          if (pressTimer !== null) {
+            window.clearTimeout(pressTimer);
+            pressTimer = null;
+          }
+        };
+        row.addEventListener('pointerup', cancelPress);
+        row.addEventListener('pointerleave', cancelPress);
+        row.addEventListener('pointercancel', cancelPress);
+        row.addEventListener('dblclick', (ev) => {
+          ev.preventDefault();
+          ev.stopPropagation();
+          cancelPress();
+          reveal();
+        });
+      });
+
       pick.querySelectorAll<HTMLButtonElement>('[data-gear-item]').forEach((b) => {
         b.onclick = () => {
+          if (suppressNextCardClick) {
+            suppressNextCardClick = false;
+            return;
+          }
           equipGear(slotId, b.dataset.gearItem!);
           sound.playBuildOrUpgrade();
           renderGear();
