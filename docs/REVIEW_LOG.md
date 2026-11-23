@@ -369,3 +369,9 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Phan Đình Phùng: Giặt Sấy → Cà Phê Cóc Hồ Sương. Tăng Bạt Hổ: thêm Giặt Sấy Hồ Sương (tiệm giặt ở Trương Công Định) → 10 tiệm. Phố Cà Phê: Bánh Mì Chảo → Tiệm Trà Sữa Hồ Sương (Hỏa), bỏ Tiệm Bánh Trứng → 8 tiệm. Máy cân lại cả 3 phố.
 - Đợt 11: bao cát b3a vẽ lại, 2 mặt tiền bỏ chữ, 8 mặt tiền Chợ Bến Thành → 34 mặt tiền. Mặt tiền chung theo loại (facade_<loại>, chờ đợt 13) dùng khi tiệm chưa có mặt tiền riêng.
 - `npm test` 78/78, e2e 17/17.
+
+## 23/11/2026 — Màn chính gọn, ít chữ (bước 1) + cất Chợ Bến Thành + Spark 12–15 (Claude)
+- Màn chính: đầu trang "Gọn Phố" + 4 nút tròn (nhạc, tiếng, 🎒 trang bị, ? hướng dẫn); hàng thẻ chọn phố (Phố Dốc + phố thật, khoá / tiến độ x/n); tiệm hiện hình món + giá, hình quái — chạm hình mới hiện tên (bong bóng chữ). Trang bị và hướng dẫn thành bảng trượt riêng; hướng dẫn 5 trang bằng hình, mỗi trang 1–2 câu. Chữ hiện ra lúc mở: ~2.500 → ~260 ký tự. Nút chơi: "▶ <tên tiệm>".
+- Cất Phố Chợ Bến Thành (content/streets_cat/), tập trung Đà Lạt.
+- Spark 12–15: 10 loại món mới, 25 mặt tiền chung, 18 đồ trang trí nền, 10 quái phố → kho 35 loại món, 52 quái, 59 mặt tiền. 7 hình còn mảng trắng kẹt bên trong, vài hình lệch chủ đề → đợt 16 vẽ lại.
+- `npm test` 74/74, e2e 17/17 (đã sửa bài kiểm theo màn chính mới).

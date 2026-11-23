@@ -3914,3 +3914,49 @@ img.td-vehicle-ico { object-fit: contain; }
 .td-vehicle-chip { display: flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 10px; border: 2px solid #c9a97a; background: #fff8ea; color: #3b2616; font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; }
 .td-vehicle-chip.selected { border-color: #2b1a12; background: #ffe7a8; }
 .td-vehicle-note { font-size: 12px; color: #6b4a2b; margin-top: 4px; }
+
+/* ===== Màn chính gọn (Claude, 23/11): ít chữ, chạm hình xem tên ===== */
+.td-title-overlay .td-shop-detail-sub,
+.td-title-overlay .td-shop-detail-stats,
+.td-title-overlay .td-shop-detail-label,
+.td-title-overlay .td-mini-tower-name,
+.td-title-overlay .td-mini-tower-meta .td-mini-el-pill,
+.td-title-overlay .td-shop-enemy-chip > span,
+.td-title-overlay .td-facade-inspect-pill,
+.td-title-overlay .td-shop-sign-short,
+.td-title-overlay .td-real-detail-sub,
+.td-title-overlay .td-vehicle-note,
+.td-title-overlay .td-vehicle-chip > span,
+.td-title-overlay .td-slope-step-pill,
+.td-title-overlay .td-boss-reward-strip,
+.td-title-overlay .td-guide-title { display: none !important; }
+.td-title-overlay .td-shop-enemy-chip { padding: 3px; }
+.td-title-overlay .td-shop-enemy-chip img { width: 30px; height: 30px; }
+.td-home-head { display: flex; align-items: center; gap: 8px; padding: 4px 2px 8px; }
+.td-home-head { flex: none; }
+.td-home-head .td-title-heading { margin: 0; flex: 1; text-align: left; font-size: 26px; white-space: nowrap; }
+.td-home-medal img { width: 32px; height: 32px; }
+.td-home-icons { display: flex; gap: 6px; }
+.td-icon-btn { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #2b1a12; background: #fff3d6; font-size: 19px; font-weight: 900; color: #3b2616; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 2px 0 #2b1a12; padding: 0; }
+.td-icon-btn.muted { opacity: 0.55; }
+.td-title-overlay [hidden] { display: none !important; }
+.td-street-tabs { flex: none; min-height: 74px; display: flex; gap: 6px; overflow-x: auto; padding: 2px 2px 10px; scrollbar-width: none; }
+.td-street-tab { flex: none; display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 76px; max-width: 96px; padding: 6px 6px; border-radius: 12px; border: 2px solid #c9a97a; background: #fff8ea; color: #3b2616; font: inherit; cursor: pointer; }
+.td-street-tab.selected { border-color: #2b1a12; background: #ffe7a8; box-shadow: 0 2px 0 #2b1a12; }
+.td-street-tab.locked { opacity: 0.55; }
+.td-street-tab-ico { font-size: 20px; line-height: 1; }
+.td-street-tab-name { font-size: 11px; font-weight: 800; line-height: 1.15; text-align: center; }
+.td-street-tab-stars { font-size: 11px; color: #a8741a; font-weight: 800; }
+.td-sheet-layer { position: fixed; inset: 0; z-index: 60; background: rgba(20, 12, 6, 0.55); display: flex; align-items: flex-end; justify-content: center; }
+.td-sheet-layer[hidden] { display: none; }
+.td-sheet-panel { position: relative; width: min(100%, 480px); max-height: 88vh; overflow-y: auto; background: #fbf1dc; border-radius: 18px 18px 0 0; border: 3px solid #2b1a12; padding: 40px 12px 16px; }
+.td-sheet-close { position: absolute; top: 8px; right: 10px; }
+.td-help-page { background: #fff8ea; border: 2px solid #c9a97a; border-radius: 12px; padding: 10px; margin-bottom: 8px; text-align: center; }
+.td-help-page p { margin: 6px 0 0; font-size: 14px; color: #3b2616; line-height: 1.35; }
+.td-help-row { display: flex; align-items: center; justify-content: center; gap: 2px; flex-wrap: wrap; }
+.td-help-el { width: 34px; height: 34px; }
+.td-help-arrow { color: #a8741a; font-weight: 900; }
+.td-help-emoji { font-size: 26px; gap: 6px; }
+.td-tip-bubble { position: absolute; z-index: 70; width: 220px; padding: 6px 10px; border-radius: 10px; background: #2b1a12; color: #fff3d6; font-size: 13px; font-weight: 700; text-align: center; pointer-events: none; }
+.td-tip-bubble[hidden] { display: none; }
+.td-title-overlay [data-tip] { cursor: pointer; }

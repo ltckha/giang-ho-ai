@@ -48,7 +48,7 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     });
     await page.goto('/');
     await expect(page.getByTestId('btn-start-stage-2')).toBeEnabled();
-    await expect(page.getByTestId('btn-start-stage-2')).toContainText('Mở Cửa Tiệm Bánh');
+    await expect(page.getByTestId('btn-start-stage-2')).toContainText('Tiệm Bánh');
   });
 
   test('mở game trên điện thoại dọc (?bot=1) -> vào Tiệm Giày Hẻm Dốc -> chạm đặt món -> bật x2 & bot -> chạy hết 9 đợt và thắng, chụp ảnh dep_*_sau_*.png, không lỗi console, không gọi mạng ngoài', async ({
@@ -366,7 +366,7 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     });
     await page.goto('/');
     await expect(page.getByTestId('btn-start-stage-3')).toBeEnabled();
-    await expect(page.getByTestId('btn-start-stage-3')).toContainText('Mở Cửa Tiệm Hoa');
+    await expect(page.getByTestId('btn-start-stage-3')).toContainText('Tiệm Hoa');
   });
 
   test('Màn 3 Tiệm Hoa Cuối Dốc (?bot=1): đặt 5 món tiệm hoa, giao tranh 2 cửa, Trùm Mùa Nồm Đổi hành! (3 màu) & thắng 12 đợt, chụp ảnh man3_*.png', async ({
@@ -557,6 +557,7 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     });
 
     await page.goto('/');
+    await page.getByTestId('btn-open-gear').click();
     const gearBox = page.getByTestId('td-gear-box');
     await expect(gearBox).toBeVisible();
     await gearBox.scrollIntoViewIfNeeded();
@@ -633,6 +634,7 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
       );
     });
     await page.goto('/');
+    await page.getByTestId('btn-open-gear').click();
     await page.getByTestId('td-gear-box').scrollIntoViewIfNeeded();
     await page.waitForTimeout(250);
     await expect(page.getByTestId('td-fullring-banner')).toBeVisible();
@@ -746,7 +748,6 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     await expect(page.getByTestId('street-shop-1')).toBeVisible();
     await expect(page.getByTestId('street-shop-2')).toBeVisible();
     await expect(page.getByTestId('street-shop-3')).toBeVisible();
-    await expect(page.getByTestId('street-coming-soon')).toBeVisible();
 
     // Tiệm 1 mở (không có cửa cuốn), Tiệm 2 & 3 có cửa cuốn kéo xuống + ổ khóa
     await expect(page.getByTestId('street-shop-1').locator('[data-shutter="closed"]')).toHaveCount(0);
@@ -915,8 +916,9 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     // 1. Đợi TitleScene dựng xong; trước lần chạm đầu tiên: nhạc chọn bài 'title' nhưng chưa unlock (tôn trọng luật chặn tự phát)
     const musicBtn = page.getByTestId('btn-toggle-music');
     const sfxBtn = page.getByTestId('btn-toggle-sfx');
-    await expect(musicBtn).toContainText('Nhạc: BẬT');
-    await expect(sfxBtn).toContainText('Tiếng: BẬT');
+    await expect(musicBtn).not.toHaveClass(/muted/);
+    await expect(sfxBtn).not.toHaveClass(/muted/);
+    await expect(page.getByTestId('street-tab-doc')).toBeVisible();
 
     const beforeTouch = await page.evaluate(() => {
       const a = (window as unknown as {
@@ -939,19 +941,19 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     // 2. Bấm tắt Nhạc -> chỉ tắt Nhạc (Tiếng vẫn BẬT) và kích hoạt lần chạm đầu
 
     await musicBtn.click();
-    await expect(musicBtn).toContainText('Nhạc: TẮT');
-    await expect(sfxBtn).toContainText('Tiếng: BẬT');
+    await expect(musicBtn).toHaveClass(/muted/);
+    await expect(sfxBtn).not.toHaveClass(/muted/);
 
     // Tải lại trang -> vẫn nhớ Nhạc: TẮT, Tiếng: BẬT
     await page.goto('/?bot=1');
-    await expect(page.getByTestId('btn-toggle-music')).toContainText('Nhạc: TẮT');
-    await expect(page.getByTestId('btn-toggle-sfx')).toContainText('Tiếng: BẬT');
+    await expect(page.getByTestId('btn-toggle-music')).toHaveClass(/muted/);
+    await expect(page.getByTestId('btn-toggle-sfx')).not.toHaveClass(/muted/);
 
     // Bật lại Nhạc, tắt Tiếng riêng -> nhớ trên máy
     await page.getByTestId('btn-toggle-music').click();
     await page.getByTestId('btn-toggle-sfx').click();
-    await expect(page.getByTestId('btn-toggle-music')).toContainText('Nhạc: BẬT');
-    await expect(page.getByTestId('btn-toggle-sfx')).toContainText('Tiếng: TẮT');
+    await expect(page.getByTestId('btn-toggle-music')).not.toHaveClass(/muted/);
+    await expect(page.getByTestId('btn-toggle-sfx')).toHaveClass(/muted/);
 
     // 3. Vào Tiệm Hoa (Màn 3): đổi sang giai điệu 'stage_3'; mở menu ⏸ thấy nút tắt Nhạc/Tiếng riêng
     await page.getByTestId('btn-start-stage-3').click();
@@ -966,8 +968,8 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
 
     await page.getByTestId('btn-pause-toggle').click();
     await expect(page.getByTestId('td-pause-menu')).toBeVisible();
-    await expect(page.getByTestId('btn-toggle-music')).toContainText('Nhạc: BẬT');
-    await expect(page.getByTestId('btn-toggle-sfx')).toContainText('Tiếng: TẮT');
+    await expect(page.getByTestId('btn-toggle-music')).not.toHaveClass(/muted/);
+    await expect(page.getByTestId('btn-toggle-sfx')).toHaveClass(/muted/);
     await page.waitForTimeout(180);
     await page.screenshot({ path: 'docs/screenshots/c3_04_audio_pause_menu.png' });
     await page.getByTestId('btn-resume-game').click();
@@ -1075,6 +1077,7 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
       );
     });
     await page.goto('/');
+    await page.getByTestId('btn-open-gear').click();
 
     const gearBox = page.getByTestId('td-gear-box');
     await gearBox.scrollIntoViewIfNeeded();
