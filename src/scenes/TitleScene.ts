@@ -11,9 +11,12 @@ import {
   type GearStatKind,
 } from '../core/equipment';
 import { equipGear, getEquipped, getGearBonus, loadTdSave } from '../core/saveSystem';
-import { STAGE_1_DEFINITION, STAGES, TOWER_LIST } from '../core/tdDefinitions';
+import { getShopStage, isShopUnlocked, SHOP_STREET, shopStars, type ShopOnStreet } from '../core/shopStreet';
+import { ALL_ENEMY_DEFINITIONS, getStageTowerList } from '../core/tdDefinitions';
+import type { EnemyId } from '../core/types';
 import {
   getAtlasFrameDataUrl,
+  getEnemyFrameName,
   getGearAtlasFrameDataUrl,
   getGearIconFrameName,
   getGearSetBadgeFrameName,
@@ -30,6 +33,7 @@ import {
 import { getInitialReduceMotion } from '../game/preferences';
 import { SCENE_KEYS } from '../game/sceneKeys';
 import { renderShopkeeperAvatarSvg } from '../game/shopkeeperAvatar';
+import { renderShopFacadeSvg, renderStreetExtensionSvg } from '../game/shopStreetArt';
 import { sound } from '../game/sound';
 
 const RING_SIZE = 340;
@@ -42,6 +46,23 @@ function getRingSlotPos(index: number): { x: number; y: number } {
     x: RING_CENTER + RING_RADIUS * Math.cos(angle),
     y: RING_CENTER + RING_RADIUS * Math.sin(angle),
   };
+}
+
+function getShopLifeIconFrame(stageId: ShopOnStreet['stageId']): string {
+  if (stageId === 'stage_2') return 'icon_bread_life';
+  if (stageId === 'stage_3') return 'icon_flower_life';
+  return 'icon_shoe_life';
+}
+
+function getStageMainEnemies(shop: ShopOnStreet): EnemyId[] {
+  const stage = getShopStage(shop);
+  const seen = new Set<EnemyId>();
+  for (const wave of stage.waves) {
+    for (const grp of wave.groups) {
+      seen.add(grp.enemyId);
+    }
+  }
+  return Array.from(seen);
 }
 
 export class TitleScene extends Phaser.Scene {
@@ -60,15 +81,15 @@ export class TitleScene extends Phaser.Scene {
     const { width, height } = this.scale;
     this.cameras.main.setBackgroundColor('#241811');
 
-    // Nền tiệm giày ngày mưa mờ ấm phía sau hộp giày mở màn
+    // Nền tiệm giày ngày mưa mờ ấm phía sau con phố dốc Đà Lạt
     if (this.textures.exists(STAGE1_MAP_KEY)) {
-      const bg = this.add.image(width * 0.5, height * 0.5, STAGE1_MAP_KEY).setAlpha(0.32);
+      const bg = this.add.image(width * 0.5, height * 0.5, STAGE1_MAP_KEY).setAlpha(0.28);
       const scale = Math.max(width / bg.width, height / bg.height);
       bg.setScale(scale);
     }
 
     this.weatherGfx = this.add.graphics();
-    for (let i = 0; i < 24; i += 1) {
+    for (let i = 0; i < 26; i += 1) {
       this.rainLines.push({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -109,60 +130,30 @@ export class TitleScene extends Phaser.Scene {
 
     const save = loadTdSave();
     const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
-    const stage2TestBypass = params?.get('stage') === '2' || params?.get('bot') === '1';
-    const stage2Unlocked = save.unlockedStage >= 2 || stage2TestBypass;
-    const stage3TestBypass = params?.get('stage') === '3' || params?.get('bot') === '1';
-    const stage3Unlocked = save.unlockedStage >= 3 || stage3TestBypass;
+    const queryStage = params?.get('stage');
+    const isBotBypass = params?.get('bot') === '1';
 
-    const s1Stars = save.starsByStage.stage_1 ?? 0;
-    const starText = s1Stars > 0 ? '★'.repeat(s1Stars) + '☆'.repeat(3 - s1Stars) : 'Chưa qua';
-    const s2Stars = save.starsByStage.stage_2 ?? 0;
-    const s2StarText = !stage2Unlocked
-      ? '🔒 Khóa'
-      : s2Stars > 0
-        ? '★'.repeat(s2Stars) + '☆'.repeat(3 - s2Stars)
-        : 'Chưa qua';
-    const s3Stars = save.starsByStage.stage_3 ?? 0;
-    const s3StarText = !stage3Unlocked
-      ? '🔒 Khóa'
-      : s3Stars > 0
-        ? '★'.repeat(s3Stars) + '☆'.repeat(3 - s3Stars)
-        : 'Chưa qua';
+    const isUnlocked = (shop: ShopOnStreet): boolean =>
+      isShopUnlocked(save, shop) || isBotBypass || queryStage === String(shop.order);
+
+    let selectedShopId: ShopOnStreet['stageId'] =
+      SHOP_STREET.find((s) => String(s.order) === queryStage)?.stageId ?? SHOP_STREET[0]!.stageId;
 
     const root = document.createElement('div');
     root.className = 'td-title-overlay';
     root.id = 'td-title-overlay';
 
-    const shoeUrl = getAtlasFrameDataUrl(this, 'icon_shoe_life');
-    const breadUrl = getAtlasFrameDataUrl(this, 'icon_bread_life');
-    const flowerUrl = getAtlasFrameDataUrl(this, 'icon_flower_life');
-    const towerShowcase = TOWER_LIST.map((t) => {
-      const el = ELEMENT_INFO[t.element];
-      const spUrl = getAtlasFrameDataUrl(this, getTowerFrameName(t.id, 1, undefined, 0));
-      const elUrl = getAtlasFrameDataUrl(this, `el_${t.element}`);
-      return `
-        <div class="td-showcase-item" style="border-color:${el.colorHex}">
-          ${spUrl ? `<img class="td-showcase-sprite" src="${spUrl}" alt="${t.tier1.name}" />` : ''}
-          <div class="td-showcase-name">${t.tier1.name}</div>
-          <span class="td-showcase-el" style="background:${el.colorHex}">
-            ${elUrl ? `<img class="td-badge-el-icon" src="${elUrl}" alt="" />` : ''}
-            ${el.label}
-          </span>
-        </div>
-      `;
-    }).join('');
-
     root.innerHTML = `
       <div class="td-title-card td-shoebox-panel">
         <div class="td-box-lid-label">
           <span class="td-tag-hole"></span>
-          <span>PHỐ NHỎ ĐÀ LẠT MÙA MƯA • NGŨ HÀNH GIỮ TIỆM</span>
+          <span>CON PHỐ DỐC ĐÀ LẠT • NGŨ HÀNH GIỮ TIỆM</span>
         </div>
 
         <h1 class="td-title-heading">Gọn Tiệm, Sạch Phố</h1>
         <p class="td-title-sub">Ngũ hành giữ tiệm</p>
         <p class="td-title-desc">
-          Trời đổ mưa, bùn đất, gián và nắng gắt kéo vào cửa tiệm! Đặt 5 món đồ trong tiệm đúng vòng Ngũ Hành để giữ sạch từng cửa tiệm trên phố.
+          Chạm vào từng cửa tiệm dọc con phố dốc Đà Lạt để xem 5 món giữ tiệm &amp; bầy quái, rồi mở cửa giữ sạch phố nhé!
         </p>
 
         <button type="button" id="btn-jump-gear" class="td-gear-jump-pill">
@@ -171,83 +162,20 @@ export class TitleScene extends Phaser.Scene {
           <span class="td-gear-jump-arrow">↓</span>
         </button>
 
-        <div class="td-stage-tag-box">
-          <div class="td-stage-header">
-            <div class="td-stage-title-row">
-              ${shoeUrl ? `<img class="td-stage-shoe-icon" src="${shoeUrl}" alt="" />` : ''}
-              <div>
-                <div class="td-stage-kicker">MÀN 1</div>
-                <div class="td-stage-name">${STAGE_1_DEFINITION.name}</div>
-              </div>
+        <section class="td-street-section ${this.reduceMotion ? 'no-anim' : ''}" data-testid="shop-street">
+          <div class="td-street-lane-header">
+            <span class="td-street-sign-post">⛰ Dốc Đà Lạt • ${SHOP_STREET.length} tiệm</span>
+            <span class="td-street-rain-tag">🌧 Mưa nhẹ • Đèn vàng</span>
+          </div>
+          <div class="td-street-list" id="td-street-list"></div>
+          <div class="td-street-coming-soon" data-testid="street-coming-soon">
+            ${renderStreetExtensionSvg()}
+            <div class="td-street-more-caption">
+              <strong>Con dốc còn dài...</strong>
+              <span>Chừa sẵn mặt bằng nối dài phố thêm tiệm mới ở chặng sau!</span>
             </div>
-            <div class="td-stage-stars" data-testid="stage1-stars">${starText}</div>
           </div>
-          <div class="td-stage-sub">${STAGE_1_DEFINITION.subtitle}</div>
-          <div class="td-stage-meta">
-            <span>9 Đợt quái</span> • <span>20 Đôi giày</span> • <span>Trúng tủ 1.75x / Bị khắc 0.5x</span>
-          </div>
-          <button id="btn-start-stage-1" data-testid="btn-start-stage-1" class="td-btn-primary">
-            Mở Cửa Giữ Tiệm Ngay
-          </button>
-        </div>
-
-        <div class="td-stage-tag-box ${stage2Unlocked ? '' : 'td-stage-locked'}" data-testid="stage2-card">
-          <div class="td-stage-header">
-            <div class="td-stage-title-row">
-              ${
-                breadUrl
-                  ? `<img class="td-stage-shoe-icon" src="${breadUrl}" alt="" />`
-                  : `<span class="td-stage-emoji" aria-hidden="true">🥖</span>`
-              }
-              <div>
-                <div class="td-stage-kicker">MÀN 2 • TƯƠNG SINH +15% &amp; BẬC 4</div>
-                <div class="td-stage-name">${STAGES.stage_2.name}</div>
-              </div>
-            </div>
-            <div class="td-stage-stars ${stage2Unlocked ? '' : 'locked'}" data-testid="stage2-stars">${s2StarText}</div>
-          </div>
-          <div class="td-stage-sub">${STAGES.stage_2.subtitle}</div>
-          <div class="td-stage-meta">
-            <span>10 Đợt quái</span> • <span>20 Ổ bánh</span> • <span>2 Ngả &amp; Tuyệt chiêu bậc 4</span>
-          </div>
-          <button
-            id="btn-start-stage-2"
-            data-testid="btn-start-stage-2"
-            class="${stage2Unlocked ? 'td-btn-primary' : 'td-btn-locked'}"
-            ${stage2Unlocked ? '' : 'disabled aria-disabled="true"'}
-          >
-            ${stage2Unlocked ? 'Mở Cửa Tiệm Bánh' : '🔒 Qua Màn 1 để mở khóa'}
-          </button>
-        </div>
-
-        <div class="td-stage-tag-box ${stage3Unlocked ? '' : 'td-stage-locked'}" data-testid="stage3-card">
-          <div class="td-stage-header">
-            <div class="td-stage-title-row">
-              ${
-                flowerUrl
-                  ? `<img class="td-stage-shoe-icon" src="${flowerUrl}" alt="" />`
-                  : `<span class="td-stage-emoji" aria-hidden="true">🌸</span>`
-              }
-              <div>
-                <div class="td-stage-kicker">MÀN 3 • 2 CỬA &amp; TRÙM ĐỔI HÀNH</div>
-                <div class="td-stage-name">${STAGES.stage_3.name}</div>
-              </div>
-            </div>
-            <div class="td-stage-stars ${stage3Unlocked ? '' : 'locked'}" data-testid="stage3-stars">${s3StarText}</div>
-          </div>
-          <div class="td-stage-sub">${STAGES.stage_3.subtitle}</div>
-          <div class="td-stage-meta">
-            <span>12 Đợt quái</span> • <span>20 Chậu hoa</span> • <span>2 Cửa vào &amp; Trùm Mùa Nồm</span>
-          </div>
-          <button
-            id="btn-start-stage-3"
-            data-testid="btn-start-stage-3"
-            class="${stage3Unlocked ? 'td-btn-primary' : 'td-btn-locked'}"
-            ${stage3Unlocked ? '' : 'disabled aria-disabled="true"'}
-          >
-            ${stage3Unlocked ? 'Mở Cửa Tiệm Hoa' : '🔒 Qua Màn 2 để mở khóa'}
-          </button>
-        </div>
+        </section>
 
         <div class="td-stage-tag-box td-gear-panel ${this.reduceMotion ? 'no-anim' : ''}" id="td-gear-box" data-testid="td-gear-box">
           <div class="td-gear-header-row">
@@ -267,10 +195,7 @@ export class TitleScene extends Phaser.Scene {
           <div class="td-gear-sum-wrap" id="td-gear-sum"></div>
         </div>
 
-        <div class="td-element-guide">
-          <div class="td-guide-title">Vòng khắc: Kim → Mộc → Thổ → Thủy → Hỏa → Kim</div>
-          <div class="td-showcase-grid">${towerShowcase}</div>
-        </div>
+        <div class="td-element-guide" id="td-element-guide" data-testid="td-element-guide"></div>
       </div>
     `;
 
@@ -280,6 +205,238 @@ export class TitleScene extends Phaser.Scene {
       sound.playUiClick();
       root.querySelector('#td-gear-box')?.scrollIntoView({ behavior: this.reduceMotion ? 'auto' : 'smooth', block: 'start' });
     });
+
+    const renderSelectedShopShowcase = (): void => {
+      const guideEl = root.querySelector<HTMLDivElement>('#td-element-guide');
+      if (!guideEl) return;
+      const activeShop = SHOP_STREET.find((s) => s.stageId === selectedShopId) ?? SHOP_STREET[0]!;
+      const activeStage = getShopStage(activeShop);
+      const towers = getStageTowerList(activeStage);
+
+      const tabsHtml = SHOP_STREET.map((shop) => {
+        const isSel = shop.stageId === activeShop.stageId;
+        return `<button type="button" class="td-guide-shop-tab ${isSel ? 'active' : ''}" data-guide-shop="${shop.stageId}">${shop.order}. ${shop.sign}</button>`;
+      }).join('');
+
+      const towerShowcase = towers
+        .map((t) => {
+          const el = ELEMENT_INFO[t.element];
+          const spUrl = getAtlasFrameDataUrl(this, getTowerFrameName(t.id, 1, undefined, 0));
+          const elUrl = getAtlasFrameDataUrl(this, `el_${t.element}`);
+          return `
+            <div class="td-showcase-item" style="border-color:${el.colorHex}">
+              ${spUrl ? `<img class="td-showcase-sprite" src="${spUrl}" alt="${t.tier1.name}" />` : ''}
+              <div class="td-showcase-name">${t.tier1.name}</div>
+              <span class="td-showcase-el" style="background:${el.colorHex}">
+                ${elUrl ? `<img class="td-badge-el-icon" src="${elUrl}" alt="" />` : ''}
+                ${el.label}
+              </span>
+            </div>
+          `;
+        })
+        .join('');
+
+      guideEl.innerHTML = `
+        <div class="td-guide-title">5 món của ${activeStage.name} • Vòng khắc: Kim → Mộc → Thổ → Thủy → Hỏa → Kim</div>
+        <div class="td-guide-shop-tabs">${tabsHtml}</div>
+        <div class="td-showcase-grid">${towerShowcase}</div>
+      `;
+
+      guideEl.querySelectorAll<HTMLButtonElement>('[data-guide-shop]').forEach((tab) => {
+        tab.onclick = () => {
+          const nextId = tab.dataset.guideShop as ShopOnStreet['stageId'];
+          if (nextId !== selectedShopId) {
+            selectedShopId = nextId;
+            sound.playUiClick();
+            renderStreet();
+            renderSelectedShopShowcase();
+          }
+        };
+      });
+    };
+
+    const renderStreet = (): void => {
+      const listEl = root.querySelector<HTMLDivElement>('#td-street-list');
+      if (!listEl) return;
+
+      const coinUrl = getAtlasFrameDataUrl(this, 'icon_coin');
+
+      listEl.innerHTML = SHOP_STREET.map((shop, idx) => {
+        const stage = getShopStage(shop);
+        const unlocked = isUnlocked(shop);
+        const stars = shopStars(save, shop);
+        const isSelected = selectedShopId === shop.stageId;
+        const lifeUrl = getAtlasFrameDataUrl(this, getShopLifeIconFrame(shop.stageId));
+        const starText = !unlocked
+          ? '🔒 Khóa'
+          : stars > 0
+            ? '★'.repeat(stars) + '☆'.repeat(3 - stars)
+            : 'Chưa qua';
+
+        const towers = getStageTowerList(stage);
+        const mainEnemies = getStageMainEnemies(shop);
+
+        const detailHtml = isSelected
+          ? `
+            <div class="td-shop-detail-card" data-testid="shop-detail-${shop.order}">
+              <div class="td-shop-detail-sub">${stage.subtitle}</div>
+              <div class="td-shop-detail-stats">
+                <span>🌊 ${stage.waves.length} đợt</span>
+                <span>•</span>
+                <span>${stage.startingLives} ${shop.lifeUnit}</span>
+                <span>•</span>
+                <span>Vốn đầu ${stage.startingEssence} xu</span>
+              </div>
+
+              <div class="td-shop-detail-block">
+                <div class="td-shop-detail-label">5 món giữ tiệm của ${shop.sign}</div>
+                <div class="td-shop-mini-towers">
+                  ${towers
+                    .map((t) => {
+                      const el = ELEMENT_INFO[t.element];
+                      const spUrl = getAtlasFrameDataUrl(this, getTowerFrameName(t.id, 1, undefined, 0));
+                      const elUrl = getAtlasFrameDataUrl(this, `el_${t.element}`);
+                      return `
+                        <div class="td-shop-mini-tower" style="border-color:${el.colorHex}" title="${t.tier1.name} (${el.label}) — ${t.tier1.cost} xu">
+                          ${spUrl ? `<img class="td-mini-tower-img" src="${spUrl}" alt="${t.tier1.name}" />` : ''}
+                          <div class="td-mini-tower-name">${t.tier1.name}</div>
+                          <div class="td-mini-tower-meta">
+                            <span class="td-mini-el-pill" style="background:${el.colorHex}">
+                              ${elUrl ? `<img src="${elUrl}" alt="" />` : ''}${el.label}
+                            </span>
+                            <span class="td-mini-cost">${t.tier1.cost}${coinUrl ? `<img class="td-mini-coin" src="${coinUrl}" alt="" />` : ''}</span>
+                          </div>
+                        </div>
+                      `;
+                    })
+                    .join('')}
+                </div>
+              </div>
+
+              <div class="td-shop-detail-block">
+                <div class="td-shop-detail-label">Bầy quái chính kéo vào tiệm</div>
+                <div class="td-shop-mini-enemies">
+                  ${mainEnemies
+                    .map((eid) => {
+                      const edef = ALL_ENEMY_DEFINITIONS[eid];
+                      const el = ELEMENT_INFO[edef.element];
+                      const isBoss = edef.trait === 'boss';
+                      const eUrl = getAtlasFrameDataUrl(this, getEnemyFrameName(eid, 0));
+                      return `
+                        <span class="td-shop-enemy-chip ${isBoss ? 'is-boss' : ''}" style="border-color:${el.colorHex}">
+                          ${eUrl ? `<img src="${eUrl}" alt="${edef.name}" />` : ''}
+                          <span>${isBoss ? '👑 ' : ''}${edef.name}</span>
+                          <i class="td-enemy-el-dot" style="background:${el.colorHex}" title="${el.label}"></i>
+                        </span>
+                      `;
+                    })
+                    .join('')}
+                </div>
+              </div>
+            </div>
+          `
+          : '';
+
+        const slopeStepHtml =
+          idx > 0
+            ? `<div class="td-street-slope-connector" aria-hidden="true">
+                 <span class="td-slope-line"></span>
+                 <span class="td-slope-step-pill">↓ Xuống dốc • Tiệm ${shop.order}</span>
+                 <span class="td-slope-line"></span>
+               </div>`
+            : '';
+
+        return `
+          ${slopeStepHtml}
+          <article
+            class="td-street-shop ${unlocked ? 'unlocked' : 'locked td-stage-locked'} ${isSelected ? 'selected' : ''}"
+            data-testid="stage${shop.order}-card"
+            data-shop-id="${shop.stageId}"
+          >
+            <div
+              class="td-shop-facade-hit"
+              role="button"
+              tabindex="0"
+              data-select-shop="${shop.stageId}"
+              data-testid="street-shop-${shop.order}"
+              aria-expanded="${isSelected ? 'true' : 'false'}"
+              aria-label="Xem thông tin ${stage.name}"
+            >
+              <!-- Biển hiệu gỗ treo trên mái tiệm -->
+              <div class="td-shop-signboard ${unlocked ? '' : 'locked'}">
+                <div class="td-shop-sign-left">
+                  <span class="td-shop-order-badge">${shop.order}</span>
+                  ${lifeUrl ? `<img class="td-shop-life-ico" src="${lifeUrl}" alt="" />` : ''}
+                  <div class="td-shop-sign-titles">
+                    <span class="td-shop-sign-short">${shop.sign.toUpperCase()} • ${stage.waves.length} ĐỢT</span>
+                    <span class="td-stage-name">${stage.name}</span>
+                  </div>
+                </div>
+                <div class="td-stage-stars ${unlocked ? '' : 'locked'}" data-testid="stage${shop.order}-stars">${starText}</div>
+              </div>
+
+              <!-- Mặt tiền vẽ theo nét Đà Lạt ngày mưa -->
+              <div class="td-shop-facade-wrap">
+                ${renderShopFacadeSvg(shop, unlocked)}
+                ${
+                  unlocked
+                    ? `<span class="td-facade-inspect-pill">${isSelected ? '▲ Đang xem chi tiết' : '▼ Chạm xem 5 món & quái'}</span>`
+                    : `<span class="td-facade-lock-ribbon">🔒 Qua tiệm trước để mở</span>`
+                }
+              </div>
+            </div>
+
+            ${detailHtml}
+
+            <div class="td-shop-action-bar">
+              <button
+                type="button"
+                id="btn-start-stage-${shop.order}"
+                data-testid="btn-start-stage-${shop.order}"
+                data-launch-stage="${shop.stageId}"
+                class="${unlocked ? 'td-btn-primary td-street-open-btn' : 'td-btn-locked td-street-open-btn'}"
+                ${unlocked ? '' : 'disabled aria-disabled="true"'}
+              >
+                ${unlocked ? `Mở Cửa ${shop.sign}` : '🔒 Qua tiệm trước để mở'}
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      listEl.querySelectorAll<HTMLElement>('[data-select-shop]').forEach((el) => {
+        const pick = () => {
+          const id = el.dataset.selectShop as ShopOnStreet['stageId'];
+          if (selectedShopId !== id) {
+            selectedShopId = id;
+            sound.playUiClick();
+            renderStreet();
+            renderSelectedShopShowcase();
+          }
+        };
+        el.onclick = pick;
+        el.onkeydown = (ev) => {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault();
+            pick();
+          }
+        };
+      });
+
+      listEl.querySelectorAll<HTMLButtonElement>('[data-launch-stage]').forEach((btn) => {
+        btn.onclick = (ev) => {
+          ev.stopPropagation();
+          if (btn.disabled) return;
+          const stageId = btn.dataset.launchStage as ShopOnStreet['stageId'];
+          sound.playUiClick();
+          this.unmountOverlay();
+          this.scene.start(SCENE_KEYS.TD_STAGE, { stageId });
+        };
+      });
+    };
+
+    renderStreet();
+    renderSelectedShopShowcase();
 
     let pickSlot: GearSlotId | null = null;
 
@@ -294,8 +451,8 @@ export class TitleScene extends Phaser.Scene {
       const jumpLabel = root.querySelector<HTMLSpanElement>('#td-gear-jump-label');
       if (jumpLabel) {
         jumpLabel.textContent = bonus.fullRing
-          ? `Chủ tiệm: NGŨ HÀNH VIÊN MÃN (${wornCount}/10 món)`
-          : `Chủ tiệm đang mặc ${wornCount}/10 món • Sáng ${bonus.activeLines}/${bonus.totalHiddenLines} dòng ẩn`;
+          ? `Chủ tiệm: NGŨ HÀNH VIÊN MÃN (${wornCount}/10)`
+          : `Trang bị chủ tiệm: ${wornCount}/10 món • ${bonus.activeLines}/${bonus.totalHiddenLines} dòng ẩn`;
       }
 
       const head = root.querySelector<HTMLDivElement>('#td-gear-head');
@@ -694,31 +851,6 @@ export class TitleScene extends Phaser.Scene {
 
     renderGear();
     this.overlayEl = root;
-
-    const startBtn = root.querySelector<HTMLButtonElement>('#btn-start-stage-1');
-    if (startBtn) {
-      startBtn.onclick = () => {
-        sound.playUiClick();
-        this.unmountOverlay();
-        this.scene.start(SCENE_KEYS.TD_STAGE, { stageId: 'stage_1' });
-      };
-    }
-    const startBtn2 = root.querySelector<HTMLButtonElement>('#btn-start-stage-2');
-    if (startBtn2 && stage2Unlocked) {
-      startBtn2.onclick = () => {
-        sound.playUiClick();
-        this.unmountOverlay();
-        this.scene.start(SCENE_KEYS.TD_STAGE, { stageId: 'stage_2' });
-      };
-    }
-    const startBtn3 = root.querySelector<HTMLButtonElement>('#btn-start-stage-3');
-    if (startBtn3 && stage3Unlocked) {
-      startBtn3.onclick = () => {
-        sound.playUiClick();
-        this.unmountOverlay();
-        this.scene.start(SCENE_KEYS.TD_STAGE, { stageId: 'stage_3' });
-      };
-    }
   }
 
   private unmountOverlay(): void {
