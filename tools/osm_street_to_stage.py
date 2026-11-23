@@ -122,6 +122,14 @@ def preview(st, path):
         d.ellipse([(p['x'] - 16) * S, (p['y'] - 16) * S, (p['x'] + 16) * S, (p['y'] + 16) * S], outline=(255, 255, 255), width=3)
     im.save(path)
 
+# phố do máy tự dựng tuyến (tools/level-maker/auto_route.py)
+_gd = os.path.join(ROOT, 'content/streets/geometry')
+if os.path.isdir(_gd):
+    for _f in sorted(os.listdir(_gd)):
+        if _f.endswith('.json'):
+            _g = json.load(open(os.path.join(_gd, _f), encoding='utf-8'))
+            STREETS.setdefault(_g['id'], {'name': _g['name'], 'routes': [[tuple(p) for p in r] for r in _g['routes']]})
+
 out = {}
 for sid, spec in STREETS.items():
     st = build(sid, spec); out[sid] = st

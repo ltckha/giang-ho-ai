@@ -180,6 +180,9 @@ export interface StageDefinition {
   mapStageId?: StageId;
   /** Món của tiệm chính trong màn tiệm */
   featuredTowerId?: TowerId;
+  /** Màn phố: đồ dọn phố (luôn được mang) và số món tiệm tối đa được mang thêm */
+  cleanTowerIds?: TowerId[];
+  maxShopTowers?: number;
 }
 
 export interface ActiveTower {

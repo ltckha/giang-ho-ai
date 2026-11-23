@@ -49,3 +49,21 @@ describe('Phố thật do máy làm màn sinh ra', () => {
     });
   }
 });
+
+describe('Màn phố dùng đồ dọn phố', () => {
+  it('mỗi màn phố có 5 đồ dọn phố đủ 5 hành, bộ gợi ý 4 đồ dọn + tối đa 2 món tiệm', () => {
+    for (const g of GENERATED_STREETS) {
+      const st = g.stage;
+      expect(st.cleanTowerIds?.length).toBe(5);
+      expect(new Set(st.cleanTowerIds!.map((id) => ALL_TOWER_DEFINITIONS[id]!.element)).size).toBe(5);
+      const shop = st.defaultLoadout!.filter((id) => !st.cleanTowerIds!.includes(id));
+      expect(shop.length).toBeLessThanOrEqual(st.maxShopTowers!);
+    }
+  });
+  it('mang quá 2 món tiệm thì máy đổi về bộ gợi ý', () => {
+    const st = GENERATED_STREETS[0]!.stage;
+    const shopIds = st.towerIds!.filter((id) => !st.cleanTowerIds!.includes(id)).slice(0, 6);
+    const e = new TowerDefenseEngine(st, { loadout: shopIds });
+    expect(e.loadout).toEqual(st.defaultLoadout);
+  });
+});

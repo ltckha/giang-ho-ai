@@ -89,9 +89,15 @@ export class TowerDefenseEngine {
 
   constructor(stage: StageDefinition, options?: { gear?: GearBonus; loadout?: TowerId[]; vehicle?: VehicleId }) {
     this.stage = stage;
-    this.loadout = stage.loadoutSize
+    let lo = stage.loadoutSize
       ? (options?.loadout && options.loadout.length ? options.loadout : stage.defaultLoadout ?? []).slice(0, stage.loadoutSize)
       : null;
+    // Màn phố: tối đa N món tiệm (còn lại là đồ dọn phố) — sai luật thì dùng bộ gợi ý
+    if (lo && stage.maxShopTowers !== undefined && stage.cleanTowerIds) {
+      const shopCount = lo.filter((id) => !stage.cleanTowerIds!.includes(id)).length;
+      if (shopCount > stage.maxShopTowers) lo = (stage.defaultLoadout ?? lo).slice(0, stage.loadoutSize);
+    }
+    this.loadout = lo;
     this.gear = options?.gear ?? EMPTY_GEAR_BONUS;
     this.vehicle = options?.vehicle ? VEHICLES[options.vehicle] ?? null : null;
     const vp = this.vehicle?.passive ?? {};

@@ -407,8 +407,20 @@ export class TitleScene extends Phaser.Scene {
           `;
         };
 
+        const cleanIds = stage.cleanTowerIds ?? [];
+        const maxShop = stage.maxShopTowers;
+        const shopChosen = chosen.filter((t) => !cleanIds.includes(t)).length;
         const groupsHtml =
-          stage.id === 'stage_4'
+          cleanIds.length > 0
+            ? `<div class="td-lo-group">
+                 <div class="td-lo-group-title">🧹 Đồ dọn phố</div>
+                 <div class="td-lo-grid">${cleanIds.map(renderTowerCard).join('')}</div>
+               </div>
+               <div class="td-lo-group">
+                 <div class="td-lo-group-title">🏠 Món tiệm mang theo (tối đa ${maxShop ?? 2}, đã chọn ${shopChosen})</div>
+                 <div class="td-lo-grid">${allowed.filter((t) => !cleanIds.includes(t)).map(renderTowerCard).join('')}</div>
+               </div>`
+            : stage.id === 'stage_4'
             ? SHOP_GROUPS_FOR_BOSS.map(
                 (grp) => `
                 <div class="td-lo-group">
@@ -476,6 +488,15 @@ export class TitleScene extends Phaser.Scene {
             if (chosen.includes(tid)) {
               chosen = chosen.filter((x) => x !== tid);
               sound.playUiClick();
+            } else if (
+              stage.maxShopTowers !== undefined &&
+              stage.cleanTowerIds &&
+              !stage.cleanTowerIds.includes(tid) &&
+              chosen.filter((x) => !stage.cleanTowerIds!.includes(x)).length >= stage.maxShopTowers
+            ) {
+              // Màn phố: đã đủ số món tiệm được mang
+              sound.playUiClick();
+              return;
             } else if (chosen.length < limit) {
               chosen = [...chosen, tid];
               sound.playBuildOrUpgrade();

@@ -336,3 +336,9 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 ## 23/11/2026 — Spark đợt 6: quái ngoài phố + 3 trùm (Claude)
 - 17 quái đường phố (vỏ lon, túi rác, khăn giấy, khói nướng, nước rửa chén, bãi rác, nắp chai, bụi đường, tàn thuốc, vũng nước, bã cà phê, đinh ốc, xà bần, tờ rơi, khói xe, nước cống, rác ven đường) + 3 trùm (Núi Rác Chợ Đêm, Cơn Mưa Ngập Dốc, Lốc Bụi Công Trình). Đạt nét. Kho Spark: 15 loại món, 42 quái.
 - Lưu ý: tải song song từ Drive có thể trả về lệch thứ tự → ghép theo tên file, không theo thứ tự tải.
+
+## 23/11/2026 — Đồ dọn phố + agent tạo màn mới (Claude, anh Kha "làm 1 2")
+- Màn phố: 5 đồ dọn phố (content/street_clean_tools.json: kẹp gắp rác Kim, chổi tre Mộc, vòi xịt Thủy, đèn Hỏa hỗ trợ, bao cát Thổ), mang 4 đồ dọn + tối đa 2 món tiệm (luật trong engine + bảng chọn món 2 nhóm). Máy cân lại 3 màn phố. Hình chờ Spark đợt 9.
+- Agent tạo màn: tools/level-maker/auto_route.py tự nối đoạn đường OSM theo tên phố, tự chọn lối ra / 1–2 lối vào (thử lại 2 phố cũ: khớp bản làm tay 332/324 m, 946/369 m). make-street kiểm nguồn nghiên cứu (≥ 2 nguồn, bỏ địa điểm đã đóng). Quy trình: .claude/agents/level-designer.md.
+- 26 địa điểm của 3 phố cũ chưa ghi nguồn theo từng địa điểm (chỉ có trong ghi chép chung) → cảnh báo, bổ sung khi rà lại.
+- `npm test` 74/74, e2e 17/17.

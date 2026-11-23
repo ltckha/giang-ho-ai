@@ -1,0 +1,20 @@
+{
+  "note": "Đồ dọn phố — chỉ dùng ở màn phố (đánh trùm). Mỗi món 1 hành để giữ ngũ hành khắc chế. Người chơi mang 4 đồ dọn phố + tối đa 2 món tiệm. Claude 23/11.",
+  "tools": [
+    { "key": "kep_rac", "art": "don_kep_rac", "element": "kim", "role": "single_far",
+      "names": ["Kẹp Gắp Rác", "Kẹp Gắp Cán Dài", "Xe Rác Đẩy Tay", "Xe Ép Rác Mini"], "ult": "Gom Sạch Một Lượt",
+      "why": "Kẹp thép gắp gọn rác bay, tờ rơi, khăn giấy" },
+    { "key": "choi_tre", "art": "don_choi_tre", "element": "moc", "role": "aoe_splash",
+      "names": ["Chổi Tre", "Chổi Tre Cán Dài", "Chổi Quét Đôi", "Hàng Cây Chắn Bụi"], "ult": "Quét Một Đường Dài",
+      "why": "Chổi tre quét bay bụi đường, xà bần" },
+    { "key": "voi_xit", "art": "don_voi_xit", "element": "thuy", "role": "slow_aura",
+      "names": ["Vòi Xịt Rửa Đường", "Vòi Xịt Áp Lực", "Xe Phun Nước", "Bồn Nước Mát"], "ult": "Rửa Trôi Cả Dốc",
+      "why": "Nước dập khói nướng, tàn thuốc, khói xe" },
+    { "key": "den_duong", "art": "don_den_duong", "element": "hoa", "role": "support_buff",
+      "names": ["Đèn Pin Tuần Tra", "Đèn Đường Vàng", "Đèn Pha Công Trình", "Cột Đèn Năng Lượng"], "ult": "Sáng Bừng Cả Phố",
+      "why": "Đèn sáng soi rõ đinh ốc, nắp chai rơi; cả phố làm việc nhanh hơn" },
+    { "key": "bao_cat", "art": "don_bao_cat", "element": "tho", "role": "heavy_slow",
+      "names": ["Bao Cát", "Bao Cát Chồng Đôi", "Rãnh Thoát Nước", "Bờ Kè Đá"], "ult": "Chặn Dòng Nước Tràn",
+      "why": "Bao cát chặn nước cống, vũng nước mưa" }
+  ]
+}

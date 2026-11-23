@@ -1,10 +1,10 @@
 {
  "generatedBy": "tools/level-maker/make-street.ts",
- "hpMultiplier": 1.2,
+ "hpMultiplier": 1.6,
  "balance": {
-  "randomWinWithExpectedGear": 0.2916666666666667,
+  "randomWinWithExpectedGear": 0.3333333333333333,
   "botWinRate": 1,
-  "botLivesAvg": 17.666666666666668,
+  "botLivesAvg": 14.666666666666666,
   "gearTier": "after_street_1"
  },
  "stage": {
@@ -147,7 +147,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 1.2
+      "hpScale": 1.6
      }
     ]
    },
@@ -166,7 +166,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 1.38
+      "hpScale": 1.84
      }
     ]
    },
@@ -186,7 +186,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 1.56
+      "hpScale": 2.08
      },
      {
       "enemyId": "ge_phan_dinh_phung_p2",
@@ -194,7 +194,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 1.56
+      "hpScale": 2.08
      }
     ]
    },
@@ -214,7 +214,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 1.74
+      "hpScale": 2.32
      },
      {
       "enemyId": "ge_phan_dinh_phung_p3",
@@ -222,7 +222,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 1.74
+      "hpScale": 2.32
      }
     ]
    },
@@ -242,7 +242,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 2.04
+      "hpScale": 2.72
      },
      {
       "enemyId": "ge_phan_dinh_phung_p3",
@@ -250,7 +250,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.04
+      "hpScale": 2.72
      }
     ]
    },
@@ -271,7 +271,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 2.4
+      "hpScale": 3.2
      },
      {
       "enemyId": "ge_phan_dinh_phung_p3",
@@ -279,7 +279,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.4
+      "hpScale": 3.2
      },
      {
       "enemyId": "ge_phan_dinh_phung_p5",
@@ -287,7 +287,7 @@
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.4
+      "hpScale": 3.2
      }
     ]
    },
@@ -308,7 +308,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 2.88
+      "hpScale": 3.84
      },
      {
       "enemyId": "ge_phan_dinh_phung_p4",
@@ -316,7 +316,7 @@
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.88
+      "hpScale": 3.84
      },
      {
       "enemyId": "ge_phan_dinh_phung_p1",
@@ -324,7 +324,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.88
+      "hpScale": 3.84
      }
     ]
    },
@@ -345,7 +345,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 3.36
+      "hpScale": 4.48
      },
      {
       "enemyId": "ge_phan_dinh_phung_p4",
@@ -353,7 +353,7 @@
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.36
+      "hpScale": 4.48
      },
      {
       "enemyId": "ge_phan_dinh_phung_p6",
@@ -361,7 +361,7 @@
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.36
+      "hpScale": 4.48
      }
     ]
    },
@@ -382,7 +382,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 3.84
+      "hpScale": 5.12
      },
      {
       "enemyId": "ge_phan_dinh_phung_p5",
@@ -390,7 +390,7 @@
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.84
+      "hpScale": 5.12
      },
      {
       "enemyId": "ge_phan_dinh_phung_p1",
@@ -398,7 +398,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.84
+      "hpScale": 5.12
      }
     ]
    },
@@ -419,7 +419,7 @@
       "intervalSec": 1.2,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 4.32
+      "hpScale": 5.76
      },
      {
       "enemyId": "ge_phan_dinh_phung_p6",
@@ -427,7 +427,7 @@
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 4.32
+      "hpScale": 5.76
      },
      {
       "enemyId": "ge_phan_dinh_phung_p2",
@@ -435,7 +435,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 4.32
+      "hpScale": 5.76
      }
     ]
    },
@@ -456,7 +456,7 @@
       "intervalSec": 1.8,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 4.8
+      "hpScale": 6.4
      },
      {
       "enemyId": "ge_phan_dinh_phung_p1",
@@ -464,7 +464,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 4.8
+      "hpScale": 6.4
      },
      {
       "enemyId": "ge_phan_dinh_phung_p3",
@@ -472,7 +472,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 4.8
+      "hpScale": 6.4
      }
     ]
    },
@@ -495,7 +495,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 5.16
+      "hpScale": 6.88
      },
      {
       "enemyId": "ge_phan_dinh_phung_p2",
@@ -503,7 +503,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.16
+      "hpScale": 6.88
      },
      {
       "enemyId": "ge_phan_dinh_phung_p3",
@@ -511,7 +511,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.16
+      "hpScale": 6.88
      },
      {
       "enemyId": "ge_phan_dinh_phung_p4",
@@ -519,7 +519,7 @@
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.16
+      "hpScale": 6.88
      },
      {
       "enemyId": "ge_phan_dinh_phung_p5",
@@ -527,7 +527,7 @@
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.16
+      "hpScale": 6.88
      },
      {
       "enemyId": "ge_phan_dinh_phung_p6",
@@ -535,7 +535,7 @@
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.16
+      "hpScale": 6.88
      },
      {
       "enemyId": "ge_phan_dinh_phung_trum",
@@ -543,12 +543,17 @@
       "intervalSec": 1,
       "delayBeforeSec": 3,
       "pathIndex": 0,
-      "hpScale": 0.72
+      "hpScale": 0.96
      }
     ]
    }
   ],
   "towerIds": [
+   "gt_don_kep_rac",
+   "gt_don_choi_tre",
+   "gt_don_voi_xit",
+   "gt_don_den_duong",
+   "gt_don_bao_cat",
    "wood_tower",
    "metal_tower",
    "water_tower",
@@ -575,12 +580,12 @@
   ],
   "loadoutSize": 6,
   "defaultLoadout": [
+   "gt_don_kep_rac",
+   "gt_don_choi_tre",
+   "gt_don_voi_xit",
+   "gt_don_den_duong",
    "metal_tower",
-   "fl_vent",
-   "bk_fridge",
-   "earth_tower",
-   "fire_tower",
-   "gt_phan_dinh_phung_nha_thuoc"
+   "fl_vent"
   ],
   "enableSynergy": true,
   "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -643,60 +648,68 @@
    }
   ],
   "streetId": "street_phan_dinh_phung",
+  "cleanTowerIds": [
+   "gt_don_kep_rac",
+   "gt_don_choi_tre",
+   "gt_don_voi_xit",
+   "gt_don_den_duong",
+   "gt_don_bao_cat"
+  ],
+  "maxShopTowers": 2,
   "botPlan": [
    {
     "padId": "pad_1",
-    "defId": "metal_tower",
+    "defId": "gt_don_kep_rac",
     "preferredBranch": "A"
    },
    {
     "padId": "pad_2",
-    "defId": "fire_tower",
+    "defId": "gt_don_choi_tre",
     "preferredBranch": "B"
    },
    {
     "padId": "pad_3",
-    "defId": "fl_vent",
+    "defId": "gt_don_den_duong",
     "preferredBranch": "A"
    },
    {
     "padId": "pad_4",
-    "defId": "fire_tower",
+    "defId": "metal_tower",
     "preferredBranch": "B"
    },
    {
     "padId": "pad_5",
-    "defId": "metal_tower",
+    "defId": "gt_don_kep_rac",
     "preferredBranch": "A"
    },
    {
     "padId": "pad_6",
-    "defId": "fire_tower",
+    "defId": "gt_don_choi_tre",
     "preferredBranch": "B"
    },
    {
     "padId": "pad_7",
-    "defId": "metal_tower",
+    "defId": "gt_don_voi_xit",
     "preferredBranch": "A"
    },
    {
     "padId": "pad_8",
-    "defId": "fire_tower",
+    "defId": "metal_tower",
     "preferredBranch": "B"
    },
    {
     "padId": "pad_9",
-    "defId": "metal_tower",
+    "defId": "gt_don_kep_rac",
     "preferredBranch": "A"
    },
    {
     "padId": "pad_10",
-    "defId": "fire_tower",
+    "defId": "gt_don_choi_tre",
     "preferredBranch": "B"
    },
    {
     "padId": "pad_11",
-    "defId": "metal_tower",
+    "defId": "gt_don_voi_xit",
     "preferredBranch": "A"
    }
   ]
@@ -5285,6 +5298,248 @@
     "cooldownSec": 0.94,
     "splashRadius": 80,
     "description": "Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao."
+   }
+  },
+  "gt_don_kep_rac": {
+   "id": "gt_don_kep_rac",
+   "art": "don_kep_rac",
+   "element": "kim",
+   "role": "single_far",
+   "roleLabel": "Ném nhanh 1 con tầm xa",
+   "ultimateName": "Gom Sạch Một Lượt",
+   "tier1": {
+    "name": "Kẹp Gắp Rác",
+    "cost": 55,
+    "damage": 19,
+    "range": 122,
+    "cooldownSec": 0.74,
+    "description": "Kẹp Gắp Rác: kẹp thép gắp gọn rác bay, tờ rơi, khăn giấy. Khắc Mộc: Kẹp thép gắp gọn rác bay, tờ rơi, khăn giấy."
+   },
+   "tier2": {
+    "name": "Kẹp Gắp Cán Dài",
+    "cost": 70,
+    "damage": 32,
+    "range": 134,
+    "cooldownSec": 0.62,
+    "description": "Kẹp Gắp Cán Dài: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Xe Rác Đẩy Tay",
+    "cost": 105,
+    "damage": 46,
+    "range": 144,
+    "cooldownSec": 0.48,
+    "pierceCount": 2,
+    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+   },
+   "tier3B": {
+    "name": "Xe Ép Rác Mini",
+    "cost": 105,
+    "damage": 42,
+    "range": 140,
+    "cooldownSec": 0.54,
+    "burnDps": 18,
+    "burnDurationSec": 3,
+    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+   }
+  },
+  "gt_don_choi_tre": {
+   "id": "gt_don_choi_tre",
+   "art": "don_choi_tre",
+   "element": "moc",
+   "role": "aoe_splash",
+   "roleLabel": "Quăng gói hút ẩm đánh lan",
+   "ultimateName": "Quét Một Đường Dài",
+   "tier1": {
+    "name": "Chổi Tre",
+    "cost": 65,
+    "damage": 27,
+    "range": 102,
+    "cooldownSec": 1.15,
+    "splashRadius": 54,
+    "description": "Chổi Tre: chổi tre quét bay bụi đường, xà bần. Khắc Thổ: Chổi tre quét bay bụi đường, xà bần."
+   },
+   "tier2": {
+    "name": "Chổi Tre Cán Dài",
+    "cost": 80,
+    "damage": 46,
+    "range": 112,
+    "cooldownSec": 1.04,
+    "splashRadius": 64,
+    "description": "Chổi Tre Cán Dài: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Chổi Quét Đôi",
+    "cost": 115,
+    "damage": 66,
+    "range": 118,
+    "cooldownSec": 0.96,
+    "splashRadius": 72,
+    "burnDps": 22,
+    "burnDurationSec": 3,
+    "description": "Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s."
+   },
+   "tier3B": {
+    "name": "Hàng Cây Chắn Bụi",
+    "cost": 115,
+    "damage": 84,
+    "range": 120,
+    "cooldownSec": 0.94,
+    "splashRadius": 80,
+    "description": "Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao."
+   }
+  },
+  "gt_don_voi_xit": {
+   "id": "gt_don_voi_xit",
+   "art": "don_voi_xit",
+   "element": "thuy",
+   "role": "slow_aura",
+   "roleLabel": "Phun sương làm chậm",
+   "ultimateName": "Rửa Trôi Cả Dốc",
+   "tier1": {
+    "name": "Vòi Xịt Rửa Đường",
+    "cost": 60,
+    "damage": 15,
+    "range": 102,
+    "cooldownSec": 0.92,
+    "splashRadius": 50,
+    "slowPercent": 0.34,
+    "slowDurationSec": 2.2,
+    "description": "Vòi Xịt Rửa Đường: nước dập khói nướng, tàn thuốc, khói xe. Khắc Hỏa: Nước dập khói nướng, tàn thuốc, khói xe."
+   },
+   "tier2": {
+    "name": "Vòi Xịt Áp Lực",
+    "cost": 75,
+    "damage": 26,
+    "range": 110,
+    "cooldownSec": 0.84,
+    "splashRadius": 58,
+    "slowPercent": 0.45,
+    "slowDurationSec": 2.6,
+    "description": "Vòi Xịt Áp Lực: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Xe Phun Nước",
+    "cost": 105,
+    "damage": 44,
+    "range": 118,
+    "cooldownSec": 0.78,
+    "splashRadius": 64,
+    "slowPercent": 0.54,
+    "slowDurationSec": 2.8,
+    "stunDurationSec": 1,
+    "description": "Làm chậm 54% và mỗi phát xịt thứ 3 phủ bọt mát giữ chân quái 1.0s."
+   },
+   "tier3B": {
+    "name": "Bồn Nước Mát",
+    "cost": 105,
+    "damage": 38,
+    "range": 116,
+    "cooldownSec": 0.8,
+    "splashRadius": 72,
+    "slowPercent": 0.48,
+    "slowDurationSec": 2.7,
+    "knockbackDist": 14,
+    "description": "Luồng phun xoáy rộng làm chậm 48% và đẩy lùi nhẹ bầy quái."
+   }
+  },
+  "gt_don_den_duong": {
+   "id": "gt_don_den_duong",
+   "art": "don_den_duong",
+   "element": "hoa",
+   "role": "support_buff",
+   "roleLabel": "Hỗ trợ sấy khỏe & xua chuột",
+   "ultimateName": "Sáng Bừng Cả Phố",
+   "tier1": {
+    "name": "Đèn Pin Tuần Tra",
+    "cost": 55,
+    "damage": 13,
+    "range": 108,
+    "cooldownSec": 1.25,
+    "buffDamagePct": 0.18,
+    "buffSpeedPct": 0.14,
+    "buffRangePct": 0.06,
+    "cleanseDisrupt": true,
+    "description": "Đèn Pin Tuần Tra: đèn sáng soi rõ đinh ốc, nắp chai rơi; cả phố làm việc nhanh hơn. Khắc Kim: Đèn sáng soi rõ đinh ốc, nắp chai rơi; cả phố làm việc nhanh hơn."
+   },
+   "tier2": {
+    "name": "Đèn Đường Vàng",
+    "cost": 70,
+    "damage": 22,
+    "range": 120,
+    "cooldownSec": 1.1,
+    "buffDamagePct": 0.26,
+    "buffSpeedPct": 0.2,
+    "buffRangePct": 0.1,
+    "cleanseDisrupt": true,
+    "description": "Đèn Đường Vàng: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Đèn Pha Công Trình",
+    "cost": 95,
+    "damage": 36,
+    "range": 132,
+    "cooldownSec": 1,
+    "buffDamagePct": 0.3,
+    "buffSpeedPct": 0.22,
+    "buffRangePct": 0.12,
+    "cleanseDisrupt": true,
+    "bonusKillReward": 2,
+    "description": "Bảo hộ món quanh máy không bị chuột gặm đứng im & thưởng +2 xu mỗi quái dọn được."
+   },
+   "tier3B": {
+    "name": "Cột Đèn Năng Lượng",
+    "cost": 100,
+    "damage": 42,
+    "range": 136,
+    "cooldownSec": 0.95,
+    "buffDamagePct": 0.4,
+    "buffSpeedPct": 0.3,
+    "buffRangePct": 0.16,
+    "cleanseDisrupt": true,
+    "description": "Cộng hưởng nhiệt mạnh: tăng 40% sức, 30% tốc đánh và 16% tầm cho món cạnh bên."
+   }
+  },
+  "gt_don_bao_cat": {
+   "id": "gt_don_bao_cat",
+   "art": "don_bao_cat",
+   "element": "tho",
+   "role": "heavy_slow",
+   "roleLabel": "Đạp mạnh, chậm, xuyên vỏ",
+   "ultimateName": "Chặn Dòng Nước Tràn",
+   "tier1": {
+    "name": "Bao Cát",
+    "cost": 70,
+    "damage": 54,
+    "range": 100,
+    "cooldownSec": 1.32,
+    "description": "Bao Cát: bao cát chặn nước cống, vũng nước mưa. Khắc Thủy: Bao cát chặn nước cống, vũng nước mưa."
+   },
+   "tier2": {
+    "name": "Bao Cát Chồng Đôi",
+    "cost": 85,
+    "damage": 92,
+    "range": 108,
+    "cooldownSec": 1.18,
+    "description": "Bao Cát Chồng Đôi: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Rãnh Thoát Nước",
+    "cost": 120,
+    "damage": 152,
+    "range": 115,
+    "cooldownSec": 1.08,
+    "stunDurationSec": 0.6,
+    "description": "Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày."
+   },
+   "tier3B": {
+    "name": "Bờ Kè Đá",
+    "cost": 115,
+    "damage": 115,
+    "range": 122,
+    "cooldownSec": 1,
+    "pierceCount": 3,
+    "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
    }
   }
  },

@@ -23,10 +23,17 @@ import type { ElementType, EnemyDefinition, EnemyTrait, StageDefinition, TowerDe
 const ROOT = process.cwd();
 /** Món người chơi đã có sau Phố 1 (3 tiệm đầu) — dùng chung cho mọi phố thật */
 const BASE_POOL = Object.keys(ALL_TOWER_DEFINITIONS).filter((id) => !id.startsWith('gt_')) as string[];
+/** Đồ dọn phố (màn phố) — content/street_clean_tools.json */
+const CLEAN = JSON.parse(readFileSync(join(ROOT, 'content/street_clean_tools.json'), 'utf8')) as { tools: { key: string; art: string; element: ElementType; role: TowerRole; names: [string, string, string, string]; ult: string; why: string }[] };
+function buildCleanTowers(): Record<string, TowerDefinition> {
+  return buildTowers({ id: 'street_don', places: CLEAN.tools.map((t) => ({ key: t.key, art: t.art, name: t.names[0], type: 'Đồ dọn phố', trait: t.why.toLowerCase(), tower: { element: t.element, role: t.role, names: t.names, ult: t.ult, why: t.why } })) } as unknown as StreetSpec);
+}
 const GEO = JSON.parse(readFileSync(join(ROOT, 'src/core/streets/realStreets.generated.json'), 'utf8'));
 
 interface PlaceSpec {
   key: string; name: string; type: string; trait: string; art?: string;
+  /** Nghiên cứu: link nguồn (≥ 2) và mức tin cậy */
+  sources?: string[]; confidence?: 'chac' | 'nen_kiem' | 'da_dong';
   tower: { element: ElementType; role: TowerRole; names: [string, string, string, string]; ult: string; why: string };
 }
 interface PestSpec { art?: string; name: string; element: ElementType; trait: Exclude<EnemyTrait, 'mini' | 'boss'>; reason: string }
@@ -308,6 +315,11 @@ function makeBoss(spec: StreetSpec, ids: string[], enemies: Record<string, Enemy
 
 function make(id: string) {
   const spec: StreetSpec = JSON.parse(readFileSync(join(ROOT, 'content/streets', `${id}.json`), 'utf8'));
+  // Kiểm nghiên cứu: địa điểm đã đóng thì không làm; thiếu nguồn thì cảnh báo
+  for (const p of spec.places) {
+    if (p.confidence === 'da_dong') throw new Error(`${p.name}: địa điểm đã đóng / dời — bỏ khỏi danh sách rồi làm lại`);
+    if ((p.sources?.length ?? 0) < 2) console.log(`  ⚠ ${p.name}: chưa đủ 2 nguồn${p.confidence === 'nen_kiem' ? ' (nên kiểm)' : ''}`);
+  }
   const geo = GEO[spec.geometry];
   if (!geo) throw new Error(`Chưa có đường đi cho ${spec.geometry} — chạy tools/osm_street_to_stage.py`);
   const towers = buildTowers(spec);
@@ -355,9 +367,17 @@ function make(id: string) {
     shops.push({ hpMultiplier: k, balance: { randomWinWithExpectedGear: report.randomWin, botWinRate: report.botWinRate, botLivesAvg: report.botLives, target }, stage: build(k) });
   });
 
-  /* ---- Màn phố: cả con phố + trùm ---- */
-  const pool = [...BASE_POOL, ...streetTowerIds];
-  const loadout = chooseLoadout(poolTowers(pool), Object.fromEntries(streetIds.map((e) => [e, enemies[e]!])), spec.loadoutSize);
+  /* ---- Màn phố: cả con phố + trùm — mang 4 đồ dọn phố + tối đa 2 món tiệm ---- */
+  const clean = buildCleanTowers();
+  Object.assign(towers, clean);
+  Object.assign(ALL_TOWER_DEFINITIONS, clean);
+  const cleanIds = Object.keys(clean);
+  const shopPool = [...BASE_POOL, ...streetTowerIds];
+  const pool = [...cleanIds, ...shopPool];
+  const streetPestDefs = Object.fromEntries(streetIds.map((e) => [e, enemies[e]!]));
+  const cleanPick = chooseLoadout(clean, streetPestDefs, 4);
+  const shopPick = chooseLoadout(poolTowers(shopPool), streetPestDefs, 2);
+  const loadout = [...cleanPick, ...shopPick];
   const baseStage = (k: number): StageDefinition => {
     const stage: StageDefinition = {
       id: spec.id, stageNumber: 10 + n + 1, name: spec.name, subtitle: `Màn phố: ${boss.name} — ${spec.subtitle}`,
@@ -366,7 +386,7 @@ function make(id: string) {
       waves: buildWaves(spec, streetIds, enemies, geo.paths.length, k, spec.waves, boss.id),
       towerIds: pool as never, loadoutSize: spec.loadoutSize, defaultLoadout: loadout as never,
       enableSynergy: true, attribution: geo.attribution, places,
-      streetId: spec.id as never,
+      streetId: spec.id as never, cleanTowerIds: cleanIds as never, maxShopTowers: 2,
     };
     stage.botPlan = makeBotPlan(stage, loadout, ALL_TOWER_DEFINITIONS as never) as never;
     return stage;
