@@ -97,3 +97,31 @@ describe('Màn 2 — Tiệm Bánh Đầu Phố (sườn Claude)', () => {
     expect(won / 40).toBeLessThanOrEqual(0.3);
   });
 });
+
+describe('Chuỗi tương sinh trên sân (Màn 2)', () => {
+  it('chuỗi 3 món: cả 3 món +25%', () => {
+    const e = new TowerDefenseEngine(ST);
+    e.essence = 9999;
+    // Thủy (tủ mát) → Mộc (quạt) → Hỏa (lò): pad_4 → pad_3 → pad_5
+    const a = e.buildTower('pad_4', 'bk_fridge')!;
+    const b = e.buildTower('pad_3', 'bk_fan')!;
+    const c = e.buildTower('pad_5', 'bk_oven')!;
+    for (const t of [b, c]) expect(t.synergyChainLength).toBe(3);
+    expect(c.buffDamageMultiplier).toBeCloseTo(1.25, 5);
+    expect(a.synergyChainLength).toBe(3);
+  });
+
+  it('chuỗi đủ 5 hành: Ngũ hành viên mãn trên sân, mọi món nhanh thêm 20%', () => {
+    const e = new TowerDefenseEngine(ST);
+    e.essence = 9999;
+    // Kim → Thủy → Mộc → Hỏa → Thổ theo pad_4 → pad_3 → pad_5 → pad_6 → pad_8
+    e.buildTower('pad_4', 'bk_swatter');
+    e.buildTower('pad_3', 'bk_fridge');
+    e.buildTower('pad_5', 'bk_fan');
+    e.buildTower('pad_6', 'bk_oven');
+    const last = e.buildTower('pad_8', 'bk_jar')!;
+    expect(e.fullCycleActive).toBe(true);
+    expect(last.synergyChainLength).toBe(5);
+    expect(last.buffSpeedMultiplier).toBeGreaterThan(1.19);
+  });
+});

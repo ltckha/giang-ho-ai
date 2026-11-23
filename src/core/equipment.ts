@@ -517,3 +517,69 @@ const STAT_TEXT: Record<GearStatKind, (v: number) => string> = {
 export function statText(st: GearStat): string {
   return `${STAT_NAME[st.kind]}: ${STAT_TEXT[st.kind](st.value)}`;
 }
+
+/* ---------- Gọn chữ cho giao diện (Claude) ---------- */
+
+/** Biểu tượng + tên ngắn cho từng loại dòng (giao diện gọn: "🔋 Pin trâu 12%") */
+export const STAT_ICON: Record<GearStatKind, string> = {
+  elem_dmg: '🎯',
+  all_dmg: '⚔️',
+  range: '📶',
+  speed: '☕',
+  start_coins: '🚚',
+  lives: '❤️',
+  coin_pct: '👛',
+  ult_cd: '🔋',
+  ult_cost: '⚡',
+  upgrade_discount: '🏷️',
+  build_discount: '🔥',
+  sell_refund: '🛡️',
+  counter_dmg: '📈',
+  synergy_bonus: '🔗',
+  slow_dur: '🍃',
+  weaken_thuy: '☔',
+  weaken_moc: '🪲',
+  extra_drop: '🎁',
+  boss_dmg: '👑',
+};
+
+/** Giá trị ngắn: "12%", "+20", "+1" */
+export function statValueShort(st: GearStat): string {
+  if (INT_KINDS.has(st.kind)) return st.kind === 'ult_cost' ? `-${st.value}` : `+${st.value}`;
+  return `${Math.round(st.value * 100)}%`;
+}
+
+/** Dòng gọn: "🔋 Pin trâu 12%" (câu giải thích đầy đủ dùng statText khi bấm giữ) */
+export function statShort(st: GearStat): string {
+  return `${STAT_ICON[st.kind]} ${STAT_NAME[st.kind]} ${statValueShort(st)}`;
+}
+
+/** Chip tổng sức mạnh gọn: [{icon, value, full}] — chỉ các mục khác 0 */
+export function bonusChips(b: GearBonus): { icon: string; value: string; full: string }[] {
+  const out: { icon: string; value: string; full: string }[] = [];
+  for (const el of ALL_ELEMENTS) {
+    const v = b.elementDmg[el];
+    if (v) out.push({ icon: `el:${el}`, value: `+${Math.round(v * 100)}%`, full: `${STAT_NAME.elem_dmg}: +${Math.round(v * 100)}% sức món hành này` });
+  }
+  for (const k of Object.keys(b.stats) as GearStatKind[]) {
+    const v = b.stats[k];
+    if (!v) continue;
+    out.push({ icon: STAT_ICON[k], value: statValueShort({ kind: k, value: v }), full: statText({ kind: k, value: v }) });
+  }
+  return out;
+}
+
+/**
+ * So sánh nhanh khi chọn đồ: mặc món này vào ô của nó thì
+ * sáng thêm bao nhiêu dòng ẩn (toàn bộ), sức mọi món / theo hành đổi bao nhiêu.
+ */
+export function previewEquip(eq: Equipped, item: GearItem): { linesDelta: number; dmgDelta: number; fullRing: boolean } {
+  const before = computeGearBonus(eq);
+  const after = computeGearBonus({ ...eq, [item.slot]: item });
+  const avgDmg = (b: GearBonus) => ALL_ELEMENTS.reduce((a, el) => a + gearDamageFor(b, el), 0) / ALL_ELEMENTS.length;
+  return {
+    linesDelta: after.activeLines - before.activeLines,
+    dmgDelta: Math.round((avgDmg(after) - avgDmg(before)) * 1000) / 1000,
+    fullRing: after.fullRing,
+  };
+}

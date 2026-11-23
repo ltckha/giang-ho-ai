@@ -268,3 +268,11 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - `src/core/shopStreet.ts`: danh sách tiệm trên con phố + mở khóa / sao.
 - `src/core/tutorial.ts`: luật 5 bước hướng dẫn lần đầu (tự sang bước khi chạm ô, đặt món, gọi đợt; tạm dừng; bỏ qua) + cờ trong bản lưu.
 - `npm test` 42/42.
+
+---
+
+## 23/11/2026 — Chuỗi tương sinh trên sân + gọn chữ trang bị (Claude)
+- Làm bù phần đã duyệt nhưng sót: chuỗi 3 món +25% cả chuỗi, chuỗi 4–5 +40%, chuỗi đủ 5 hành = viên mãn trên sân (+20% tốc độ mọi món). Kiểm hình học: vòng khép kín 5 món không xếp được trên Màn 2–3 (ô cách xa > 105) → dùng chuỗi 5; mỗi màn có ít nhất 1 đường chuỗi 5.
+- Mô phỏng lại: Màn 2 bot 15/20, ngẫu nhiên thắng 15/60, 300 kế hoạch thua 179; Màn 3 bot 18/20, ngẫu nhiên 5/60, thua 219 — gần như không đổi (đặt bừa hiếm khi ra chuỗi) → chuỗi là phần thưởng cho người tính kỹ.
+- Gọn chữ: `statShort`, `STAT_ICON`, `bonusChips`, `previewEquip` cho Antigravity dựng lại bảng trang bị.
+- `npm test` 45/45.

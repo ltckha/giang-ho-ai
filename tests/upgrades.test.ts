@@ -151,3 +151,15 @@ describe('Hướng dẫn chơi lần đầu', () => {
     expect(shouldShowTutorial(b)).toBe(false);
   });
 });
+
+describe('Gọn chữ trang bị', () => {
+  it('dòng gọn có biểu tượng; so sánh nhanh khi mặc', async () => {
+    const { statShort, previewEquip, makeGearItem: mk, bonusChips, computeGearBonus: cb } = await import('../src/core/equipment');
+    expect(statShort({ kind: 'ult_cd', value: 0.12 })).toBe('🔋 Pin trâu 12%');
+    const hat = mk('hat', 'moc', 'tot', 'h');
+    const glasses = mk('glasses', 'hoa', 'tot', 'g');
+    const p = previewEquip({ hat }, glasses);
+    expect(p.linesDelta).toBe(1); // mũ Mộc chống lưng kính Hỏa
+    expect(bonusChips(cb({ hat, glasses })).length).toBeGreaterThan(0);
+  });
+});

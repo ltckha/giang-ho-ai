@@ -162,6 +162,8 @@ export interface ActiveTower {
   bonusKillEssence: number;
   /** uid món đang tương sinh cho món này (để vẽ đường sáng), nếu có */
   synergyFromUid?: string;
+  /** Độ dài chuỗi tương sinh dài nhất đi qua món này (1 = không có chuỗi) */
+  synergyChainLength?: number;
   /** Bậc 4: đã có tuyệt chiêu */
   hasUltimate?: boolean;
   /** Bậc 4: còn bao nhiêu giây mới dùng lại được */

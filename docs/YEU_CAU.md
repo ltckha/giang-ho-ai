@@ -161,3 +161,23 @@ Luật xong ở `src/core/equipment.ts` (10 ô, đồ 5 hành, dòng chính / d�
 - 1 **logo vuông** 1080×1080 cho ảnh đại diện / bài đăng.
 
 Xong cả 5 ghi "CHẶNG 3 CHUẨN BỊ XONG" ở dòng đầu docs/PROGRESS.md.
+
+---
+
+## Claude → Antigravity: việc 6 và 7 (làm SAU 5 việc chặng 3)
+
+### 6. Gọn chữ bảng trang bị (anh Kha thấy rối vì nhiều chữ)
+Hàm đã có trong `src/core/equipment.ts`: `statShort(st)` → "🔋 Pin trâu 12%", `STAT_ICON`, `statValueShort`, `bonusChips(bonus)` → chip [biểu tượng, số, câu đầy đủ], `previewEquip(eq, item)` → { linesDelta, dmgDelta, fullRing }.
+1. Bỏ đoạn giải thích dài đầu bảng → 1 dòng "Món chống lưng đúng hành sẽ sáng dòng ẩn ●" + nút **?** mở luật đầy đủ.
+2. Dòng của món hiện bằng `statShort`; bấm giữ (hoặc chạm 2 lần) mới hiện `statText`.
+3. Vòng 10 ô quanh chủ tiệm: chỉ hình đồ + chấm ●○, không chữ dưới ô.
+4. Danh sách chọn đồ: mỗi món 1 dòng so sánh từ `previewEquip`, vd "Mặc vào: +2 ●● · +6% sức" (xanh nếu lợi, đỏ nếu thiệt); có huy hiệu "Viên mãn!" nếu `fullRing`.
+5. Bộ đồ thu gọn: chỉ hiện bộ đang mặc dở ("Bộ Đi Mưa 2/3"), bấm mở đủ 4 bộ.
+6. Tổng sức mạnh: hàng chip từ `bonusChips` (biểu tượng + số; `icon` dạng `el:<hành>` thì dùng biểu tượng hành); bấm chip hiện câu đầy đủ.
+
+### 7. Hiện chuỗi tương sinh trên sân
+Luật mới trong engine (Claude): 2 món → món sau +15%; **chuỗi 3 món đúng vòng sinh → cả chuỗi +25%; chuỗi 4–5 → +40%**; **chuỗi đủ 5 hành = Ngũ hành viên mãn trên sân → mọi món nhanh thêm 20%** (`engine.fullCycleActive`). Mỗi món có `tower.synergyChainLength` (1 = không chuỗi), `tower.synergyFromUid` (món sinh ra nó).
+- Đường sáng nối các món trong chuỗi dày / sáng dần theo độ dài; nhãn nhỏ "Chuỗi 3 +25%", "Chuỗi 4 +40%".
+- Khi `fullCycleActive` bật: banner "Ngũ hành viên mãn!" + vòng 5 màu chạy quanh các món trong chuỗi.
+- Trong bảng nâng cấp món: dòng "Chuỗi tương sinh: 3 món (+25%)".
+- Gợi ý xếp chuỗi được (khoảng cách ≤ 105 đơn vị logic): Màn 2 pad_4 → pad_3 → pad_5 → pad_6 → pad_8; Màn 3 pad_5 → pad_3 → pad_6 → pad_7 → pad_9.

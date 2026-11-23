@@ -91,6 +91,10 @@ Vòng sinh: Kim sinh Thủy → Thủy sinh Mộc → Mộc sinh Hỏa → Hỏa
 - Tủ mát (Thủy) cạnh quạt (Mộc): gió mát thổi xa hơn.
 Antigravity đề xuất câu giải thích ngắn cho từng cặp, hiện khi chạm vào đường sáng.
 
+### Chuỗi tương sinh trên sân (đã làm 23/11)
+- 2 món cạnh nhau sinh nhau → món sau +15%. Chuỗi 3 món → cả chuỗi +25%. Chuỗi 4–5 món → cả chuỗi +40%.
+- Chuỗi đủ 5 hành theo vòng sinh = **Ngũ hành viên mãn trên sân** → mọi món nhanh thêm 20%. (Vòng khép kín không xếp được vì ô đặt món không đủ gần, nên dùng chuỗi 5.)
+
 ## 5. Nâng cấp sâu hơn
 - **Trong màn:** bậc 1 → 2 → 3 (chọn 1 trong 2 nhánh) như hiện tại, thêm **bậc 4 "tuyệt chiêu"** cho mỗi nhánh: nút bấm kích hoạt, có thời gian hồi (vd lò nướng "Bùng lửa" cả vùng; quạt "Lốc xoáy" thổi lùi cả đám; gói hút ẩm "Hút cạn" làm quái Thủy đứng im 2 giây). Bậc 4 đắt, chỉ mở từ Màn 2 trở đi.
 - **Giữa các màn (giữ lâu dài):** sao kiếm được đổi lấy điểm nâng **theo hành** (vd Hỏa +10% sức, Thổ rẻ hơn 5 xu, Thủy làm chậm lâu hơn). Đổi lại được miễn phí. Mục tiêu: người chơi muốn chơi lại lấy đủ sao. Cân bằng sao cho chơi Màn 2 không cần điểm nâng vẫn thắng được (khó hơn).

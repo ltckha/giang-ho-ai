@@ -10,6 +10,12 @@ import {
 export const SYNERGY_RANGE = 105;
 /** Tương sinh: món được sinh mạnh thêm 15% sức (không cộng dồn). */
 export const SYNERGY_DAMAGE_BONUS = 0.15;
+/** Chuỗi tương sinh 3 món: cả chuỗi +25% */
+export const SYNERGY_CHAIN3_BONUS = 0.25;
+/** Chuỗi tương sinh 4–5 món: cả chuỗi +40% */
+export const SYNERGY_CHAIN4_BONUS = 0.4;
+/** Chuỗi đủ 5 hành trên sân (viên mãn): mọi món nhanh thêm 20% */
+export const SYNERGY_FULL_CYCLE_SPEED = 0.2;
 import { EMPTY_GEAR_BONUS, gearDamageFor, type GearBonus } from './equipment';
 import {
   ULTIMATE_COOLDOWN_SEC,
@@ -67,6 +73,8 @@ export class TowerDefenseEngine {
   private uidCounter = 1;
   /** Tác dụng trang bị chủ tiệm đang mặc (equipment.ts) */
   public readonly gear: GearBonus;
+  /** Ngũ hành viên mãn trên sân: có chuỗi 5 món đủ 5 hành nối nhau theo vòng sinh */
+  public fullCycleActive = false;
   /** Sự kiện phát sinh ngoài step() (vd tuyệt chiêu) — trả ra ở lần step() kế tiếp */
   private queuedEvents: CombatEvent[] = [];
 
@@ -285,22 +293,49 @@ export class TowerDefenseEngine {
       }
     }
 
-    // Tương sinh (từ Màn 2): món đặt cạnh món có hành sinh ra hành của nó thì mạnh thêm 15%.
+    // Tương sinh trên sân (từ Màn 2):
+    // - 2 món cạnh nhau, món trước sinh ra hành món sau → món sau +15%.
+    // - Chuỗi 3 món nối nhau đúng vòng sinh → cả chuỗi +25%; chuỗi 4–5 món → cả chuỗi +40%.
+    // - Chuỗi đủ 5 hành nối nhau theo vòng sinh (Ngũ hành viên mãn trên sân) → mọi món nhanh thêm 20%.
+    this.fullCycleActive = false;
     if (this.stage.enableSynergy) {
+      const live = this.towers.filter((t) => t.disruptedRemaining <= 0);
+      const next = new Map<string, ActiveTower[]>();
+      for (const a of live) {
+        next.set(
+          a.uid,
+          live.filter((b) => b.uid !== a.uid && ELEMENT_GENERATES[a.element] === b.element && distance2D(a, b) <= SYNERGY_RANGE),
+        );
+      }
+      // Chuỗi dài nhất (không lặp món) đi qua từng món
+      const best = new Map<string, number>();
+      const walk = (path: ActiveTower[]) => {
+        const last = path[path.length - 1]!;
+        for (const t of path) best.set(t.uid, Math.max(best.get(t.uid) ?? 1, path.length));
+        if (path.length >= 5) {
+          // Chuỗi 5 món nối nhau đủ 5 hành theo vòng sinh = Ngũ hành viên mãn trên sân
+          this.fullCycleActive = true;
+          return;
+        }
+        for (const n of next.get(last.uid)!) if (!path.includes(n)) walk([...path, n]);
+      };
+      for (const t of live) walk([t]);
+
+      const extra = this.gear.stats.synergy_bonus;
       for (const tower of this.towers) {
         tower.synergyFromUid = undefined;
+        tower.synergyChainLength = 1;
         if (tower.disruptedRemaining > 0) continue;
-        const giver = this.towers.find(
-          (n) =>
-            n.uid !== tower.uid &&
-            n.disruptedRemaining <= 0 &&
-            ELEMENT_GENERATES[n.element] === tower.element &&
-            distance2D(n, tower) <= SYNERGY_RANGE,
-        );
-        if (giver) {
-          tower.synergyFromUid = giver.uid;
-          tower.buffDamageMultiplier *= 1 + SYNERGY_DAMAGE_BONUS + this.gear.stats.synergy_bonus;
-        }
+        const giver = live.find((n) => next.get(n.uid)!.some((x) => x.uid === tower.uid));
+        if (giver) tower.synergyFromUid = giver.uid;
+        const len = best.get(tower.uid) ?? 1;
+        tower.synergyChainLength = len;
+        let bonus = 0;
+        if (len >= 4) bonus = SYNERGY_CHAIN4_BONUS;
+        else if (len === 3) bonus = SYNERGY_CHAIN3_BONUS;
+        else if (giver) bonus = SYNERGY_DAMAGE_BONUS;
+        if (bonus > 0) tower.buffDamageMultiplier *= 1 + bonus + extra;
+        if (this.fullCycleActive) tower.buffSpeedMultiplier *= 1 + SYNERGY_FULL_CYCLE_SPEED;
       }
     }
 
