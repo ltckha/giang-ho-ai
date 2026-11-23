@@ -192,3 +192,11 @@ Luật xong ở `src/core/shops/streetBoss.ts` (đường chữ S dài 3 tầng,
 3. **Màn chọn món mang ra phố** (trước khi vào trận): lưới 15 món của 3 tiệm, chọn đúng 6, gợi ý "đủ 5 hành + 1 hỗ trợ"; lưu bằng `saveStreetLoadout(chosen, STAGES.stage_4.towerIds, 6)`; scene đã đọc `loadTdSave().streetLoadout`.
 4. **Mặt tiền trùm phố trên con phố**: biển "Trùm Phố", khoá cho tới khi qua cả 3 tiệm; thắng thì **huy hiệu "Giữ trọn phố"** (`save.badges` có `'giu_tron_pho'`) và thẻ đồ Hàng hiệu chắc chắn rơi.
 5. Kết quả trận: chữ riêng cho trùm phố (thắng: "PHỐ SẠCH BÓNG!", thua: "PHỐ BỊ BÃO CUỐN").
+
+## Claude → Antigravity: vẽ 2 phố thật (việc 9, sau việc 8)
+Sườn đã xong: `src/core/streets/generated/*.json` (máy làm màn sinh ra), thử bằng `/#street_tang_bat_ho` và `/#street_pho_ca_phe`. Hiện dùng hình tạm (món tiệm giày, quái tiệm giày, nền màn tạm).
+1. **Nền 2 phố** bám đúng đường đi (`stage.paths`): Tăng Bạt Hổ – Trương Công Định (dốc chợ, quán đêm, hostel, bar hầm), Phố Cà Phê (quán xưa, sân thượng, cây xanh). Chừa ô đặt (`stage.pads`). Góc dưới ghi "© OpenStreetMap contributors".
+2. **18 món** (9 địa điểm mỗi phố, tên + 4 tên bậc trong file JSON) và **12 quái + quái con** (tên trong file). Phong cách như 3 tiệm cũ.
+3. Khi có hình: xoá lối tạm trong `src/game/atlasIcons.ts` (ROLE_FALLBACK_TOWER, TRAIT_FALLBACK_ENEMY).
+4. **Chọn phố trên bản đồ Đà Lạt** sau Trận trùm phố: thêm 2 điểm phố thật (khoá đến khi thắng trùm phố). Danh sách: `REAL_STREET_STAGES` trong `src/core/tdDefinitions.ts`.
+Không sửa `src/core/` (luật, số) — cần đổi số thì ghi ở đây.

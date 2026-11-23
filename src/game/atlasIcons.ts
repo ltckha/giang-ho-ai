@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import type { GearSlotId } from '../core/equipment';
-import type { ElementType } from '../core/types';
+import type { ElementType, EnemyId, TowerId } from '../core/types';
+import { ALL_ENEMY_DEFINITIONS, ALL_TOWER_DEFINITIONS } from '../core/tdDefinitions';
 
 export const ATLAS_KEY = 'gon_tiem_atlas';
 export const GEAR_ATLAS_KEY = 'gear_atlas';
@@ -78,11 +79,36 @@ export function getTowerTierKey(tier: 1 | 2 | 3, branch?: 'A' | 'B'): string {
   return branch === 'B' ? 't3b' : 't3a';
 }
 
-export function getTowerFrameName(defId: string, tier: 1 | 2 | 3, branch?: 'A' | 'B', frameIdx = 0): string {
-  return `tower_${defId}_${getTowerTierKey(tier, branch)}_f${frameIdx}`;
+/**
+ * HÌNH TẠM (Claude) cho món / quái chưa có hình riêng:
+ * - món phố thật (gt_*) mượn hình món tiệm giày cùng vai; quái phố thật (ge_*) mượn hình quái cùng kiểu;
+ * - trùm phố (st_bao_loc) mượn hình Trùm Mùa Nồm theo hành.
+ * Antigravity thay bằng hình riêng khi vẽ (docs/YEU_CAU.md).
+ */
+const ROLE_FALLBACK_TOWER: Record<string, string> = {
+  single_far: 'wood_tower', heavy_slow: 'metal_tower', slow_aura: 'water_tower', aoe_splash: 'fire_tower', support_buff: 'earth_tower',
+};
+const TRAIT_FALLBACK_ENEMY: Record<string, string> = {
+  fast: 'fast_metal', tank: 'tank_earth', flying: 'fly_wood', splitter: 'split_fire', mini: 'split_fire_mini', disruptor: 'disrupt_water', healer: 'healer_wood', boss: 'fl_monsoon',
+};
+function placeholderTowerId(defId: string): string {
+  if (!defId.startsWith('gt_')) return defId;
+  const role = ALL_TOWER_DEFINITIONS[defId as TowerId]?.role;
+  return (role && ROLE_FALLBACK_TOWER[role]) || 'wood_tower';
+}
+function placeholderEnemyId(enemyId: string): string {
+  if (enemyId === 'st_bao_loc') return 'fl_monsoon';
+  if (!enemyId.startsWith('ge_')) return enemyId;
+  const trait = ALL_ENEMY_DEFINITIONS[enemyId as EnemyId]?.trait;
+  return (trait && TRAIT_FALLBACK_ENEMY[trait]) || 'fast_metal';
 }
 
-export function getEnemyFrameName(enemyId: string, frameIdx = 0, element?: ElementType): string {
+export function getTowerFrameName(defId: string, tier: 1 | 2 | 3, branch?: 'A' | 'B', frameIdx = 0): string {
+  return `tower_${placeholderTowerId(defId)}_${getTowerTierKey(tier, branch)}_f${frameIdx}`;
+}
+
+export function getEnemyFrameName(enemyIdRaw: string, frameIdx = 0, element?: ElementType): string {
+  const enemyId = placeholderEnemyId(enemyIdRaw);
   if (enemyId === 'fl_monsoon' && (element === 'moc' || element === 'kim')) {
     return `enemy_fl_monsoon_${element}_f${frameIdx}`;
   }

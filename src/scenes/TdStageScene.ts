@@ -3,7 +3,7 @@ import { ELEMENT_INFO } from '../core/elements';
 import { getGearBonus, grantStageDrops, loadTdSave, markTutorialDone, saveTdProgress, shouldShowTutorial } from '../core/saveSystem';
 import { RARITY_LABEL, statText, type GearItem } from '../core/equipment';
 import { TutorialController } from '../core/tutorial';
-import { ULTIMATE_COOLDOWN_SEC, ULTIMATE_MIN_STAGE, ULTIMATE_NAMES, ULTIMATE_ROLE_TEXT } from '../core/ultimates';
+import { ULTIMATE_COOLDOWN_SEC, ULTIMATE_MIN_STAGE, ultimateNameFor, ULTIMATE_ROLE_TEXT } from '../core/ultimates';
 import { runBotTurn } from '../core/tdBot';
 import {
   ALL_ENEMY_DEFINITIONS as ENEMY_DEFINITIONS,
@@ -244,7 +244,7 @@ export class TdStageScene extends Phaser.Scene {
 
     // Trang bị chủ tiệm đang mặc (lưu trên máy)
     this.engine = new TowerDefenseEngine(STAGES[stageId], { gear: getGearBonus(loadTdSave()), loadout: loadTdSave().streetLoadout });
-    music.setTrack(stageId === 'stage_4' ? 'boss' : stageId);
+    music.setTrack(stageId === 'stage_1' || stageId === 'stage_2' || stageId === 'stage_3' ? stageId : stageId === 'stage_4' ? 'boss' : 'stage_1');
     this.lastDrops = [];
     this.speedMultiplier = isVideoMode ? 2 : 1;
     this.paused = false;
@@ -609,7 +609,10 @@ export class TdStageScene extends Phaser.Scene {
       const hasBoss = this.engine.enemies.some(
         (e) => e.defId === 'fl_monsoon' || e.defId === 'boss_water' || e.defId === 'st_bao_loc',
       );
-      music.setTrack(hasBoss || this.engine.stage.id === 'stage_4' ? 'boss' : this.engine.stage.id);
+      {
+        const sid = this.engine.stage.id;
+        music.setTrack(hasBoss || sid === 'stage_4' ? 'boss' : sid === 'stage_1' || sid === 'stage_2' || sid === 'stage_3' ? sid : 'stage_1');
+      }
     }
 
     if (this.engine.status !== 'playing' && !this.resultShown) {
@@ -1319,7 +1322,7 @@ export class TdStageScene extends Phaser.Scene {
         const el = ev.element ?? def?.element ?? 'hoa';
         const elInfo = ELEMENT_INFO[el];
         const radiusPx = Math.max(48, (ev.splashRadius ?? 95) * this.mapScale);
-        const ultTitle = ev.text ?? (ev.towerDefId ? ULTIMATE_NAMES[ev.towerDefId] : 'Tuyệt chiêu');
+        const ultTitle = ev.text ?? (ev.towerDefId ? ultimateNameFor(ev.towerDefId, TOWER_DEFINITIONS[ev.towerDefId]?.ultimateName) : 'Tuyệt chiêu');
 
         sound.playUltimate(role);
 
@@ -2807,7 +2810,7 @@ export class TdStageScene extends Phaser.Scene {
         const cdSec = Math.ceil(cdRem);
         const maxCd = Math.max(cdRem, this.towerUltMaxCd.get(tower.uid) ?? ULTIMATE_COOLDOWN_SEC);
         const ratio = cdRem > 0 ? Math.max(0, Math.min(1, 1 - cdRem / maxCd)) : 1;
-        const ultName = ULTIMATE_NAMES[tower.defId];
+        const ultName = ultimateNameFor(tower.defId, TOWER_DEFINITIONS[tower.defId]?.ultimateName);
         const elInfo = ELEMENT_INFO[tower.element];
 
         let btn = this.floatingUltEls.get(tower.padId);
@@ -3043,7 +3046,7 @@ export class TdStageScene extends Phaser.Scene {
         `;
       } else {
         // Bậc 4 tuyệt chiêu — mở từ Màn 2
-        const ultName = ULTIMATE_NAMES[existingTower.defId];
+        const ultName = ultimateNameFor(existingTower.defId, TOWER_DEFINITIONS[existingTower.defId]?.ultimateName);
         const ultText = ULTIMATE_ROLE_TEXT[def.role];
         const roleEmblem: Record<TowerRole, string> = {
           single_far: '⚡',

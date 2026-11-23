@@ -9,6 +9,7 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
+    "make:street": "esbuild tools/level-maker/make-street.ts --bundle --platform=node --log-level=warning --outfile=node_modules/.cache/make-street.cjs && node node_modules/.cache/make-street.cjs",
     "test:watch": "vitest",
     "test:e2e": "npm run build && playwright test"
   },

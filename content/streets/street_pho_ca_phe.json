@@ -1,0 +1,40 @@
+{
+  "id": "street_pho_ca_phe",
+  "name": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành",
+  "subtitle": "Con đường cà phê lên Khu Hoà Bình: quán xưa cạnh quán mới, kem bơ, sân thượng nhìn phố",
+  "geometry": "pho_ca_phe",
+  "waves": 11,
+  "startingEssence": 210,
+  "startingLives": 20,
+  "loadoutSize": 6,
+  "difficulty": { "gearTier": "after_street_1", "targetRandomWin": 0.33 },
+  "researchNote": "docs/research/2026-11-23_pho_that_dia_diem.md",
+  "places": [
+    { "key": "cafe_som", "name": "Cà Phê Sớm Mai", "type": "Quán cà phê truyền thống mở từ 5 giờ", "trait": "vài bàn nhỏ, phin nhôm",
+      "tower": { "element": "thuy", "role": "slow_aura", "names": ["Phin Nhôm", "Phin Đôi Sớm", "Ấm Nước Sôi Đầu Ngày", "Phin Nhỏ Giọt Chậm"], "ult": "Giọt Đắng Đầu Ngày", "why": "Nước pha dập khói rang khét" } },
+    { "key": "o_long", "name": "Tiệm Trà Đồi Chè", "type": "Tiệm trà ô long ủ lạnh", "trait": "trà ô long ủ lạnh",
+      "tower": { "element": "moc", "role": "support_buff", "names": ["Ấm Ô Long", "Bình Ủ Lạnh", "Khay Trà Gỗ", "Vườn Chè Trên Kệ"], "ult": "Hương Ô Long Lan Toả", "why": "Hương lá trà và gió nhẹ thổi bay bụi" } },
+    { "key": "kem_ly", "name": "Cà Phê Kem Cỏ Hồng", "type": "Quán cà phê, kem ly", "trait": "ly kem nhiều tầng",
+      "tower": { "element": "thuy", "role": "single_far", "names": ["Muỗng Kem", "Ly Kem Ba Tầng", "Ly Kem Dừa", "Que Kem Lạnh Buốt"], "ult": "Mưa Kem Tuyết", "why": "Kem lạnh dập cái nóng khét" } },
+    { "key": "banh_mi_chao", "name": "Cà Phê Bánh Mì Chảo Hồ Sương", "type": "Quán cà phê có bánh mì chảo buổi sáng", "trait": "chảo gang nóng",
+      "tower": { "element": "hoa", "role": "aoe_splash", "names": ["Chảo Gang Nóng", "Chảo Gang Đôi", "Bếp Ga Lửa Lớn", "Chảo Ốp La Xèo Xèo"], "ult": "Xèo Một Chảo To", "why": "Hơi nóng chảo gang hun mọt" } },
+    { "key": "retro", "name": "Cà Phê Hoài Cổ Bằng Lăng", "type": "Quán cà phê retro đồ cũ thập niên 90", "trait": "máy hát, đồ cũ",
+      "tower": { "element": "kim", "role": "heavy_slow", "names": ["Máy Hát Đĩa Than", "Loa Kèn Đồng", "Radio Cassette", "Tủ Đồ Cổ Sắt"], "ult": "Bản Nhạc Ngày Xưa", "why": "Đồ sắt nặng đè bẹp kiến mốc" } },
+    { "key": "kem_bo", "name": "Quán Kem Bơ Mai Anh Đào", "type": "Quán cà phê, kem bơ", "trait": "ly kem bơ, mở từ sáng sớm",
+      "tower": { "element": "moc", "role": "single_far", "names": ["Muỗng Kem Bơ", "Ly Kem Bơ Đầy", "Trái Bơ Sáp", "Ly Kem Bơ Sầu Riêng"], "ult": "Bơ Dầm Cả Mẻ", "why": "Trái bơ (Mộc) chặn bụi đất" } },
+    { "key": "cafe_xua", "name": "Cà Phê Xưa Cúc Hoạ Mi", "type": "Quán cà phê xưa, ghế gỗ, nhạc Trịnh", "trait": "ghế gỗ cũ, nhạc Trịnh",
+      "tower": { "element": "tho", "role": "heavy_slow", "names": ["Ấm Sành Pha Cà Phê", "Hũ Sành Ủ Hạt", "Bộ Tách Gốm Cũ", "Lò Than Hâm Cà Phê"], "ult": "Ngồi Lặng Nghe Nhạc", "why": "Đồ sành khô ráo hút sạch hơi ẩm" } },
+    { "key": "san_thuong", "name": "Cà Phê Sân Thượng Thông Xanh", "type": "Quán cà phê sân thượng nhìn xuống phố", "trait": "nhìn xuống chợ và hồ",
+      "tower": { "element": "kim", "role": "aoe_splash", "names": ["Chuông Gió Đồng", "Chuông Gió Ba Tầng", "Lan Can Sắt Sân Thượng", "Chuông Đồng Ngân Vang"], "ult": "Gió Lộng Sân Thượng", "why": "Tiếng chuông đồng vang làm kiến mốc tản đi" } },
+    { "key": "banh_trung", "name": "Tiệm Bánh Trứng Mimosa", "type": "Tiệm kem, bánh trứng nướng", "trait": "bánh trứng nướng kèm kem",
+      "tower": { "element": "hoa", "role": "single_far", "names": ["Khuôn Bánh Trứng", "Khay Bánh Trứng", "Lò Nướng Mini", "Bánh Trứng Nóng Giòn"], "ult": "Nướng Một Lò Đầy", "why": "Khuôn nóng xua mọt hạt" } }
+  ],
+  "pests": [
+    { "name": "Hơi Ẩm Hạt Cà Phê", "element": "thuy", "trait": "fast", "reason": "Sương hồ làm hạt mất mùi" },
+    { "name": "Bụi Chợ Đêm", "element": "tho", "trait": "tank", "reason": "Bụi từ chợ đêm bay lên dốc" },
+    { "name": "Khói Rang Khét", "element": "hoa", "trait": "flying", "reason": "Rang quá lửa, khói bay khắp quán" },
+    { "name": "Đàn Kiến Bu Đường", "element": "moc", "trait": "splitter", "reason": "Kiến bu hũ đường, đập ra lại tản đàn" },
+    { "name": "Mọt Hạt", "element": "kim", "trait": "disruptor", "reason": "Mọt đục hạt trong kho" },
+    { "name": "Mốc Bao Hạt", "element": "moc", "trait": "healer", "reason": "Bao hạt để ẩm là lên mốc" }
+  ]
+}

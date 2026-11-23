@@ -300,3 +300,9 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Mở khi qua Tiệm Hoa (`unlockedStage` 4). Thắng: huy hiệu "Giữ trọn phố" + 1 món Hàng hiệu chắc chắn.
 - Cân bằng **tính cả đồ** (anh Kha chốt độ khó tăng dần): với ~8 món ngẫu nhiên sau 3 tiệm — đặt kín ô bừa thắng 71/150, 200 kế hoạch thua 163 (~81%), vẫn có 3 sao; không đồ — chỉ xếp tốt mới thắng (bot còn 4/20). Script: docs/review/sim_streetboss_gear.ts.
 - `npm test` 50/50, e2e 12/12; chơi thử điện thoại không lỗi (hình tạm).
+
+## 23/11/2026 — Phố thật + máy làm màn (Claude)
+- Máy làm màn: `content/streets/*.json` (địa điểm, món, quái) → `npm run make:street` → tự tạo món/quái/đợt, tự cân máu quái bằng mô phỏng có đồ thực tế → `src/core/streets/generated/`.
+- 2 phố theo hình đường OpenStreetMap: Tăng Bạt Hổ – Trương Công Định (máu ×1.3, đặt bừa thắng 25%, tính kỹ còn ~14/20) và Phố Cà Phê (×1.0, 23%, ~14/20). Tên địa điểm theo phong cách "loại + hoa/cảnh Đà Lạt", không nhái tên quán thật. Ghi chép: docs/research/2026-11-23_pho_that_dia_diem.md.
+- Hướng dẫn làm phố mới: `.claude/agents/level-designer.md`.
+- `npm test` 59/59, e2e 12/12, chơi thử 2 phố bằng bot không lỗi (hình tạm).

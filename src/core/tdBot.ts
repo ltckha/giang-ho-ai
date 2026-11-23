@@ -28,14 +28,14 @@ const STAGE_1_PLAN: BotPlanItem[] = [
 
 export function runBotTurn(engine: TowerDefenseEngine): void {
   if (engine.status !== 'playing') return;
-  const STAGE_PLAN: BotPlanItem[] =
+  const STAGE_PLAN: BotPlanItem[] = engine.stage.botPlan ?? (
     engine.stage.id === 'stage_2'
       ? STAGE_2_BOT_PLAN
       : engine.stage.id === 'stage_3'
         ? STAGE_3_BOT_PLAN
         : engine.stage.id === 'stage_4'
           ? STAGE_4_BOT_PLAN
-          : STAGE_1_PLAN;
+          : STAGE_1_PLAN);
 
   // 1. Ưu tiên đặt đủ 5 loại món giữ tiệm (5 hành) trước
   for (const item of STAGE_PLAN.slice(0, 5)) {

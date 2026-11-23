@@ -13,6 +13,7 @@ import type {
 import { BAKERY_ENEMIES, BAKERY_TOWERS, STAGE_2_DEFINITION } from './shops/bakery';
 import { FLOWER_ENEMIES, FLOWER_TOWERS, STAGE_3_DEFINITION } from './shops/flower';
 import { STAGE_4_DEFINITION, STREET_BOSS_ENEMIES } from './shops/streetBoss';
+import { GENERATED_STREETS } from './streets/generated';
 import type { EnemyId } from './types';
 
 export const SELL_REFUND_RATE = 0.7;
@@ -737,3 +738,13 @@ export const STAGES: Record<import('./types').StageId, StageDefinition> = {
   stage_3: STAGE_3_DEFINITION,
   stage_4: STAGE_4_DEFINITION,
 };
+
+/* ---- Phố thật do máy làm màn sinh ra (tools/level-maker) ---- */
+for (const gs of GENERATED_STREETS) {
+  Object.assign(ALL_TOWER_DEFINITIONS, gs.towers);
+  Object.assign(ALL_ENEMY_DEFINITIONS, gs.enemies);
+  STAGES[gs.stage.id] = gs.stage;
+}
+
+/** Danh sách phố thật (để màn chọn phố hiển thị) */
+export const REAL_STREET_STAGES: StageDefinition[] = GENERATED_STREETS.map((g) => g.stage);

@@ -1,0 +1,1198 @@
+{
+ "generatedBy": "tools/level-maker/make-street.ts",
+ "hpMultiplier": 1,
+ "balance": {
+  "randomWinWithExpectedGear": 0.22916666666666666,
+  "botWinRate": 1,
+  "botLivesAvg": 14,
+  "gearTier": "after_street_1"
+ },
+ "stage": {
+  "id": "street_pho_ca_phe",
+  "stageNumber": 10,
+  "name": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành",
+  "subtitle": "Con đường cà phê lên Khu Hoà Bình: quán xưa cạnh quán mới, kem bơ, sân thượng nhìn phố",
+  "startingEssence": 210,
+  "startingLives": 20,
+  "paths": [
+   [
+    {
+     "x": 321,
+     "y": 33
+    },
+    {
+     "x": 321,
+     "y": 88
+    },
+    {
+     "x": 312,
+     "y": 105
+    },
+    {
+     "x": 293,
+     "y": 117
+    },
+    {
+     "x": 272,
+     "y": 118
+    },
+    {
+     "x": 251,
+     "y": 111
+    },
+    {
+     "x": 225,
+     "y": 121
+    },
+    {
+     "x": 131,
+     "y": 223
+    },
+    {
+     "x": 106,
+     "y": 261
+    },
+    {
+     "x": 111,
+     "y": 291
+    },
+    {
+     "x": 125,
+     "y": 318
+    },
+    {
+     "x": 256,
+     "y": 423
+    },
+    {
+     "x": 278,
+     "y": 457
+    },
+    {
+     "x": 174,
+     "y": 399
+    },
+    {
+     "x": 68,
+     "y": 308
+    },
+    {
+     "x": 56,
+     "y": 301
+    },
+    {
+     "x": 30,
+     "y": 296
+    }
+   ],
+   [
+    {
+     "x": 330,
+     "y": 487
+    },
+    {
+     "x": 305,
+     "y": 468
+    },
+    {
+     "x": 174,
+     "y": 399
+    },
+    {
+     "x": 68,
+     "y": 308
+    },
+    {
+     "x": 56,
+     "y": 301
+    },
+    {
+     "x": 30,
+     "y": 296
+    }
+   ]
+  ],
+  "pads": [
+   {
+    "id": "pad_1",
+    "x": 150,
+    "y": 282
+   },
+   {
+    "id": "pad_2",
+    "x": 90,
+    "y": 378
+   },
+   {
+    "id": "pad_3",
+    "x": 66,
+    "y": 246
+   },
+   {
+    "id": "pad_4",
+    "x": 30,
+    "y": 342
+   },
+   {
+    "id": "pad_5",
+    "x": 222,
+    "y": 78
+   },
+   {
+    "id": "pad_6",
+    "x": 282,
+    "y": 54
+   },
+   {
+    "id": "pad_7",
+    "x": 270,
+    "y": 162
+   },
+   {
+    "id": "pad_8",
+    "x": 210,
+    "y": 330
+   },
+   {
+    "id": "pad_9",
+    "x": 222,
+    "y": 474
+   },
+   {
+    "id": "pad_10",
+    "x": 282,
+    "y": 390
+   },
+   {
+    "id": "pad_11",
+    "x": 162,
+    "y": 438
+   }
+  ],
+  "waves": [
+   {
+    "waveNumber": 1,
+    "title": "Đợt 1: Hơi Ẩm Hạt Cà Phê",
+    "mainElements": [
+     "thuy"
+    ],
+    "earlyBonusMax": 12,
+    "clearReward": 14,
+    "groups": [
+     {
+      "enemyId": "ge_pho_ca_phe_1",
+      "count": 6,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 1
+     }
+    ]
+   },
+   {
+    "waveNumber": 2,
+    "title": "Đợt 2: Bụi Chợ Đêm",
+    "mainElements": [
+     "tho"
+    ],
+    "earlyBonusMax": 13,
+    "clearReward": 14,
+    "groups": [
+     {
+      "enemyId": "ge_pho_ca_phe_2",
+      "count": 2,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 1.15
+     }
+    ]
+   },
+   {
+    "waveNumber": 3,
+    "title": "Đợt 3: Khói Rang Khét & Bụi Chợ Đêm",
+    "mainElements": [
+     "hoa",
+     "tho"
+    ],
+    "earlyBonusMax": 14,
+    "clearReward": 15,
+    "groups": [
+     {
+      "enemyId": "ge_pho_ca_phe_3",
+      "count": 4,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 1.3
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_2",
+      "count": 2,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 1.3
+     }
+    ]
+   },
+   {
+    "waveNumber": 4,
+    "title": "Đợt 4: Hơi Ẩm Hạt Cà Phê & Khói Rang Khét",
+    "mainElements": [
+     "thuy",
+     "hoa"
+    ],
+    "earlyBonusMax": 15,
+    "clearReward": 15,
+    "groups": [
+     {
+      "enemyId": "ge_pho_ca_phe_1",
+      "count": 7,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 1.45
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_3",
+      "count": 5,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 1.45
+     }
+    ]
+   },
+   {
+    "waveNumber": 5,
+    "title": "Đợt 5: Hơi Ẩm Hạt Cà Phê & Khói Rang Khét",
+    "mainElements": [
+     "thuy",
+     "hoa"
+    ],
+    "earlyBonusMax": 16,
+    "clearReward": 16,
+    "groups": [
+     {
+      "enemyId": "ge_pho_ca_phe_1",
+      "count": 8,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 1.7
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_3",
+      "count": 5,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 1.7
+     }
+    ]
+   },
+   {
+    "waveNumber": 6,
+    "title": "Đợt 6: Hơi Ẩm Hạt Cà Phê & Khói Rang Khét & Mọt Hạt",
+    "mainElements": [
+     "thuy",
+     "hoa",
+     "kim"
+    ],
+    "earlyBonusMax": 17,
+    "clearReward": 16,
+    "groups": [
+     {
+      "enemyId": "ge_pho_ca_phe_1",
+      "count": 8,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 2
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_3",
+      "count": 5,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 2
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_5",
+      "count": 3,
+      "intervalSec": 1.8,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 2
+     }
+    ]
+   },
+   {
+    "waveNumber": 7,
+    "title": "Đợt 7: Bụi Chợ Đêm & Đàn Kiến Bu Đường & Hơi Ẩm Hạt Cà Phê",
+    "mainElements": [
+     "tho",
+     "moc",
+     "thuy"
+    ],
+    "earlyBonusMax": 18,
+    "clearReward": 17,
+    "groups": [
+     {
+      "enemyId": "ge_pho_ca_phe_2",
+      "count": 4,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 2.4
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_4",
+      "count": 5,
+      "intervalSec": 1.2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 2.4
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_1",
+      "count": 9,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 2.4
+     }
+    ]
+   },
+   {
+    "waveNumber": 8,
+    "title": "Đợt 8: Bụi Chợ Đêm & Đàn Kiến Bu Đường & Mốc Bao Hạt",
+    "mainElements": [
+     "tho",
+     "moc"
+    ],
+    "earlyBonusMax": 19,
+    "clearReward": 17,
+    "groups": [
+     {
+      "enemyId": "ge_pho_ca_phe_2",
+      "count": 4,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 2.8
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_4",
+      "count": 5,
+      "intervalSec": 1.2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 2.8
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_6",
+      "count": 2,
+      "intervalSec": 2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 2.8
+     }
+    ]
+   },
+   {
+    "waveNumber": 9,
+    "title": "Đợt 9: Khói Rang Khét & Mọt Hạt & Hơi Ẩm Hạt Cà Phê",
+    "mainElements": [
+     "hoa",
+     "kim",
+     "thuy"
+    ],
+    "earlyBonusMax": 20,
+    "clearReward": 18,
+    "groups": [
+     {
+      "enemyId": "ge_pho_ca_phe_3",
+      "count": 6,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 3.2
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_5",
+      "count": 4,
+      "intervalSec": 1.8,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 3.2
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_1",
+      "count": 10,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 3.2
+     }
+    ]
+   },
+   {
+    "waveNumber": 10,
+    "title": "Đợt 10: Đàn Kiến Bu Đường & Mốc Bao Hạt & Bụi Chợ Đêm",
+    "mainElements": [
+     "moc",
+     "tho"
+    ],
+    "earlyBonusMax": 21,
+    "clearReward": 18,
+    "groups": [
+     {
+      "enemyId": "ge_pho_ca_phe_4",
+      "count": 6,
+      "intervalSec": 1.2,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 3.6
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_6",
+      "count": 3,
+      "intervalSec": 2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 3.6
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_2",
+      "count": 5,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 3.6
+     }
+    ]
+   },
+   {
+    "waveNumber": 11,
+    "title": "Đợt 11: Giờ cao điểm cả phố",
+    "mainElements": [
+     "thuy",
+     "tho",
+     "hoa",
+     "moc",
+     "kim"
+    ],
+    "earlyBonusMax": 0,
+    "clearReward": 0,
+    "groups": [
+     {
+      "enemyId": "ge_pho_ca_phe_1",
+      "count": 11,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 4
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_2",
+      "count": 5,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 4
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_3",
+      "count": 7,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 4
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_4",
+      "count": 6,
+      "intervalSec": 1.2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 4
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_5",
+      "count": 4,
+      "intervalSec": 1.8,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 4
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_6",
+      "count": 3,
+      "intervalSec": 2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 4
+     }
+    ]
+   }
+  ],
+  "towerIds": [
+   "gt_pho_ca_phe_cafe_som",
+   "gt_pho_ca_phe_o_long",
+   "gt_pho_ca_phe_kem_ly",
+   "gt_pho_ca_phe_banh_mi_chao",
+   "gt_pho_ca_phe_retro",
+   "gt_pho_ca_phe_kem_bo",
+   "gt_pho_ca_phe_cafe_xua",
+   "gt_pho_ca_phe_san_thuong",
+   "gt_pho_ca_phe_banh_trung"
+  ],
+  "loadoutSize": 6,
+  "defaultLoadout": [
+   "gt_pho_ca_phe_retro",
+   "gt_pho_ca_phe_o_long",
+   "gt_pho_ca_phe_cafe_som",
+   "gt_pho_ca_phe_banh_mi_chao",
+   "gt_pho_ca_phe_cafe_xua",
+   "gt_pho_ca_phe_san_thuong"
+  ],
+  "enableSynergy": true,
+  "attribution": "© OpenStreetMap contributors (ODbL)",
+  "places": [
+   {
+    "key": "cafe_som",
+    "name": "Cà Phê Sớm Mai",
+    "type": "Quán cà phê truyền thống mở từ 5 giờ",
+    "trait": "vài bàn nhỏ, phin nhôm",
+    "towerId": "gt_pho_ca_phe_cafe_som"
+   },
+   {
+    "key": "o_long",
+    "name": "Tiệm Trà Đồi Chè",
+    "type": "Tiệm trà ô long ủ lạnh",
+    "trait": "trà ô long ủ lạnh",
+    "towerId": "gt_pho_ca_phe_o_long"
+   },
+   {
+    "key": "kem_ly",
+    "name": "Cà Phê Kem Cỏ Hồng",
+    "type": "Quán cà phê, kem ly",
+    "trait": "ly kem nhiều tầng",
+    "towerId": "gt_pho_ca_phe_kem_ly"
+   },
+   {
+    "key": "banh_mi_chao",
+    "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
+    "type": "Quán cà phê có bánh mì chảo buổi sáng",
+    "trait": "chảo gang nóng",
+    "towerId": "gt_pho_ca_phe_banh_mi_chao"
+   },
+   {
+    "key": "retro",
+    "name": "Cà Phê Hoài Cổ Bằng Lăng",
+    "type": "Quán cà phê retro đồ cũ thập niên 90",
+    "trait": "máy hát, đồ cũ",
+    "towerId": "gt_pho_ca_phe_retro"
+   },
+   {
+    "key": "kem_bo",
+    "name": "Quán Kem Bơ Mai Anh Đào",
+    "type": "Quán cà phê, kem bơ",
+    "trait": "ly kem bơ, mở từ sáng sớm",
+    "towerId": "gt_pho_ca_phe_kem_bo"
+   },
+   {
+    "key": "cafe_xua",
+    "name": "Cà Phê Xưa Cúc Hoạ Mi",
+    "type": "Quán cà phê xưa, ghế gỗ, nhạc Trịnh",
+    "trait": "ghế gỗ cũ, nhạc Trịnh",
+    "towerId": "gt_pho_ca_phe_cafe_xua"
+   },
+   {
+    "key": "san_thuong",
+    "name": "Cà Phê Sân Thượng Thông Xanh",
+    "type": "Quán cà phê sân thượng nhìn xuống phố",
+    "trait": "nhìn xuống chợ và hồ",
+    "towerId": "gt_pho_ca_phe_san_thuong"
+   },
+   {
+    "key": "banh_trung",
+    "name": "Tiệm Bánh Trứng Mimosa",
+    "type": "Tiệm kem, bánh trứng nướng",
+    "trait": "bánh trứng nướng kèm kem",
+    "towerId": "gt_pho_ca_phe_banh_trung"
+   }
+  ],
+  "botPlan": [
+   {
+    "padId": "pad_1",
+    "defId": "gt_pho_ca_phe_retro",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_2",
+    "defId": "gt_pho_ca_phe_cafe_som",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_3",
+    "defId": "gt_pho_ca_phe_o_long",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_4",
+    "defId": "gt_pho_ca_phe_cafe_xua",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_5",
+    "defId": "gt_pho_ca_phe_san_thuong",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_6",
+    "defId": "gt_pho_ca_phe_retro",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_7",
+    "defId": "gt_pho_ca_phe_cafe_som",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_8",
+    "defId": "gt_pho_ca_phe_banh_mi_chao",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_9",
+    "defId": "gt_pho_ca_phe_cafe_xua",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_10",
+    "defId": "gt_pho_ca_phe_san_thuong",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_11",
+    "defId": "gt_pho_ca_phe_retro",
+    "preferredBranch": "A"
+   }
+  ]
+ },
+ "towers": {
+  "gt_pho_ca_phe_cafe_som": {
+   "id": "gt_pho_ca_phe_cafe_som",
+   "element": "thuy",
+   "role": "slow_aura",
+   "roleLabel": "Phun sương làm chậm",
+   "ultimateName": "Giọt Đắng Đầu Ngày",
+   "tier1": {
+    "name": "Phin Nhôm",
+    "cost": 60,
+    "damage": 15,
+    "range": 102,
+    "cooldownSec": 0.92,
+    "splashRadius": 50,
+    "slowPercent": 0.34,
+    "slowDurationSec": 2.2,
+    "description": "Cà Phê Sớm Mai: vài bàn nhỏ, phin nhôm. Khắc Hỏa: Nước pha dập khói rang khét."
+   },
+   "tier2": {
+    "name": "Phin Đôi Sớm",
+    "cost": 75,
+    "damage": 26,
+    "range": 110,
+    "cooldownSec": 0.84,
+    "splashRadius": 58,
+    "slowPercent": 0.45,
+    "slowDurationSec": 2.6,
+    "description": "Phin Đôi Sớm: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Ấm Nước Sôi Đầu Ngày",
+    "cost": 105,
+    "damage": 44,
+    "range": 118,
+    "cooldownSec": 0.78,
+    "splashRadius": 64,
+    "slowPercent": 0.54,
+    "slowDurationSec": 2.8,
+    "stunDurationSec": 1,
+    "description": "Làm chậm 54% và mỗi phát xịt thứ 3 phủ bọt mát giữ chân quái 1.0s."
+   },
+   "tier3B": {
+    "name": "Phin Nhỏ Giọt Chậm",
+    "cost": 105,
+    "damage": 38,
+    "range": 116,
+    "cooldownSec": 0.8,
+    "splashRadius": 72,
+    "slowPercent": 0.48,
+    "slowDurationSec": 2.7,
+    "knockbackDist": 14,
+    "description": "Luồng phun xoáy rộng làm chậm 48% và đẩy lùi nhẹ bầy quái."
+   }
+  },
+  "gt_pho_ca_phe_o_long": {
+   "id": "gt_pho_ca_phe_o_long",
+   "element": "moc",
+   "role": "support_buff",
+   "roleLabel": "Hỗ trợ sấy khỏe & xua chuột",
+   "ultimateName": "Hương Ô Long Lan Toả",
+   "tier1": {
+    "name": "Ấm Ô Long",
+    "cost": 55,
+    "damage": 13,
+    "range": 108,
+    "cooldownSec": 1.25,
+    "buffDamagePct": 0.18,
+    "buffSpeedPct": 0.14,
+    "buffRangePct": 0.06,
+    "cleanseDisrupt": true,
+    "description": "Tiệm Trà Đồi Chè: trà ô long ủ lạnh. Khắc Thổ: Hương lá trà và gió nhẹ thổi bay bụi."
+   },
+   "tier2": {
+    "name": "Bình Ủ Lạnh",
+    "cost": 70,
+    "damage": 22,
+    "range": 120,
+    "cooldownSec": 1.1,
+    "buffDamagePct": 0.26,
+    "buffSpeedPct": 0.2,
+    "buffRangePct": 0.1,
+    "cleanseDisrupt": true,
+    "description": "Bình Ủ Lạnh: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Khay Trà Gỗ",
+    "cost": 95,
+    "damage": 36,
+    "range": 132,
+    "cooldownSec": 1,
+    "buffDamagePct": 0.3,
+    "buffSpeedPct": 0.22,
+    "buffRangePct": 0.12,
+    "cleanseDisrupt": true,
+    "bonusKillReward": 2,
+    "description": "Bảo hộ món quanh máy không bị chuột gặm đứng im & thưởng +2 xu mỗi quái dọn được."
+   },
+   "tier3B": {
+    "name": "Vườn Chè Trên Kệ",
+    "cost": 100,
+    "damage": 42,
+    "range": 136,
+    "cooldownSec": 0.95,
+    "buffDamagePct": 0.4,
+    "buffSpeedPct": 0.3,
+    "buffRangePct": 0.16,
+    "cleanseDisrupt": true,
+    "description": "Cộng hưởng nhiệt mạnh: tăng 40% sức, 30% tốc đánh và 16% tầm cho món cạnh bên."
+   }
+  },
+  "gt_pho_ca_phe_kem_ly": {
+   "id": "gt_pho_ca_phe_kem_ly",
+   "element": "thuy",
+   "role": "single_far",
+   "roleLabel": "Ném nhanh 1 con tầm xa",
+   "ultimateName": "Mưa Kem Tuyết",
+   "tier1": {
+    "name": "Muỗng Kem",
+    "cost": 55,
+    "damage": 19,
+    "range": 122,
+    "cooldownSec": 0.74,
+    "description": "Cà Phê Kem Cỏ Hồng: ly kem nhiều tầng. Khắc Hỏa: Kem lạnh dập cái nóng khét."
+   },
+   "tier2": {
+    "name": "Ly Kem Ba Tầng",
+    "cost": 70,
+    "damage": 32,
+    "range": 134,
+    "cooldownSec": 0.62,
+    "description": "Ly Kem Ba Tầng: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Ly Kem Dừa",
+    "cost": 105,
+    "damage": 46,
+    "range": 144,
+    "cooldownSec": 0.48,
+    "pierceCount": 2,
+    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+   },
+   "tier3B": {
+    "name": "Que Kem Lạnh Buốt",
+    "cost": 105,
+    "damage": 42,
+    "range": 140,
+    "cooldownSec": 0.54,
+    "burnDps": 18,
+    "burnDurationSec": 3,
+    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+   }
+  },
+  "gt_pho_ca_phe_banh_mi_chao": {
+   "id": "gt_pho_ca_phe_banh_mi_chao",
+   "element": "hoa",
+   "role": "aoe_splash",
+   "roleLabel": "Quăng gói hút ẩm đánh lan",
+   "ultimateName": "Xèo Một Chảo To",
+   "tier1": {
+    "name": "Chảo Gang Nóng",
+    "cost": 65,
+    "damage": 27,
+    "range": 102,
+    "cooldownSec": 1.15,
+    "splashRadius": 54,
+    "description": "Cà Phê Bánh Mì Chảo Hồ Sương: chảo gang nóng. Khắc Kim: Hơi nóng chảo gang hun mọt."
+   },
+   "tier2": {
+    "name": "Chảo Gang Đôi",
+    "cost": 80,
+    "damage": 46,
+    "range": 112,
+    "cooldownSec": 1.04,
+    "splashRadius": 64,
+    "description": "Chảo Gang Đôi: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Bếp Ga Lửa Lớn",
+    "cost": 115,
+    "damage": 66,
+    "range": 118,
+    "cooldownSec": 0.96,
+    "splashRadius": 72,
+    "burnDps": 22,
+    "burnDurationSec": 3,
+    "description": "Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s."
+   },
+   "tier3B": {
+    "name": "Chảo Ốp La Xèo Xèo",
+    "cost": 115,
+    "damage": 84,
+    "range": 120,
+    "cooldownSec": 0.94,
+    "splashRadius": 80,
+    "description": "Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao."
+   }
+  },
+  "gt_pho_ca_phe_retro": {
+   "id": "gt_pho_ca_phe_retro",
+   "element": "kim",
+   "role": "heavy_slow",
+   "roleLabel": "Đạp mạnh, chậm, xuyên vỏ",
+   "ultimateName": "Bản Nhạc Ngày Xưa",
+   "tier1": {
+    "name": "Máy Hát Đĩa Than",
+    "cost": 70,
+    "damage": 54,
+    "range": 100,
+    "cooldownSec": 1.32,
+    "description": "Cà Phê Hoài Cổ Bằng Lăng: máy hát, đồ cũ. Khắc Mộc: Đồ sắt nặng đè bẹp kiến mốc."
+   },
+   "tier2": {
+    "name": "Loa Kèn Đồng",
+    "cost": 85,
+    "damage": 92,
+    "range": 108,
+    "cooldownSec": 1.18,
+    "description": "Loa Kèn Đồng: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Radio Cassette",
+    "cost": 120,
+    "damage": 152,
+    "range": 115,
+    "cooldownSec": 1.08,
+    "stunDurationSec": 0.6,
+    "description": "Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày."
+   },
+   "tier3B": {
+    "name": "Tủ Đồ Cổ Sắt",
+    "cost": 115,
+    "damage": 115,
+    "range": 122,
+    "cooldownSec": 1,
+    "pierceCount": 3,
+    "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
+   }
+  },
+  "gt_pho_ca_phe_kem_bo": {
+   "id": "gt_pho_ca_phe_kem_bo",
+   "element": "moc",
+   "role": "single_far",
+   "roleLabel": "Ném nhanh 1 con tầm xa",
+   "ultimateName": "Bơ Dầm Cả Mẻ",
+   "tier1": {
+    "name": "Muỗng Kem Bơ",
+    "cost": 55,
+    "damage": 19,
+    "range": 122,
+    "cooldownSec": 0.74,
+    "description": "Quán Kem Bơ Mai Anh Đào: ly kem bơ, mở từ sáng sớm. Khắc Thổ: Trái bơ (Mộc) chặn bụi đất."
+   },
+   "tier2": {
+    "name": "Ly Kem Bơ Đầy",
+    "cost": 70,
+    "damage": 32,
+    "range": 134,
+    "cooldownSec": 0.62,
+    "description": "Ly Kem Bơ Đầy: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Trái Bơ Sáp",
+    "cost": 105,
+    "damage": 46,
+    "range": 144,
+    "cooldownSec": 0.48,
+    "pierceCount": 2,
+    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+   },
+   "tier3B": {
+    "name": "Ly Kem Bơ Sầu Riêng",
+    "cost": 105,
+    "damage": 42,
+    "range": 140,
+    "cooldownSec": 0.54,
+    "burnDps": 18,
+    "burnDurationSec": 3,
+    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+   }
+  },
+  "gt_pho_ca_phe_cafe_xua": {
+   "id": "gt_pho_ca_phe_cafe_xua",
+   "element": "tho",
+   "role": "heavy_slow",
+   "roleLabel": "Đạp mạnh, chậm, xuyên vỏ",
+   "ultimateName": "Ngồi Lặng Nghe Nhạc",
+   "tier1": {
+    "name": "Ấm Sành Pha Cà Phê",
+    "cost": 70,
+    "damage": 54,
+    "range": 100,
+    "cooldownSec": 1.32,
+    "description": "Cà Phê Xưa Cúc Hoạ Mi: ghế gỗ cũ, nhạc Trịnh. Khắc Thủy: Đồ sành khô ráo hút sạch hơi ẩm."
+   },
+   "tier2": {
+    "name": "Hũ Sành Ủ Hạt",
+    "cost": 85,
+    "damage": 92,
+    "range": 108,
+    "cooldownSec": 1.18,
+    "description": "Hũ Sành Ủ Hạt: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Bộ Tách Gốm Cũ",
+    "cost": 120,
+    "damage": 152,
+    "range": 115,
+    "cooldownSec": 1.08,
+    "stunDurationSec": 0.6,
+    "description": "Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày."
+   },
+   "tier3B": {
+    "name": "Lò Than Hâm Cà Phê",
+    "cost": 115,
+    "damage": 115,
+    "range": 122,
+    "cooldownSec": 1,
+    "pierceCount": 3,
+    "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
+   }
+  },
+  "gt_pho_ca_phe_san_thuong": {
+   "id": "gt_pho_ca_phe_san_thuong",
+   "element": "kim",
+   "role": "aoe_splash",
+   "roleLabel": "Quăng gói hút ẩm đánh lan",
+   "ultimateName": "Gió Lộng Sân Thượng",
+   "tier1": {
+    "name": "Chuông Gió Đồng",
+    "cost": 65,
+    "damage": 27,
+    "range": 102,
+    "cooldownSec": 1.15,
+    "splashRadius": 54,
+    "description": "Cà Phê Sân Thượng Thông Xanh: nhìn xuống chợ và hồ. Khắc Mộc: Tiếng chuông đồng vang làm kiến mốc tản đi."
+   },
+   "tier2": {
+    "name": "Chuông Gió Ba Tầng",
+    "cost": 80,
+    "damage": 46,
+    "range": 112,
+    "cooldownSec": 1.04,
+    "splashRadius": 64,
+    "description": "Chuông Gió Ba Tầng: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Lan Can Sắt Sân Thượng",
+    "cost": 115,
+    "damage": 66,
+    "range": 118,
+    "cooldownSec": 0.96,
+    "splashRadius": 72,
+    "burnDps": 22,
+    "burnDurationSec": 3,
+    "description": "Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s."
+   },
+   "tier3B": {
+    "name": "Chuông Đồng Ngân Vang",
+    "cost": 115,
+    "damage": 84,
+    "range": 120,
+    "cooldownSec": 0.94,
+    "splashRadius": 80,
+    "description": "Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao."
+   }
+  },
+  "gt_pho_ca_phe_banh_trung": {
+   "id": "gt_pho_ca_phe_banh_trung",
+   "element": "hoa",
+   "role": "single_far",
+   "roleLabel": "Ném nhanh 1 con tầm xa",
+   "ultimateName": "Nướng Một Lò Đầy",
+   "tier1": {
+    "name": "Khuôn Bánh Trứng",
+    "cost": 55,
+    "damage": 19,
+    "range": 122,
+    "cooldownSec": 0.74,
+    "description": "Tiệm Bánh Trứng Mimosa: bánh trứng nướng kèm kem. Khắc Kim: Khuôn nóng xua mọt hạt."
+   },
+   "tier2": {
+    "name": "Khay Bánh Trứng",
+    "cost": 70,
+    "damage": 32,
+    "range": 134,
+    "cooldownSec": 0.62,
+    "description": "Khay Bánh Trứng: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Lò Nướng Mini",
+    "cost": 105,
+    "damage": 46,
+    "range": 144,
+    "cooldownSec": 0.48,
+    "pierceCount": 2,
+    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+   },
+   "tier3B": {
+    "name": "Bánh Trứng Nóng Giòn",
+    "cost": 105,
+    "damage": 42,
+    "range": 140,
+    "cooldownSec": 0.54,
+    "burnDps": 18,
+    "burnDurationSec": 3,
+    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+   }
+  }
+ },
+ "enemies": {
+  "ge_pho_ca_phe_1": {
+   "id": "ge_pho_ca_phe_1",
+   "name": "Hơi Ẩm Hạt Cà Phê",
+   "element": "thuy",
+   "trait": "fast",
+   "traitLabel": "Nhanh, thành đàn",
+   "maxHp": 96,
+   "speed": 63,
+   "armor": 0.1,
+   "reward": 7,
+   "lifeCost": 1,
+   "radius": 11
+  },
+  "ge_pho_ca_phe_2": {
+   "id": "ge_pho_ca_phe_2",
+   "name": "Bụi Chợ Đêm",
+   "element": "tho",
+   "trait": "tank",
+   "traitLabel": "Máu trâu, đi chậm",
+   "maxHp": 335,
+   "speed": 32,
+   "armor": 0.32,
+   "reward": 13,
+   "lifeCost": 2,
+   "radius": 15
+  },
+  "ge_pho_ca_phe_3": {
+   "id": "ge_pho_ca_phe_3",
+   "name": "Khói Rang Khét",
+   "element": "hoa",
+   "trait": "flying",
+   "traitLabel": "Bay (không bị làm chậm)",
+   "maxHp": 165,
+   "speed": 50,
+   "armor": 0.12,
+   "reward": 10,
+   "lifeCost": 1,
+   "radius": 12,
+   "flying": true
+  },
+  "ge_pho_ca_phe_4_nho": {
+   "id": "ge_pho_ca_phe_4_nho",
+   "name": "Đàn Kiến Bu Đường Nhỏ",
+   "element": "moc",
+   "trait": "mini",
+   "traitLabel": "Tản ra chạy nhanh",
+   "maxHp": 64,
+   "speed": 58,
+   "armor": 0.04,
+   "reward": 2,
+   "lifeCost": 1,
+   "radius": 8
+  },
+  "ge_pho_ca_phe_4": {
+   "id": "ge_pho_ca_phe_4",
+   "name": "Đàn Kiến Bu Đường",
+   "element": "moc",
+   "trait": "splitter",
+   "traitLabel": "Vỡ ra 2 con nhỏ",
+   "maxHp": 185,
+   "speed": 41,
+   "armor": 0.12,
+   "reward": 9,
+   "lifeCost": 2,
+   "radius": 14,
+   "splitChildId": "ge_pho_ca_phe_4_nho",
+   "splitCount": 2
+  },
+  "ge_pho_ca_phe_5": {
+   "id": "ge_pho_ca_phe_5",
+   "name": "Mọt Hạt",
+   "element": "kim",
+   "trait": "disruptor",
+   "traitLabel": "Làm món gần nó đứng im",
+   "maxHp": 280,
+   "speed": 36,
+   "armor": 0.15,
+   "reward": 15,
+   "lifeCost": 2,
+   "radius": 13,
+   "disruptRadius": 96,
+   "disruptIntervalSec": 4.2,
+   "disruptDurationSec": 2.5
+  },
+  "ge_pho_ca_phe_6": {
+   "id": "ge_pho_ca_phe_6",
+   "name": "Mốc Bao Hạt",
+   "element": "moc",
+   "trait": "healer",
+   "traitLabel": "Hồi máu cho quái gần",
+   "maxHp": 260,
+   "speed": 37,
+   "armor": 0.12,
+   "reward": 14,
+   "lifeCost": 2,
+   "radius": 13,
+   "healRadius": 90,
+   "healIntervalSec": 2.6,
+   "healAmount": 42
+  }
+ }
+}

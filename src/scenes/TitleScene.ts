@@ -11,6 +11,7 @@ import {
   type GearStatKind,
 } from '../core/equipment';
 import { equipGear, getEquipped, getGearBonus, loadTdSave } from '../core/saveSystem';
+import { STAGES } from '../core/tdDefinitions';
 import { getShopStage, isShopUnlocked, SHOP_STREET, shopStars, type ShopOnStreet } from '../core/shopStreet';
 import { ALL_ENEMY_DEFINITIONS, getStageTowerList } from '../core/tdDefinitions';
 import type { EnemyId } from '../core/types';
@@ -77,6 +78,12 @@ export class TitleScene extends Phaser.Scene {
   }
 
   public create(): void {
+    // Lối vào thử phố thật / trùm phố: thêm #<mã màn> vào link (vd #street_pho_ca_phe) — Claude
+    const hashStage = typeof window !== 'undefined' ? window.location.hash.replace('#', '') : '';
+    if (hashStage && hashStage in STAGES && (hashStage.startsWith('street_') || hashStage === 'stage_4')) {
+      this.scene.start(SCENE_KEYS.TD_STAGE, { stageId: hashStage as never });
+      return;
+    }
     this.reduceMotion = getInitialReduceMotion();
     music.setTrack('title');
     this.rainLines = [];

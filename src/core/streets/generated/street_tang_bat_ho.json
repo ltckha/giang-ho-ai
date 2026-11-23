@@ -1,0 +1,1232 @@
+{
+ "generatedBy": "tools/level-maker/make-street.ts",
+ "hpMultiplier": 1.3,
+ "balance": {
+  "randomWinWithExpectedGear": 0.25,
+  "botWinRate": 1,
+  "botLivesAvg": 14.333333333333334,
+  "gearTier": "after_street_1"
+ },
+ "stage": {
+  "id": "street_tang_bat_ho",
+  "stageNumber": 10,
+  "name": "Phố Tăng Bạt Hổ – Trương Công Định",
+  "subtitle": "Phố ăn đêm sau chợ và dốc phố Tây: quán bánh căn, sữa nóng, hostel, bar dưới hầm",
+  "startingEssence": 210,
+  "startingLives": 20,
+  "paths": [
+   [
+    {
+     "x": 318,
+     "y": 55
+    },
+    {
+     "x": 326,
+     "y": 86
+    },
+    {
+     "x": 322,
+     "y": 99
+    },
+    {
+     "x": 313,
+     "y": 108
+    },
+    {
+     "x": 302,
+     "y": 111
+    },
+    {
+     "x": 285,
+     "y": 107
+    },
+    {
+     "x": 266,
+     "y": 94
+    },
+    {
+     "x": 227,
+     "y": 53
+    },
+    {
+     "x": 203,
+     "y": 37
+    },
+    {
+     "x": 175,
+     "y": 30
+    },
+    {
+     "x": 158,
+     "y": 31
+    },
+    {
+     "x": 125,
+     "y": 47
+    },
+    {
+     "x": 106,
+     "y": 70
+    },
+    {
+     "x": 83,
+     "y": 118
+    },
+    {
+     "x": 128,
+     "y": 124
+    },
+    {
+     "x": 141,
+     "y": 131
+    },
+    {
+     "x": 161,
+     "y": 155
+    },
+    {
+     "x": 158,
+     "y": 238
+    },
+    {
+     "x": 162,
+     "y": 344
+    },
+    {
+     "x": 193,
+     "y": 448
+    }
+   ],
+   [
+    {
+     "x": 50,
+     "y": 490
+    },
+    {
+     "x": 36,
+     "y": 378
+    },
+    {
+     "x": 35,
+     "y": 283
+    },
+    {
+     "x": 52,
+     "y": 209
+    },
+    {
+     "x": 83,
+     "y": 118
+    },
+    {
+     "x": 128,
+     "y": 124
+    },
+    {
+     "x": 141,
+     "y": 131
+    },
+    {
+     "x": 161,
+     "y": 155
+    },
+    {
+     "x": 158,
+     "y": 238
+    },
+    {
+     "x": 162,
+     "y": 344
+    },
+    {
+     "x": 193,
+     "y": 448
+    }
+   ]
+  ],
+  "pads": [
+   {
+    "id": "pad_1",
+    "x": 198,
+    "y": 114
+   },
+   {
+    "id": "pad_2",
+    "x": 90,
+    "y": 222
+   },
+   {
+    "id": "pad_3",
+    "x": 114,
+    "y": 162
+   },
+   {
+    "id": "pad_4",
+    "x": 258,
+    "y": 30
+   },
+   {
+    "id": "pad_5",
+    "x": 222,
+    "y": 174
+   },
+   {
+    "id": "pad_6",
+    "x": 78,
+    "y": 42
+   },
+   {
+    "id": "pad_7",
+    "x": 42,
+    "y": 114
+   },
+   {
+    "id": "pad_8",
+    "x": 282,
+    "y": 150
+   },
+   {
+    "id": "pad_9",
+    "x": 114,
+    "y": 282
+   },
+   {
+    "id": "pad_10",
+    "x": 198,
+    "y": 234
+   },
+   {
+    "id": "pad_11",
+    "x": 114,
+    "y": 354
+   }
+  ],
+  "waves": [
+   {
+    "waveNumber": 1,
+    "title": "Đợt 1: Mưa Phùn Đêm",
+    "mainElements": [
+     "thuy"
+    ],
+    "earlyBonusMax": 12,
+    "clearReward": 14,
+    "groups": [
+     {
+      "enemyId": "ge_tang_bat_ho_1",
+      "count": 6,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 1.3
+     }
+    ]
+   },
+   {
+    "waveNumber": 2,
+    "title": "Đợt 2: Bùn Dốc Phố Tây",
+    "mainElements": [
+     "tho"
+    ],
+    "earlyBonusMax": 13,
+    "clearReward": 14,
+    "groups": [
+     {
+      "enemyId": "ge_tang_bat_ho_2",
+      "count": 2,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 1.5
+     }
+    ]
+   },
+   {
+    "waveNumber": 3,
+    "title": "Đợt 3: Muỗi Đèn Bar & Bùn Dốc Phố Tây",
+    "mainElements": [
+     "moc",
+     "tho"
+    ],
+    "earlyBonusMax": 14,
+    "clearReward": 15,
+    "groups": [
+     {
+      "enemyId": "ge_tang_bat_ho_3",
+      "count": 4,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 1.69
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_2",
+      "count": 2,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 1.69
+     }
+    ]
+   },
+   {
+    "waveNumber": 4,
+    "title": "Đợt 4: Mưa Phùn Đêm & Muỗi Đèn Bar",
+    "mainElements": [
+     "thuy",
+     "moc"
+    ],
+    "earlyBonusMax": 15,
+    "clearReward": 15,
+    "groups": [
+     {
+      "enemyId": "ge_tang_bat_ho_1",
+      "count": 7,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 1.89
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_3",
+      "count": 5,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 1.89
+     }
+    ]
+   },
+   {
+    "waveNumber": 5,
+    "title": "Đợt 5: Mưa Phùn Đêm & Muỗi Đèn Bar",
+    "mainElements": [
+     "thuy",
+     "moc"
+    ],
+    "earlyBonusMax": 16,
+    "clearReward": 16,
+    "groups": [
+     {
+      "enemyId": "ge_tang_bat_ho_1",
+      "count": 8,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 2.21
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_3",
+      "count": 5,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 2.21
+     }
+    ]
+   },
+   {
+    "waveNumber": 6,
+    "title": "Đợt 6: Mưa Phùn Đêm & Muỗi Đèn Bar & Chuột Sau Chợ",
+    "mainElements": [
+     "thuy",
+     "moc",
+     "kim"
+    ],
+    "earlyBonusMax": 17,
+    "clearReward": 16,
+    "groups": [
+     {
+      "enemyId": "ge_tang_bat_ho_1",
+      "count": 8,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 2.6
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_3",
+      "count": 5,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 2.6
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_5",
+      "count": 3,
+      "intervalSec": 1.8,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 2.6
+     }
+    ]
+   },
+   {
+    "waveNumber": 7,
+    "title": "Đợt 7: Bùn Dốc Phố Tây & Khói Than Hẻm & Mưa Phùn Đêm",
+    "mainElements": [
+     "tho",
+     "hoa",
+     "thuy"
+    ],
+    "earlyBonusMax": 18,
+    "clearReward": 17,
+    "groups": [
+     {
+      "enemyId": "ge_tang_bat_ho_2",
+      "count": 4,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 3.12
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_4",
+      "count": 5,
+      "intervalSec": 1.2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 3.12
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_1",
+      "count": 9,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 3.12
+     }
+    ]
+   },
+   {
+    "waveNumber": 8,
+    "title": "Đợt 8: Bùn Dốc Phố Tây & Khói Than Hẻm & Rêu Tường Cũ",
+    "mainElements": [
+     "tho",
+     "hoa",
+     "moc"
+    ],
+    "earlyBonusMax": 19,
+    "clearReward": 17,
+    "groups": [
+     {
+      "enemyId": "ge_tang_bat_ho_2",
+      "count": 4,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 3.64
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_4",
+      "count": 5,
+      "intervalSec": 1.2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 3.64
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_6",
+      "count": 2,
+      "intervalSec": 2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 3.64
+     }
+    ]
+   },
+   {
+    "waveNumber": 9,
+    "title": "Đợt 9: Muỗi Đèn Bar & Chuột Sau Chợ & Mưa Phùn Đêm",
+    "mainElements": [
+     "moc",
+     "kim",
+     "thuy"
+    ],
+    "earlyBonusMax": 20,
+    "clearReward": 18,
+    "groups": [
+     {
+      "enemyId": "ge_tang_bat_ho_3",
+      "count": 6,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 4.16
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_5",
+      "count": 4,
+      "intervalSec": 1.8,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 4.16
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_1",
+      "count": 10,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 4.16
+     }
+    ]
+   },
+   {
+    "waveNumber": 10,
+    "title": "Đợt 10: Khói Than Hẻm & Rêu Tường Cũ & Bùn Dốc Phố Tây",
+    "mainElements": [
+     "hoa",
+     "moc",
+     "tho"
+    ],
+    "earlyBonusMax": 21,
+    "clearReward": 18,
+    "groups": [
+     {
+      "enemyId": "ge_tang_bat_ho_4",
+      "count": 6,
+      "intervalSec": 1.2,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 4.68
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_6",
+      "count": 3,
+      "intervalSec": 2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 4.68
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_2",
+      "count": 5,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 4.68
+     }
+    ]
+   },
+   {
+    "waveNumber": 11,
+    "title": "Đợt 11: Giờ cao điểm cả phố",
+    "mainElements": [
+     "thuy",
+     "tho",
+     "moc",
+     "hoa",
+     "kim"
+    ],
+    "earlyBonusMax": 0,
+    "clearReward": 0,
+    "groups": [
+     {
+      "enemyId": "ge_tang_bat_ho_1",
+      "count": 11,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 5.2
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_2",
+      "count": 5,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 5.2
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_3",
+      "count": 7,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 5.2
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_4",
+      "count": 6,
+      "intervalSec": 1.2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 5.2
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_5",
+      "count": 4,
+      "intervalSec": 1.8,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 5.2
+     },
+     {
+      "enemyId": "ge_tang_bat_ho_6",
+      "count": 3,
+      "intervalSec": 2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 5.2
+     }
+    ]
+   }
+  ],
+  "towerIds": [
+   "gt_tang_bat_ho_banh_qua",
+   "gt_tang_bat_ho_sua_nanh",
+   "gt_tang_bat_ho_banh_can",
+   "gt_tang_bat_ho_goc_cay",
+   "gt_tang_bat_ho_khach_san",
+   "gt_tang_bat_ho_thue_xe",
+   "gt_tang_bat_ho_bar_ham",
+   "gt_tang_bat_ho_cafe_xe_dap",
+   "gt_tang_bat_ho_an_vat"
+  ],
+  "loadoutSize": 6,
+  "defaultLoadout": [
+   "gt_tang_bat_ho_thue_xe",
+   "gt_tang_bat_ho_goc_cay",
+   "gt_tang_bat_ho_sua_nanh",
+   "gt_tang_bat_ho_banh_qua",
+   "gt_tang_bat_ho_banh_can",
+   "gt_tang_bat_ho_cafe_xe_dap"
+  ],
+  "enableSynergy": true,
+  "attribution": "© OpenStreetMap contributors (ODbL)",
+  "places": [
+   {
+    "key": "banh_qua",
+    "name": "Tiệm Bánh Quà Mimosa",
+    "type": "Tiệm bánh quà đặc sản",
+    "trait": "hộp bánh quy làm quà, ghế ngoài hiên",
+    "towerId": "gt_tang_bat_ho_banh_qua"
+   },
+   {
+    "key": "sua_nanh",
+    "name": "Quán Sữa Nóng Sương Mai",
+    "type": "Quán sữa đậu nành đêm",
+    "trait": "ly sữa nóng, đông khách buổi tối",
+    "towerId": "gt_tang_bat_ho_sua_nanh"
+   },
+   {
+    "key": "banh_can",
+    "name": "Bánh Căn Dã Quỳ",
+    "type": "Quán bánh căn",
+    "trait": "khuôn đất nung, trứng cút",
+    "towerId": "gt_tang_bat_ho_banh_can"
+   },
+   {
+    "key": "goc_cay",
+    "name": "Quán Sáng Gốc Thông Ba Lá",
+    "type": "Quán ăn sáng dưới gốc cây",
+    "trait": "ngồi dưới gốc cây lớn",
+    "towerId": "gt_tang_bat_ho_goc_cay"
+   },
+   {
+    "key": "khach_san",
+    "name": "Khách Sạn Mini Cẩm Tú Cầu",
+    "type": "Khách sạn mini",
+    "trait": "sảnh nhỏ, thảm lót",
+    "towerId": "gt_tang_bat_ho_khach_san"
+   },
+   {
+    "key": "thue_xe",
+    "name": "Hostel Thuê Xe Mây Ngàn",
+    "type": "Hostel cho dân ba lô, thuê xe máy",
+    "trait": "giường tầng, dàn xe máy cho thuê",
+    "towerId": "gt_tang_bat_ho_thue_xe"
+   },
+   {
+    "key": "bar_ham",
+    "name": "Bar Hầm Sim Tím",
+    "type": "Cocktail bar dưới hầm",
+    "trait": "pha theo yêu cầu, đá lạnh",
+    "towerId": "gt_tang_bat_ho_bar_ham"
+   },
+   {
+    "key": "cafe_xe_dap",
+    "name": "Cà Phê Xe Đạp Lan Hài",
+    "type": "Quán cà phê trong nhà cũ, trang trí xe đạp",
+    "trait": "xe đạp cũ treo tường",
+    "towerId": "gt_tang_bat_ho_cafe_xe_dap"
+   },
+   {
+    "key": "an_vat",
+    "name": "Tiệm Ăn Vặt Atiso",
+    "type": "Tiệm ăn vặt, đặc sản",
+    "trait": "kệ mứt, đồ ăn vặt đặc sản",
+    "towerId": "gt_tang_bat_ho_an_vat"
+   }
+  ],
+  "botPlan": [
+   {
+    "padId": "pad_1",
+    "defId": "gt_tang_bat_ho_thue_xe",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_2",
+    "defId": "gt_tang_bat_ho_sua_nanh",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_3",
+    "defId": "gt_tang_bat_ho_goc_cay",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_4",
+    "defId": "gt_tang_bat_ho_banh_can",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_5",
+    "defId": "gt_tang_bat_ho_cafe_xe_dap",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_6",
+    "defId": "gt_tang_bat_ho_thue_xe",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_7",
+    "defId": "gt_tang_bat_ho_sua_nanh",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_8",
+    "defId": "gt_tang_bat_ho_banh_qua",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_9",
+    "defId": "gt_tang_bat_ho_banh_can",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_10",
+    "defId": "gt_tang_bat_ho_cafe_xe_dap",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_11",
+    "defId": "gt_tang_bat_ho_thue_xe",
+    "preferredBranch": "A"
+   }
+  ]
+ },
+ "towers": {
+  "gt_tang_bat_ho_banh_qua": {
+   "id": "gt_tang_bat_ho_banh_qua",
+   "element": "hoa",
+   "role": "aoe_splash",
+   "roleLabel": "Quăng gói hút ẩm đánh lan",
+   "ultimateName": "Thơm Lừng Đầu Hẻm",
+   "tier1": {
+    "name": "Lò Bánh Quy",
+    "cost": 65,
+    "damage": 27,
+    "range": 102,
+    "cooldownSec": 1.15,
+    "splashRadius": 54,
+    "description": "Tiệm Bánh Quà Mimosa: hộp bánh quy làm quà, ghế ngoài hiên. Khắc Kim: Hơi nóng lò bánh hun chuột chạy mất."
+   },
+   "tier2": {
+    "name": "Lò Bánh Hai Khay",
+    "cost": 80,
+    "damage": 46,
+    "range": 112,
+    "cooldownSec": 1.04,
+    "splashRadius": 64,
+    "description": "Lò Bánh Hai Khay: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Khay Bánh Vừa Ra Lò",
+    "cost": 115,
+    "damage": 66,
+    "range": 118,
+    "cooldownSec": 0.96,
+    "splashRadius": 72,
+    "burnDps": 22,
+    "burnDurationSec": 3,
+    "description": "Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s."
+   },
+   "tier3B": {
+    "name": "Hộp Quà Bánh Nóng",
+    "cost": 115,
+    "damage": 84,
+    "range": 120,
+    "cooldownSec": 0.94,
+    "splashRadius": 80,
+    "description": "Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao."
+   }
+  },
+  "gt_tang_bat_ho_sua_nanh": {
+   "id": "gt_tang_bat_ho_sua_nanh",
+   "element": "thuy",
+   "role": "single_far",
+   "roleLabel": "Ném nhanh 1 con tầm xa",
+   "ultimateName": "Rót Sữa Liên Tay",
+   "tier1": {
+    "name": "Ly Sữa Nóng",
+    "cost": 55,
+    "damage": 19,
+    "range": 122,
+    "cooldownSec": 0.74,
+    "description": "Quán Sữa Nóng Sương Mai: ly sữa nóng, đông khách buổi tối. Khắc Hỏa: Sữa nóng dập khói than."
+   },
+   "tier2": {
+    "name": "Ca Sữa Đầy",
+    "cost": 70,
+    "damage": 32,
+    "range": 134,
+    "cooldownSec": 0.62,
+    "description": "Ca Sữa Đầy: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Nồi Sữa Nành Lớn",
+    "cost": 105,
+    "damage": 46,
+    "range": 144,
+    "cooldownSec": 0.48,
+    "pierceCount": 2,
+    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+   },
+   "tier3B": {
+    "name": "Bình Sữa Ủ Ấm",
+    "cost": 105,
+    "damage": 42,
+    "range": 140,
+    "cooldownSec": 0.54,
+    "burnDps": 18,
+    "burnDurationSec": 3,
+    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+   }
+  },
+  "gt_tang_bat_ho_banh_can": {
+   "id": "gt_tang_bat_ho_banh_can",
+   "element": "tho",
+   "role": "single_far",
+   "roleLabel": "Ném nhanh 1 con tầm xa",
+   "ultimateName": "Đổ Bánh Một Lượt",
+   "tier1": {
+    "name": "Khuôn Bánh Căn",
+    "cost": 55,
+    "damage": 19,
+    "range": 122,
+    "cooldownSec": 0.74,
+    "description": "Bánh Căn Dã Quỳ: khuôn đất nung, trứng cút. Khắc Thủy: Khuôn đất nung khô hút ẩm mưa phùn."
+   },
+   "tier2": {
+    "name": "Khuôn Đất Nung Đôi",
+    "cost": 70,
+    "damage": 32,
+    "range": 134,
+    "cooldownSec": 0.62,
+    "description": "Khuôn Đất Nung Đôi: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Khuôn Bảy Lỗ",
+    "cost": 105,
+    "damage": 46,
+    "range": 144,
+    "cooldownSec": 0.48,
+    "pierceCount": 2,
+    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+   },
+   "tier3B": {
+    "name": "Khuôn Trứng Cút",
+    "cost": 105,
+    "damage": 42,
+    "range": 140,
+    "cooldownSec": 0.54,
+    "burnDps": 18,
+    "burnDurationSec": 3,
+    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+   }
+  },
+  "gt_tang_bat_ho_goc_cay": {
+   "id": "gt_tang_bat_ho_goc_cay",
+   "element": "moc",
+   "role": "support_buff",
+   "roleLabel": "Hỗ trợ sấy khỏe & xua chuột",
+   "ultimateName": "Bóng Mát Cả Phố",
+   "tier1": {
+    "name": "Bóng Mát Gốc Cây",
+    "cost": 55,
+    "damage": 13,
+    "range": 108,
+    "cooldownSec": 1.25,
+    "buffDamagePct": 0.18,
+    "buffSpeedPct": 0.14,
+    "buffRangePct": 0.06,
+    "cleanseDisrupt": true,
+    "description": "Quán Sáng Gốc Thông Ba Lá: ngồi dưới gốc cây lớn. Khắc Thổ: Tán lá chắn bụi đất."
+   },
+   "tier2": {
+    "name": "Tán Cây Rộng",
+    "cost": 70,
+    "damage": 22,
+    "range": 120,
+    "cooldownSec": 1.1,
+    "buffDamagePct": 0.26,
+    "buffSpeedPct": 0.2,
+    "buffRangePct": 0.1,
+    "cleanseDisrupt": true,
+    "description": "Tán Cây Rộng: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Ghế Đẩu Dưới Gốc",
+    "cost": 95,
+    "damage": 36,
+    "range": 132,
+    "cooldownSec": 1,
+    "buffDamagePct": 0.3,
+    "buffSpeedPct": 0.22,
+    "buffRangePct": 0.12,
+    "cleanseDisrupt": true,
+    "bonusKillReward": 2,
+    "description": "Bảo hộ món quanh máy không bị chuột gặm đứng im & thưởng +2 xu mỗi quái dọn được."
+   },
+   "tier3B": {
+    "name": "Gốc Cây Trăm Năm",
+    "cost": 100,
+    "damage": 42,
+    "range": 136,
+    "cooldownSec": 0.95,
+    "buffDamagePct": 0.4,
+    "buffSpeedPct": 0.3,
+    "buffRangePct": 0.16,
+    "cleanseDisrupt": true,
+    "description": "Cộng hưởng nhiệt mạnh: tăng 40% sức, 30% tốc đánh và 16% tầm cho món cạnh bên."
+   }
+  },
+  "gt_tang_bat_ho_khach_san": {
+   "id": "gt_tang_bat_ho_khach_san",
+   "element": "tho",
+   "role": "slow_aura",
+   "roleLabel": "Phun sương làm chậm",
+   "ultimateName": "Mời Khách Nghỉ Chân",
+   "tier1": {
+    "name": "Thảm Lót Sảnh",
+    "cost": 60,
+    "damage": 15,
+    "range": 102,
+    "cooldownSec": 0.92,
+    "splashRadius": 50,
+    "slowPercent": 0.34,
+    "slowDurationSec": 2.2,
+    "description": "Khách Sạn Mini Cẩm Tú Cầu: sảnh nhỏ, thảm lót. Khắc Thủy: Thảm dày thấm nước mưa theo chân khách."
+   },
+   "tier2": {
+    "name": "Thảm Lông Dày",
+    "cost": 75,
+    "damage": 26,
+    "range": 110,
+    "cooldownSec": 0.84,
+    "splashRadius": 58,
+    "slowPercent": 0.45,
+    "slowDurationSec": 2.6,
+    "description": "Thảm Lông Dày: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Rèm Cửa Nặng",
+    "cost": 105,
+    "damage": 44,
+    "range": 118,
+    "cooldownSec": 0.78,
+    "splashRadius": 64,
+    "slowPercent": 0.54,
+    "slowDurationSec": 2.8,
+    "stunDurationSec": 1,
+    "description": "Làm chậm 54% và mỗi phát xịt thứ 3 phủ bọt mát giữ chân quái 1.0s."
+   },
+   "tier3B": {
+    "name": "Sảnh Đón Ấm Cúng",
+    "cost": 105,
+    "damage": 38,
+    "range": 116,
+    "cooldownSec": 0.8,
+    "splashRadius": 72,
+    "slowPercent": 0.48,
+    "slowDurationSec": 2.7,
+    "knockbackDist": 14,
+    "description": "Luồng phun xoáy rộng làm chậm 48% và đẩy lùi nhẹ bầy quái."
+   }
+  },
+  "gt_tang_bat_ho_thue_xe": {
+   "id": "gt_tang_bat_ho_thue_xe",
+   "element": "kim",
+   "role": "single_far",
+   "roleLabel": "Ném nhanh 1 con tầm xa",
+   "ultimateName": "Rồ Ga Lên Dốc",
+   "tier1": {
+    "name": "Còi Xe Bíp",
+    "cost": 55,
+    "damage": 19,
+    "range": 122,
+    "cooldownSec": 0.74,
+    "description": "Hostel Thuê Xe Mây Ngàn: giường tầng, dàn xe máy cho thuê. Khắc Mộc: Khung thép xe chạy băng qua bọn sinh sôi."
+   },
+   "tier2": {
+    "name": "Đèn Pha Xe Số",
+    "cost": 70,
+    "damage": 32,
+    "range": 134,
+    "cooldownSec": 0.62,
+    "description": "Đèn Pha Xe Số: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Xe Số Đời Cũ",
+    "cost": 105,
+    "damage": 46,
+    "range": 144,
+    "cooldownSec": 0.48,
+    "pierceCount": 2,
+    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+   },
+   "tier3B": {
+    "name": "Xe Phượt Đầy Đồ",
+    "cost": 105,
+    "damage": 42,
+    "range": 140,
+    "cooldownSec": 0.54,
+    "burnDps": 18,
+    "burnDurationSec": 3,
+    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+   }
+  },
+  "gt_tang_bat_ho_bar_ham": {
+   "id": "gt_tang_bat_ho_bar_ham",
+   "element": "thuy",
+   "role": "aoe_splash",
+   "roleLabel": "Quăng gói hút ẩm đánh lan",
+   "ultimateName": "Cạn Ly Cả Hầm",
+   "tier1": {
+    "name": "Xô Đá Lạnh",
+    "cost": 65,
+    "damage": 27,
+    "range": 102,
+    "cooldownSec": 1.15,
+    "splashRadius": 54,
+    "description": "Bar Hầm Sim Tím: pha theo yêu cầu, đá lạnh. Khắc Hỏa: Đá lạnh dập khói nóng."
+   },
+   "tier2": {
+    "name": "Bình Lắc Cocktail",
+    "cost": 80,
+    "damage": 46,
+    "range": 112,
+    "cooldownSec": 1.04,
+    "splashRadius": 64,
+    "description": "Bình Lắc Cocktail: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Tháp Ly Đá",
+    "cost": 115,
+    "damage": 66,
+    "range": 118,
+    "cooldownSec": 0.96,
+    "splashRadius": 72,
+    "burnDps": 22,
+    "burnDurationSec": 3,
+    "description": "Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s."
+   },
+   "tier3B": {
+    "name": "Đá Bào Cả Quầy",
+    "cost": 115,
+    "damage": 84,
+    "range": 120,
+    "cooldownSec": 0.94,
+    "splashRadius": 80,
+    "description": "Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao."
+   }
+  },
+  "gt_tang_bat_ho_cafe_xe_dap": {
+   "id": "gt_tang_bat_ho_cafe_xe_dap",
+   "element": "kim",
+   "role": "heavy_slow",
+   "roleLabel": "Đạp mạnh, chậm, xuyên vỏ",
+   "ultimateName": "Đạp Một Vòng Dốc",
+   "tier1": {
+    "name": "Bánh Xe Đạp Thép",
+    "cost": 70,
+    "damage": 54,
+    "range": 100,
+    "cooldownSec": 1.32,
+    "description": "Cà Phê Xe Đạp Lan Hài: xe đạp cũ treo tường. Khắc Mộc: Khung sắt nghiến nát rêu mốc."
+   },
+   "tier2": {
+    "name": "Sên Xe Nặng",
+    "cost": 85,
+    "damage": 92,
+    "range": 108,
+    "cooldownSec": 1.18,
+    "description": "Sên Xe Nặng: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Xe Đạp Cổ Khung Sắt",
+    "cost": 120,
+    "damage": 152,
+    "range": 115,
+    "cooldownSec": 1.08,
+    "stunDurationSec": 0.6,
+    "description": "Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày."
+   },
+   "tier3B": {
+    "name": "Đàn Xe Đạp Treo Tường",
+    "cost": 115,
+    "damage": 115,
+    "range": 122,
+    "cooldownSec": 1,
+    "pierceCount": 3,
+    "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
+   }
+  },
+  "gt_tang_bat_ho_an_vat": {
+   "id": "gt_tang_bat_ho_an_vat",
+   "element": "moc",
+   "role": "heavy_slow",
+   "roleLabel": "Đạp mạnh, chậm, xuyên vỏ",
+   "ultimateName": "Mời Nếm Thử Cả Phố",
+   "tier1": {
+    "name": "Thùng Mứt",
+    "cost": 70,
+    "damage": 54,
+    "range": 100,
+    "cooldownSec": 1.32,
+    "description": "Tiệm Ăn Vặt Atiso: kệ mứt, đồ ăn vặt đặc sản. Khắc Thổ: Đồ khô từ lá cây đè bẹp bùn đất."
+   },
+   "tier2": {
+    "name": "Thùng Mứt Atiso",
+    "cost": 85,
+    "damage": 92,
+    "range": 108,
+    "cooldownSec": 1.18,
+    "description": "Thùng Mứt Atiso: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Kệ Đặc Sản Đầy",
+    "cost": 120,
+    "damage": 152,
+    "range": 115,
+    "cooldownSec": 1.08,
+    "stunDurationSec": 0.6,
+    "description": "Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày."
+   },
+   "tier3B": {
+    "name": "Giỏ Quà Đà Lạt",
+    "cost": 115,
+    "damage": 115,
+    "range": 122,
+    "cooldownSec": 1,
+    "pierceCount": 3,
+    "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
+   }
+  }
+ },
+ "enemies": {
+  "ge_tang_bat_ho_1": {
+   "id": "ge_tang_bat_ho_1",
+   "name": "Mưa Phùn Đêm",
+   "element": "thuy",
+   "trait": "fast",
+   "traitLabel": "Nhanh, thành đàn",
+   "maxHp": 96,
+   "speed": 63,
+   "armor": 0.1,
+   "reward": 7,
+   "lifeCost": 1,
+   "radius": 11
+  },
+  "ge_tang_bat_ho_2": {
+   "id": "ge_tang_bat_ho_2",
+   "name": "Bùn Dốc Phố Tây",
+   "element": "tho",
+   "trait": "tank",
+   "traitLabel": "Máu trâu, đi chậm",
+   "maxHp": 335,
+   "speed": 32,
+   "armor": 0.32,
+   "reward": 13,
+   "lifeCost": 2,
+   "radius": 15
+  },
+  "ge_tang_bat_ho_3": {
+   "id": "ge_tang_bat_ho_3",
+   "name": "Muỗi Đèn Bar",
+   "element": "moc",
+   "trait": "flying",
+   "traitLabel": "Bay (không bị làm chậm)",
+   "maxHp": 165,
+   "speed": 50,
+   "armor": 0.12,
+   "reward": 10,
+   "lifeCost": 1,
+   "radius": 12,
+   "flying": true
+  },
+  "ge_tang_bat_ho_4_nho": {
+   "id": "ge_tang_bat_ho_4_nho",
+   "name": "Khói Than Hẻm Nhỏ",
+   "element": "hoa",
+   "trait": "mini",
+   "traitLabel": "Tản ra chạy nhanh",
+   "maxHp": 64,
+   "speed": 58,
+   "armor": 0.04,
+   "reward": 2,
+   "lifeCost": 1,
+   "radius": 8
+  },
+  "ge_tang_bat_ho_4": {
+   "id": "ge_tang_bat_ho_4",
+   "name": "Khói Than Hẻm",
+   "element": "hoa",
+   "trait": "splitter",
+   "traitLabel": "Vỡ ra 2 con nhỏ",
+   "maxHp": 185,
+   "speed": 41,
+   "armor": 0.12,
+   "reward": 9,
+   "lifeCost": 2,
+   "radius": 14,
+   "splitChildId": "ge_tang_bat_ho_4_nho",
+   "splitCount": 2
+  },
+  "ge_tang_bat_ho_5": {
+   "id": "ge_tang_bat_ho_5",
+   "name": "Chuột Sau Chợ",
+   "element": "kim",
+   "trait": "disruptor",
+   "traitLabel": "Làm món gần nó đứng im",
+   "maxHp": 280,
+   "speed": 36,
+   "armor": 0.15,
+   "reward": 15,
+   "lifeCost": 2,
+   "radius": 13,
+   "disruptRadius": 96,
+   "disruptIntervalSec": 4.2,
+   "disruptDurationSec": 2.5
+  },
+  "ge_tang_bat_ho_6": {
+   "id": "ge_tang_bat_ho_6",
+   "name": "Rêu Tường Cũ",
+   "element": "moc",
+   "trait": "healer",
+   "traitLabel": "Hồi máu cho quái gần",
+   "maxHp": 260,
+   "speed": 37,
+   "armor": 0.12,
+   "reward": 14,
+   "lifeCost": 2,
+   "radius": 13,
+   "healRadius": 90,
+   "healIntervalSec": 2.6,
+   "healAmount": 42
+  }
+ }
+}

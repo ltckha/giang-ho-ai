@@ -32,7 +32,7 @@ export const ULTIMATE_ROLE_TEXT: Record<TowerRole, string> = {
   support_buff: 'Món quanh nó nhanh thêm 60% trong 6 giây, gỡ ngay món đang đứng im.',
 };
 
-export const ULTIMATE_NAMES: Record<TowerId, string> = {
+export const ULTIMATE_NAMES: Partial<Record<TowerId, string>> = {
   wood_tower: 'Mưa Dép',
   metal_tower: 'Cú Dậm Sấm',
   water_tower: 'Màn Sương Đặc',
@@ -49,3 +49,8 @@ export const ULTIMATE_NAMES: Record<TowerId, string> = {
   fl_heater: 'Hơi Ấm Bùng Lên',
   fl_vent: 'Gió Lùa Thông Thoáng',
 };
+
+/** Tên tuyệt chiêu: bảng trên, hoặc tên ghi trong món (món sinh tự động), hoặc "Tuyệt chiêu" */
+export function ultimateNameFor(id: TowerId, fromDef?: string): string {
+  return ULTIMATE_NAMES[id] ?? fromDef ?? 'Tuyệt chiêu';
+}

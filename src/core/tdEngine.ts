@@ -22,7 +22,7 @@ import {
   ULTIMATE_COST,
   ULTIMATE_EFFECT,
   ULTIMATE_MIN_STAGE,
-  ULTIMATE_NAMES,
+  ultimateNameFor,
   ULTIMATE_PASSIVE_DAMAGE_BONUS,
 } from './ultimates';
 import type {
@@ -426,7 +426,7 @@ export class TowerDefenseEngine {
       towerUid: tower.uid,
       towerDefId: tower.defId,
       splashRadius: range,
-      text: ULTIMATE_NAMES[tower.defId],
+      text: ultimateNameFor(tower.defId, ALL_TOWER_DEFINITIONS[tower.defId]?.ultimateName),
     });
 
     const hitAll = (mult: number) => {

@@ -1,7 +1,7 @@
 export type ElementType = 'kim' | 'moc' | 'thuy' | 'hoa' | 'tho';
 
 /** Mã màn: 3 tiệm + trận trùm phố */
-export type StageId = 'stage_1' | 'stage_2' | 'stage_3' | 'stage_4';
+export type StageId = 'stage_1' | 'stage_2' | 'stage_3' | 'stage_4' | `street_${string}`;
 
 export type TowerRole = 'single_far' | 'heavy_slow' | 'slow_aura' | 'aoe_splash' | 'support_buff';
 
@@ -13,7 +13,10 @@ export type BakeryTowerId = 'bk_swatter' | 'bk_jar' | 'bk_fan' | 'bk_oven' | 'bk
 /** Món tiệm hoa (Màn 3) — xem src/core/shops/flower.ts */
 export type FlowerTowerId = 'fl_can' | 'fl_shears' | 'fl_lime' | 'fl_heater' | 'fl_vent';
 
-export type TowerId = ShoeTowerId | BakeryTowerId | FlowerTowerId;
+/** Món sinh ra bởi máy làm màn (phố thật) */
+export type GeneratedTowerId = `gt_${string}`;
+
+export type TowerId = ShoeTowerId | BakeryTowerId | FlowerTowerId | GeneratedTowerId;
 
 export type TowerTier = 1 | 2 | 3;
 
@@ -43,6 +46,8 @@ export interface TowerTierStats {
 
 export interface TowerDefinition {
   id: TowerId;
+  /** Tên tuyệt chiêu bậc 4 (món sinh tự động) */
+  ultimateName?: string;
   element: ElementType;
   role: TowerRole;
   roleLabel: string;
@@ -61,7 +66,10 @@ export type FlowerEnemyId = 'fl_aphid' | 'fl_snail' | 'fl_dust' | 'fl_dust_mini'
 /** Trùm phố (Màn trùm phố) */
 export type StreetBossEnemyId = 'st_bao_loc';
 
-export type EnemyId = ShoeEnemyId | BakeryEnemyId | FlowerEnemyId | StreetBossEnemyId;
+/** Quái sinh ra bởi máy làm màn (phố thật) */
+export type GeneratedEnemyId = `ge_${string}`;
+
+export type EnemyId = ShoeEnemyId | BakeryEnemyId | FlowerEnemyId | StreetBossEnemyId | GeneratedEnemyId;
 
 export type ShoeEnemyId =
   | 'fast_metal'
@@ -154,6 +162,12 @@ export interface StageDefinition {
   loadoutSize?: number;
   /** Bộ món mang theo mặc định nếu người chơi chưa chọn */
   defaultLoadout?: TowerId[];
+  /** Kế hoạch cho bot (màn sinh tự động) */
+  botPlan?: { padId: string; defId: TowerId; preferredBranch: TowerBranch }[];
+  /** Phố thật: ghi nguồn bản đồ */
+  attribution?: string;
+  /** Phố thật: danh sách địa điểm dọc phố (tên trong game) */
+  places?: { key: string; name: string; type: string; trait: string; towerId: TowerId }[];
 }
 
 export interface ActiveTower {
