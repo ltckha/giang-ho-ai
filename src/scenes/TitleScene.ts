@@ -572,6 +572,38 @@ export class TitleScene extends Phaser.Scene {
       root.querySelector<HTMLDivElement>(id)?.removeAttribute('hidden');
     };
     root.querySelector('#btn-open-gear')?.addEventListener('click', () => openSheet('#td-gear-sheet'));
+    // Chế độ chủ: bấm giữ chữ "Gọn Phố" 3 giây → bật / tắt mở hết màn (Claude)
+    const heading = root.querySelector<HTMLElement>('.td-title-heading');
+    if (heading) {
+      let holdTimer: number | undefined;
+      const startHold = (ev: Event) => {
+        ev.preventDefault();
+        heading.classList.add('holding');
+        holdTimer = window.setTimeout(() => {
+          heading.classList.remove('holding');
+          try {
+            const on = localStorage.getItem('gonpho_mo_het') === '1';
+            if (on) localStorage.removeItem('gonpho_mo_het');
+            else localStorage.setItem('gonpho_mo_het', '1');
+            sound.playUiClick();
+            window.alert(on ? 'Đã tắt chế độ chủ' : 'Chế độ chủ: đã mở hết màn');
+          } catch {
+            /* trình duyệt chặn lưu */
+          }
+          this.unmountOverlay();
+          this.scene.restart();
+        }, 3000);
+      };
+      const stopHold = () => {
+        heading.classList.remove('holding');
+        window.clearTimeout(holdTimer);
+      };
+      heading.addEventListener('pointerdown', startHold);
+      heading.addEventListener('pointerup', stopHold);
+      heading.addEventListener('pointerleave', stopHold);
+      heading.addEventListener('pointercancel', stopHold);
+      heading.addEventListener('contextmenu', (ev) => ev.preventDefault());
+    }
     root.querySelector('#btn-open-help')?.addEventListener('click', () => openSheet('#td-help-sheet'));
     root.querySelectorAll<HTMLElement>('[data-close-sheet]').forEach((b) => {
       b.addEventListener('click', () => {

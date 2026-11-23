@@ -4016,3 +4016,5 @@ img.td-vehicle-ico { object-fit: contain; }
 .td-real-shop-list { max-height: none !important; overflow: visible !important; gap: 6px; }
 .td-shoprow { flex: none !important; }
 .td-real-street-detail .td-real-shop-progress { margin: 2px 0 6px; }
+.td-title-heading { touch-action: none; -webkit-touch-callout: none; }
+.td-title-heading.holding { color: #15803d; transition: color 3s linear; }
