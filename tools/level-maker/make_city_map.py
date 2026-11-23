@@ -130,6 +130,7 @@ items = []
 houses = [deco(n, 30) for n in ['nha_dalat_1', 'nha_dalat_2', 'nha_pho_1', 'nha_pho_2', 'nha_pho_3']]
 houses = [h for h in houses if h]
 tree = deco('cay_thong', 34)
+sakura = deco('cay_mai_anh_dao', 34)
 for _ in range(2600):
     p = (rng.uniform(16, W - 16), rng.uniform(16, H - 30))
     if in_lake(p) or any(math.hypot(p[0] - q[0], p[1] - q[1]) < 26 for q in placed):
@@ -140,9 +141,32 @@ for _ in range(2600):
     if 13 < dr < 24 and houses and len([i for i in items if i[2] == 'h']) < 70:
         items.append((p, rng.choice(houses), 'h')); placed.append(p)
     elif dr > 34 and tree and len([i for i in items if i[2] == 't']) < 60:
-        items.append((p, tree, 't')); placed.append(p)
+        items.append((p, sakura if (sakura is not None and rng.random() < 0.18) else tree, 't')); placed.append(p)
 for p, img, _k in sorted(items, key=lambda t: t[0][1]):
     im.paste(img, (int(p[0] * S - img.width / 2), int(p[1] * S - img.height * 0.8)), img)
+# cảnh Đà Lạt đặt đúng toạ độ thật (nếu nằm trong khung)
+LANDMARK_DECO = [
+    ('nha_tho_con_ga', 11.93632, 108.43775, 54),   # Nhà thờ Con Gà, Trần Phú
+    ('quang_truong_atiso', 11.93765, 108.44515, 50),  # Quảng trường Lâm Viên
+    ('ga_da_lat', 11.94180, 108.45470, 54),       # Ga Đà Lạt
+]
+for m in data.get('landmarks', []):
+    if 'Lâm Viên' in m['name']:
+        LANDMARK_DECO[1] = ('quang_truong_atiso', m['lat'], m['lon'], 50)
+for name, la, lo, size in LANDMARK_DECO:
+    x, y = P(la, lo)
+    img = deco(name, size)
+    if img is not None and 20 < x < W - 20 and 20 < y < H - 30:
+        im.paste(img, (int(x * S - img.width / 2), int(y * S - img.height * 0.8)), img)
+# thuyền thiên nga trên hồ, vài cây mai anh đào
+swan = deco('thuyen_thien_nga', 26)
+if swan is not None:
+    for w in data['water']:
+        if 'Xuân Hương' in (w.get('name') or ''):
+            xs = [P(*p) for p in w['pts']]
+            cx = sum(p[0] for p in xs) / len(xs); cy = sum(p[1] for p in xs) / len(xs)
+            for dx, dy in [(-30, 10), (25, -12)]:
+                im.paste(swan, (int((cx + dx) * S - swan.width / 2), int((cy + dy) * S - swan.height / 2)), swan)
 cho = deco('khu_cho', 56)
 for m in data.get('landmarks', []):
     if cho is not None and m['name'] == 'Chợ Đà Lạt':

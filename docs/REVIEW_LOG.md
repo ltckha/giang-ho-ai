@@ -395,3 +395,8 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Bản đồ màn chính 7 phố, thẻ tự né nhau; phố chưa có hình thẻ dùng mặt tiền tiệm đầu.
 - Mẹo 1 dòng khi gặp loại quái / trùm mới lần đầu (nhớ trên máy).
 - `npm test` 86/86, e2e 17/17.
+
+## 24/11/2026 — Spark đợt 17–21 (78 hình) (Claude)
+- Đợt 17: 10 loại món đặc sản Đà Lạt (dâu tây, mứt, đồ len, atiso, hoa khô, bánh tráng nướng, lẩu gà, sữa đậu nành, hostel, tiệm bánh mì) → món ở 3 phố mới có hình riêng. Đợt 18: 10 mặt tiền. Đợt 19: 12 cảnh Đà Lạt (nhà thờ Con Gà, quảng trường atiso, ga, thuyền thiên nga, mai anh đào…) → đặt đúng toạ độ trên bản đồ. Đợt 20: 9 quái thời tiết + trùm Bão Lũ Cao Nguyên (cho màn sự kiện sau). Đợt 21: 3 trùm phố mới + 3 thẻ phố.
+- Kho Spark: 45 loại món, 65 quái, 69 mặt tiền. Lỗi nhỏ: quai_mat_dien có 2 mặt; banh_trang_nuong / lau_ga b1≈b2.
+- `npm test` 86/86, e2e 17/17.

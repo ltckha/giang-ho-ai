@@ -643,7 +643,7 @@ export class TitleScene extends Phaser.Scene {
       const docStars = SHOP_STREET.reduce((n, sh) => n + shopStars(cur, sh), 0);
       // Bản đồ Đà Lạt (Claude): chấm đỏ đúng vị trí phố thật, thẻ hình góc phố nối bằng đường chấm
       const CARD_IMG: Record<string, string> = {
-        doc: 'the_pho_doc', street_tang_bat_ho: 'the_pho_tang_bat_ho', street_pho_ca_phe: 'the_pho_ca_phe', street_phan_dinh_phung: 'the_pho_phan_dinh_phung',
+        doc: 'the_pho_doc', street_tang_bat_ho: 'the_pho_tang_bat_ho', street_pho_ca_phe: 'the_pho_ca_phe', street_phan_dinh_phung: 'the_pho_phan_dinh_phung', street_nguyen_van_troi: 'the_pho_nguyen_van_troi', street_hoang_dieu: 'the_pho_hoang_dieu', street_tran_phu: 'the_pho_tran_phu',
       };
       type MapPin = { id: string; dot: [number, number] | null; card: [number, number]; name: string; sub: string; open: boolean; testid: string; extra: string };
       const realPins: MapPin[] = REAL_STREET_STAGES.map((st) => {
