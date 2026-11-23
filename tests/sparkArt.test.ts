@@ -1,8 +1,9 @@
-import { readFileSync } from 'node:fs';
+import atlasJson from '../public/assets/spark_atlas.json';
 import { describe, expect, it } from 'vitest';
 import { ALL_ENEMY_DEFINITIONS, ALL_TOWER_DEFINITIONS } from '../src/core/tdDefinitions';
 
-const atlas = JSON.parse(readFileSync('public/assets/spark_atlas.json', 'utf8')) as { frames: Record<string, unknown> };
+
+const atlas = atlasJson as unknown as { frames: Record<string, unknown> };
 
 describe('Hình Spark vẽ đã ghép đủ cho món / quái có dùng', () => {
   it('mỗi món có art đủ 4 bậc × 3 khung', () => {
