@@ -22,6 +22,8 @@ Mỗi chặng có chốt kiểm; chặng trước đạt mới sang chặng sau.
 
 **Video kênh Gọn (anh Kha nói "ghi" 22/11):** máy tự chơi + quay màn hình dọc 9:16 (Playwright), clip 15–30 giây, chỉ dùng âm thanh trong game (không nhạc ngoài). Nội dung: "đặt sai món là thua" → chơi lại đúng hành thì thắng; khoảnh khắc "Trúng tủ!"; trùm Mùa Nồm đổi hành; ghép mẹo thật (vd mùa mưa bỏ gói hút ẩm vào giày). Đăng qua hệ thống đăng bài đang có (phiên "Thực thi · Đăng bài"), mỗi lần anh duyệt trước. Thời điểm: quay thử 3–5 clip sau chặng 1 (chưa đăng); bắt đầu đăng từ chặng 3 khi có link chơi công khai. Xen kẽ với nội dung khác của kênh, không lấn hết.
 
+**Độ khó và trang bị (anh Kha chốt 23/11):** không giảm sức đồ ở 3 tiệm đầu. Độ khó tăng dần ở các tiệm / phố làm sau; đồ rơi cũng tốt dần theo tiến độ (màn sau, nhiều sao → hạng cao hơn). Khi thiết kế tiệm / phố mới, Claude cân độ khó theo mức đồ người chơi có thể đã có ở thời điểm đó (dùng docs/review/sim_gear.ts).
+
 Giữ suốt các chặng: tới chặng 5 vẫn 0 đồng và chơi offline. Thời gian: không hứa ngày; ước chặng 1–2 vài ngày tới 1–2 tuần nếu duyệt kịp (Antigravity có thể hết lượt hoặc bị trả lại vì chưa vui).
 
 ## Kết luận (kế hoạch nhập vai cũ)

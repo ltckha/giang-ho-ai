@@ -290,3 +290,5 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
    | 3 | 3/40 | 33/40 | 39/40 |
    → Chờ anh Kha chốt hướng sửa (giảm sức đồ + chế độ Khó).
 3. **Quay clip:** công cụ quay bỏ qua hướng dẫn, mở sẵn 3 tiệm, dùng `?bot=1&video=1`; quay thử 3 clip 22 giây (mỗi tiệm 1 clip) có chữ tiêu đề và thẻ tên game cuối clip, ~4 MB mỗi clip. Chưa đăng.
+
+**Anh Kha chốt (23/11):** không sửa độ khó / sức đồ ở 3 tiệm đầu; tăng độ khó ở nội dung làm sau, đồ rơi tốt dần.
