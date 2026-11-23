@@ -6,6 +6,9 @@ import { ALL_ELEMENTS as ELS } from './elements';
 /**
  * Khoá lưu trữ mới riêng cho bản Thủ Thành — tuyệt đối không đọc bản lưu nhập vai cũ.
  */
+import { STAGES } from './tdDefinitions';
+import { nextVehicleToUnlock, stageGrantsVehicle, type VehicleId } from './vehicles';
+
 export const TD_SAVE_KEY = 'giang_ho_ai_thu_thanh_save_v1';
 
 export function createDefaultTdSave(): TdSaveData {
@@ -38,6 +41,8 @@ export function loadTdSave(storage?: Pick<Storage, 'getItem'>): TdSaveData {
       tutorialDone: parsed.tutorialDone === true,
       badges: Array.isArray(parsed.badges) ? parsed.badges : [],
       streetLoadout: Array.isArray(parsed.streetLoadout) ? parsed.streetLoadout : undefined,
+      vehicles: Array.isArray(parsed.vehicles) ? parsed.vehicles : ['di_bo'],
+      vehicle: typeof parsed.vehicle === 'string' ? parsed.vehicle : 'di_bo',
       gearInventory: Array.isArray(parsed.gearInventory)
         ? parsed.gearInventory.map(migrateGearItem).filter((x): x is GearItem => x !== null)
         : starterGear(),
@@ -58,6 +63,7 @@ export function saveTdProgress(
   const store = storage ?? (typeof window !== 'undefined' ? window.localStorage : undefined);
   const current = loadTdSave(store);
 
+  current.lastVehicleUnlocked = undefined;
   const prevStars = current.starsByStage[stageId] ?? 0;
   if (stars > prevStars) {
     current.starsByStage[stageId] = stars;
@@ -76,6 +82,17 @@ export function saveTdProgress(
     current.unlockedStage = 4; // mở trận trùm phố
   } else if (stageId === 'stage_4') {
     current.badges = Array.from(new Set([...(current.badges ?? []), 'giu_tron_pho']));
+  }
+
+  // Xe: thắng lần đầu màn ra phố đặc biệt → nhận xe kế tiếp (vehicles.ts)
+  const st = STAGES[stageId];
+  if (prevStars === 0 && st && stageGrantsVehicle(st)) {
+    const owned = (current.vehicles ?? ['di_bo']) as VehicleId[];
+    const nv = nextVehicleToUnlock(owned);
+    if (nv) {
+      current.vehicles = [...owned, nv];
+      current.lastVehicleUnlocked = nv;
+    }
   }
 
   current.updatedAt = Date.now();
@@ -179,4 +196,19 @@ export function saveStreetLoadout(loadout: TowerId[], allowed: TowerId[], size: 
   cur.updatedAt = Date.now();
   writeSave(store, cur);
   return clean;
+}
+
+/** Chọn xe đi phố */
+export function chooseVehicle(id: VehicleId, storage?: Pick<Storage, 'getItem' | 'setItem'>): TdSaveData {
+  const store = resolveStore(storage);
+  const cur = loadTdSave(store);
+  if ((cur.vehicles ?? ['di_bo']).includes(id)) cur.vehicle = id;
+  writeSave(store, cur);
+  return cur;
+}
+
+/** Xe đang đi (luôn hợp lệ) */
+export function getVehicle(save: TdSaveData): VehicleId {
+  const v = (save.vehicle ?? 'di_bo') as VehicleId;
+  return (save.vehicles ?? ['di_bo']).includes(v) ? v : 'di_bo';
 }

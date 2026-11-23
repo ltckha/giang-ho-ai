@@ -12,15 +12,19 @@ import {
   supporterSlots,
   type GearSlotId,
 } from '../core/equipment';
-import { equipGear, getEquipped, getGearBonus, loadTdSave, saveStreetLoadout } from '../core/saveSystem';
+import { chooseVehicle, equipGear, getEquipped, getGearBonus, getVehicle, loadTdSave, saveStreetLoadout } from '../core/saveSystem';
+import { VEHICLES, type VehicleId } from '../core/vehicles';
+import { vehicleIconHtml } from '../game/vehicleUi';
 import { getShopStage, isShopUnlocked, SHOP_STREET, shopStars, type ShopOnStreet } from '../core/shopStreet';
 import {
   ALL_ENEMY_DEFINITIONS,
   ALL_TOWER_DEFINITIONS,
   getStageTowerList,
+  REAL_STREET_SHOPS,
   REAL_STREET_STAGES,
   STAGES,
 } from '../core/tdDefinitions';
+import { isStreetStageUnlocked, streetProgress } from '../core/streetProgress';
 import type { ElementType, EnemyId, StageDefinition, StageId, TowerId } from '../core/types';
 import {
   getAtlasFrameDataUrl,
@@ -218,6 +222,8 @@ export class TitleScene extends Phaser.Scene {
     let selectedShopId: ShopOnStreet['stageId'] =
       SHOP_STREET.find((s) => String(s.order) === queryStage)?.stageId ?? SHOP_STREET[0]!.stageId;
     let selectedRealStreetId: StageId = REAL_STREET_STAGES[0]?.id ?? 'street_tang_bat_ho';
+    /** Màn đang chọn trong từng phố thật (tiệm hoặc màn phố) — Claude */
+    const selectedStreetStage: Record<string, StageId> = {};
 
     const championBadgeUrl = getAtlasFrameDataUrl(this, 'icon_badge_giu_tron_pho');
     const shopCountOnly = SHOP_STREET.filter((s) => !s.isBoss).length;
@@ -785,7 +791,6 @@ export class TitleScene extends Phaser.Scene {
       const host = root.querySelector<HTMLDivElement>('#td-dalat-real-streets');
       if (!host) return;
       const curSave = loadTdSave();
-      const coinUrl = getAtlasFrameDataUrl(this, 'icon_coin');
 
       const activeStreet =
         REAL_STREET_STAGES.find((s) => s.id === selectedRealStreetId) ?? REAL_STREET_STAGES[0];
@@ -819,16 +824,48 @@ export class TitleScene extends Phaser.Scene {
         `;
       }).join('');
 
+      const shopStages = REAL_STREET_SHOPS[activeStreet.id] ?? [];
+      const prog = streetProgress(curSave, activeStreet.id);
+      const canPlay = (id: StageId) => isBotBypass || isStreetStageUnlocked(curSave, id);
+      const selId: StageId = selectedStreetStage[activeStreet.id] ?? prog.nextStageId;
+      const selStage = STAGES[selId] ?? activeStreet;
+      const selUnlocked = isRealStreetsUnlocked && canPlay(selStage.id);
+      const bossDef = Object.values(ALL_ENEMY_DEFINITIONS).find(
+        (e) => e?.trait === 'boss' && activeStreet.waves.some((w) => w.groups.some((g) => g.enemyId === e.id)),
+      );
+      const shopRowsHtml = [...shopStages, activeStreet]
+        .map((st) => {
+          const isBossRow = !st.shopIndex;
+          const open = isRealStreetsUnlocked && canPlay(st.id);
+          const stars = curSave.starsByStage[st.id] ?? 0;
+          const feat = st.featuredTowerId ? ALL_TOWER_DEFINITIONS[st.featuredTowerId] : undefined;
+          const icon = isBossRow
+            ? (bossDef ? getAtlasFrameDataUrl(this, getEnemyFrameName(bossDef.id, 0)) : '')
+            : feat
+              ? getAtlasFrameDataUrl(this, getTowerFrameName(feat.id, 1, undefined, 0))
+              : '';
+          const label = isBossRow ? `Màn phố: ${bossDef?.name ?? 'Trùm phố'}` : `${st.shopIndex}. ${st.name}`;
+          return `
+            <button type="button" class="td-real-shop-row ${open ? 'open' : 'locked'} ${st.id === selStage.id ? 'selected' : ''} ${isBossRow ? 'boss' : ''}"
+              data-real-stage="${st.id}" data-testid="real-shop-row-${st.id}">
+              <span class="td-real-shop-ico">${icon ? `<img src="${icon}" alt="" />` : isBossRow ? '👹' : '🏠'}</span>
+              <span class="td-real-shop-name">${label}</span>
+              <span class="td-real-shop-state">${!open ? '🔒' : stars > 0 ? '★'.repeat(stars) : 'Mới'}</span>
+            </button>`;
+        })
+        .join('');
+      const curVehicle = VEHICLES[getVehicle(curSave)];
+      const vehicleChipsHtml = ((curSave.vehicles ?? ['di_bo']) as VehicleId[])
+        .filter((v) => VEHICLES[v])
+        .map((v) => `<button type="button" class="td-vehicle-chip ${v === curVehicle.id ? 'selected' : ''}" data-vehicle="${v}" data-testid="vehicle-chip-${v}">${vehicleIconHtml(this, VEHICLES[v])}<span>${VEHICLES[v].name}</span></button>`)
+        .join('');
       const activeStars = curSave.starsByStage[activeStreet.id] ?? 0;
       const activeStarText = !isRealStreetsUnlocked
         ? '🔒 Khóa'
         : activeStars > 0
           ? '★'.repeat(activeStars) + '☆'.repeat(3 - activeStars)
           : 'Mới mở!';
-      const activeTowers = (activeStreet.towerIds ?? [])
-        .map((id) => ALL_TOWER_DEFINITIONS[id])
-        .filter(Boolean);
-      const activeEnemies = getStageMainEnemies(activeStreet);
+      const activeEnemies = getStageMainEnemies(STAGES[selectedStreetStage[activeStreet.id] ?? streetProgress(curSave, activeStreet.id).nextStageId] ?? activeStreet);
 
       host.innerHTML = `
         <div class="td-dalat-map-card ${isRealStreetsUnlocked ? 'unlocked' : 'locked'}">
@@ -857,34 +894,21 @@ export class TitleScene extends Phaser.Scene {
             </div>
 
             <div class="td-shop-detail-stats">
-              <span>🌊 ${activeStreet.waves.length} đợt</span>
+              <span>🌊 ${selStage.waves.length} đợt</span>
               <span>•</span>
-              <span>🏠 ${activeTowers.length} món đặc trưng (mang ${activeStreet.loadoutSize ?? 6})</span>
+              <span>🏠 ${shopStages.length} tiệm • mang ${selStage.loadoutSize ?? 6} món</span>
               <span>•</span>
               <span>📍 Dữ liệu OSM</span>
             </div>
 
             <div class="td-shop-detail-block">
-              <div class="td-shop-detail-label">9 địa điểm &amp; món giữ phố</div>
-              <div class="td-real-towers-strip">
-                ${activeTowers
-                  .map((t) => {
-                    const el = ELEMENT_INFO[t.element];
-                    const spUrl = getAtlasFrameDataUrl(this, getTowerFrameName(t.id, 1, undefined, 0));
-                    return `
-                      <div class="td-real-tower-chip" style="border-color:${el.colorHex}" title="${t.tier1.name} (${el.label})">
-                        ${spUrl ? `<img src="${spUrl}" alt="${t.tier1.name}" />` : ''}
-                        <span>${t.tier1.name}</span>
-                        <small>${t.tier1.cost}${coinUrl ? `<img class="td-mini-coin" src="${coinUrl}" alt="" />` : ''}</small>
-                      </div>
-                    `;
-                  })
-                  .join('')}
-              </div>
+              <div class="td-shop-detail-label">Giữ lần lượt ${shopStages.length} tiệm rồi ra phố đánh trùm • đã giữ ${prog.shopsCleared}/${prog.shopsTotal}</div>
+              <div class="td-real-shop-progress"><i style="width:${prog.shopsTotal ? Math.round((prog.shopsCleared / prog.shopsTotal) * 100) : 0}%"></i></div>
+              <div class="td-real-shop-list" data-testid="real-shop-list">${shopRowsHtml}</div>
             </div>
 
             <div class="td-shop-detail-block">
-              <div class="td-shop-detail-label">Bầy quái đặc trưng trên phố</div>
+              <div class="td-shop-detail-label">Quái ở ${selStage.shopIndex ? selStage.name : 'ngoài phố'}</div>
               <div class="td-shop-mini-enemies">
                 ${activeEnemies
                   .map((eid) => {
@@ -904,15 +928,21 @@ export class TitleScene extends Phaser.Scene {
               </div>
             </div>
 
+            <div class="td-shop-detail-block" data-testid="vehicle-picker">
+              <div class="td-shop-detail-label">Đi phố bằng xe gì</div>
+              <div class="td-vehicle-row">${vehicleChipsHtml}</div>
+              <div class="td-vehicle-note">${curVehicle.name}: ${curVehicle.passiveText} • Chiêu 1 lần: ${curVehicle.activeName} (${curVehicle.activeText})</div>
+            </div>
+
             <div class="td-shop-action-bar">
               <button
                 type="button"
                 id="btn-start-${activeStreet.id}"
                 data-testid="btn-start-${activeStreet.id}"
-                class="${isRealStreetsUnlocked ? 'td-btn-primary td-street-open-btn' : 'td-btn-locked td-street-open-btn'}"
-                ${isRealStreetsUnlocked ? '' : 'disabled aria-disabled="true"'}
+                class="${selUnlocked ? 'td-btn-primary td-street-open-btn' : 'td-btn-locked td-street-open-btn'}"
+                ${selUnlocked ? '' : 'disabled aria-disabled="true"'}
               >
-                ${isRealStreetsUnlocked ? `🗺 Chọn 6 Món & Giữ ${REAL_STREET_MAP_PINS[activeStreet.id]?.shortName ?? activeStreet.name}` : '🔒 Thắng Trận Trùm Phố để mở'}
+                ${!isRealStreetsUnlocked ? '🔒 Thắng Trận Trùm Phố để mở' : !selUnlocked ? (selStage.shopIndex ? '🔒 Giữ xong tiệm trước để mở' : '🔒 Giữ hết các tiệm để ra phố') : selStage.shopIndex ? `🏠 Chọn 6 Món & Giữ ${selStage.name}` : `👹 Chọn 6 Món & Ra Phố Đánh Trùm`}
               </button>
             </div>
           </div>
@@ -930,13 +960,29 @@ export class TitleScene extends Phaser.Scene {
         };
       });
 
-      host.querySelector<HTMLButtonElement>(`#btn-start-${activeStreet.id}`)?.addEventListener('click', () => {
-        if (!isRealStreetsUnlocked) return;
-        if (activeStreet.loadoutSize && !isBotBypass) {
+      host.querySelectorAll<HTMLButtonElement>('[data-vehicle]').forEach((btn) => {
+        btn.onclick = () => {
+          chooseVehicle(btn.dataset.vehicle as VehicleId);
           sound.playUiClick();
-          openLoadoutPicker(activeStreet);
+          renderRealStreetsMap();
+        };
+      });
+
+      host.querySelectorAll<HTMLButtonElement>('[data-real-stage]').forEach((btn) => {
+        btn.onclick = () => {
+          selectedStreetStage[activeStreet.id] = btn.dataset.realStage as StageId;
+          sound.playUiClick();
+          renderRealStreetsMap();
+        };
+      });
+
+      host.querySelector<HTMLButtonElement>(`#btn-start-${activeStreet.id}`)?.addEventListener('click', () => {
+        if (!selUnlocked) return;
+        if (selStage.loadoutSize && !isBotBypass) {
+          sound.playUiClick();
+          openLoadoutPicker(selStage);
         } else {
-          launchStage(activeStreet.id, this.resolveSavedLoadoutForStage(activeStreet));
+          launchStage(selStage.id, this.resolveSavedLoadoutForStage(selStage));
         }
       });
     };

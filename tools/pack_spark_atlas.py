@@ -54,6 +54,13 @@ def main() -> int:
             for i, (sx, sy) in enumerate([(1, 1), (1.05, 0.93), (1, 1), (0.96, 1.05)]):
                 frames[f'enemy_art_{art}_f{i}'] = fit(im, 80, sx, sy)
             continue
+        m = re.fullmatch(r'xe_(.+)\.png', f)
+        if m:
+            vid = 'di_bo' if m.group(1) == 'di_bo' else f'xe_{m.group(1)}'
+            frames[f'vehicle_{vid}'] = fit(im, 86)
+            continue
+        if f.startswith('mat_tien_'):
+            continue  # mặt tiền tiệm: dùng để ghép nền màn tiệm, không vào tấm hình món
         print('bỏ qua (sai tên):', f)
     # món thiếu bậc: dùng bậc gần nhất để game không lỗi
     for art, have in towers.items():

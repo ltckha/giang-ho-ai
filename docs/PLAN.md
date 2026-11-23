@@ -77,3 +77,6 @@ Game kiếm hiệp, không cài AI thật; câu chuyện kể lại thời đạ
 
 ## Tên game
 - Tạm "Giang Hồ AI"; anh có tên khác thì đổi.
+
+**Xe đi phố (anh Kha chốt 23/11):** xe là phương tiện, không phải trang bị ngũ hành — 1 ô riêng ngoài vòng 10 món, chỉ có tác dụng khi ra phố (Trận trùm phố đầu + mọi màn trên phố thật). Mỗi xe 1 tác dụng luôn bật + 1 chiêu bấm 1 lần mỗi màn. 7 xe: Đi Bộ, Xe Đạp, Xe Số, Xe Ga, Xe Điện, Xe Ba Gác, Xe Jeep. Nhận xe khi thắng lần đầu Trận trùm phố, tiệm thứ 5 và màn phố của mỗi phố thật. Luật: src/core/vehicles.ts.
+**Chia việc khi Antigravity hết lượt (23/11):** Spark vẽ toàn bộ hình; Claude làm cả giao diện (màn chọn tiệm, ô xe, ghép nền).

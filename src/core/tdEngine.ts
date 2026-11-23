@@ -17,6 +17,7 @@ export const SYNERGY_CHAIN4_BONUS = 0.4;
 /** Chuỗi đủ 5 hành trên sân (viên mãn): mọi món nhanh thêm 20% */
 export const SYNERGY_FULL_CYCLE_SPEED = 0.2;
 import { EMPTY_GEAR_BONUS, gearDamageFor, type GearBonus } from './equipment';
+import { VEHICLES, type VehicleDef, type VehicleId } from './vehicles';
 import {
   ULTIMATE_COOLDOWN_SEC,
   ULTIMATE_COST,
@@ -81,15 +82,22 @@ export class TowerDefenseEngine {
   /** Trận trùm phố: các loại món được phép đặt */
   public readonly loadout: TowerId[] | null;
 
-  constructor(stage: StageDefinition, options?: { gear?: GearBonus; loadout?: TowerId[] }) {
+  /** Xe đang đi (chỉ truyền khi ra phố) — vehicles.ts */
+  public readonly vehicle: VehicleDef | null;
+  public vehicleUsed = false;
+  private vehicleCalmRemaining = 0;
+
+  constructor(stage: StageDefinition, options?: { gear?: GearBonus; loadout?: TowerId[]; vehicle?: VehicleId }) {
     this.stage = stage;
     this.loadout = stage.loadoutSize
       ? (options?.loadout && options.loadout.length ? options.loadout : stage.defaultLoadout ?? []).slice(0, stage.loadoutSize)
       : null;
     this.gear = options?.gear ?? EMPTY_GEAR_BONUS;
-    this.essence = stage.startingEssence + this.gear.startCoins;
-    this.lives = stage.startingLives + this.gear.lives;
-    this.maxLives = stage.startingLives + this.gear.lives;
+    this.vehicle = options?.vehicle ? VEHICLES[options.vehicle] ?? null : null;
+    const vp = this.vehicle?.passive ?? {};
+    this.essence = stage.startingEssence + this.gear.startCoins + (vp.startCoins ?? 0);
+    this.lives = stage.startingLives + this.gear.lives + (vp.lives ?? 0);
+    this.maxLives = stage.startingLives + this.gear.lives + (vp.lives ?? 0);
   }
 
   private nextUid(prefix: string): string {
@@ -138,7 +146,7 @@ export class TowerDefenseEngine {
       const factor = this.waveInProgress
         ? 1.0
         : Math.min(1, Math.max(0.25, this.nextWaveCountdownSec / 8));
-      bonusEssence = Math.max(4, Math.round(waveDef.earlyBonusMax * factor));
+      bonusEssence = Math.max(4, Math.round(waveDef.earlyBonusMax * factor * (1 + (this.vehicle?.passive.earlyBonusPct ?? 0))));
       this.essence += bonusEssence;
     }
 
@@ -359,9 +367,40 @@ export class TowerDefenseEngine {
     }
   }
 
+  /* ---- Chiêu xe (1 lần mỗi màn) ---- */
+  public canUseVehicle(): boolean {
+    return Boolean(this.vehicle) && !this.vehicleUsed && this.status === 'playing';
+  }
+
+  public useVehicle(): boolean {
+    if (!this.canUseVehicle() || !this.vehicle) return false;
+    this.vehicleUsed = true;
+    const slowAll = (pct: number, sec: number) => {
+      for (const e of this.enemies) {
+        e.slowPercent = Math.max(e.slowPercent, pct);
+        e.slowRemaining = Math.max(e.slowRemaining, sec);
+      }
+    };
+    switch (this.vehicle.id) {
+      case 'di_bo': this.essence += 15; break;
+      case 'xe_dap': this.essence += 40; break;
+      case 'xe_so': slowAll(0.4, 4); break;
+      case 'xe_ga': this.lives = Math.min(this.maxLives, this.lives + 3); break;
+      case 'xe_dien':
+        for (const t of this.towers) t.disruptedRemaining = 0;
+        this.vehicleCalmRemaining = 6;
+        break;
+      case 'xe_ba_gac': for (const e of this.enemies) e.stunRemaining = Math.max(e.stunRemaining, 1.5); break;
+      case 'xe_jeep': slowAll(0.25, 8); this.essence += 20; break;
+    }
+    const p = this.stage.paths[0]?.[Math.floor((this.stage.paths[0]?.length ?? 1) / 2)] ?? { x: 180, y: 260 };
+    this.queuedEvents.push({ type: 'cleanse', x: p.x, y: p.y, text: `${this.vehicle.activeName}!` } as CombatEvent);
+    return true;
+  }
+
   /* ---- Giá sau giảm từ trang bị (dùng cho cả giao diện) ---- */
   public getBuildCost(defId: TowerId): number {
-    return Math.round(ALL_TOWER_DEFINITIONS[defId].tier1.cost * (1 - this.gear.stats.build_discount));
+    return Math.round(ALL_TOWER_DEFINITIONS[defId].tier1.cost * (1 - this.gear.stats.build_discount - (this.vehicle?.passive.buildDiscount ?? 0)));
   }
 
   public getUpgradeCost(defId: TowerId, tier: 2 | 3, branch?: TowerBranch): number {
@@ -532,6 +571,7 @@ export class TowerDefenseEngine {
     const events: CombatEvent[] = this.queuedEvents;
     this.queuedEvents = [];
     if (this.status !== 'playing' || dtSec <= 0) return events;
+    if (this.vehicleCalmRemaining > 0) this.vehicleCalmRemaining = Math.max(0, this.vehicleCalmRemaining - dtSec);
 
     // Đồng hồ tuyệt chiêu (bậc 4)
     let hasteEnded = false;
@@ -652,7 +692,7 @@ export class TowerDefenseEngine {
                   text: 'Sấy Khô!',
                 });
               } else {
-                tower.disruptedRemaining = Math.max(tower.disruptedRemaining, def.disruptDurationSec);
+                tower.disruptedRemaining = this.vehicleCalmRemaining > 0 ? 0 : Math.max(tower.disruptedRemaining, def.disruptDurationSec * (1 - (this.vehicle?.passive.disruptCut ?? 0)));
                 events.push({
                   type: 'disrupt',
                   x: tower.x,
@@ -1058,7 +1098,7 @@ export class TowerDefenseEngine {
     this.enemies.splice(idx, 1);
 
     const bonus = killerTower?.bonusKillEssence ?? 0;
-    const totalReward = Math.round(enemy.reward * (1 + this.gear.coinPct)) + bonus;
+    const totalReward = Math.round(enemy.reward * (1 + this.gear.coinPct + (this.vehicle?.passive.coinPct ?? 0))) + bonus;
     this.essence += totalReward;
 
     events.push({

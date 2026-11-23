@@ -1,6 +1,8 @@
 import Phaser from 'phaser';
 import { ELEMENT_INFO } from '../core/elements';
-import { getGearBonus, grantStageDrops, loadTdSave, markTutorialDone, saveTdProgress, shouldShowTutorial } from '../core/saveSystem';
+import { getGearBonus, getVehicle, grantStageDrops, loadTdSave, markTutorialDone, saveTdProgress, shouldShowTutorial } from '../core/saveSystem';
+import { vehicleAppliesTo, VEHICLES, type VehicleId } from '../core/vehicles';
+import { vehicleIconHtml } from '../game/vehicleUi';
 import { RARITY_LABEL, statText, type GearItem } from '../core/equipment';
 import { TutorialController } from '../core/tutorial';
 import { ULTIMATE_COOLDOWN_SEC, ULTIMATE_MIN_STAGE, ultimateNameFor, ULTIMATE_ROLE_TEXT } from '../core/ultimates';
@@ -10,6 +12,7 @@ import {
   ALL_TOWER_DEFINITIONS as TOWER_DEFINITIONS,
   getStageTowerList,
   getTowerTierStats,
+  REAL_STREET_SHOPS,
   STAGES,
 } from '../core/tdDefinitions';
 import { calculateStarRating, TowerDefenseEngine } from '../core/tdEngine';
@@ -207,6 +210,7 @@ export class TdStageScene extends Phaser.Scene {
   private lastChainLabelsKey = '';
   private resultShown = false;
   private lastDrops: GearItem[] = [];
+  private lastVehicleUnlocked: VehicleId | null = null;
   private lastUpcomingWaveNum = -999;
 
   private floatingUltEls = new Map<string, HTMLButtonElement>();
@@ -263,7 +267,13 @@ export class TdStageScene extends Phaser.Scene {
     }
 
     // Trang bị chủ tiệm đang mặc (lưu trên máy)
-    this.engine = new TowerDefenseEngine(stageDef, { gear: getGearBonus(save), loadout: resolvedLoadout });
+    this.engine = new TowerDefenseEngine(stageDef, {
+      gear: getGearBonus(save),
+      loadout: resolvedLoadout,
+      // Xe chỉ có tác dụng khi ra phố (Claude, vehicles.ts)
+      vehicle: vehicleAppliesTo(stageDef) ? getVehicle(save) : undefined,
+    });
+    this.lastVehicleUnlocked = null;
     music.setTrack(
       stageId === 'stage_4'
         ? 'boss'
@@ -1669,7 +1679,8 @@ export class TdStageScene extends Phaser.Scene {
         sound.playVictory();
         const stars = calculateStarRating(this.engine.lives, this.engine.maxLives);
         if (stars !== 0) {
-          saveTdProgress(this.engine.stage.id, stars, this.engine.lives);
+          const after = saveTdProgress(this.engine.stage.id, stars, this.engine.lives);
+          this.lastVehicleUnlocked = (after.lastVehicleUnlocked as VehicleId | undefined) ?? null;
           // Rơi trang bị theo số sao (Claude)
           this.lastDrops = grantStageDrops(this.engine.stage.stageNumber, stars);
         }
@@ -3034,6 +3045,7 @@ export class TdStageScene extends Phaser.Scene {
 
       <div class="td-bottom-bar">
         <div class="td-upcoming-box" id="td-upcoming-box" data-testid="td-upcoming-box"></div>
+        ${this.engine.vehicle ? `<button id="btn-vehicle" data-testid="btn-vehicle" class="td-vehicle-btn" title="${this.engine.vehicle.name}: ${this.engine.vehicle.activeText} (1 lần mỗi màn)">${vehicleIconHtml(this, this.engine.vehicle)}<span>${this.engine.vehicle.activeName}</span></button>` : ''}
         <button id="btn-call-wave" data-testid="btn-call-wave" class="td-call-wave-btn">
           Gọi Đợt 1
         </button>
@@ -3086,6 +3098,13 @@ export class TdStageScene extends Phaser.Scene {
     pauseHolder.id = 'td-pause-holder';
     container.appendChild(pauseHolder);
     this.pauseMenuRoot = pauseHolder;
+
+    hud.querySelector<HTMLButtonElement>('#btn-vehicle')?.addEventListener('click', (ev) => {
+      if (!this.engine.useVehicle()) return;
+      sound.playUiClick();
+      (ev.currentTarget as HTMLButtonElement).disabled = true;
+      (ev.currentTarget as HTMLButtonElement).classList.add('used');
+    });
 
     hud.querySelector<HTMLButtonElement>('#btn-speed-toggle')?.addEventListener('click', () => {
       sound.playUiClick();
@@ -3817,16 +3836,26 @@ export class TdStageScene extends Phaser.Scene {
         ? 'Chơi Lại Phố Này'
         : `Chơi Lại Màn ${stageNum}`;
 
+    // Phố thật (Claude): thắng màn tiệm → mời sang tiệm kế tiếp / ra phố đánh trùm
+    const curStage = this.engine.stage;
+    const streetShops = curStage.streetId ? REAL_STREET_SHOPS[curStage.streetId] ?? [] : [];
+    const nextStreetStage =
+      isWin && curStage.shopIndex
+        ? (streetShops[curStage.shopIndex] ?? (curStage.streetId ? STAGES[curStage.streetId] : undefined))
+        : undefined;
+
     this.modalRoot.innerHTML = `
       <div class="td-result-modal td-shoebox-panel" data-testid="td-result-modal">
         <div class="td-result-ribbon">${ribbonText}</div>
         <h2 class="td-result-title">${titleText}</h2>
         <div class="td-result-stars ${this.reduceMotion ? 'no-anim' : ''}" data-testid="td-result-stars">${starsHtml}</div>
         ${stage4BadgeHtml}
+        ${isWin && this.lastVehicleUnlocked ? `<div class="td-result-badge-card" data-testid="td-result-vehicle">${vehicleIconHtml(this, VEHICLES[this.lastVehicleUnlocked])}<div class="td-result-badge-text"><strong>Nhận xe mới: ${VEHICLES[this.lastVehicleUnlocked].name}</strong><span>${VEHICLES[this.lastVehicleUnlocked].passiveText} • Chiêu: ${VEHICLES[this.lastVehicleUnlocked].activeName}</span></div></div>` : ''}
         <p class="td-result-desc">${descText}</p>
         ${dropsHtml}
         <div class="td-result-actions">
-          <button id="btn-retry-stage" data-testid="btn-retry-stage" class="td-btn-primary">${retryLabel}</button>
+          ${nextStreetStage ? `<button id="btn-next-street-stage" data-testid="btn-next-street-stage" class="td-btn-primary">${nextStreetStage.shopIndex ? `Tiệm tiếp theo: ${nextStreetStage.name}` : 'Ra phố đánh trùm'}</button>` : ''}
+          <button id="btn-retry-stage" data-testid="btn-retry-stage" class="${nextStreetStage ? 'td-btn-secondary' : 'td-btn-primary'}">${retryLabel}</button>
           <button id="btn-back-title" data-testid="btn-back-title" class="td-btn-secondary">Về Màn Chính</button>
         </div>
       </div>
@@ -3846,6 +3875,12 @@ export class TdStageScene extends Phaser.Scene {
         dropsBox?.querySelector('#td-chest-stage')?.addEventListener('click', openChest);
       }
     }
+
+    this.modalRoot.querySelector('#btn-next-street-stage')?.addEventListener('click', () => {
+      if (!nextStreetStage) return;
+      sound.playUiClick();
+      this.scene.restart({ stageId: nextStreetStage.id });
+    });
 
     this.modalRoot.querySelector('#btn-retry-stage')?.addEventListener('click', () => {
       sound.playUiClick();

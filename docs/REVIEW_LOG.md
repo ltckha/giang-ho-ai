@@ -327,3 +327,8 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Màn tiệm k: được mang món 3 tiệm đầu + món các tiệm đã qua trên phố (chọn 6), món tiệm chính luôn có. Độ khó tăng dần: đặt bừa thắng ~65% ở tiệm đầu → ~35% tiệm cuối → ~30% màn phố.
 - Màn phố dùng quái đường phố (rác, bụi, nước đọng, khói xe, tờ rơi…) thay vì chuột/mốc trong tiệm; 3 trùm: Núi Rác Chợ Đêm, Cơn Mưa Ngập Dốc, Lốc Bụi Công Trình (tạm mượn hình Bão Lốc).
 - Mở khoá: src/core/streetProgress.ts (tiệm 1 mở khi có huy hiệu giữ trọn phố; tiệm k sau tiệm k-1; màn phố sau hết tiệm). `npm test` 68/68, e2e 17/17.
+
+## 23/11/2026 — Màn chọn tiệm + Xe đi phố (Claude, Antigravity hết lượt)
+- Bản đồ Đà Lạt: chạm phố → danh sách tiệm (món chính, sao, khoá) + màn phố cuối danh sách, thanh "đã giữ x/n". Thắng tiệm → nút "Tiệm tiếp theo" / "Ra phố đánh trùm".
+- Xe: src/core/vehicles.ts, chọn xe ở mục phố thật, nút chiêu xe trong màn, màn kết quả báo nhận xe mới. Hình xe tạm bằng biểu tượng, chờ Spark đợt 8.
+- `npm test` 72/72, e2e 17/17.

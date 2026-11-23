@@ -288,6 +288,11 @@ export interface TdSaveData {
   badges?: string[];
   /** Bộ món mang ra trận trùm phố */
   streetLoadout?: TowerId[];
+  /** Xe đã có (vehicles.ts) và xe đang đi */
+  vehicles?: string[];
+  vehicle?: string;
+  /** Xe vừa nhận ở lần thắng gần nhất (để màn kết quả báo) */
+  lastVehicleUnlocked?: string;
   /** Kho trang bị chủ tiệm (equipment.ts) */
   gearInventory?: import('./equipment').GearItem[];
   /** Đã xem / bỏ qua hướng dẫn chơi lần đầu */
