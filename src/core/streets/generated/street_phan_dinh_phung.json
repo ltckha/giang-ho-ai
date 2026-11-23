@@ -1,17 +1,17 @@
 {
  "generatedBy": "tools/level-maker/make-street.ts",
- "hpMultiplier": 1.4,
+ "hpMultiplier": 1.2,
  "balance": {
   "randomWinWithExpectedGear": 0.2916666666666667,
   "botWinRate": 1,
-  "botLivesAvg": 17.333333333333332,
+  "botLivesAvg": 17.666666666666668,
   "gearTier": "after_street_1"
  },
  "stage": {
   "id": "street_phan_dinh_phung",
-  "stageNumber": 10,
+  "stageNumber": 19,
   "name": "Phố Phan Đình Phùng (Cầu Quẹo)",
-  "subtitle": "Phố cũ của dân phố núi: nhà thuốc, tiệm tóc, nhà sách, studio ảnh cưới, phở sáng, tiệm xe máy",
+  "subtitle": "Màn phố: Lốc Bụi Công Trình — Phố cũ của dân phố núi: nhà thuốc, tiệm tóc, nhà sách, studio ảnh cưới, phở sáng, tiệm xe máy",
   "startingEssence": 210,
   "startingLives": 20,
   "paths": [
@@ -134,26 +134,26 @@
   "waves": [
    {
     "waveNumber": 1,
-    "title": "Đợt 1: Giọt Mưa Phố",
+    "title": "Đợt 1: Đinh Ốc Rơi",
     "mainElements": [
-     "thuy"
+     "kim"
     ],
     "earlyBonusMax": 12,
     "clearReward": 14,
     "groups": [
      {
-      "enemyId": "ge_phan_dinh_phung_1",
+      "enemyId": "ge_phan_dinh_phung_p1",
       "count": 6,
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 1.4
+      "hpScale": 1.2
      }
     ]
    },
    {
     "waveNumber": 2,
-    "title": "Đợt 2: Nhớt Tràn",
+    "title": "Đợt 2: Xà Bần Công Trình",
     "mainElements": [
      "tho"
     ],
@@ -161,18 +161,18 @@
     "clearReward": 14,
     "groups": [
      {
-      "enemyId": "ge_phan_dinh_phung_2",
+      "enemyId": "ge_phan_dinh_phung_p2",
       "count": 2,
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 1.61
+      "hpScale": 1.38
      }
     ]
    },
    {
     "waveNumber": 3,
-    "title": "Đợt 3: Ruồi Bếp & Nhớt Tràn",
+    "title": "Đợt 3: Tờ Rơi Quảng Cáo & Xà Bần Công Trình",
     "mainElements": [
      "moc",
      "tho"
@@ -181,156 +181,156 @@
     "clearReward": 15,
     "groups": [
      {
-      "enemyId": "ge_phan_dinh_phung_3",
+      "enemyId": "ge_phan_dinh_phung_p3",
       "count": 4,
       "intervalSec": 0.85,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 1.82
+      "hpScale": 1.56
      },
      {
-      "enemyId": "ge_phan_dinh_phung_2",
+      "enemyId": "ge_phan_dinh_phung_p2",
       "count": 2,
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 1.82
+      "hpScale": 1.56
      }
     ]
    },
    {
     "waveNumber": 4,
-    "title": "Đợt 4: Giọt Mưa Phố & Ruồi Bếp",
+    "title": "Đợt 4: Đinh Ốc Rơi & Tờ Rơi Quảng Cáo",
     "mainElements": [
-     "thuy",
+     "kim",
      "moc"
     ],
     "earlyBonusMax": 15,
     "clearReward": 15,
     "groups": [
      {
-      "enemyId": "ge_phan_dinh_phung_1",
+      "enemyId": "ge_phan_dinh_phung_p1",
       "count": 7,
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 2.03
+      "hpScale": 1.74
      },
      {
-      "enemyId": "ge_phan_dinh_phung_3",
+      "enemyId": "ge_phan_dinh_phung_p3",
       "count": 5,
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.03
+      "hpScale": 1.74
      }
     ]
    },
    {
     "waveNumber": 5,
-    "title": "Đợt 5: Giọt Mưa Phố & Ruồi Bếp",
+    "title": "Đợt 5: Đinh Ốc Rơi & Tờ Rơi Quảng Cáo",
     "mainElements": [
-     "thuy",
+     "kim",
      "moc"
     ],
     "earlyBonusMax": 16,
     "clearReward": 16,
     "groups": [
      {
-      "enemyId": "ge_phan_dinh_phung_1",
+      "enemyId": "ge_phan_dinh_phung_p1",
       "count": 8,
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 2.38
+      "hpScale": 2.04
      },
      {
-      "enemyId": "ge_phan_dinh_phung_3",
+      "enemyId": "ge_phan_dinh_phung_p3",
       "count": 5,
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.38
+      "hpScale": 2.04
      }
     ]
    },
    {
     "waveNumber": 6,
-    "title": "Đợt 6: Giọt Mưa Phố & Ruồi Bếp & Mối Mọt Sách",
+    "title": "Đợt 6: Đinh Ốc Rơi & Tờ Rơi Quảng Cáo & Nước Cống Tràn",
     "mainElements": [
-     "thuy",
+     "kim",
      "moc",
-     "kim"
+     "thuy"
     ],
     "earlyBonusMax": 17,
     "clearReward": 16,
     "groups": [
      {
-      "enemyId": "ge_phan_dinh_phung_1",
+      "enemyId": "ge_phan_dinh_phung_p1",
       "count": 8,
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 2.8
+      "hpScale": 2.4
      },
      {
-      "enemyId": "ge_phan_dinh_phung_3",
+      "enemyId": "ge_phan_dinh_phung_p3",
       "count": 5,
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.8
+      "hpScale": 2.4
      },
      {
-      "enemyId": "ge_phan_dinh_phung_5",
+      "enemyId": "ge_phan_dinh_phung_p5",
       "count": 3,
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.8
+      "hpScale": 2.4
      }
     ]
    },
    {
     "waveNumber": 7,
-    "title": "Đợt 7: Nhớt Tràn & Than Khói Đường Phố & Giọt Mưa Phố",
+    "title": "Đợt 7: Xà Bần Công Trình & Khói Xe Máy & Đinh Ốc Rơi",
     "mainElements": [
      "tho",
      "hoa",
-     "thuy"
+     "kim"
     ],
     "earlyBonusMax": 18,
     "clearReward": 17,
     "groups": [
      {
-      "enemyId": "ge_phan_dinh_phung_2",
+      "enemyId": "ge_phan_dinh_phung_p2",
       "count": 4,
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 3.36
+      "hpScale": 2.88
      },
      {
-      "enemyId": "ge_phan_dinh_phung_4",
+      "enemyId": "ge_phan_dinh_phung_p4",
       "count": 5,
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.36
+      "hpScale": 2.88
      },
      {
-      "enemyId": "ge_phan_dinh_phung_1",
+      "enemyId": "ge_phan_dinh_phung_p1",
       "count": 9,
       "intervalSec": 0.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.36
+      "hpScale": 2.88
      }
     ]
    },
    {
     "waveNumber": 8,
-    "title": "Đợt 8: Nhớt Tràn & Than Khói Đường Phố & Rêu Mốc Tường",
+    "title": "Đợt 8: Xà Bần Công Trình & Khói Xe Máy & Rác Ven Đường",
     "mainElements": [
      "tho",
      "hoa",
@@ -340,71 +340,71 @@
     "clearReward": 17,
     "groups": [
      {
-      "enemyId": "ge_phan_dinh_phung_2",
+      "enemyId": "ge_phan_dinh_phung_p2",
       "count": 4,
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 3.92
+      "hpScale": 3.36
      },
      {
-      "enemyId": "ge_phan_dinh_phung_4",
+      "enemyId": "ge_phan_dinh_phung_p4",
       "count": 5,
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.92
+      "hpScale": 3.36
      },
      {
-      "enemyId": "ge_phan_dinh_phung_6",
+      "enemyId": "ge_phan_dinh_phung_p6",
       "count": 2,
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.92
+      "hpScale": 3.36
      }
     ]
    },
    {
     "waveNumber": 9,
-    "title": "Đợt 9: Ruồi Bếp & Mối Mọt Sách & Giọt Mưa Phố",
+    "title": "Đợt 9: Tờ Rơi Quảng Cáo & Nước Cống Tràn & Đinh Ốc Rơi",
     "mainElements": [
      "moc",
-     "kim",
-     "thuy"
+     "thuy",
+     "kim"
     ],
     "earlyBonusMax": 20,
     "clearReward": 18,
     "groups": [
      {
-      "enemyId": "ge_phan_dinh_phung_3",
+      "enemyId": "ge_phan_dinh_phung_p3",
       "count": 6,
       "intervalSec": 0.85,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 4.48
+      "hpScale": 3.84
      },
      {
-      "enemyId": "ge_phan_dinh_phung_5",
+      "enemyId": "ge_phan_dinh_phung_p5",
       "count": 4,
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 4.48
+      "hpScale": 3.84
      },
      {
-      "enemyId": "ge_phan_dinh_phung_1",
+      "enemyId": "ge_phan_dinh_phung_p1",
       "count": 10,
       "intervalSec": 0.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 4.48
+      "hpScale": 3.84
      }
     ]
    },
    {
     "waveNumber": 10,
-    "title": "Đợt 10: Than Khói Đường Phố & Rêu Mốc Tường & Nhớt Tràn",
+    "title": "Đợt 10: Khói Xe Máy & Rác Ven Đường & Xà Bần Công Trình",
     "mainElements": [
      "hoa",
      "moc",
@@ -414,133 +414,156 @@
     "clearReward": 18,
     "groups": [
      {
-      "enemyId": "ge_phan_dinh_phung_4",
+      "enemyId": "ge_phan_dinh_phung_p4",
       "count": 6,
       "intervalSec": 1.2,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 5.04
+      "hpScale": 4.32
      },
      {
-      "enemyId": "ge_phan_dinh_phung_6",
+      "enemyId": "ge_phan_dinh_phung_p6",
       "count": 3,
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.04
+      "hpScale": 4.32
      },
      {
-      "enemyId": "ge_phan_dinh_phung_2",
+      "enemyId": "ge_phan_dinh_phung_p2",
       "count": 5,
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.04
+      "hpScale": 4.32
      }
     ]
    },
    {
     "waveNumber": 11,
-    "title": "Đợt 11: Mối Mọt Sách & Giọt Mưa Phố & Ruồi Bếp",
+    "title": "Đợt 11: Nước Cống Tràn & Đinh Ốc Rơi & Tờ Rơi Quảng Cáo",
     "mainElements": [
-     "kim",
      "thuy",
+     "kim",
      "moc"
     ],
     "earlyBonusMax": 22,
     "clearReward": 19,
     "groups": [
      {
-      "enemyId": "ge_phan_dinh_phung_5",
+      "enemyId": "ge_phan_dinh_phung_p5",
       "count": 4,
       "intervalSec": 1.8,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 5.6
+      "hpScale": 4.8
      },
      {
-      "enemyId": "ge_phan_dinh_phung_1",
+      "enemyId": "ge_phan_dinh_phung_p1",
       "count": 11,
       "intervalSec": 0.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.6
+      "hpScale": 4.8
      },
      {
-      "enemyId": "ge_phan_dinh_phung_3",
+      "enemyId": "ge_phan_dinh_phung_p3",
       "count": 7,
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.6
+      "hpScale": 4.8
      }
     ]
    },
    {
     "waveNumber": 12,
-    "title": "Đợt 12: Giờ cao điểm cả phố",
+    "title": "Đợt 12: Lốc Bụi Công Trình ập tới",
     "mainElements": [
-     "thuy",
+     "kim",
      "tho",
      "moc",
      "hoa",
-     "kim"
+     "thuy"
     ],
     "earlyBonusMax": 0,
     "clearReward": 0,
     "groups": [
      {
-      "enemyId": "ge_phan_dinh_phung_1",
+      "enemyId": "ge_phan_dinh_phung_p1",
       "count": 11,
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 6.02
+      "hpScale": 5.16
      },
      {
-      "enemyId": "ge_phan_dinh_phung_2",
+      "enemyId": "ge_phan_dinh_phung_p2",
       "count": 5,
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 6.02
+      "hpScale": 5.16
      },
      {
-      "enemyId": "ge_phan_dinh_phung_3",
+      "enemyId": "ge_phan_dinh_phung_p3",
       "count": 7,
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 6.02
+      "hpScale": 5.16
      },
      {
-      "enemyId": "ge_phan_dinh_phung_4",
+      "enemyId": "ge_phan_dinh_phung_p4",
       "count": 6,
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 6.02
+      "hpScale": 5.16
      },
      {
-      "enemyId": "ge_phan_dinh_phung_5",
+      "enemyId": "ge_phan_dinh_phung_p5",
       "count": 4,
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 6.02
+      "hpScale": 5.16
      },
      {
-      "enemyId": "ge_phan_dinh_phung_6",
+      "enemyId": "ge_phan_dinh_phung_p6",
       "count": 3,
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 6.02
+      "hpScale": 5.16
+     },
+     {
+      "enemyId": "ge_phan_dinh_phung_trum",
+      "count": 1,
+      "intervalSec": 1,
+      "delayBeforeSec": 3,
+      "pathIndex": 0,
+      "hpScale": 0.72
      }
     ]
    }
   ],
   "towerIds": [
+   "wood_tower",
+   "metal_tower",
+   "water_tower",
+   "fire_tower",
+   "earth_tower",
+   "bk_swatter",
+   "bk_jar",
+   "bk_fan",
+   "bk_oven",
+   "bk_fridge",
+   "fl_can",
+   "fl_shears",
+   "fl_lime",
+   "fl_heater",
+   "fl_vent",
    "gt_phan_dinh_phung_nha_thuoc",
    "gt_phan_dinh_phung_tiem_toc",
    "gt_phan_dinh_phung_nha_sach",
@@ -552,12 +575,12 @@
   ],
   "loadoutSize": 6,
   "defaultLoadout": [
-   "gt_phan_dinh_phung_tiem_toc",
-   "gt_phan_dinh_phung_nha_thuoc",
-   "gt_phan_dinh_phung_giat_say",
-   "gt_phan_dinh_phung_studio",
-   "gt_phan_dinh_phung_tap_hoa",
-   "gt_phan_dinh_phung_xe_may"
+   "metal_tower",
+   "fl_vent",
+   "bk_fridge",
+   "earth_tower",
+   "fire_tower",
+   "gt_phan_dinh_phung_nha_thuoc"
   ],
   "enableSynergy": true,
   "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -619,64 +642,4266 @@
     "towerId": "gt_phan_dinh_phung_giat_say"
    }
   ],
+  "streetId": "street_phan_dinh_phung",
   "botPlan": [
    {
     "padId": "pad_1",
-    "defId": "gt_phan_dinh_phung_tiem_toc",
+    "defId": "metal_tower",
     "preferredBranch": "A"
    },
    {
     "padId": "pad_2",
-    "defId": "gt_phan_dinh_phung_giat_say",
+    "defId": "fire_tower",
     "preferredBranch": "B"
    },
    {
     "padId": "pad_3",
-    "defId": "gt_phan_dinh_phung_nha_thuoc",
+    "defId": "fl_vent",
     "preferredBranch": "A"
    },
    {
     "padId": "pad_4",
-    "defId": "gt_phan_dinh_phung_tap_hoa",
+    "defId": "fire_tower",
     "preferredBranch": "B"
    },
    {
     "padId": "pad_5",
-    "defId": "gt_phan_dinh_phung_xe_may",
+    "defId": "metal_tower",
     "preferredBranch": "A"
    },
    {
     "padId": "pad_6",
-    "defId": "gt_phan_dinh_phung_tiem_toc",
+    "defId": "fire_tower",
     "preferredBranch": "B"
    },
    {
     "padId": "pad_7",
-    "defId": "gt_phan_dinh_phung_giat_say",
+    "defId": "metal_tower",
     "preferredBranch": "A"
    },
    {
     "padId": "pad_8",
-    "defId": "gt_phan_dinh_phung_studio",
+    "defId": "fire_tower",
     "preferredBranch": "B"
    },
    {
     "padId": "pad_9",
-    "defId": "gt_phan_dinh_phung_tap_hoa",
+    "defId": "metal_tower",
     "preferredBranch": "A"
    },
    {
     "padId": "pad_10",
-    "defId": "gt_phan_dinh_phung_xe_may",
+    "defId": "fire_tower",
     "preferredBranch": "B"
    },
    {
     "padId": "pad_11",
-    "defId": "gt_phan_dinh_phung_tiem_toc",
+    "defId": "metal_tower",
     "preferredBranch": "A"
    }
   ]
  },
+ "shops": [
+  {
+   "hpMultiplier": 0.8,
+   "balance": {
+    "randomWinWithExpectedGear": 0.625,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.65
+   },
+   "stage": {
+    "id": "street_phan_dinh_phung_t1",
+    "stageNumber": 11,
+    "name": "Nhà Thuốc Atiso",
+    "subtitle": "Phố Phan Đình Phùng (Cầu Quẹo) · tiệm 1/8: Nhà thuốc mở từ sáng tới khuya",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 35,
+       "y": 31
+      },
+      {
+       "x": 68,
+       "y": 32
+      },
+      {
+       "x": 93,
+       "y": 44
+      },
+      {
+       "x": 133,
+       "y": 68
+      },
+      {
+       "x": 149,
+       "y": 97
+      },
+      {
+       "x": 184,
+       "y": 97
+      },
+      {
+       "x": 192,
+       "y": 101
+      },
+      {
+       "x": 214,
+       "y": 135
+      },
+      {
+       "x": 273,
+       "y": 147
+      },
+      {
+       "x": 282,
+       "y": 155
+      },
+      {
+       "x": 310,
+       "y": 227
+      },
+      {
+       "x": 294,
+       "y": 285
+      },
+      {
+       "x": 291,
+       "y": 413
+      },
+      {
+       "x": 325,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 114,
+      "y": 114
+     },
+     {
+      "id": "pad_2",
+      "x": 222,
+      "y": 66
+     },
+     {
+      "id": "pad_3",
+      "x": 162,
+      "y": 42
+     },
+     {
+      "id": "pad_4",
+      "x": 174,
+      "y": 150
+     },
+     {
+      "id": "pad_5",
+      "x": 234,
+      "y": 186
+     },
+     {
+      "id": "pad_6",
+      "x": 282,
+      "y": 102
+     },
+     {
+      "id": "pad_7",
+      "x": 54,
+      "y": 90
+     },
+     {
+      "id": "pad_8",
+      "x": 258,
+      "y": 246
+     },
+     {
+      "id": "pad_9",
+      "x": 330,
+      "y": 162
+     },
+     {
+      "id": "pad_10",
+      "x": 330,
+      "y": 378
+     },
+     {
+      "id": "pad_11",
+      "x": 246,
+      "y": 318
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Nhớt Tràn",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.8
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.92
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Than Khói Đường Phố & Ruồi Bếp",
+      "mainElements": [
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.04
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.04
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Nhớt Tràn & Than Khói Đường Phố",
+      "mainElements": [
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.16
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.16
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Ruồi Bếp & Nhớt Tràn & Than Khói Đường Phố",
+      "mainElements": [
+       "moc",
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.36
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.36
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.36
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Than Khói Đường Phố & Ruồi Bếp & Nhớt Tràn",
+      "mainElements": [
+       "hoa",
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Nhớt Tràn & Than Khói Đường Phố & Ruồi Bếp",
+      "mainElements": [
+       "tho",
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.92
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.92
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.92
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "tho",
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.24
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.24
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.24
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_phan_dinh_phung_nha_thuoc"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_phan_dinh_phung_nha_thuoc",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "nha_thuoc",
+      "name": "Nhà Thuốc Atiso",
+      "type": "Nhà thuốc mở từ sáng tới khuya",
+      "trait": "tủ thuốc nam, dầu gió, thuốc cảm mùa lạnh",
+      "towerId": "gt_phan_dinh_phung_nha_thuoc"
+     },
+     {
+      "key": "tiem_toc",
+      "name": "Tiệm Tóc Mai Anh Đào",
+      "type": "Salon tóc, làm móng",
+      "trait": "kéo bén, tông đơ kêu rè rè",
+      "towerId": "gt_phan_dinh_phung_tiem_toc"
+     },
+     {
+      "key": "nha_sach",
+      "name": "Nhà Sách Thông Ba Lá",
+      "type": "Nhà sách lớn, góc sách thiếu nhi",
+      "trait": "kệ gỗ thông, sách chất cao",
+      "towerId": "gt_phan_dinh_phung_nha_sach"
+     },
+     {
+      "key": "studio",
+      "name": "Studio Ảnh Cẩm Tú Cầu",
+      "type": "Studio chụp ảnh cưới",
+      "trait": "đèn flash, ô phản sáng",
+      "towerId": "gt_phan_dinh_phung_studio"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Sương Mai",
+      "type": "Quán phở thố đá đầu phố",
+      "trait": "nồi nước lèo ninh qua đêm",
+      "towerId": "gt_phan_dinh_phung_pho"
+     },
+     {
+      "key": "xe_may",
+      "name": "Tiệm Xe Máy Phố Núi",
+      "type": "Tiệm xe máy: cho thuê, mua bán, sửa",
+      "trait": "cờ lê, mỏ lết, máy bơm hơi",
+      "towerId": "gt_phan_dinh_phung_xe_may"
+     },
+     {
+      "key": "tap_hoa",
+      "name": "Tạp Hoá Dã Quỳ",
+      "type": "Tiệm tạp hoá của khu dân cư",
+      "trait": "bao gạo, thùng mì, két nước ngọt",
+      "towerId": "gt_phan_dinh_phung_tap_hoa"
+     },
+     {
+      "key": "giat_say",
+      "name": "Giặt Sấy Hồ Sương",
+      "type": "Tiệm giặt sấy cho khách trọ",
+      "trait": "máy giặt quay ù ù, bọt xà phòng",
+      "towerId": "gt_phan_dinh_phung_giat_say"
+     }
+    ],
+    "streetId": "street_phan_dinh_phung",
+    "shopIndex": 1,
+    "mapStageId": "street_phan_dinh_phung",
+    "featuredTowerId": "gt_phan_dinh_phung_nha_thuoc",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_phan_dinh_phung_nha_thuoc",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1,
+   "balance": {
+    "randomWinWithExpectedGear": 0.5416666666666666,
+    "botWinRate": 1,
+    "botLivesAvg": 18.666666666666668,
+    "target": 0.6071428571428572
+   },
+   "stage": {
+    "id": "street_phan_dinh_phung_t2",
+    "stageNumber": 12,
+    "name": "Tiệm Tóc Mai Anh Đào",
+    "subtitle": "Phố Phan Đình Phùng (Cầu Quẹo) · tiệm 2/8: Salon tóc, làm móng",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 35,
+       "y": 31
+      },
+      {
+       "x": 68,
+       "y": 32
+      },
+      {
+       "x": 93,
+       "y": 44
+      },
+      {
+       "x": 133,
+       "y": 68
+      },
+      {
+       "x": 149,
+       "y": 97
+      },
+      {
+       "x": 184,
+       "y": 97
+      },
+      {
+       "x": 192,
+       "y": 101
+      },
+      {
+       "x": 214,
+       "y": 135
+      },
+      {
+       "x": 273,
+       "y": 147
+      },
+      {
+       "x": 282,
+       "y": 155
+      },
+      {
+       "x": 310,
+       "y": 227
+      },
+      {
+       "x": 294,
+       "y": 285
+      },
+      {
+       "x": 291,
+       "y": 413
+      },
+      {
+       "x": 325,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 114,
+      "y": 114
+     },
+     {
+      "id": "pad_2",
+      "x": 222,
+      "y": 66
+     },
+     {
+      "id": "pad_3",
+      "x": 162,
+      "y": 42
+     },
+     {
+      "id": "pad_4",
+      "x": 174,
+      "y": 150
+     },
+     {
+      "id": "pad_5",
+      "x": 234,
+      "y": 186
+     },
+     {
+      "id": "pad_6",
+      "x": 282,
+      "y": 102
+     },
+     {
+      "id": "pad_7",
+      "x": 54,
+      "y": 90
+     },
+     {
+      "id": "pad_8",
+      "x": 258,
+      "y": 246
+     },
+     {
+      "id": "pad_9",
+      "x": 330,
+      "y": 162
+     },
+     {
+      "id": "pad_10",
+      "x": 330,
+      "y": 378
+     },
+     {
+      "id": "pad_11",
+      "x": 246,
+      "y": 318
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Than Khói Đường Phố",
+      "mainElements": [
+       "hoa"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.15
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Mối Mọt Sách & Than Khói Đường Phố",
+      "mainElements": [
+       "kim",
+       "hoa"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Ruồi Bếp & Mối Mọt Sách",
+      "mainElements": [
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Than Khói Đường Phố & Ruồi Bếp & Mối Mọt Sách",
+      "mainElements": [
+       "hoa",
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Mối Mọt Sách & Than Khói Đường Phố & Ruồi Bếp",
+      "mainElements": [
+       "kim",
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Ruồi Bếp & Mối Mọt Sách & Than Khói Đường Phố",
+      "mainElements": [
+       "moc",
+       "kim",
+       "hoa"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "hoa",
+       "kim"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_phan_dinh_phung_nha_thuoc",
+     "gt_phan_dinh_phung_tiem_toc"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_phan_dinh_phung_tiem_toc",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "nha_thuoc",
+      "name": "Nhà Thuốc Atiso",
+      "type": "Nhà thuốc mở từ sáng tới khuya",
+      "trait": "tủ thuốc nam, dầu gió, thuốc cảm mùa lạnh",
+      "towerId": "gt_phan_dinh_phung_nha_thuoc"
+     },
+     {
+      "key": "tiem_toc",
+      "name": "Tiệm Tóc Mai Anh Đào",
+      "type": "Salon tóc, làm móng",
+      "trait": "kéo bén, tông đơ kêu rè rè",
+      "towerId": "gt_phan_dinh_phung_tiem_toc"
+     },
+     {
+      "key": "nha_sach",
+      "name": "Nhà Sách Thông Ba Lá",
+      "type": "Nhà sách lớn, góc sách thiếu nhi",
+      "trait": "kệ gỗ thông, sách chất cao",
+      "towerId": "gt_phan_dinh_phung_nha_sach"
+     },
+     {
+      "key": "studio",
+      "name": "Studio Ảnh Cẩm Tú Cầu",
+      "type": "Studio chụp ảnh cưới",
+      "trait": "đèn flash, ô phản sáng",
+      "towerId": "gt_phan_dinh_phung_studio"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Sương Mai",
+      "type": "Quán phở thố đá đầu phố",
+      "trait": "nồi nước lèo ninh qua đêm",
+      "towerId": "gt_phan_dinh_phung_pho"
+     },
+     {
+      "key": "xe_may",
+      "name": "Tiệm Xe Máy Phố Núi",
+      "type": "Tiệm xe máy: cho thuê, mua bán, sửa",
+      "trait": "cờ lê, mỏ lết, máy bơm hơi",
+      "towerId": "gt_phan_dinh_phung_xe_may"
+     },
+     {
+      "key": "tap_hoa",
+      "name": "Tạp Hoá Dã Quỳ",
+      "type": "Tiệm tạp hoá của khu dân cư",
+      "trait": "bao gạo, thùng mì, két nước ngọt",
+      "towerId": "gt_phan_dinh_phung_tap_hoa"
+     },
+     {
+      "key": "giat_say",
+      "name": "Giặt Sấy Hồ Sương",
+      "type": "Tiệm giặt sấy cho khách trọ",
+      "trait": "máy giặt quay ù ù, bọt xà phòng",
+      "towerId": "gt_phan_dinh_phung_giat_say"
+     }
+    ],
+    "streetId": "street_phan_dinh_phung",
+    "shopIndex": 2,
+    "mapStageId": "street_phan_dinh_phung",
+    "featuredTowerId": "gt_phan_dinh_phung_tiem_toc",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 0.9,
+   "balance": {
+    "randomWinWithExpectedGear": 0.5208333333333334,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.5642857142857143
+   },
+   "stage": {
+    "id": "street_phan_dinh_phung_t3",
+    "stageNumber": 13,
+    "name": "Nhà Sách Thông Ba Lá",
+    "subtitle": "Phố Phan Đình Phùng (Cầu Quẹo) · tiệm 3/8: Nhà sách lớn, góc sách thiếu nhi",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 35,
+       "y": 31
+      },
+      {
+       "x": 68,
+       "y": 32
+      },
+      {
+       "x": 93,
+       "y": 44
+      },
+      {
+       "x": 133,
+       "y": 68
+      },
+      {
+       "x": 149,
+       "y": 97
+      },
+      {
+       "x": 184,
+       "y": 97
+      },
+      {
+       "x": 192,
+       "y": 101
+      },
+      {
+       "x": 214,
+       "y": 135
+      },
+      {
+       "x": 273,
+       "y": 147
+      },
+      {
+       "x": 282,
+       "y": 155
+      },
+      {
+       "x": 310,
+       "y": 227
+      },
+      {
+       "x": 294,
+       "y": 285
+      },
+      {
+       "x": 291,
+       "y": 413
+      },
+      {
+       "x": 325,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 114,
+      "y": 114
+     },
+     {
+      "id": "pad_2",
+      "x": 222,
+      "y": 66
+     },
+     {
+      "id": "pad_3",
+      "x": 162,
+      "y": 42
+     },
+     {
+      "id": "pad_4",
+      "x": 174,
+      "y": 150
+     },
+     {
+      "id": "pad_5",
+      "x": 234,
+      "y": 186
+     },
+     {
+      "id": "pad_6",
+      "x": 282,
+      "y": 102
+     },
+     {
+      "id": "pad_7",
+      "x": 54,
+      "y": 90
+     },
+     {
+      "id": "pad_8",
+      "x": 258,
+      "y": 246
+     },
+     {
+      "id": "pad_9",
+      "x": 330,
+      "y": 162
+     },
+     {
+      "id": "pad_10",
+      "x": 330,
+      "y": 378
+     },
+     {
+      "id": "pad_11",
+      "x": 246,
+      "y": 318
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Nhớt Tràn",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.9
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Than Khói Đường Phố",
+      "mainElements": [
+       "hoa"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.03
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Mối Mọt Sách & Than Khói Đường Phố",
+      "mainElements": [
+       "kim",
+       "hoa"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.17
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.17
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Nhớt Tràn & Mối Mọt Sách",
+      "mainElements": [
+       "tho",
+       "kim"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.31
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.31
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Than Khói Đường Phố & Nhớt Tràn & Mối Mọt Sách",
+      "mainElements": [
+       "hoa",
+       "tho",
+       "kim"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Mối Mọt Sách & Than Khói Đường Phố & Nhớt Tràn",
+      "mainElements": [
+       "kim",
+       "hoa",
+       "tho"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Nhớt Tràn & Mối Mọt Sách & Than Khói Đường Phố",
+      "mainElements": [
+       "tho",
+       "kim",
+       "hoa"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "tho",
+       "hoa",
+       "kim"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_phan_dinh_phung_nha_thuoc",
+     "gt_phan_dinh_phung_tiem_toc",
+     "gt_phan_dinh_phung_nha_sach"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_phan_dinh_phung_nha_sach",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "nha_thuoc",
+      "name": "Nhà Thuốc Atiso",
+      "type": "Nhà thuốc mở từ sáng tới khuya",
+      "trait": "tủ thuốc nam, dầu gió, thuốc cảm mùa lạnh",
+      "towerId": "gt_phan_dinh_phung_nha_thuoc"
+     },
+     {
+      "key": "tiem_toc",
+      "name": "Tiệm Tóc Mai Anh Đào",
+      "type": "Salon tóc, làm móng",
+      "trait": "kéo bén, tông đơ kêu rè rè",
+      "towerId": "gt_phan_dinh_phung_tiem_toc"
+     },
+     {
+      "key": "nha_sach",
+      "name": "Nhà Sách Thông Ba Lá",
+      "type": "Nhà sách lớn, góc sách thiếu nhi",
+      "trait": "kệ gỗ thông, sách chất cao",
+      "towerId": "gt_phan_dinh_phung_nha_sach"
+     },
+     {
+      "key": "studio",
+      "name": "Studio Ảnh Cẩm Tú Cầu",
+      "type": "Studio chụp ảnh cưới",
+      "trait": "đèn flash, ô phản sáng",
+      "towerId": "gt_phan_dinh_phung_studio"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Sương Mai",
+      "type": "Quán phở thố đá đầu phố",
+      "trait": "nồi nước lèo ninh qua đêm",
+      "towerId": "gt_phan_dinh_phung_pho"
+     },
+     {
+      "key": "xe_may",
+      "name": "Tiệm Xe Máy Phố Núi",
+      "type": "Tiệm xe máy: cho thuê, mua bán, sửa",
+      "trait": "cờ lê, mỏ lết, máy bơm hơi",
+      "towerId": "gt_phan_dinh_phung_xe_may"
+     },
+     {
+      "key": "tap_hoa",
+      "name": "Tạp Hoá Dã Quỳ",
+      "type": "Tiệm tạp hoá của khu dân cư",
+      "trait": "bao gạo, thùng mì, két nước ngọt",
+      "towerId": "gt_phan_dinh_phung_tap_hoa"
+     },
+     {
+      "key": "giat_say",
+      "name": "Giặt Sấy Hồ Sương",
+      "type": "Tiệm giặt sấy cho khách trọ",
+      "trait": "máy giặt quay ù ù, bọt xà phòng",
+      "towerId": "gt_phan_dinh_phung_giat_say"
+     }
+    ],
+    "streetId": "street_phan_dinh_phung",
+    "shopIndex": 3,
+    "mapStageId": "street_phan_dinh_phung",
+    "featuredTowerId": "gt_phan_dinh_phung_nha_sach",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_phan_dinh_phung_nha_sach",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_phan_dinh_phung_nha_sach",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_phan_dinh_phung_nha_sach",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_phan_dinh_phung_nha_sach",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.1,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4375,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.5214285714285715
+   },
+   "stage": {
+    "id": "street_phan_dinh_phung_t4",
+    "stageNumber": 14,
+    "name": "Studio Ảnh Cẩm Tú Cầu",
+    "subtitle": "Phố Phan Đình Phùng (Cầu Quẹo) · tiệm 4/8: Studio chụp ảnh cưới",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 35,
+       "y": 31
+      },
+      {
+       "x": 68,
+       "y": 32
+      },
+      {
+       "x": 93,
+       "y": 44
+      },
+      {
+       "x": 133,
+       "y": 68
+      },
+      {
+       "x": 149,
+       "y": 97
+      },
+      {
+       "x": 184,
+       "y": 97
+      },
+      {
+       "x": 192,
+       "y": 101
+      },
+      {
+       "x": 214,
+       "y": 135
+      },
+      {
+       "x": 273,
+       "y": 147
+      },
+      {
+       "x": 282,
+       "y": 155
+      },
+      {
+       "x": 310,
+       "y": 227
+      },
+      {
+       "x": 294,
+       "y": 285
+      },
+      {
+       "x": 291,
+       "y": 413
+      },
+      {
+       "x": 325,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 114,
+      "y": 114
+     },
+     {
+      "id": "pad_2",
+      "x": 222,
+      "y": 66
+     },
+     {
+      "id": "pad_3",
+      "x": 162,
+      "y": 42
+     },
+     {
+      "id": "pad_4",
+      "x": 174,
+      "y": 150
+     },
+     {
+      "id": "pad_5",
+      "x": 234,
+      "y": 186
+     },
+     {
+      "id": "pad_6",
+      "x": 282,
+      "y": 102
+     },
+     {
+      "id": "pad_7",
+      "x": 54,
+      "y": 90
+     },
+     {
+      "id": "pad_8",
+      "x": 258,
+      "y": 246
+     },
+     {
+      "id": "pad_9",
+      "x": 330,
+      "y": 162
+     },
+     {
+      "id": "pad_10",
+      "x": 330,
+      "y": 378
+     },
+     {
+      "id": "pad_11",
+      "x": 246,
+      "y": 318
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Giọt Mưa Phố",
+      "mainElements": [
+       "thuy"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Nhớt Tràn",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.26
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Mối Mọt Sách & Nhớt Tràn",
+      "mainElements": [
+       "kim",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.43
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.43
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Giọt Mưa Phố & Mối Mọt Sách",
+      "mainElements": [
+       "thuy",
+       "kim"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Giọt Mưa Phố & Mối Mọt Sách",
+      "mainElements": [
+       "thuy",
+       "kim"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Nhớt Tràn & Rêu Mốc Tường",
+      "mainElements": [
+       "tho",
+       "moc"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Mối Mọt Sách & Giọt Mưa Phố",
+      "mainElements": [
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "thuy",
+       "tho",
+       "kim",
+       "moc"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_phan_dinh_phung_nha_thuoc",
+     "gt_phan_dinh_phung_tiem_toc",
+     "gt_phan_dinh_phung_nha_sach",
+     "gt_phan_dinh_phung_studio"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_phan_dinh_phung_studio",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "nha_thuoc",
+      "name": "Nhà Thuốc Atiso",
+      "type": "Nhà thuốc mở từ sáng tới khuya",
+      "trait": "tủ thuốc nam, dầu gió, thuốc cảm mùa lạnh",
+      "towerId": "gt_phan_dinh_phung_nha_thuoc"
+     },
+     {
+      "key": "tiem_toc",
+      "name": "Tiệm Tóc Mai Anh Đào",
+      "type": "Salon tóc, làm móng",
+      "trait": "kéo bén, tông đơ kêu rè rè",
+      "towerId": "gt_phan_dinh_phung_tiem_toc"
+     },
+     {
+      "key": "nha_sach",
+      "name": "Nhà Sách Thông Ba Lá",
+      "type": "Nhà sách lớn, góc sách thiếu nhi",
+      "trait": "kệ gỗ thông, sách chất cao",
+      "towerId": "gt_phan_dinh_phung_nha_sach"
+     },
+     {
+      "key": "studio",
+      "name": "Studio Ảnh Cẩm Tú Cầu",
+      "type": "Studio chụp ảnh cưới",
+      "trait": "đèn flash, ô phản sáng",
+      "towerId": "gt_phan_dinh_phung_studio"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Sương Mai",
+      "type": "Quán phở thố đá đầu phố",
+      "trait": "nồi nước lèo ninh qua đêm",
+      "towerId": "gt_phan_dinh_phung_pho"
+     },
+     {
+      "key": "xe_may",
+      "name": "Tiệm Xe Máy Phố Núi",
+      "type": "Tiệm xe máy: cho thuê, mua bán, sửa",
+      "trait": "cờ lê, mỏ lết, máy bơm hơi",
+      "towerId": "gt_phan_dinh_phung_xe_may"
+     },
+     {
+      "key": "tap_hoa",
+      "name": "Tạp Hoá Dã Quỳ",
+      "type": "Tiệm tạp hoá của khu dân cư",
+      "trait": "bao gạo, thùng mì, két nước ngọt",
+      "towerId": "gt_phan_dinh_phung_tap_hoa"
+     },
+     {
+      "key": "giat_say",
+      "name": "Giặt Sấy Hồ Sương",
+      "type": "Tiệm giặt sấy cho khách trọ",
+      "trait": "máy giặt quay ù ù, bọt xà phòng",
+      "towerId": "gt_phan_dinh_phung_giat_say"
+     }
+    ],
+    "streetId": "street_phan_dinh_phung",
+    "shopIndex": 4,
+    "mapStageId": "street_phan_dinh_phung",
+    "featuredTowerId": "gt_phan_dinh_phung_studio",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_phan_dinh_phung_studio",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_phan_dinh_phung_studio",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_phan_dinh_phung_studio",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_phan_dinh_phung_studio",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1,
+   "balance": {
+    "randomWinWithExpectedGear": 0.625,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.4785714285714286
+   },
+   "stage": {
+    "id": "street_phan_dinh_phung_t5",
+    "stageNumber": 15,
+    "name": "Phở Sương Mai",
+    "subtitle": "Phố Phan Đình Phùng (Cầu Quẹo) · tiệm 5/8: Quán phở thố đá đầu phố",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 35,
+       "y": 31
+      },
+      {
+       "x": 68,
+       "y": 32
+      },
+      {
+       "x": 93,
+       "y": 44
+      },
+      {
+       "x": 133,
+       "y": 68
+      },
+      {
+       "x": 149,
+       "y": 97
+      },
+      {
+       "x": 184,
+       "y": 97
+      },
+      {
+       "x": 192,
+       "y": 101
+      },
+      {
+       "x": 214,
+       "y": 135
+      },
+      {
+       "x": 273,
+       "y": 147
+      },
+      {
+       "x": 282,
+       "y": 155
+      },
+      {
+       "x": 310,
+       "y": 227
+      },
+      {
+       "x": 294,
+       "y": 285
+      },
+      {
+       "x": 291,
+       "y": 413
+      },
+      {
+       "x": 325,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 114,
+      "y": 114
+     },
+     {
+      "id": "pad_2",
+      "x": 222,
+      "y": 66
+     },
+     {
+      "id": "pad_3",
+      "x": 162,
+      "y": 42
+     },
+     {
+      "id": "pad_4",
+      "x": 174,
+      "y": 150
+     },
+     {
+      "id": "pad_5",
+      "x": 234,
+      "y": 186
+     },
+     {
+      "id": "pad_6",
+      "x": 282,
+      "y": 102
+     },
+     {
+      "id": "pad_7",
+      "x": 54,
+      "y": 90
+     },
+     {
+      "id": "pad_8",
+      "x": 258,
+      "y": 246
+     },
+     {
+      "id": "pad_9",
+      "x": 330,
+      "y": 162
+     },
+     {
+      "id": "pad_10",
+      "x": 330,
+      "y": 378
+     },
+     {
+      "id": "pad_11",
+      "x": 246,
+      "y": 318
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Giọt Mưa Phố",
+      "mainElements": [
+       "thuy"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Nhớt Tràn",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.15
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Mối Mọt Sách & Nhớt Tràn",
+      "mainElements": [
+       "kim",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Giọt Mưa Phố & Mối Mọt Sách",
+      "mainElements": [
+       "thuy",
+       "kim"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Giọt Mưa Phố & Mối Mọt Sách",
+      "mainElements": [
+       "thuy",
+       "kim"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Nhớt Tràn & Rêu Mốc Tường",
+      "mainElements": [
+       "tho",
+       "moc"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Mối Mọt Sách & Giọt Mưa Phố",
+      "mainElements": [
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "thuy",
+       "tho",
+       "kim",
+       "moc"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_phan_dinh_phung_nha_thuoc",
+     "gt_phan_dinh_phung_tiem_toc",
+     "gt_phan_dinh_phung_nha_sach",
+     "gt_phan_dinh_phung_studio",
+     "gt_phan_dinh_phung_pho"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_phan_dinh_phung_pho",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "nha_thuoc",
+      "name": "Nhà Thuốc Atiso",
+      "type": "Nhà thuốc mở từ sáng tới khuya",
+      "trait": "tủ thuốc nam, dầu gió, thuốc cảm mùa lạnh",
+      "towerId": "gt_phan_dinh_phung_nha_thuoc"
+     },
+     {
+      "key": "tiem_toc",
+      "name": "Tiệm Tóc Mai Anh Đào",
+      "type": "Salon tóc, làm móng",
+      "trait": "kéo bén, tông đơ kêu rè rè",
+      "towerId": "gt_phan_dinh_phung_tiem_toc"
+     },
+     {
+      "key": "nha_sach",
+      "name": "Nhà Sách Thông Ba Lá",
+      "type": "Nhà sách lớn, góc sách thiếu nhi",
+      "trait": "kệ gỗ thông, sách chất cao",
+      "towerId": "gt_phan_dinh_phung_nha_sach"
+     },
+     {
+      "key": "studio",
+      "name": "Studio Ảnh Cẩm Tú Cầu",
+      "type": "Studio chụp ảnh cưới",
+      "trait": "đèn flash, ô phản sáng",
+      "towerId": "gt_phan_dinh_phung_studio"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Sương Mai",
+      "type": "Quán phở thố đá đầu phố",
+      "trait": "nồi nước lèo ninh qua đêm",
+      "towerId": "gt_phan_dinh_phung_pho"
+     },
+     {
+      "key": "xe_may",
+      "name": "Tiệm Xe Máy Phố Núi",
+      "type": "Tiệm xe máy: cho thuê, mua bán, sửa",
+      "trait": "cờ lê, mỏ lết, máy bơm hơi",
+      "towerId": "gt_phan_dinh_phung_xe_may"
+     },
+     {
+      "key": "tap_hoa",
+      "name": "Tạp Hoá Dã Quỳ",
+      "type": "Tiệm tạp hoá của khu dân cư",
+      "trait": "bao gạo, thùng mì, két nước ngọt",
+      "towerId": "gt_phan_dinh_phung_tap_hoa"
+     },
+     {
+      "key": "giat_say",
+      "name": "Giặt Sấy Hồ Sương",
+      "type": "Tiệm giặt sấy cho khách trọ",
+      "trait": "máy giặt quay ù ù, bọt xà phòng",
+      "towerId": "gt_phan_dinh_phung_giat_say"
+     }
+    ],
+    "streetId": "street_phan_dinh_phung",
+    "shopIndex": 5,
+    "mapStageId": "street_phan_dinh_phung",
+    "featuredTowerId": "gt_phan_dinh_phung_pho",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_phan_dinh_phung_pho",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_phan_dinh_phung_pho",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_phan_dinh_phung_pho",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_phan_dinh_phung_pho",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.1,
+   "balance": {
+    "randomWinWithExpectedGear": 0.375,
+    "botWinRate": 1,
+    "botLivesAvg": 18.333333333333332,
+    "target": 0.4357142857142857
+   },
+   "stage": {
+    "id": "street_phan_dinh_phung_t6",
+    "stageNumber": 16,
+    "name": "Tiệm Xe Máy Phố Núi",
+    "subtitle": "Phố Phan Đình Phùng (Cầu Quẹo) · tiệm 6/8: Tiệm xe máy: cho thuê, mua bán, sửa",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 35,
+       "y": 31
+      },
+      {
+       "x": 68,
+       "y": 32
+      },
+      {
+       "x": 93,
+       "y": 44
+      },
+      {
+       "x": 133,
+       "y": 68
+      },
+      {
+       "x": 149,
+       "y": 97
+      },
+      {
+       "x": 184,
+       "y": 97
+      },
+      {
+       "x": 192,
+       "y": 101
+      },
+      {
+       "x": 214,
+       "y": 135
+      },
+      {
+       "x": 273,
+       "y": 147
+      },
+      {
+       "x": 282,
+       "y": 155
+      },
+      {
+       "x": 310,
+       "y": 227
+      },
+      {
+       "x": 294,
+       "y": 285
+      },
+      {
+       "x": 291,
+       "y": 413
+      },
+      {
+       "x": 325,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 114,
+      "y": 114
+     },
+     {
+      "id": "pad_2",
+      "x": 222,
+      "y": 66
+     },
+     {
+      "id": "pad_3",
+      "x": 162,
+      "y": 42
+     },
+     {
+      "id": "pad_4",
+      "x": 174,
+      "y": 150
+     },
+     {
+      "id": "pad_5",
+      "x": 234,
+      "y": 186
+     },
+     {
+      "id": "pad_6",
+      "x": 282,
+      "y": 102
+     },
+     {
+      "id": "pad_7",
+      "x": 54,
+      "y": 90
+     },
+     {
+      "id": "pad_8",
+      "x": 258,
+      "y": 246
+     },
+     {
+      "id": "pad_9",
+      "x": 330,
+      "y": 162
+     },
+     {
+      "id": "pad_10",
+      "x": 330,
+      "y": 378
+     },
+     {
+      "id": "pad_11",
+      "x": 246,
+      "y": 318
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Giọt Mưa Phố",
+      "mainElements": [
+       "thuy"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Nhớt Tràn",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.26
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Ruồi Bếp & Nhớt Tràn",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.43
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.43
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Giọt Mưa Phố & Ruồi Bếp",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Giọt Mưa Phố & Ruồi Bếp",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Nhớt Tràn & Than Khói Đường Phố",
+      "mainElements": [
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Ruồi Bếp & Giọt Mưa Phố",
+      "mainElements": [
+       "moc",
+       "thuy"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "thuy",
+       "tho",
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_phan_dinh_phung_nha_thuoc",
+     "gt_phan_dinh_phung_tiem_toc",
+     "gt_phan_dinh_phung_nha_sach",
+     "gt_phan_dinh_phung_studio",
+     "gt_phan_dinh_phung_pho",
+     "gt_phan_dinh_phung_xe_may"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_phan_dinh_phung_xe_may",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "nha_thuoc",
+      "name": "Nhà Thuốc Atiso",
+      "type": "Nhà thuốc mở từ sáng tới khuya",
+      "trait": "tủ thuốc nam, dầu gió, thuốc cảm mùa lạnh",
+      "towerId": "gt_phan_dinh_phung_nha_thuoc"
+     },
+     {
+      "key": "tiem_toc",
+      "name": "Tiệm Tóc Mai Anh Đào",
+      "type": "Salon tóc, làm móng",
+      "trait": "kéo bén, tông đơ kêu rè rè",
+      "towerId": "gt_phan_dinh_phung_tiem_toc"
+     },
+     {
+      "key": "nha_sach",
+      "name": "Nhà Sách Thông Ba Lá",
+      "type": "Nhà sách lớn, góc sách thiếu nhi",
+      "trait": "kệ gỗ thông, sách chất cao",
+      "towerId": "gt_phan_dinh_phung_nha_sach"
+     },
+     {
+      "key": "studio",
+      "name": "Studio Ảnh Cẩm Tú Cầu",
+      "type": "Studio chụp ảnh cưới",
+      "trait": "đèn flash, ô phản sáng",
+      "towerId": "gt_phan_dinh_phung_studio"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Sương Mai",
+      "type": "Quán phở thố đá đầu phố",
+      "trait": "nồi nước lèo ninh qua đêm",
+      "towerId": "gt_phan_dinh_phung_pho"
+     },
+     {
+      "key": "xe_may",
+      "name": "Tiệm Xe Máy Phố Núi",
+      "type": "Tiệm xe máy: cho thuê, mua bán, sửa",
+      "trait": "cờ lê, mỏ lết, máy bơm hơi",
+      "towerId": "gt_phan_dinh_phung_xe_may"
+     },
+     {
+      "key": "tap_hoa",
+      "name": "Tạp Hoá Dã Quỳ",
+      "type": "Tiệm tạp hoá của khu dân cư",
+      "trait": "bao gạo, thùng mì, két nước ngọt",
+      "towerId": "gt_phan_dinh_phung_tap_hoa"
+     },
+     {
+      "key": "giat_say",
+      "name": "Giặt Sấy Hồ Sương",
+      "type": "Tiệm giặt sấy cho khách trọ",
+      "trait": "máy giặt quay ù ù, bọt xà phòng",
+      "towerId": "gt_phan_dinh_phung_giat_say"
+     }
+    ],
+    "streetId": "street_phan_dinh_phung",
+    "shopIndex": 6,
+    "mapStageId": "street_phan_dinh_phung",
+    "featuredTowerId": "gt_phan_dinh_phung_xe_may",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_phan_dinh_phung_xe_may",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_phan_dinh_phung_xe_may",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_phan_dinh_phung_xe_may",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_phan_dinh_phung_xe_may",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4375,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.3928571428571429
+   },
+   "stage": {
+    "id": "street_phan_dinh_phung_t7",
+    "stageNumber": 17,
+    "name": "Tạp Hoá Dã Quỳ",
+    "subtitle": "Phố Phan Đình Phùng (Cầu Quẹo) · tiệm 7/8: Tiệm tạp hoá của khu dân cư",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 35,
+       "y": 31
+      },
+      {
+       "x": 68,
+       "y": 32
+      },
+      {
+       "x": 93,
+       "y": 44
+      },
+      {
+       "x": 133,
+       "y": 68
+      },
+      {
+       "x": 149,
+       "y": 97
+      },
+      {
+       "x": 184,
+       "y": 97
+      },
+      {
+       "x": 192,
+       "y": 101
+      },
+      {
+       "x": 214,
+       "y": 135
+      },
+      {
+       "x": 273,
+       "y": 147
+      },
+      {
+       "x": 282,
+       "y": 155
+      },
+      {
+       "x": 310,
+       "y": 227
+      },
+      {
+       "x": 294,
+       "y": 285
+      },
+      {
+       "x": 291,
+       "y": 413
+      },
+      {
+       "x": 325,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 114,
+      "y": 114
+     },
+     {
+      "id": "pad_2",
+      "x": 222,
+      "y": 66
+     },
+     {
+      "id": "pad_3",
+      "x": 162,
+      "y": 42
+     },
+     {
+      "id": "pad_4",
+      "x": 174,
+      "y": 150
+     },
+     {
+      "id": "pad_5",
+      "x": 234,
+      "y": 186
+     },
+     {
+      "id": "pad_6",
+      "x": 282,
+      "y": 102
+     },
+     {
+      "id": "pad_7",
+      "x": 54,
+      "y": 90
+     },
+     {
+      "id": "pad_8",
+      "x": 258,
+      "y": 246
+     },
+     {
+      "id": "pad_9",
+      "x": 330,
+      "y": 162
+     },
+     {
+      "id": "pad_10",
+      "x": 330,
+      "y": 378
+     },
+     {
+      "id": "pad_11",
+      "x": 246,
+      "y": 318
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Giọt Mưa Phố",
+      "mainElements": [
+       "thuy"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Nhớt Tràn",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.15
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Ruồi Bếp & Nhớt Tràn",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Giọt Mưa Phố & Ruồi Bếp",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Giọt Mưa Phố & Ruồi Bếp",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Giọt Mưa Phố & Ruồi Bếp & Mối Mọt Sách",
+      "mainElements": [
+       "thuy",
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Nhớt Tràn & Than Khói Đường Phố & Giọt Mưa Phố",
+      "mainElements": [
+       "tho",
+       "hoa",
+       "thuy"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "thuy",
+       "tho",
+       "moc",
+       "hoa",
+       "kim"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_phan_dinh_phung_nha_thuoc",
+     "gt_phan_dinh_phung_tiem_toc",
+     "gt_phan_dinh_phung_nha_sach",
+     "gt_phan_dinh_phung_studio",
+     "gt_phan_dinh_phung_pho",
+     "gt_phan_dinh_phung_xe_may",
+     "gt_phan_dinh_phung_tap_hoa"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_phan_dinh_phung_tap_hoa",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "nha_thuoc",
+      "name": "Nhà Thuốc Atiso",
+      "type": "Nhà thuốc mở từ sáng tới khuya",
+      "trait": "tủ thuốc nam, dầu gió, thuốc cảm mùa lạnh",
+      "towerId": "gt_phan_dinh_phung_nha_thuoc"
+     },
+     {
+      "key": "tiem_toc",
+      "name": "Tiệm Tóc Mai Anh Đào",
+      "type": "Salon tóc, làm móng",
+      "trait": "kéo bén, tông đơ kêu rè rè",
+      "towerId": "gt_phan_dinh_phung_tiem_toc"
+     },
+     {
+      "key": "nha_sach",
+      "name": "Nhà Sách Thông Ba Lá",
+      "type": "Nhà sách lớn, góc sách thiếu nhi",
+      "trait": "kệ gỗ thông, sách chất cao",
+      "towerId": "gt_phan_dinh_phung_nha_sach"
+     },
+     {
+      "key": "studio",
+      "name": "Studio Ảnh Cẩm Tú Cầu",
+      "type": "Studio chụp ảnh cưới",
+      "trait": "đèn flash, ô phản sáng",
+      "towerId": "gt_phan_dinh_phung_studio"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Sương Mai",
+      "type": "Quán phở thố đá đầu phố",
+      "trait": "nồi nước lèo ninh qua đêm",
+      "towerId": "gt_phan_dinh_phung_pho"
+     },
+     {
+      "key": "xe_may",
+      "name": "Tiệm Xe Máy Phố Núi",
+      "type": "Tiệm xe máy: cho thuê, mua bán, sửa",
+      "trait": "cờ lê, mỏ lết, máy bơm hơi",
+      "towerId": "gt_phan_dinh_phung_xe_may"
+     },
+     {
+      "key": "tap_hoa",
+      "name": "Tạp Hoá Dã Quỳ",
+      "type": "Tiệm tạp hoá của khu dân cư",
+      "trait": "bao gạo, thùng mì, két nước ngọt",
+      "towerId": "gt_phan_dinh_phung_tap_hoa"
+     },
+     {
+      "key": "giat_say",
+      "name": "Giặt Sấy Hồ Sương",
+      "type": "Tiệm giặt sấy cho khách trọ",
+      "trait": "máy giặt quay ù ù, bọt xà phòng",
+      "towerId": "gt_phan_dinh_phung_giat_say"
+     }
+    ],
+    "streetId": "street_phan_dinh_phung",
+    "shopIndex": 7,
+    "mapStageId": "street_phan_dinh_phung",
+    "featuredTowerId": "gt_phan_dinh_phung_tap_hoa",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.5,
+   "balance": {
+    "randomWinWithExpectedGear": 0.3541666666666667,
+    "botWinRate": 1,
+    "botLivesAvg": 18,
+    "target": 0.35000000000000003
+   },
+   "stage": {
+    "id": "street_phan_dinh_phung_t8",
+    "stageNumber": 18,
+    "name": "Giặt Sấy Hồ Sương",
+    "subtitle": "Phố Phan Đình Phùng (Cầu Quẹo) · tiệm 8/8: Tiệm giặt sấy cho khách trọ",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 35,
+       "y": 31
+      },
+      {
+       "x": 68,
+       "y": 32
+      },
+      {
+       "x": 93,
+       "y": 44
+      },
+      {
+       "x": 133,
+       "y": 68
+      },
+      {
+       "x": 149,
+       "y": 97
+      },
+      {
+       "x": 184,
+       "y": 97
+      },
+      {
+       "x": 192,
+       "y": 101
+      },
+      {
+       "x": 214,
+       "y": 135
+      },
+      {
+       "x": 273,
+       "y": 147
+      },
+      {
+       "x": 282,
+       "y": 155
+      },
+      {
+       "x": 310,
+       "y": 227
+      },
+      {
+       "x": 294,
+       "y": 285
+      },
+      {
+       "x": 291,
+       "y": 413
+      },
+      {
+       "x": 325,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 114,
+      "y": 114
+     },
+     {
+      "id": "pad_2",
+      "x": 222,
+      "y": 66
+     },
+     {
+      "id": "pad_3",
+      "x": 162,
+      "y": 42
+     },
+     {
+      "id": "pad_4",
+      "x": 174,
+      "y": 150
+     },
+     {
+      "id": "pad_5",
+      "x": 234,
+      "y": 186
+     },
+     {
+      "id": "pad_6",
+      "x": 282,
+      "y": 102
+     },
+     {
+      "id": "pad_7",
+      "x": 54,
+      "y": 90
+     },
+     {
+      "id": "pad_8",
+      "x": 258,
+      "y": 246
+     },
+     {
+      "id": "pad_9",
+      "x": 330,
+      "y": 162
+     },
+     {
+      "id": "pad_10",
+      "x": 330,
+      "y": 378
+     },
+     {
+      "id": "pad_11",
+      "x": 246,
+      "y": 318
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Giọt Mưa Phố",
+      "mainElements": [
+       "thuy"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.5
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.73
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Than Khói Đường Phố & Ruồi Bếp",
+      "mainElements": [
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.95
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.95
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Giọt Mưa Phố & Than Khói Đường Phố",
+      "mainElements": [
+       "thuy",
+       "hoa"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.17
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.17
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Giọt Mưa Phố & Than Khói Đường Phố",
+      "mainElements": [
+       "thuy",
+       "hoa"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.55
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.55
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Giọt Mưa Phố & Than Khói Đường Phố & Rêu Mốc Tường",
+      "mainElements": [
+       "thuy",
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Ruồi Bếp & Mối Mọt Sách & Giọt Mưa Phố",
+      "mainElements": [
+       "moc",
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "thuy",
+       "moc",
+       "hoa",
+       "kim"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_phan_dinh_phung_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_phan_dinh_phung_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_phan_dinh_phung_nha_thuoc",
+     "gt_phan_dinh_phung_tiem_toc",
+     "gt_phan_dinh_phung_nha_sach",
+     "gt_phan_dinh_phung_studio",
+     "gt_phan_dinh_phung_pho",
+     "gt_phan_dinh_phung_xe_may",
+     "gt_phan_dinh_phung_tap_hoa",
+     "gt_phan_dinh_phung_giat_say"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_phan_dinh_phung_giat_say",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "nha_thuoc",
+      "name": "Nhà Thuốc Atiso",
+      "type": "Nhà thuốc mở từ sáng tới khuya",
+      "trait": "tủ thuốc nam, dầu gió, thuốc cảm mùa lạnh",
+      "towerId": "gt_phan_dinh_phung_nha_thuoc"
+     },
+     {
+      "key": "tiem_toc",
+      "name": "Tiệm Tóc Mai Anh Đào",
+      "type": "Salon tóc, làm móng",
+      "trait": "kéo bén, tông đơ kêu rè rè",
+      "towerId": "gt_phan_dinh_phung_tiem_toc"
+     },
+     {
+      "key": "nha_sach",
+      "name": "Nhà Sách Thông Ba Lá",
+      "type": "Nhà sách lớn, góc sách thiếu nhi",
+      "trait": "kệ gỗ thông, sách chất cao",
+      "towerId": "gt_phan_dinh_phung_nha_sach"
+     },
+     {
+      "key": "studio",
+      "name": "Studio Ảnh Cẩm Tú Cầu",
+      "type": "Studio chụp ảnh cưới",
+      "trait": "đèn flash, ô phản sáng",
+      "towerId": "gt_phan_dinh_phung_studio"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Sương Mai",
+      "type": "Quán phở thố đá đầu phố",
+      "trait": "nồi nước lèo ninh qua đêm",
+      "towerId": "gt_phan_dinh_phung_pho"
+     },
+     {
+      "key": "xe_may",
+      "name": "Tiệm Xe Máy Phố Núi",
+      "type": "Tiệm xe máy: cho thuê, mua bán, sửa",
+      "trait": "cờ lê, mỏ lết, máy bơm hơi",
+      "towerId": "gt_phan_dinh_phung_xe_may"
+     },
+     {
+      "key": "tap_hoa",
+      "name": "Tạp Hoá Dã Quỳ",
+      "type": "Tiệm tạp hoá của khu dân cư",
+      "trait": "bao gạo, thùng mì, két nước ngọt",
+      "towerId": "gt_phan_dinh_phung_tap_hoa"
+     },
+     {
+      "key": "giat_say",
+      "name": "Giặt Sấy Hồ Sương",
+      "type": "Tiệm giặt sấy cho khách trọ",
+      "trait": "máy giặt quay ù ù, bọt xà phòng",
+      "towerId": "gt_phan_dinh_phung_giat_say"
+     }
+    ],
+    "streetId": "street_phan_dinh_phung",
+    "shopIndex": 8,
+    "mapStageId": "street_phan_dinh_phung",
+    "featuredTowerId": "gt_phan_dinh_phung_giat_say",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_phan_dinh_phung_giat_say",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_phan_dinh_phung_giat_say",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_phan_dinh_phung_giat_say",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_phan_dinh_phung_giat_say",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  }
+ ],
  "towers": {
   "gt_phan_dinh_phung_nha_thuoc": {
    "id": "gt_phan_dinh_phung_nha_thuoc",
@@ -1170,6 +5395,149 @@
    "healIntervalSec": 2.6,
    "healAmount": 42,
    "art": "reu_moc"
+  },
+  "ge_phan_dinh_phung_p1": {
+   "id": "ge_phan_dinh_phung_p1",
+   "name": "Đinh Ốc Rơi",
+   "element": "kim",
+   "trait": "fast",
+   "traitLabel": "Nhanh, thành đàn",
+   "maxHp": 96,
+   "speed": 63,
+   "armor": 0.1,
+   "reward": 7,
+   "lifeCost": 1,
+   "radius": 11,
+   "art": "dinh_oc"
+  },
+  "ge_phan_dinh_phung_p2": {
+   "id": "ge_phan_dinh_phung_p2",
+   "name": "Xà Bần Công Trình",
+   "element": "tho",
+   "trait": "tank",
+   "traitLabel": "Máu trâu, đi chậm",
+   "maxHp": 335,
+   "speed": 32,
+   "armor": 0.32,
+   "reward": 13,
+   "lifeCost": 2,
+   "radius": 15,
+   "art": "xa_ban"
+  },
+  "ge_phan_dinh_phung_p3": {
+   "id": "ge_phan_dinh_phung_p3",
+   "name": "Tờ Rơi Quảng Cáo",
+   "element": "moc",
+   "trait": "flying",
+   "traitLabel": "Bay (không bị làm chậm)",
+   "maxHp": 165,
+   "speed": 50,
+   "armor": 0.12,
+   "reward": 10,
+   "lifeCost": 1,
+   "radius": 12,
+   "flying": true,
+   "art": "to_roi"
+  },
+  "ge_phan_dinh_phung_p4_nho": {
+   "id": "ge_phan_dinh_phung_p4_nho",
+   "name": "Khói Xe Máy Nhỏ",
+   "element": "hoa",
+   "trait": "mini",
+   "traitLabel": "Tản ra chạy nhanh",
+   "maxHp": 64,
+   "speed": 58,
+   "armor": 0.04,
+   "reward": 2,
+   "lifeCost": 1,
+   "radius": 8,
+   "art": "khoi_xe"
+  },
+  "ge_phan_dinh_phung_p4": {
+   "id": "ge_phan_dinh_phung_p4",
+   "name": "Khói Xe Máy",
+   "element": "hoa",
+   "trait": "splitter",
+   "traitLabel": "Vỡ ra 2 con nhỏ",
+   "maxHp": 185,
+   "speed": 41,
+   "armor": 0.12,
+   "reward": 9,
+   "lifeCost": 2,
+   "radius": 14,
+   "splitChildId": "ge_phan_dinh_phung_p4_nho",
+   "splitCount": 2,
+   "art": "khoi_xe"
+  },
+  "ge_phan_dinh_phung_p5": {
+   "id": "ge_phan_dinh_phung_p5",
+   "name": "Nước Cống Tràn",
+   "element": "thuy",
+   "trait": "disruptor",
+   "traitLabel": "Làm món gần nó đứng im",
+   "maxHp": 280,
+   "speed": 36,
+   "armor": 0.15,
+   "reward": 15,
+   "lifeCost": 2,
+   "radius": 13,
+   "disruptRadius": 96,
+   "disruptIntervalSec": 4.2,
+   "disruptDurationSec": 2.5,
+   "art": "nuoc_cong"
+  },
+  "ge_phan_dinh_phung_p6": {
+   "id": "ge_phan_dinh_phung_p6",
+   "name": "Rác Ven Đường",
+   "element": "moc",
+   "trait": "healer",
+   "traitLabel": "Hồi máu cho quái gần",
+   "maxHp": 260,
+   "speed": 37,
+   "armor": 0.12,
+   "reward": 14,
+   "lifeCost": 2,
+   "radius": 13,
+   "healRadius": 90,
+   "healIntervalSec": 2.6,
+   "healAmount": 42,
+   "art": "rac_ven_duong"
+  },
+  "ge_phan_dinh_phung_trum": {
+   "id": "ge_phan_dinh_phung_trum",
+   "name": "Lốc Bụi Công Trình",
+   "element": "tho",
+   "trait": "boss",
+   "traitLabel": "Trùm phố: đổi hành theo máu, gọi quân của phố",
+   "maxHp": 5200,
+   "speed": 20,
+   "armor": 0.32,
+   "reward": 200,
+   "lifeCost": 15,
+   "radius": 22,
+   "disruptRadius": 110,
+   "disruptIntervalSec": 6.5,
+   "disruptDurationSec": 2.2,
+   "shieldIntervalSec": 9,
+   "shieldDurationSec": 2.6,
+   "shieldReductionPct": 0.5,
+   "phaseElements": [
+    "tho",
+    "kim",
+    "moc",
+    "hoa",
+    "thuy"
+   ],
+   "summonIds": [
+    "ge_phan_dinh_phung_p2",
+    "ge_phan_dinh_phung_p1",
+    "ge_phan_dinh_phung_p3",
+    "ge_phan_dinh_phung_p4",
+    "ge_phan_dinh_phung_p5"
+   ],
+   "summonIntervalSec": 7,
+   "summonCount": 2,
+   "art": "trum_loc_bui"
   }
  }
 }

@@ -1,17 +1,17 @@
 {
  "generatedBy": "tools/level-maker/make-street.ts",
- "hpMultiplier": 1,
+ "hpMultiplier": 0.9,
  "balance": {
-  "randomWinWithExpectedGear": 0.22916666666666666,
+  "randomWinWithExpectedGear": 0.2708333333333333,
   "botWinRate": 1,
-  "botLivesAvg": 14,
+  "botLivesAvg": 12.333333333333334,
   "gearTier": "after_street_1"
  },
  "stage": {
   "id": "street_pho_ca_phe",
-  "stageNumber": 10,
+  "stageNumber": 20,
   "name": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành",
-  "subtitle": "Con đường cà phê lên Khu Hoà Bình: quán xưa cạnh quán mới, kem bơ, sân thượng nhìn phố",
+  "subtitle": "Màn phố: Cơn Mưa Ngập Dốc — Con đường cà phê lên Khu Hoà Bình: quán xưa cạnh quán mới, kem bơ, sân thượng nhìn phố",
   "startingEssence": 210,
   "startingLives": 20,
   "paths": [
@@ -172,26 +172,26 @@
   "waves": [
    {
     "waveNumber": 1,
-    "title": "Đợt 1: Hơi Ẩm Hạt Cà Phê",
+    "title": "Đợt 1: Nắp Chai Leng Keng",
     "mainElements": [
-     "thuy"
+     "kim"
     ],
     "earlyBonusMax": 12,
     "clearReward": 14,
     "groups": [
      {
-      "enemyId": "ge_pho_ca_phe_1",
+      "enemyId": "ge_pho_ca_phe_p1",
       "count": 6,
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 1
+      "hpScale": 0.9
      }
     ]
    },
    {
     "waveNumber": 2,
-    "title": "Đợt 2: Bụi Chợ Đêm",
+    "title": "Đợt 2: Bụi Đường Dốc",
     "mainElements": [
      "tho"
     ],
@@ -199,250 +199,252 @@
     "clearReward": 14,
     "groups": [
      {
-      "enemyId": "ge_pho_ca_phe_2",
+      "enemyId": "ge_pho_ca_phe_p2",
       "count": 2,
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 1,
-      "hpScale": 1.15
+      "hpScale": 1.03
      }
     ]
    },
    {
     "waveNumber": 3,
-    "title": "Đợt 3: Khói Rang Khét & Bụi Chợ Đêm",
+    "title": "Đợt 3: Lá Khô Bay & Bụi Đường Dốc",
     "mainElements": [
-     "hoa",
+     "moc",
      "tho"
     ],
     "earlyBonusMax": 14,
     "clearReward": 15,
     "groups": [
      {
-      "enemyId": "ge_pho_ca_phe_3",
+      "enemyId": "ge_pho_ca_phe_p3",
       "count": 4,
       "intervalSec": 0.85,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 1.3
+      "hpScale": 1.17
      },
      {
-      "enemyId": "ge_pho_ca_phe_2",
+      "enemyId": "ge_pho_ca_phe_p2",
       "count": 2,
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 1.3
+      "hpScale": 1.17
      }
     ]
    },
    {
     "waveNumber": 4,
-    "title": "Đợt 4: Hơi Ẩm Hạt Cà Phê & Khói Rang Khét",
+    "title": "Đợt 4: Nắp Chai Leng Keng & Lá Khô Bay",
     "mainElements": [
-     "thuy",
-     "hoa"
+     "kim",
+     "moc"
     ],
     "earlyBonusMax": 15,
     "clearReward": 15,
     "groups": [
      {
-      "enemyId": "ge_pho_ca_phe_1",
+      "enemyId": "ge_pho_ca_phe_p1",
       "count": 7,
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 1,
-      "hpScale": 1.45
+      "hpScale": 1.31
      },
      {
-      "enemyId": "ge_pho_ca_phe_3",
+      "enemyId": "ge_pho_ca_phe_p3",
       "count": 5,
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 1.45
+      "hpScale": 1.31
      }
     ]
    },
    {
     "waveNumber": 5,
-    "title": "Đợt 5: Hơi Ẩm Hạt Cà Phê & Khói Rang Khét",
+    "title": "Đợt 5: Nắp Chai Leng Keng & Lá Khô Bay",
     "mainElements": [
-     "thuy",
-     "hoa"
+     "kim",
+     "moc"
     ],
     "earlyBonusMax": 16,
     "clearReward": 16,
     "groups": [
      {
-      "enemyId": "ge_pho_ca_phe_1",
+      "enemyId": "ge_pho_ca_phe_p1",
       "count": 8,
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 1.7
+      "hpScale": 1.53
      },
      {
-      "enemyId": "ge_pho_ca_phe_3",
+      "enemyId": "ge_pho_ca_phe_p3",
       "count": 5,
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 1.7
+      "hpScale": 1.53
      }
     ]
    },
    {
     "waveNumber": 6,
-    "title": "Đợt 6: Hơi Ẩm Hạt Cà Phê & Khói Rang Khét & Mọt Hạt",
+    "title": "Đợt 6: Nắp Chai Leng Keng & Lá Khô Bay & Vũng Nước Mưa",
     "mainElements": [
-     "thuy",
-     "hoa",
-     "kim"
+     "kim",
+     "moc",
+     "thuy"
     ],
     "earlyBonusMax": 17,
     "clearReward": 16,
     "groups": [
      {
-      "enemyId": "ge_pho_ca_phe_1",
+      "enemyId": "ge_pho_ca_phe_p1",
       "count": 8,
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 1,
-      "hpScale": 2
+      "hpScale": 1.8
      },
      {
-      "enemyId": "ge_pho_ca_phe_3",
+      "enemyId": "ge_pho_ca_phe_p3",
       "count": 5,
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2
+      "hpScale": 1.8
      },
      {
-      "enemyId": "ge_pho_ca_phe_5",
+      "enemyId": "ge_pho_ca_phe_p5",
       "count": 3,
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 2
+      "hpScale": 1.8
      }
     ]
    },
    {
     "waveNumber": 7,
-    "title": "Đợt 7: Bụi Chợ Đêm & Đàn Kiến Bu Đường & Hơi Ẩm Hạt Cà Phê",
+    "title": "Đợt 7: Bụi Đường Dốc & Tàn Thuốc Lá & Nắp Chai Leng Keng",
     "mainElements": [
      "tho",
-     "moc",
-     "thuy"
+     "hoa",
+     "kim"
     ],
     "earlyBonusMax": 18,
     "clearReward": 17,
     "groups": [
      {
-      "enemyId": "ge_pho_ca_phe_2",
+      "enemyId": "ge_pho_ca_phe_p2",
       "count": 4,
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 2.4
+      "hpScale": 2.16
      },
      {
-      "enemyId": "ge_pho_ca_phe_4",
+      "enemyId": "ge_pho_ca_phe_p4",
       "count": 5,
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 2.4
+      "hpScale": 2.16
      },
      {
-      "enemyId": "ge_pho_ca_phe_1",
+      "enemyId": "ge_pho_ca_phe_p1",
       "count": 9,
       "intervalSec": 0.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.4
+      "hpScale": 2.16
      }
     ]
    },
    {
     "waveNumber": 8,
-    "title": "Đợt 8: Bụi Chợ Đêm & Đàn Kiến Bu Đường & Mốc Bao Hạt",
+    "title": "Đợt 8: Bụi Đường Dốc & Tàn Thuốc Lá & Bã Cà Phê Đổ Bậy",
     "mainElements": [
      "tho",
+     "hoa",
      "moc"
     ],
     "earlyBonusMax": 19,
     "clearReward": 17,
     "groups": [
      {
-      "enemyId": "ge_pho_ca_phe_2",
+      "enemyId": "ge_pho_ca_phe_p2",
       "count": 4,
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 1,
-      "hpScale": 2.8
+      "hpScale": 2.52
      },
      {
-      "enemyId": "ge_pho_ca_phe_4",
+      "enemyId": "ge_pho_ca_phe_p4",
       "count": 5,
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.8
+      "hpScale": 2.52
      },
      {
-      "enemyId": "ge_pho_ca_phe_6",
+      "enemyId": "ge_pho_ca_phe_p6",
       "count": 2,
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 2.8
+      "hpScale": 2.52
      }
     ]
    },
    {
     "waveNumber": 9,
-    "title": "Đợt 9: Khói Rang Khét & Mọt Hạt & Hơi Ẩm Hạt Cà Phê",
+    "title": "Đợt 9: Lá Khô Bay & Vũng Nước Mưa & Nắp Chai Leng Keng",
     "mainElements": [
-     "hoa",
-     "kim",
-     "thuy"
+     "moc",
+     "thuy",
+     "kim"
     ],
     "earlyBonusMax": 20,
     "clearReward": 18,
     "groups": [
      {
-      "enemyId": "ge_pho_ca_phe_3",
+      "enemyId": "ge_pho_ca_phe_p3",
       "count": 6,
       "intervalSec": 0.85,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 3.2
+      "hpScale": 2.88
      },
      {
-      "enemyId": "ge_pho_ca_phe_5",
+      "enemyId": "ge_pho_ca_phe_p5",
       "count": 4,
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 3.2
+      "hpScale": 2.88
      },
      {
-      "enemyId": "ge_pho_ca_phe_1",
+      "enemyId": "ge_pho_ca_phe_p1",
       "count": 10,
       "intervalSec": 0.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.2
+      "hpScale": 2.88
      }
     ]
    },
    {
     "waveNumber": 10,
-    "title": "Đợt 10: Đàn Kiến Bu Đường & Mốc Bao Hạt & Bụi Chợ Đêm",
+    "title": "Đợt 10: Tàn Thuốc Lá & Bã Cà Phê Đổ Bậy & Bụi Đường Dốc",
     "mainElements": [
+     "hoa",
      "moc",
      "tho"
     ],
@@ -450,96 +452,119 @@
     "clearReward": 18,
     "groups": [
      {
-      "enemyId": "ge_pho_ca_phe_4",
+      "enemyId": "ge_pho_ca_phe_p4",
       "count": 6,
       "intervalSec": 1.2,
       "delayBeforeSec": 0,
       "pathIndex": 1,
-      "hpScale": 3.6
+      "hpScale": 3.24
      },
      {
-      "enemyId": "ge_pho_ca_phe_6",
+      "enemyId": "ge_pho_ca_phe_p6",
       "count": 3,
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.6
+      "hpScale": 3.24
      },
      {
-      "enemyId": "ge_pho_ca_phe_2",
+      "enemyId": "ge_pho_ca_phe_p2",
       "count": 5,
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 3.6
+      "hpScale": 3.24
      }
     ]
    },
    {
     "waveNumber": 11,
-    "title": "Đợt 11: Giờ cao điểm cả phố",
+    "title": "Đợt 11: Cơn Mưa Ngập Dốc ập tới",
     "mainElements": [
-     "thuy",
+     "kim",
      "tho",
-     "hoa",
      "moc",
-     "kim"
+     "hoa",
+     "thuy"
     ],
     "earlyBonusMax": 0,
     "clearReward": 0,
     "groups": [
      {
-      "enemyId": "ge_pho_ca_phe_1",
+      "enemyId": "ge_pho_ca_phe_p1",
       "count": 11,
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 4
+      "hpScale": 3.6
      },
      {
-      "enemyId": "ge_pho_ca_phe_2",
+      "enemyId": "ge_pho_ca_phe_p2",
       "count": 5,
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 4
+      "hpScale": 3.6
      },
      {
-      "enemyId": "ge_pho_ca_phe_3",
+      "enemyId": "ge_pho_ca_phe_p3",
       "count": 7,
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 4
+      "hpScale": 3.6
      },
      {
-      "enemyId": "ge_pho_ca_phe_4",
+      "enemyId": "ge_pho_ca_phe_p4",
       "count": 6,
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 4
+      "hpScale": 3.6
      },
      {
-      "enemyId": "ge_pho_ca_phe_5",
+      "enemyId": "ge_pho_ca_phe_p5",
       "count": 4,
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 4
+      "hpScale": 3.6
      },
      {
-      "enemyId": "ge_pho_ca_phe_6",
+      "enemyId": "ge_pho_ca_phe_p6",
       "count": 3,
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 4
+      "hpScale": 3.6
+     },
+     {
+      "enemyId": "ge_pho_ca_phe_trum",
+      "count": 1,
+      "intervalSec": 1,
+      "delayBeforeSec": 3,
+      "pathIndex": 0,
+      "hpScale": 0.54
      }
     ]
    }
   ],
   "towerIds": [
+   "wood_tower",
+   "metal_tower",
+   "water_tower",
+   "fire_tower",
+   "earth_tower",
+   "bk_swatter",
+   "bk_jar",
+   "bk_fan",
+   "bk_oven",
+   "bk_fridge",
+   "fl_can",
+   "fl_shears",
+   "fl_lime",
+   "fl_heater",
+   "fl_vent",
    "gt_pho_ca_phe_cafe_som",
    "gt_pho_ca_phe_o_long",
    "gt_pho_ca_phe_kem_ly",
@@ -552,12 +577,12 @@
   ],
   "loadoutSize": 6,
   "defaultLoadout": [
-   "gt_pho_ca_phe_retro",
-   "gt_pho_ca_phe_o_long",
-   "gt_pho_ca_phe_cafe_som",
-   "gt_pho_ca_phe_banh_mi_chao",
-   "gt_pho_ca_phe_cafe_xua",
-   "gt_pho_ca_phe_san_thuong"
+   "metal_tower",
+   "fl_vent",
+   "bk_fridge",
+   "earth_tower",
+   "fire_tower",
+   "gt_pho_ca_phe_o_long"
   ],
   "enableSynergy": true,
   "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -626,64 +651,4756 @@
     "towerId": "gt_pho_ca_phe_banh_trung"
    }
   ],
+  "streetId": "street_pho_ca_phe",
   "botPlan": [
    {
     "padId": "pad_1",
-    "defId": "gt_pho_ca_phe_retro",
+    "defId": "metal_tower",
     "preferredBranch": "A"
    },
    {
     "padId": "pad_2",
-    "defId": "gt_pho_ca_phe_cafe_som",
+    "defId": "fire_tower",
     "preferredBranch": "B"
    },
    {
     "padId": "pad_3",
-    "defId": "gt_pho_ca_phe_o_long",
+    "defId": "fl_vent",
     "preferredBranch": "A"
    },
    {
     "padId": "pad_4",
-    "defId": "gt_pho_ca_phe_cafe_xua",
+    "defId": "fire_tower",
     "preferredBranch": "B"
    },
    {
     "padId": "pad_5",
-    "defId": "gt_pho_ca_phe_san_thuong",
+    "defId": "metal_tower",
     "preferredBranch": "A"
    },
    {
     "padId": "pad_6",
-    "defId": "gt_pho_ca_phe_retro",
+    "defId": "fire_tower",
     "preferredBranch": "B"
    },
    {
     "padId": "pad_7",
-    "defId": "gt_pho_ca_phe_cafe_som",
+    "defId": "metal_tower",
     "preferredBranch": "A"
    },
    {
     "padId": "pad_8",
-    "defId": "gt_pho_ca_phe_banh_mi_chao",
+    "defId": "fire_tower",
     "preferredBranch": "B"
    },
    {
     "padId": "pad_9",
-    "defId": "gt_pho_ca_phe_cafe_xua",
+    "defId": "metal_tower",
     "preferredBranch": "A"
    },
    {
     "padId": "pad_10",
-    "defId": "gt_pho_ca_phe_san_thuong",
+    "defId": "fire_tower",
     "preferredBranch": "B"
    },
    {
     "padId": "pad_11",
-    "defId": "gt_pho_ca_phe_retro",
+    "defId": "metal_tower",
     "preferredBranch": "A"
    }
   ]
  },
+ "shops": [
+  {
+   "hpMultiplier": 0.4,
+   "balance": {
+    "randomWinWithExpectedGear": 0.7916666666666666,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.65
+   },
+   "stage": {
+    "id": "street_pho_ca_phe_t1",
+    "stageNumber": 11,
+    "name": "Cà Phê Sớm Mai",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 1/9: Quán cà phê truyền thống mở từ 5 giờ",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 330,
+       "y": 487
+      },
+      {
+       "x": 305,
+       "y": 468
+      },
+      {
+       "x": 174,
+       "y": 399
+      },
+      {
+       "x": 68,
+       "y": 308
+      },
+      {
+       "x": 56,
+       "y": 301
+      },
+      {
+       "x": 30,
+       "y": 296
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 150,
+      "y": 282
+     },
+     {
+      "id": "pad_2",
+      "x": 90,
+      "y": 378
+     },
+     {
+      "id": "pad_3",
+      "x": 66,
+      "y": 246
+     },
+     {
+      "id": "pad_4",
+      "x": 30,
+      "y": 342
+     },
+     {
+      "id": "pad_5",
+      "x": 222,
+      "y": 78
+     },
+     {
+      "id": "pad_6",
+      "x": 282,
+      "y": 54
+     },
+     {
+      "id": "pad_7",
+      "x": 270,
+      "y": 162
+     },
+     {
+      "id": "pad_8",
+      "x": 210,
+      "y": 330
+     },
+     {
+      "id": "pad_9",
+      "x": 222,
+      "y": 474
+     },
+     {
+      "id": "pad_10",
+      "x": 282,
+      "y": 390
+     },
+     {
+      "id": "pad_11",
+      "x": 162,
+      "y": 438
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Bụi Chợ Đêm",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.4
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Khói Rang Khét",
+      "mainElements": [
+       "hoa"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.46
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Đàn Kiến Bu Đường & Khói Rang Khét",
+      "mainElements": [
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.52
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 0.52
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Bụi Chợ Đêm & Đàn Kiến Bu Đường",
+      "mainElements": [
+       "tho",
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.58
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 0.58
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Khói Rang Khét & Bụi Chợ Đêm & Đàn Kiến Bu Đường",
+      "mainElements": [
+       "hoa",
+       "tho",
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.68
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 0.68
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 0.68
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Đàn Kiến Bu Đường & Khói Rang Khét & Bụi Chợ Đêm",
+      "mainElements": [
+       "moc",
+       "hoa",
+       "tho"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.8
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 0.8
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 0.8
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Bụi Chợ Đêm & Đàn Kiến Bu Đường & Khói Rang Khét",
+      "mainElements": [
+       "tho",
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.96
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 0.96
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 0.96
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "tho",
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.12
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.12
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.12
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_pho_ca_phe_cafe_som"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_pho_ca_phe_cafe_som",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "cafe_som",
+      "name": "Cà Phê Sớm Mai",
+      "type": "Quán cà phê truyền thống mở từ 5 giờ",
+      "trait": "vài bàn nhỏ, phin nhôm",
+      "towerId": "gt_pho_ca_phe_cafe_som"
+     },
+     {
+      "key": "o_long",
+      "name": "Tiệm Trà Đồi Chè",
+      "type": "Tiệm trà ô long ủ lạnh",
+      "trait": "trà ô long ủ lạnh",
+      "towerId": "gt_pho_ca_phe_o_long"
+     },
+     {
+      "key": "kem_ly",
+      "name": "Cà Phê Kem Cỏ Hồng",
+      "type": "Quán cà phê, kem ly",
+      "trait": "ly kem nhiều tầng",
+      "towerId": "gt_pho_ca_phe_kem_ly"
+     },
+     {
+      "key": "banh_mi_chao",
+      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
+      "type": "Quán cà phê có bánh mì chảo buổi sáng",
+      "trait": "chảo gang nóng",
+      "towerId": "gt_pho_ca_phe_banh_mi_chao"
+     },
+     {
+      "key": "retro",
+      "name": "Cà Phê Hoài Cổ Bằng Lăng",
+      "type": "Quán cà phê retro đồ cũ thập niên 90",
+      "trait": "máy hát, đồ cũ",
+      "towerId": "gt_pho_ca_phe_retro"
+     },
+     {
+      "key": "kem_bo",
+      "name": "Quán Kem Bơ Mai Anh Đào",
+      "type": "Quán cà phê, kem bơ",
+      "trait": "ly kem bơ, mở từ sáng sớm",
+      "towerId": "gt_pho_ca_phe_kem_bo"
+     },
+     {
+      "key": "cafe_xua",
+      "name": "Cà Phê Xưa Cúc Hoạ Mi",
+      "type": "Quán cà phê xưa, ghế gỗ, nhạc Trịnh",
+      "trait": "ghế gỗ cũ, nhạc Trịnh",
+      "towerId": "gt_pho_ca_phe_cafe_xua"
+     },
+     {
+      "key": "san_thuong",
+      "name": "Cà Phê Sân Thượng Thông Xanh",
+      "type": "Quán cà phê sân thượng nhìn xuống phố",
+      "trait": "nhìn xuống chợ và hồ",
+      "towerId": "gt_pho_ca_phe_san_thuong"
+     },
+     {
+      "key": "banh_trung",
+      "name": "Tiệm Bánh Trứng Mimosa",
+      "type": "Tiệm kem, bánh trứng nướng",
+      "trait": "bánh trứng nướng kèm kem",
+      "towerId": "gt_pho_ca_phe_banh_trung"
+     }
+    ],
+    "streetId": "street_pho_ca_phe",
+    "shopIndex": 1,
+    "mapStageId": "street_pho_ca_phe",
+    "featuredTowerId": "gt_pho_ca_phe_cafe_som",
+    "botPlan": [
+     {
+      "padId": "pad_2",
+      "defId": "gt_pho_ca_phe_cafe_som",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_1",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_pho_ca_phe_cafe_som",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_pho_ca_phe_cafe_som",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_pho_ca_phe_cafe_som",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1,
+   "balance": {
+    "randomWinWithExpectedGear": 0.5625,
+    "botWinRate": 1,
+    "botLivesAvg": 18.666666666666668,
+    "target": 0.6125
+   },
+   "stage": {
+    "id": "street_pho_ca_phe_t2",
+    "stageNumber": 12,
+    "name": "Tiệm Trà Đồi Chè",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 2/9: Tiệm trà ô long ủ lạnh",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 321,
+       "y": 33
+      },
+      {
+       "x": 321,
+       "y": 88
+      },
+      {
+       "x": 312,
+       "y": 105
+      },
+      {
+       "x": 293,
+       "y": 117
+      },
+      {
+       "x": 272,
+       "y": 118
+      },
+      {
+       "x": 251,
+       "y": 111
+      },
+      {
+       "x": 225,
+       "y": 121
+      },
+      {
+       "x": 131,
+       "y": 223
+      },
+      {
+       "x": 106,
+       "y": 261
+      },
+      {
+       "x": 111,
+       "y": 291
+      },
+      {
+       "x": 125,
+       "y": 318
+      },
+      {
+       "x": 256,
+       "y": 423
+      },
+      {
+       "x": 278,
+       "y": 457
+      },
+      {
+       "x": 174,
+       "y": 399
+      },
+      {
+       "x": 68,
+       "y": 308
+      },
+      {
+       "x": 56,
+       "y": 301
+      },
+      {
+       "x": 30,
+       "y": 296
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 150,
+      "y": 282
+     },
+     {
+      "id": "pad_2",
+      "x": 90,
+      "y": 378
+     },
+     {
+      "id": "pad_3",
+      "x": 66,
+      "y": 246
+     },
+     {
+      "id": "pad_4",
+      "x": 30,
+      "y": 342
+     },
+     {
+      "id": "pad_5",
+      "x": 222,
+      "y": 78
+     },
+     {
+      "id": "pad_6",
+      "x": 282,
+      "y": 54
+     },
+     {
+      "id": "pad_7",
+      "x": 270,
+      "y": 162
+     },
+     {
+      "id": "pad_8",
+      "x": 210,
+      "y": 330
+     },
+     {
+      "id": "pad_9",
+      "x": 222,
+      "y": 474
+     },
+     {
+      "id": "pad_10",
+      "x": 282,
+      "y": 390
+     },
+     {
+      "id": "pad_11",
+      "x": 162,
+      "y": 438
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Bụi Chợ Đêm",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Khói Rang Khét",
+      "mainElements": [
+       "hoa"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.15
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Đàn Kiến Bu Đường & Khói Rang Khét",
+      "mainElements": [
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Bụi Chợ Đêm & Đàn Kiến Bu Đường",
+      "mainElements": [
+       "tho",
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Khói Rang Khét & Bụi Chợ Đêm & Đàn Kiến Bu Đường",
+      "mainElements": [
+       "hoa",
+       "tho",
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Đàn Kiến Bu Đường & Khói Rang Khét & Bụi Chợ Đêm",
+      "mainElements": [
+       "moc",
+       "hoa",
+       "tho"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Bụi Chợ Đêm & Đàn Kiến Bu Đường & Khói Rang Khét",
+      "mainElements": [
+       "tho",
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "tho",
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_pho_ca_phe_cafe_som",
+     "gt_pho_ca_phe_o_long"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_pho_ca_phe_o_long",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "cafe_som",
+      "name": "Cà Phê Sớm Mai",
+      "type": "Quán cà phê truyền thống mở từ 5 giờ",
+      "trait": "vài bàn nhỏ, phin nhôm",
+      "towerId": "gt_pho_ca_phe_cafe_som"
+     },
+     {
+      "key": "o_long",
+      "name": "Tiệm Trà Đồi Chè",
+      "type": "Tiệm trà ô long ủ lạnh",
+      "trait": "trà ô long ủ lạnh",
+      "towerId": "gt_pho_ca_phe_o_long"
+     },
+     {
+      "key": "kem_ly",
+      "name": "Cà Phê Kem Cỏ Hồng",
+      "type": "Quán cà phê, kem ly",
+      "trait": "ly kem nhiều tầng",
+      "towerId": "gt_pho_ca_phe_kem_ly"
+     },
+     {
+      "key": "banh_mi_chao",
+      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
+      "type": "Quán cà phê có bánh mì chảo buổi sáng",
+      "trait": "chảo gang nóng",
+      "towerId": "gt_pho_ca_phe_banh_mi_chao"
+     },
+     {
+      "key": "retro",
+      "name": "Cà Phê Hoài Cổ Bằng Lăng",
+      "type": "Quán cà phê retro đồ cũ thập niên 90",
+      "trait": "máy hát, đồ cũ",
+      "towerId": "gt_pho_ca_phe_retro"
+     },
+     {
+      "key": "kem_bo",
+      "name": "Quán Kem Bơ Mai Anh Đào",
+      "type": "Quán cà phê, kem bơ",
+      "trait": "ly kem bơ, mở từ sáng sớm",
+      "towerId": "gt_pho_ca_phe_kem_bo"
+     },
+     {
+      "key": "cafe_xua",
+      "name": "Cà Phê Xưa Cúc Hoạ Mi",
+      "type": "Quán cà phê xưa, ghế gỗ, nhạc Trịnh",
+      "trait": "ghế gỗ cũ, nhạc Trịnh",
+      "towerId": "gt_pho_ca_phe_cafe_xua"
+     },
+     {
+      "key": "san_thuong",
+      "name": "Cà Phê Sân Thượng Thông Xanh",
+      "type": "Quán cà phê sân thượng nhìn xuống phố",
+      "trait": "nhìn xuống chợ và hồ",
+      "towerId": "gt_pho_ca_phe_san_thuong"
+     },
+     {
+      "key": "banh_trung",
+      "name": "Tiệm Bánh Trứng Mimosa",
+      "type": "Tiệm kem, bánh trứng nướng",
+      "trait": "bánh trứng nướng kèm kem",
+      "towerId": "gt_pho_ca_phe_banh_trung"
+     }
+    ],
+    "streetId": "street_pho_ca_phe",
+    "shopIndex": 2,
+    "mapStageId": "street_pho_ca_phe",
+    "featuredTowerId": "gt_pho_ca_phe_o_long",
+    "botPlan": [
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_1",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_pho_ca_phe_o_long",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 0.6,
+   "balance": {
+    "randomWinWithExpectedGear": 0.3958333333333333,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.5750000000000001
+   },
+   "stage": {
+    "id": "street_pho_ca_phe_t3",
+    "stageNumber": 13,
+    "name": "Cà Phê Kem Cỏ Hồng",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 3/9: Quán cà phê, kem ly",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 330,
+       "y": 487
+      },
+      {
+       "x": 305,
+       "y": 468
+      },
+      {
+       "x": 174,
+       "y": 399
+      },
+      {
+       "x": 68,
+       "y": 308
+      },
+      {
+       "x": 56,
+       "y": 301
+      },
+      {
+       "x": 30,
+       "y": 296
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 150,
+      "y": 282
+     },
+     {
+      "id": "pad_2",
+      "x": 90,
+      "y": 378
+     },
+     {
+      "id": "pad_3",
+      "x": 66,
+      "y": 246
+     },
+     {
+      "id": "pad_4",
+      "x": 30,
+      "y": 342
+     },
+     {
+      "id": "pad_5",
+      "x": 222,
+      "y": 78
+     },
+     {
+      "id": "pad_6",
+      "x": 282,
+      "y": 54
+     },
+     {
+      "id": "pad_7",
+      "x": 270,
+      "y": 162
+     },
+     {
+      "id": "pad_8",
+      "x": 210,
+      "y": 330
+     },
+     {
+      "id": "pad_9",
+      "x": 222,
+      "y": 474
+     },
+     {
+      "id": "pad_10",
+      "x": 282,
+      "y": 390
+     },
+     {
+      "id": "pad_11",
+      "x": 162,
+      "y": 438
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Khói Rang Khét",
+      "mainElements": [
+       "hoa"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Đàn Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.69
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Mọt Hạt & Đàn Kiến Bu Đường",
+      "mainElements": [
+       "kim",
+       "moc"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.78
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 0.78
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Khói Rang Khét & Mọt Hạt",
+      "mainElements": [
+       "hoa",
+       "kim"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.87
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 0.87
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Đàn Kiến Bu Đường & Khói Rang Khét & Mọt Hạt",
+      "mainElements": [
+       "moc",
+       "hoa",
+       "kim"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.02
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.02
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.02
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Mọt Hạt & Đàn Kiến Bu Đường & Khói Rang Khét",
+      "mainElements": [
+       "kim",
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.2
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.2
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Khói Rang Khét & Mọt Hạt & Đàn Kiến Bu Đường",
+      "mainElements": [
+       "hoa",
+       "kim",
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.44
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.44
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.44
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "hoa",
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_pho_ca_phe_cafe_som",
+     "gt_pho_ca_phe_o_long",
+     "gt_pho_ca_phe_kem_ly"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_pho_ca_phe_kem_ly",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "cafe_som",
+      "name": "Cà Phê Sớm Mai",
+      "type": "Quán cà phê truyền thống mở từ 5 giờ",
+      "trait": "vài bàn nhỏ, phin nhôm",
+      "towerId": "gt_pho_ca_phe_cafe_som"
+     },
+     {
+      "key": "o_long",
+      "name": "Tiệm Trà Đồi Chè",
+      "type": "Tiệm trà ô long ủ lạnh",
+      "trait": "trà ô long ủ lạnh",
+      "towerId": "gt_pho_ca_phe_o_long"
+     },
+     {
+      "key": "kem_ly",
+      "name": "Cà Phê Kem Cỏ Hồng",
+      "type": "Quán cà phê, kem ly",
+      "trait": "ly kem nhiều tầng",
+      "towerId": "gt_pho_ca_phe_kem_ly"
+     },
+     {
+      "key": "banh_mi_chao",
+      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
+      "type": "Quán cà phê có bánh mì chảo buổi sáng",
+      "trait": "chảo gang nóng",
+      "towerId": "gt_pho_ca_phe_banh_mi_chao"
+     },
+     {
+      "key": "retro",
+      "name": "Cà Phê Hoài Cổ Bằng Lăng",
+      "type": "Quán cà phê retro đồ cũ thập niên 90",
+      "trait": "máy hát, đồ cũ",
+      "towerId": "gt_pho_ca_phe_retro"
+     },
+     {
+      "key": "kem_bo",
+      "name": "Quán Kem Bơ Mai Anh Đào",
+      "type": "Quán cà phê, kem bơ",
+      "trait": "ly kem bơ, mở từ sáng sớm",
+      "towerId": "gt_pho_ca_phe_kem_bo"
+     },
+     {
+      "key": "cafe_xua",
+      "name": "Cà Phê Xưa Cúc Hoạ Mi",
+      "type": "Quán cà phê xưa, ghế gỗ, nhạc Trịnh",
+      "trait": "ghế gỗ cũ, nhạc Trịnh",
+      "towerId": "gt_pho_ca_phe_cafe_xua"
+     },
+     {
+      "key": "san_thuong",
+      "name": "Cà Phê Sân Thượng Thông Xanh",
+      "type": "Quán cà phê sân thượng nhìn xuống phố",
+      "trait": "nhìn xuống chợ và hồ",
+      "towerId": "gt_pho_ca_phe_san_thuong"
+     },
+     {
+      "key": "banh_trung",
+      "name": "Tiệm Bánh Trứng Mimosa",
+      "type": "Tiệm kem, bánh trứng nướng",
+      "trait": "bánh trứng nướng kèm kem",
+      "towerId": "gt_pho_ca_phe_banh_trung"
+     }
+    ],
+    "streetId": "street_pho_ca_phe",
+    "shopIndex": 3,
+    "mapStageId": "street_pho_ca_phe",
+    "featuredTowerId": "gt_pho_ca_phe_kem_ly",
+    "botPlan": [
+     {
+      "padId": "pad_2",
+      "defId": "gt_pho_ca_phe_kem_ly",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_1",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_pho_ca_phe_kem_ly",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_pho_ca_phe_kem_ly",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_pho_ca_phe_kem_ly",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.2,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4583333333333333,
+    "botWinRate": 1,
+    "botLivesAvg": 16,
+    "target": 0.5375000000000001
+   },
+   "stage": {
+    "id": "street_pho_ca_phe_t4",
+    "stageNumber": 14,
+    "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 4/9: Quán cà phê có bánh mì chảo buổi sáng",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 321,
+       "y": 33
+      },
+      {
+       "x": 321,
+       "y": 88
+      },
+      {
+       "x": 312,
+       "y": 105
+      },
+      {
+       "x": 293,
+       "y": 117
+      },
+      {
+       "x": 272,
+       "y": 118
+      },
+      {
+       "x": 251,
+       "y": 111
+      },
+      {
+       "x": 225,
+       "y": 121
+      },
+      {
+       "x": 131,
+       "y": 223
+      },
+      {
+       "x": 106,
+       "y": 261
+      },
+      {
+       "x": 111,
+       "y": 291
+      },
+      {
+       "x": 125,
+       "y": 318
+      },
+      {
+       "x": 256,
+       "y": 423
+      },
+      {
+       "x": 278,
+       "y": 457
+      },
+      {
+       "x": 174,
+       "y": 399
+      },
+      {
+       "x": 68,
+       "y": 308
+      },
+      {
+       "x": 56,
+       "y": 301
+      },
+      {
+       "x": 30,
+       "y": 296
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 150,
+      "y": 282
+     },
+     {
+      "id": "pad_2",
+      "x": 90,
+      "y": 378
+     },
+     {
+      "id": "pad_3",
+      "x": 66,
+      "y": 246
+     },
+     {
+      "id": "pad_4",
+      "x": 30,
+      "y": 342
+     },
+     {
+      "id": "pad_5",
+      "x": 222,
+      "y": 78
+     },
+     {
+      "id": "pad_6",
+      "x": 282,
+      "y": 54
+     },
+     {
+      "id": "pad_7",
+      "x": 270,
+      "y": 162
+     },
+     {
+      "id": "pad_8",
+      "x": 210,
+      "y": 330
+     },
+     {
+      "id": "pad_9",
+      "x": 222,
+      "y": 474
+     },
+     {
+      "id": "pad_10",
+      "x": 282,
+      "y": 390
+     },
+     {
+      "id": "pad_11",
+      "x": 162,
+      "y": 438
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Hơi Ẩm Hạt Cà Phê",
+      "mainElements": [
+       "thuy"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Chợ Đêm",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.38
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Mọt Hạt & Bụi Chợ Đêm",
+      "mainElements": [
+       "kim",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.56
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.56
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Hơi Ẩm Hạt Cà Phê & Mọt Hạt",
+      "mainElements": [
+       "thuy",
+       "kim"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.74
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.74
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Hơi Ẩm Hạt Cà Phê & Mọt Hạt",
+      "mainElements": [
+       "thuy",
+       "kim"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.04
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.04
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Bụi Chợ Đêm & Mốc Bao Hạt",
+      "mainElements": [
+       "tho",
+       "moc"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Mọt Hạt & Hơi Ẩm Hạt Cà Phê",
+      "mainElements": [
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.88
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.88
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "thuy",
+       "tho",
+       "kim",
+       "moc"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.36
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.36
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.36
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.36
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_pho_ca_phe_cafe_som",
+     "gt_pho_ca_phe_o_long",
+     "gt_pho_ca_phe_kem_ly",
+     "gt_pho_ca_phe_banh_mi_chao"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_pho_ca_phe_banh_mi_chao",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "cafe_som",
+      "name": "Cà Phê Sớm Mai",
+      "type": "Quán cà phê truyền thống mở từ 5 giờ",
+      "trait": "vài bàn nhỏ, phin nhôm",
+      "towerId": "gt_pho_ca_phe_cafe_som"
+     },
+     {
+      "key": "o_long",
+      "name": "Tiệm Trà Đồi Chè",
+      "type": "Tiệm trà ô long ủ lạnh",
+      "trait": "trà ô long ủ lạnh",
+      "towerId": "gt_pho_ca_phe_o_long"
+     },
+     {
+      "key": "kem_ly",
+      "name": "Cà Phê Kem Cỏ Hồng",
+      "type": "Quán cà phê, kem ly",
+      "trait": "ly kem nhiều tầng",
+      "towerId": "gt_pho_ca_phe_kem_ly"
+     },
+     {
+      "key": "banh_mi_chao",
+      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
+      "type": "Quán cà phê có bánh mì chảo buổi sáng",
+      "trait": "chảo gang nóng",
+      "towerId": "gt_pho_ca_phe_banh_mi_chao"
+     },
+     {
+      "key": "retro",
+      "name": "Cà Phê Hoài Cổ Bằng Lăng",
+      "type": "Quán cà phê retro đồ cũ thập niên 90",
+      "trait": "máy hát, đồ cũ",
+      "towerId": "gt_pho_ca_phe_retro"
+     },
+     {
+      "key": "kem_bo",
+      "name": "Quán Kem Bơ Mai Anh Đào",
+      "type": "Quán cà phê, kem bơ",
+      "trait": "ly kem bơ, mở từ sáng sớm",
+      "towerId": "gt_pho_ca_phe_kem_bo"
+     },
+     {
+      "key": "cafe_xua",
+      "name": "Cà Phê Xưa Cúc Hoạ Mi",
+      "type": "Quán cà phê xưa, ghế gỗ, nhạc Trịnh",
+      "trait": "ghế gỗ cũ, nhạc Trịnh",
+      "towerId": "gt_pho_ca_phe_cafe_xua"
+     },
+     {
+      "key": "san_thuong",
+      "name": "Cà Phê Sân Thượng Thông Xanh",
+      "type": "Quán cà phê sân thượng nhìn xuống phố",
+      "trait": "nhìn xuống chợ và hồ",
+      "towerId": "gt_pho_ca_phe_san_thuong"
+     },
+     {
+      "key": "banh_trung",
+      "name": "Tiệm Bánh Trứng Mimosa",
+      "type": "Tiệm kem, bánh trứng nướng",
+      "trait": "bánh trứng nướng kèm kem",
+      "towerId": "gt_pho_ca_phe_banh_trung"
+     }
+    ],
+    "streetId": "street_pho_ca_phe",
+    "shopIndex": 4,
+    "mapStageId": "street_pho_ca_phe",
+    "featuredTowerId": "gt_pho_ca_phe_banh_mi_chao",
+    "botPlan": [
+     {
+      "padId": "pad_5",
+      "defId": "gt_pho_ca_phe_banh_mi_chao",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_1",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_pho_ca_phe_banh_mi_chao",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_pho_ca_phe_banh_mi_chao",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_pho_ca_phe_banh_mi_chao",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 0.6,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4791666666666667,
+    "botWinRate": 1,
+    "botLivesAvg": 18.333333333333332,
+    "target": 0.5
+   },
+   "stage": {
+    "id": "street_pho_ca_phe_t5",
+    "stageNumber": 15,
+    "name": "Cà Phê Hoài Cổ Bằng Lăng",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 5/9: Quán cà phê retro đồ cũ thập niên 90",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 330,
+       "y": 487
+      },
+      {
+       "x": 305,
+       "y": 468
+      },
+      {
+       "x": 174,
+       "y": 399
+      },
+      {
+       "x": 68,
+       "y": 308
+      },
+      {
+       "x": 56,
+       "y": 301
+      },
+      {
+       "x": 30,
+       "y": 296
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 150,
+      "y": 282
+     },
+     {
+      "id": "pad_2",
+      "x": 90,
+      "y": 378
+     },
+     {
+      "id": "pad_3",
+      "x": 66,
+      "y": 246
+     },
+     {
+      "id": "pad_4",
+      "x": 30,
+      "y": 342
+     },
+     {
+      "id": "pad_5",
+      "x": 222,
+      "y": 78
+     },
+     {
+      "id": "pad_6",
+      "x": 282,
+      "y": 54
+     },
+     {
+      "id": "pad_7",
+      "x": 270,
+      "y": 162
+     },
+     {
+      "id": "pad_8",
+      "x": 210,
+      "y": 330
+     },
+     {
+      "id": "pad_9",
+      "x": 222,
+      "y": 474
+     },
+     {
+      "id": "pad_10",
+      "x": 282,
+      "y": 390
+     },
+     {
+      "id": "pad_11",
+      "x": 162,
+      "y": 438
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Hơi Ẩm Hạt Cà Phê",
+      "mainElements": [
+       "thuy"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Chợ Đêm",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.69
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Đàn Kiến Bu Đường & Bụi Chợ Đêm",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.78
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 0.78
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Hơi Ẩm Hạt Cà Phê & Đàn Kiến Bu Đường",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.87
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 0.87
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Hơi Ẩm Hạt Cà Phê & Đàn Kiến Bu Đường",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.02
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.02
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Bụi Chợ Đêm & Mốc Bao Hạt",
+      "mainElements": [
+       "tho",
+       "moc"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.2
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Đàn Kiến Bu Đường & Hơi Ẩm Hạt Cà Phê",
+      "mainElements": [
+       "moc",
+       "thuy"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.44
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.44
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "thuy",
+       "tho",
+       "moc"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_pho_ca_phe_cafe_som",
+     "gt_pho_ca_phe_o_long",
+     "gt_pho_ca_phe_kem_ly",
+     "gt_pho_ca_phe_banh_mi_chao",
+     "gt_pho_ca_phe_retro"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_pho_ca_phe_retro",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "cafe_som",
+      "name": "Cà Phê Sớm Mai",
+      "type": "Quán cà phê truyền thống mở từ 5 giờ",
+      "trait": "vài bàn nhỏ, phin nhôm",
+      "towerId": "gt_pho_ca_phe_cafe_som"
+     },
+     {
+      "key": "o_long",
+      "name": "Tiệm Trà Đồi Chè",
+      "type": "Tiệm trà ô long ủ lạnh",
+      "trait": "trà ô long ủ lạnh",
+      "towerId": "gt_pho_ca_phe_o_long"
+     },
+     {
+      "key": "kem_ly",
+      "name": "Cà Phê Kem Cỏ Hồng",
+      "type": "Quán cà phê, kem ly",
+      "trait": "ly kem nhiều tầng",
+      "towerId": "gt_pho_ca_phe_kem_ly"
+     },
+     {
+      "key": "banh_mi_chao",
+      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
+      "type": "Quán cà phê có bánh mì chảo buổi sáng",
+      "trait": "chảo gang nóng",
+      "towerId": "gt_pho_ca_phe_banh_mi_chao"
+     },
+     {
+      "key": "retro",
+      "name": "Cà Phê Hoài Cổ Bằng Lăng",
+      "type": "Quán cà phê retro đồ cũ thập niên 90",
+      "trait": "máy hát, đồ cũ",
+      "towerId": "gt_pho_ca_phe_retro"
+     },
+     {
+      "key": "kem_bo",
+      "name": "Quán Kem Bơ Mai Anh Đào",
+      "type": "Quán cà phê, kem bơ",
+      "trait": "ly kem bơ, mở từ sáng sớm",
+      "towerId": "gt_pho_ca_phe_kem_bo"
+     },
+     {
+      "key": "cafe_xua",
+      "name": "Cà Phê Xưa Cúc Hoạ Mi",
+      "type": "Quán cà phê xưa, ghế gỗ, nhạc Trịnh",
+      "trait": "ghế gỗ cũ, nhạc Trịnh",
+      "towerId": "gt_pho_ca_phe_cafe_xua"
+     },
+     {
+      "key": "san_thuong",
+      "name": "Cà Phê Sân Thượng Thông Xanh",
+      "type": "Quán cà phê sân thượng nhìn xuống phố",
+      "trait": "nhìn xuống chợ và hồ",
+      "towerId": "gt_pho_ca_phe_san_thuong"
+     },
+     {
+      "key": "banh_trung",
+      "name": "Tiệm Bánh Trứng Mimosa",
+      "type": "Tiệm kem, bánh trứng nướng",
+      "trait": "bánh trứng nướng kèm kem",
+      "towerId": "gt_pho_ca_phe_banh_trung"
+     }
+    ],
+    "streetId": "street_pho_ca_phe",
+    "shopIndex": 5,
+    "mapStageId": "street_pho_ca_phe",
+    "featuredTowerId": "gt_pho_ca_phe_retro",
+    "botPlan": [
+     {
+      "padId": "pad_2",
+      "defId": "gt_pho_ca_phe_retro",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_1",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_pho_ca_phe_retro",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_pho_ca_phe_retro",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_pho_ca_phe_retro",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.5,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4166666666666667,
+    "botWinRate": 1,
+    "botLivesAvg": 18.333333333333332,
+    "target": 0.4625
+   },
+   "stage": {
+    "id": "street_pho_ca_phe_t6",
+    "stageNumber": 16,
+    "name": "Quán Kem Bơ Mai Anh Đào",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 6/9: Quán cà phê, kem bơ",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 321,
+       "y": 33
+      },
+      {
+       "x": 321,
+       "y": 88
+      },
+      {
+       "x": 312,
+       "y": 105
+      },
+      {
+       "x": 293,
+       "y": 117
+      },
+      {
+       "x": 272,
+       "y": 118
+      },
+      {
+       "x": 251,
+       "y": 111
+      },
+      {
+       "x": 225,
+       "y": 121
+      },
+      {
+       "x": 131,
+       "y": 223
+      },
+      {
+       "x": 106,
+       "y": 261
+      },
+      {
+       "x": 111,
+       "y": 291
+      },
+      {
+       "x": 125,
+       "y": 318
+      },
+      {
+       "x": 256,
+       "y": 423
+      },
+      {
+       "x": 278,
+       "y": 457
+      },
+      {
+       "x": 174,
+       "y": 399
+      },
+      {
+       "x": 68,
+       "y": 308
+      },
+      {
+       "x": 56,
+       "y": 301
+      },
+      {
+       "x": 30,
+       "y": 296
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 150,
+      "y": 282
+     },
+     {
+      "id": "pad_2",
+      "x": 90,
+      "y": 378
+     },
+     {
+      "id": "pad_3",
+      "x": 66,
+      "y": 246
+     },
+     {
+      "id": "pad_4",
+      "x": 30,
+      "y": 342
+     },
+     {
+      "id": "pad_5",
+      "x": 222,
+      "y": 78
+     },
+     {
+      "id": "pad_6",
+      "x": 282,
+      "y": 54
+     },
+     {
+      "id": "pad_7",
+      "x": 270,
+      "y": 162
+     },
+     {
+      "id": "pad_8",
+      "x": 210,
+      "y": 330
+     },
+     {
+      "id": "pad_9",
+      "x": 222,
+      "y": 474
+     },
+     {
+      "id": "pad_10",
+      "x": 282,
+      "y": 390
+     },
+     {
+      "id": "pad_11",
+      "x": 162,
+      "y": 438
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Hơi Ẩm Hạt Cà Phê",
+      "mainElements": [
+       "thuy"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.5
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Chợ Đêm",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.73
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Khói Rang Khét & Bụi Chợ Đêm",
+      "mainElements": [
+       "hoa",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.95
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.95
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Hơi Ẩm Hạt Cà Phê & Khói Rang Khét",
+      "mainElements": [
+       "thuy",
+       "hoa"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.17
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.17
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Hơi Ẩm Hạt Cà Phê & Khói Rang Khét",
+      "mainElements": [
+       "thuy",
+       "hoa"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.55
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.55
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Bụi Chợ Đêm & Đàn Kiến Bu Đường",
+      "mainElements": [
+       "tho",
+       "moc"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Khói Rang Khét & Hơi Ẩm Hạt Cà Phê",
+      "mainElements": [
+       "hoa",
+       "thuy"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "thuy",
+       "tho",
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_pho_ca_phe_cafe_som",
+     "gt_pho_ca_phe_o_long",
+     "gt_pho_ca_phe_kem_ly",
+     "gt_pho_ca_phe_banh_mi_chao",
+     "gt_pho_ca_phe_retro",
+     "gt_pho_ca_phe_kem_bo"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_pho_ca_phe_kem_bo",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "cafe_som",
+      "name": "Cà Phê Sớm Mai",
+      "type": "Quán cà phê truyền thống mở từ 5 giờ",
+      "trait": "vài bàn nhỏ, phin nhôm",
+      "towerId": "gt_pho_ca_phe_cafe_som"
+     },
+     {
+      "key": "o_long",
+      "name": "Tiệm Trà Đồi Chè",
+      "type": "Tiệm trà ô long ủ lạnh",
+      "trait": "trà ô long ủ lạnh",
+      "towerId": "gt_pho_ca_phe_o_long"
+     },
+     {
+      "key": "kem_ly",
+      "name": "Cà Phê Kem Cỏ Hồng",
+      "type": "Quán cà phê, kem ly",
+      "trait": "ly kem nhiều tầng",
+      "towerId": "gt_pho_ca_phe_kem_ly"
+     },
+     {
+      "key": "banh_mi_chao",
+      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
+      "type": "Quán cà phê có bánh mì chảo buổi sáng",
+      "trait": "chảo gang nóng",
+      "towerId": "gt_pho_ca_phe_banh_mi_chao"
+     },
+     {
+      "key": "retro",
+      "name": "Cà Phê Hoài Cổ Bằng Lăng",
+      "type": "Quán cà phê retro đồ cũ thập niên 90",
+      "trait": "máy hát, đồ cũ",
+      "towerId": "gt_pho_ca_phe_retro"
+     },
+     {
+      "key": "kem_bo",
+      "name": "Quán Kem Bơ Mai Anh Đào",
+      "type": "Quán cà phê, kem bơ",
+      "trait": "ly kem bơ, mở từ sáng sớm",
+      "towerId": "gt_pho_ca_phe_kem_bo"
+     },
+     {
+      "key": "cafe_xua",
+      "name": "Cà Phê Xưa Cúc Hoạ Mi",
+      "type": "Quán cà phê xưa, ghế gỗ, nhạc Trịnh",
+      "trait": "ghế gỗ cũ, nhạc Trịnh",
+      "towerId": "gt_pho_ca_phe_cafe_xua"
+     },
+     {
+      "key": "san_thuong",
+      "name": "Cà Phê Sân Thượng Thông Xanh",
+      "type": "Quán cà phê sân thượng nhìn xuống phố",
+      "trait": "nhìn xuống chợ và hồ",
+      "towerId": "gt_pho_ca_phe_san_thuong"
+     },
+     {
+      "key": "banh_trung",
+      "name": "Tiệm Bánh Trứng Mimosa",
+      "type": "Tiệm kem, bánh trứng nướng",
+      "trait": "bánh trứng nướng kèm kem",
+      "towerId": "gt_pho_ca_phe_banh_trung"
+     }
+    ],
+    "streetId": "street_pho_ca_phe",
+    "shopIndex": 6,
+    "mapStageId": "street_pho_ca_phe",
+    "featuredTowerId": "gt_pho_ca_phe_kem_bo",
+    "botPlan": [
+     {
+      "padId": "pad_5",
+      "defId": "gt_pho_ca_phe_kem_bo",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_1",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_pho_ca_phe_kem_bo",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_pho_ca_phe_kem_bo",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_pho_ca_phe_kem_bo",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 0.6,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4791666666666667,
+    "botWinRate": 1,
+    "botLivesAvg": 17.333333333333332,
+    "target": 0.42500000000000004
+   },
+   "stage": {
+    "id": "street_pho_ca_phe_t7",
+    "stageNumber": 17,
+    "name": "Cà Phê Xưa Cúc Hoạ Mi",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 7/9: Quán cà phê xưa, ghế gỗ, nhạc Trịnh",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 330,
+       "y": 487
+      },
+      {
+       "x": 305,
+       "y": 468
+      },
+      {
+       "x": 174,
+       "y": 399
+      },
+      {
+       "x": 68,
+       "y": 308
+      },
+      {
+       "x": 56,
+       "y": 301
+      },
+      {
+       "x": 30,
+       "y": 296
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 150,
+      "y": 282
+     },
+     {
+      "id": "pad_2",
+      "x": 90,
+      "y": 378
+     },
+     {
+      "id": "pad_3",
+      "x": 66,
+      "y": 246
+     },
+     {
+      "id": "pad_4",
+      "x": 30,
+      "y": 342
+     },
+     {
+      "id": "pad_5",
+      "x": 222,
+      "y": 78
+     },
+     {
+      "id": "pad_6",
+      "x": 282,
+      "y": 54
+     },
+     {
+      "id": "pad_7",
+      "x": 270,
+      "y": 162
+     },
+     {
+      "id": "pad_8",
+      "x": 210,
+      "y": 330
+     },
+     {
+      "id": "pad_9",
+      "x": 222,
+      "y": 474
+     },
+     {
+      "id": "pad_10",
+      "x": 282,
+      "y": 390
+     },
+     {
+      "id": "pad_11",
+      "x": 162,
+      "y": 438
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Hơi Ẩm Hạt Cà Phê",
+      "mainElements": [
+       "thuy"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Chợ Đêm",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.69
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Khói Rang Khét & Bụi Chợ Đêm",
+      "mainElements": [
+       "hoa",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.78
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 0.78
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Hơi Ẩm Hạt Cà Phê & Khói Rang Khét",
+      "mainElements": [
+       "thuy",
+       "hoa"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.87
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 0.87
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Hơi Ẩm Hạt Cà Phê & Khói Rang Khét",
+      "mainElements": [
+       "thuy",
+       "hoa"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.02
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.02
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Hơi Ẩm Hạt Cà Phê & Khói Rang Khét & Mọt Hạt",
+      "mainElements": [
+       "thuy",
+       "hoa",
+       "kim"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.2
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.2
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Bụi Chợ Đêm & Đàn Kiến Bu Đường & Hơi Ẩm Hạt Cà Phê",
+      "mainElements": [
+       "tho",
+       "moc",
+       "thuy"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.44
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.44
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.44
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "thuy",
+       "tho",
+       "hoa",
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_pho_ca_phe_cafe_som",
+     "gt_pho_ca_phe_o_long",
+     "gt_pho_ca_phe_kem_ly",
+     "gt_pho_ca_phe_banh_mi_chao",
+     "gt_pho_ca_phe_retro",
+     "gt_pho_ca_phe_kem_bo",
+     "gt_pho_ca_phe_cafe_xua"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_pho_ca_phe_cafe_xua",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "cafe_som",
+      "name": "Cà Phê Sớm Mai",
+      "type": "Quán cà phê truyền thống mở từ 5 giờ",
+      "trait": "vài bàn nhỏ, phin nhôm",
+      "towerId": "gt_pho_ca_phe_cafe_som"
+     },
+     {
+      "key": "o_long",
+      "name": "Tiệm Trà Đồi Chè",
+      "type": "Tiệm trà ô long ủ lạnh",
+      "trait": "trà ô long ủ lạnh",
+      "towerId": "gt_pho_ca_phe_o_long"
+     },
+     {
+      "key": "kem_ly",
+      "name": "Cà Phê Kem Cỏ Hồng",
+      "type": "Quán cà phê, kem ly",
+      "trait": "ly kem nhiều tầng",
+      "towerId": "gt_pho_ca_phe_kem_ly"
+     },
+     {
+      "key": "banh_mi_chao",
+      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
+      "type": "Quán cà phê có bánh mì chảo buổi sáng",
+      "trait": "chảo gang nóng",
+      "towerId": "gt_pho_ca_phe_banh_mi_chao"
+     },
+     {
+      "key": "retro",
+      "name": "Cà Phê Hoài Cổ Bằng Lăng",
+      "type": "Quán cà phê retro đồ cũ thập niên 90",
+      "trait": "máy hát, đồ cũ",
+      "towerId": "gt_pho_ca_phe_retro"
+     },
+     {
+      "key": "kem_bo",
+      "name": "Quán Kem Bơ Mai Anh Đào",
+      "type": "Quán cà phê, kem bơ",
+      "trait": "ly kem bơ, mở từ sáng sớm",
+      "towerId": "gt_pho_ca_phe_kem_bo"
+     },
+     {
+      "key": "cafe_xua",
+      "name": "Cà Phê Xưa Cúc Hoạ Mi",
+      "type": "Quán cà phê xưa, ghế gỗ, nhạc Trịnh",
+      "trait": "ghế gỗ cũ, nhạc Trịnh",
+      "towerId": "gt_pho_ca_phe_cafe_xua"
+     },
+     {
+      "key": "san_thuong",
+      "name": "Cà Phê Sân Thượng Thông Xanh",
+      "type": "Quán cà phê sân thượng nhìn xuống phố",
+      "trait": "nhìn xuống chợ và hồ",
+      "towerId": "gt_pho_ca_phe_san_thuong"
+     },
+     {
+      "key": "banh_trung",
+      "name": "Tiệm Bánh Trứng Mimosa",
+      "type": "Tiệm kem, bánh trứng nướng",
+      "trait": "bánh trứng nướng kèm kem",
+      "towerId": "gt_pho_ca_phe_banh_trung"
+     }
+    ],
+    "streetId": "street_pho_ca_phe",
+    "shopIndex": 7,
+    "mapStageId": "street_pho_ca_phe",
+    "featuredTowerId": "gt_pho_ca_phe_cafe_xua",
+    "botPlan": [
+     {
+      "padId": "pad_2",
+      "defId": "gt_pho_ca_phe_cafe_xua",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_1",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_pho_ca_phe_cafe_xua",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_pho_ca_phe_cafe_xua",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_pho_ca_phe_cafe_xua",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.6,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4166666666666667,
+    "botWinRate": 1,
+    "botLivesAvg": 16,
+    "target": 0.3875
+   },
+   "stage": {
+    "id": "street_pho_ca_phe_t8",
+    "stageNumber": 18,
+    "name": "Cà Phê Sân Thượng Thông Xanh",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 8/9: Quán cà phê sân thượng nhìn xuống phố",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 321,
+       "y": 33
+      },
+      {
+       "x": 321,
+       "y": 88
+      },
+      {
+       "x": 312,
+       "y": 105
+      },
+      {
+       "x": 293,
+       "y": 117
+      },
+      {
+       "x": 272,
+       "y": 118
+      },
+      {
+       "x": 251,
+       "y": 111
+      },
+      {
+       "x": 225,
+       "y": 121
+      },
+      {
+       "x": 131,
+       "y": 223
+      },
+      {
+       "x": 106,
+       "y": 261
+      },
+      {
+       "x": 111,
+       "y": 291
+      },
+      {
+       "x": 125,
+       "y": 318
+      },
+      {
+       "x": 256,
+       "y": 423
+      },
+      {
+       "x": 278,
+       "y": 457
+      },
+      {
+       "x": 174,
+       "y": 399
+      },
+      {
+       "x": 68,
+       "y": 308
+      },
+      {
+       "x": 56,
+       "y": 301
+      },
+      {
+       "x": 30,
+       "y": 296
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 150,
+      "y": 282
+     },
+     {
+      "id": "pad_2",
+      "x": 90,
+      "y": 378
+     },
+     {
+      "id": "pad_3",
+      "x": 66,
+      "y": 246
+     },
+     {
+      "id": "pad_4",
+      "x": 30,
+      "y": 342
+     },
+     {
+      "id": "pad_5",
+      "x": 222,
+      "y": 78
+     },
+     {
+      "id": "pad_6",
+      "x": 282,
+      "y": 54
+     },
+     {
+      "id": "pad_7",
+      "x": 270,
+      "y": 162
+     },
+     {
+      "id": "pad_8",
+      "x": 210,
+      "y": 330
+     },
+     {
+      "id": "pad_9",
+      "x": 222,
+      "y": 474
+     },
+     {
+      "id": "pad_10",
+      "x": 282,
+      "y": 390
+     },
+     {
+      "id": "pad_11",
+      "x": 162,
+      "y": 438
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Hơi Ẩm Hạt Cà Phê",
+      "mainElements": [
+       "thuy"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Khói Rang Khét",
+      "mainElements": [
+       "hoa"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.84
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Đàn Kiến Bu Đường & Khói Rang Khét",
+      "mainElements": [
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.08
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.08
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Hơi Ẩm Hạt Cà Phê & Đàn Kiến Bu Đường",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.32
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.32
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Hơi Ẩm Hạt Cà Phê & Đàn Kiến Bu Đường",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.72
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.72
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Hơi Ẩm Hạt Cà Phê & Đàn Kiến Bu Đường & Mốc Bao Hạt",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.2
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.2
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Khói Rang Khét & Mọt Hạt & Hơi Ẩm Hạt Cà Phê",
+      "mainElements": [
+       "hoa",
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.84
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.84
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.84
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "thuy",
+       "hoa",
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 4.48
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.48
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.48
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.48
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.48
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_pho_ca_phe_cafe_som",
+     "gt_pho_ca_phe_o_long",
+     "gt_pho_ca_phe_kem_ly",
+     "gt_pho_ca_phe_banh_mi_chao",
+     "gt_pho_ca_phe_retro",
+     "gt_pho_ca_phe_kem_bo",
+     "gt_pho_ca_phe_cafe_xua",
+     "gt_pho_ca_phe_san_thuong"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_pho_ca_phe_san_thuong",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "cafe_som",
+      "name": "Cà Phê Sớm Mai",
+      "type": "Quán cà phê truyền thống mở từ 5 giờ",
+      "trait": "vài bàn nhỏ, phin nhôm",
+      "towerId": "gt_pho_ca_phe_cafe_som"
+     },
+     {
+      "key": "o_long",
+      "name": "Tiệm Trà Đồi Chè",
+      "type": "Tiệm trà ô long ủ lạnh",
+      "trait": "trà ô long ủ lạnh",
+      "towerId": "gt_pho_ca_phe_o_long"
+     },
+     {
+      "key": "kem_ly",
+      "name": "Cà Phê Kem Cỏ Hồng",
+      "type": "Quán cà phê, kem ly",
+      "trait": "ly kem nhiều tầng",
+      "towerId": "gt_pho_ca_phe_kem_ly"
+     },
+     {
+      "key": "banh_mi_chao",
+      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
+      "type": "Quán cà phê có bánh mì chảo buổi sáng",
+      "trait": "chảo gang nóng",
+      "towerId": "gt_pho_ca_phe_banh_mi_chao"
+     },
+     {
+      "key": "retro",
+      "name": "Cà Phê Hoài Cổ Bằng Lăng",
+      "type": "Quán cà phê retro đồ cũ thập niên 90",
+      "trait": "máy hát, đồ cũ",
+      "towerId": "gt_pho_ca_phe_retro"
+     },
+     {
+      "key": "kem_bo",
+      "name": "Quán Kem Bơ Mai Anh Đào",
+      "type": "Quán cà phê, kem bơ",
+      "trait": "ly kem bơ, mở từ sáng sớm",
+      "towerId": "gt_pho_ca_phe_kem_bo"
+     },
+     {
+      "key": "cafe_xua",
+      "name": "Cà Phê Xưa Cúc Hoạ Mi",
+      "type": "Quán cà phê xưa, ghế gỗ, nhạc Trịnh",
+      "trait": "ghế gỗ cũ, nhạc Trịnh",
+      "towerId": "gt_pho_ca_phe_cafe_xua"
+     },
+     {
+      "key": "san_thuong",
+      "name": "Cà Phê Sân Thượng Thông Xanh",
+      "type": "Quán cà phê sân thượng nhìn xuống phố",
+      "trait": "nhìn xuống chợ và hồ",
+      "towerId": "gt_pho_ca_phe_san_thuong"
+     },
+     {
+      "key": "banh_trung",
+      "name": "Tiệm Bánh Trứng Mimosa",
+      "type": "Tiệm kem, bánh trứng nướng",
+      "trait": "bánh trứng nướng kèm kem",
+      "towerId": "gt_pho_ca_phe_banh_trung"
+     }
+    ],
+    "streetId": "street_pho_ca_phe",
+    "shopIndex": 8,
+    "mapStageId": "street_pho_ca_phe",
+    "featuredTowerId": "gt_pho_ca_phe_san_thuong",
+    "botPlan": [
+     {
+      "padId": "pad_5",
+      "defId": "gt_pho_ca_phe_san_thuong",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_1",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_pho_ca_phe_san_thuong",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_pho_ca_phe_san_thuong",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_pho_ca_phe_san_thuong",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 0.6,
+   "balance": {
+    "randomWinWithExpectedGear": 0.3125,
+    "botWinRate": 1,
+    "botLivesAvg": 17,
+    "target": 0.35000000000000003
+   },
+   "stage": {
+    "id": "street_pho_ca_phe_t9",
+    "stageNumber": 19,
+    "name": "Tiệm Bánh Trứng Mimosa",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 9/9: Tiệm kem, bánh trứng nướng",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 330,
+       "y": 487
+      },
+      {
+       "x": 305,
+       "y": 468
+      },
+      {
+       "x": 174,
+       "y": 399
+      },
+      {
+       "x": 68,
+       "y": 308
+      },
+      {
+       "x": 56,
+       "y": 301
+      },
+      {
+       "x": 30,
+       "y": 296
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 150,
+      "y": 282
+     },
+     {
+      "id": "pad_2",
+      "x": 90,
+      "y": 378
+     },
+     {
+      "id": "pad_3",
+      "x": 66,
+      "y": 246
+     },
+     {
+      "id": "pad_4",
+      "x": 30,
+      "y": 342
+     },
+     {
+      "id": "pad_5",
+      "x": 222,
+      "y": 78
+     },
+     {
+      "id": "pad_6",
+      "x": 282,
+      "y": 54
+     },
+     {
+      "id": "pad_7",
+      "x": 270,
+      "y": 162
+     },
+     {
+      "id": "pad_8",
+      "x": 210,
+      "y": 330
+     },
+     {
+      "id": "pad_9",
+      "x": 222,
+      "y": 474
+     },
+     {
+      "id": "pad_10",
+      "x": 282,
+      "y": 390
+     },
+     {
+      "id": "pad_11",
+      "x": 162,
+      "y": 438
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Hơi Ẩm Hạt Cà Phê",
+      "mainElements": [
+       "thuy"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Chợ Đêm",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.69
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Đàn Kiến Bu Đường & Bụi Chợ Đêm",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.78
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 0.78
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Hơi Ẩm Hạt Cà Phê & Đàn Kiến Bu Đường",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.87
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 0.87
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Hơi Ẩm Hạt Cà Phê & Đàn Kiến Bu Đường",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.02
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.02
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Hơi Ẩm Hạt Cà Phê & Đàn Kiến Bu Đường & Mốc Bao Hạt",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.2
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.2
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Bụi Chợ Đêm & Mọt Hạt & Hơi Ẩm Hạt Cà Phê",
+      "mainElements": [
+       "tho",
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.44
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.44
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.44
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "thuy",
+       "tho",
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_pho_ca_phe_cafe_som",
+     "gt_pho_ca_phe_o_long",
+     "gt_pho_ca_phe_kem_ly",
+     "gt_pho_ca_phe_banh_mi_chao",
+     "gt_pho_ca_phe_retro",
+     "gt_pho_ca_phe_kem_bo",
+     "gt_pho_ca_phe_cafe_xua",
+     "gt_pho_ca_phe_san_thuong",
+     "gt_pho_ca_phe_banh_trung"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_pho_ca_phe_banh_trung",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "cafe_som",
+      "name": "Cà Phê Sớm Mai",
+      "type": "Quán cà phê truyền thống mở từ 5 giờ",
+      "trait": "vài bàn nhỏ, phin nhôm",
+      "towerId": "gt_pho_ca_phe_cafe_som"
+     },
+     {
+      "key": "o_long",
+      "name": "Tiệm Trà Đồi Chè",
+      "type": "Tiệm trà ô long ủ lạnh",
+      "trait": "trà ô long ủ lạnh",
+      "towerId": "gt_pho_ca_phe_o_long"
+     },
+     {
+      "key": "kem_ly",
+      "name": "Cà Phê Kem Cỏ Hồng",
+      "type": "Quán cà phê, kem ly",
+      "trait": "ly kem nhiều tầng",
+      "towerId": "gt_pho_ca_phe_kem_ly"
+     },
+     {
+      "key": "banh_mi_chao",
+      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
+      "type": "Quán cà phê có bánh mì chảo buổi sáng",
+      "trait": "chảo gang nóng",
+      "towerId": "gt_pho_ca_phe_banh_mi_chao"
+     },
+     {
+      "key": "retro",
+      "name": "Cà Phê Hoài Cổ Bằng Lăng",
+      "type": "Quán cà phê retro đồ cũ thập niên 90",
+      "trait": "máy hát, đồ cũ",
+      "towerId": "gt_pho_ca_phe_retro"
+     },
+     {
+      "key": "kem_bo",
+      "name": "Quán Kem Bơ Mai Anh Đào",
+      "type": "Quán cà phê, kem bơ",
+      "trait": "ly kem bơ, mở từ sáng sớm",
+      "towerId": "gt_pho_ca_phe_kem_bo"
+     },
+     {
+      "key": "cafe_xua",
+      "name": "Cà Phê Xưa Cúc Hoạ Mi",
+      "type": "Quán cà phê xưa, ghế gỗ, nhạc Trịnh",
+      "trait": "ghế gỗ cũ, nhạc Trịnh",
+      "towerId": "gt_pho_ca_phe_cafe_xua"
+     },
+     {
+      "key": "san_thuong",
+      "name": "Cà Phê Sân Thượng Thông Xanh",
+      "type": "Quán cà phê sân thượng nhìn xuống phố",
+      "trait": "nhìn xuống chợ và hồ",
+      "towerId": "gt_pho_ca_phe_san_thuong"
+     },
+     {
+      "key": "banh_trung",
+      "name": "Tiệm Bánh Trứng Mimosa",
+      "type": "Tiệm kem, bánh trứng nướng",
+      "trait": "bánh trứng nướng kèm kem",
+      "towerId": "gt_pho_ca_phe_banh_trung"
+     }
+    ],
+    "streetId": "street_pho_ca_phe",
+    "shopIndex": 9,
+    "mapStageId": "street_pho_ca_phe",
+    "featuredTowerId": "gt_pho_ca_phe_banh_trung",
+    "botPlan": [
+     {
+      "padId": "pad_2",
+      "defId": "gt_pho_ca_phe_banh_trung",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_1",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_pho_ca_phe_banh_trung",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_pho_ca_phe_banh_trung",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_pho_ca_phe_banh_trung",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  }
+ ],
  "towers": {
   "gt_pho_ca_phe_cafe_som": {
    "id": "gt_pho_ca_phe_cafe_som",
@@ -1193,6 +5910,149 @@
    "healRadius": 90,
    "healIntervalSec": 2.6,
    "healAmount": 42
+  },
+  "ge_pho_ca_phe_p1": {
+   "id": "ge_pho_ca_phe_p1",
+   "name": "Nắp Chai Leng Keng",
+   "element": "kim",
+   "trait": "fast",
+   "traitLabel": "Nhanh, thành đàn",
+   "maxHp": 96,
+   "speed": 63,
+   "armor": 0.1,
+   "reward": 7,
+   "lifeCost": 1,
+   "radius": 11,
+   "art": "nap_chai"
+  },
+  "ge_pho_ca_phe_p2": {
+   "id": "ge_pho_ca_phe_p2",
+   "name": "Bụi Đường Dốc",
+   "element": "tho",
+   "trait": "tank",
+   "traitLabel": "Máu trâu, đi chậm",
+   "maxHp": 335,
+   "speed": 32,
+   "armor": 0.32,
+   "reward": 13,
+   "lifeCost": 2,
+   "radius": 15,
+   "art": "bui_duong"
+  },
+  "ge_pho_ca_phe_p3": {
+   "id": "ge_pho_ca_phe_p3",
+   "name": "Lá Khô Bay",
+   "element": "moc",
+   "trait": "flying",
+   "traitLabel": "Bay (không bị làm chậm)",
+   "maxHp": 165,
+   "speed": 50,
+   "armor": 0.12,
+   "reward": 10,
+   "lifeCost": 1,
+   "radius": 12,
+   "flying": true,
+   "art": "la_kho"
+  },
+  "ge_pho_ca_phe_p4_nho": {
+   "id": "ge_pho_ca_phe_p4_nho",
+   "name": "Tàn Thuốc Lá Nhỏ",
+   "element": "hoa",
+   "trait": "mini",
+   "traitLabel": "Tản ra chạy nhanh",
+   "maxHp": 64,
+   "speed": 58,
+   "armor": 0.04,
+   "reward": 2,
+   "lifeCost": 1,
+   "radius": 8,
+   "art": "tan_thuoc"
+  },
+  "ge_pho_ca_phe_p4": {
+   "id": "ge_pho_ca_phe_p4",
+   "name": "Tàn Thuốc Lá",
+   "element": "hoa",
+   "trait": "splitter",
+   "traitLabel": "Vỡ ra 2 con nhỏ",
+   "maxHp": 185,
+   "speed": 41,
+   "armor": 0.12,
+   "reward": 9,
+   "lifeCost": 2,
+   "radius": 14,
+   "splitChildId": "ge_pho_ca_phe_p4_nho",
+   "splitCount": 2,
+   "art": "tan_thuoc"
+  },
+  "ge_pho_ca_phe_p5": {
+   "id": "ge_pho_ca_phe_p5",
+   "name": "Vũng Nước Mưa",
+   "element": "thuy",
+   "trait": "disruptor",
+   "traitLabel": "Làm món gần nó đứng im",
+   "maxHp": 280,
+   "speed": 36,
+   "armor": 0.15,
+   "reward": 15,
+   "lifeCost": 2,
+   "radius": 13,
+   "disruptRadius": 96,
+   "disruptIntervalSec": 4.2,
+   "disruptDurationSec": 2.5,
+   "art": "vung_nuoc"
+  },
+  "ge_pho_ca_phe_p6": {
+   "id": "ge_pho_ca_phe_p6",
+   "name": "Bã Cà Phê Đổ Bậy",
+   "element": "moc",
+   "trait": "healer",
+   "traitLabel": "Hồi máu cho quái gần",
+   "maxHp": 260,
+   "speed": 37,
+   "armor": 0.12,
+   "reward": 14,
+   "lifeCost": 2,
+   "radius": 13,
+   "healRadius": 90,
+   "healIntervalSec": 2.6,
+   "healAmount": 42,
+   "art": "ba_ca_phe"
+  },
+  "ge_pho_ca_phe_trum": {
+   "id": "ge_pho_ca_phe_trum",
+   "name": "Cơn Mưa Ngập Dốc",
+   "element": "thuy",
+   "trait": "boss",
+   "traitLabel": "Trùm phố: đổi hành theo máu, gọi quân của phố",
+   "maxHp": 5200,
+   "speed": 20,
+   "armor": 0.32,
+   "reward": 200,
+   "lifeCost": 15,
+   "radius": 22,
+   "disruptRadius": 110,
+   "disruptIntervalSec": 6.5,
+   "disruptDurationSec": 2.2,
+   "shieldIntervalSec": 9,
+   "shieldDurationSec": 2.6,
+   "shieldReductionPct": 0.5,
+   "phaseElements": [
+    "thuy",
+    "tho",
+    "moc",
+    "kim",
+    "hoa"
+   ],
+   "summonIds": [
+    "ge_pho_ca_phe_p5",
+    "ge_pho_ca_phe_p2",
+    "ge_pho_ca_phe_p3",
+    "ge_pho_ca_phe_p1",
+    "ge_pho_ca_phe_p4"
+   ],
+   "summonIntervalSec": 7,
+   "summonCount": 2,
+   "art": "trum_mua_ngap"
   }
  }
 }

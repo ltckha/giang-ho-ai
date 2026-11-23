@@ -321,3 +321,9 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Antigravity (b8886d8): nền phố Phan Đình Phùng bám đúng đường đi, góc trái dưới đã có dãy tiệm + chợ nhỏ, có điểm phố 3 trên bản đồ. Đạt.
 - Spark đợt 4 (cà phê, lò bánh mì, homestay, thuê xe, trà, kem × 4 bậc) + đợt 5 (8 quái chung) đạt nét. Ghi chú nhỏ: trà b1–b2 gần giống nhau (chỉ khác màu). Kho hình Spark: 15 loại địa điểm, 22 quái.
 - `npm test` 65/65, e2e 17/17, chơi thử phố 3 không lỗi.
+
+## 23/11/2026 — Phố thật = các màn tiệm + màn phố (Claude, theo ý anh Kha)
+- Mỗi địa điểm đã chọn trên phố là 1 màn tiệm (8 đợt), qua hết tiệm mới mở màn phố (đánh trùm). Tăng Bạt Hổ 9+1, Phố Cà Phê 9+1, Phan Đình Phùng 8+1.
+- Màn tiệm k: được mang món 3 tiệm đầu + món các tiệm đã qua trên phố (chọn 6), món tiệm chính luôn có. Độ khó tăng dần: đặt bừa thắng ~65% ở tiệm đầu → ~35% tiệm cuối → ~30% màn phố.
+- Màn phố dùng quái đường phố (rác, bụi, nước đọng, khói xe, tờ rơi…) thay vì chuột/mốc trong tiệm; 3 trùm: Núi Rác Chợ Đêm, Cơn Mưa Ngập Dốc, Lốc Bụi Công Trình (tạm mượn hình Bão Lốc).
+- Mở khoá: src/core/streetProgress.ts (tiệm 1 mở khi có huy hiệu giữ trọn phố; tiệm k sau tiệm k-1; màn phố sau hết tiệm). `npm test` 68/68, e2e 17/17.

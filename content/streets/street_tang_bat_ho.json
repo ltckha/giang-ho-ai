@@ -7,34 +7,266 @@
   "startingEssence": 210,
   "startingLives": 20,
   "loadoutSize": 6,
-  "difficulty": { "gearTier": "after_street_1", "targetRandomWin": 0.33 },
+  "difficulty": {
+    "gearTier": "after_street_1",
+    "targetRandomWin": 0.33
+  },
   "researchNote": "docs/research/2026-11-23_pho_that_dia_diem.md",
   "places": [
-    { "key": "banh_qua", "name": "Tiệm Bánh Quà Mimosa", "type": "Tiệm bánh quà đặc sản", "trait": "hộp bánh quy làm quà, ghế ngoài hiên",
-      "tower": { "element": "hoa", "role": "aoe_splash", "names": ["Lò Bánh Quy", "Lò Bánh Hai Khay", "Khay Bánh Vừa Ra Lò", "Hộp Quà Bánh Nóng"], "ult": "Thơm Lừng Đầu Hẻm", "why": "Hơi nóng lò bánh hun chuột chạy mất" } },
-    { "key": "sua_nanh", "name": "Quán Sữa Nóng Sương Mai", "type": "Quán sữa đậu nành đêm", "trait": "ly sữa nóng, đông khách buổi tối",
-      "tower": { "element": "thuy", "role": "single_far", "names": ["Ly Sữa Nóng", "Ca Sữa Đầy", "Nồi Sữa Nành Lớn", "Bình Sữa Ủ Ấm"], "ult": "Rót Sữa Liên Tay", "why": "Sữa nóng dập khói than" } },
-    { "key": "banh_can", "name": "Bánh Căn Dã Quỳ", "type": "Quán bánh căn", "trait": "khuôn đất nung, trứng cút",
-      "tower": { "element": "tho", "role": "single_far", "names": ["Khuôn Bánh Căn", "Khuôn Đất Nung Đôi", "Khuôn Bảy Lỗ", "Khuôn Trứng Cút"], "ult": "Đổ Bánh Một Lượt", "why": "Khuôn đất nung khô hút ẩm mưa phùn" } },
-    { "key": "goc_cay", "name": "Quán Sáng Gốc Thông Ba Lá", "type": "Quán ăn sáng dưới gốc cây", "trait": "ngồi dưới gốc cây lớn",
-      "tower": { "element": "moc", "role": "support_buff", "names": ["Bóng Mát Gốc Cây", "Tán Cây Rộng", "Ghế Đẩu Dưới Gốc", "Gốc Cây Trăm Năm"], "ult": "Bóng Mát Cả Phố", "why": "Tán lá chắn bụi đất" } },
-    { "key": "khach_san", "name": "Khách Sạn Mini Cẩm Tú Cầu", "type": "Khách sạn mini", "trait": "sảnh nhỏ, thảm lót",
-      "tower": { "element": "tho", "role": "slow_aura", "names": ["Thảm Lót Sảnh", "Thảm Lông Dày", "Rèm Cửa Nặng", "Sảnh Đón Ấm Cúng"], "ult": "Mời Khách Nghỉ Chân", "why": "Thảm dày thấm nước mưa theo chân khách" } },
-    { "key": "thue_xe", "name": "Hostel Thuê Xe Mây Ngàn", "type": "Hostel cho dân ba lô, thuê xe máy", "trait": "giường tầng, dàn xe máy cho thuê",
-      "tower": { "element": "kim", "role": "single_far", "names": ["Còi Xe Bíp", "Đèn Pha Xe Số", "Xe Số Đời Cũ", "Xe Phượt Đầy Đồ"], "ult": "Rồ Ga Lên Dốc", "why": "Khung thép xe chạy băng qua bọn sinh sôi" } },
-    { "key": "bar_ham", "name": "Bar Hầm Sim Tím", "type": "Cocktail bar dưới hầm", "trait": "pha theo yêu cầu, đá lạnh",
-      "tower": { "element": "thuy", "role": "aoe_splash", "names": ["Xô Đá Lạnh", "Bình Lắc Cocktail", "Tháp Ly Đá", "Đá Bào Cả Quầy"], "ult": "Cạn Ly Cả Hầm", "why": "Đá lạnh dập khói nóng" } },
-    { "key": "cafe_xe_dap", "name": "Cà Phê Xe Đạp Lan Hài", "type": "Quán cà phê trong nhà cũ, trang trí xe đạp", "trait": "xe đạp cũ treo tường",
-      "tower": { "element": "kim", "role": "heavy_slow", "names": ["Bánh Xe Đạp Thép", "Sên Xe Nặng", "Xe Đạp Cổ Khung Sắt", "Đàn Xe Đạp Treo Tường"], "ult": "Đạp Một Vòng Dốc", "why": "Khung sắt nghiến nát rêu mốc" } },
-    { "key": "an_vat", "name": "Tiệm Ăn Vặt Atiso", "type": "Tiệm ăn vặt, đặc sản", "trait": "kệ mứt, đồ ăn vặt đặc sản",
-      "tower": { "element": "moc", "role": "heavy_slow", "names": ["Thùng Mứt", "Thùng Mứt Atiso", "Kệ Đặc Sản Đầy", "Giỏ Quà Đà Lạt"], "ult": "Mời Nếm Thử Cả Phố", "why": "Đồ khô từ lá cây đè bẹp bùn đất" } }
+    {
+      "key": "banh_qua",
+      "name": "Tiệm Bánh Quà Mimosa",
+      "type": "Tiệm bánh quà đặc sản",
+      "trait": "hộp bánh quy làm quà, ghế ngoài hiên",
+      "tower": {
+        "element": "hoa",
+        "role": "aoe_splash",
+        "names": [
+          "Lò Bánh Quy",
+          "Lò Bánh Hai Khay",
+          "Khay Bánh Vừa Ra Lò",
+          "Hộp Quà Bánh Nóng"
+        ],
+        "ult": "Thơm Lừng Đầu Hẻm",
+        "why": "Hơi nóng lò bánh hun chuột chạy mất"
+      }
+    },
+    {
+      "key": "sua_nanh",
+      "name": "Quán Sữa Nóng Sương Mai",
+      "type": "Quán sữa đậu nành đêm",
+      "trait": "ly sữa nóng, đông khách buổi tối",
+      "tower": {
+        "element": "thuy",
+        "role": "single_far",
+        "names": [
+          "Ly Sữa Nóng",
+          "Ca Sữa Đầy",
+          "Nồi Sữa Nành Lớn",
+          "Bình Sữa Ủ Ấm"
+        ],
+        "ult": "Rót Sữa Liên Tay",
+        "why": "Sữa nóng dập khói than"
+      }
+    },
+    {
+      "key": "banh_can",
+      "name": "Bánh Căn Dã Quỳ",
+      "type": "Quán bánh căn",
+      "trait": "khuôn đất nung, trứng cút",
+      "tower": {
+        "element": "tho",
+        "role": "single_far",
+        "names": [
+          "Khuôn Bánh Căn",
+          "Khuôn Đất Nung Đôi",
+          "Khuôn Bảy Lỗ",
+          "Khuôn Trứng Cút"
+        ],
+        "ult": "Đổ Bánh Một Lượt",
+        "why": "Khuôn đất nung khô hút ẩm mưa phùn"
+      }
+    },
+    {
+      "key": "goc_cay",
+      "name": "Quán Sáng Gốc Thông Ba Lá",
+      "type": "Quán ăn sáng dưới gốc cây",
+      "trait": "ngồi dưới gốc cây lớn",
+      "tower": {
+        "element": "moc",
+        "role": "support_buff",
+        "names": [
+          "Bóng Mát Gốc Cây",
+          "Tán Cây Rộng",
+          "Ghế Đẩu Dưới Gốc",
+          "Gốc Cây Trăm Năm"
+        ],
+        "ult": "Bóng Mát Cả Phố",
+        "why": "Tán lá chắn bụi đất"
+      }
+    },
+    {
+      "key": "khach_san",
+      "name": "Khách Sạn Mini Cẩm Tú Cầu",
+      "type": "Khách sạn mini",
+      "trait": "sảnh nhỏ, thảm lót",
+      "tower": {
+        "element": "tho",
+        "role": "slow_aura",
+        "names": [
+          "Thảm Lót Sảnh",
+          "Thảm Lông Dày",
+          "Rèm Cửa Nặng",
+          "Sảnh Đón Ấm Cúng"
+        ],
+        "ult": "Mời Khách Nghỉ Chân",
+        "why": "Thảm dày thấm nước mưa theo chân khách"
+      }
+    },
+    {
+      "key": "thue_xe",
+      "name": "Hostel Thuê Xe Mây Ngàn",
+      "type": "Hostel cho dân ba lô, thuê xe máy",
+      "trait": "giường tầng, dàn xe máy cho thuê",
+      "tower": {
+        "element": "kim",
+        "role": "single_far",
+        "names": [
+          "Còi Xe Bíp",
+          "Đèn Pha Xe Số",
+          "Xe Số Đời Cũ",
+          "Xe Phượt Đầy Đồ"
+        ],
+        "ult": "Rồ Ga Lên Dốc",
+        "why": "Khung thép xe chạy băng qua bọn sinh sôi"
+      }
+    },
+    {
+      "key": "bar_ham",
+      "name": "Bar Hầm Sim Tím",
+      "type": "Cocktail bar dưới hầm",
+      "trait": "pha theo yêu cầu, đá lạnh",
+      "tower": {
+        "element": "thuy",
+        "role": "aoe_splash",
+        "names": [
+          "Xô Đá Lạnh",
+          "Bình Lắc Cocktail",
+          "Tháp Ly Đá",
+          "Đá Bào Cả Quầy"
+        ],
+        "ult": "Cạn Ly Cả Hầm",
+        "why": "Đá lạnh dập khói nóng"
+      }
+    },
+    {
+      "key": "cafe_xe_dap",
+      "name": "Cà Phê Xe Đạp Lan Hài",
+      "type": "Quán cà phê trong nhà cũ, trang trí xe đạp",
+      "trait": "xe đạp cũ treo tường",
+      "tower": {
+        "element": "kim",
+        "role": "heavy_slow",
+        "names": [
+          "Bánh Xe Đạp Thép",
+          "Sên Xe Nặng",
+          "Xe Đạp Cổ Khung Sắt",
+          "Đàn Xe Đạp Treo Tường"
+        ],
+        "ult": "Đạp Một Vòng Dốc",
+        "why": "Khung sắt nghiến nát rêu mốc"
+      }
+    },
+    {
+      "key": "an_vat",
+      "name": "Tiệm Ăn Vặt Atiso",
+      "type": "Tiệm ăn vặt, đặc sản",
+      "trait": "kệ mứt, đồ ăn vặt đặc sản",
+      "tower": {
+        "element": "moc",
+        "role": "heavy_slow",
+        "names": [
+          "Thùng Mứt",
+          "Thùng Mứt Atiso",
+          "Kệ Đặc Sản Đầy",
+          "Giỏ Quà Đà Lạt"
+        ],
+        "ult": "Mời Nếm Thử Cả Phố",
+        "why": "Đồ khô từ lá cây đè bẹp bùn đất"
+      }
+    }
   ],
   "pests": [
-    { "name": "Mưa Phùn Đêm", "element": "thuy", "trait": "fast", "reason": "Phố đông về tối, mưa phùn Đà Lạt" },
-    { "name": "Bùn Dốc Phố Tây", "element": "tho", "trait": "tank", "reason": "Dốc ngoằn ngoèo, mùa mưa bùn chảy" },
-    { "name": "Muỗi Đèn Bar", "element": "moc", "trait": "flying", "reason": "Muỗi bu quanh đèn quán đêm" },
-    { "name": "Khói Than Hẻm", "element": "hoa", "trait": "splitter", "reason": "Bếp than quán nướng tản khói" },
-    { "name": "Chuột Sau Chợ", "element": "kim", "trait": "disruptor", "reason": "Chuột từ khu chợ chạy sang" },
-    { "name": "Rêu Tường Cũ", "element": "moc", "trait": "healer", "reason": "Tường nhà cũ ẩm lên rêu" }
+    {
+      "name": "Mưa Phùn Đêm",
+      "element": "thuy",
+      "trait": "fast",
+      "reason": "Phố đông về tối, mưa phùn Đà Lạt"
+    },
+    {
+      "name": "Bùn Dốc Phố Tây",
+      "element": "tho",
+      "trait": "tank",
+      "reason": "Dốc ngoằn ngoèo, mùa mưa bùn chảy"
+    },
+    {
+      "name": "Muỗi Đèn Bar",
+      "element": "moc",
+      "trait": "flying",
+      "reason": "Muỗi bu quanh đèn quán đêm"
+    },
+    {
+      "name": "Khói Than Hẻm",
+      "element": "hoa",
+      "trait": "splitter",
+      "reason": "Bếp than quán nướng tản khói"
+    },
+    {
+      "name": "Chuột Sau Chợ",
+      "element": "kim",
+      "trait": "disruptor",
+      "reason": "Chuột từ khu chợ chạy sang"
+    },
+    {
+      "name": "Rêu Tường Cũ",
+      "element": "moc",
+      "trait": "healer",
+      "reason": "Tường nhà cũ ẩm lên rêu"
+    }
+  ],
+  "boss": {
+    "name": "Núi Rác Chợ Đêm",
+    "art": "trum_nui_rac",
+    "phases": [
+      "tho",
+      "moc",
+      "hoa",
+      "thuy",
+      "kim"
+    ]
+  },
+  "streetPests": [
+    {
+      "art": "lon_nuoc",
+      "name": "Vỏ Lon Lăn Lóc",
+      "element": "kim",
+      "trait": "fast",
+      "reason": "Lon nước ngọt khách vứt lăn dọc dốc"
+    },
+    {
+      "art": "tui_rac",
+      "name": "Túi Rác Quán Đêm",
+      "element": "tho",
+      "trait": "tank",
+      "reason": "Túi rác quán ăn đêm chất đống chờ xe rác"
+    },
+    {
+      "art": "khan_giay",
+      "name": "Khăn Giấy Bay",
+      "element": "moc",
+      "trait": "flying",
+      "reason": "Khăn giấy bàn ăn vỉa hè bị gió cuốn"
+    },
+    {
+      "art": "khoi_nuong",
+      "name": "Khói Than Nướng Vỉa Hè",
+      "element": "hoa",
+      "trait": "splitter",
+      "reason": "Khói lò nướng tản ra khắp hẻm"
+    },
+    {
+      "art": "nuoc_rua_chen",
+      "name": "Nước Rửa Chén Tràn Hè",
+      "element": "thuy",
+      "trait": "disruptor",
+      "reason": "Nước rửa chén đổ ra vỉa hè trơn trượt"
+    },
+    {
+      "art": "bai_rac",
+      "name": "Bãi Rác Tự Phát",
+      "element": "moc",
+      "trait": "healer",
+      "reason": "Một túi rác nằm đó là kéo thêm cả đống"
+    }
   ]
 }

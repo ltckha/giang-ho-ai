@@ -172,6 +172,14 @@ export interface StageDefinition {
   attribution?: string;
   /** Phố thật: danh sách địa điểm dọc phố (tên trong game) */
   places?: { key: string; name: string; type: string; trait: string; towerId: TowerId }[];
+  /** Phố thật: màn này thuộc phố nào (id màn trùm của phố) */
+  streetId?: StageId;
+  /** Phố thật: màn tiệm thứ mấy (1..n); không có = màn phố (trùm) */
+  shopIndex?: number;
+  /** Dùng nền / ảnh bản đồ của màn khác (màn tiệm dùng nền phố) */
+  mapStageId?: StageId;
+  /** Món của tiệm chính trong màn tiệm */
+  featuredTowerId?: TowerId;
 }
 
 export interface ActiveTower {

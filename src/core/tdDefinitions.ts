@@ -744,7 +744,12 @@ for (const gs of GENERATED_STREETS) {
   Object.assign(ALL_TOWER_DEFINITIONS, gs.towers);
   Object.assign(ALL_ENEMY_DEFINITIONS, gs.enemies);
   STAGES[gs.stage.id] = gs.stage;
+  for (const sh of gs.shops ?? []) STAGES[sh.stage.id] = sh.stage;
 }
 
 /** Danh sách phố thật (để màn chọn phố hiển thị) */
 export const REAL_STREET_STAGES: StageDefinition[] = GENERATED_STREETS.map((g) => g.stage);
+/** Các màn tiệm của từng phố thật (theo thứ tự), key = id màn phố */
+export const REAL_STREET_SHOPS: Record<string, StageDefinition[]> = Object.fromEntries(
+  GENERATED_STREETS.map((g) => [g.stage.id, (g.shops ?? []).map((s) => s.stage)]),
+);

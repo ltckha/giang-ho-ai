@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import type { GearSlotId } from '../core/equipment';
-import { ALL_ENEMY_DEFINITIONS, ALL_TOWER_DEFINITIONS } from '../core/tdDefinitions';
+import { ALL_ENEMY_DEFINITIONS, ALL_TOWER_DEFINITIONS, STAGES } from '../core/tdDefinitions';
 import type { ElementType, EnemyId, StageId, TowerId } from '../core/types';
 import sparkAtlas from '../../public/assets/spark_atlas.json';
 import streetsAtlas from '../../public/assets/streets_atlas.json';
@@ -30,7 +30,7 @@ export function getStageMapKey(stageId: StageId): string | undefined {
   if (stageId === 'stage_2') return STAGE2_MAP_KEY;
   if (stageId === 'stage_3') return STAGE3_MAP_KEY;
   if (stageId === 'stage_4') return STAGE4_MAP_KEY;
-  return STREET_MAP_KEYS[stageId];
+  return STREET_MAP_KEYS[STAGES[stageId]?.mapStageId ?? stageId];
 }
 
 function getSparkTowerArt(defId: string): string | null {
@@ -49,7 +49,14 @@ export function getTowerAtlasKey(defId: string): string {
   return ATLAS_KEY;
 }
 
-export function getEnemyAtlasKey(enemyId: string): string {
+/** Trùm phố thật chưa có hình riêng → tạm mượn hình Trùm Bão Lốc (Claude) */
+function bossStandIn(enemyId: string): string {
+  if (getSparkEnemyArt(enemyId) || STREETS_ATLAS_FRAMES.has(`enemy_${enemyId}_f0`)) return enemyId;
+  return ALL_ENEMY_DEFINITIONS[enemyId as EnemyId]?.trait === 'boss' && enemyId.startsWith('ge_') ? 'st_bao_loc' : enemyId;
+}
+
+export function getEnemyAtlasKey(enemyIdRaw: string): string {
+  const enemyId = bossStandIn(enemyIdRaw);
   if (getSparkEnemyArt(enemyId)) return ATLAS_KEY;
   if (enemyId === 'st_bao_loc' || STREETS_ATLAS_FRAMES.has(`enemy_${enemyId}_f0`)) return STREETS_ATLAS_KEY;
   return ATLAS_KEY;
@@ -133,7 +140,8 @@ export function getTowerFrameName(defId: string, tier: 1 | 2 | 3, branch?: 'A' |
   return `tower_${keyPart}_${getTowerTierKey(tier, branch)}_f${frameIdx}`;
 }
 
-export function getEnemyFrameName(enemyId: string, frameIdx = 0, element?: ElementType): string {
+export function getEnemyFrameName(enemyIdRaw: string, frameIdx = 0, element?: ElementType): string {
+  const enemyId = bossStandIn(enemyIdRaw);
   const sparkArt = getSparkEnemyArt(enemyId);
   if (sparkArt) return `enemy_art_${sparkArt}_f${frameIdx}`;
   if (enemyId === 'fl_monsoon' && (element === 'moc' || element === 'kim')) {
@@ -148,7 +156,8 @@ export function getEnemyFrameName(enemyId: string, frameIdx = 0, element?: Eleme
   return `enemy_${enemyId}_f${frameIdx}`;
 }
 
-export function getEnemyWalkAnimKey(enemyId: string, element?: ElementType): string {
+export function getEnemyWalkAnimKey(enemyIdRaw: string, element?: ElementType): string {
+  const enemyId = bossStandIn(enemyIdRaw);
   const sparkArt = getSparkEnemyArt(enemyId);
   if (sparkArt) return `anim_walk_art_${sparkArt}`;
   if (enemyId === 'fl_monsoon' && (element === 'moc' || element === 'kim')) {

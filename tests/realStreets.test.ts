@@ -23,12 +23,17 @@ describe('Phố thật do máy làm màn sinh ra', () => {
         expect(st.places!.length).toBeLessThanOrEqual(10);
         expect(new Set(Object.values(g.towers).map((t) => t.element)).size).toBe(5);
         expect(getStageTowerList(st).length).toBe(6);
+        expect(Object.values(g.enemies).some((e) => e.trait === 'boss')).toBe(true);
         expect(new Set(Object.values(g.enemies).map((e) => e.element)).size).toBe(5);
       });
 
       it('độ khó đã cân: có đồ thực tế đặt bừa thắng ≤ 35%, người tính kỹ vẫn thắng', () => {
         const meta = g as unknown as { balance: { randomWinWithExpectedGear: number; botWinRate: number } };
         expect(meta.balance.randomWinWithExpectedGear).toBeLessThanOrEqual(0.35);
+        for (const sh of g.shops) {
+          expect(sh.balance.botWinRate).toBe(1);
+          expect(sh.balance.randomWinWithExpectedGear).toBeLessThanOrEqual(0.85);
+        }
         expect(meta.balance.botWinRate).toBe(1);
       });
 
