@@ -28,3 +28,9 @@ Hoàng Hoa Thám 5 (cà phê), Khu Hòa Bình 5 (4 cà phê, 1 quần áo), Hai 
 1. **Phố Tăng Bạt Hổ – Trương Công Định** (tiệm): 2 cửa vào (đầu bắc và đầu nam Trương Công Định) gặp nhau ở ngã Tăng Bạt Hổ, chạy hết Tăng Bạt Hổ. Mỗi tuyến ~325–330 m thật.
 2. **Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành**: vào từ đầu Nguyễn Chí Thanh (tuyến dài ~940 m) và nhánh ngắn Nguyễn Chí Thanh gần ngã ba (~370 m), gặp nhau ở ngã ba với Lê Đại Hành, chạy xuống Lê Đại Hành.
 - Dữ liệu đường: `docs/research/streets/osm_ways_2026-11-23.json`; chuyển sang đường đi game bằng `tools/osm_street_to_stage.py` → `src/core/streets/realStreets.generated.json` (+ ảnh xem trước `docs/research/streets/*.png`). Ghi nguồn © OpenStreetMap contributors.
+
+## Tiệm tiêu biểu trên 2 phố (tra web 23/11) — chỉ dùng LOẠI tiệm, không dùng tên quán thật trong game
+- **Tăng Bạt Hổ:** quán phở; quán bánh ướt lòng gà (bài gợi ý món ngon Đà Lạt). **Trương Công Định:** 1 quán ăn được liệt kê, không rõ món. (vinwonders.com, wanderlog.com)
+- **Khu Hòa Bình / Lê Đại Hành / Nguyễn Chí Thanh:** quán cà phê lâu đời phong cách cổ điển (Khu Hòa Bình, theo VnExpress); quán cà phê nhiều cây xanh, góc chụp ảnh (Lê Đại Hành); quán cà phê bình dân giữa trung tâm (Lê Đại Hành); quán cà phê hoài cổ (Nguyễn Chí Thanh). (vinwonders.com, vnexpress.net, foody.vn)
+- OpenStreetMap không trả về tiệm nào trong 40 m quanh 4 đường (dữ liệu tiệm ở Đà Lạt rất thiếu) → nguồn chính là bài viết trên web; chưa kiểm chứng quán còn mở.
+- Quy tắc: tên tiệm trong game đặt chung theo loại; chỉ tiệm của anh Kha (Hiệu giày Hải Nancy, Yen Handmade Leather) mới dùng tên thật; tránh tên gợi đến thương hiệu quán có thật.
