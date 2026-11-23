@@ -276,3 +276,17 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Mô phỏng lại: Màn 2 bot 15/20, ngẫu nhiên thắng 15/60, 300 kế hoạch thua 179; Màn 3 bot 18/20, ngẫu nhiên 5/60, thua 219 — gần như không đổi (đặt bừa hiếm khi ra chuỗi) → chuỗi là phần thưởng cho người tính kỹ.
 - Gọn chữ: `statShort`, `STAT_ICON`, `bonusChips`, `previewEquip` cho Antigravity dựng lại bảng trang bị.
 - `npm test` 45/45.
+
+---
+
+## 23/11/2026 — Việc 1–2–3 chuẩn bị chặng 3 (Claude)
+
+1. **Cài game ra điện thoại như app + chơi không cần mạng:** `public/manifest.webmanifest`, service worker tự tạo khi build (plugin nhỏ trong `vite.config.ts`, không thêm thư viện), đăng ký trong `index.html` (bỏ qua khi chạy test tự động, trừ khi `?sw=1`). Đã thử: service worker hoạt động, tắt mạng + tắt máy chủ rồi tải lại vẫn vào được game.
+2. **Độ khó khi có trang bị — QUÁ DỄ** (`docs/review/sim_gear.ts`):
+   | Màn | Không đồ: đặt bừa thắng | Đồ trung bình (6 món Tốt) | Đồ mạnh nhất (viên mãn Hàng hiệu) |
+   |---|---|---|---|
+   | 1 | 4/40 | 25/40 | 40/40, 150/150 kế hoạch 3 sao |
+   | 2 | 8/40 | 37/40 | 40/40, 150/150 kế hoạch 3 sao |
+   | 3 | 3/40 | 33/40 | 39/40 |
+   → Chờ anh Kha chốt hướng sửa (giảm sức đồ + chế độ Khó).
+3. **Quay clip:** công cụ quay bỏ qua hướng dẫn, mở sẵn 3 tiệm, dùng `?bot=1&video=1`; quay thử 3 clip 22 giây (mỗi tiệm 1 clip) có chữ tiêu đề và thẻ tên game cuối clip, ~4 MB mỗi clip. Chưa đăng.
