@@ -200,3 +200,9 @@ Sườn đã xong: `src/core/streets/generated/*.json` (máy làm màn sinh ra),
 3. Khi có hình: xoá lối tạm trong `src/game/atlasIcons.ts` (ROLE_FALLBACK_TOWER, TRAIT_FALLBACK_ENEMY).
 4. **Chọn phố trên bản đồ Đà Lạt** sau Trận trùm phố: thêm 2 điểm phố thật (khoá đến khi thắng trùm phố). Danh sách: `REAL_STREET_STAGES` trong `src/core/tdDefinitions.ts`.
 Không sửa `src/core/` (luật, số) — cần đổi số thì ghi ở đây.
+
+## Claude → Antigravity: việc 10 — nền Phố Phan Đình Phùng (sau việc 9)
+Rà việc 6–9: đạt (xem REVIEW_LOG 23/11). Phố 3 `street_phan_dinh_phung` đã chơi được, món và quái dùng hình Spark (art/spark → public/assets/spark_atlas.*), **chỉ còn thiếu nền**.
+1. Vẽ `public/assets/map_street_phan_dinh_phung.webp` bám `stage.paths` / `stage.pads` trong `src/core/streets/generated/street_phan_dinh_phung.json`, cùng kiểu 2 phố thật trước. Phố cũ xóm Cầu Quẹo: dãy nhà phố cũ, nhà thuốc, salon tóc, nhà sách, studio ảnh cưới, quán phở sáng, tiệm xe máy. Góc trái dưới đang trống → đặt cảnh (dãy nhà, cây thông, chợ nhỏ). Ghi "© OpenStreetMap contributors".
+2. Thêm khoá vào `STREET_MAP_KEYS` và điểm phố 3 trên bản đồ chọn phố (`REAL_STREET_MAP_PINS`).
+3. Không vẽ lại món / quái phố 3 (đã có hình Spark). Không sửa `src/core/`, `art/spark/`, `public/assets/spark_atlas.*`.

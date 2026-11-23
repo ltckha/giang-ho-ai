@@ -312,3 +312,7 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Đợt 1: 20 món (sửa xe, nhà thuốc, giặt ủi, studio ảnh, tạp hoá). 3 hình nhờ vẽ lại (tủ thuốc b1–b2, kệ tạp hoá b3b).
 - Phố 3 Phan Đình Phùng: 8 địa điểm, 12 đợt, máu ×1.4, đặt bừa thắng 29%, tính kỹ còn ~17/20. Ghi chép: docs/research/2026-11-23_pho3_phan_dinh_phung.md.
 - `npm test` 65/65; chơi thử bằng bot thấy hình Spark hiện đúng.
+
+## 23/11/2026 — Rà Antigravity việc 6–9 + Spark đợt 2–3 (Claude)
+- Antigravity (2710c65): gọn bảng trang bị, chuỗi tương sinh trên sân, Trận trùm phố, 2 phố thật có nền vẽ theo đúng đường đi + món/quái riêng + điểm chọn phố. Giữ nguyên đường ống hình Spark. `npm test` 65/65, e2e 16/16, chơi thử bằng bot 3 phố không lỗi. Đạt.
+- Spark: vẽ lại 3 hình (tủ thuốc b1–b2, kệ tạp hoá b3b) đạt; đợt 1 quái (6), đợt 2 món (tiệm tóc, tiệm may, nhà sách, quán phở), đợt 3 quái (8) đạt nét. Tổng 9 loại món, 14 quái trong spark_atlas. Phố 3 giờ 100% hình Spark, chỉ thiếu nền → việc 10 Antigravity.
