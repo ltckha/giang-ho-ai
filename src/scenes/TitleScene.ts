@@ -246,7 +246,7 @@ export class TitleScene extends Phaser.Scene {
           <span>CON PHỐ DỐC ĐÀ LẠT • NGŨ HÀNH GIỮ TIỆM</span>
         </div>
 
-        <h1 class="td-title-heading">Gọn Tiệm, Sạch Phố</h1>
+        <h1 class="td-title-heading">Gọn Phố</h1>
         <p class="td-title-sub">Ngũ hành giữ tiệm</p>
         ${
           hasStreetChampionBadge

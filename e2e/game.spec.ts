@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test.describe('Gọn Tiệm, Sạch Phố — Kiểm thử trình duyệt (Điện thoại cầm dọc 390×844)', () => {
+test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầm dọc 390×844)', () => {
   test('mặc định ẩn nút Bot và nút Giảm hiệu ứng hoạt động tốt', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/');
@@ -89,7 +89,7 @@ test.describe('Gọn Tiệm, Sạch Phố — Kiểm thử trình duyệt (Đi�
     // 1. Màn hình chính hộp giày với tên chính thức
     const startBtn = page.getByTestId('btn-start-stage-1');
     await expect(startBtn).toBeVisible();
-    await expect(page.locator('.td-title-heading')).toHaveText('Gọn Tiệm, Sạch Phố');
+    await expect(page.locator('.td-title-heading')).toHaveText('Gọn Phố');
     await expect(page.locator('.td-stage-name').first()).toHaveText('Tiệm Giày Hẻm Dốc');
     await page.waitForTimeout(350);
     await page.screenshot({ path: 'docs/screenshots/man1v2_01_sau_title.png' });
@@ -889,7 +889,7 @@ test.describe('Gọn Tiệm, Sạch Phố — Kiểm thử trình duyệt (Đi�
     }
 
     // 1b. Kiểm tra thẻ Open Graph chia sẻ link và tệp /og-image.png trả về 200
-    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', /Gọn Tiệm, Sạch Phố/);
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', /Gọn Phố/);
     await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content', /Đà Lạt/);
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /og-image\.png/);
     const ogRes = await request.get('/og-image.png');

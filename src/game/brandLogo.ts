@@ -1,14 +1,14 @@
 const INK = '#2b1a12';
 
 export interface BrandLogoOptions {
-  /** Hiện chữ "GỌN TIỆM / SẠCH PHỐ" trên biển gỗ (tắt cho favicon 32×32) */
+  /** Hiện chữ "GỌN PHỐ" trên biển gỗ (tắt cho favicon 32×32) */
   showText?: boolean;
   /** Bo góc nền vuông (mặc định 92/512 cho icon app) */
   cornerRadius?: number;
 }
 
 /**
- * Logo bản vuông chính thức "Gọn Tiệm, Sạch Phố" (viewBox 512×512):
+ * Logo bản vuông chính thức "Gọn Phố" (viewBox 512×512):
  * Mái hiên sọc đỏ-kem tiệm Đà Lạt mùa mưa, ánh đèn vàng ấm,
  * chiếc dép tông hoạt hình đặc trưng, 5 hạt Ngũ Hành & biển chữ Việt rõ nét.
  */
@@ -35,40 +35,25 @@ export function renderBrandLogoSvg(opts: BrandLogoOptions = {}): string {
         <circle cx="-178" cy="34" r="6" fill="#fde047" stroke="${INK}" stroke-width="2.5"/>
         <circle cx="178" cy="34" r="6" fill="#fde047" stroke="${INK}" stroke-width="2.5"/>
 
-        <!-- Dòng 1: GỌN TIỆM -->
+        <!-- Tên game: GỌN PHỐ (đổi tên 23/11/2026) -->
         <text
           x="0"
-          y="-7"
+          y="22"
           text-anchor="middle"
           font-family="'Noto Serif', Georgia, serif"
           font-weight="700"
-          font-size="47"
-          letter-spacing="1.5"
-          fill="#fff5cf"
-          stroke="${INK}"
-          stroke-width="7"
-          paint-order="stroke fill"
-        >GỌN TIỆM</text>
-
-        <!-- Dòng 2: SẠCH PHỐ -->
-        <text
-          x="0"
-          y="40"
-          text-anchor="middle"
-          font-family="'Noto Serif', Georgia, serif"
-          font-weight="700"
-          font-size="44"
-          letter-spacing="2"
+          font-size="68"
+          letter-spacing="3"
           fill="#ffd24d"
           stroke="${INK}"
-          stroke-width="7"
+          stroke-width="8"
           paint-order="stroke fill"
-        >SẠCH PHỐ</text>
+        >GỌN PHỐ</text>
       </g>
     `
     : '';
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Logo Gọn Tiệm, Sạch Phố">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Logo Gọn Phố">
   <defs>
     <clipPath id="logoClip">
       <rect x="14" y="14" width="484" height="484" rx="${rx}"/>
@@ -153,7 +138,7 @@ export function renderBrandLogoSvg(opts: BrandLogoOptions = {}): string {
         : ''
     }
 
-    <!-- Chiếc Dép Tông hoạt hình biểu tượng của Gọn Tiệm -->
+    <!-- Chiếc Dép Tông hoạt hình biểu tượng của Gọn Phố -->
     <g transform="${flipFlopTransform}">
       <!-- Vệt sáng vèo cong phía sau dép -->
       <path d="M-126 30 Q-72 86 24 72" fill="none" stroke="#fff9e2" stroke-width="11" stroke-linecap="round" opacity="0.72"/>

@@ -29,7 +29,12 @@
         ],
         "ult": "Giọt Đắng Đầu Ngày",
         "why": "Nước pha dập khói rang khét"
-      }
+      },
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/4-quan-cafe-xua-cu-o-da-lat-cho-ngay-song-cham-giua-long-pho-thi-7861",
+        "https://mia.vn/cam-nang-du-lich/tim-hieu-ve-van-hoa-ca-phe-sang-o-da-lat-binh-di-giua-doi-thuong-10354"
+      ],
+      "confidence": "chac"
     },
     {
       "key": "o_long",
@@ -47,7 +52,11 @@
         ],
         "ult": "Hương Ô Long Lan Toả",
         "why": "Hương lá trà và gió nhẹ thổi bay bụi"
-      }
+      },
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/review-20-quan-tra-sua-da-lat-ngon-quen-sau/"
+      ],
+      "confidence": "nen_kiem"
     },
     {
       "key": "kem_ly",
@@ -65,7 +74,11 @@
         ],
         "ult": "Mưa Kem Tuyết",
         "why": "Kem lạnh dập cái nóng khét"
-      }
+      },
+      "sources": [
+        "https://ph.trip.com/restaurant/vietnam/dalat/detail/CH%E1%BA%A0M%20Cafe%20%26%20Kem%20B%C6%A1%20%C4%90%C3%A0%20L%E1%BA%A1t-151080579"
+      ],
+      "confidence": "nen_kiem"
     },
     {
       "key": "banh_mi_chao",
@@ -83,7 +96,9 @@
         ],
         "ult": "Xèo Một Chảo To",
         "why": "Hơi nóng chảo gang hun mọt"
-      }
+      },
+      "sources": [],
+      "confidence": "nen_kiem"
     },
     {
       "key": "retro",
@@ -101,7 +116,11 @@
         ],
         "ult": "Bản Nhạc Ngày Xưa",
         "why": "Đồ sắt nặng đè bẹp kiến mốc"
-      }
+      },
+      "sources": [
+        "https://toplist.vn/top-list/quan-ca-phe-co-kinh-don-tim-du-khach-o-da-lat-31672.htm"
+      ],
+      "confidence": "nen_kiem"
     },
     {
       "key": "kem_bo",
@@ -119,7 +138,11 @@
         ],
         "ult": "Bơ Dầm Cả Mẻ",
         "why": "Trái bơ (Mộc) chặn bụi đất"
-      }
+      },
+      "sources": [
+        "https://ph.trip.com/restaurant/vietnam/dalat/detail/CH%E1%BA%A0M%20Cafe%20%26%20Kem%20B%C6%A1%20%C4%90%C3%A0%20L%E1%BA%A1t-151080579"
+      ],
+      "confidence": "nen_kiem"
     },
     {
       "key": "cafe_xua",
@@ -137,7 +160,13 @@
         ],
         "ult": "Ngồi Lặng Nghe Nhạc",
         "why": "Đồ sành khô ráo hút sạch hơi ẩm"
-      }
+      },
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/4-quan-cafe-xua-cu-o-da-lat-cho-ngay-song-cham-giua-long-pho-thi-7861",
+        "https://vinwonders.com/vi/wonderpedia/news/cafe-da-lat/",
+        "https://toplist.vn/top-list/quan-ca-phe-co-kinh-don-tim-du-khach-o-da-lat-31672.htm"
+      ],
+      "confidence": "chac"
     },
     {
       "key": "san_thuong",
@@ -155,7 +184,13 @@
         ],
         "ult": "Gió Lộng Sân Thượng",
         "why": "Tiếng chuông đồng vang làm kiến mốc tản đi"
-      }
+      },
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/quan-ca-phe-dep-o-da-lat/",
+        "https://wanderlog.com/place/details/7558830/windmills",
+        "https://www.foody.vn/lam-dong/phuong-tim-cafe"
+      ],
+      "confidence": "nen_kiem"
     },
     {
       "key": "banh_trung",
@@ -173,7 +208,9 @@
         ],
         "ult": "Nướng Một Lò Đầy",
         "why": "Khuôn nóng xua mọt hạt"
-      }
+      },
+      "sources": [],
+      "confidence": "nen_kiem"
     }
   ],
   "pests": [

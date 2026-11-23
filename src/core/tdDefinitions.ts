@@ -19,7 +19,7 @@ import type { EnemyId } from './types';
 export const SELL_REFUND_RATE = 0.7;
 
 /**
- * Định nghĩa 5 món giữ tiệm Màn 1 "Tiệm Giày Hẻm Dốc" (chủ đề "Gọn Tiệm, Sạch Phố — Ngũ hành giữ tiệm").
+ * Định nghĩa 5 món giữ tiệm Màn 1 "Tiệm Giày Hẻm Dốc" (chủ đề "Gọn Phố — Ngũ hành giữ tiệm").
  * Tên chính thức & phân bổ Ngũ Hành đã được Claude duyệt ("NAMES GỌN TIỆM: ĐỒNG Ý").
  * Lưu ý: giữ nguyên 5 khoá nội bộ (wood_tower, metal_tower, water_tower, fire_tower, earth_tower)
  * theo thứ tự 4 món đánh + 1 món hỗ trợ để tương thích với các script mô phỏng trong docs/review/.

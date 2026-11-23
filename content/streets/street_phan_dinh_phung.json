@@ -30,7 +30,12 @@
         ],
         "ult": "Thuốc Bổ Cả Phố",
         "why": "Thảo dược trị bụi bặm, gió độc"
-      }
+      },
+      "sources": [
+        "https://nhathuoclongchau.com.vn/he-thong-cua-hang/204-phan-dinh-phung-p-tp-da-lat-tinh-lam-dong",
+        "https://nhathuoclongchau.com.vn/he-thong-cua-hang/44-44-a-phan-dinh-phung-p-1-tp-da-lat-tinh-lam-dong"
+      ],
+      "confidence": "chac"
     },
     {
       "key": "tiem_toc",
@@ -49,7 +54,12 @@
         ],
         "ult": "Cắt Tóc Thần Tốc",
         "why": "Kéo thép tỉa gọn mọi thứ rối, mọc lan"
-      }
+      },
+      "sources": [
+        "https://mytour.vn/vi/blog/xep-hang/top-10-salon-toc-dep-va-noi-tieng-nhat-tai-da-lat-mytour.html",
+        "https://mytour.vn/vi/blog/bai-viet/top-12-salon-lam-toc-dep-va-uy-tin-nhat-da-lat.html"
+      ],
+      "confidence": "chac"
     },
     {
       "key": "nha_sach",
@@ -68,7 +78,12 @@
         ],
         "ult": "Đọc Chậm Lại",
         "why": "Gáy sách gỗ chặn bùn đất, nhớt bẩn"
-      }
+      },
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/cac-nha-sach-da-lat-15541",
+        "https://mytour.vn/vi/blog/bai-viet/top-6-dia-diem-sach-uy-tin-o-lam-dong.html"
+      ],
+      "confidence": "chac"
     },
     {
       "key": "studio",
@@ -87,7 +102,13 @@
         ],
         "ult": "Chớp Một Phát",
         "why": "Ánh đèn nóng làm lùi bọn gặm kim loại"
-      }
+      },
+      "sources": [
+        "https://mytour.vn/en/blog/xep-hang/top-10-best-and-most-professional-wedding-photography-studios-in-lam-dong-mytour.html",
+        "https://toplist.vn/top-list/studio-chup-anh-cuoi-dep-nhat-tai-da-lat-17292.htm",
+        "https://toplist.vn/top-list/studio-chup-anh-cuoi-dep-chuyen-nghiep-nhat-tai-lam-dong-18106.htm"
+      ],
+      "confidence": "chac"
     },
     {
       "key": "pho",
@@ -106,7 +127,11 @@
         ],
         "ult": "Sôi Sùng Sục",
         "why": "Hơi nóng nồi nước lèo xua mối mọt, gỉ sét"
-      }
+      },
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/pho-da-lat/"
+      ],
+      "confidence": "nen_kiem"
     },
     {
       "key": "xe_may",
@@ -125,7 +150,12 @@
         ],
         "ult": "Siết Ốc Liên Hoàn",
         "why": "Thép cứng gõ bay rêu mốc, tóc rối"
-      }
+      },
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/thue-xe-may-da-lat/",
+        "https://mia.vn/cam-nang-du-lich/top-dia-diem-thue-xe-may-da-lat-19448"
+      ],
+      "confidence": "chac"
     },
     {
       "key": "tap_hoa",
@@ -144,7 +174,9 @@
         ],
         "ult": "Xếp Hàng Một Lèo",
         "why": "Đồ khô chất đống chặn mưa ẩm"
-      }
+      },
+      "sources": [],
+      "confidence": "nen_kiem"
     },
     {
       "key": "giat_say",
@@ -163,7 +195,9 @@
         ],
         "ult": "Giặt Sạch Cả Phố",
         "why": "Nước và bọt dập than khói"
-      }
+      },
+      "sources": [],
+      "confidence": "nen_kiem"
     }
   ],
   "pests": [

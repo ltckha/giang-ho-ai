@@ -360,3 +360,7 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Đợt 8: 7 xe (hiện ở chỗ chọn xe, nút chiêu xe, màn kết quả). Đợt 9: đồ dọn phố. Đợt 10: 5 loại món Chợ Bến Thành. Kho Spark: 25 loại món, 42 quái, 26 mặt tiền, 7 xe.
 - Rà: 73/73 nền trong suốt. Cần vẽ lại: mon_don_bao_cat_b3a (giống máy nướng bánh mì); mat_tien_cafe_som, mat_tien_kem_bo có chữ. Ghi chú nhẹ: tiem_vang b2≈b3b, trai_cay b1≈b3a.
 - `npm test` 78/78, e2e 17/17.
+
+## 23/11/2026 — Đổi tên Gọn Phố + nguồn cho 26 tiệm Đà Lạt (Claude)
+- Tên game: Gọn Phố (logo 1 dòng "GỌN PHỐ", icon, og-image, manifest, tiêu đề). Bản lưu người chơi giữ nguyên.
+- 26 tiệm 3 phố Đà Lạt có `sources` + `confidence`: 12 chắc, 14 nên kiểm, 0 đã đóng. Đáng chú ý: giặt sấy không thấy trên Phan Đình Phùng (có ở 39 Trương Công Định); bánh mì chảo, bánh trứng không thấy trên Phố Cà Phê; quán sân thượng ghi ở 1 Lê Đại Hành có nguồn nói đã đóng → cần anh Kha quyết giữ hay đổi.

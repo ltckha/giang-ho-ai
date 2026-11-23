@@ -1,4 +1,4 @@
-# Gọn Tiệm, Sạch Phố
+# Gọn Phố
 
 (Repo tên cũ giang-ho-ai.)
 

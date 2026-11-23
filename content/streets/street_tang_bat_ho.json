@@ -29,7 +29,9 @@
         ],
         "ult": "Thơm Lừng Đầu Hẻm",
         "why": "Hơi nóng lò bánh hun chuột chạy mất"
-      }
+      },
+      "sources": [],
+      "confidence": "nen_kiem"
     },
     {
       "key": "sua_nanh",
@@ -47,7 +49,12 @@
         ],
         "ult": "Rót Sữa Liên Tay",
         "why": "Sữa nóng dập khói than"
-      }
+      },
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/sua-dau-nanh-da-lat/",
+        "https://mia.vn/cam-nang-du-lich/thuong-thuc-sua-dau-nanh-nong-thom-giua-tiet-troi-da-lat-se-lanh-1299"
+      ],
+      "confidence": "chac"
     },
     {
       "key": "banh_can",
@@ -65,7 +72,13 @@
         ],
         "ult": "Đổ Bánh Một Lượt",
         "why": "Khuôn đất nung khô hút ẩm mưa phùn"
-      }
+      },
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/banh-khot-da-lat/",
+        "https://vinwonders.com/vi/wonderpedia/news/12-quan-banh-can-da-lat-sieu-ngon/",
+        "https://mia.vn/cam-nang-du-lich/banh-can-da-lat-top-nhung-quan-ngon-nhat-tai-thanh-pho-suong-mu-1343"
+      ],
+      "confidence": "chac"
     },
     {
       "key": "goc_cay",
@@ -83,7 +96,12 @@
         ],
         "ult": "Bóng Mát Cả Phố",
         "why": "Tán lá chắn bụi đất"
-      }
+      },
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/banh-khot-da-lat/",
+        "https://vinwonders.com/vi/wonderpedia/news/12-quan-banh-can-da-lat-sieu-ngon/"
+      ],
+      "confidence": "chac"
     },
     {
       "key": "khach_san",
@@ -101,7 +119,9 @@
         ],
         "ult": "Mời Khách Nghỉ Chân",
         "why": "Thảm dày thấm nước mưa theo chân khách"
-      }
+      },
+      "sources": [],
+      "confidence": "nen_kiem"
     },
     {
       "key": "thue_xe",
@@ -119,7 +139,12 @@
         ],
         "ult": "Rồ Ga Lên Dốc",
         "why": "Khung thép xe chạy băng qua bọn sinh sôi"
-      }
+      },
+      "sources": [
+        "https://toplist.vn/top-list/hostel-view-dep-gan-cho-da-lat-ban-khong-nen-bo-qua-26413.htm",
+        "https://hostelmanagement.com/vietnam/dalat/dalat-yolo-hostel"
+      ],
+      "confidence": "nen_kiem"
     },
     {
       "key": "bar_ham",
@@ -137,7 +162,12 @@
         ],
         "ult": "Cạn Ly Cả Hầm",
         "why": "Đá lạnh dập khói nóng"
-      }
+      },
+      "sources": [
+        "https://toplist.vn/top-list/quan-cocktail-bar-dang-cap-nhat-tai-tp-da-lat-lam-dong-57973.htm",
+        "https://toplist.vn/top-list/quan-cocktail-dep-nhat-tai-da-lat-57085.htm"
+      ],
+      "confidence": "nen_kiem"
     },
     {
       "key": "cafe_xe_dap",
@@ -155,7 +185,13 @@
         ],
         "ult": "Đạp Một Vòng Dốc",
         "why": "Khung sắt nghiến nát rêu mốc"
-      }
+      },
+      "sources": [
+        "https://mia.vn/cam-nang-du-lich/review-bicyle-up-cafe-quan-cafe-voi-khong-gian-retro-dac-biet-giua-long-da-lat-2693",
+        "https://toplist.vn/top-list/quan-ca-phe-co-kinh-don-tim-du-khach-o-da-lat-31672.htm",
+        "https://znews.vn/nhung-tiem-ca-phe-phong-cach-retro-o-da-lat-post1008585.html"
+      ],
+      "confidence": "chac"
     },
     {
       "key": "an_vat",
@@ -173,7 +209,9 @@
         ],
         "ult": "Mời Nếm Thử Cả Phố",
         "why": "Đồ khô từ lá cây đè bẹp bùn đất"
-      }
+      },
+      "sources": [],
+      "confidence": "nen_kiem"
     }
   ],
   "pests": [

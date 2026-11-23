@@ -226,7 +226,7 @@ const ogHtml = `
           <h1 style="
             font-family:'Noto Serif',serif;font-size:42px;line-height:1.1;color:#fff6dc;white-space:nowrap;
             text-shadow:0 4px 0 #2b1a12, 0 10px 24px rgba(0,0,0,0.45);
-          ">Gọn Tiệm, Sạch Phố</h1>
+          ">Gọn Phố</h1>
           <div style="font-size:19px;font-weight:700;color:#ffd359;white-space:nowrap;">Ngũ hành giữ tiệm • Chơi ngay trên web</div>
         </div>
       </div>
@@ -372,7 +372,7 @@ function buildVerticalCover({
         </div>
         <div style="flex:1;display:flex;flex-direction:column;gap:8px;">
           <div style="font-family:'Noto Serif',serif;font-size:48px;font-weight:700;color:#3c2414;line-height:1.1;">
-            Gọn Tiệm, Sạch Phố
+            Gọn Phố
           </div>
           <div style="font-size:29px;font-weight:700;color:#8c4a18;">${footerLine}</div>
           <div style="
