@@ -1,0 +1,309 @@
+{
+  "id": "street_cho_ben_thanh",
+  "name": "Phố Chợ Bến Thành",
+  "subtitle": "4 phố quanh chợ Bến Thành, Sài Gòn: mỗi cửa chợ một nhóm hàng, tối có chợ đêm",
+  "geometry": "pho_cho_ben_thanh",
+  "waves": 12,
+  "startingEssence": 210,
+  "startingLives": 20,
+  "loadoutSize": 6,
+  "difficulty": {
+    "gearTier": "after_street_1",
+    "targetRandomWin": 0.3
+  },
+  "researchNote": "docs/research/2026-11-23_pho_cho_ben_thanh.md",
+  "places": [
+    {
+      "key": "luu_niem",
+      "art": "luu_niem",
+      "name": "Sạp Lưu Niệm Tháp Đồng Hồ",
+      "type": "Sạp lưu niệm, mỹ phẩm, đồng hồ ở cửa Nam",
+      "trait": "đông khách ghé nhất, xem nhiều mua ít",
+      "sources": [
+        "https://e.vnexpress.net/news/travel/places/ben-thanh-market-s-lament-visitors-only-come-for-sightseeing-not-buying-4860297.html",
+        "https://www.nomadotravel.app/vi/attractions/ben-thanh-market"
+      ],
+      "confidence": "chac",
+      "tower": {
+        "element": "kim",
+        "role": "single_far",
+        "names": [
+          "Móc Khoá Lưu Niệm",
+          "Đồng Hồ Treo Tường",
+          "Tượng Tháp Đồng Hồ",
+          "Hộp Quà Sơn Mài"
+        ],
+        "ult": "Giờ Vàng Cửa Nam",
+        "why": "Kim loại sáng bóng gõ bay bụi bẩn"
+      }
+    },
+    {
+      "key": "vai",
+      "art": "tiem_may",
+      "name": "Sạp Vải Bến Nghé",
+      "type": "Sạp vải, quần áo ở cửa Đông",
+      "trait": "cây vải xếp cao, kéo cắt vải",
+      "sources": [
+        "https://e.vnexpress.net/news/travel/places/ben-thanh-market-s-lament-visitors-only-come-for-sightseeing-not-buying-4860297.html",
+        "https://www.vietnamairlines.com/us/vi/plan-book/travel/travel-guide/ben-thanh-market"
+      ],
+      "confidence": "chac",
+      "tower": {
+        "element": "moc",
+        "role": "slow_aura",
+        "names": [
+          "Cuộn Vải Bông",
+          "Kệ Cây Vải",
+          "Thước Gỗ Đo Vải",
+          "Kéo Cắt Vải Lớn"
+        ],
+        "ult": "Trải Vải Chắn Lối",
+        "why": "Vải bông chắn bụi đất"
+      }
+    },
+    {
+      "key": "do_kho",
+      "art": "tap_hoa",
+      "name": "Sạp Đồ Khô Me Xanh",
+      "type": "Sạp đồ khô, mứt kẹo, đặc sản ở cửa Tây",
+      "trait": "mứt, khô, kẹo xếp đầy kệ",
+      "sources": [
+        "https://e.vnexpress.net/news/travel/places/ben-thanh-market-s-lament-visitors-only-come-for-sightseeing-not-buying-4860297.html",
+        "https://www.vietnamairlines.com/us/vi/plan-book/travel/travel-guide/ben-thanh-market"
+      ],
+      "confidence": "chac",
+      "tower": {
+        "element": "tho",
+        "role": "heavy_slow",
+        "names": [
+          "Bao Đồ Khô",
+          "Hũ Mứt Đầy",
+          "Thúng Khô Mực",
+          "Kệ Đặc Sản Chất Cao"
+        ],
+        "ult": "Chất Hàng Một Lèo",
+        "why": "Đồ khô chất đống hút ẩm nước rỉ"
+      }
+    },
+    {
+      "key": "trai_cay",
+      "art": "trai_cay",
+      "name": "Sạp Trái Cây Hoa Sữa",
+      "type": "Sạp tươi sống, trái cây ở cửa Bắc",
+      "trait": "trái cây theo mùa, rau tươi",
+      "sources": [
+        "https://e.vnexpress.net/news/travel/places/ben-thanh-market-s-lament-visitors-only-come-for-sightseeing-not-buying-4860297.html",
+        "https://www.vietnamairlines.com/us/vi/plan-book/travel/travel-guide/ben-thanh-market"
+      ],
+      "confidence": "chac",
+      "tower": {
+        "element": "moc",
+        "role": "support_buff",
+        "names": [
+          "Rổ Trái Cây",
+          "Sạp Trái Cây Tầng",
+          "Giỏ Quà Trái Cây",
+          "Mâm Ngũ Quả"
+        ],
+        "ult": "Tươi Rói Cả Chợ",
+        "why": "Trái cây tươi bồi bổ cả chợ"
+      }
+    },
+    {
+      "key": "quay_an",
+      "art": "quan_pho",
+      "name": "Quầy Ăn Giữa Chợ Xích Lô",
+      "type": "Khu ăn uống giữa chợ",
+      "trait": "cơm tấm, bún, hủ tiếu, chè",
+      "sources": [
+        "https://e.vnexpress.net/news/travel/places/ben-thanh-market-s-lament-visitors-only-come-for-sightseeing-not-buying-4860297.html",
+        "https://tuoitre.vn/dinh-chi-ban-3-ngay-voi-chu-sap-4-to-bun-mang-vit-1-trieu-dong-o-cho-ben-thanh-xu-nhe-qua-20250716193741869.htm"
+      ],
+      "confidence": "chac",
+      "tower": {
+        "element": "hoa",
+        "role": "aoe_splash",
+        "names": [
+          "Nồi Nước Lèo",
+          "Nồi Bún Lớn",
+          "Bếp Than Liu Riu",
+          "Nồi Hầm Xương Đêm"
+        ],
+        "ult": "Sôi Sùng Sục",
+        "why": "Hơi nóng nồi nước lèo xua chuột chợ"
+      }
+    },
+    {
+      "key": "tiem_vang",
+      "art": "tiem_vang",
+      "name": "Tiệm Vàng Bến Sông",
+      "type": "Tiệm vàng kiêm đổi ngoại tệ",
+      "trait": "bảng tỷ giá nhìn từ ngoài đường",
+      "sources": [
+        "https://www.vietnamtourism.com/vi/doi-tien-o-dau-tai-tp-hcm-ty-gia-tot-nhat-khu-quan-1",
+        "https://chogia.vn/dia-chi-doi-ngoai-te-tphcm/"
+      ],
+      "confidence": "nen_kiem",
+      "tower": {
+        "element": "kim",
+        "role": "heavy_slow",
+        "names": [
+          "Cân Tiểu Ly",
+          "Két Sắt Nhỏ",
+          "Tủ Kính Vàng",
+          "Két Sắt Lớn"
+        ],
+        "ult": "Khoá Két Chặn Đường",
+        "why": "Két sắt nặng chặn lối, cắt đứt mối mọt"
+      }
+    },
+    {
+      "key": "nuong_dem",
+      "art": "quay_nuong",
+      "name": "Quầy Nướng Phố Đêm",
+      "type": "Quầy nướng chợ đêm hông chợ",
+      "trait": "khói bếp nướng, bánh xèo, hải sản nướng",
+      "sources": [
+        "https://www.sggp.org.vn/thuc-cung-thanh-pho-post850132.html",
+        "https://www.vietnamtourism.com/vi/cho-saigon-square-o-tp-hcm-co-ang-ghe-hon-ben-thanh-nam-2026",
+        "https://vinwonders.com/vi/wonderpedia/news/cho-dem-sai-gon/"
+      ],
+      "confidence": "chac",
+      "tower": {
+        "element": "hoa",
+        "role": "single_far",
+        "names": [
+          "Vỉ Nướng Than",
+          "Bếp Nướng Đôi",
+          "Xiên Nướng Lửa Hồng",
+          "Lò Nướng Cả Dãy"
+        ],
+        "ult": "Lửa Hồng Phố Đêm",
+        "why": "Lửa nướng hun lùi ruồi, kiến"
+      }
+    },
+    {
+      "key": "nuoc_dua",
+      "art": "nuoc_dua",
+      "name": "Xe Nước Dừa Cửa Nam",
+      "type": "Xe trái cây, nước dừa lưu động trước chợ",
+      "trait": "dừa xiêm mát lạnh giữa trưa nắng",
+      "sources": [
+        "https://www.sggp.org.vn/hang-rong-bua-vay-khu-trung-tam-tphcm-post776204.html",
+        "https://vietnamnews.vn/society/1723139/hcm-city-struggles-to-curb-sidewalk-encroachment-after-merger.html"
+      ],
+      "confidence": "chac",
+      "tower": {
+        "element": "thuy",
+        "role": "aoe_splash",
+        "names": [
+          "Trái Dừa Xiêm",
+          "Thùng Đá Lạnh",
+          "Xe Dừa Đầy Ắp",
+          "Ly Nước Mía Lạnh"
+        ],
+        "ult": "Mát Lạnh Giữa Trưa",
+        "why": "Nước mát dập than nướng bén lửa"
+      }
+    }
+  ],
+  "pests": [
+    {
+      "art": "chuot_cong",
+      "name": "Chuột Chợ",
+      "element": "kim",
+      "trait": "disruptor",
+      "reason": "Chuột cắn bao hàng ban đêm"
+    },
+    {
+      "art": "ruoi_bep",
+      "name": "Ruồi Sạp Tươi",
+      "element": "moc",
+      "trait": "flying",
+      "reason": "Ruồi bu sạp cá thịt"
+    },
+    {
+      "art": "kien_duong",
+      "name": "Kiến Bu Mứt",
+      "element": "moc",
+      "trait": "fast",
+      "reason": "Kiến bu sạp mứt kẹo"
+    },
+    {
+      "art": "vung_nuoc",
+      "name": "Nước Rỉ Sạp Đá",
+      "element": "thuy",
+      "trait": "healer",
+      "reason": "Nước đá tan rỉ ra lối đi"
+    },
+    {
+      "art": "bui_bot",
+      "name": "Bụi Vải Vụn",
+      "element": "tho",
+      "trait": "tank",
+      "reason": "Bụi từ vải và hàng chất lâu ngày"
+    },
+    {
+      "art": "khoi_nuong",
+      "name": "Than Nướng Bén Lửa",
+      "element": "hoa",
+      "trait": "splitter",
+      "reason": "Than quầy nướng văng tàn"
+    }
+  ],
+  "streetPests": [
+    {
+      "art": "lon_nuoc",
+      "name": "Chai Nhựa Bỏ Lại",
+      "element": "kim",
+      "trait": "fast",
+      "reason": "Khách chụp ảnh để lại chai nước (Tuổi Trẻ 1/2025)"
+    },
+    {
+      "art": "xa_ban",
+      "name": "Rào Công Trường",
+      "element": "tho",
+      "trait": "tank",
+      "reason": "Rào công viên 23-9 làm ga đường sắt (10/2026)"
+    },
+    {
+      "art": "khan_giay",
+      "name": "Túi Nilon Bay",
+      "element": "moc",
+      "trait": "flying",
+      "reason": "Túi nilon, hộp xốp bị gió cuốn"
+    },
+    {
+      "art": "khoi_nuong",
+      "name": "Khói Nướng Chợ Đêm",
+      "element": "hoa",
+      "trait": "splitter",
+      "reason": "Khói bếp nướng cuộn lên (SGGP 5/2026)"
+    },
+    {
+      "art": "nuoc_cong",
+      "name": "Nước Ngập Lê Lợi",
+      "element": "thuy",
+      "trait": "disruptor",
+      "reason": "Lê Lợi ngập sâu sau mưa lớn 23/9/2026"
+    },
+    {
+      "art": "bai_rac",
+      "name": "Hộp Xốp Nhét Bồn Cây",
+      "element": "moc",
+      "trait": "healer",
+      "reason": "Rác nhét vào bồn cây dù có thùng rác"
+    }
+  ],
+  "boss": {
+    "name": "Mưa Ngập Bến Thành",
+    "art": "trum_mua_ngap",
+    "phases": [
+      "thuy",
+      "tho",
+      "moc",
+      "kim",
+      "hoa"
+    ]
+  }
+}

@@ -342,3 +342,10 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Agent tạo màn: tools/level-maker/auto_route.py tự nối đoạn đường OSM theo tên phố, tự chọn lối ra / 1–2 lối vào (thử lại 2 phố cũ: khớp bản làm tay 332/324 m, 946/369 m). make-street kiểm nguồn nghiên cứu (≥ 2 nguồn, bỏ địa điểm đã đóng). Quy trình: .claude/agents/level-designer.md.
 - 26 địa điểm của 3 phố cũ chưa ghi nguồn theo từng địa điểm (chỉ có trong ghi chép chung) → cảnh báo, bổ sung khi rà lại.
 - `npm test` 74/74, e2e 17/17.
+
+## 23/11/2026 — Chạy thử agent tạo màn: Phố Chợ Bến Thành, Sài Gòn (Claude)
+- Đường: 33 đoạn OSM của Lê Lợi, Lê Thánh Tôn, Phan Bội Châu, Phan Chu Trinh → auto_route tự dựng 2 lối vào (~1,2 km và ~0,9 km), lối ra cuối Lê Thánh Tôn.
+- Nghiên cứu 15 nguồn (đa số 2025–2026): docs/research/2026-11-23_pho_cho_ben_thanh.md. 8 tiệm theo 4 cửa chợ + giữa chợ + chợ đêm + tiệm vàng (nên kiểm) + xe nước dừa. Mỗi tiệm ≥ 2 nguồn.
+- Quái màn phố lấy chuyện thật có nguồn: chai nhựa bỏ lại, rào công trường ga Cần Giờ, túi nilon, khói nướng chợ đêm, Lê Lợi ngập 23/9/2026, hộp xốp nhét bồn cây. Trùm: Mưa Ngập Bến Thành. Không biến người bán hàng rong / cò thành quái.
+- Độ khó: 8 màn tiệm (đặt bừa 65% → 42%), màn phố 25%. Thiếu: nền phố, 5 loại món mới (lưu niệm, trái cây, tiệm vàng, quầy nướng, nước dừa) đang mượn hình. CHƯA đưa lên link game — chờ anh Kha duyệt.
+- Sửa: món / quái chưa có hình lại mượn hình tiệm giày theo vai (lối tạm bị mất khi Antigravity viết lại atlasIcons).

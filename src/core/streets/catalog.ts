@@ -192,3 +192,6 @@ export const PLACE_SHORT: Record<string, string> = {
   tiem_may: 'May Đo', tiem_hoa: 'Hoa', nha_sach: 'Sách', giat_ui: 'Giặt Ủi', thue_xe: 'Thuê Xe', studio_anh: 'Studio',
   quan_bar: 'Quán Nhạc', tap_hoa: 'Tạp Hoá', banh_ngot: 'Bánh Ngọt',
 };
+
+/** Bộ chữ đặt tên cho Sài Gòn (Phố Chợ Bến Thành, 23/11/2026) */
+export const SAIGON_NAME_WORDS = ['Tháp Đồng Hồ', 'Bến Nghé', 'Me Xanh', 'Hoa Sữa', 'Xích Lô', 'Bến Sông', 'Phố Đêm', 'Cửa Nam'];

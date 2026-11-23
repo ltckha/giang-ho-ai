@@ -43,7 +43,20 @@ function getSparkEnemyArt(enemyId: string): string | null {
   return art && SPARK_ENEMY_ARTS.has(art) ? art : null;
 }
 
-export function getTowerAtlasKey(defId: string): string {
+/** Món sinh tự động chưa có hình (Spark chưa vẽ) → mượn hình món tiệm giày cùng vai (Claude) */
+const ROLE_STAND_IN: Record<string, string> = {
+  single_far: 'wood_tower', heavy_slow: 'metal_tower', slow_aura: 'water_tower', aoe_splash: 'fire_tower', support_buff: 'earth_tower',
+};
+function towerStandIn(defId: string): string {
+  if (!defId.startsWith('gt_') || getSparkTowerArt(defId) || STREETS_ATLAS_FRAMES.has(`tower_${defId}_t1_f0`)) return defId;
+  return ROLE_STAND_IN[ALL_TOWER_DEFINITIONS[defId as TowerId]?.role ?? ''] ?? 'wood_tower';
+}
+const TRAIT_STAND_IN: Record<string, string> = {
+  fast: 'fast_metal', tank: 'tank_earth', flying: 'fly_wood', splitter: 'split_fire', mini: 'split_fire_mini', disruptor: 'disrupt_water', healer: 'healer_wood',
+};
+
+export function getTowerAtlasKey(defIdRaw: string): string {
+  const defId = towerStandIn(defIdRaw);
   if (getSparkTowerArt(defId)) return ATLAS_KEY;
   if (STREETS_ATLAS_FRAMES.has(`tower_${defId}_t1_f0`)) return STREETS_ATLAS_KEY;
   return ATLAS_KEY;
@@ -51,8 +64,9 @@ export function getTowerAtlasKey(defId: string): string {
 
 /** Trùm phố thật chưa có hình riêng → tạm mượn hình Trùm Bão Lốc (Claude) */
 function bossStandIn(enemyId: string): string {
-  if (getSparkEnemyArt(enemyId) || STREETS_ATLAS_FRAMES.has(`enemy_${enemyId}_f0`)) return enemyId;
-  return ALL_ENEMY_DEFINITIONS[enemyId as EnemyId]?.trait === 'boss' && enemyId.startsWith('ge_') ? 'st_bao_loc' : enemyId;
+  if (!enemyId.startsWith('ge_') || getSparkEnemyArt(enemyId) || STREETS_ATLAS_FRAMES.has(`enemy_${enemyId}_f0`)) return enemyId;
+  const trait = ALL_ENEMY_DEFINITIONS[enemyId as EnemyId]?.trait ?? '';
+  return trait === 'boss' ? 'st_bao_loc' : TRAIT_STAND_IN[trait] ?? 'fast_metal';
 }
 
 export function getEnemyAtlasKey(enemyIdRaw: string): string {
@@ -134,7 +148,8 @@ export function getTowerTierKey(tier: 1 | 2 | 3, branch?: 'A' | 'B'): string {
   return branch === 'B' ? 't3b' : 't3a';
 }
 
-export function getTowerFrameName(defId: string, tier: 1 | 2 | 3, branch?: 'A' | 'B', frameIdx = 0): string {
+export function getTowerFrameName(defIdRaw: string, tier: 1 | 2 | 3, branch?: 'A' | 'B', frameIdx = 0): string {
+  const defId = towerStandIn(defIdRaw);
   const sparkArt = getSparkTowerArt(defId);
   const keyPart = sparkArt ? `art_${sparkArt}` : defId;
   return `tower_${keyPart}_${getTowerTierKey(tier, branch)}_f${frameIdx}`;

@@ -1,0 +1,5436 @@
+{
+ "generatedBy": "tools/level-maker/make-street.ts",
+ "hpMultiplier": 1.6,
+ "balance": {
+  "randomWinWithExpectedGear": 0.25,
+  "botWinRate": 1,
+  "botLivesAvg": 12.666666666666666,
+  "gearTier": "after_street_1"
+ },
+ "stage": {
+  "id": "street_cho_ben_thanh",
+  "stageNumber": 19,
+  "name": "Phố Chợ Bến Thành",
+  "subtitle": "Màn phố: Mưa Ngập Bến Thành — 4 phố quanh chợ Bến Thành, Sài Gòn: mỗi cửa chợ một nhóm hàng, tối có chợ đêm",
+  "startingEssence": 210,
+  "startingLives": 20,
+  "paths": [
+   [
+    {
+     "x": 32,
+     "y": 465
+    },
+    {
+     "x": 127,
+     "y": 187
+    },
+    {
+     "x": 197,
+     "y": 236
+    },
+    {
+     "x": 162,
+     "y": 294
+    },
+    {
+     "x": 103,
+     "y": 490
+    }
+   ],
+   [
+    {
+     "x": 328,
+     "y": 30
+    },
+    {
+     "x": 164,
+     "y": 289
+    },
+    {
+     "x": 103,
+     "y": 490
+    }
+   ]
+  ],
+  "pads": [
+   {
+    "id": "pad_1",
+    "x": 198,
+    "y": 318
+   },
+   {
+    "id": "pad_2",
+    "x": 234,
+    "y": 258
+   },
+   {
+    "id": "pad_3",
+    "x": 186,
+    "y": 174
+   },
+   {
+    "id": "pad_4",
+    "x": 174,
+    "y": 390
+   },
+   {
+    "id": "pad_5",
+    "x": 66,
+    "y": 246
+   },
+   {
+    "id": "pad_6",
+    "x": 270,
+    "y": 198
+   },
+   {
+    "id": "pad_7",
+    "x": 150,
+    "y": 474
+   },
+   {
+    "id": "pad_8",
+    "x": 90,
+    "y": 174
+   },
+   {
+    "id": "pad_9",
+    "x": 138,
+    "y": 126
+   },
+   {
+    "id": "pad_10",
+    "x": 210,
+    "y": 114
+   },
+   {
+    "id": "pad_11",
+    "x": 42,
+    "y": 318
+   }
+  ],
+  "waves": [
+   {
+    "waveNumber": 1,
+    "title": "Đợt 1: Chai Nhựa Bỏ Lại",
+    "mainElements": [
+     "kim"
+    ],
+    "earlyBonusMax": 12,
+    "clearReward": 14,
+    "groups": [
+     {
+      "enemyId": "ge_cho_ben_thanh_p1",
+      "count": 6,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 1.6
+     }
+    ]
+   },
+   {
+    "waveNumber": 2,
+    "title": "Đợt 2: Rào Công Trường",
+    "mainElements": [
+     "tho"
+    ],
+    "earlyBonusMax": 13,
+    "clearReward": 14,
+    "groups": [
+     {
+      "enemyId": "ge_cho_ben_thanh_p2",
+      "count": 2,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 1.84
+     }
+    ]
+   },
+   {
+    "waveNumber": 3,
+    "title": "Đợt 3: Túi Nilon Bay & Rào Công Trường",
+    "mainElements": [
+     "moc",
+     "tho"
+    ],
+    "earlyBonusMax": 14,
+    "clearReward": 15,
+    "groups": [
+     {
+      "enemyId": "ge_cho_ben_thanh_p3",
+      "count": 4,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 2.08
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p2",
+      "count": 2,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 2.08
+     }
+    ]
+   },
+   {
+    "waveNumber": 4,
+    "title": "Đợt 4: Chai Nhựa Bỏ Lại & Túi Nilon Bay",
+    "mainElements": [
+     "kim",
+     "moc"
+    ],
+    "earlyBonusMax": 15,
+    "clearReward": 15,
+    "groups": [
+     {
+      "enemyId": "ge_cho_ben_thanh_p1",
+      "count": 7,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 2.32
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p3",
+      "count": 5,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 2.32
+     }
+    ]
+   },
+   {
+    "waveNumber": 5,
+    "title": "Đợt 5: Chai Nhựa Bỏ Lại & Túi Nilon Bay",
+    "mainElements": [
+     "kim",
+     "moc"
+    ],
+    "earlyBonusMax": 16,
+    "clearReward": 16,
+    "groups": [
+     {
+      "enemyId": "ge_cho_ben_thanh_p1",
+      "count": 8,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 2.72
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p3",
+      "count": 5,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 2.72
+     }
+    ]
+   },
+   {
+    "waveNumber": 6,
+    "title": "Đợt 6: Chai Nhựa Bỏ Lại & Túi Nilon Bay & Nước Ngập Lê Lợi",
+    "mainElements": [
+     "kim",
+     "moc",
+     "thuy"
+    ],
+    "earlyBonusMax": 17,
+    "clearReward": 16,
+    "groups": [
+     {
+      "enemyId": "ge_cho_ben_thanh_p1",
+      "count": 8,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 3.2
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p3",
+      "count": 5,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 3.2
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p5",
+      "count": 3,
+      "intervalSec": 1.8,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 3.2
+     }
+    ]
+   },
+   {
+    "waveNumber": 7,
+    "title": "Đợt 7: Rào Công Trường & Khói Nướng Chợ Đêm & Chai Nhựa Bỏ Lại",
+    "mainElements": [
+     "tho",
+     "hoa",
+     "kim"
+    ],
+    "earlyBonusMax": 18,
+    "clearReward": 17,
+    "groups": [
+     {
+      "enemyId": "ge_cho_ben_thanh_p2",
+      "count": 4,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 3.84
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p4",
+      "count": 5,
+      "intervalSec": 1.2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 3.84
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p1",
+      "count": 9,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 3.84
+     }
+    ]
+   },
+   {
+    "waveNumber": 8,
+    "title": "Đợt 8: Rào Công Trường & Khói Nướng Chợ Đêm & Hộp Xốp Nhét Bồn Cây",
+    "mainElements": [
+     "tho",
+     "hoa",
+     "moc"
+    ],
+    "earlyBonusMax": 19,
+    "clearReward": 17,
+    "groups": [
+     {
+      "enemyId": "ge_cho_ben_thanh_p2",
+      "count": 4,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 4.48
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p4",
+      "count": 5,
+      "intervalSec": 1.2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 4.48
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p6",
+      "count": 2,
+      "intervalSec": 2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 4.48
+     }
+    ]
+   },
+   {
+    "waveNumber": 9,
+    "title": "Đợt 9: Túi Nilon Bay & Nước Ngập Lê Lợi & Chai Nhựa Bỏ Lại",
+    "mainElements": [
+     "moc",
+     "thuy",
+     "kim"
+    ],
+    "earlyBonusMax": 20,
+    "clearReward": 18,
+    "groups": [
+     {
+      "enemyId": "ge_cho_ben_thanh_p3",
+      "count": 6,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 5.12
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p5",
+      "count": 4,
+      "intervalSec": 1.8,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 5.12
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p1",
+      "count": 10,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 5.12
+     }
+    ]
+   },
+   {
+    "waveNumber": 10,
+    "title": "Đợt 10: Khói Nướng Chợ Đêm & Hộp Xốp Nhét Bồn Cây & Rào Công Trường",
+    "mainElements": [
+     "hoa",
+     "moc",
+     "tho"
+    ],
+    "earlyBonusMax": 21,
+    "clearReward": 18,
+    "groups": [
+     {
+      "enemyId": "ge_cho_ben_thanh_p4",
+      "count": 6,
+      "intervalSec": 1.2,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 5.76
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p6",
+      "count": 3,
+      "intervalSec": 2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 5.76
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p2",
+      "count": 5,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 5.76
+     }
+    ]
+   },
+   {
+    "waveNumber": 11,
+    "title": "Đợt 11: Nước Ngập Lê Lợi & Chai Nhựa Bỏ Lại & Túi Nilon Bay",
+    "mainElements": [
+     "thuy",
+     "kim",
+     "moc"
+    ],
+    "earlyBonusMax": 22,
+    "clearReward": 19,
+    "groups": [
+     {
+      "enemyId": "ge_cho_ben_thanh_p5",
+      "count": 4,
+      "intervalSec": 1.8,
+      "delayBeforeSec": 0,
+      "pathIndex": 0,
+      "hpScale": 6.4
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p1",
+      "count": 11,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 6.4
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p3",
+      "count": 7,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 6.4
+     }
+    ]
+   },
+   {
+    "waveNumber": 12,
+    "title": "Đợt 12: Mưa Ngập Bến Thành ập tới",
+    "mainElements": [
+     "kim",
+     "tho",
+     "moc",
+     "hoa",
+     "thuy"
+    ],
+    "earlyBonusMax": 0,
+    "clearReward": 0,
+    "groups": [
+     {
+      "enemyId": "ge_cho_ben_thanh_p1",
+      "count": 11,
+      "intervalSec": 0.6,
+      "delayBeforeSec": 0,
+      "pathIndex": 1,
+      "hpScale": 6.88
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p2",
+      "count": 5,
+      "intervalSec": 1.6,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 6.88
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p3",
+      "count": 7,
+      "intervalSec": 0.85,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 6.88
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p4",
+      "count": 6,
+      "intervalSec": 1.2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 6.88
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p5",
+      "count": 4,
+      "intervalSec": 1.8,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 1,
+      "hpScale": 6.88
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_p6",
+      "count": 3,
+      "intervalSec": 2,
+      "delayBeforeSec": 0.4,
+      "pathIndex": 0,
+      "hpScale": 6.88
+     },
+     {
+      "enemyId": "ge_cho_ben_thanh_trum",
+      "count": 1,
+      "intervalSec": 1,
+      "delayBeforeSec": 3,
+      "pathIndex": 0,
+      "hpScale": 0.96
+     }
+    ]
+   }
+  ],
+  "towerIds": [
+   "gt_don_kep_rac",
+   "gt_don_choi_tre",
+   "gt_don_voi_xit",
+   "gt_don_den_duong",
+   "gt_don_bao_cat",
+   "wood_tower",
+   "metal_tower",
+   "water_tower",
+   "fire_tower",
+   "earth_tower",
+   "bk_swatter",
+   "bk_jar",
+   "bk_fan",
+   "bk_oven",
+   "bk_fridge",
+   "fl_can",
+   "fl_shears",
+   "fl_lime",
+   "fl_heater",
+   "fl_vent",
+   "gt_cho_ben_thanh_luu_niem",
+   "gt_cho_ben_thanh_vai",
+   "gt_cho_ben_thanh_do_kho",
+   "gt_cho_ben_thanh_trai_cay",
+   "gt_cho_ben_thanh_quay_an",
+   "gt_cho_ben_thanh_tiem_vang",
+   "gt_cho_ben_thanh_nuong_dem",
+   "gt_cho_ben_thanh_nuoc_dua"
+  ],
+  "loadoutSize": 6,
+  "defaultLoadout": [
+   "gt_don_kep_rac",
+   "gt_don_choi_tre",
+   "gt_don_voi_xit",
+   "gt_don_den_duong",
+   "metal_tower",
+   "fl_vent"
+  ],
+  "enableSynergy": true,
+  "attribution": "© OpenStreetMap contributors (ODbL)",
+  "places": [
+   {
+    "key": "luu_niem",
+    "name": "Sạp Lưu Niệm Tháp Đồng Hồ",
+    "type": "Sạp lưu niệm, mỹ phẩm, đồng hồ ở cửa Nam",
+    "trait": "đông khách ghé nhất, xem nhiều mua ít",
+    "towerId": "gt_cho_ben_thanh_luu_niem"
+   },
+   {
+    "key": "vai",
+    "name": "Sạp Vải Bến Nghé",
+    "type": "Sạp vải, quần áo ở cửa Đông",
+    "trait": "cây vải xếp cao, kéo cắt vải",
+    "towerId": "gt_cho_ben_thanh_vai"
+   },
+   {
+    "key": "do_kho",
+    "name": "Sạp Đồ Khô Me Xanh",
+    "type": "Sạp đồ khô, mứt kẹo, đặc sản ở cửa Tây",
+    "trait": "mứt, khô, kẹo xếp đầy kệ",
+    "towerId": "gt_cho_ben_thanh_do_kho"
+   },
+   {
+    "key": "trai_cay",
+    "name": "Sạp Trái Cây Hoa Sữa",
+    "type": "Sạp tươi sống, trái cây ở cửa Bắc",
+    "trait": "trái cây theo mùa, rau tươi",
+    "towerId": "gt_cho_ben_thanh_trai_cay"
+   },
+   {
+    "key": "quay_an",
+    "name": "Quầy Ăn Giữa Chợ Xích Lô",
+    "type": "Khu ăn uống giữa chợ",
+    "trait": "cơm tấm, bún, hủ tiếu, chè",
+    "towerId": "gt_cho_ben_thanh_quay_an"
+   },
+   {
+    "key": "tiem_vang",
+    "name": "Tiệm Vàng Bến Sông",
+    "type": "Tiệm vàng kiêm đổi ngoại tệ",
+    "trait": "bảng tỷ giá nhìn từ ngoài đường",
+    "towerId": "gt_cho_ben_thanh_tiem_vang"
+   },
+   {
+    "key": "nuong_dem",
+    "name": "Quầy Nướng Phố Đêm",
+    "type": "Quầy nướng chợ đêm hông chợ",
+    "trait": "khói bếp nướng, bánh xèo, hải sản nướng",
+    "towerId": "gt_cho_ben_thanh_nuong_dem"
+   },
+   {
+    "key": "nuoc_dua",
+    "name": "Xe Nước Dừa Cửa Nam",
+    "type": "Xe trái cây, nước dừa lưu động trước chợ",
+    "trait": "dừa xiêm mát lạnh giữa trưa nắng",
+    "towerId": "gt_cho_ben_thanh_nuoc_dua"
+   }
+  ],
+  "streetId": "street_cho_ben_thanh",
+  "cleanTowerIds": [
+   "gt_don_kep_rac",
+   "gt_don_choi_tre",
+   "gt_don_voi_xit",
+   "gt_don_den_duong",
+   "gt_don_bao_cat"
+  ],
+  "maxShopTowers": 2,
+  "botPlan": [
+   {
+    "padId": "pad_1",
+    "defId": "gt_don_kep_rac",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_2",
+    "defId": "gt_don_choi_tre",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_3",
+    "defId": "gt_don_den_duong",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_4",
+    "defId": "metal_tower",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_5",
+    "defId": "gt_don_kep_rac",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_6",
+    "defId": "gt_don_choi_tre",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_7",
+    "defId": "gt_don_voi_xit",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_8",
+    "defId": "metal_tower",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_9",
+    "defId": "gt_don_kep_rac",
+    "preferredBranch": "A"
+   },
+   {
+    "padId": "pad_10",
+    "defId": "gt_don_choi_tre",
+    "preferredBranch": "B"
+   },
+   {
+    "padId": "pad_11",
+    "defId": "gt_don_voi_xit",
+    "preferredBranch": "A"
+   }
+  ]
+ },
+ "shops": [
+  {
+   "hpMultiplier": 1.1,
+   "balance": {
+    "randomWinWithExpectedGear": 0.6458333333333334,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.65
+   },
+   "stage": {
+    "id": "street_cho_ben_thanh_t1",
+    "stageNumber": 11,
+    "name": "Sạp Lưu Niệm Tháp Đồng Hồ",
+    "subtitle": "Phố Chợ Bến Thành · tiệm 1/8: Sạp lưu niệm, mỹ phẩm, đồng hồ ở cửa Nam",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 328,
+       "y": 30
+      },
+      {
+       "x": 164,
+       "y": 289
+      },
+      {
+       "x": 103,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 198,
+      "y": 318
+     },
+     {
+      "id": "pad_2",
+      "x": 234,
+      "y": 258
+     },
+     {
+      "id": "pad_3",
+      "x": 186,
+      "y": 174
+     },
+     {
+      "id": "pad_4",
+      "x": 174,
+      "y": 390
+     },
+     {
+      "id": "pad_5",
+      "x": 66,
+      "y": 246
+     },
+     {
+      "id": "pad_6",
+      "x": 270,
+      "y": 198
+     },
+     {
+      "id": "pad_7",
+      "x": 150,
+      "y": 474
+     },
+     {
+      "id": "pad_8",
+      "x": 90,
+      "y": 174
+     },
+     {
+      "id": "pad_9",
+      "x": 138,
+      "y": 126
+     },
+     {
+      "id": "pad_10",
+      "x": 210,
+      "y": 114
+     },
+     {
+      "id": "pad_11",
+      "x": 42,
+      "y": 318
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Mứt",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Ruồi Sạp Tươi",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.26
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Nước Rỉ Sạp Đá & Ruồi Sạp Tươi",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 1,
+        "intervalSec": 2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.43
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.43
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Mứt & Nước Rỉ Sạp Đá",
+      "mainElements": [
+       "moc",
+       "thuy"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 1,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Ruồi Sạp Tươi & Kiến Bu Mứt & Nước Rỉ Sạp Đá",
+      "mainElements": [
+       "moc",
+       "thuy"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Nước Rỉ Sạp Đá & Ruồi Sạp Tươi & Kiến Bu Mứt",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Kiến Bu Mứt & Nước Rỉ Sạp Đá & Ruồi Sạp Tươi",
+      "mainElements": [
+       "moc",
+       "thuy"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "thuy"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_cho_ben_thanh_luu_niem"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_cho_ben_thanh_luu_niem",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "luu_niem",
+      "name": "Sạp Lưu Niệm Tháp Đồng Hồ",
+      "type": "Sạp lưu niệm, mỹ phẩm, đồng hồ ở cửa Nam",
+      "trait": "đông khách ghé nhất, xem nhiều mua ít",
+      "towerId": "gt_cho_ben_thanh_luu_niem"
+     },
+     {
+      "key": "vai",
+      "name": "Sạp Vải Bến Nghé",
+      "type": "Sạp vải, quần áo ở cửa Đông",
+      "trait": "cây vải xếp cao, kéo cắt vải",
+      "towerId": "gt_cho_ben_thanh_vai"
+     },
+     {
+      "key": "do_kho",
+      "name": "Sạp Đồ Khô Me Xanh",
+      "type": "Sạp đồ khô, mứt kẹo, đặc sản ở cửa Tây",
+      "trait": "mứt, khô, kẹo xếp đầy kệ",
+      "towerId": "gt_cho_ben_thanh_do_kho"
+     },
+     {
+      "key": "trai_cay",
+      "name": "Sạp Trái Cây Hoa Sữa",
+      "type": "Sạp tươi sống, trái cây ở cửa Bắc",
+      "trait": "trái cây theo mùa, rau tươi",
+      "towerId": "gt_cho_ben_thanh_trai_cay"
+     },
+     {
+      "key": "quay_an",
+      "name": "Quầy Ăn Giữa Chợ Xích Lô",
+      "type": "Khu ăn uống giữa chợ",
+      "trait": "cơm tấm, bún, hủ tiếu, chè",
+      "towerId": "gt_cho_ben_thanh_quay_an"
+     },
+     {
+      "key": "tiem_vang",
+      "name": "Tiệm Vàng Bến Sông",
+      "type": "Tiệm vàng kiêm đổi ngoại tệ",
+      "trait": "bảng tỷ giá nhìn từ ngoài đường",
+      "towerId": "gt_cho_ben_thanh_tiem_vang"
+     },
+     {
+      "key": "nuong_dem",
+      "name": "Quầy Nướng Phố Đêm",
+      "type": "Quầy nướng chợ đêm hông chợ",
+      "trait": "khói bếp nướng, bánh xèo, hải sản nướng",
+      "towerId": "gt_cho_ben_thanh_nuong_dem"
+     },
+     {
+      "key": "nuoc_dua",
+      "name": "Xe Nước Dừa Cửa Nam",
+      "type": "Xe trái cây, nước dừa lưu động trước chợ",
+      "trait": "dừa xiêm mát lạnh giữa trưa nắng",
+      "towerId": "gt_cho_ben_thanh_nuoc_dua"
+     }
+    ],
+    "streetId": "street_cho_ben_thanh",
+    "shopIndex": 1,
+    "mapStageId": "street_cho_ben_thanh",
+    "featuredTowerId": "gt_cho_ben_thanh_luu_niem",
+    "botPlan": [
+     {
+      "padId": "pad_4",
+      "defId": "gt_cho_ben_thanh_luu_niem",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_1",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_cho_ben_thanh_luu_niem",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_cho_ben_thanh_luu_niem",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_cho_ben_thanh_luu_niem",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.5,
+   "balance": {
+    "randomWinWithExpectedGear": 0.625,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.6071428571428572
+   },
+   "stage": {
+    "id": "street_cho_ben_thanh_t2",
+    "stageNumber": 12,
+    "name": "Sạp Vải Bến Nghé",
+    "subtitle": "Phố Chợ Bến Thành · tiệm 2/8: Sạp vải, quần áo ở cửa Đông",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 32,
+       "y": 465
+      },
+      {
+       "x": 127,
+       "y": 187
+      },
+      {
+       "x": 197,
+       "y": 236
+      },
+      {
+       "x": 162,
+       "y": 294
+      },
+      {
+       "x": 103,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 198,
+      "y": 318
+     },
+     {
+      "id": "pad_2",
+      "x": 234,
+      "y": 258
+     },
+     {
+      "id": "pad_3",
+      "x": 186,
+      "y": 174
+     },
+     {
+      "id": "pad_4",
+      "x": 174,
+      "y": 390
+     },
+     {
+      "id": "pad_5",
+      "x": 66,
+      "y": 246
+     },
+     {
+      "id": "pad_6",
+      "x": 270,
+      "y": 198
+     },
+     {
+      "id": "pad_7",
+      "x": 150,
+      "y": 474
+     },
+     {
+      "id": "pad_8",
+      "x": 90,
+      "y": 174
+     },
+     {
+      "id": "pad_9",
+      "x": 138,
+      "y": 126
+     },
+     {
+      "id": "pad_10",
+      "x": 210,
+      "y": 114
+     },
+     {
+      "id": "pad_11",
+      "x": 42,
+      "y": 318
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Mứt",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.5
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Vải Vụn",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.73
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Nước Rỉ Sạp Đá & Bụi Vải Vụn",
+      "mainElements": [
+       "thuy",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 1,
+        "intervalSec": 2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.95
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.95
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Mứt & Nước Rỉ Sạp Đá",
+      "mainElements": [
+       "moc",
+       "thuy"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.17
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 1,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.17
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Bụi Vải Vụn & Kiến Bu Mứt & Nước Rỉ Sạp Đá",
+      "mainElements": [
+       "tho",
+       "moc",
+       "thuy"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.55
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.55
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.55
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Nước Rỉ Sạp Đá & Bụi Vải Vụn & Kiến Bu Mứt",
+      "mainElements": [
+       "thuy",
+       "tho",
+       "moc"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Kiến Bu Mứt & Nước Rỉ Sạp Đá & Bụi Vải Vụn",
+      "mainElements": [
+       "moc",
+       "thuy",
+       "tho"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "tho",
+       "thuy"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_cho_ben_thanh_luu_niem",
+     "gt_cho_ben_thanh_vai"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_cho_ben_thanh_vai",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "luu_niem",
+      "name": "Sạp Lưu Niệm Tháp Đồng Hồ",
+      "type": "Sạp lưu niệm, mỹ phẩm, đồng hồ ở cửa Nam",
+      "trait": "đông khách ghé nhất, xem nhiều mua ít",
+      "towerId": "gt_cho_ben_thanh_luu_niem"
+     },
+     {
+      "key": "vai",
+      "name": "Sạp Vải Bến Nghé",
+      "type": "Sạp vải, quần áo ở cửa Đông",
+      "trait": "cây vải xếp cao, kéo cắt vải",
+      "towerId": "gt_cho_ben_thanh_vai"
+     },
+     {
+      "key": "do_kho",
+      "name": "Sạp Đồ Khô Me Xanh",
+      "type": "Sạp đồ khô, mứt kẹo, đặc sản ở cửa Tây",
+      "trait": "mứt, khô, kẹo xếp đầy kệ",
+      "towerId": "gt_cho_ben_thanh_do_kho"
+     },
+     {
+      "key": "trai_cay",
+      "name": "Sạp Trái Cây Hoa Sữa",
+      "type": "Sạp tươi sống, trái cây ở cửa Bắc",
+      "trait": "trái cây theo mùa, rau tươi",
+      "towerId": "gt_cho_ben_thanh_trai_cay"
+     },
+     {
+      "key": "quay_an",
+      "name": "Quầy Ăn Giữa Chợ Xích Lô",
+      "type": "Khu ăn uống giữa chợ",
+      "trait": "cơm tấm, bún, hủ tiếu, chè",
+      "towerId": "gt_cho_ben_thanh_quay_an"
+     },
+     {
+      "key": "tiem_vang",
+      "name": "Tiệm Vàng Bến Sông",
+      "type": "Tiệm vàng kiêm đổi ngoại tệ",
+      "trait": "bảng tỷ giá nhìn từ ngoài đường",
+      "towerId": "gt_cho_ben_thanh_tiem_vang"
+     },
+     {
+      "key": "nuong_dem",
+      "name": "Quầy Nướng Phố Đêm",
+      "type": "Quầy nướng chợ đêm hông chợ",
+      "trait": "khói bếp nướng, bánh xèo, hải sản nướng",
+      "towerId": "gt_cho_ben_thanh_nuong_dem"
+     },
+     {
+      "key": "nuoc_dua",
+      "name": "Xe Nước Dừa Cửa Nam",
+      "type": "Xe trái cây, nước dừa lưu động trước chợ",
+      "trait": "dừa xiêm mát lạnh giữa trưa nắng",
+      "towerId": "gt_cho_ben_thanh_nuoc_dua"
+     }
+    ],
+    "streetId": "street_cho_ben_thanh",
+    "shopIndex": 2,
+    "mapStageId": "street_cho_ben_thanh",
+    "featuredTowerId": "gt_cho_ben_thanh_vai",
+    "botPlan": [
+     {
+      "padId": "pad_3",
+      "defId": "gt_cho_ben_thanh_vai",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_1",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_cho_ben_thanh_vai",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_cho_ben_thanh_vai",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_cho_ben_thanh_vai",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 0.7,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4791666666666667,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.5642857142857143
+   },
+   "stage": {
+    "id": "street_cho_ben_thanh_t3",
+    "stageNumber": 13,
+    "name": "Sạp Đồ Khô Me Xanh",
+    "subtitle": "Phố Chợ Bến Thành · tiệm 3/8: Sạp đồ khô, mứt kẹo, đặc sản ở cửa Tây",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 328,
+       "y": 30
+      },
+      {
+       "x": 164,
+       "y": 289
+      },
+      {
+       "x": 103,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 198,
+      "y": 318
+     },
+     {
+      "id": "pad_2",
+      "x": 234,
+      "y": 258
+     },
+     {
+      "id": "pad_3",
+      "x": 186,
+      "y": 174
+     },
+     {
+      "id": "pad_4",
+      "x": 174,
+      "y": 390
+     },
+     {
+      "id": "pad_5",
+      "x": 66,
+      "y": 246
+     },
+     {
+      "id": "pad_6",
+      "x": 270,
+      "y": 198
+     },
+     {
+      "id": "pad_7",
+      "x": 150,
+      "y": 474
+     },
+     {
+      "id": "pad_8",
+      "x": 90,
+      "y": 174
+     },
+     {
+      "id": "pad_9",
+      "x": 138,
+      "y": 126
+     },
+     {
+      "id": "pad_10",
+      "x": 210,
+      "y": 114
+     },
+     {
+      "id": "pad_11",
+      "x": 42,
+      "y": 318
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Bụi Vải Vụn",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.7
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Than Nướng Bén Lửa",
+      "mainElements": [
+       "hoa"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.81
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Nước Rỉ Sạp Đá & Than Nướng Bén Lửa",
+      "mainElements": [
+       "thuy",
+       "hoa"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 1,
+        "intervalSec": 2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.91
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 0.91
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Bụi Vải Vụn & Nước Rỉ Sạp Đá",
+      "mainElements": [
+       "tho",
+       "thuy"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.01
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 1,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.01
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Than Nướng Bén Lửa & Bụi Vải Vụn & Nước Rỉ Sạp Đá",
+      "mainElements": [
+       "hoa",
+       "tho",
+       "thuy"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.19
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.19
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.19
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Nước Rỉ Sạp Đá & Than Nướng Bén Lửa & Bụi Vải Vụn",
+      "mainElements": [
+       "thuy",
+       "hoa",
+       "tho"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.4
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.4
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.4
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Bụi Vải Vụn & Nước Rỉ Sạp Đá & Than Nướng Bén Lửa",
+      "mainElements": [
+       "tho",
+       "thuy",
+       "hoa"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.68
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "tho",
+       "hoa",
+       "thuy"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.96
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.96
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.96
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_cho_ben_thanh_luu_niem",
+     "gt_cho_ben_thanh_vai",
+     "gt_cho_ben_thanh_do_kho"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_cho_ben_thanh_do_kho",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "luu_niem",
+      "name": "Sạp Lưu Niệm Tháp Đồng Hồ",
+      "type": "Sạp lưu niệm, mỹ phẩm, đồng hồ ở cửa Nam",
+      "trait": "đông khách ghé nhất, xem nhiều mua ít",
+      "towerId": "gt_cho_ben_thanh_luu_niem"
+     },
+     {
+      "key": "vai",
+      "name": "Sạp Vải Bến Nghé",
+      "type": "Sạp vải, quần áo ở cửa Đông",
+      "trait": "cây vải xếp cao, kéo cắt vải",
+      "towerId": "gt_cho_ben_thanh_vai"
+     },
+     {
+      "key": "do_kho",
+      "name": "Sạp Đồ Khô Me Xanh",
+      "type": "Sạp đồ khô, mứt kẹo, đặc sản ở cửa Tây",
+      "trait": "mứt, khô, kẹo xếp đầy kệ",
+      "towerId": "gt_cho_ben_thanh_do_kho"
+     },
+     {
+      "key": "trai_cay",
+      "name": "Sạp Trái Cây Hoa Sữa",
+      "type": "Sạp tươi sống, trái cây ở cửa Bắc",
+      "trait": "trái cây theo mùa, rau tươi",
+      "towerId": "gt_cho_ben_thanh_trai_cay"
+     },
+     {
+      "key": "quay_an",
+      "name": "Quầy Ăn Giữa Chợ Xích Lô",
+      "type": "Khu ăn uống giữa chợ",
+      "trait": "cơm tấm, bún, hủ tiếu, chè",
+      "towerId": "gt_cho_ben_thanh_quay_an"
+     },
+     {
+      "key": "tiem_vang",
+      "name": "Tiệm Vàng Bến Sông",
+      "type": "Tiệm vàng kiêm đổi ngoại tệ",
+      "trait": "bảng tỷ giá nhìn từ ngoài đường",
+      "towerId": "gt_cho_ben_thanh_tiem_vang"
+     },
+     {
+      "key": "nuong_dem",
+      "name": "Quầy Nướng Phố Đêm",
+      "type": "Quầy nướng chợ đêm hông chợ",
+      "trait": "khói bếp nướng, bánh xèo, hải sản nướng",
+      "towerId": "gt_cho_ben_thanh_nuong_dem"
+     },
+     {
+      "key": "nuoc_dua",
+      "name": "Xe Nước Dừa Cửa Nam",
+      "type": "Xe trái cây, nước dừa lưu động trước chợ",
+      "trait": "dừa xiêm mát lạnh giữa trưa nắng",
+      "towerId": "gt_cho_ben_thanh_nuoc_dua"
+     }
+    ],
+    "streetId": "street_cho_ben_thanh",
+    "shopIndex": 3,
+    "mapStageId": "street_cho_ben_thanh",
+    "featuredTowerId": "gt_cho_ben_thanh_do_kho",
+    "botPlan": [
+     {
+      "padId": "pad_4",
+      "defId": "gt_cho_ben_thanh_do_kho",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_1",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_cho_ben_thanh_do_kho",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_cho_ben_thanh_do_kho",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_cho_ben_thanh_do_kho",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 0.9,
+   "balance": {
+    "randomWinWithExpectedGear": 0.5833333333333334,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.5214285714285715
+   },
+   "stage": {
+    "id": "street_cho_ben_thanh_t4",
+    "stageNumber": 14,
+    "name": "Sạp Trái Cây Hoa Sữa",
+    "subtitle": "Phố Chợ Bến Thành · tiệm 4/8: Sạp tươi sống, trái cây ở cửa Bắc",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 32,
+       "y": 465
+      },
+      {
+       "x": 127,
+       "y": 187
+      },
+      {
+       "x": 197,
+       "y": 236
+      },
+      {
+       "x": 162,
+       "y": 294
+      },
+      {
+       "x": 103,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 198,
+      "y": 318
+     },
+     {
+      "id": "pad_2",
+      "x": 234,
+      "y": 258
+     },
+     {
+      "id": "pad_3",
+      "x": 186,
+      "y": 174
+     },
+     {
+      "id": "pad_4",
+      "x": 174,
+      "y": 390
+     },
+     {
+      "id": "pad_5",
+      "x": 66,
+      "y": 246
+     },
+     {
+      "id": "pad_6",
+      "x": 270,
+      "y": 198
+     },
+     {
+      "id": "pad_7",
+      "x": 150,
+      "y": 474
+     },
+     {
+      "id": "pad_8",
+      "x": 90,
+      "y": 174
+     },
+     {
+      "id": "pad_9",
+      "x": 138,
+      "y": 126
+     },
+     {
+      "id": "pad_10",
+      "x": 210,
+      "y": 114
+     },
+     {
+      "id": "pad_11",
+      "x": 42,
+      "y": 318
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Bụi Vải Vụn",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.9
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Ruồi Sạp Tươi",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.03
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Than Nướng Bén Lửa & Ruồi Sạp Tươi",
+      "mainElements": [
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.17
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.17
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Bụi Vải Vụn & Than Nướng Bén Lửa",
+      "mainElements": [
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.31
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.31
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Bụi Vải Vụn & Than Nướng Bén Lửa",
+      "mainElements": [
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Ruồi Sạp Tươi & Chuột Chợ",
+      "mainElements": [
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_1",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Than Nướng Bén Lửa & Bụi Vải Vụn",
+      "mainElements": [
+       "hoa",
+       "tho"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "tho",
+       "moc",
+       "hoa",
+       "kim"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_1",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_cho_ben_thanh_luu_niem",
+     "gt_cho_ben_thanh_vai",
+     "gt_cho_ben_thanh_do_kho",
+     "gt_cho_ben_thanh_trai_cay"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_cho_ben_thanh_trai_cay",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "luu_niem",
+      "name": "Sạp Lưu Niệm Tháp Đồng Hồ",
+      "type": "Sạp lưu niệm, mỹ phẩm, đồng hồ ở cửa Nam",
+      "trait": "đông khách ghé nhất, xem nhiều mua ít",
+      "towerId": "gt_cho_ben_thanh_luu_niem"
+     },
+     {
+      "key": "vai",
+      "name": "Sạp Vải Bến Nghé",
+      "type": "Sạp vải, quần áo ở cửa Đông",
+      "trait": "cây vải xếp cao, kéo cắt vải",
+      "towerId": "gt_cho_ben_thanh_vai"
+     },
+     {
+      "key": "do_kho",
+      "name": "Sạp Đồ Khô Me Xanh",
+      "type": "Sạp đồ khô, mứt kẹo, đặc sản ở cửa Tây",
+      "trait": "mứt, khô, kẹo xếp đầy kệ",
+      "towerId": "gt_cho_ben_thanh_do_kho"
+     },
+     {
+      "key": "trai_cay",
+      "name": "Sạp Trái Cây Hoa Sữa",
+      "type": "Sạp tươi sống, trái cây ở cửa Bắc",
+      "trait": "trái cây theo mùa, rau tươi",
+      "towerId": "gt_cho_ben_thanh_trai_cay"
+     },
+     {
+      "key": "quay_an",
+      "name": "Quầy Ăn Giữa Chợ Xích Lô",
+      "type": "Khu ăn uống giữa chợ",
+      "trait": "cơm tấm, bún, hủ tiếu, chè",
+      "towerId": "gt_cho_ben_thanh_quay_an"
+     },
+     {
+      "key": "tiem_vang",
+      "name": "Tiệm Vàng Bến Sông",
+      "type": "Tiệm vàng kiêm đổi ngoại tệ",
+      "trait": "bảng tỷ giá nhìn từ ngoài đường",
+      "towerId": "gt_cho_ben_thanh_tiem_vang"
+     },
+     {
+      "key": "nuong_dem",
+      "name": "Quầy Nướng Phố Đêm",
+      "type": "Quầy nướng chợ đêm hông chợ",
+      "trait": "khói bếp nướng, bánh xèo, hải sản nướng",
+      "towerId": "gt_cho_ben_thanh_nuong_dem"
+     },
+     {
+      "key": "nuoc_dua",
+      "name": "Xe Nước Dừa Cửa Nam",
+      "type": "Xe trái cây, nước dừa lưu động trước chợ",
+      "trait": "dừa xiêm mát lạnh giữa trưa nắng",
+      "towerId": "gt_cho_ben_thanh_nuoc_dua"
+     }
+    ],
+    "streetId": "street_cho_ben_thanh",
+    "shopIndex": 4,
+    "mapStageId": "street_cho_ben_thanh",
+    "featuredTowerId": "gt_cho_ben_thanh_trai_cay",
+    "botPlan": [
+     {
+      "padId": "pad_3",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_1",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_cho_ben_thanh_trai_cay",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.1,
+   "balance": {
+    "randomWinWithExpectedGear": 0.5,
+    "botWinRate": 1,
+    "botLivesAvg": 18.666666666666668,
+    "target": 0.4785714285714286
+   },
+   "stage": {
+    "id": "street_cho_ben_thanh_t5",
+    "stageNumber": 15,
+    "name": "Quầy Ăn Giữa Chợ Xích Lô",
+    "subtitle": "Phố Chợ Bến Thành · tiệm 5/8: Khu ăn uống giữa chợ",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 328,
+       "y": 30
+      },
+      {
+       "x": 164,
+       "y": 289
+      },
+      {
+       "x": 103,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 198,
+      "y": 318
+     },
+     {
+      "id": "pad_2",
+      "x": 234,
+      "y": 258
+     },
+     {
+      "id": "pad_3",
+      "x": 186,
+      "y": 174
+     },
+     {
+      "id": "pad_4",
+      "x": 174,
+      "y": 390
+     },
+     {
+      "id": "pad_5",
+      "x": 66,
+      "y": 246
+     },
+     {
+      "id": "pad_6",
+      "x": 270,
+      "y": 198
+     },
+     {
+      "id": "pad_7",
+      "x": 150,
+      "y": 474
+     },
+     {
+      "id": "pad_8",
+      "x": 90,
+      "y": 174
+     },
+     {
+      "id": "pad_9",
+      "x": 138,
+      "y": 126
+     },
+     {
+      "id": "pad_10",
+      "x": 210,
+      "y": 114
+     },
+     {
+      "id": "pad_11",
+      "x": 42,
+      "y": 318
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Mứt",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Ruồi Sạp Tươi",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.26
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Than Nướng Bén Lửa & Ruồi Sạp Tươi",
+      "mainElements": [
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.43
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.43
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Mứt & Than Nướng Bén Lửa",
+      "mainElements": [
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Kiến Bu Mứt & Than Nướng Bén Lửa",
+      "mainElements": [
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Ruồi Sạp Tươi & Chuột Chợ",
+      "mainElements": [
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_1",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Than Nướng Bén Lửa & Kiến Bu Mứt",
+      "mainElements": [
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "hoa",
+       "kim"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_1",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_cho_ben_thanh_luu_niem",
+     "gt_cho_ben_thanh_vai",
+     "gt_cho_ben_thanh_do_kho",
+     "gt_cho_ben_thanh_trai_cay",
+     "gt_cho_ben_thanh_quay_an"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_cho_ben_thanh_quay_an",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "luu_niem",
+      "name": "Sạp Lưu Niệm Tháp Đồng Hồ",
+      "type": "Sạp lưu niệm, mỹ phẩm, đồng hồ ở cửa Nam",
+      "trait": "đông khách ghé nhất, xem nhiều mua ít",
+      "towerId": "gt_cho_ben_thanh_luu_niem"
+     },
+     {
+      "key": "vai",
+      "name": "Sạp Vải Bến Nghé",
+      "type": "Sạp vải, quần áo ở cửa Đông",
+      "trait": "cây vải xếp cao, kéo cắt vải",
+      "towerId": "gt_cho_ben_thanh_vai"
+     },
+     {
+      "key": "do_kho",
+      "name": "Sạp Đồ Khô Me Xanh",
+      "type": "Sạp đồ khô, mứt kẹo, đặc sản ở cửa Tây",
+      "trait": "mứt, khô, kẹo xếp đầy kệ",
+      "towerId": "gt_cho_ben_thanh_do_kho"
+     },
+     {
+      "key": "trai_cay",
+      "name": "Sạp Trái Cây Hoa Sữa",
+      "type": "Sạp tươi sống, trái cây ở cửa Bắc",
+      "trait": "trái cây theo mùa, rau tươi",
+      "towerId": "gt_cho_ben_thanh_trai_cay"
+     },
+     {
+      "key": "quay_an",
+      "name": "Quầy Ăn Giữa Chợ Xích Lô",
+      "type": "Khu ăn uống giữa chợ",
+      "trait": "cơm tấm, bún, hủ tiếu, chè",
+      "towerId": "gt_cho_ben_thanh_quay_an"
+     },
+     {
+      "key": "tiem_vang",
+      "name": "Tiệm Vàng Bến Sông",
+      "type": "Tiệm vàng kiêm đổi ngoại tệ",
+      "trait": "bảng tỷ giá nhìn từ ngoài đường",
+      "towerId": "gt_cho_ben_thanh_tiem_vang"
+     },
+     {
+      "key": "nuong_dem",
+      "name": "Quầy Nướng Phố Đêm",
+      "type": "Quầy nướng chợ đêm hông chợ",
+      "trait": "khói bếp nướng, bánh xèo, hải sản nướng",
+      "towerId": "gt_cho_ben_thanh_nuong_dem"
+     },
+     {
+      "key": "nuoc_dua",
+      "name": "Xe Nước Dừa Cửa Nam",
+      "type": "Xe trái cây, nước dừa lưu động trước chợ",
+      "trait": "dừa xiêm mát lạnh giữa trưa nắng",
+      "towerId": "gt_cho_ben_thanh_nuoc_dua"
+     }
+    ],
+    "streetId": "street_cho_ben_thanh",
+    "shopIndex": 5,
+    "mapStageId": "street_cho_ben_thanh",
+    "featuredTowerId": "gt_cho_ben_thanh_quay_an",
+    "botPlan": [
+     {
+      "padId": "pad_4",
+      "defId": "gt_cho_ben_thanh_quay_an",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_1",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_cho_ben_thanh_quay_an",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_cho_ben_thanh_quay_an",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_cho_ben_thanh_quay_an",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.4,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4166666666666667,
+    "botWinRate": 1,
+    "botLivesAvg": 18,
+    "target": 0.4357142857142857
+   },
+   "stage": {
+    "id": "street_cho_ben_thanh_t6",
+    "stageNumber": 16,
+    "name": "Tiệm Vàng Bến Sông",
+    "subtitle": "Phố Chợ Bến Thành · tiệm 6/8: Tiệm vàng kiêm đổi ngoại tệ",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 32,
+       "y": 465
+      },
+      {
+       "x": 127,
+       "y": 187
+      },
+      {
+       "x": 197,
+       "y": 236
+      },
+      {
+       "x": 162,
+       "y": 294
+      },
+      {
+       "x": 103,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 198,
+      "y": 318
+     },
+     {
+      "id": "pad_2",
+      "x": 234,
+      "y": 258
+     },
+     {
+      "id": "pad_3",
+      "x": 186,
+      "y": 174
+     },
+     {
+      "id": "pad_4",
+      "x": 174,
+      "y": 390
+     },
+     {
+      "id": "pad_5",
+      "x": 66,
+      "y": 246
+     },
+     {
+      "id": "pad_6",
+      "x": 270,
+      "y": 198
+     },
+     {
+      "id": "pad_7",
+      "x": 150,
+      "y": 474
+     },
+     {
+      "id": "pad_8",
+      "x": 90,
+      "y": 174
+     },
+     {
+      "id": "pad_9",
+      "x": 138,
+      "y": 126
+     },
+     {
+      "id": "pad_10",
+      "x": 210,
+      "y": 114
+     },
+     {
+      "id": "pad_11",
+      "x": 42,
+      "y": 318
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Mứt",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.4
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Ruồi Sạp Tươi",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.61
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Chuột Chợ & Ruồi Sạp Tươi",
+      "mainElements": [
+       "kim",
+       "moc"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_1",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.82
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.82
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Mứt & Chuột Chợ",
+      "mainElements": [
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.03
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_1",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.03
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Kiến Bu Mứt & Chuột Chợ",
+      "mainElements": [
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.38
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_1",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.38
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Ruồi Sạp Tươi & Nước Rỉ Sạp Đá",
+      "mainElements": [
+       "moc",
+       "thuy"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Chuột Chợ & Kiến Bu Mứt",
+      "mainElements": [
+       "kim",
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_1",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.36
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.36
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.92
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.92
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_1",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.92
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.92
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_cho_ben_thanh_luu_niem",
+     "gt_cho_ben_thanh_vai",
+     "gt_cho_ben_thanh_do_kho",
+     "gt_cho_ben_thanh_trai_cay",
+     "gt_cho_ben_thanh_quay_an",
+     "gt_cho_ben_thanh_tiem_vang"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_cho_ben_thanh_tiem_vang",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "luu_niem",
+      "name": "Sạp Lưu Niệm Tháp Đồng Hồ",
+      "type": "Sạp lưu niệm, mỹ phẩm, đồng hồ ở cửa Nam",
+      "trait": "đông khách ghé nhất, xem nhiều mua ít",
+      "towerId": "gt_cho_ben_thanh_luu_niem"
+     },
+     {
+      "key": "vai",
+      "name": "Sạp Vải Bến Nghé",
+      "type": "Sạp vải, quần áo ở cửa Đông",
+      "trait": "cây vải xếp cao, kéo cắt vải",
+      "towerId": "gt_cho_ben_thanh_vai"
+     },
+     {
+      "key": "do_kho",
+      "name": "Sạp Đồ Khô Me Xanh",
+      "type": "Sạp đồ khô, mứt kẹo, đặc sản ở cửa Tây",
+      "trait": "mứt, khô, kẹo xếp đầy kệ",
+      "towerId": "gt_cho_ben_thanh_do_kho"
+     },
+     {
+      "key": "trai_cay",
+      "name": "Sạp Trái Cây Hoa Sữa",
+      "type": "Sạp tươi sống, trái cây ở cửa Bắc",
+      "trait": "trái cây theo mùa, rau tươi",
+      "towerId": "gt_cho_ben_thanh_trai_cay"
+     },
+     {
+      "key": "quay_an",
+      "name": "Quầy Ăn Giữa Chợ Xích Lô",
+      "type": "Khu ăn uống giữa chợ",
+      "trait": "cơm tấm, bún, hủ tiếu, chè",
+      "towerId": "gt_cho_ben_thanh_quay_an"
+     },
+     {
+      "key": "tiem_vang",
+      "name": "Tiệm Vàng Bến Sông",
+      "type": "Tiệm vàng kiêm đổi ngoại tệ",
+      "trait": "bảng tỷ giá nhìn từ ngoài đường",
+      "towerId": "gt_cho_ben_thanh_tiem_vang"
+     },
+     {
+      "key": "nuong_dem",
+      "name": "Quầy Nướng Phố Đêm",
+      "type": "Quầy nướng chợ đêm hông chợ",
+      "trait": "khói bếp nướng, bánh xèo, hải sản nướng",
+      "towerId": "gt_cho_ben_thanh_nuong_dem"
+     },
+     {
+      "key": "nuoc_dua",
+      "name": "Xe Nước Dừa Cửa Nam",
+      "type": "Xe trái cây, nước dừa lưu động trước chợ",
+      "trait": "dừa xiêm mát lạnh giữa trưa nắng",
+      "towerId": "gt_cho_ben_thanh_nuoc_dua"
+     }
+    ],
+    "streetId": "street_cho_ben_thanh",
+    "shopIndex": 6,
+    "mapStageId": "street_cho_ben_thanh",
+    "featuredTowerId": "gt_cho_ben_thanh_tiem_vang",
+    "botPlan": [
+     {
+      "padId": "pad_3",
+      "defId": "gt_cho_ben_thanh_tiem_vang",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_1",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_cho_ben_thanh_tiem_vang",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_cho_ben_thanh_tiem_vang",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_cho_ben_thanh_tiem_vang",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 0.9,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4166666666666667,
+    "botWinRate": 1,
+    "botLivesAvg": 18.333333333333332,
+    "target": 0.3928571428571429
+   },
+   "stage": {
+    "id": "street_cho_ben_thanh_t7",
+    "stageNumber": 17,
+    "name": "Quầy Nướng Phố Đêm",
+    "subtitle": "Phố Chợ Bến Thành · tiệm 7/8: Quầy nướng chợ đêm hông chợ",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 328,
+       "y": 30
+      },
+      {
+       "x": 164,
+       "y": 289
+      },
+      {
+       "x": 103,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 198,
+      "y": 318
+     },
+     {
+      "id": "pad_2",
+      "x": 234,
+      "y": 258
+     },
+     {
+      "id": "pad_3",
+      "x": 186,
+      "y": 174
+     },
+     {
+      "id": "pad_4",
+      "x": 174,
+      "y": 390
+     },
+     {
+      "id": "pad_5",
+      "x": 66,
+      "y": 246
+     },
+     {
+      "id": "pad_6",
+      "x": 270,
+      "y": 198
+     },
+     {
+      "id": "pad_7",
+      "x": 150,
+      "y": 474
+     },
+     {
+      "id": "pad_8",
+      "x": 90,
+      "y": 174
+     },
+     {
+      "id": "pad_9",
+      "x": 138,
+      "y": 126
+     },
+     {
+      "id": "pad_10",
+      "x": 210,
+      "y": 114
+     },
+     {
+      "id": "pad_11",
+      "x": 42,
+      "y": 318
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Mứt",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.9
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Vải Vụn",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.03
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Ruồi Sạp Tươi & Bụi Vải Vụn",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.17
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.17
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Mứt & Ruồi Sạp Tươi",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.31
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.31
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Kiến Bu Mứt & Ruồi Sạp Tươi",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Kiến Bu Mứt & Ruồi Sạp Tươi & Nước Rỉ Sạp Đá",
+      "mainElements": [
+       "moc",
+       "thuy"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Bụi Vải Vụn & Chuột Chợ & Kiến Bu Mứt",
+      "mainElements": [
+       "tho",
+       "kim",
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_1",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "tho",
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_2",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_1",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_cho_ben_thanh_luu_niem",
+     "gt_cho_ben_thanh_vai",
+     "gt_cho_ben_thanh_do_kho",
+     "gt_cho_ben_thanh_trai_cay",
+     "gt_cho_ben_thanh_quay_an",
+     "gt_cho_ben_thanh_tiem_vang",
+     "gt_cho_ben_thanh_nuong_dem"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_cho_ben_thanh_nuong_dem",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "luu_niem",
+      "name": "Sạp Lưu Niệm Tháp Đồng Hồ",
+      "type": "Sạp lưu niệm, mỹ phẩm, đồng hồ ở cửa Nam",
+      "trait": "đông khách ghé nhất, xem nhiều mua ít",
+      "towerId": "gt_cho_ben_thanh_luu_niem"
+     },
+     {
+      "key": "vai",
+      "name": "Sạp Vải Bến Nghé",
+      "type": "Sạp vải, quần áo ở cửa Đông",
+      "trait": "cây vải xếp cao, kéo cắt vải",
+      "towerId": "gt_cho_ben_thanh_vai"
+     },
+     {
+      "key": "do_kho",
+      "name": "Sạp Đồ Khô Me Xanh",
+      "type": "Sạp đồ khô, mứt kẹo, đặc sản ở cửa Tây",
+      "trait": "mứt, khô, kẹo xếp đầy kệ",
+      "towerId": "gt_cho_ben_thanh_do_kho"
+     },
+     {
+      "key": "trai_cay",
+      "name": "Sạp Trái Cây Hoa Sữa",
+      "type": "Sạp tươi sống, trái cây ở cửa Bắc",
+      "trait": "trái cây theo mùa, rau tươi",
+      "towerId": "gt_cho_ben_thanh_trai_cay"
+     },
+     {
+      "key": "quay_an",
+      "name": "Quầy Ăn Giữa Chợ Xích Lô",
+      "type": "Khu ăn uống giữa chợ",
+      "trait": "cơm tấm, bún, hủ tiếu, chè",
+      "towerId": "gt_cho_ben_thanh_quay_an"
+     },
+     {
+      "key": "tiem_vang",
+      "name": "Tiệm Vàng Bến Sông",
+      "type": "Tiệm vàng kiêm đổi ngoại tệ",
+      "trait": "bảng tỷ giá nhìn từ ngoài đường",
+      "towerId": "gt_cho_ben_thanh_tiem_vang"
+     },
+     {
+      "key": "nuong_dem",
+      "name": "Quầy Nướng Phố Đêm",
+      "type": "Quầy nướng chợ đêm hông chợ",
+      "trait": "khói bếp nướng, bánh xèo, hải sản nướng",
+      "towerId": "gt_cho_ben_thanh_nuong_dem"
+     },
+     {
+      "key": "nuoc_dua",
+      "name": "Xe Nước Dừa Cửa Nam",
+      "type": "Xe trái cây, nước dừa lưu động trước chợ",
+      "trait": "dừa xiêm mát lạnh giữa trưa nắng",
+      "towerId": "gt_cho_ben_thanh_nuoc_dua"
+     }
+    ],
+    "streetId": "street_cho_ben_thanh",
+    "shopIndex": 7,
+    "mapStageId": "street_cho_ben_thanh",
+    "featuredTowerId": "gt_cho_ben_thanh_nuong_dem",
+    "botPlan": [
+     {
+      "padId": "pad_4",
+      "defId": "gt_cho_ben_thanh_nuong_dem",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_1",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_cho_ben_thanh_nuong_dem",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_cho_ben_thanh_nuong_dem",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_cho_ben_thanh_nuong_dem",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.1,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4166666666666667,
+    "botWinRate": 1,
+    "botLivesAvg": 20,
+    "target": 0.35000000000000003
+   },
+   "stage": {
+    "id": "street_cho_ben_thanh_t8",
+    "stageNumber": 18,
+    "name": "Xe Nước Dừa Cửa Nam",
+    "subtitle": "Phố Chợ Bến Thành · tiệm 8/8: Xe trái cây, nước dừa lưu động trước chợ",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 32,
+       "y": 465
+      },
+      {
+       "x": 127,
+       "y": 187
+      },
+      {
+       "x": 197,
+       "y": 236
+      },
+      {
+       "x": 162,
+       "y": 294
+      },
+      {
+       "x": 103,
+       "y": 490
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 198,
+      "y": 318
+     },
+     {
+      "id": "pad_2",
+      "x": 234,
+      "y": 258
+     },
+     {
+      "id": "pad_3",
+      "x": 186,
+      "y": 174
+     },
+     {
+      "id": "pad_4",
+      "x": 174,
+      "y": 390
+     },
+     {
+      "id": "pad_5",
+      "x": 66,
+      "y": 246
+     },
+     {
+      "id": "pad_6",
+      "x": 270,
+      "y": 198
+     },
+     {
+      "id": "pad_7",
+      "x": 150,
+      "y": 474
+     },
+     {
+      "id": "pad_8",
+      "x": 90,
+      "y": 174
+     },
+     {
+      "id": "pad_9",
+      "x": 138,
+      "y": 126
+     },
+     {
+      "id": "pad_10",
+      "x": 210,
+      "y": 114
+     },
+     {
+      "id": "pad_11",
+      "x": 42,
+      "y": 318
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Mứt",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Vải Vụn",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.26
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Than Nướng Bén Lửa & Bụi Vải Vụn",
+      "mainElements": [
+       "hoa",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.43
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.43
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Mứt & Than Nướng Bén Lửa",
+      "mainElements": [
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Kiến Bu Mứt & Than Nướng Bén Lửa",
+      "mainElements": [
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Kiến Bu Mứt & Than Nướng Bén Lửa & Nước Rỉ Sạp Đá",
+      "mainElements": [
+       "moc",
+       "hoa",
+       "thuy"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Bụi Vải Vụn & Chuột Chợ & Kiến Bu Mứt",
+      "mainElements": [
+       "tho",
+       "kim",
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_1",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "tho",
+       "hoa",
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_cho_ben_thanh_3",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_5",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_6",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_1",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_cho_ben_thanh_4",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "wood_tower",
+     "metal_tower",
+     "water_tower",
+     "fire_tower",
+     "earth_tower",
+     "bk_swatter",
+     "bk_jar",
+     "bk_fan",
+     "bk_oven",
+     "bk_fridge",
+     "fl_can",
+     "fl_shears",
+     "fl_lime",
+     "fl_heater",
+     "fl_vent",
+     "gt_cho_ben_thanh_luu_niem",
+     "gt_cho_ben_thanh_vai",
+     "gt_cho_ben_thanh_do_kho",
+     "gt_cho_ben_thanh_trai_cay",
+     "gt_cho_ben_thanh_quay_an",
+     "gt_cho_ben_thanh_tiem_vang",
+     "gt_cho_ben_thanh_nuong_dem",
+     "gt_cho_ben_thanh_nuoc_dua"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_cho_ben_thanh_nuoc_dua",
+     "metal_tower",
+     "fl_vent",
+     "bk_fridge",
+     "earth_tower",
+     "fire_tower"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "luu_niem",
+      "name": "Sạp Lưu Niệm Tháp Đồng Hồ",
+      "type": "Sạp lưu niệm, mỹ phẩm, đồng hồ ở cửa Nam",
+      "trait": "đông khách ghé nhất, xem nhiều mua ít",
+      "towerId": "gt_cho_ben_thanh_luu_niem"
+     },
+     {
+      "key": "vai",
+      "name": "Sạp Vải Bến Nghé",
+      "type": "Sạp vải, quần áo ở cửa Đông",
+      "trait": "cây vải xếp cao, kéo cắt vải",
+      "towerId": "gt_cho_ben_thanh_vai"
+     },
+     {
+      "key": "do_kho",
+      "name": "Sạp Đồ Khô Me Xanh",
+      "type": "Sạp đồ khô, mứt kẹo, đặc sản ở cửa Tây",
+      "trait": "mứt, khô, kẹo xếp đầy kệ",
+      "towerId": "gt_cho_ben_thanh_do_kho"
+     },
+     {
+      "key": "trai_cay",
+      "name": "Sạp Trái Cây Hoa Sữa",
+      "type": "Sạp tươi sống, trái cây ở cửa Bắc",
+      "trait": "trái cây theo mùa, rau tươi",
+      "towerId": "gt_cho_ben_thanh_trai_cay"
+     },
+     {
+      "key": "quay_an",
+      "name": "Quầy Ăn Giữa Chợ Xích Lô",
+      "type": "Khu ăn uống giữa chợ",
+      "trait": "cơm tấm, bún, hủ tiếu, chè",
+      "towerId": "gt_cho_ben_thanh_quay_an"
+     },
+     {
+      "key": "tiem_vang",
+      "name": "Tiệm Vàng Bến Sông",
+      "type": "Tiệm vàng kiêm đổi ngoại tệ",
+      "trait": "bảng tỷ giá nhìn từ ngoài đường",
+      "towerId": "gt_cho_ben_thanh_tiem_vang"
+     },
+     {
+      "key": "nuong_dem",
+      "name": "Quầy Nướng Phố Đêm",
+      "type": "Quầy nướng chợ đêm hông chợ",
+      "trait": "khói bếp nướng, bánh xèo, hải sản nướng",
+      "towerId": "gt_cho_ben_thanh_nuong_dem"
+     },
+     {
+      "key": "nuoc_dua",
+      "name": "Xe Nước Dừa Cửa Nam",
+      "type": "Xe trái cây, nước dừa lưu động trước chợ",
+      "trait": "dừa xiêm mát lạnh giữa trưa nắng",
+      "towerId": "gt_cho_ben_thanh_nuoc_dua"
+     }
+    ],
+    "streetId": "street_cho_ben_thanh",
+    "shopIndex": 8,
+    "mapStageId": "street_cho_ben_thanh",
+    "featuredTowerId": "gt_cho_ben_thanh_nuoc_dua",
+    "botPlan": [
+     {
+      "padId": "pad_3",
+      "defId": "gt_cho_ben_thanh_nuoc_dua",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_1",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_cho_ben_thanh_nuoc_dua",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_cho_ben_thanh_nuoc_dua",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "fire_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_cho_ben_thanh_nuoc_dua",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  }
+ ],
+ "towers": {
+  "gt_cho_ben_thanh_luu_niem": {
+   "id": "gt_cho_ben_thanh_luu_niem",
+   "art": "luu_niem",
+   "element": "kim",
+   "role": "single_far",
+   "roleLabel": "Ném nhanh 1 con tầm xa",
+   "ultimateName": "Giờ Vàng Cửa Nam",
+   "tier1": {
+    "name": "Móc Khoá Lưu Niệm",
+    "cost": 55,
+    "damage": 19,
+    "range": 122,
+    "cooldownSec": 0.74,
+    "description": "Sạp Lưu Niệm Tháp Đồng Hồ: đông khách ghé nhất, xem nhiều mua ít. Khắc Mộc: Kim loại sáng bóng gõ bay bụi bẩn."
+   },
+   "tier2": {
+    "name": "Đồng Hồ Treo Tường",
+    "cost": 70,
+    "damage": 32,
+    "range": 134,
+    "cooldownSec": 0.62,
+    "description": "Đồng Hồ Treo Tường: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Tượng Tháp Đồng Hồ",
+    "cost": 105,
+    "damage": 46,
+    "range": 144,
+    "cooldownSec": 0.48,
+    "pierceCount": 2,
+    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+   },
+   "tier3B": {
+    "name": "Hộp Quà Sơn Mài",
+    "cost": 105,
+    "damage": 42,
+    "range": 140,
+    "cooldownSec": 0.54,
+    "burnDps": 18,
+    "burnDurationSec": 3,
+    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+   }
+  },
+  "gt_cho_ben_thanh_vai": {
+   "id": "gt_cho_ben_thanh_vai",
+   "art": "tiem_may",
+   "element": "moc",
+   "role": "slow_aura",
+   "roleLabel": "Phun sương làm chậm",
+   "ultimateName": "Trải Vải Chắn Lối",
+   "tier1": {
+    "name": "Cuộn Vải Bông",
+    "cost": 60,
+    "damage": 15,
+    "range": 102,
+    "cooldownSec": 0.92,
+    "splashRadius": 50,
+    "slowPercent": 0.34,
+    "slowDurationSec": 2.2,
+    "description": "Sạp Vải Bến Nghé: cây vải xếp cao, kéo cắt vải. Khắc Thổ: Vải bông chắn bụi đất."
+   },
+   "tier2": {
+    "name": "Kệ Cây Vải",
+    "cost": 75,
+    "damage": 26,
+    "range": 110,
+    "cooldownSec": 0.84,
+    "splashRadius": 58,
+    "slowPercent": 0.45,
+    "slowDurationSec": 2.6,
+    "description": "Kệ Cây Vải: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Thước Gỗ Đo Vải",
+    "cost": 105,
+    "damage": 44,
+    "range": 118,
+    "cooldownSec": 0.78,
+    "splashRadius": 64,
+    "slowPercent": 0.54,
+    "slowDurationSec": 2.8,
+    "stunDurationSec": 1,
+    "description": "Làm chậm 54% và mỗi phát xịt thứ 3 phủ bọt mát giữ chân quái 1.0s."
+   },
+   "tier3B": {
+    "name": "Kéo Cắt Vải Lớn",
+    "cost": 105,
+    "damage": 38,
+    "range": 116,
+    "cooldownSec": 0.8,
+    "splashRadius": 72,
+    "slowPercent": 0.48,
+    "slowDurationSec": 2.7,
+    "knockbackDist": 14,
+    "description": "Luồng phun xoáy rộng làm chậm 48% và đẩy lùi nhẹ bầy quái."
+   }
+  },
+  "gt_cho_ben_thanh_do_kho": {
+   "id": "gt_cho_ben_thanh_do_kho",
+   "art": "tap_hoa",
+   "element": "tho",
+   "role": "heavy_slow",
+   "roleLabel": "Đạp mạnh, chậm, xuyên vỏ",
+   "ultimateName": "Chất Hàng Một Lèo",
+   "tier1": {
+    "name": "Bao Đồ Khô",
+    "cost": 70,
+    "damage": 54,
+    "range": 100,
+    "cooldownSec": 1.32,
+    "description": "Sạp Đồ Khô Me Xanh: mứt, khô, kẹo xếp đầy kệ. Khắc Thủy: Đồ khô chất đống hút ẩm nước rỉ."
+   },
+   "tier2": {
+    "name": "Hũ Mứt Đầy",
+    "cost": 85,
+    "damage": 92,
+    "range": 108,
+    "cooldownSec": 1.18,
+    "description": "Hũ Mứt Đầy: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Thúng Khô Mực",
+    "cost": 120,
+    "damage": 152,
+    "range": 115,
+    "cooldownSec": 1.08,
+    "stunDurationSec": 0.6,
+    "description": "Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày."
+   },
+   "tier3B": {
+    "name": "Kệ Đặc Sản Chất Cao",
+    "cost": 115,
+    "damage": 115,
+    "range": 122,
+    "cooldownSec": 1,
+    "pierceCount": 3,
+    "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
+   }
+  },
+  "gt_cho_ben_thanh_trai_cay": {
+   "id": "gt_cho_ben_thanh_trai_cay",
+   "art": "trai_cay",
+   "element": "moc",
+   "role": "support_buff",
+   "roleLabel": "Hỗ trợ sấy khỏe & xua chuột",
+   "ultimateName": "Tươi Rói Cả Chợ",
+   "tier1": {
+    "name": "Rổ Trái Cây",
+    "cost": 55,
+    "damage": 13,
+    "range": 108,
+    "cooldownSec": 1.25,
+    "buffDamagePct": 0.18,
+    "buffSpeedPct": 0.14,
+    "buffRangePct": 0.06,
+    "cleanseDisrupt": true,
+    "description": "Sạp Trái Cây Hoa Sữa: trái cây theo mùa, rau tươi. Khắc Thổ: Trái cây tươi bồi bổ cả chợ."
+   },
+   "tier2": {
+    "name": "Sạp Trái Cây Tầng",
+    "cost": 70,
+    "damage": 22,
+    "range": 120,
+    "cooldownSec": 1.1,
+    "buffDamagePct": 0.26,
+    "buffSpeedPct": 0.2,
+    "buffRangePct": 0.1,
+    "cleanseDisrupt": true,
+    "description": "Sạp Trái Cây Tầng: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Giỏ Quà Trái Cây",
+    "cost": 95,
+    "damage": 36,
+    "range": 132,
+    "cooldownSec": 1,
+    "buffDamagePct": 0.3,
+    "buffSpeedPct": 0.22,
+    "buffRangePct": 0.12,
+    "cleanseDisrupt": true,
+    "bonusKillReward": 2,
+    "description": "Bảo hộ món quanh máy không bị chuột gặm đứng im & thưởng +2 xu mỗi quái dọn được."
+   },
+   "tier3B": {
+    "name": "Mâm Ngũ Quả",
+    "cost": 100,
+    "damage": 42,
+    "range": 136,
+    "cooldownSec": 0.95,
+    "buffDamagePct": 0.4,
+    "buffSpeedPct": 0.3,
+    "buffRangePct": 0.16,
+    "cleanseDisrupt": true,
+    "description": "Cộng hưởng nhiệt mạnh: tăng 40% sức, 30% tốc đánh và 16% tầm cho món cạnh bên."
+   }
+  },
+  "gt_cho_ben_thanh_quay_an": {
+   "id": "gt_cho_ben_thanh_quay_an",
+   "art": "quan_pho",
+   "element": "hoa",
+   "role": "aoe_splash",
+   "roleLabel": "Quăng gói hút ẩm đánh lan",
+   "ultimateName": "Sôi Sùng Sục",
+   "tier1": {
+    "name": "Nồi Nước Lèo",
+    "cost": 65,
+    "damage": 27,
+    "range": 102,
+    "cooldownSec": 1.15,
+    "splashRadius": 54,
+    "description": "Quầy Ăn Giữa Chợ Xích Lô: cơm tấm, bún, hủ tiếu, chè. Khắc Kim: Hơi nóng nồi nước lèo xua chuột chợ."
+   },
+   "tier2": {
+    "name": "Nồi Bún Lớn",
+    "cost": 80,
+    "damage": 46,
+    "range": 112,
+    "cooldownSec": 1.04,
+    "splashRadius": 64,
+    "description": "Nồi Bún Lớn: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Bếp Than Liu Riu",
+    "cost": 115,
+    "damage": 66,
+    "range": 118,
+    "cooldownSec": 0.96,
+    "splashRadius": 72,
+    "burnDps": 22,
+    "burnDurationSec": 3,
+    "description": "Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s."
+   },
+   "tier3B": {
+    "name": "Nồi Hầm Xương Đêm",
+    "cost": 115,
+    "damage": 84,
+    "range": 120,
+    "cooldownSec": 0.94,
+    "splashRadius": 80,
+    "description": "Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao."
+   }
+  },
+  "gt_cho_ben_thanh_tiem_vang": {
+   "id": "gt_cho_ben_thanh_tiem_vang",
+   "art": "tiem_vang",
+   "element": "kim",
+   "role": "heavy_slow",
+   "roleLabel": "Đạp mạnh, chậm, xuyên vỏ",
+   "ultimateName": "Khoá Két Chặn Đường",
+   "tier1": {
+    "name": "Cân Tiểu Ly",
+    "cost": 70,
+    "damage": 54,
+    "range": 100,
+    "cooldownSec": 1.32,
+    "description": "Tiệm Vàng Bến Sông: bảng tỷ giá nhìn từ ngoài đường. Khắc Mộc: Két sắt nặng chặn lối, cắt đứt mối mọt."
+   },
+   "tier2": {
+    "name": "Két Sắt Nhỏ",
+    "cost": 85,
+    "damage": 92,
+    "range": 108,
+    "cooldownSec": 1.18,
+    "description": "Két Sắt Nhỏ: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Tủ Kính Vàng",
+    "cost": 120,
+    "damage": 152,
+    "range": 115,
+    "cooldownSec": 1.08,
+    "stunDurationSec": 0.6,
+    "description": "Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày."
+   },
+   "tier3B": {
+    "name": "Két Sắt Lớn",
+    "cost": 115,
+    "damage": 115,
+    "range": 122,
+    "cooldownSec": 1,
+    "pierceCount": 3,
+    "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
+   }
+  },
+  "gt_cho_ben_thanh_nuong_dem": {
+   "id": "gt_cho_ben_thanh_nuong_dem",
+   "art": "quay_nuong",
+   "element": "hoa",
+   "role": "single_far",
+   "roleLabel": "Ném nhanh 1 con tầm xa",
+   "ultimateName": "Lửa Hồng Phố Đêm",
+   "tier1": {
+    "name": "Vỉ Nướng Than",
+    "cost": 55,
+    "damage": 19,
+    "range": 122,
+    "cooldownSec": 0.74,
+    "description": "Quầy Nướng Phố Đêm: khói bếp nướng, bánh xèo, hải sản nướng. Khắc Kim: Lửa nướng hun lùi ruồi, kiến."
+   },
+   "tier2": {
+    "name": "Bếp Nướng Đôi",
+    "cost": 70,
+    "damage": 32,
+    "range": 134,
+    "cooldownSec": 0.62,
+    "description": "Bếp Nướng Đôi: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Xiên Nướng Lửa Hồng",
+    "cost": 105,
+    "damage": 46,
+    "range": 144,
+    "cooldownSec": 0.48,
+    "pierceCount": 2,
+    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+   },
+   "tier3B": {
+    "name": "Lò Nướng Cả Dãy",
+    "cost": 105,
+    "damage": 42,
+    "range": 140,
+    "cooldownSec": 0.54,
+    "burnDps": 18,
+    "burnDurationSec": 3,
+    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+   }
+  },
+  "gt_cho_ben_thanh_nuoc_dua": {
+   "id": "gt_cho_ben_thanh_nuoc_dua",
+   "art": "nuoc_dua",
+   "element": "thuy",
+   "role": "aoe_splash",
+   "roleLabel": "Quăng gói hút ẩm đánh lan",
+   "ultimateName": "Mát Lạnh Giữa Trưa",
+   "tier1": {
+    "name": "Trái Dừa Xiêm",
+    "cost": 65,
+    "damage": 27,
+    "range": 102,
+    "cooldownSec": 1.15,
+    "splashRadius": 54,
+    "description": "Xe Nước Dừa Cửa Nam: dừa xiêm mát lạnh giữa trưa nắng. Khắc Hỏa: Nước mát dập than nướng bén lửa."
+   },
+   "tier2": {
+    "name": "Thùng Đá Lạnh",
+    "cost": 80,
+    "damage": 46,
+    "range": 112,
+    "cooldownSec": 1.04,
+    "splashRadius": 64,
+    "description": "Thùng Đá Lạnh: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Xe Dừa Đầy Ắp",
+    "cost": 115,
+    "damage": 66,
+    "range": 118,
+    "cooldownSec": 0.96,
+    "splashRadius": 72,
+    "burnDps": 22,
+    "burnDurationSec": 3,
+    "description": "Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s."
+   },
+   "tier3B": {
+    "name": "Ly Nước Mía Lạnh",
+    "cost": 115,
+    "damage": 84,
+    "range": 120,
+    "cooldownSec": 0.94,
+    "splashRadius": 80,
+    "description": "Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao."
+   }
+  },
+  "gt_don_kep_rac": {
+   "id": "gt_don_kep_rac",
+   "art": "don_kep_rac",
+   "element": "kim",
+   "role": "single_far",
+   "roleLabel": "Ném nhanh 1 con tầm xa",
+   "ultimateName": "Gom Sạch Một Lượt",
+   "tier1": {
+    "name": "Kẹp Gắp Rác",
+    "cost": 55,
+    "damage": 19,
+    "range": 122,
+    "cooldownSec": 0.74,
+    "description": "Kẹp Gắp Rác: kẹp thép gắp gọn rác bay, tờ rơi, khăn giấy. Khắc Mộc: Kẹp thép gắp gọn rác bay, tờ rơi, khăn giấy."
+   },
+   "tier2": {
+    "name": "Kẹp Gắp Cán Dài",
+    "cost": 70,
+    "damage": 32,
+    "range": 134,
+    "cooldownSec": 0.62,
+    "description": "Kẹp Gắp Cán Dài: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Xe Rác Đẩy Tay",
+    "cost": 105,
+    "damage": 46,
+    "range": 144,
+    "cooldownSec": 0.48,
+    "pierceCount": 2,
+    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+   },
+   "tier3B": {
+    "name": "Xe Ép Rác Mini",
+    "cost": 105,
+    "damage": 42,
+    "range": 140,
+    "cooldownSec": 0.54,
+    "burnDps": 18,
+    "burnDurationSec": 3,
+    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+   }
+  },
+  "gt_don_choi_tre": {
+   "id": "gt_don_choi_tre",
+   "art": "don_choi_tre",
+   "element": "moc",
+   "role": "aoe_splash",
+   "roleLabel": "Quăng gói hút ẩm đánh lan",
+   "ultimateName": "Quét Một Đường Dài",
+   "tier1": {
+    "name": "Chổi Tre",
+    "cost": 65,
+    "damage": 27,
+    "range": 102,
+    "cooldownSec": 1.15,
+    "splashRadius": 54,
+    "description": "Chổi Tre: chổi tre quét bay bụi đường, xà bần. Khắc Thổ: Chổi tre quét bay bụi đường, xà bần."
+   },
+   "tier2": {
+    "name": "Chổi Tre Cán Dài",
+    "cost": 80,
+    "damage": 46,
+    "range": 112,
+    "cooldownSec": 1.04,
+    "splashRadius": 64,
+    "description": "Chổi Tre Cán Dài: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Chổi Quét Đôi",
+    "cost": 115,
+    "damage": 66,
+    "range": 118,
+    "cooldownSec": 0.96,
+    "splashRadius": 72,
+    "burnDps": 22,
+    "burnDurationSec": 3,
+    "description": "Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s."
+   },
+   "tier3B": {
+    "name": "Hàng Cây Chắn Bụi",
+    "cost": 115,
+    "damage": 84,
+    "range": 120,
+    "cooldownSec": 0.94,
+    "splashRadius": 80,
+    "description": "Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao."
+   }
+  },
+  "gt_don_voi_xit": {
+   "id": "gt_don_voi_xit",
+   "art": "don_voi_xit",
+   "element": "thuy",
+   "role": "slow_aura",
+   "roleLabel": "Phun sương làm chậm",
+   "ultimateName": "Rửa Trôi Cả Dốc",
+   "tier1": {
+    "name": "Vòi Xịt Rửa Đường",
+    "cost": 60,
+    "damage": 15,
+    "range": 102,
+    "cooldownSec": 0.92,
+    "splashRadius": 50,
+    "slowPercent": 0.34,
+    "slowDurationSec": 2.2,
+    "description": "Vòi Xịt Rửa Đường: nước dập khói nướng, tàn thuốc, khói xe. Khắc Hỏa: Nước dập khói nướng, tàn thuốc, khói xe."
+   },
+   "tier2": {
+    "name": "Vòi Xịt Áp Lực",
+    "cost": 75,
+    "damage": 26,
+    "range": 110,
+    "cooldownSec": 0.84,
+    "splashRadius": 58,
+    "slowPercent": 0.45,
+    "slowDurationSec": 2.6,
+    "description": "Vòi Xịt Áp Lực: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Xe Phun Nước",
+    "cost": 105,
+    "damage": 44,
+    "range": 118,
+    "cooldownSec": 0.78,
+    "splashRadius": 64,
+    "slowPercent": 0.54,
+    "slowDurationSec": 2.8,
+    "stunDurationSec": 1,
+    "description": "Làm chậm 54% và mỗi phát xịt thứ 3 phủ bọt mát giữ chân quái 1.0s."
+   },
+   "tier3B": {
+    "name": "Bồn Nước Mát",
+    "cost": 105,
+    "damage": 38,
+    "range": 116,
+    "cooldownSec": 0.8,
+    "splashRadius": 72,
+    "slowPercent": 0.48,
+    "slowDurationSec": 2.7,
+    "knockbackDist": 14,
+    "description": "Luồng phun xoáy rộng làm chậm 48% và đẩy lùi nhẹ bầy quái."
+   }
+  },
+  "gt_don_den_duong": {
+   "id": "gt_don_den_duong",
+   "art": "don_den_duong",
+   "element": "hoa",
+   "role": "support_buff",
+   "roleLabel": "Hỗ trợ sấy khỏe & xua chuột",
+   "ultimateName": "Sáng Bừng Cả Phố",
+   "tier1": {
+    "name": "Đèn Pin Tuần Tra",
+    "cost": 55,
+    "damage": 13,
+    "range": 108,
+    "cooldownSec": 1.25,
+    "buffDamagePct": 0.18,
+    "buffSpeedPct": 0.14,
+    "buffRangePct": 0.06,
+    "cleanseDisrupt": true,
+    "description": "Đèn Pin Tuần Tra: đèn sáng soi rõ đinh ốc, nắp chai rơi; cả phố làm việc nhanh hơn. Khắc Kim: Đèn sáng soi rõ đinh ốc, nắp chai rơi; cả phố làm việc nhanh hơn."
+   },
+   "tier2": {
+    "name": "Đèn Đường Vàng",
+    "cost": 70,
+    "damage": 22,
+    "range": 120,
+    "cooldownSec": 1.1,
+    "buffDamagePct": 0.26,
+    "buffSpeedPct": 0.2,
+    "buffRangePct": 0.1,
+    "cleanseDisrupt": true,
+    "description": "Đèn Đường Vàng: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Đèn Pha Công Trình",
+    "cost": 95,
+    "damage": 36,
+    "range": 132,
+    "cooldownSec": 1,
+    "buffDamagePct": 0.3,
+    "buffSpeedPct": 0.22,
+    "buffRangePct": 0.12,
+    "cleanseDisrupt": true,
+    "bonusKillReward": 2,
+    "description": "Bảo hộ món quanh máy không bị chuột gặm đứng im & thưởng +2 xu mỗi quái dọn được."
+   },
+   "tier3B": {
+    "name": "Cột Đèn Năng Lượng",
+    "cost": 100,
+    "damage": 42,
+    "range": 136,
+    "cooldownSec": 0.95,
+    "buffDamagePct": 0.4,
+    "buffSpeedPct": 0.3,
+    "buffRangePct": 0.16,
+    "cleanseDisrupt": true,
+    "description": "Cộng hưởng nhiệt mạnh: tăng 40% sức, 30% tốc đánh và 16% tầm cho món cạnh bên."
+   }
+  },
+  "gt_don_bao_cat": {
+   "id": "gt_don_bao_cat",
+   "art": "don_bao_cat",
+   "element": "tho",
+   "role": "heavy_slow",
+   "roleLabel": "Đạp mạnh, chậm, xuyên vỏ",
+   "ultimateName": "Chặn Dòng Nước Tràn",
+   "tier1": {
+    "name": "Bao Cát",
+    "cost": 70,
+    "damage": 54,
+    "range": 100,
+    "cooldownSec": 1.32,
+    "description": "Bao Cát: bao cát chặn nước cống, vũng nước mưa. Khắc Thủy: Bao cát chặn nước cống, vũng nước mưa."
+   },
+   "tier2": {
+    "name": "Bao Cát Chồng Đôi",
+    "cost": 85,
+    "damage": 92,
+    "range": 108,
+    "cooldownSec": 1.18,
+    "description": "Bao Cát Chồng Đôi: mạnh hơn, xa hơn."
+   },
+   "tier3A": {
+    "name": "Rãnh Thoát Nước",
+    "cost": 120,
+    "damage": 152,
+    "range": 115,
+    "cooldownSec": 1.08,
+    "stunDurationSec": 0.6,
+    "description": "Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày."
+   },
+   "tier3B": {
+    "name": "Bờ Kè Đá",
+    "cost": 115,
+    "damage": 115,
+    "range": 122,
+    "cooldownSec": 1,
+    "pierceCount": 3,
+    "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
+   }
+  }
+ },
+ "enemies": {
+  "ge_cho_ben_thanh_1": {
+   "id": "ge_cho_ben_thanh_1",
+   "name": "Chuột Chợ",
+   "element": "kim",
+   "trait": "disruptor",
+   "traitLabel": "Làm món gần nó đứng im",
+   "maxHp": 280,
+   "speed": 36,
+   "armor": 0.15,
+   "reward": 15,
+   "lifeCost": 2,
+   "radius": 13,
+   "disruptRadius": 96,
+   "disruptIntervalSec": 4.2,
+   "disruptDurationSec": 2.5,
+   "art": "chuot_cong"
+  },
+  "ge_cho_ben_thanh_2": {
+   "id": "ge_cho_ben_thanh_2",
+   "name": "Ruồi Sạp Tươi",
+   "element": "moc",
+   "trait": "flying",
+   "traitLabel": "Bay (không bị làm chậm)",
+   "maxHp": 165,
+   "speed": 50,
+   "armor": 0.12,
+   "reward": 10,
+   "lifeCost": 1,
+   "radius": 12,
+   "flying": true,
+   "art": "ruoi_bep"
+  },
+  "ge_cho_ben_thanh_3": {
+   "id": "ge_cho_ben_thanh_3",
+   "name": "Kiến Bu Mứt",
+   "element": "moc",
+   "trait": "fast",
+   "traitLabel": "Nhanh, thành đàn",
+   "maxHp": 96,
+   "speed": 63,
+   "armor": 0.1,
+   "reward": 7,
+   "lifeCost": 1,
+   "radius": 11,
+   "art": "kien_duong"
+  },
+  "ge_cho_ben_thanh_4": {
+   "id": "ge_cho_ben_thanh_4",
+   "name": "Nước Rỉ Sạp Đá",
+   "element": "thuy",
+   "trait": "healer",
+   "traitLabel": "Hồi máu cho quái gần",
+   "maxHp": 260,
+   "speed": 37,
+   "armor": 0.12,
+   "reward": 14,
+   "lifeCost": 2,
+   "radius": 13,
+   "healRadius": 90,
+   "healIntervalSec": 2.6,
+   "healAmount": 42,
+   "art": "vung_nuoc"
+  },
+  "ge_cho_ben_thanh_5": {
+   "id": "ge_cho_ben_thanh_5",
+   "name": "Bụi Vải Vụn",
+   "element": "tho",
+   "trait": "tank",
+   "traitLabel": "Máu trâu, đi chậm",
+   "maxHp": 335,
+   "speed": 32,
+   "armor": 0.32,
+   "reward": 13,
+   "lifeCost": 2,
+   "radius": 15,
+   "art": "bui_bot"
+  },
+  "ge_cho_ben_thanh_6_nho": {
+   "id": "ge_cho_ben_thanh_6_nho",
+   "name": "Than Nướng Bén Lửa Nhỏ",
+   "element": "hoa",
+   "trait": "mini",
+   "traitLabel": "Tản ra chạy nhanh",
+   "maxHp": 64,
+   "speed": 58,
+   "armor": 0.04,
+   "reward": 2,
+   "lifeCost": 1,
+   "radius": 8,
+   "art": "khoi_nuong"
+  },
+  "ge_cho_ben_thanh_6": {
+   "id": "ge_cho_ben_thanh_6",
+   "name": "Than Nướng Bén Lửa",
+   "element": "hoa",
+   "trait": "splitter",
+   "traitLabel": "Vỡ ra 2 con nhỏ",
+   "maxHp": 185,
+   "speed": 41,
+   "armor": 0.12,
+   "reward": 9,
+   "lifeCost": 2,
+   "radius": 14,
+   "splitChildId": "ge_cho_ben_thanh_6_nho",
+   "splitCount": 2,
+   "art": "khoi_nuong"
+  },
+  "ge_cho_ben_thanh_p1": {
+   "id": "ge_cho_ben_thanh_p1",
+   "name": "Chai Nhựa Bỏ Lại",
+   "element": "kim",
+   "trait": "fast",
+   "traitLabel": "Nhanh, thành đàn",
+   "maxHp": 96,
+   "speed": 63,
+   "armor": 0.1,
+   "reward": 7,
+   "lifeCost": 1,
+   "radius": 11,
+   "art": "lon_nuoc"
+  },
+  "ge_cho_ben_thanh_p2": {
+   "id": "ge_cho_ben_thanh_p2",
+   "name": "Rào Công Trường",
+   "element": "tho",
+   "trait": "tank",
+   "traitLabel": "Máu trâu, đi chậm",
+   "maxHp": 335,
+   "speed": 32,
+   "armor": 0.32,
+   "reward": 13,
+   "lifeCost": 2,
+   "radius": 15,
+   "art": "xa_ban"
+  },
+  "ge_cho_ben_thanh_p3": {
+   "id": "ge_cho_ben_thanh_p3",
+   "name": "Túi Nilon Bay",
+   "element": "moc",
+   "trait": "flying",
+   "traitLabel": "Bay (không bị làm chậm)",
+   "maxHp": 165,
+   "speed": 50,
+   "armor": 0.12,
+   "reward": 10,
+   "lifeCost": 1,
+   "radius": 12,
+   "flying": true,
+   "art": "khan_giay"
+  },
+  "ge_cho_ben_thanh_p4_nho": {
+   "id": "ge_cho_ben_thanh_p4_nho",
+   "name": "Khói Nướng Chợ Đêm Nhỏ",
+   "element": "hoa",
+   "trait": "mini",
+   "traitLabel": "Tản ra chạy nhanh",
+   "maxHp": 64,
+   "speed": 58,
+   "armor": 0.04,
+   "reward": 2,
+   "lifeCost": 1,
+   "radius": 8,
+   "art": "khoi_nuong"
+  },
+  "ge_cho_ben_thanh_p4": {
+   "id": "ge_cho_ben_thanh_p4",
+   "name": "Khói Nướng Chợ Đêm",
+   "element": "hoa",
+   "trait": "splitter",
+   "traitLabel": "Vỡ ra 2 con nhỏ",
+   "maxHp": 185,
+   "speed": 41,
+   "armor": 0.12,
+   "reward": 9,
+   "lifeCost": 2,
+   "radius": 14,
+   "splitChildId": "ge_cho_ben_thanh_p4_nho",
+   "splitCount": 2,
+   "art": "khoi_nuong"
+  },
+  "ge_cho_ben_thanh_p5": {
+   "id": "ge_cho_ben_thanh_p5",
+   "name": "Nước Ngập Lê Lợi",
+   "element": "thuy",
+   "trait": "disruptor",
+   "traitLabel": "Làm món gần nó đứng im",
+   "maxHp": 280,
+   "speed": 36,
+   "armor": 0.15,
+   "reward": 15,
+   "lifeCost": 2,
+   "radius": 13,
+   "disruptRadius": 96,
+   "disruptIntervalSec": 4.2,
+   "disruptDurationSec": 2.5,
+   "art": "nuoc_cong"
+  },
+  "ge_cho_ben_thanh_p6": {
+   "id": "ge_cho_ben_thanh_p6",
+   "name": "Hộp Xốp Nhét Bồn Cây",
+   "element": "moc",
+   "trait": "healer",
+   "traitLabel": "Hồi máu cho quái gần",
+   "maxHp": 260,
+   "speed": 37,
+   "armor": 0.12,
+   "reward": 14,
+   "lifeCost": 2,
+   "radius": 13,
+   "healRadius": 90,
+   "healIntervalSec": 2.6,
+   "healAmount": 42,
+   "art": "bai_rac"
+  },
+  "ge_cho_ben_thanh_trum": {
+   "id": "ge_cho_ben_thanh_trum",
+   "name": "Mưa Ngập Bến Thành",
+   "element": "thuy",
+   "trait": "boss",
+   "traitLabel": "Trùm phố: đổi hành theo máu, gọi quân của phố",
+   "maxHp": 5200,
+   "speed": 20,
+   "armor": 0.32,
+   "reward": 200,
+   "lifeCost": 15,
+   "radius": 22,
+   "disruptRadius": 110,
+   "disruptIntervalSec": 6.5,
+   "disruptDurationSec": 2.2,
+   "shieldIntervalSec": 9,
+   "shieldDurationSec": 2.6,
+   "shieldReductionPct": 0.5,
+   "phaseElements": [
+    "thuy",
+    "tho",
+    "moc",
+    "kim",
+    "hoa"
+   ],
+   "summonIds": [
+    "ge_cho_ben_thanh_p5",
+    "ge_cho_ben_thanh_p2",
+    "ge_cho_ben_thanh_p3",
+    "ge_cho_ben_thanh_p1",
+    "ge_cho_ben_thanh_p4"
+   ],
+   "summonIntervalSec": 7,
+   "summonCount": 2,
+   "art": "trum_mua_ngap"
+  }
+ }
+}
