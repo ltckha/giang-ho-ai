@@ -332,3 +332,7 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Bản đồ Đà Lạt: chạm phố → danh sách tiệm (món chính, sao, khoá) + màn phố cuối danh sách, thanh "đã giữ x/n". Thắng tiệm → nút "Tiệm tiếp theo" / "Ra phố đánh trùm".
 - Xe: src/core/vehicles.ts, chọn xe ở mục phố thật, nút chiêu xe trong màn, màn kết quả báo nhận xe mới. Hình xe tạm bằng biểu tượng, chờ Spark đợt 8.
 - `npm test` 72/72, e2e 17/17.
+
+## 23/11/2026 — Spark đợt 6: quái ngoài phố + 3 trùm (Claude)
+- 17 quái đường phố (vỏ lon, túi rác, khăn giấy, khói nướng, nước rửa chén, bãi rác, nắp chai, bụi đường, tàn thuốc, vũng nước, bã cà phê, đinh ốc, xà bần, tờ rơi, khói xe, nước cống, rác ven đường) + 3 trùm (Núi Rác Chợ Đêm, Cơn Mưa Ngập Dốc, Lốc Bụi Công Trình). Đạt nét. Kho Spark: 15 loại món, 42 quái.
+- Lưu ý: tải song song từ Drive có thể trả về lệch thứ tự → ghép theo tên file, không theo thứ tự tải.
