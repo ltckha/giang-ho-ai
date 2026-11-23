@@ -804,5 +804,70 @@ test.describe('Gọn Tiệm, Sạch Phố — Kiểm thử trình duyệt (Đi�
     await page.waitForTimeout(200);
     await page.screenshot({ path: 'docs/screenshots/c3_01_street_flower_locked.png' });
   });
+
+  test('Hướng dẫn chơi lần đầu: người mới vào Màn 1 thấy hướng dẫn 5 bước, đi qua thao tác thật, bấm Bỏ qua thì không thấy lại & xem lại được trong menu ⏸', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    await page.getByTestId('btn-start-stage-1').click();
+
+    // 1. Người mới vào Màn 1 thấy bong bóng hướng dẫn Bước 1/5 + avatar chủ tiệm + mũi tên
+    const tutOverlay = page.getByTestId('td-tutorial-overlay');
+    await expect(tutOverlay).toBeVisible();
+    await expect(tutOverlay).toHaveAttribute('data-tut-step', 'tap_pad');
+    await expect(page.getByTestId('td-tutorial-step-count')).toHaveText('Bước 1/5');
+    await expect(page.getByTestId('td-tutorial-avatar')).toBeVisible();
+    await expect(page.getByTestId('td-tutorial-arrow')).toBeVisible();
+    await page.waitForTimeout(200);
+    await page.screenshot({ path: 'docs/screenshots/c3_02_tut_step1_pad.png' });
+
+    // 2. Chạm ô pad_1 -> tự sang Bước 2/5 (chỉ vào Dép Tông)
+    const pad1Screen = await page.evaluate(() => {
+      const s = (
+        window as unknown as {
+          __TD_SCENE__?: { toScreen: (x: number, y: number) => { x: number; y: number } };
+        }
+      ).__TD_SCENE__;
+      return s ? s.toScreen(112, 76) : { x: 120, y: 140 };
+    });
+    await page.locator('canvas').click({ position: { x: Math.round(pad1Screen.x), y: Math.round(pad1Screen.y) } });
+    await expect(tutOverlay).toHaveAttribute('data-tut-step', 'pick_tower');
+    await expect(page.getByTestId('td-tutorial-step-count')).toHaveText('Bước 2/5');
+    await page.waitForTimeout(180);
+    await page.screenshot({ path: 'docs/screenshots/c3_02_tut_step2_build.png' });
+
+    // 3. Đặt Dép Tông -> tự sang Bước 3/5 (nhìn đợt sắp tới) -> bấm Tiếp sang Bước 4/5 (vòng Ngũ Hành)
+    await page.getByTestId('build-wood_tower').click();
+    await expect(tutOverlay).toHaveAttribute('data-tut-step', 'see_wave');
+    await expect(page.getByTestId('td-tutorial-step-count')).toHaveText('Bước 3/5');
+    await page.getByTestId('btn-tut-next').click();
+
+    await expect(tutOverlay).toHaveAttribute('data-tut-step', 'counter');
+    await expect(page.getByTestId('td-tutorial-element-guide')).toBeVisible();
+    await page.waitForTimeout(180);
+    await page.screenshot({ path: 'docs/screenshots/c3_02_tut_step4_counter.png' });
+
+    // 4. Bấm Bỏ qua -> ẩn hướng dẫn và đánh dấu markTutorialDone(); vào lại Màn 1 không thấy nữa
+    await page.getByTestId('btn-tut-skip').click();
+    await expect(tutOverlay).toBeHidden();
+
+    await page.goto('/');
+    await page.getByTestId('btn-start-stage-1').click();
+    await expect(page.getByTestId('td-essence-val')).toHaveText('160');
+    await expect(page.getByTestId('td-tutorial-overlay')).toBeHidden();
+
+    // 5. Mở menu tạm dừng (⏸) -> bấm "Xem lại hướng dẫn" -> hướng dẫn hiện lại từ Bước 1/5
+    await page.getByTestId('btn-pause-toggle').click();
+    const pauseMenu = page.getByTestId('td-pause-menu');
+    await expect(pauseMenu).toBeVisible();
+    await expect(page.getByTestId('btn-replay-tutorial')).toBeVisible();
+    await page.getByTestId('btn-replay-tutorial').click();
+
+    await expect(pauseMenu).toHaveCount(0);
+    await expect(page.getByTestId('td-tutorial-overlay')).toBeVisible();
+    await expect(page.getByTestId('td-tutorial-overlay')).toHaveAttribute('data-tut-step', 'tap_pad');
+  });
 });
+
 

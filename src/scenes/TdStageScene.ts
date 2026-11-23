@@ -1,7 +1,8 @@
 import Phaser from 'phaser';
 import { ELEMENT_INFO } from '../core/elements';
-import { getGearBonus, grantStageDrops, loadTdSave, saveTdProgress } from '../core/saveSystem';
+import { getGearBonus, grantStageDrops, loadTdSave, markTutorialDone, saveTdProgress, shouldShowTutorial } from '../core/saveSystem';
 import { RARITY_LABEL, statText, type GearItem } from '../core/equipment';
+import { TutorialController } from '../core/tutorial';
 import { ULTIMATE_COOLDOWN_SEC, ULTIMATE_MIN_STAGE, ULTIMATE_NAMES, ULTIMATE_ROLE_TEXT } from '../core/ultimates';
 import { runBotTurn } from '../core/tdBot';
 import {
@@ -40,6 +41,7 @@ import { getInitialReduceMotion, saveReduceMotion } from '../game/preferences';
 import { SCENE_KEYS } from '../game/sceneKeys';
 import { sound } from '../game/sound';
 import { getSynergyExplanation } from '../game/synergyText';
+import { TutorialOverlayView } from '../game/tutorialOverlay';
 
 const LOGICAL_WIDTH = 360;
 const LOGICAL_HEIGHT = 480;
@@ -189,8 +191,11 @@ export class TdStageScene extends Phaser.Scene {
   private hudRoot: HTMLDivElement | null = null;
   private ultButtonsRoot: HTMLDivElement | null = null;
   private modalRoot: HTMLDivElement | null = null;
+  private pauseMenuRoot: HTMLDivElement | null = null;
   private synergyTooltipRoot: HTMLDivElement | null = null;
   private bossBannerRoot: HTMLDivElement | null = null;
+  private tutorial: TutorialController | null = null;
+  private tutorialView: TutorialOverlayView | null = null;
   private bossBannerTimer = 0;
   private activeSynergyLinks = new Set<string>();
   private resultShown = false;
@@ -222,7 +227,7 @@ export class TdStageScene extends Phaser.Scene {
     super({ key: SCENE_KEYS.TD_STAGE });
   }
 
-  public create(data?: { stageId?: 'stage_1' | 'stage_2' | 'stage_3' }): void {
+  public create(data?: { stageId?: 'stage_1' | 'stage_2' | 'stage_3'; forceTutorial?: boolean }): void {
     // Chọn màn: từ nút ở màn hình đầu, hoặc thêm ?stage=2 / ?stage=3 vào link (để thử / quay video)
     const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
     let stageId: 'stage_1' | 'stage_2' | 'stage_3' = data?.stageId ?? 'stage_1';
@@ -246,6 +251,7 @@ export class TdStageScene extends Phaser.Scene {
     this.bossBannerTimer = 0;
     this.resultShown = false;
     this.lastUpcomingWaveNum = -999;
+    this.tutorial = null;
 
     this.floatingUltEls.clear();
     this.towerUltMaxCd.clear();
@@ -296,11 +302,17 @@ export class TdStageScene extends Phaser.Scene {
     this.initRainDrops();
     this.mountHud();
 
+    // Hướng dẫn chơi lần đầu (Màn 1, dùng TutorialController ở src/core/tutorial.ts)
+    if (stageId === 'stage_1' && !isVideoMode && (data?.forceTutorial || shouldShowTutorial())) {
+      this.startTutorial();
+    }
+
     this.scale.on('resize', () => {
       this.computeViewportTransform();
       this.layoutMapImage();
       this.syncAllSpritePositions();
       this.refreshHud();
+      this.syncTutorialOverlay();
     });
 
     this.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
@@ -552,7 +564,12 @@ export class TdStageScene extends Phaser.Scene {
     const rawDt = Math.min(0.1, deltaMs / 1000);
     this.animTimeSec += rawDt;
 
-    if (!this.paused && this.engine.status === 'playing') {
+    if (this.tutorial?.isActive()) {
+      this.tutorial.sync(this.engine);
+    }
+
+    const tutorialPaused = this.tutorial?.shouldPause() ?? false;
+    if (!this.paused && !tutorialPaused && this.engine.status === 'playing') {
       const simDt = rawDt * this.speedMultiplier;
       this.tickSimulation(simDt);
     }
@@ -579,10 +596,14 @@ export class TdStageScene extends Phaser.Scene {
     this.drawFxAndWeather(rawDt);
     this.refreshHud();
     this.refreshUltimateButtons();
+    this.syncTutorialOverlay();
 
     if (this.engine.status !== 'playing' && !this.resultShown) {
       this.resultShown = true;
       this.closeSynergyTooltip();
+      this.closePauseMenu();
+      this.tutorial?.skip();
+      this.syncTutorialOverlay();
       if (this.bossBannerRoot) this.bossBannerRoot.innerHTML = '';
       if (this.engine.status === 'won' && !this.reduceMotion) {
         for (let i = 0; i < 3; i += 1) this.spawnVictoryFirework();
@@ -2603,6 +2624,14 @@ export class TdStageScene extends Phaser.Scene {
     container.appendChild(modalHolder);
     this.modalRoot = modalHolder;
 
+    this.tutorialView = new TutorialOverlayView(container);
+
+    const pauseHolder = document.createElement('div');
+    pauseHolder.className = 'td-pause-holder';
+    pauseHolder.id = 'td-pause-holder';
+    container.appendChild(pauseHolder);
+    this.pauseMenuRoot = pauseHolder;
+
     hud.querySelector<HTMLButtonElement>('#btn-speed-toggle')?.addEventListener('click', () => {
       sound.playUiClick();
       this.speedMultiplier = this.speedMultiplier === 1 ? 2 : 1;
@@ -2623,6 +2652,11 @@ export class TdStageScene extends Phaser.Scene {
     hud.querySelector<HTMLButtonElement>('#btn-pause-toggle')?.addEventListener('click', () => {
       sound.playUiClick();
       this.paused = !this.paused;
+      if (this.paused) {
+        this.showPauseMenu();
+      } else {
+        this.closePauseMenu();
+      }
       this.refreshHud();
     });
 
@@ -2631,8 +2665,10 @@ export class TdStageScene extends Phaser.Scene {
       const isEarly = this.engine.currentWaveIndex >= 0;
       const res = this.engine.startNextWave(isEarly);
       if (res.started) {
+        this.tutorial?.notify('wave_started');
         this.processCombatEvents(res.events);
         this.refreshHud();
+        this.syncTutorialOverlay();
       }
     });
 
@@ -2894,9 +2930,13 @@ export class TdStageScene extends Phaser.Scene {
         </div>
       `;
 
+      this.tutorial?.notify('pad_opened');
+      this.syncTutorialOverlay();
+
       this.modalRoot.querySelector('#btn-close-sheet')?.addEventListener('click', () => {
         this.selectedPadId = null;
         this.closePadModal();
+        this.syncTutorialOverlay();
       });
 
       this.modalRoot.querySelectorAll<HTMLButtonElement>('.td-build-option').forEach((btn) => {
@@ -2907,7 +2947,9 @@ export class TdStageScene extends Phaser.Scene {
             sound.playBuildOrUpgrade();
             this.selectedPadId = null;
             this.closePadModal();
+            this.tutorial?.sync(this.engine);
             this.refreshHud();
+            this.syncTutorialOverlay();
           }
         };
       });
@@ -3290,6 +3332,135 @@ export class TdStageScene extends Phaser.Scene {
     });
   }
 
+  private startTutorial(): void {
+    this.closePauseMenu();
+    this.paused = false;
+    this.selectedPadId = null;
+    this.closePadModal();
+    this.closeSynergyTooltip();
+    this.tutorial = new TutorialController(() => {
+      markTutorialDone();
+    });
+    this.refreshHud();
+    this.syncTutorialOverlay();
+  }
+
+  private syncTutorialOverlay(): void {
+    if (!this.tutorialView) return;
+    const container = document.getElementById('game-container');
+    if (!container) return;
+    if (!this.tutorial) {
+      this.tutorialView.sync({
+        container,
+        controller: {
+          isActive: () => false,
+          current: () => null,
+          stepNumber: () => 0,
+          totalSteps: () => 0,
+          shouldPause: () => false,
+          skip: () => {},
+          sync: () => {},
+          notify: () => {},
+        } as unknown as TutorialController,
+        reduceMotion: this.reduceMotion,
+        getPadScreenPos: () => null,
+        getElementIconUrl: () => '',
+        onNext: () => {},
+        onSkip: () => {},
+      });
+      return;
+    }
+
+    this.tutorialView.sync({
+      container,
+      controller: this.tutorial,
+      reduceMotion: this.reduceMotion,
+      getPadScreenPos: (padId: string) => {
+        const pad = this.engine.stage.pads.find((p) => p.id === padId);
+        return pad ? this.toScreen(pad.x, pad.y) : null;
+      },
+      getElementIconUrl: (el: ElementType) => getAtlasFrameDataUrl(this, `el_${el}`),
+      onNext: () => {
+        sound.playUiClick();
+        this.tutorial?.notify('next');
+        this.syncTutorialOverlay();
+      },
+      onSkip: () => {
+        sound.playUiClick();
+        this.tutorial?.skip();
+        this.syncTutorialOverlay();
+      },
+    });
+  }
+
+  private showPauseMenu(): void {
+    if (!this.pauseMenuRoot || this.engine.status !== 'playing') return;
+    const stageName = this.engine.stage.name;
+    this.pauseMenuRoot.innerHTML = `
+      <div class="td-pause-backdrop" data-testid="td-pause-menu">
+        <div class="td-pause-card td-shoebox-panel">
+          <div class="td-box-lid-label">
+            <span class="td-tag-hole"></span>
+            <span>TẠM DỪNG • ${stageName.toUpperCase()}</span>
+          </div>
+          <h2 class="td-pause-title">Nghỉ tay một chút</h2>
+          <div class="td-pause-actions">
+            <button type="button" id="btn-resume-game" data-testid="btn-resume-game" class="td-btn-primary">
+              ▶ Tiếp tục giữ tiệm
+            </button>
+            <button type="button" id="btn-replay-tutorial" data-testid="btn-replay-tutorial" class="td-btn-secondary td-pause-btn">
+              📖 Xem lại hướng dẫn
+            </button>
+            <button type="button" id="btn-pause-restart" data-testid="btn-pause-restart" class="td-btn-secondary td-pause-btn">
+              🔄 Chơi lại màn này
+            </button>
+            <button type="button" id="btn-pause-title" data-testid="btn-pause-title" class="td-btn-secondary td-pause-btn">
+              🏘 Về Con phố dốc
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    this.pauseMenuRoot.querySelector('#btn-resume-game')?.addEventListener('click', () => {
+      sound.playUiClick();
+      this.paused = false;
+      this.closePauseMenu();
+      this.refreshHud();
+    });
+
+    this.pauseMenuRoot.querySelector('#btn-replay-tutorial')?.addEventListener('click', () => {
+      sound.playUiClick();
+      this.closePauseMenu();
+      this.paused = false;
+      if (
+        this.engine.stage.id === 'stage_1' &&
+        this.engine.towers.length === 0 &&
+        this.engine.currentWaveIndex < 0
+      ) {
+        this.startTutorial();
+      } else {
+        this.scene.start(SCENE_KEYS.TD_STAGE, { stageId: 'stage_1', forceTutorial: true });
+      }
+    });
+
+    this.pauseMenuRoot.querySelector('#btn-pause-restart')?.addEventListener('click', () => {
+      sound.playUiClick();
+      this.scene.restart({ stageId: this.engine.stage.id });
+    });
+
+    this.pauseMenuRoot.querySelector('#btn-pause-title')?.addEventListener('click', () => {
+      sound.playUiClick();
+      this.scene.start(SCENE_KEYS.TITLE);
+    });
+  }
+
+  private closePauseMenu(): void {
+    if (this.pauseMenuRoot) {
+      this.pauseMenuRoot.innerHTML = '';
+    }
+  }
+
   private cleanupAllSprites(): void {
     for (const rec of this.towerSprites.values()) rec.sprite.destroy();
     this.towerSprites.clear();
@@ -3326,6 +3497,14 @@ export class TdStageScene extends Phaser.Scene {
     if (this.modalRoot) {
       this.modalRoot.remove();
       this.modalRoot = null;
+    }
+    if (this.tutorialView) {
+      this.tutorialView.destroy();
+      this.tutorialView = null;
+    }
+    if (this.pauseMenuRoot) {
+      this.pauseMenuRoot.remove();
+      this.pauseMenuRoot = null;
     }
   }
 }
