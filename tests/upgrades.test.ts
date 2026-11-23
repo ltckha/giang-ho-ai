@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { activatedHiddenCount, computeGearBonus, EMPTY_GEAR_BONUS, GEAR_SLOTS, gearDamageFor, isFullRing, makeGearItem, migrateGearItem, supporterSlots, type Equipped, type GearRarity, type GearSlotId } from '../src/core/equipment';
 import type { ElementType } from '../src/core/types';
-import { equipGear, getEquipped, grantStageDrops, loadTdSave } from '../src/core/saveSystem';
+import { equipGear, getEquipped, grantStageDrops, loadTdSave, markTutorialDone, saveTdProgress, shouldShowTutorial } from '../src/core/saveSystem';
 import { STAGES } from '../src/core/tdDefinitions';
 import { TowerDefenseEngine } from '../src/core/tdEngine';
 import { ULTIMATE_COOLDOWN_SEC, ULTIMATE_COST } from '../src/core/ultimates';
@@ -136,5 +136,18 @@ describe('Trang bị chủ tiệm v2: 6 dòng, 2 món chống lưng, bộ đồ'
     expect(drops.length).toBeGreaterThanOrEqual(3);
     equipGear(drops[0]!.slot, drops[0]!.uid, store);
     expect(getEquipped(loadTdSave(store))[drops[0]!.slot]?.uid).toBe(drops[0]!.uid);
+  });
+});
+
+describe('Hướng dẫn chơi lần đầu', () => {
+  it('hiện cho người mới; ẩn sau khi xem hoặc đã thắng màn', () => {
+    const mk = () => { const m: Record<string, string> = {}; return { getItem: (k: string) => m[k] ?? null, setItem: (k: string, v: string) => { m[k] = v; } }; };
+    const a = mk();
+    expect(shouldShowTutorial(a)).toBe(true);
+    markTutorialDone(a);
+    expect(shouldShowTutorial(a)).toBe(false);
+    const b = mk();
+    saveTdProgress('stage_1', 2, 15, b);
+    expect(shouldShowTutorial(b)).toBe(false);
   });
 });

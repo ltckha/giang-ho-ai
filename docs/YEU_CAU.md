@@ -117,3 +117,46 @@ Luật xong ở `src/core/equipment.ts` (10 ô, đồ 5 hành, dòng chính / d�
 4. **Bảng kết quả khi thắng**: hiện thẻ đồ vừa rơi (hình + hạng + hành), có hiệu ứng mở rương.
 
 **Cập nhật trang bị v2 (Claude, 22/11):** mỗi món tối đa 3 dòng hiện + 3 dòng ẩn; 4 hạng Thường (xám) / Tốt (xanh) / Xịn (tím) / Hàng hiệu (vàng, tên riêng trong `LEGEND_NAMES`); mỗi ô có **2 món chống lưng** (`supporterSlots`: ô liền trước + ô cách 6 bước) — vẽ 2 đường nối tới 2 ô đó, sáng khi món chống lưng sinh ra hành món này; dòng ẩn thứ 3 chỉ sáng khi **Ngũ hành viên mãn**. **Bộ đồ** (`GEAR_SETS`: Đi Mưa, Phượt Đà Lạt, Dân Văn Phòng, Chủ Tiệm Xịn) cần huy hiệu bộ và đếm số món. Tên dòng vui ở `STAT_NAME` (Pin trâu, Wifi mạnh, Freeship, Bảo hành 12 tháng…) — có thể vẽ biểu tượng nhỏ cho từng dòng.
+
+---
+
+## Claude → Antigravity: chuẩn bị cho người lạ chơi (chặng 3) — 5 việc, làm theo thứ tự
+
+**Không đổi số liệu trong `src/core/`; giữ các data-testid đang có (btn-start-stage-1/2/3, td-gear-box, gear-slot-*…) để test chạy.** Mỗi việc xong: commit + push, ảnh chụp điện thoại dọc trong `docs/screenshots/c3_*.png`. Dist vẫn ≤ 5 MB.
+
+### 1. Màn chọn màn "Con phố dốc"
+- Thay 3 ô chữ chọn màn bằng **một con phố dốc Đà Lạt** (cuộn dọc trên điện thoại): mặt tiền **Tiệm Giày Hẻm Dốc → Tiệm Bánh Đầu Phố → Tiệm Hoa Cuối Dốc**, cùng nét đã duyệt, trời mưa nhẹ, đèn vàng.
+- Tiệm chưa mở: cửa kéo xuống + ổ khóa + dòng "Qua tiệm trước để mở" (dùng `unlockedStage`; `?stage=` / `?bot=1` vẫn mở được như hiện tại). Tiệm đã qua: số sao trên biển hiệu.
+- Chạm tiệm → thẻ thông tin: tên, số đợt, 5 món của **chính tiệm đó** (`getStageTowerList(STAGES[id])`), các quái chính, nút "Mở cửa" (giữ testid `btn-start-stage-N`).
+- Bảng giới thiệu món ở màn hình đầu hiện món theo tiệm đang chọn (không chỉ tiệm giày).
+- Chừa chỗ để sau này nối dài phố thêm tiệm.
+
+### 2. Hướng dẫn chơi lần đầu
+- Luật đã có: `shouldShowTutorial()` (true khi chưa xem và chưa thắng màn nào) và `markTutorialDone()` trong `src/core/saveSystem.ts`.
+- Khi vào Màn 1 mà `shouldShowTutorial()` đúng: hình **chủ tiệm** (dùng lại avatar) hiện ở góc, bong bóng lời + mũi tên chỉ, 5 bước, **game tạm dừng** trong lúc hướng dẫn:
+  1. "Chạm vào ô tròn trống để đặt món" (chỉ vào 1 ô gần đường).
+  2. "Chọn Dép Tông — món ném nhanh" (chỉ vào thẻ món).
+  3. "Nhìn hành của đợt sắp tới ở dưới" (chỉ thanh đợt sắp tới).
+  4. "Đặt món khắc hành quái sẽ ra Trúng tủ! — đánh mạnh gấp bội" (chỉ vòng ngũ hành).
+  5. "Có xu thì chạm món để nâng cấp. Bấm Gọi đợt để bắt đầu!"
+- Có nút **Bỏ qua** ở mọi bước. Xong / bỏ qua đều gọi `markTutorialDone()`.
+- Có nút "Xem lại hướng dẫn" trong menu (⏸).
+- Thêm 1 e2e: người mới vào Màn 1 thấy hướng dẫn, bấm Bỏ qua thì không thấy lại.
+
+### 3. Biểu tượng app + màn hình chờ
+- Logo **"Gọn Tiệm, Sạch Phố"** (chữ Việt rõ, có hình chiếc dép tông / mái tiệm), bản vuông.
+- Biểu tượng app: 512×512, 192×192, 180×180 (iPhone), favicon 32×32 — đặt trong `public/icons/`, khai báo trong `index.html` (`<link rel="icon">`, `apple-touch-icon`). (File manifest cài app để Claude làm ở chặng 3.)
+- **Màn hình chờ** lúc tải (BootScene): nền màu hộp giày, logo, thanh tải chạy theo tiến độ tải hình; dòng phụ "Ngũ hành giữ tiệm".
+
+### 4. Nhạc nền nhẹ (tự tạo bằng Web Audio, không dùng file nhạc ngoài)
+- Mỗi tiệm 1 giai điệu ngắn lặp lại, âm giai ngũ cung, nhịp chậm, êm (giày: ấm áp; bánh: vui tươi; hoa: trong trẻo), màn hình đầu 1 giai điệu riêng. Trận trùm Mùa Nồm: nhịp dồn hơn.
+- Âm lượng nhỏ hơn tiếng hiệu ứng; chỉ bắt đầu sau lần chạm đầu tiên (trình duyệt chặn tự phát).
+- Nút tắt **nhạc** riêng với nút tắt **tiếng**; nhớ lựa chọn trên máy.
+- Ghi vào CREDITS.md là tự tạo.
+
+### 5. Ảnh cho kênh Gọn và khi chia sẻ link
+- 3 mẫu **ảnh bìa video dọc** 1080×1920 trong `docs/marketing/` (vd "Đặt sai món là thua!", "Trúng tủ!", "Trùm Mùa Nồm đổi hành"), chữ Việt to, có logo.
+- 1 **ảnh chia sẻ link** 1200×630 (`public/og-image.png`) + thẻ `og:title`, `og:description`, `og:image` trong `index.html`.
+- 1 **logo vuông** 1080×1080 cho ảnh đại diện / bài đăng.
+
+Xong cả 5 ghi "CHẶNG 3 CHUẨN BỊ XONG" ở dòng đầu docs/PROGRESS.md.

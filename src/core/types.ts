@@ -242,6 +242,8 @@ export interface TdSaveData {
   bestLivesByStage: Partial<Record<'stage_1' | 'stage_2' | 'stage_3', number>>;
   /** Kho trang bị chủ tiệm (equipment.ts) */
   gearInventory?: import('./equipment').GearItem[];
+  /** Đã xem / bỏ qua hướng dẫn chơi lần đầu */
+  tutorialDone?: boolean;
   /** Món đang mặc theo ô: uid trong kho */
   gearEquipped?: Partial<Record<import('./equipment').GearSlotId, string>>;
   updatedAt: number;

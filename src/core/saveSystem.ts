@@ -33,6 +33,7 @@ export function loadTdSave(storage?: Pick<Storage, 'getItem'>): TdSaveData {
         parsed.unlockedStage === 2 || parsed.unlockedStage === 3 ? parsed.unlockedStage : 1,
       starsByStage: parsed.starsByStage ?? {},
       bestLivesByStage: parsed.bestLivesByStage ?? {},
+      tutorialDone: parsed.tutorialDone === true,
       gearInventory: Array.isArray(parsed.gearInventory)
         ? parsed.gearInventory.map(migrateGearItem).filter((x): x is GearItem => x !== null)
         : starterGear(),
@@ -138,4 +139,18 @@ export function grantStageDrops(
   cur.updatedAt = Date.now();
   writeSave(store, cur);
   return drops;
+}
+
+/** Hướng dẫn chơi lần đầu: chỉ hiện khi chưa xem và chưa từng thắng màn nào */
+export function shouldShowTutorial(storage?: Pick<Storage, 'getItem' | 'setItem'>): boolean {
+  const cur = loadTdSave(resolveStore(storage));
+  return !cur.tutorialDone && Object.keys(cur.starsByStage).length === 0;
+}
+
+export function markTutorialDone(storage?: Pick<Storage, 'getItem' | 'setItem'>): void {
+  const store = resolveStore(storage);
+  const cur = loadTdSave(store);
+  cur.tutorialDone = true;
+  cur.updatedAt = Date.now();
+  writeSave(store, cur);
 }
