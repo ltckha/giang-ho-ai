@@ -13,7 +13,7 @@ import {
   type GearSlotId,
 } from '../core/equipment';
 import { chooseVehicle, equipGear, getEquipped, getGearBonus, getVehicle, loadTdSave, saveStreetLoadout } from '../core/saveSystem';
-import { VEHICLES, type VehicleId } from '../core/vehicles';
+import { vehicleAppliesTo, VEHICLES, type VehicleId } from '../core/vehicles';
 import { vehicleIconHtml } from '../game/vehicleUi';
 import { getShopStage, isShopUnlocked, SHOP_STREET, shopStars, type ShopOnStreet } from '../core/shopStreet';
 import {
@@ -45,7 +45,8 @@ import { music } from '../game/music';
 import { getInitialReduceMotion, loadRealStreetLoadout, saveRealStreetLoadout } from '../game/preferences';
 import { SCENE_KEYS } from '../game/sceneKeys';
 import { renderShopkeeperAvatarSvg } from '../game/shopkeeperAvatar';
-import { renderDalatMapBgSvg, renderShopFacadeSvg } from '../game/shopStreetArt';
+import { renderShopFacadeSvg } from '../game/shopStreetArt';
+import HOME_MAP_PINS from '../core/streets/homeMapPins.json';
 import { sound } from '../game/sound';
 
 const RING_SIZE = 340;
@@ -88,7 +89,7 @@ const REAL_STREET_MAP_PINS: Record<string, { leftPct: number; topPct: number; sh
   street_tang_bat_ho: {
     leftPct: 44,
     topPct: 58,
-    shortName: 'Tăng Bạt Hổ – Trương Công Định',
+    shortName: 'Tăng Bạt Hổ',
     tag: 'Dốc chợ • Quán đêm • Bar hầm',
   },
   street_pho_ca_phe: {
@@ -430,13 +431,14 @@ export class TitleScene extends Phaser.Scene {
               <div class="td-sheet-head">
                 <div class="td-sheet-title-wrap">
                   <span class="td-tag-hole"></span>
-                  <strong>Chọn ${limit} món mang ra phố</strong>
+                  <strong>Chuẩn bị</strong>
                 </div>
                 <button type="button" class="td-close-btn" id="btn-close-loadout" aria-label="Đóng">✕</button>
               </div>
-              <div class="td-lo-subtitle">${stage.name} • Chọn đúng <strong>${chosen.length}/${limit}</strong> loại món</div>
+              <div class="td-lo-subtitle">${stage.name}</div>
+              ${vehicleAppliesTo(stage) ? `<div class="td-lo-vehicles" data-testid="vehicle-picker">${((loadTdSave().vehicles ?? ['di_bo']) as VehicleId[]).filter((v) => VEHICLES[v]).map((v) => `<button type="button" class="td-vehicle-chip ${v === getVehicle(loadTdSave()) ? 'selected' : ''}" data-vehicle="${v}" data-testid="vehicle-chip-${v}" data-tip="${VEHICLES[v].name}: ${VEHICLES[v].passiveText}. Chiêu: ${VEHICLES[v].activeName}">${vehicleIconHtml(this, VEHICLES[v])}</button>`).join('')}</div>` : ''}
               <div class="td-lo-hint-bar">
-                <span class="td-lo-hint-title">Gợi ý: Đủ 5 hành + 1 hỗ trợ</span>
+
                 <div class="td-lo-checks">
                   ${elCheckHtml}
                   <span class="td-lo-check ${hasSupport ? 'ok' : ''}" style="--el-c:#eab308">✨ Hỗ trợ${hasSupport ? ' ✓' : ''}</span>
@@ -445,7 +447,7 @@ export class TitleScene extends Phaser.Scene {
               <div class="td-lo-scroll">${groupsHtml}</div>
               <div class="td-lo-footer">
                 <button type="button" class="td-btn-secondary td-lo-reset-btn" id="btn-reset-loadout" data-testid="btn-reset-loadout">
-                  Gợi ý chuẩn
+                  ✨
                 </button>
                 <button
                   type="button"
@@ -454,7 +456,7 @@ export class TitleScene extends Phaser.Scene {
                   data-testid="btn-confirm-loadout"
                   ${ready ? '' : 'disabled'}
                 >
-                  ${ready ? `Ra Phố Ngay! (${chosen.length}/${limit})` : `Chọn đủ ${limit} món (${chosen.length}/${limit})`}
+                  ${ready ? '▶' : `${chosen.length}/${limit}`}
                 </button>
               </div>
             </div>
@@ -470,6 +472,14 @@ export class TitleScene extends Phaser.Scene {
           sound.playUiClick();
           chosen = [...(stage.defaultLoadout ?? allowed.slice(0, limit))].slice(0, limit);
           renderModal();
+        });
+
+        host.querySelectorAll<HTMLButtonElement>('[data-vehicle]').forEach((btn) => {
+          btn.onclick = () => {
+            chooseVehicle(btn.dataset.vehicle as VehicleId);
+            sound.playUiClick();
+            renderModal();
+          };
         });
 
         host.querySelectorAll<HTMLButtonElement>('[data-lo-tower]').forEach((btn) => {
@@ -591,10 +601,12 @@ export class TitleScene extends Phaser.Scene {
           <span class="td-dalat-pin-label"><strong>${name}</strong>${sub ? `<em class="td-pin-stars">${sub}</em>` : ''}</span>
         </button>`;
       const tabs = [
-        renderDalatMapBgSvg(true),
-        pin('doc', 22, 86, 'Phố Dốc', `★${docStars}`, true, 'street-tab-doc'),
+        `<img class="td-home-map-img" src="./assets/map_dalat_home.webp" alt="" />`,
+        pin('doc', 70, 14, 'Phố Dốc', `★${docStars}`, true, 'street-tab-doc'),
         ...REAL_STREET_STAGES.map((st) => {
-          const meta = REAL_STREET_MAP_PINS[st.id] ?? { leftPct: 50, topPct: 50, shortName: st.name, tag: '' };
+          const base = REAL_STREET_MAP_PINS[st.id] ?? { leftPct: 50, topPct: 50, shortName: st.name, tag: '' };
+          const real = (HOME_MAP_PINS as Record<string, { leftPct: number; topPct: number }>)[st.id];
+          const meta = real ? { ...base, ...real } : base;
           const prog = streetProgress(cur, st.id);
           return pin(st.id, meta.leftPct, meta.topPct, meta.shortName, isRealStreetsUnlocked ? `${prog.shopsCleared}/${prog.shopsTotal}` : '', isRealStreetsUnlocked, `real-street-pin-${st.id}`, `data-real-pin="${st.id}"`);
         }),
@@ -909,11 +921,6 @@ export class TitleScene extends Phaser.Scene {
             </button>`;
         })
         .join('');
-      const curVehicle = VEHICLES[getVehicle(curSave)];
-      const vehicleChipsHtml = ((curSave.vehicles ?? ['di_bo']) as VehicleId[])
-        .filter((v) => VEHICLES[v])
-        .map((v) => `<button type="button" class="td-vehicle-chip ${v === curVehicle.id ? 'selected' : ''}" data-vehicle="${v}" data-testid="vehicle-chip-${v}" data-tip="${VEHICLES[v].name}: ${VEHICLES[v].passiveText}. Chiêu: ${VEHICLES[v].activeName}">${vehicleIconHtml(this, VEHICLES[v])}<span>${VEHICLES[v].name}</span></button>`)
-        .join('');
       const activeStars = curSave.starsByStage[activeStreet.id] ?? 0;
       const activeStarText = !isRealStreetsUnlocked
         ? '🔒 Khóa'
@@ -969,12 +976,6 @@ export class TitleScene extends Phaser.Scene {
               </div>
             </div>
 
-            <div class="td-shop-detail-block" data-testid="vehicle-picker">
-              <div class="td-shop-detail-label">Đi phố bằng xe gì</div>
-              <div class="td-vehicle-row">${vehicleChipsHtml}</div>
-              <div class="td-vehicle-note">${curVehicle.name}: ${curVehicle.passiveText} • Chiêu 1 lần: ${curVehicle.activeName} (${curVehicle.activeText})</div>
-            </div>
-
             <div class="td-shop-action-bar">
               <button
                 type="button"
@@ -1001,13 +1002,6 @@ export class TitleScene extends Phaser.Scene {
         };
       });
 
-      host.querySelectorAll<HTMLButtonElement>('[data-vehicle]').forEach((btn) => {
-        btn.onclick = () => {
-          chooseVehicle(btn.dataset.vehicle as VehicleId);
-          sound.playUiClick();
-          renderRealStreetsMap();
-        };
-      });
 
       host.querySelectorAll<HTMLButtonElement>('[data-real-stage]').forEach((btn) => {
         btn.onclick = () => {

@@ -1243,7 +1243,6 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
 
     const loModal = page.getByTestId('td-loadout-modal');
     await expect(loModal).toBeVisible();
-    await expect(loModal).toContainText('Đủ 5 hành + 1 hỗ trợ');
     await page.waitForTimeout(180);
     await page.screenshot({ path: 'docs/screenshots/v8_loadout_modal.png' });
 

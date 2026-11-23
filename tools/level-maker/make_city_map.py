@@ -38,9 +38,13 @@ def game_ways():
 
 
 # khung: theo dữ liệu đường chính, nới nhẹ
-allpts = [p for r in data['roads'] for p in r['pts']] + [p for w in data['water'] for p in w['pts']]
-lat0, lat1 = min(p[0] for p in allpts), max(p[0] for p in allpts)
-lon0, lon1 = min(p[1] for p in allpts), max(p[1] for p in allpts)
+# khung: phóng vào các phố trong game + Hồ Xuân Hương (để ghim không chồng nhau)
+_focus = [p for n, pts in game_ways() for p in pts if any(n in v for v in GAME_STREETS.values())]
+_focus += [p for w in data['water'] if 'Xuân Hương' in (w.get('name') or '') for p in w['pts']]
+lat0, lat1 = min(p[0] for p in _focus), max(p[0] for p in _focus)
+lon0, lon1 = min(p[1] for p in _focus), max(p[1] for p in _focus)
+_pl, _po = (lat1 - lat0) * 0.12, (lon1 - lon0) * 0.08
+lat0, lat1, lon0, lon1 = lat0 - _pl, lat1 + _pl, lon0 - _po, lon1 + _po
 kx = math.cos(math.radians((lat0 + lat1) / 2))
 spanx, spany = (lon1 - lon0) * kx, (lat1 - lat0)
 scale = min((W - 40) / spanx, (H - 40) / spany)

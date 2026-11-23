@@ -3964,3 +3964,21 @@ img.td-vehicle-ico { object-fit: contain; }
 .td-home-map { flex: none; margin: 0 0 10px; }
 .td-home-pin { font-size: 11px; padding: 4px 9px; }
 .td-home-pin .td-dalat-pin-dot { font-size: 14px; }
+
+/* ===== Bước 2 gọn chữ (Claude): chuẩn bị + trong màn ===== */
+.td-lo-place, .td-lo-role, .td-lo-hint-title { display: none !important; }
+.td-lo-vehicles { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; margin: 4px 0 6px; }
+.td-lo-vehicles .td-vehicle-chip { padding: 4px; }
+.td-lo-vehicles .td-vehicle-ico { width: 36px; height: 36px; font-size: 26px; }
+.td-build-list { display: grid !important; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.td-build-option { flex-direction: column !important; align-items: center !important; text-align: center; padding: 6px 4px !important; }
+.td-build-option .td-opt-role { display: none !important; }
+.td-build-option .td-opt-head { flex-direction: column; align-items: center; gap: 2px; }
+.td-build-option .td-opt-head strong { font-size: 11px; line-height: 1.15; }
+.td-build-option .td-el-badge { font-size: 0; padding: 2px; }
+.td-build-option .td-el-badge img { width: 14px; height: 14px; }
+.td-upcoming-box .td-enemy-preview > span { display: none; }
+.td-up-next { font-weight: 900; color: #a8741a; margin-right: 2px; }
+.td-home-map-img { display: block; width: 100%; height: auto; }
+.td-home-pin { transform: translate(-12px, -50%) !important; }
+.td-home-pin.selected { transform: translate(-12px, -50%) scale(1.06) !important; }

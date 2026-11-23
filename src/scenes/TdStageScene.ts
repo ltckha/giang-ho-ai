@@ -3235,12 +3235,11 @@ export class TdStageScene extends Phaser.Scene {
             })
             .join('');
           upcomingBox.innerHTML = `
-            <div class="td-up-title">Sắp vào • ${upcoming.title}</div>
-            <div class="td-up-elements">${enemyPreviews}</div>
+            <div class="td-up-elements"><span class="td-up-next">▶</span>${enemyPreviews}</div>
           `;
         } else {
           const isStreet = this.engine.stage.id === 'stage_4' || this.engine.stage.id.startsWith('street_');
-          upcomingBox.innerHTML = `<div class="td-up-title">${isStreet ? 'Đợt cuối đang tràn xuống phố!' : 'Đợt cuối đang kéo vào tiệm!'}</div>`;
+          upcomingBox.innerHTML = `<div class="td-up-title">${isStreet ? '⛈' : '🏁'}</div>`;
         }
       }
     }
@@ -3415,7 +3414,7 @@ export class TdStageScene extends Phaser.Scene {
           <div class="td-sheet-head">
             <div class="td-sheet-title-wrap">
               <span class="td-tag-hole"></span>
-              <strong>${isStreetStage ? 'Đặt món giữ phố' : 'Đặt món giữ tiệm'} • Ô #${padId.replace('pad_', '')}</strong>
+              <strong>${isStreetStage ? '🧹' : '🏠'}</strong>
             </div>
             <button class="td-close-btn" id="btn-close-sheet" aria-label="Đóng">✕</button>
           </div>

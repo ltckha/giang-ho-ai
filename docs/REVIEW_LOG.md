@@ -375,3 +375,9 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Cất Phố Chợ Bến Thành (content/streets_cat/), tập trung Đà Lạt.
 - Spark 12–15: 10 loại món mới, 25 mặt tiền chung, 18 đồ trang trí nền, 10 quái phố → kho 35 loại món, 52 quái, 59 mặt tiền. 7 hình còn mảng trắng kẹt bên trong, vài hình lệch chủ đề → đợt 16 vẽ lại.
 - `npm test` 74/74, e2e 17/17 (đã sửa bài kiểm theo màn chính mới).
+
+## 23/11/2026 — Bản đồ Đà Lạt thật + bước "Chuẩn bị" + gọn chữ trong màn (Claude)
+- tools/level-maker/make_city_map.py: vẽ bản đồ màn chính từ OpenStreetMap (128 đường chính, Hồ Xuân Hương 326 điểm, mốc chợ), phóng vào khu 3 phố + hồ, tô vàng 3 phố trong game; ghim đặt đúng tâm phố thật (src/core/streets/homeMapPins.json). Phố Dốc (không có thật) ghim ở góc trên.
+- Chọn xe chuyển vào bảng "Chuẩn bị" (cùng chọn 6 món), nút ▶ / ✨ gợi ý; bỏ chữ gợi ý, tên địa điểm, vai món.
+- Trong màn: ô đặt món dạng lưới 3 cột chỉ hình + tên ngắn + giá; thanh đợt kế tiếp chỉ còn hình quái.
+- `npm test` 74/74, e2e 17/17.
