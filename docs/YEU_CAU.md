@@ -206,3 +206,13 @@ Rà việc 6–9: đạt (xem REVIEW_LOG 23/11). Phố 3 `street_phan_dinh_phung
 1. Vẽ `public/assets/map_street_phan_dinh_phung.webp` bám `stage.paths` / `stage.pads` trong `src/core/streets/generated/street_phan_dinh_phung.json`, cùng kiểu 2 phố thật trước. Phố cũ xóm Cầu Quẹo: dãy nhà phố cũ, nhà thuốc, salon tóc, nhà sách, studio ảnh cưới, quán phở sáng, tiệm xe máy. Góc trái dưới đang trống → đặt cảnh (dãy nhà, cây thông, chợ nhỏ). Ghi "© OpenStreetMap contributors".
 2. Thêm khoá vào `STREET_MAP_KEYS` và điểm phố 3 trên bản đồ chọn phố (`REAL_STREET_MAP_PINS`).
 3. Không vẽ lại món / quái phố 3 (đã có hình Spark). Không sửa `src/core/`, `art/spark/`, `public/assets/spark_atlas.*`.
+
+## Claude → Antigravity: việc 11 — chọn màn tiệm trong phố thật (sau việc 10)
+Anh Kha chốt: mỗi phố = các màn tiệm (mỗi địa điểm 1 màn) rồi mới tới màn phố (trùm). Sườn đã xong:
+- `REAL_STREET_SHOPS[streetId]` (src/core/tdDefinitions.ts): danh sách màn tiệm theo thứ tự (id `street_<phố>_t<k>`, có `shopIndex`, `featuredTowerId`, `mapStageId`).
+- `isStreetStageUnlocked(save, id)`, `streetProgress(save, streetId)` (src/core/streetProgress.ts): khoá / mở, màn nên chơi tiếp.
+1. Chạm điểm phố trên bản đồ Đà Lạt → mở danh sách tiệm của phố (tên tiệm, món chính, sao, khoá) + nút màn phố ở cuối (tên trùm, khoá đến khi qua hết tiệm). Thanh tiến độ "đã giữ x/n tiệm".
+2. Thắng màn tiệm → nút "Tiệm tiếp theo"; thắng tiệm cuối → nút "Ra phố đánh trùm".
+3. Trong màn tiệm: hiện tên tiệm + "tiệm k/n" ở đầu màn; món tiệm chính có viền nổi bật trong bảng chọn món.
+4. Trùm phố thật (ge_*_trum) đang mượn hình Bão Lốc — Spark sẽ vẽ hình riêng, không cần vẽ.
+Không sửa `src/core/`, `art/spark/`, `public/assets/spark_atlas.*`.
