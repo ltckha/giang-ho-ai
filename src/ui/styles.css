@@ -2859,6 +2859,108 @@ button {
   min-height: 42px;
 }
 
+/* =========================================================
+   CHẶNG 3 — 3. MÀN HÌNH CHỜ HỘP GIÀY (BootScene)
+   ========================================================= */
+.td-boot-splash {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255, 245, 218, 0.45) 0%, transparent 62%),
+    repeating-linear-gradient(
+      -25deg,
+      rgba(123, 78, 43, 0.06) 0 10px,
+      transparent 10px 22px
+    ),
+    linear-gradient(180deg, #ecd8b2 0%, #d8ba88 100%);
+}
+
+.td-boot-card {
+  width: 100%;
+  max-width: 344px;
+  padding: 22px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  text-align: center;
+}
+
+.td-boot-logo-wrap {
+  width: 196px;
+  height: 196px;
+  filter: drop-shadow(0 8px 18px rgba(43, 26, 18, 0.34));
+}
+
+.td-boot-logo-wrap svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.td-boot-subtitle {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--wood-mid);
+  letter-spacing: 0.03em;
+  margin: -2px 0 0;
+}
+
+.td-boot-progress-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.td-boot-progress-bar {
+  width: 100%;
+  height: 16px;
+  border-radius: 99px;
+  background: #3d2415;
+  border: 2.2px solid #2b1a12;
+  padding: 2px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.45);
+}
+
+.td-boot-progress-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #59c173 0%, #f5c352 60%, #ff8b4a 100%);
+  transition: width 0.16s ease-out;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.td-boot-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11.5px;
+  color: var(--ink-soft);
+}
+
+.td-boot-status {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.td-boot-pct {
+  font-weight: 700;
+  color: var(--wood-mid);
+  flex-shrink: 0;
+}
+
+
 
 
 

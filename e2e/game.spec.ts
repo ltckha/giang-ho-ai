@@ -868,6 +868,37 @@ test.describe('Gọn Tiệm, Sạch Phố — Kiểm thử trình duyệt (Đi�
     await expect(page.getByTestId('td-tutorial-overlay')).toBeVisible();
     await expect(page.getByTestId('td-tutorial-overlay')).toHaveAttribute('data-tut-step', 'tap_pad');
   });
+
+  test('Biểu tượng app (public/icons/) & Màn hình chờ hộp giày (BootScene): đủ 4 icon, khai báo trong index.html, logo + thanh tải + phụ đề Ngũ hành giữ tiệm, chụp c3_03_boot_splash.png', async ({
+    page,
+    request,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/?splash=1');
+
+    // 1. Kiểm tra thẻ khai báo favicon & apple-touch-icon trong index.html và 4 tệp icon tải được 200
+    await expect(page.locator('link[rel="icon"][sizes="32x32"]')).toHaveAttribute('href', /favicon-32\.png/);
+    await expect(page.locator('link[rel="icon"][sizes="192x192"]')).toHaveAttribute('href', /icon-192\.png/);
+    await expect(page.locator('link[rel="apple-touch-icon"][sizes="180x180"]')).toHaveAttribute(
+      'href',
+      /apple-touch-icon-180\.png/,
+    );
+    for (const file of ['icon-512.png', 'icon-192.png', 'apple-touch-icon-180.png', 'favicon-32.png']) {
+      const res = await request.get(`/icons/${file}`);
+      expect(res.status()).toBe(200);
+    }
+
+    // 2. Kiểm tra màn hình chờ BootScene: nền hộp giày, logo, thanh tải, phụ đề "Ngũ hành giữ tiệm"
+    const splash = page.getByTestId('td-boot-splash');
+    await expect(splash).toBeVisible();
+    await expect(page.getByTestId('boot-logo')).toBeVisible();
+    await expect(page.getByTestId('boot-subtitle')).toHaveText('Ngũ hành giữ tiệm');
+    await expect(page.getByTestId('boot-progress-bar')).toBeVisible();
+    await expect(page.getByTestId('boot-progress-pct')).toHaveText('76%');
+    await page.waitForTimeout(200);
+    await page.screenshot({ path: 'docs/screenshots/c3_03_boot_splash.png' });
+  });
 });
+
 
 
