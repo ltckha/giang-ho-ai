@@ -3982,3 +3982,37 @@ img.td-vehicle-ico { object-fit: contain; }
 .td-home-map-img { display: block; width: 100%; height: auto; }
 .td-home-pin { transform: translate(-12px, -50%) !important; }
 .td-home-pin.selected { transform: translate(-12px, -50%) scale(1.06) !important; }
+
+/* ===== Hàng tiệm dùng chung (Claude): Phố Dốc và phố thật cùng một kiểu ===== */
+.td-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+#td-street-list { display: flex; flex-direction: column; gap: 6px; }
+.td-shoprow { border: 2px solid #c9a97a; border-radius: 12px; background: #fff8ea; overflow: hidden; }
+.td-shoprow.selected { border-color: #2b1a12; box-shadow: 0 2px 0 #2b1a12; }
+.td-shoprow.locked { opacity: 0.6; }
+.td-shoprow.boss { background: #fbe6d4; }
+.td-shoprow-main { display: flex; align-items: center; gap: 6px; padding: 5px 6px; }
+.td-shoprow-hit { flex: 1; display: flex; align-items: center; gap: 8px; min-width: 0; cursor: pointer; background: none; border: 0; padding: 0; font: inherit; color: #3b2616; text-align: left; }
+.td-shoprow-thumb { width: 64px; height: 48px; flex: none; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; border-radius: 8px; background: #f1e2c4; }
+.td-shoprow-thumb img { max-width: 64px; max-height: 48px; object-fit: contain; }
+.td-shoprow-thumb svg { width: 64px; height: auto; }
+.td-shoprow-name { flex: 1; min-width: 0; display: flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 800; line-height: 1.2; }
+.td-shoprow-name b { flex: none; width: 22px; height: 22px; border-radius: 50%; background: #2b1a12; color: #ffe7a8; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; }
+.td-shoprow-name .td-stage-name { font-size: 13px; }
+.td-shoprow-stars { flex: none; font-size: 12px; color: #c8891a; font-weight: 900; }
+.td-shoprow-play { flex: none; width: 44px; height: 44px; border-radius: 50%; border: 2px solid #14532d; background: linear-gradient(180deg, #34a853, #1e7f3c); color: #fff; font-size: 18px; font-weight: 900; cursor: pointer; box-shadow: 0 2px 0 #14532d; }
+.td-shoprow-play:disabled { background: #d8c8ac; border-color: #8a7458; color: #5c4d3e; box-shadow: none; }
+.td-shoprow .td-shop-detail-card, .td-shoprow-detail { padding: 4px 8px 8px; border-top: 1px dashed #c9a97a; }
+.td-real-detail-top .td-stage-stars, .td-real-street-detail .td-shop-detail-stats { display: none; }
+/* Bản đồ: thẻ góc phố (Claude) */
+.td-map-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.td-map-lines line { stroke: #2b1a12; stroke-width: 0.5; stroke-dasharray: 1.4 1; vector-effect: non-scaling-stroke; stroke-width: 2; }
+.td-map-dot { position: absolute; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: #e2412f; border: 2px solid #fff; box-shadow: 0 1px 3px rgba(0,0,0,.5); pointer-events: none; }
+.td-map-card { position: absolute; transform: translate(-50%, -50%); width: 76px; padding: 3px 3px 4px; border-radius: 12px; border: 2px solid #b45309; background: #fffbeb; box-shadow: 0 3px 8px rgba(14,8,4,.45); display: flex; flex-direction: column; align-items: center; gap: 1px; cursor: pointer; font: inherit; color: #3b2616; }
+.td-map-card img { width: 64px; height: 44px; object-fit: contain; }
+.td-map-card-name { font-size: 10px; font-weight: 900; line-height: 1.1; text-align: center; }
+.td-map-card-sub { font-size: 10px; font-weight: 900; color: #b45309; }
+.td-map-card.selected { border-color: #15803d; box-shadow: 0 0 0 3px rgba(34,197,94,.7), 0 4px 10px rgba(14,8,4,.5); z-index: 2; }
+.td-map-card.locked { filter: grayscale(.6); opacity: .85; }
+.td-real-shop-list { max-height: none !important; overflow: visible !important; gap: 6px; }
+.td-shoprow { flex: none !important; }
+.td-real-street-detail .td-real-shop-progress { margin: 2px 0 6px; }

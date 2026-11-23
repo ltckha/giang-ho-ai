@@ -381,3 +381,10 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Chọn xe chuyển vào bảng "Chuẩn bị" (cùng chọn 6 món), nút ▶ / ✨ gợi ý; bỏ chữ gợi ý, tên địa điểm, vai món.
 - Trong màn: ô đặt món dạng lưới 3 cột chỉ hình + tên ngắn + giá; thanh đợt kế tiếp chỉ còn hình quái.
 - `npm test` 74/74, e2e 17/17.
+
+## 23/11/2026 — Bản đồ sinh động, hàng tiệm đồng bộ, chế độ chủ (Claude)
+- Bản đồ màn chính: đường thật OSM + rừng thông, nhà Đà Lạt dọc đường, khu chợ (hình Spark deco), chấm đỏ đúng vị trí phố, thẻ hình góc phố (the_pho_*) nối bằng đường chấm. Thêm phố mới: thêm tên OSM vào GAME_STREETS trong make_city_map.py + 1 hình the_pho_<id>.
+- Hàng tiệm dùng chung cho Phố Dốc và phố thật: mặt tiền · số + tên · sao/khoá · nút ▶; tiệm đang chọn mở ra hình món/quái.
+- Chế độ chủ: link có #mo (hoặc ?mo=1) mở hết màn để anh Kha xem, nhớ trên máy; #dong để tắt.
+- Spark đợt 16: vẽ lại 11 hình lỗi + 10 biểu tượng nút (art/ui, public/assets/ui) + 4 hình thẻ phố.
+- `npm test` 74/74, e2e 17/17.

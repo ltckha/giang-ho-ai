@@ -15,6 +15,7 @@ import {
 import { chooseVehicle, equipGear, getEquipped, getGearBonus, getVehicle, loadTdSave, saveStreetLoadout } from '../core/saveSystem';
 import { vehicleAppliesTo, VEHICLES, type VehicleId } from '../core/vehicles';
 import { vehicleIconHtml } from '../game/vehicleUi';
+import { FACADE_ATLAS_KEY } from '../game/sparkArt';
 import { getShopStage, isShopUnlocked, SHOP_STREET, shopStars, type ShopOnStreet } from '../core/shopStreet';
 import {
   ALL_ENEMY_DEFINITIONS,
@@ -28,6 +29,7 @@ import { isStreetStageUnlocked, streetProgress } from '../core/streetProgress';
 import type { ElementType, EnemyId, StageDefinition, StageId, TowerId } from '../core/types';
 import {
   getAtlasFrameDataUrl,
+  getAtlasFrameDataUrlFrom,
   getEnemyFrameName,
   getGearAtlasFrameDataUrl,
   getGearIconFrameName,
@@ -219,13 +221,24 @@ export class TitleScene extends Phaser.Scene {
     const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
     const queryStage = params?.get('stage');
     const isBotBypass = params?.get('bot') === '1';
+    // Chế độ chủ (anh Kha xem thử): link có #mo hoặc ?mo=1 → mở hết màn, nhớ trên máy; #dong để tắt
+    const ownerOpenAll = (() => {
+      try {
+        const h = typeof window !== 'undefined' ? window.location.hash : '';
+        if (h === '#mo' || params?.get('mo') === '1') localStorage.setItem('gonpho_mo_het', '1');
+        if (h === '#dong') localStorage.removeItem('gonpho_mo_het');
+        return localStorage.getItem('gonpho_mo_het') === '1';
+      } catch {
+        return false;
+      }
+    })();
 
     const hasStreetChampionBadge =
       Boolean(save.badges?.includes('giu_tron_pho')) || (save.starsByStage.stage_4 ?? 0) > 0;
-    const isRealStreetsUnlocked = hasStreetChampionBadge || isBotBypass;
+    const isRealStreetsUnlocked = hasStreetChampionBadge || isBotBypass || ownerOpenAll;
 
     const isUnlocked = (shop: ShopOnStreet): boolean =>
-      isShopUnlocked(save, shop) || isBotBypass || queryStage === String(shop.order);
+      isShopUnlocked(save, shop) || isBotBypass || ownerOpenAll || queryStage === String(shop.order);
 
     let selectedShopId: ShopOnStreet['stageId'] =
       SHOP_STREET.find((s) => String(s.order) === queryStage)?.stageId ?? SHOP_STREET[0]!.stageId;
@@ -593,23 +606,41 @@ export class TitleScene extends Phaser.Scene {
       if (!host) return;
       const cur = loadTdSave();
       const docStars = SHOP_STREET.reduce((n, sh) => n + shopStars(cur, sh), 0);
-      // Bản đồ Đà Lạt có ghim (Claude): Phố Dốc luôn mở, phố thật mở sau Trận trùm phố
-      const pin = (id: string, left: number, top: number, name: string, sub: string, open: boolean, testid: string, extra = '') => `
-        <button type="button" class="td-dalat-pin td-home-pin ${open ? 'unlocked' : 'locked'} ${activeStreetTab === id ? 'selected' : ''}"
-          style="left:${left}%;top:${top}%" data-street-tab="${id}" data-testid="${testid}" ${extra}>
-          <span class="td-dalat-pin-dot">${open ? '📍' : '🔒'}</span>
-          <span class="td-dalat-pin-label"><strong>${name}</strong>${sub ? `<em class="td-pin-stars">${sub}</em>` : ''}</span>
-        </button>`;
+      // Bản đồ Đà Lạt (Claude): chấm đỏ đúng vị trí phố thật, thẻ hình góc phố nối bằng đường chấm
+      const CARD_IMG: Record<string, string> = {
+        doc: 'the_pho_doc', street_tang_bat_ho: 'the_pho_tang_bat_ho', street_pho_ca_phe: 'the_pho_ca_phe', street_phan_dinh_phung: 'the_pho_phan_dinh_phung',
+      };
+      type MapPin = { id: string; dot: [number, number] | null; card: [number, number]; name: string; sub: string; open: boolean; testid: string; extra: string };
+      const realPins: MapPin[] = REAL_STREET_STAGES.map((st) => {
+        const base = REAL_STREET_MAP_PINS[st.id] ?? { leftPct: 50, topPct: 50, shortName: st.name, tag: '' };
+        const real = (HOME_MAP_PINS as Record<string, { leftPct: number; topPct: number }>)[st.id];
+        const prog = streetProgress(cur, st.id);
+        const dot: [number, number] = real ? [real.leftPct, real.topPct] : [base.leftPct, base.topPct];
+        return { id: st.id, dot, card: [dot[0], dot[1]], name: base.shortName, sub: isRealStreetsUnlocked ? `${prog.shopsCleared}/${prog.shopsTotal}` : '', open: isRealStreetsUnlocked, testid: `real-street-pin-${st.id}`, extra: `data-real-pin="${st.id}"` };
+      });
+      // xếp thẻ thành cột bên phải chấm, cách nhau đủ để không chồng
+      const SLOTS: [number, number][] = [[47, 22], [56, 50], [47, 78], [72, 64], [80, 40]];
+      realPins.sort((p1, p2) => p1.dot![1] - p2.dot![1]).forEach((pp, i) => {
+        pp.card = SLOTS[i % SLOTS.length]!;
+      });
+      const allPins: MapPin[] = [
+        { id: 'doc', dot: null, card: [82, 16], name: 'Phố Dốc', sub: `★${docStars}`, open: true, testid: 'street-tab-doc', extra: '' },
+        ...realPins,
+      ];
+      const lines = allPins.filter((pp) => pp.dot).map((pp) => `<line x1="${pp.dot![0]}" y1="${pp.dot![1]}" x2="${pp.card[0]}" y2="${pp.card[1]}" />`).join('');
+      const dots = allPins.filter((pp) => pp.dot).map((pp) => `<span class="td-map-dot" style="left:${pp.dot![0]}%;top:${pp.dot![1]}%"></span>`).join('');
+      const cards = allPins.map((pp) => `
+        <button type="button" class="td-map-card ${pp.open ? 'open' : 'locked'} ${activeStreetTab === pp.id ? 'selected' : ''}"
+          style="left:${pp.card[0]}%;top:${pp.card[1]}%" data-street-tab="${pp.id}" data-testid="${pp.testid}" ${pp.extra}>
+          <img src="./assets/ui/${CARD_IMG[pp.id] ?? 'the_pho_doc'}.webp" alt="" onerror="this.style.display='none'" />
+          <span class="td-map-card-name">${pp.open ? '' : '🔒 '}${pp.name}</span>
+          ${pp.sub ? `<span class="td-map-card-sub">${pp.sub}</span>` : ''}
+        </button>`).join('');
       const tabs = [
         `<img class="td-home-map-img" src="./assets/map_dalat_home.webp" alt="" />`,
-        pin('doc', 70, 14, 'Phố Dốc', `★${docStars}`, true, 'street-tab-doc'),
-        ...REAL_STREET_STAGES.map((st) => {
-          const base = REAL_STREET_MAP_PINS[st.id] ?? { leftPct: 50, topPct: 50, shortName: st.name, tag: '' };
-          const real = (HOME_MAP_PINS as Record<string, { leftPct: number; topPct: number }>)[st.id];
-          const meta = real ? { ...base, ...real } : base;
-          const prog = streetProgress(cur, st.id);
-          return pin(st.id, meta.leftPct, meta.topPct, meta.shortName, isRealStreetsUnlocked ? `${prog.shopsCleared}/${prog.shopsTotal}` : '', isRealStreetsUnlocked, `real-street-pin-${st.id}`, `data-real-pin="${st.id}"`);
-        }),
+        `<svg class="td-map-lines" viewBox="0 0 100 100" preserveAspectRatio="none">${lines}</svg>`,
+        dots,
+        cards,
       ];
       host.innerHTML = tabs.join('');
       host.querySelectorAll<HTMLButtonElement>('[data-street-tab]').forEach((btn) => {
@@ -693,11 +724,6 @@ export class TitleScene extends Phaser.Scene {
         const stars = shopStars(save, shop);
         const isSelected = selectedShopId === shop.stageId;
         const lifeUrl = getAtlasFrameDataUrl(this, getShopLifeIconFrame(shop.stageId));
-        const starText = !unlocked
-          ? '🔒 Khóa'
-          : stars > 0
-            ? '★'.repeat(stars) + '☆'.repeat(3 - stars)
-            : 'Chưa qua';
 
         const savedLoadout = stage.loadoutSize ? this.resolveSavedLoadoutForStage(stage) : undefined;
         const towers = getStageTowerList(stage, savedLoadout);
@@ -786,60 +812,21 @@ export class TitleScene extends Phaser.Scene {
         const lockMsg = '🔒';
         const openBtnLabel = shop.isBoss ? '▶ Đánh Trùm Phố' : `▶ ${shop.sign}`;
 
+        void slopeStepHtml; void lockMsg; void lifeUrl;
+        // Hàng tiệm dùng chung kiểu với phố thật (Claude): hình mặt tiền · số + tên · sao · ▶
         return `
-          ${slopeStepHtml}
-          <article
-            class="td-street-shop ${shop.isBoss ? 'is-boss-shop' : ''} ${unlocked ? 'unlocked' : 'locked td-stage-locked'} ${isSelected ? 'selected' : ''}"
-            data-testid="stage${shop.order}-card"
-            data-shop-id="${shop.stageId}"
-          >
-            <div
-              class="td-shop-facade-hit"
-              role="button"
-              tabindex="0"
-              data-select-shop="${shop.stageId}"
-              data-testid="street-shop-${shop.order}"
-              aria-expanded="${isSelected ? 'true' : 'false'}"
-              aria-label="Xem thông tin ${stage.name}"
-            >
-              <div class="td-shop-signboard ${shop.isBoss ? 'is-boss' : ''} ${unlocked ? '' : 'locked'}">
-                <div class="td-shop-sign-left">
-                  <span class="td-shop-order-badge">${shop.isBoss ? '⛈' : shop.order}</span>
-                  ${lifeUrl ? `<img class="td-shop-life-ico" src="${lifeUrl}" alt="" />` : ''}
-                  <div class="td-shop-sign-titles">
-                    <span class="td-shop-sign-short">${shop.sign.toUpperCase()} • ${stage.waves.length} ĐỢT</span>
-                    <span class="td-stage-name">${stage.name}</span>
-                  </div>
-                </div>
-                <div class="td-stage-stars ${unlocked ? '' : 'locked'}" data-testid="stage${shop.order}-stars">
-                  ${shop.isBoss && hasStreetChampionBadge ? '🏆 ' : ''}${starText}
-                </div>
+          <article class="td-shoprow ${shop.isBoss ? 'boss' : ''} ${unlocked ? 'open' : 'locked td-stage-locked'} ${isSelected ? 'selected' : ''}"
+            data-testid="stage${shop.order}-card" data-shop-id="${shop.stageId}">
+            <div class="td-shoprow-main">
+              <div class="td-shoprow-hit" role="button" tabindex="0" data-select-shop="${shop.stageId}" data-testid="street-shop-${shop.order}" aria-expanded="${isSelected ? 'true' : 'false'}">
+                <span class="td-shoprow-thumb">${renderShopFacadeSvg(shop, unlocked)}</span>
+                <span class="td-shoprow-name"><b>${shop.isBoss ? '👹' : shop.order}</b><span class="td-stage-name">${stage.name}</span></span>
+                <span class="td-shoprow-stars" data-testid="stage${shop.order}-stars">${!unlocked ? '🔒<span class="td-sr">Khóa</span>' : stars > 0 ? '★'.repeat(stars) : ''}</span>
               </div>
-
-              <div class="td-shop-facade-wrap">
-                ${renderShopFacadeSvg(shop, unlocked)}
-                ${
-                  unlocked
-                    ? `<span class="td-facade-inspect-pill">${isSelected ? '▲ Đang xem chi tiết' : shop.isBoss ? '▼ Chạm xem bộ 6 món & Trùm Bão Lốc' : '▼ Chạm xem 5 món & quái'}</span>`
-                    : `<span class="td-facade-lock-ribbon">${lockMsg}</span>`
-                }
-              </div>
+              <button type="button" class="td-shoprow-play" id="btn-start-stage-${shop.order}" data-testid="btn-start-stage-${shop.order}"
+                data-launch-stage="${shop.stageId}" ${unlocked ? '' : 'disabled aria-disabled="true"'}>${unlocked ? '▶' : '🔒'}<span class="td-sr">${openBtnLabel}</span></button>
             </div>
-
             ${detailHtml}
-
-            <div class="td-shop-action-bar">
-              <button
-                type="button"
-                id="btn-start-stage-${shop.order}"
-                data-testid="btn-start-stage-${shop.order}"
-                data-launch-stage="${shop.stageId}"
-                class="${unlocked ? 'td-btn-primary td-street-open-btn' : 'td-btn-locked td-street-open-btn'}"
-                ${unlocked ? '' : 'disabled aria-disabled="true"'}
-              >
-                ${unlocked ? openBtnLabel : lockMsg}
-              </button>
-            </div>
           </article>
         `;
       }).join('');
@@ -893,32 +880,53 @@ export class TitleScene extends Phaser.Scene {
 
       const shopStages = REAL_STREET_SHOPS[activeStreet.id] ?? [];
       const prog = streetProgress(curSave, activeStreet.id);
-      const canPlay = (id: StageId) => isBotBypass || isStreetStageUnlocked(curSave, id);
+      const canPlay = (id: StageId) => isBotBypass || ownerOpenAll || isStreetStageUnlocked(curSave, id);
       const selId: StageId = selectedStreetStage[activeStreet.id] ?? prog.nextStageId;
       const selStage = STAGES[selId] ?? activeStreet;
       const selUnlocked = isRealStreetsUnlocked && canPlay(selStage.id);
       const bossDef = Object.values(ALL_ENEMY_DEFINITIONS).find(
         (e) => e?.trait === 'boss' && activeStreet.waves.some((w) => w.groups.some((g) => g.enemyId === e.id)),
       );
+      const fTex = this.textures.exists(FACADE_ATLAS_KEY) ? this.textures.get(FACADE_ATLAS_KEY) : null;
+      const facadeUrl = (st: StageDefinition): string => {
+        const art = st.featuredTowerId ? ALL_TOWER_DEFINITIONS[st.featuredTowerId]?.art : undefined;
+        const k = [st.facadeKey, art ? `facade_${art}` : undefined].find((x) => x && fTex?.has(x));
+        return k ? getAtlasFrameDataUrlFrom(this, FACADE_ATLAS_KEY, k) : '';
+      };
+      const enemyChips = (stg: StageDefinition) =>
+        getStageMainEnemies(stg)
+          .map((eid) => {
+            const edef = ALL_ENEMY_DEFINITIONS[eid];
+            if (!edef) return '';
+            const el = ELEMENT_INFO[edef.element];
+            const eUrl = getAtlasFrameDataUrl(this, getEnemyFrameName(eid, 0));
+            return `<span class="td-shop-enemy-chip" style="border-color:${el.colorHex}" data-tip="${edef.name} • ${el.label}">${eUrl ? `<img src="${eUrl}" alt="${edef.name}" />` : ''}<span>${edef.name}</span></span>`;
+          })
+          .join('');
       const shopRowsHtml = [...shopStages, activeStreet]
         .map((st) => {
           const isBossRow = !st.shopIndex;
           const open = isRealStreetsUnlocked && canPlay(st.id);
           const stars = curSave.starsByStage[st.id] ?? 0;
-          const feat = st.featuredTowerId ? ALL_TOWER_DEFINITIONS[st.featuredTowerId] : undefined;
-          const icon = isBossRow
+          const isSel = st.id === selStage.id;
+          const thumb = isBossRow
             ? (bossDef ? getAtlasFrameDataUrl(this, getEnemyFrameName(bossDef.id, 0)) : '')
-            : feat
-              ? getAtlasFrameDataUrl(this, getTowerFrameName(feat.id, 1, undefined, 0))
-              : '';
-          const label = isBossRow ? `Màn phố: ${bossDef?.name ?? 'Trùm phố'}` : `${st.shopIndex}. ${st.name}`;
+            : facadeUrl(st);
+          const name = isBossRow ? (bossDef?.name ?? 'Trùm phố') : st.name;
           return `
-            <button type="button" class="td-real-shop-row ${open ? 'open' : 'locked'} ${st.id === selStage.id ? 'selected' : ''} ${isBossRow ? 'boss' : ''}"
-              data-real-stage="${st.id}" data-testid="real-shop-row-${st.id}">
-              <span class="td-real-shop-ico">${icon ? `<img src="${icon}" alt="" />` : isBossRow ? '👹' : '🏠'}</span>
-              <span class="td-real-shop-name">${label}</span>
-              <span class="td-real-shop-state">${!open ? '🔒' : stars > 0 ? '★'.repeat(stars) : 'Mới'}</span>
-            </button>`;
+            <div class="td-shoprow ${open ? 'open' : 'locked'} ${isSel ? 'selected' : ''} ${isBossRow ? 'boss' : ''}">
+              <div class="td-shoprow-main">
+                <div class="td-shoprow-hit" role="button" tabindex="0" data-real-stage="${st.id}" data-testid="real-shop-row-${st.id}">
+                  <span class="td-shoprow-thumb">${thumb ? `<img src="${thumb}" alt="" />` : isBossRow ? '👹' : '🏠'}</span>
+                  <span class="td-shoprow-name"><b>${isBossRow ? '👹' : st.shopIndex}</b><span>${name}</span></span>
+                  <span class="td-shoprow-stars">${!open ? '🔒' : stars > 0 ? '★'.repeat(stars) : ''}</span>
+                </div>
+                <button type="button" class="td-shoprow-play" data-play-real="${st.id}"
+                  ${isSel ? `id="btn-start-${activeStreet.id}" data-testid="btn-start-${activeStreet.id}"` : `data-testid="btn-play-${st.id}"`}
+                  ${open ? '' : 'disabled aria-disabled="true"'}>${open ? '▶' : '🔒'}</button>
+              </div>
+              ${isSel ? `<div class="td-shoprow-detail"><div class="td-shop-mini-enemies">${enemyChips(st)}</div></div>` : ''}
+            </div>`;
         })
         .join('');
       const activeStars = curSave.starsByStage[activeStreet.id] ?? 0;
@@ -927,7 +935,6 @@ export class TitleScene extends Phaser.Scene {
         : activeStars > 0
           ? '★'.repeat(activeStars) + '☆'.repeat(3 - activeStars)
           : 'Mới mở!';
-      const activeEnemies = getStageMainEnemies(STAGES[selectedStreetStage[activeStreet.id] ?? streetProgress(curSave, activeStreet.id).nextStageId] ?? activeStreet);
 
       host.innerHTML = `
         <div class="td-dalat-map-card ${isRealStreetsUnlocked ? 'unlocked' : 'locked'}">
@@ -955,37 +962,6 @@ export class TitleScene extends Phaser.Scene {
               <div class="td-real-shop-list" data-testid="real-shop-list">${shopRowsHtml}</div>
             </div>
 
-            <div class="td-shop-detail-block">
-              <div class="td-shop-detail-label">Quái ở ${selStage.shopIndex ? selStage.name : 'ngoài phố'}</div>
-              <div class="td-shop-mini-enemies">
-                ${activeEnemies
-                  .map((eid) => {
-                    const edef = ALL_ENEMY_DEFINITIONS[eid];
-                    if (!edef) return '';
-                    const el = ELEMENT_INFO[edef.element];
-                    const eUrl = getAtlasFrameDataUrl(this, getEnemyFrameName(eid, 0));
-                    return `
-                      <span class="td-shop-enemy-chip" style="border-color:${el.colorHex}" data-tip="${edef.name} • ${el.label}">
-                        ${eUrl ? `<img src="${eUrl}" alt="${edef.name}" />` : ''}
-                        <span>${edef.name}</span>
-                        <i class="td-enemy-el-dot" style="background:${el.colorHex}"></i>
-                      </span>
-                    `;
-                  })
-                  .join('')}
-              </div>
-            </div>
-
-            <div class="td-shop-action-bar">
-              <button
-                type="button"
-                id="btn-start-${activeStreet.id}"
-                data-testid="btn-start-${activeStreet.id}"
-                class="${selUnlocked ? 'td-btn-primary td-street-open-btn' : 'td-btn-locked td-street-open-btn'}"
-                ${selUnlocked ? '' : 'disabled aria-disabled="true"'}
-              >
-                ${!isRealStreetsUnlocked || !selUnlocked ? '🔒' : selStage.shopIndex ? `▶ ${selStage.name}` : '▶ Đánh Trùm Phố'}
-              </button>
             </div>
           </div>
         </div>
@@ -1011,15 +987,19 @@ export class TitleScene extends Phaser.Scene {
         };
       });
 
-      host.querySelector<HTMLButtonElement>(`#btn-start-${activeStreet.id}`)?.addEventListener('click', () => {
-        if (!selUnlocked) return;
-        if (selStage.loadoutSize && !isBotBypass) {
-          sound.playUiClick();
-          openLoadoutPicker(selStage);
-        } else {
-          launchStage(selStage.id, this.resolveSavedLoadoutForStage(selStage));
-        }
+      host.querySelectorAll<HTMLButtonElement>('[data-play-real]').forEach((btn) => {
+        btn.onclick = () => {
+          const stg = STAGES[btn.dataset.playReal as StageId];
+          if (!stg || btn.disabled || !(isRealStreetsUnlocked && canPlay(stg.id))) return;
+          if (stg.loadoutSize && !isBotBypass) {
+            sound.playUiClick();
+            openLoadoutPicker(stg);
+          } else {
+            launchStage(stg.id, this.resolveSavedLoadoutForStage(stg));
+          }
+        };
       });
+      void selUnlocked;
     };
 
     renderStreet();
