@@ -45,7 +45,7 @@ import { music } from '../game/music';
 import { getInitialReduceMotion, loadRealStreetLoadout, saveRealStreetLoadout } from '../game/preferences';
 import { SCENE_KEYS } from '../game/sceneKeys';
 import { renderShopkeeperAvatarSvg } from '../game/shopkeeperAvatar';
-import { renderShopFacadeSvg } from '../game/shopStreetArt';
+import { renderDalatMapBgSvg, renderShopFacadeSvg } from '../game/shopStreetArt';
 import { sound } from '../game/sound';
 
 const RING_SIZE = 340;
@@ -86,8 +86,8 @@ const REAL_STREET_MAP_PINS: Record<string, { leftPct: number; topPct: number; sh
     tag: 'Cầu Quẹo • Phố tiệm dân sinh',
   },
   street_tang_bat_ho: {
-    leftPct: 38,
-    topPct: 62,
+    leftPct: 44,
+    topPct: 58,
     shortName: 'Tăng Bạt Hổ – Trương Công Định',
     tag: 'Dốc chợ • Quán đêm • Bar hầm',
   },
@@ -270,7 +270,7 @@ export class TitleScene extends Phaser.Scene {
             <button type="button" id="btn-open-help" data-testid="btn-open-help" class="td-icon-btn" aria-label="Hướng dẫn">?</button>
           </div>
         </div>
-        <div class="td-street-tabs" id="td-street-tabs" data-testid="street-tabs"></div>
+        <div class="td-home-map td-dalat-map-stage" id="td-street-tabs" data-testid="street-tabs"></div>
 
         <section class="td-street-section ${this.reduceMotion ? 'no-anim' : ''}" data-testid="shop-street">
           <div class="td-street-list" id="td-street-list"></div>
@@ -583,19 +583,20 @@ export class TitleScene extends Phaser.Scene {
       if (!host) return;
       const cur = loadTdSave();
       const docStars = SHOP_STREET.reduce((n, sh) => n + shopStars(cur, sh), 0);
+      // Bản đồ Đà Lạt có ghim (Claude): Phố Dốc luôn mở, phố thật mở sau Trận trùm phố
+      const pin = (id: string, left: number, top: number, name: string, sub: string, open: boolean, testid: string, extra = '') => `
+        <button type="button" class="td-dalat-pin td-home-pin ${open ? 'unlocked' : 'locked'} ${activeStreetTab === id ? 'selected' : ''}"
+          style="left:${left}%;top:${top}%" data-street-tab="${id}" data-testid="${testid}" ${extra}>
+          <span class="td-dalat-pin-dot">${open ? '📍' : '🔒'}</span>
+          <span class="td-dalat-pin-label"><strong>${name}</strong>${sub ? `<em class="td-pin-stars">${sub}</em>` : ''}</span>
+        </button>`;
       const tabs = [
-        `<button type="button" class="td-street-tab ${activeStreetTab === 'doc' ? 'selected' : ''}" data-street-tab="doc" data-testid="street-tab-doc">
-           <span class="td-street-tab-ico">⛰</span><span class="td-street-tab-name">Phố Dốc</span><span class="td-street-tab-stars">★${docStars}</span>
-         </button>`,
+        renderDalatMapBgSvg(true),
+        pin('doc', 22, 86, 'Phố Dốc', `★${docStars}`, true, 'street-tab-doc'),
         ...REAL_STREET_STAGES.map((st) => {
-          const pin = REAL_STREET_MAP_PINS[st.id];
+          const meta = REAL_STREET_MAP_PINS[st.id] ?? { leftPct: 50, topPct: 50, shortName: st.name, tag: '' };
           const prog = streetProgress(cur, st.id);
-          return `<button type="button" class="td-street-tab ${activeStreetTab === st.id ? 'selected' : ''} ${isRealStreetsUnlocked ? '' : 'locked'}"
-              data-street-tab="${st.id}" data-real-pin="${st.id}" data-testid="real-street-pin-${st.id}">
-              <span class="td-street-tab-ico">${isRealStreetsUnlocked ? '📍' : '🔒'}</span>
-              <span class="td-street-tab-name">${pin?.shortName ?? st.name}</span>
-              <span class="td-street-tab-stars">${isRealStreetsUnlocked ? `${prog.shopsCleared}/${prog.shopsTotal}` : ''}</span>
-            </button>`;
+          return pin(st.id, meta.leftPct, meta.topPct, meta.shortName, isRealStreetsUnlocked ? `${prog.shopsCleared}/${prog.shopsTotal}` : '', isRealStreetsUnlocked, `real-street-pin-${st.id}`, `data-real-pin="${st.id}"`);
         }),
       ];
       host.innerHTML = tabs.join('');
@@ -605,6 +606,8 @@ export class TitleScene extends Phaser.Scene {
           if (activeStreetTab !== 'doc') selectedRealStreetId = activeStreetTab as StageId;
           sound.playUiClick();
           applyStreetTab();
+          root.querySelector(activeStreetTab === 'doc' ? '#td-street-list' : '#td-dalat-real-streets')
+            ?.scrollIntoView({ behavior: this.reduceMotion ? 'auto' : 'smooth', block: 'start' });
         };
       });
     };

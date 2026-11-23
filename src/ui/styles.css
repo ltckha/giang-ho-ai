@@ -3960,3 +3960,7 @@ img.td-vehicle-ico { object-fit: contain; }
 .td-tip-bubble { position: absolute; z-index: 70; width: 220px; padding: 6px 10px; border-radius: 10px; background: #2b1a12; color: #fff3d6; font-size: 13px; font-weight: 700; text-align: center; pointer-events: none; }
 .td-tip-bubble[hidden] { display: none; }
 .td-title-overlay [data-tip] { cursor: pointer; }
+/* Bản đồ chọn phố ở màn chính (Claude) */
+.td-home-map { flex: none; margin: 0 0 10px; }
+.td-home-pin { font-size: 11px; padding: 4px 9px; }
+.td-home-pin .td-dalat-pin-dot { font-size: 14px; }
