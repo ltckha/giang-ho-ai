@@ -337,8 +337,10 @@ export class TdStageScene extends Phaser.Scene {
     }
 
     this.facadeImage = null;
-    const fk = this.engine.stage.facadeKey;
-    if (fk && this.engine.stage.facadeSpot && this.textures.exists(FACADE_ATLAS_KEY) && this.textures.get(FACADE_ATLAS_KEY).has(fk)) {
+    const featArt = this.engine.stage.featuredTowerId ? TOWER_DEFINITIONS[this.engine.stage.featuredTowerId]?.art : undefined;
+    const fTex = this.textures.exists(FACADE_ATLAS_KEY) ? this.textures.get(FACADE_ATLAS_KEY) : null;
+    const fk = [this.engine.stage.facadeKey, featArt ? `facade_${featArt}` : undefined].find((k) => k && fTex?.has(k));
+    if (fk && this.engine.stage.facadeSpot) {
       this.facadeImage = this.add.image(0, 0, FACADE_ATLAS_KEY, fk).setOrigin(0.5, 0.5).setDepth(2);
       this.layoutMapImage();
     }

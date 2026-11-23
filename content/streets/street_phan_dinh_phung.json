@@ -179,25 +179,27 @@
       "confidence": "nen_kiem"
     },
     {
-      "key": "giat_say",
-      "art": "giat_ui",
-      "name": "Giặt Sấy Hồ Sương",
-      "type": "Tiệm giặt sấy cho khách trọ",
-      "trait": "máy giặt quay ù ù, bọt xà phòng",
+      "key": "cafe_coc",
+      "art": "cafe",
+      "name": "Cà Phê Cóc Hồ Sương",
+      "type": "Quán cà phê nhỏ dọc phố",
+      "trait": "vài bàn nhỏ ven đường, phin nhôm",
+      "sources": [
+        "https://www.foody.vn/lam-dong/tim-kiem/phan-%C4%91%C3%ACnh-ph%C3%B9ng"
+      ],
+      "confidence": "nen_kiem",
       "tower": {
         "element": "thuy",
         "role": "aoe_splash",
         "names": [
-          "Máy Giặt Lồng",
-          "Máy Giặt Công Nghiệp",
-          "Bàn Ủi Hơi",
-          "Xô Bọt Xà Phòng"
+          "Phin Nhôm",
+          "Phin Đôi",
+          "Bình Ủ Lạnh",
+          "Ấm Rót Cổ Ngỗng"
         ],
-        "ult": "Giặt Sạch Cả Phố",
-        "why": "Nước và bọt dập than khói"
-      },
-      "sources": [],
-      "confidence": "nen_kiem"
+        "ult": "Rót Một Vòng Phố",
+        "why": "Nước pha dập than khói"
+      }
     }
   ],
   "pests": [

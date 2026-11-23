@@ -9,7 +9,7 @@
  },
  "stage": {
   "id": "street_pho_ca_phe",
-  "stageNumber": 20,
+  "stageNumber": 19,
   "name": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành",
   "subtitle": "Màn phố: Cơn Mưa Ngập Dốc — Con đường cà phê lên Khu Hoà Bình: quán xưa cạnh quán mới, kem bơ, sân thượng nhìn phố",
   "startingEssence": 210,
@@ -573,12 +573,11 @@
    "gt_pho_ca_phe_cafe_som",
    "gt_pho_ca_phe_o_long",
    "gt_pho_ca_phe_kem_ly",
-   "gt_pho_ca_phe_banh_mi_chao",
+   "gt_pho_ca_phe_tra_sua",
    "gt_pho_ca_phe_retro",
    "gt_pho_ca_phe_kem_bo",
    "gt_pho_ca_phe_cafe_xua",
-   "gt_pho_ca_phe_san_thuong",
-   "gt_pho_ca_phe_banh_trung"
+   "gt_pho_ca_phe_san_thuong"
   ],
   "loadoutSize": 6,
   "defaultLoadout": [
@@ -614,11 +613,11 @@
     "towerId": "gt_pho_ca_phe_kem_ly"
    },
    {
-    "key": "banh_mi_chao",
-    "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
-    "type": "Quán cà phê có bánh mì chảo buổi sáng",
-    "trait": "chảo gang nóng",
-    "towerId": "gt_pho_ca_phe_banh_mi_chao"
+    "key": "tra_sua",
+    "name": "Tiệm Trà Sữa Hồ Sương",
+    "type": "Tiệm trà sữa",
+    "trait": "nồi trân châu nấu nóng, ly trà sữa",
+    "towerId": "gt_pho_ca_phe_tra_sua"
    },
    {
     "key": "retro",
@@ -647,13 +646,6 @@
     "type": "Quán cà phê sân thượng nhìn xuống phố",
     "trait": "nhìn xuống chợ và hồ",
     "towerId": "gt_pho_ca_phe_san_thuong"
-   },
-   {
-    "key": "banh_trung",
-    "name": "Tiệm Bánh Trứng Mimosa",
-    "type": "Tiệm kem, bánh trứng nướng",
-    "trait": "bánh trứng nướng kèm kem",
-    "towerId": "gt_pho_ca_phe_banh_trung"
    }
   ],
   "streetId": "street_pho_ca_phe",
@@ -736,7 +728,7 @@
     "id": "street_pho_ca_phe_t1",
     "stageNumber": 11,
     "name": "Cà Phê Sớm Mai",
-    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 1/9: Quán cà phê truyền thống mở từ 5 giờ",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 1/8: Quán cà phê truyền thống mở từ 5 giờ",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -1120,11 +1112,11 @@
       "towerId": "gt_pho_ca_phe_kem_ly"
      },
      {
-      "key": "banh_mi_chao",
-      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
-      "type": "Quán cà phê có bánh mì chảo buổi sáng",
-      "trait": "chảo gang nóng",
-      "towerId": "gt_pho_ca_phe_banh_mi_chao"
+      "key": "tra_sua",
+      "name": "Tiệm Trà Sữa Hồ Sương",
+      "type": "Tiệm trà sữa",
+      "trait": "nồi trân châu nấu nóng, ly trà sữa",
+      "towerId": "gt_pho_ca_phe_tra_sua"
      },
      {
       "key": "retro",
@@ -1153,13 +1145,6 @@
       "type": "Quán cà phê sân thượng nhìn xuống phố",
       "trait": "nhìn xuống chợ và hồ",
       "towerId": "gt_pho_ca_phe_san_thuong"
-     },
-     {
-      "key": "banh_trung",
-      "name": "Tiệm Bánh Trứng Mimosa",
-      "type": "Tiệm kem, bánh trứng nướng",
-      "trait": "bánh trứng nướng kèm kem",
-      "towerId": "gt_pho_ca_phe_banh_trung"
      }
     ],
     "streetId": "street_pho_ca_phe",
@@ -1237,13 +1222,13 @@
     "randomWinWithExpectedGear": 0.5625,
     "botWinRate": 1,
     "botLivesAvg": 18.666666666666668,
-    "target": 0.6125
+    "target": 0.6071428571428572
    },
    "stage": {
     "id": "street_pho_ca_phe_t2",
     "stageNumber": 12,
     "name": "Tiệm Trà Đồi Chè",
-    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 2/9: Tiệm trà ô long ủ lạnh",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 2/8: Tiệm trà ô long ủ lạnh",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -1672,11 +1657,11 @@
       "towerId": "gt_pho_ca_phe_kem_ly"
      },
      {
-      "key": "banh_mi_chao",
-      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
-      "type": "Quán cà phê có bánh mì chảo buổi sáng",
-      "trait": "chảo gang nóng",
-      "towerId": "gt_pho_ca_phe_banh_mi_chao"
+      "key": "tra_sua",
+      "name": "Tiệm Trà Sữa Hồ Sương",
+      "type": "Tiệm trà sữa",
+      "trait": "nồi trân châu nấu nóng, ly trà sữa",
+      "towerId": "gt_pho_ca_phe_tra_sua"
      },
      {
       "key": "retro",
@@ -1705,13 +1690,6 @@
       "type": "Quán cà phê sân thượng nhìn xuống phố",
       "trait": "nhìn xuống chợ và hồ",
       "towerId": "gt_pho_ca_phe_san_thuong"
-     },
-     {
-      "key": "banh_trung",
-      "name": "Tiệm Bánh Trứng Mimosa",
-      "type": "Tiệm kem, bánh trứng nướng",
-      "trait": "bánh trứng nướng kèm kem",
-      "towerId": "gt_pho_ca_phe_banh_trung"
      }
     ],
     "streetId": "street_pho_ca_phe",
@@ -1789,13 +1767,13 @@
     "randomWinWithExpectedGear": 0.3958333333333333,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
-    "target": 0.5750000000000001
+    "target": 0.5642857142857143
    },
    "stage": {
     "id": "street_pho_ca_phe_t3",
     "stageNumber": 13,
     "name": "Cà Phê Kem Cỏ Hồng",
-    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 3/9: Quán cà phê, kem ly",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 3/8: Quán cà phê, kem ly",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -2181,11 +2159,11 @@
       "towerId": "gt_pho_ca_phe_kem_ly"
      },
      {
-      "key": "banh_mi_chao",
-      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
-      "type": "Quán cà phê có bánh mì chảo buổi sáng",
-      "trait": "chảo gang nóng",
-      "towerId": "gt_pho_ca_phe_banh_mi_chao"
+      "key": "tra_sua",
+      "name": "Tiệm Trà Sữa Hồ Sương",
+      "type": "Tiệm trà sữa",
+      "trait": "nồi trân châu nấu nóng, ly trà sữa",
+      "towerId": "gt_pho_ca_phe_tra_sua"
      },
      {
       "key": "retro",
@@ -2214,13 +2192,6 @@
       "type": "Quán cà phê sân thượng nhìn xuống phố",
       "trait": "nhìn xuống chợ và hồ",
       "towerId": "gt_pho_ca_phe_san_thuong"
-     },
-     {
-      "key": "banh_trung",
-      "name": "Tiệm Bánh Trứng Mimosa",
-      "type": "Tiệm kem, bánh trứng nướng",
-      "trait": "bánh trứng nướng kèm kem",
-      "towerId": "gt_pho_ca_phe_banh_trung"
      }
     ],
     "streetId": "street_pho_ca_phe",
@@ -2298,13 +2269,13 @@
     "randomWinWithExpectedGear": 0.4583333333333333,
     "botWinRate": 1,
     "botLivesAvg": 16,
-    "target": 0.5375000000000001
+    "target": 0.5214285714285715
    },
    "stage": {
     "id": "street_pho_ca_phe_t4",
     "stageNumber": 14,
-    "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
-    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 4/9: Quán cà phê có bánh mì chảo buổi sáng",
+    "name": "Tiệm Trà Sữa Hồ Sương",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 4/8: Tiệm trà sữa",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -2681,11 +2652,11 @@
      "gt_pho_ca_phe_cafe_som",
      "gt_pho_ca_phe_o_long",
      "gt_pho_ca_phe_kem_ly",
-     "gt_pho_ca_phe_banh_mi_chao"
+     "gt_pho_ca_phe_tra_sua"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
-     "gt_pho_ca_phe_banh_mi_chao",
+     "gt_pho_ca_phe_tra_sua",
      "metal_tower",
      "fl_vent",
      "bk_fridge",
@@ -2717,11 +2688,11 @@
       "towerId": "gt_pho_ca_phe_kem_ly"
      },
      {
-      "key": "banh_mi_chao",
-      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
-      "type": "Quán cà phê có bánh mì chảo buổi sáng",
-      "trait": "chảo gang nóng",
-      "towerId": "gt_pho_ca_phe_banh_mi_chao"
+      "key": "tra_sua",
+      "name": "Tiệm Trà Sữa Hồ Sương",
+      "type": "Tiệm trà sữa",
+      "trait": "nồi trân châu nấu nóng, ly trà sữa",
+      "towerId": "gt_pho_ca_phe_tra_sua"
      },
      {
       "key": "retro",
@@ -2750,20 +2721,13 @@
       "type": "Quán cà phê sân thượng nhìn xuống phố",
       "trait": "nhìn xuống chợ và hồ",
       "towerId": "gt_pho_ca_phe_san_thuong"
-     },
-     {
-      "key": "banh_trung",
-      "name": "Tiệm Bánh Trứng Mimosa",
-      "type": "Tiệm kem, bánh trứng nướng",
-      "trait": "bánh trứng nướng kèm kem",
-      "towerId": "gt_pho_ca_phe_banh_trung"
      }
     ],
     "streetId": "street_pho_ca_phe",
     "shopIndex": 4,
     "mapStageId": "street_pho_ca_phe",
-    "featuredTowerId": "gt_pho_ca_phe_banh_mi_chao",
-    "facadeKey": "mat_tien_banh_mi_chao",
+    "featuredTowerId": "gt_pho_ca_phe_tra_sua",
+    "facadeKey": "mat_tien_tra_sua",
     "facadeSpot": {
      "x": 64,
      "y": 64,
@@ -2772,7 +2736,7 @@
     "botPlan": [
      {
       "padId": "pad_5",
-      "defId": "gt_pho_ca_phe_banh_mi_chao",
+      "defId": "gt_pho_ca_phe_tra_sua",
       "preferredBranch": "A"
      },
      {
@@ -2787,7 +2751,7 @@
      },
      {
       "padId": "pad_7",
-      "defId": "gt_pho_ca_phe_banh_mi_chao",
+      "defId": "gt_pho_ca_phe_tra_sua",
       "preferredBranch": "B"
      },
      {
@@ -2802,7 +2766,7 @@
      },
      {
       "padId": "pad_4",
-      "defId": "gt_pho_ca_phe_banh_mi_chao",
+      "defId": "gt_pho_ca_phe_tra_sua",
       "preferredBranch": "A"
      },
      {
@@ -2817,7 +2781,7 @@
      },
      {
       "padId": "pad_9",
-      "defId": "gt_pho_ca_phe_banh_mi_chao",
+      "defId": "gt_pho_ca_phe_tra_sua",
       "preferredBranch": "B"
      },
      {
@@ -2834,13 +2798,13 @@
     "randomWinWithExpectedGear": 0.4791666666666667,
     "botWinRate": 1,
     "botLivesAvg": 18.333333333333332,
-    "target": 0.5
+    "target": 0.4785714285714286
    },
    "stage": {
     "id": "street_pho_ca_phe_t5",
     "stageNumber": 15,
     "name": "Cà Phê Hoài Cổ Bằng Lăng",
-    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 5/9: Quán cà phê retro đồ cũ thập niên 90",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 5/8: Quán cà phê retro đồ cũ thập niên 90",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -3172,7 +3136,7 @@
      "gt_pho_ca_phe_cafe_som",
      "gt_pho_ca_phe_o_long",
      "gt_pho_ca_phe_kem_ly",
-     "gt_pho_ca_phe_banh_mi_chao",
+     "gt_pho_ca_phe_tra_sua",
      "gt_pho_ca_phe_retro"
     ],
     "loadoutSize": 6,
@@ -3209,11 +3173,11 @@
       "towerId": "gt_pho_ca_phe_kem_ly"
      },
      {
-      "key": "banh_mi_chao",
-      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
-      "type": "Quán cà phê có bánh mì chảo buổi sáng",
-      "trait": "chảo gang nóng",
-      "towerId": "gt_pho_ca_phe_banh_mi_chao"
+      "key": "tra_sua",
+      "name": "Tiệm Trà Sữa Hồ Sương",
+      "type": "Tiệm trà sữa",
+      "trait": "nồi trân châu nấu nóng, ly trà sữa",
+      "towerId": "gt_pho_ca_phe_tra_sua"
      },
      {
       "key": "retro",
@@ -3242,13 +3206,6 @@
       "type": "Quán cà phê sân thượng nhìn xuống phố",
       "trait": "nhìn xuống chợ và hồ",
       "towerId": "gt_pho_ca_phe_san_thuong"
-     },
-     {
-      "key": "banh_trung",
-      "name": "Tiệm Bánh Trứng Mimosa",
-      "type": "Tiệm kem, bánh trứng nướng",
-      "trait": "bánh trứng nướng kèm kem",
-      "towerId": "gt_pho_ca_phe_banh_trung"
      }
     ],
     "streetId": "street_pho_ca_phe",
@@ -3326,13 +3283,13 @@
     "randomWinWithExpectedGear": 0.4166666666666667,
     "botWinRate": 1,
     "botLivesAvg": 18.333333333333332,
-    "target": 0.4625
+    "target": 0.4357142857142857
    },
    "stage": {
     "id": "street_pho_ca_phe_t6",
     "stageNumber": 16,
     "name": "Quán Kem Bơ Mai Anh Đào",
-    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 6/9: Quán cà phê, kem bơ",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 6/8: Quán cà phê, kem bơ",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -3709,7 +3666,7 @@
      "gt_pho_ca_phe_cafe_som",
      "gt_pho_ca_phe_o_long",
      "gt_pho_ca_phe_kem_ly",
-     "gt_pho_ca_phe_banh_mi_chao",
+     "gt_pho_ca_phe_tra_sua",
      "gt_pho_ca_phe_retro",
      "gt_pho_ca_phe_kem_bo"
     ],
@@ -3747,11 +3704,11 @@
       "towerId": "gt_pho_ca_phe_kem_ly"
      },
      {
-      "key": "banh_mi_chao",
-      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
-      "type": "Quán cà phê có bánh mì chảo buổi sáng",
-      "trait": "chảo gang nóng",
-      "towerId": "gt_pho_ca_phe_banh_mi_chao"
+      "key": "tra_sua",
+      "name": "Tiệm Trà Sữa Hồ Sương",
+      "type": "Tiệm trà sữa",
+      "trait": "nồi trân châu nấu nóng, ly trà sữa",
+      "towerId": "gt_pho_ca_phe_tra_sua"
      },
      {
       "key": "retro",
@@ -3780,13 +3737,6 @@
       "type": "Quán cà phê sân thượng nhìn xuống phố",
       "trait": "nhìn xuống chợ và hồ",
       "towerId": "gt_pho_ca_phe_san_thuong"
-     },
-     {
-      "key": "banh_trung",
-      "name": "Tiệm Bánh Trứng Mimosa",
-      "type": "Tiệm kem, bánh trứng nướng",
-      "trait": "bánh trứng nướng kèm kem",
-      "towerId": "gt_pho_ca_phe_banh_trung"
      }
     ],
     "streetId": "street_pho_ca_phe",
@@ -3864,13 +3814,13 @@
     "randomWinWithExpectedGear": 0.4791666666666667,
     "botWinRate": 1,
     "botLivesAvg": 17.333333333333332,
-    "target": 0.42500000000000004
+    "target": 0.3928571428571429
    },
    "stage": {
     "id": "street_pho_ca_phe_t7",
     "stageNumber": 17,
     "name": "Cà Phê Xưa Cúc Hoạ Mi",
-    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 7/9: Quán cà phê xưa, ghế gỗ, nhạc Trịnh",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 7/8: Quán cà phê xưa, ghế gỗ, nhạc Trịnh",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -4230,7 +4180,7 @@
      "gt_pho_ca_phe_cafe_som",
      "gt_pho_ca_phe_o_long",
      "gt_pho_ca_phe_kem_ly",
-     "gt_pho_ca_phe_banh_mi_chao",
+     "gt_pho_ca_phe_tra_sua",
      "gt_pho_ca_phe_retro",
      "gt_pho_ca_phe_kem_bo",
      "gt_pho_ca_phe_cafe_xua"
@@ -4269,11 +4219,11 @@
       "towerId": "gt_pho_ca_phe_kem_ly"
      },
      {
-      "key": "banh_mi_chao",
-      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
-      "type": "Quán cà phê có bánh mì chảo buổi sáng",
-      "trait": "chảo gang nóng",
-      "towerId": "gt_pho_ca_phe_banh_mi_chao"
+      "key": "tra_sua",
+      "name": "Tiệm Trà Sữa Hồ Sương",
+      "type": "Tiệm trà sữa",
+      "trait": "nồi trân châu nấu nóng, ly trà sữa",
+      "towerId": "gt_pho_ca_phe_tra_sua"
      },
      {
       "key": "retro",
@@ -4302,13 +4252,6 @@
       "type": "Quán cà phê sân thượng nhìn xuống phố",
       "trait": "nhìn xuống chợ và hồ",
       "towerId": "gt_pho_ca_phe_san_thuong"
-     },
-     {
-      "key": "banh_trung",
-      "name": "Tiệm Bánh Trứng Mimosa",
-      "type": "Tiệm kem, bánh trứng nướng",
-      "trait": "bánh trứng nướng kèm kem",
-      "towerId": "gt_pho_ca_phe_banh_trung"
      }
     ],
     "streetId": "street_pho_ca_phe",
@@ -4381,18 +4324,18 @@
    }
   },
   {
-   "hpMultiplier": 1.6,
+   "hpMultiplier": 1.7,
    "balance": {
-    "randomWinWithExpectedGear": 0.4166666666666667,
+    "randomWinWithExpectedGear": 0.2916666666666667,
     "botWinRate": 1,
-    "botLivesAvg": 16,
-    "target": 0.3875
+    "botLivesAvg": 12.666666666666666,
+    "target": 0.35000000000000003
    },
    "stage": {
     "id": "street_pho_ca_phe_t8",
     "stageNumber": 18,
     "name": "Cà Phê Sân Thượng Thông Xanh",
-    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 8/9: Quán cà phê sân thượng nhìn xuống phố",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 8/8: Quán cà phê sân thượng nhìn xuống phố",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -4540,7 +4483,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 1.7
        }
       ]
      },
@@ -4559,7 +4502,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.84
+        "hpScale": 1.95
        }
       ]
      },
@@ -4579,7 +4522,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.08
+        "hpScale": 2.21
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -4587,7 +4530,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.08
+        "hpScale": 2.21
        }
       ]
      },
@@ -4607,7 +4550,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.32
+        "hpScale": 2.47
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4615,7 +4558,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.32
+        "hpScale": 2.47
        }
       ]
      },
@@ -4635,7 +4578,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.72
+        "hpScale": 2.89
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4643,7 +4586,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.72
+        "hpScale": 2.89
        }
       ]
      },
@@ -4663,7 +4606,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.2
+        "hpScale": 3.4
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4671,7 +4614,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.2
+        "hpScale": 3.4
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -4679,7 +4622,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.2
+        "hpScale": 3.4
        }
       ]
      },
@@ -4700,7 +4643,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.84
+        "hpScale": 4.08
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -4708,7 +4651,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.84
+        "hpScale": 4.08
        },
        {
         "enemyId": "ge_pho_ca_phe_1",
@@ -4716,7 +4659,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.84
+        "hpScale": 4.08
        }
       ]
      },
@@ -4738,7 +4681,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.48
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -4746,7 +4689,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.48
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4754,7 +4697,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.48
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -4762,7 +4705,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.48
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -4770,7 +4713,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.48
+        "hpScale": 4.76
        }
       ]
      }
@@ -4794,7 +4737,7 @@
      "gt_pho_ca_phe_cafe_som",
      "gt_pho_ca_phe_o_long",
      "gt_pho_ca_phe_kem_ly",
-     "gt_pho_ca_phe_banh_mi_chao",
+     "gt_pho_ca_phe_tra_sua",
      "gt_pho_ca_phe_retro",
      "gt_pho_ca_phe_kem_bo",
      "gt_pho_ca_phe_cafe_xua",
@@ -4834,11 +4777,11 @@
       "towerId": "gt_pho_ca_phe_kem_ly"
      },
      {
-      "key": "banh_mi_chao",
-      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
-      "type": "Quán cà phê có bánh mì chảo buổi sáng",
-      "trait": "chảo gang nóng",
-      "towerId": "gt_pho_ca_phe_banh_mi_chao"
+      "key": "tra_sua",
+      "name": "Tiệm Trà Sữa Hồ Sương",
+      "type": "Tiệm trà sữa",
+      "trait": "nồi trân châu nấu nóng, ly trà sữa",
+      "towerId": "gt_pho_ca_phe_tra_sua"
      },
      {
       "key": "retro",
@@ -4867,13 +4810,6 @@
       "type": "Quán cà phê sân thượng nhìn xuống phố",
       "trait": "nhìn xuống chợ và hồ",
       "towerId": "gt_pho_ca_phe_san_thuong"
-     },
-     {
-      "key": "banh_trung",
-      "name": "Tiệm Bánh Trứng Mimosa",
-      "type": "Tiệm kem, bánh trứng nướng",
-      "trait": "bánh trứng nướng kèm kem",
-      "towerId": "gt_pho_ca_phe_banh_trung"
      }
     ],
     "streetId": "street_pho_ca_phe",
@@ -4939,528 +4875,6 @@
      },
      {
       "padId": "pad_10",
-      "defId": "metal_tower",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 0.6,
-   "balance": {
-    "randomWinWithExpectedGear": 0.3125,
-    "botWinRate": 1,
-    "botLivesAvg": 17,
-    "target": 0.35000000000000003
-   },
-   "stage": {
-    "id": "street_pho_ca_phe_t9",
-    "stageNumber": 19,
-    "name": "Tiệm Bánh Trứng Mimosa",
-    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 9/9: Tiệm kem, bánh trứng nướng",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 330,
-       "y": 487
-      },
-      {
-       "x": 305,
-       "y": 468
-      },
-      {
-       "x": 174,
-       "y": 399
-      },
-      {
-       "x": 68,
-       "y": 308
-      },
-      {
-       "x": 56,
-       "y": 301
-      },
-      {
-       "x": 30,
-       "y": 296
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 150,
-      "y": 282
-     },
-     {
-      "id": "pad_2",
-      "x": 90,
-      "y": 378
-     },
-     {
-      "id": "pad_3",
-      "x": 66,
-      "y": 246
-     },
-     {
-      "id": "pad_4",
-      "x": 30,
-      "y": 342
-     },
-     {
-      "id": "pad_5",
-      "x": 222,
-      "y": 78
-     },
-     {
-      "id": "pad_6",
-      "x": 282,
-      "y": 54
-     },
-     {
-      "id": "pad_7",
-      "x": 270,
-      "y": 162
-     },
-     {
-      "id": "pad_8",
-      "x": 210,
-      "y": 330
-     },
-     {
-      "id": "pad_9",
-      "x": 222,
-      "y": 474
-     },
-     {
-      "id": "pad_10",
-      "x": 282,
-      "y": 390
-     },
-     {
-      "id": "pad_11",
-      "x": 162,
-      "y": 438
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
-      "title": "Đợt 1: Hơi Ẩm Hạt Cà Phê",
-      "mainElements": [
-       "thuy"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_pho_ca_phe_1",
-        "count": 6,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 0.6
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Bụi Chợ Đêm",
-      "mainElements": [
-       "tho"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_pho_ca_phe_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 0.69
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Đàn Kiến Bu Đường & Bụi Chợ Đêm",
-      "mainElements": [
-       "moc",
-       "tho"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_pho_ca_phe_4",
-        "count": 3,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 0.78
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 0.78
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Hơi Ẩm Hạt Cà Phê & Đàn Kiến Bu Đường",
-      "mainElements": [
-       "thuy",
-       "moc"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_pho_ca_phe_1",
-        "count": 7,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 0.87
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 0.87
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Hơi Ẩm Hạt Cà Phê & Đàn Kiến Bu Đường",
-      "mainElements": [
-       "thuy",
-       "moc"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_pho_ca_phe_1",
-        "count": 8,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.02
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.02
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Hơi Ẩm Hạt Cà Phê & Đàn Kiến Bu Đường & Mốc Bao Hạt",
-      "mainElements": [
-       "thuy",
-       "moc"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_pho_ca_phe_1",
-        "count": 8,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.2
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.2
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.2
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Bụi Chợ Đêm & Mọt Hạt & Hơi Ẩm Hạt Cà Phê",
-      "mainElements": [
-       "tho",
-       "kim",
-       "thuy"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_pho_ca_phe_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.44
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.44
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_1",
-        "count": 9,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.44
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "thuy",
-       "tho",
-       "moc",
-       "kim"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_pho_ca_phe_1",
-        "count": 9,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.68
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.68
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.68
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.68
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.68
-       }
-      ]
-     }
-    ],
-    "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
-     "gt_pho_ca_phe_cafe_som",
-     "gt_pho_ca_phe_o_long",
-     "gt_pho_ca_phe_kem_ly",
-     "gt_pho_ca_phe_banh_mi_chao",
-     "gt_pho_ca_phe_retro",
-     "gt_pho_ca_phe_kem_bo",
-     "gt_pho_ca_phe_cafe_xua",
-     "gt_pho_ca_phe_san_thuong",
-     "gt_pho_ca_phe_banh_trung"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_pho_ca_phe_banh_trung",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "cafe_som",
-      "name": "Cà Phê Sớm Mai",
-      "type": "Quán cà phê truyền thống mở từ 5 giờ",
-      "trait": "vài bàn nhỏ, phin nhôm",
-      "towerId": "gt_pho_ca_phe_cafe_som"
-     },
-     {
-      "key": "o_long",
-      "name": "Tiệm Trà Đồi Chè",
-      "type": "Tiệm trà ô long ủ lạnh",
-      "trait": "trà ô long ủ lạnh",
-      "towerId": "gt_pho_ca_phe_o_long"
-     },
-     {
-      "key": "kem_ly",
-      "name": "Cà Phê Kem Cỏ Hồng",
-      "type": "Quán cà phê, kem ly",
-      "trait": "ly kem nhiều tầng",
-      "towerId": "gt_pho_ca_phe_kem_ly"
-     },
-     {
-      "key": "banh_mi_chao",
-      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
-      "type": "Quán cà phê có bánh mì chảo buổi sáng",
-      "trait": "chảo gang nóng",
-      "towerId": "gt_pho_ca_phe_banh_mi_chao"
-     },
-     {
-      "key": "retro",
-      "name": "Cà Phê Hoài Cổ Bằng Lăng",
-      "type": "Quán cà phê retro đồ cũ thập niên 90",
-      "trait": "máy hát, đồ cũ",
-      "towerId": "gt_pho_ca_phe_retro"
-     },
-     {
-      "key": "kem_bo",
-      "name": "Quán Kem Bơ Mai Anh Đào",
-      "type": "Quán cà phê, kem bơ",
-      "trait": "ly kem bơ, mở từ sáng sớm",
-      "towerId": "gt_pho_ca_phe_kem_bo"
-     },
-     {
-      "key": "cafe_xua",
-      "name": "Cà Phê Xưa Cúc Hoạ Mi",
-      "type": "Quán cà phê xưa, ghế gỗ, nhạc Trịnh",
-      "trait": "ghế gỗ cũ, nhạc Trịnh",
-      "towerId": "gt_pho_ca_phe_cafe_xua"
-     },
-     {
-      "key": "san_thuong",
-      "name": "Cà Phê Sân Thượng Thông Xanh",
-      "type": "Quán cà phê sân thượng nhìn xuống phố",
-      "trait": "nhìn xuống chợ và hồ",
-      "towerId": "gt_pho_ca_phe_san_thuong"
-     },
-     {
-      "key": "banh_trung",
-      "name": "Tiệm Bánh Trứng Mimosa",
-      "type": "Tiệm kem, bánh trứng nướng",
-      "trait": "bánh trứng nướng kèm kem",
-      "towerId": "gt_pho_ca_phe_banh_trung"
-     }
-    ],
-    "streetId": "street_pho_ca_phe",
-    "shopIndex": 9,
-    "mapStageId": "street_pho_ca_phe",
-    "featuredTowerId": "gt_pho_ca_phe_banh_trung",
-    "facadeKey": "mat_tien_banh_trung",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
-    "botPlan": [
-     {
-      "padId": "pad_2",
-      "defId": "gt_pho_ca_phe_banh_trung",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "metal_tower",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_1",
-      "defId": "fl_vent",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_pho_ca_phe_banh_trung",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "metal_tower",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "fire_tower",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_pho_ca_phe_banh_trung",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "metal_tower",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "fire_tower",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_pho_ca_phe_banh_trung",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
       "defId": "metal_tower",
       "preferredBranch": "A"
      }
@@ -5620,32 +5034,33 @@
     "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
    }
   },
-  "gt_pho_ca_phe_banh_mi_chao": {
-   "id": "gt_pho_ca_phe_banh_mi_chao",
+  "gt_pho_ca_phe_tra_sua": {
+   "id": "gt_pho_ca_phe_tra_sua",
+   "art": "tra_sua",
    "element": "hoa",
    "role": "aoe_splash",
    "roleLabel": "Quăng gói hút ẩm đánh lan",
-   "ultimateName": "Xèo Một Chảo To",
+   "ultimateName": "Trân Châu Sôi Sùng Sục",
    "tier1": {
-    "name": "Chảo Gang Nóng",
+    "name": "Nồi Trân Châu",
     "cost": 65,
     "damage": 27,
     "range": 102,
     "cooldownSec": 1.15,
     "splashRadius": 54,
-    "description": "Cà Phê Bánh Mì Chảo Hồ Sương: chảo gang nóng. Khắc Kim: Hơi nóng chảo gang hun mọt."
+    "description": "Tiệm Trà Sữa Hồ Sương: nồi trân châu nấu nóng, ly trà sữa. Khắc Kim: Hơi nóng nồi trân châu xua mọt hạt."
    },
    "tier2": {
-    "name": "Chảo Gang Đôi",
+    "name": "Nồi Trân Châu Lớn",
     "cost": 80,
     "damage": 46,
     "range": 112,
     "cooldownSec": 1.04,
     "splashRadius": 64,
-    "description": "Chảo Gang Đôi: mạnh hơn, xa hơn."
+    "description": "Nồi Trân Châu Lớn: mạnh hơn, xa hơn."
    },
    "tier3A": {
-    "name": "Bếp Ga Lửa Lớn",
+    "name": "Bình Lắc Nóng",
     "cost": 115,
     "damage": 66,
     "range": 118,
@@ -5656,7 +5071,7 @@
     "description": "Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s."
    },
    "tier3B": {
-    "name": "Chảo Ốp La Xèo Xèo",
+    "name": "Ly Trà Sữa Khổng Lồ",
     "cost": 115,
     "damage": 84,
     "range": 120,
@@ -5832,48 +5247,6 @@
     "cooldownSec": 0.94,
     "splashRadius": 80,
     "description": "Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao."
-   }
-  },
-  "gt_pho_ca_phe_banh_trung": {
-   "id": "gt_pho_ca_phe_banh_trung",
-   "element": "hoa",
-   "role": "single_far",
-   "roleLabel": "Ném nhanh 1 con tầm xa",
-   "ultimateName": "Nướng Một Lò Đầy",
-   "tier1": {
-    "name": "Khuôn Bánh Trứng",
-    "cost": 55,
-    "damage": 19,
-    "range": 122,
-    "cooldownSec": 0.74,
-    "description": "Tiệm Bánh Trứng Mimosa: bánh trứng nướng kèm kem. Khắc Kim: Khuôn nóng xua mọt hạt."
-   },
-   "tier2": {
-    "name": "Khay Bánh Trứng",
-    "cost": 70,
-    "damage": 32,
-    "range": 134,
-    "cooldownSec": 0.62,
-    "description": "Khay Bánh Trứng: mạnh hơn, xa hơn."
-   },
-   "tier3A": {
-    "name": "Lò Nướng Mini",
-    "cost": 105,
-    "damage": 46,
-    "range": 144,
-    "cooldownSec": 0.48,
-    "pierceCount": 2,
-    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
-   },
-   "tier3B": {
-    "name": "Bánh Trứng Nóng Giòn",
-    "cost": 105,
-    "damage": 42,
-    "range": 140,
-    "cooldownSec": 0.54,
-    "burnDps": 18,
-    "burnDurationSec": 3,
-    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
    }
   },
   "gt_don_kep_rac": {

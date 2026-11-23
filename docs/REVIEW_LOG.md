@@ -364,3 +364,8 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 ## 23/11/2026 — Đổi tên Gọn Phố + nguồn cho 26 tiệm Đà Lạt (Claude)
 - Tên game: Gọn Phố (logo 1 dòng "GỌN PHỐ", icon, og-image, manifest, tiêu đề). Bản lưu người chơi giữ nguyên.
 - 26 tiệm 3 phố Đà Lạt có `sources` + `confidence`: 12 chắc, 14 nên kiểm, 0 đã đóng. Đáng chú ý: giặt sấy không thấy trên Phan Đình Phùng (có ở 39 Trương Công Định); bánh mì chảo, bánh trứng không thấy trên Phố Cà Phê; quán sân thượng ghi ở 1 Lê Đại Hành có nguồn nói đã đóng → cần anh Kha quyết giữ hay đổi.
+
+## 23/11/2026 — Sửa tiệm theo nguồn + Spark đợt 11 (Claude, anh Kha "1 ok")
+- Phan Đình Phùng: Giặt Sấy → Cà Phê Cóc Hồ Sương. Tăng Bạt Hổ: thêm Giặt Sấy Hồ Sương (tiệm giặt ở Trương Công Định) → 10 tiệm. Phố Cà Phê: Bánh Mì Chảo → Tiệm Trà Sữa Hồ Sương (Hỏa), bỏ Tiệm Bánh Trứng → 8 tiệm. Máy cân lại cả 3 phố.
+- Đợt 11: bao cát b3a vẽ lại, 2 mặt tiền bỏ chữ, 8 mặt tiền Chợ Bến Thành → 34 mặt tiền. Mặt tiền chung theo loại (facade_<loại>, chờ đợt 13) dùng khi tiệm chưa có mặt tiền riêng.
+- `npm test` 78/78, e2e 17/17.

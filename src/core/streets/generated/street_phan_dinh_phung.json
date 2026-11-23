@@ -576,7 +576,7 @@
    "gt_phan_dinh_phung_pho",
    "gt_phan_dinh_phung_xe_may",
    "gt_phan_dinh_phung_tap_hoa",
-   "gt_phan_dinh_phung_giat_say"
+   "gt_phan_dinh_phung_cafe_coc"
   ],
   "loadoutSize": 6,
   "defaultLoadout": [
@@ -640,11 +640,11 @@
     "towerId": "gt_phan_dinh_phung_tap_hoa"
    },
    {
-    "key": "giat_say",
-    "name": "Giặt Sấy Hồ Sương",
-    "type": "Tiệm giặt sấy cho khách trọ",
-    "trait": "máy giặt quay ù ù, bọt xà phòng",
-    "towerId": "gt_phan_dinh_phung_giat_say"
+    "key": "cafe_coc",
+    "name": "Cà Phê Cóc Hồ Sương",
+    "type": "Quán cà phê nhỏ dọc phố",
+    "trait": "vài bàn nhỏ ven đường, phin nhôm",
+    "towerId": "gt_phan_dinh_phung_cafe_coc"
    }
   ],
   "streetId": "street_phan_dinh_phung",
@@ -1171,11 +1171,11 @@
       "towerId": "gt_phan_dinh_phung_tap_hoa"
      },
      {
-      "key": "giat_say",
-      "name": "Giặt Sấy Hồ Sương",
-      "type": "Tiệm giặt sấy cho khách trọ",
-      "trait": "máy giặt quay ù ù, bọt xà phòng",
-      "towerId": "gt_phan_dinh_phung_giat_say"
+      "key": "cafe_coc",
+      "name": "Cà Phê Cóc Hồ Sương",
+      "type": "Quán cà phê nhỏ dọc phố",
+      "trait": "vài bàn nhỏ ven đường, phin nhôm",
+      "towerId": "gt_phan_dinh_phung_cafe_coc"
      }
     ],
     "streetId": "street_phan_dinh_phung",
@@ -1704,11 +1704,11 @@
       "towerId": "gt_phan_dinh_phung_tap_hoa"
      },
      {
-      "key": "giat_say",
-      "name": "Giặt Sấy Hồ Sương",
-      "type": "Tiệm giặt sấy cho khách trọ",
-      "trait": "máy giặt quay ù ù, bọt xà phòng",
-      "towerId": "gt_phan_dinh_phung_giat_say"
+      "key": "cafe_coc",
+      "name": "Cà Phê Cóc Hồ Sương",
+      "type": "Quán cà phê nhỏ dọc phố",
+      "trait": "vài bàn nhỏ ven đường, phin nhôm",
+      "towerId": "gt_phan_dinh_phung_cafe_coc"
      }
     ],
     "streetId": "street_phan_dinh_phung",
@@ -2238,11 +2238,11 @@
       "towerId": "gt_phan_dinh_phung_tap_hoa"
      },
      {
-      "key": "giat_say",
-      "name": "Giặt Sấy Hồ Sương",
-      "type": "Tiệm giặt sấy cho khách trọ",
-      "trait": "máy giặt quay ù ù, bọt xà phòng",
-      "towerId": "gt_phan_dinh_phung_giat_say"
+      "key": "cafe_coc",
+      "name": "Cà Phê Cóc Hồ Sương",
+      "type": "Quán cà phê nhỏ dọc phố",
+      "trait": "vài bàn nhỏ ven đường, phin nhôm",
+      "towerId": "gt_phan_dinh_phung_cafe_coc"
      }
     ],
     "streetId": "street_phan_dinh_phung",
@@ -2755,11 +2755,11 @@
       "towerId": "gt_phan_dinh_phung_tap_hoa"
      },
      {
-      "key": "giat_say",
-      "name": "Giặt Sấy Hồ Sương",
-      "type": "Tiệm giặt sấy cho khách trọ",
-      "trait": "máy giặt quay ù ù, bọt xà phòng",
-      "towerId": "gt_phan_dinh_phung_giat_say"
+      "key": "cafe_coc",
+      "name": "Cà Phê Cóc Hồ Sương",
+      "type": "Quán cà phê nhỏ dọc phố",
+      "trait": "vài bàn nhỏ ven đường, phin nhôm",
+      "towerId": "gt_phan_dinh_phung_cafe_coc"
      }
     ],
     "streetId": "street_phan_dinh_phung",
@@ -3273,11 +3273,11 @@
       "towerId": "gt_phan_dinh_phung_tap_hoa"
      },
      {
-      "key": "giat_say",
-      "name": "Giặt Sấy Hồ Sương",
-      "type": "Tiệm giặt sấy cho khách trọ",
-      "trait": "máy giặt quay ù ù, bọt xà phòng",
-      "towerId": "gt_phan_dinh_phung_giat_say"
+      "key": "cafe_coc",
+      "name": "Cà Phê Cóc Hồ Sương",
+      "type": "Quán cà phê nhỏ dọc phố",
+      "trait": "vài bàn nhỏ ven đường, phin nhôm",
+      "towerId": "gt_phan_dinh_phung_cafe_coc"
      }
     ],
     "streetId": "street_phan_dinh_phung",
@@ -3792,11 +3792,11 @@
       "towerId": "gt_phan_dinh_phung_tap_hoa"
      },
      {
-      "key": "giat_say",
-      "name": "Giặt Sấy Hồ Sương",
-      "type": "Tiệm giặt sấy cho khách trọ",
-      "trait": "máy giặt quay ù ù, bọt xà phòng",
-      "towerId": "gt_phan_dinh_phung_giat_say"
+      "key": "cafe_coc",
+      "name": "Cà Phê Cóc Hồ Sương",
+      "type": "Quán cà phê nhỏ dọc phố",
+      "trait": "vài bàn nhỏ ven đường, phin nhôm",
+      "towerId": "gt_phan_dinh_phung_cafe_coc"
      }
     ],
     "streetId": "street_phan_dinh_phung",
@@ -4339,11 +4339,11 @@
       "towerId": "gt_phan_dinh_phung_tap_hoa"
      },
      {
-      "key": "giat_say",
-      "name": "Giặt Sấy Hồ Sương",
-      "type": "Tiệm giặt sấy cho khách trọ",
-      "trait": "máy giặt quay ù ù, bọt xà phòng",
-      "towerId": "gt_phan_dinh_phung_giat_say"
+      "key": "cafe_coc",
+      "name": "Cà Phê Cóc Hồ Sương",
+      "type": "Quán cà phê nhỏ dọc phố",
+      "trait": "vài bàn nhỏ ven đường, phin nhôm",
+      "towerId": "gt_phan_dinh_phung_cafe_coc"
      }
     ],
     "streetId": "street_phan_dinh_phung",
@@ -4426,8 +4426,8 @@
    "stage": {
     "id": "street_phan_dinh_phung_t8",
     "stageNumber": 18,
-    "name": "Giặt Sấy Hồ Sương",
-    "subtitle": "Phố Phan Đình Phùng (Cầu Quẹo) · tiệm 8/8: Tiệm giặt sấy cho khách trọ",
+    "name": "Cà Phê Cóc Hồ Sương",
+    "subtitle": "Phố Phan Đình Phùng (Cầu Quẹo) · tiệm 8/8: Quán cà phê nhỏ dọc phố",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -4822,11 +4822,11 @@
      "gt_phan_dinh_phung_pho",
      "gt_phan_dinh_phung_xe_may",
      "gt_phan_dinh_phung_tap_hoa",
-     "gt_phan_dinh_phung_giat_say"
+     "gt_phan_dinh_phung_cafe_coc"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
-     "gt_phan_dinh_phung_giat_say",
+     "gt_phan_dinh_phung_cafe_coc",
      "metal_tower",
      "fl_vent",
      "bk_fridge",
@@ -4886,18 +4886,18 @@
       "towerId": "gt_phan_dinh_phung_tap_hoa"
      },
      {
-      "key": "giat_say",
-      "name": "Giặt Sấy Hồ Sương",
-      "type": "Tiệm giặt sấy cho khách trọ",
-      "trait": "máy giặt quay ù ù, bọt xà phòng",
-      "towerId": "gt_phan_dinh_phung_giat_say"
+      "key": "cafe_coc",
+      "name": "Cà Phê Cóc Hồ Sương",
+      "type": "Quán cà phê nhỏ dọc phố",
+      "trait": "vài bàn nhỏ ven đường, phin nhôm",
+      "towerId": "gt_phan_dinh_phung_cafe_coc"
      }
     ],
     "streetId": "street_phan_dinh_phung",
     "shopIndex": 8,
     "mapStageId": "street_phan_dinh_phung",
-    "featuredTowerId": "gt_phan_dinh_phung_giat_say",
-    "facadeKey": "mat_tien_giat_say",
+    "featuredTowerId": "gt_phan_dinh_phung_cafe_coc",
+    "facadeKey": "mat_tien_cafe_coc",
     "facadeSpot": {
      "x": 64,
      "y": 184,
@@ -4906,7 +4906,7 @@
     "botPlan": [
      {
       "padId": "pad_1",
-      "defId": "gt_phan_dinh_phung_giat_say",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      },
      {
@@ -4921,7 +4921,7 @@
      },
      {
       "padId": "pad_4",
-      "defId": "gt_phan_dinh_phung_giat_say",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "B"
      },
      {
@@ -4936,7 +4936,7 @@
      },
      {
       "padId": "pad_7",
-      "defId": "gt_phan_dinh_phung_giat_say",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      },
      {
@@ -4951,7 +4951,7 @@
      },
      {
       "padId": "pad_10",
-      "defId": "gt_phan_dinh_phung_giat_say",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "B"
      },
      {
@@ -5302,33 +5302,33 @@
     "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
    }
   },
-  "gt_phan_dinh_phung_giat_say": {
-   "id": "gt_phan_dinh_phung_giat_say",
-   "art": "giat_ui",
+  "gt_phan_dinh_phung_cafe_coc": {
+   "id": "gt_phan_dinh_phung_cafe_coc",
+   "art": "cafe",
    "element": "thuy",
    "role": "aoe_splash",
    "roleLabel": "Quăng gói hút ẩm đánh lan",
-   "ultimateName": "Giặt Sạch Cả Phố",
+   "ultimateName": "Rót Một Vòng Phố",
    "tier1": {
-    "name": "Máy Giặt Lồng",
+    "name": "Phin Nhôm",
     "cost": 65,
     "damage": 27,
     "range": 102,
     "cooldownSec": 1.15,
     "splashRadius": 54,
-    "description": "Giặt Sấy Hồ Sương: máy giặt quay ù ù, bọt xà phòng. Khắc Hỏa: Nước và bọt dập than khói."
+    "description": "Cà Phê Cóc Hồ Sương: vài bàn nhỏ ven đường, phin nhôm. Khắc Hỏa: Nước pha dập than khói."
    },
    "tier2": {
-    "name": "Máy Giặt Công Nghiệp",
+    "name": "Phin Đôi",
     "cost": 80,
     "damage": 46,
     "range": 112,
     "cooldownSec": 1.04,
     "splashRadius": 64,
-    "description": "Máy Giặt Công Nghiệp: mạnh hơn, xa hơn."
+    "description": "Phin Đôi: mạnh hơn, xa hơn."
    },
    "tier3A": {
-    "name": "Bàn Ủi Hơi",
+    "name": "Bình Ủ Lạnh",
     "cost": 115,
     "damage": 66,
     "range": 118,
@@ -5339,7 +5339,7 @@
     "description": "Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s."
    },
    "tier3B": {
-    "name": "Xô Bọt Xà Phòng",
+    "name": "Ấm Rót Cổ Ngỗng",
     "cost": 115,
     "damage": 84,
     "range": 120,

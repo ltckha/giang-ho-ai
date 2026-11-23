@@ -59,7 +59,7 @@ def main() -> int:
             vid = 'di_bo' if m.group(1) == 'di_bo' else f'xe_{m.group(1)}'
             frames[f'vehicle_{vid}'] = fit(im, 86)
             continue
-        if f.startswith('mat_tien_'):
+        if f.startswith(('mat_tien_', 'facade_', 'deco_')):
             continue  # mặt tiền tiệm: dùng để ghép nền màn tiệm, không vào tấm hình món
         print('bỏ qua (sai tên):', f)
     # món thiếu bậc: dùng bậc gần nhất để game không lỗi

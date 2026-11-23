@@ -212,6 +212,27 @@
       },
       "sources": [],
       "confidence": "nen_kiem"
+    },
+    {
+      "key": "giat_say",
+      "art": "giat_ui",
+      "name": "Giặt Sấy Hồ Sương",
+      "type": "Tiệm giặt sấy cho khách trọ (Trương Công Định)",
+      "trait": "máy giặt quay ù ù, bọt xà phòng",
+      "tower": {
+        "element": "thuy",
+        "role": "aoe_splash",
+        "names": [
+          "Máy Giặt Lồng",
+          "Máy Giặt Công Nghiệp",
+          "Bàn Ủi Hơi",
+          "Xô Bọt Xà Phòng"
+        ],
+        "ult": "Giặt Sạch Cả Phố",
+        "why": "Nước và bọt dập than khói"
+      },
+      "sources": [],
+      "confidence": "nen_kiem"
     }
   ],
   "pests": [

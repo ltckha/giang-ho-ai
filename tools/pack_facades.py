@@ -4,7 +4,7 @@ import json, math, os
 from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, 'art', 'spark'); OUT = os.path.join(ROOT, 'public', 'assets'); C = 160
-files = sorted(f for f in os.listdir(SRC) if f.startswith('mat_tien_') and f.endswith('.png'))
+files = sorted(f for f in os.listdir(SRC) if (f.startswith('mat_tien_') or f.startswith('facade_')) and f.endswith('.png'))
 cols = max(1, math.ceil(math.sqrt(len(files)))); rows = max(1, math.ceil(len(files) / cols))
 sheet = Image.new('RGBA', (cols * C, rows * C), (0, 0, 0, 0)); frames = {}
 for i, f in enumerate(files):

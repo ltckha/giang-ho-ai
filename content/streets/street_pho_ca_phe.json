@@ -81,24 +81,25 @@
       "confidence": "nen_kiem"
     },
     {
-      "key": "banh_mi_chao",
-      "name": "Cà Phê Bánh Mì Chảo Hồ Sương",
-      "type": "Quán cà phê có bánh mì chảo buổi sáng",
-      "trait": "chảo gang nóng",
+      "key": "tra_sua",
+      "art": "tra_sua",
+      "name": "Tiệm Trà Sữa Hồ Sương",
+      "type": "Tiệm trà sữa",
+      "trait": "nồi trân châu nấu nóng, ly trà sữa",
+      "sources": [],
+      "confidence": "nen_kiem",
       "tower": {
         "element": "hoa",
         "role": "aoe_splash",
         "names": [
-          "Chảo Gang Nóng",
-          "Chảo Gang Đôi",
-          "Bếp Ga Lửa Lớn",
-          "Chảo Ốp La Xèo Xèo"
+          "Nồi Trân Châu",
+          "Nồi Trân Châu Lớn",
+          "Bình Lắc Nóng",
+          "Ly Trà Sữa Khổng Lồ"
         ],
-        "ult": "Xèo Một Chảo To",
-        "why": "Hơi nóng chảo gang hun mọt"
-      },
-      "sources": [],
-      "confidence": "nen_kiem"
+        "ult": "Trân Châu Sôi Sùng Sục",
+        "why": "Hơi nóng nồi trân châu xua mọt hạt"
+      }
     },
     {
       "key": "retro",
@@ -190,26 +191,6 @@
         "https://wanderlog.com/place/details/7558830/windmills",
         "https://www.foody.vn/lam-dong/phuong-tim-cafe"
       ],
-      "confidence": "nen_kiem"
-    },
-    {
-      "key": "banh_trung",
-      "name": "Tiệm Bánh Trứng Mimosa",
-      "type": "Tiệm kem, bánh trứng nướng",
-      "trait": "bánh trứng nướng kèm kem",
-      "tower": {
-        "element": "hoa",
-        "role": "single_far",
-        "names": [
-          "Khuôn Bánh Trứng",
-          "Khay Bánh Trứng",
-          "Lò Nướng Mini",
-          "Bánh Trứng Nóng Giòn"
-        ],
-        "ult": "Nướng Một Lò Đầy",
-        "why": "Khuôn nóng xua mọt hạt"
-      },
-      "sources": [],
       "confidence": "nen_kiem"
     }
   ],
