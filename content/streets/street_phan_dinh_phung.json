@@ -1,0 +1,38 @@
+{
+  "id": "street_phan_dinh_phung",
+  "name": "Phố Phan Đình Phùng (Cầu Quẹo)",
+  "subtitle": "Phố cũ của dân phố núi: nhà thuốc, tiệm tóc, nhà sách, studio ảnh cưới, phở sáng, tiệm xe máy",
+  "geometry": "pho_phan_dinh_phung",
+  "waves": 12,
+  "startingEssence": 210,
+  "startingLives": 20,
+  "loadoutSize": 6,
+  "difficulty": { "gearTier": "after_street_1", "targetRandomWin": 0.3 },
+  "researchNote": "docs/research/2026-11-23_pho3_phan_dinh_phung.md",
+  "places": [
+    { "key": "nha_thuoc", "art": "nha_thuoc", "name": "Nhà Thuốc Atiso", "type": "Nhà thuốc mở từ sáng tới khuya", "trait": "tủ thuốc nam, dầu gió, thuốc cảm mùa lạnh",
+      "tower": { "element": "moc", "role": "support_buff", "names": ["Tủ Thuốc Nam", "Tủ Thuốc Hai Ngăn", "Bình Dầu Gió", "Cối Giã Thảo Dược"], "ult": "Thuốc Bổ Cả Phố", "why": "Thảo dược trị bụi bặm, gió độc" } },
+    { "key": "tiem_toc", "art": "tiem_toc", "name": "Tiệm Tóc Mai Anh Đào", "type": "Salon tóc, làm móng", "trait": "kéo bén, tông đơ kêu rè rè",
+      "tower": { "element": "kim", "role": "single_far", "names": ["Kéo Cắt Tóc", "Kéo Tỉa Mỏng", "Tông Đơ Điện", "Dao Cạo Bạc"], "ult": "Cắt Tóc Thần Tốc", "why": "Kéo thép tỉa gọn mọi thứ rối, mọc lan" } },
+    { "key": "nha_sach", "art": "nha_sach", "name": "Nhà Sách Thông Ba Lá", "type": "Nhà sách lớn, góc sách thiếu nhi", "trait": "kệ gỗ thông, sách chất cao",
+      "tower": { "element": "moc", "role": "slow_aura", "names": ["Chồng Sách Dày", "Kệ Sách Gỗ", "Bộ Từ Điển", "Thùng Sách Cũ"], "ult": "Đọc Chậm Lại", "why": "Gáy sách gỗ chặn bùn đất, nhớt bẩn" } },
+    { "key": "studio", "art": "studio_anh", "name": "Studio Ảnh Cẩm Tú Cầu", "type": "Studio chụp ảnh cưới", "trait": "đèn flash, ô phản sáng",
+      "tower": { "element": "hoa", "role": "slow_aura", "names": ["Đèn Flash", "Đèn Flash Đôi", "Ô Phản Sáng", "Máy Ảnh Phim"], "ult": "Chớp Một Phát", "why": "Ánh đèn nóng làm lùi bọn gặm kim loại" } },
+    { "key": "pho", "art": "quan_pho", "name": "Phở Sương Mai", "type": "Quán phở thố đá đầu phố", "trait": "nồi nước lèo ninh qua đêm",
+      "tower": { "element": "hoa", "role": "aoe_splash", "names": ["Nồi Nước Lèo", "Nồi Nước Lèo Lớn", "Bếp Than Liu Riu", "Nồi Hầm Xương Đêm"], "ult": "Sôi Sùng Sục", "why": "Hơi nóng nồi nước lèo xua mối mọt, gỉ sét" } },
+    { "key": "xe_may", "art": "sua_xe", "name": "Tiệm Xe Máy Phố Núi", "type": "Tiệm xe máy: cho thuê, mua bán, sửa", "trait": "cờ lê, mỏ lết, máy bơm hơi",
+      "tower": { "element": "kim", "role": "heavy_slow", "names": ["Cờ Lê Thép", "Mỏ Lết To", "Búa Gò", "Máy Bơm Hơi"], "ult": "Siết Ốc Liên Hoàn", "why": "Thép cứng gõ bay rêu mốc, tóc rối" } },
+    { "key": "tap_hoa", "art": "tap_hoa", "name": "Tạp Hoá Dã Quỳ", "type": "Tiệm tạp hoá của khu dân cư", "trait": "bao gạo, thùng mì, két nước ngọt",
+      "tower": { "element": "tho", "role": "heavy_slow", "names": ["Bao Gạo", "Thùng Mì Gói", "Két Nước Ngọt", "Kệ Hàng Chất Đầy"], "ult": "Xếp Hàng Một Lèo", "why": "Đồ khô chất đống chặn mưa ẩm" } },
+    { "key": "giat_say", "art": "giat_ui", "name": "Giặt Sấy Hồ Sương", "type": "Tiệm giặt sấy cho khách trọ", "trait": "máy giặt quay ù ù, bọt xà phòng",
+      "tower": { "element": "thuy", "role": "aoe_splash", "names": ["Máy Giặt Lồng", "Máy Giặt Công Nghiệp", "Bàn Ủi Hơi", "Xô Bọt Xà Phòng"], "ult": "Giặt Sạch Cả Phố", "why": "Nước và bọt dập than khói" } }
+  ],
+  "pests": [
+    { "art": "giot_mua", "name": "Giọt Mưa Phố", "element": "thuy", "trait": "fast", "reason": "Mưa Đà Lạt lùa vào cửa tiệm" },
+    { "art": "nhot_tran", "name": "Nhớt Tràn", "element": "tho", "trait": "tank", "reason": "Nhớt cũ từ tiệm xe đọng thành vũng" },
+    { "art": "ruoi_bep", "name": "Ruồi Bếp", "element": "moc", "trait": "flying", "reason": "Ruồi bu quanh quán ăn sáng" },
+    { "art": "than_khoi", "name": "Than Khói Đường Phố", "element": "hoa", "trait": "splitter", "reason": "Khói bếp than xiên nướng ăn khuya" },
+    { "art": "moi_mot", "name": "Mối Mọt Sách", "element": "kim", "trait": "disruptor", "reason": "Mối đục kệ, mọt ăn giấy" },
+    { "art": "reu_moc", "name": "Rêu Mốc Tường", "element": "moc", "trait": "healer", "reason": "Nhà cũ xóm Cầu Quẹo tường ẩm lên rêu" }
+  ]
+}

@@ -12,6 +12,14 @@ from PIL import Image, ImageDraw
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WAYS = json.load(open(os.path.join(ROOT, 'docs/research/streets/osm_ways_2026-11-23.json'), encoding='utf-8'))['ways']
+# phố thêm sau (Overpass dạng elements/geometry)
+_p3 = os.path.join(ROOT, 'docs/research/streets/osm_ways_pho3.json')
+if os.path.exists(_p3):
+    for _e in json.load(open(_p3, encoding='utf-8'))['elements']:
+        if _e.get('type') == 'way' and _e.get('geometry'):
+            _n = (_e.get('tags', {}).get('name', 'way').lower()
+                  .replace('đ', 'd').replace('ì', 'i').replace('ù', 'u').replace(' ', '_'))
+            WAYS[f"{_n}_{_e['id']}"] = [[g['lat'], g['lon']] for g in _e['geometry']]
 W, H, MARGIN = 360, 520, 30
 
 def seq(*parts):
@@ -22,6 +30,10 @@ def seq(*parts):
     return pts
 
 STREETS = {
+    'pho_phan_dinh_phung': {
+        'name': 'Phố Phan Đình Phùng (Cầu Quẹo)',
+        'routes': [seq(('phan_dinh_phung_125315462', False))],
+    },
     'pho_tang_bat_ho': {
         'name': 'Phố Tăng Bạt Hổ – Trương Công Định',
         'routes': [

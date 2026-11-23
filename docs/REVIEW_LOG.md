@@ -306,3 +306,9 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - 2 phố theo hình đường OpenStreetMap: Tăng Bạt Hổ – Trương Công Định (máu ×1.3, đặt bừa thắng 25%, tính kỹ còn ~14/20) và Phố Cà Phê (×1.0, 23%, ~14/20). Tên địa điểm theo phong cách "loại + hoa/cảnh Đà Lạt", không nhái tên quán thật. Ghi chép: docs/research/2026-11-23_pho_that_dia_diem.md.
 - Hướng dẫn làm phố mới: `.claude/agents/level-designer.md`.
 - `npm test` 59/59, e2e 12/12, chơi thử 2 phố bằng bot không lỗi (hình tạm).
+
+## 23/11/2026 — Hình Spark + Phố 3 Phan Đình Phùng (Claude)
+- Spark vẽ hình rời theo loại địa điểm → `tools/import_spark.py` (cắt nền, thu nhỏ, lưu art/spark/) → `tools/pack_spark_atlas.py` (public/assets/spark_atlas.*, tự sinh khung nhún khi đánh / lắc lư khi đi) → game gắn thêm vào tấm hình chính lúc mở (src/game/sparkArt.ts). Món / quái có trường `art` dùng hình Spark, chưa có hình thì dùng hình tạm.
+- Đợt 1: 20 món (sửa xe, nhà thuốc, giặt ủi, studio ảnh, tạp hoá). 3 hình nhờ vẽ lại (tủ thuốc b1–b2, kệ tạp hoá b3b).
+- Phố 3 Phan Đình Phùng: 8 địa điểm, 12 đợt, máu ×1.4, đặt bừa thắng 29%, tính kỹ còn ~17/20. Ghi chép: docs/research/2026-11-23_pho3_phan_dinh_phung.md.
+- `npm test` 65/65; chơi thử bằng bot thấy hình Spark hiện đúng.

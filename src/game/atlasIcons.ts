@@ -2,6 +2,11 @@ import Phaser from 'phaser';
 import type { GearSlotId } from '../core/equipment';
 import type { ElementType, EnemyId, TowerId } from '../core/types';
 import { ALL_ENEMY_DEFINITIONS, ALL_TOWER_DEFINITIONS } from '../core/tdDefinitions';
+import sparkAtlas from '../../public/assets/spark_atlas.json';
+
+/** Hình Spark đã ghép (món / quái có `art` mà chưa có hình thì vẫn dùng hình tạm) */
+const SPARK_TOWER_ARTS = new Set<string>(sparkAtlas.meta.arts.towers);
+const SPARK_ENEMY_ARTS = new Set<string>(sparkAtlas.meta.arts.enemies);
 
 export const ATLAS_KEY = 'gon_tiem_atlas';
 export const GEAR_ATLAS_KEY = 'gear_atlas';
@@ -94,14 +99,14 @@ const TRAIT_FALLBACK_ENEMY: Record<string, string> = {
 };
 function placeholderTowerId(defId: string): string {
   const art = ALL_TOWER_DEFINITIONS[defId as TowerId]?.art;
-  if (art) return `art_${art}`;
+  if (art && SPARK_TOWER_ARTS.has(art)) return `art_${art}`;
   if (!defId.startsWith('gt_')) return defId;
   const role = ALL_TOWER_DEFINITIONS[defId as TowerId]?.role;
   return (role && ROLE_FALLBACK_TOWER[role]) || 'wood_tower';
 }
 function placeholderEnemyId(enemyId: string): string {
   const art = ALL_ENEMY_DEFINITIONS[enemyId as EnemyId]?.art;
-  if (art) return `art_${art}`;
+  if (art && SPARK_ENEMY_ARTS.has(art)) return `art_${art}`;
   if (enemyId === 'st_bao_loc') return 'fl_monsoon';
   if (!enemyId.startsWith('ge_')) return enemyId;
   const trait = ALL_ENEMY_DEFINITIONS[enemyId as EnemyId]?.trait;

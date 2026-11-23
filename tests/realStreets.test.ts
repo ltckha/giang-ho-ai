@@ -4,9 +4,9 @@ import { ALL_ENEMY_DEFINITIONS, ALL_TOWER_DEFINITIONS, getStageTowerList, STAGES
 import { TowerDefenseEngine } from '../src/core/tdEngine';
 
 describe('Phố thật do máy làm màn sinh ra', () => {
-  it('có 2 phố: Tăng Bạt Hổ – Trương Công Định và Phố Cà Phê', () => {
+  it('có đủ các phố thật', () => {
     const ids = GENERATED_STREETS.map((g) => g.stage.id).sort();
-    expect(ids).toEqual(['street_pho_ca_phe', 'street_tang_bat_ho']);
+    expect(ids).toEqual(['street_phan_dinh_phung', 'street_pho_ca_phe', 'street_tang_bat_ho']);
   });
 
   for (const g of GENERATED_STREETS) {
