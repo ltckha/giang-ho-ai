@@ -24,6 +24,8 @@ Mỗi chặng có chốt kiểm; chặng trước đạt mới sang chặng sau.
 
 **Độ khó và trang bị (anh Kha chốt 23/11):** không giảm sức đồ ở 3 tiệm đầu. Độ khó tăng dần ở các tiệm / phố làm sau; đồ rơi cũng tốt dần theo tiến độ (màn sau, nhiều sao → hạng cao hơn). Khi thiết kế tiệm / phố mới, Claude cân độ khó theo mức đồ người chơi có thể đã có ở thời điểm đó (dùng docs/review/sim_gear.ts).
 
+**Chia việc vẽ (anh Kha chốt 23/11):** Spark vẽ hình rời (món, quái) theo mẫu `docs/MAU_GIAO_SPARK_VE.md`, lưu Drive `Spark/Inbox/Game_ve_thu/`; Claude lấy về, ghép vào game, cho nhúc nhích bằng code, chụp màn hình cho anh duyệt. Antigravity giữ phần cần sửa code: nền phố, hiệu ứng, giao diện, cảnh. Lý do: bớt chờ Antigravity. Áp từ phố thứ 3 hoặc bộ hình chung theo loại quán; việc 9 (2 phố thật) Antigravity làm trọn. Thử 23/11: Spark vẽ phin cà phê + hơi ẩm, đúng nét, nền trong suốt.
+
 Giữ suốt các chặng: tới chặng 5 vẫn 0 đồng và chơi offline. Thời gian: không hứa ngày; ước chặng 1–2 vài ngày tới 1–2 tuần nếu duyệt kịp (Antigravity có thể hết lượt hoặc bị trả lại vì chưa vui).
 
 ## Kết luận (kế hoạch nhập vai cũ)
