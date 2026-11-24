@@ -700,9 +700,9 @@
  },
  "shops": [
   {
-   "hpMultiplier": 0.6,
+   "hpMultiplier": 0.8,
    "balance": {
-    "randomWinWithExpectedGear": 0.8333333333333334,
+    "randomWinWithExpectedGear": 0.6041666666666666,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.65
@@ -717,94 +717,86 @@
     "paths": [
      [
       {
-       "x": 326,
-       "y": 30
+       "x": 60,
+       "y": 520
       },
       {
-       "x": 234,
-       "y": 138
+       "x": 60,
+       "y": 120
       },
       {
-       "x": 232,
-       "y": 162
+       "x": 180,
+       "y": 120
       },
       {
-       "x": 248,
-       "y": 219
+       "x": 180,
+       "y": 380
       },
       {
-       "x": 243,
-       "y": 234
+       "x": 300,
+       "y": 380
       },
       {
-       "x": 95,
-       "y": 407
-      },
-      {
-       "x": 71,
-       "y": 462
-      },
-      {
-       "x": 34,
-       "y": 490
+       "x": 300,
+       "y": 60
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 294,
-      "y": 138
+      "x": 240,
+      "y": 290
      },
      {
       "id": "pad_2",
-      "x": 186,
-      "y": 198
-     },
-     {
-      "id": "pad_3",
-      "x": 294,
+      "x": 120,
       "y": 210
      },
      {
+      "id": "pad_3",
+      "x": 220,
+      "y": 150
+     },
+     {
       "id": "pad_4",
-      "x": 210,
-      "y": 102
+      "x": 120,
+      "y": 80
      },
      {
       "id": "pad_5",
-      "x": 126,
-      "y": 438
+      "x": 130,
+      "y": 320
      },
      {
       "id": "pad_6",
-      "x": 162,
-      "y": 258
+      "x": 220,
+      "y": 420
      },
      {
       "id": "pad_7",
-      "x": 42,
-      "y": 390
+      "x": 240,
+      "y": 210
      },
      {
       "id": "pad_8",
-      "x": 270,
-      "y": 270
+      "x": 120,
+      "y": 390
      },
      {
       "id": "pad_9",
-      "x": 222,
-      "y": 318
+      "x": 200,
+      "y": 80
      },
      {
       "id": "pad_10",
-      "x": 234,
-      "y": 42
+      "x": 290,
+      "y": 420
      },
      {
       "id": "pad_11",
-      "x": 90,
-      "y": 342
+      "x": 160,
+      "y": 440
      }
     ],
     "waves": [
@@ -823,7 +815,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.6
+        "hpScale": 0.8
        }
       ]
      },
@@ -842,7 +834,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.69
+        "hpScale": 0.92
        }
       ]
      },
@@ -862,7 +854,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.78
+        "hpScale": 1.04
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -870,7 +862,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 0.78
+        "hpScale": 1.04
        }
       ]
      },
@@ -890,7 +882,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.87
+        "hpScale": 1.16
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -898,7 +890,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 0.87
+        "hpScale": 1.16
        }
       ]
      },
@@ -919,7 +911,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.02
+        "hpScale": 1.36
        },
        {
         "enemyId": "ge_hoang_dieu_2",
@@ -927,7 +919,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.02
+        "hpScale": 1.36
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -935,7 +927,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.02
+        "hpScale": 1.36
        }
       ]
      },
@@ -956,7 +948,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 1.6
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -964,7 +956,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 1.6
        },
        {
         "enemyId": "ge_hoang_dieu_2",
@@ -972,7 +964,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 1.6
        }
       ]
      },
@@ -993,7 +985,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.44
+        "hpScale": 1.92
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -1001,7 +993,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.44
+        "hpScale": 1.92
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -1009,7 +1001,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.44
+        "hpScale": 1.92
        }
       ]
      },
@@ -1030,7 +1022,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 2.24
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -1038,7 +1030,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 2.24
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -1046,7 +1038,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 2.24
        }
       ]
      }
@@ -1147,14 +1139,10 @@
     ],
     "streetId": "street_hoang_dieu",
     "shopIndex": 1,
-    "mapStageId": "street_hoang_dieu",
     "featuredTowerId": "gt_hoang_dieu_lau_nha_go",
     "facadeKey": "mat_tien_lau_nha_go",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
+    "roomStyle": "quan_an",
+    "roomLayout": "chu_u",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -1215,11 +1203,11 @@
    }
   },
   {
-   "hpMultiplier": 0.8,
+   "hpMultiplier": 0.9,
    "balance": {
-    "randomWinWithExpectedGear": 0.5208333333333334,
+    "randomWinWithExpectedGear": 0.6458333333333334,
     "botWinRate": 1,
-    "botLivesAvg": 20,
+    "botLivesAvg": 20.666666666666668,
     "target": 0.6125
    },
    "stage": {
@@ -1232,94 +1220,86 @@
     "paths": [
      [
       {
-       "x": 326,
-       "y": 30
+       "x": 300,
+       "y": 520
       },
       {
-       "x": 234,
-       "y": 138
+       "x": 300,
+       "y": 120
       },
       {
-       "x": 232,
-       "y": 162
+       "x": 180,
+       "y": 120
       },
       {
-       "x": 248,
-       "y": 219
+       "x": 180,
+       "y": 380
       },
       {
-       "x": 243,
-       "y": 234
+       "x": 60,
+       "y": 380
       },
       {
-       "x": 95,
-       "y": 407
-      },
-      {
-       "x": 71,
-       "y": 462
-      },
-      {
-       "x": 34,
-       "y": 490
+       "x": 60,
+       "y": 60
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 294,
-      "y": 138
+      "x": 120,
+      "y": 290
      },
      {
       "id": "pad_2",
-      "x": 186,
-      "y": 198
-     },
-     {
-      "id": "pad_3",
-      "x": 294,
+      "x": 240,
       "y": 210
      },
      {
+      "id": "pad_3",
+      "x": 140,
+      "y": 150
+     },
+     {
       "id": "pad_4",
-      "x": 210,
-      "y": 102
+      "x": 120,
+      "y": 420
      },
      {
       "id": "pad_5",
-      "x": 126,
-      "y": 438
+      "x": 220,
+      "y": 340
      },
      {
       "id": "pad_6",
-      "x": 162,
-      "y": 258
+      "x": 230,
+      "y": 80
      },
      {
       "id": "pad_7",
-      "x": 42,
-      "y": 390
+      "x": 120,
+      "y": 210
      },
      {
       "id": "pad_8",
-      "x": 270,
-      "y": 270
+      "x": 210,
+      "y": 420
      },
      {
       "id": "pad_9",
-      "x": 222,
-      "y": 318
+      "x": 150,
+      "y": 80
      },
      {
       "id": "pad_10",
-      "x": 234,
-      "y": 42
+      "x": 220,
+      "y": 270
      },
      {
       "id": "pad_11",
-      "x": 90,
-      "y": 342
+      "x": 50,
+      "y": 420
      }
     ],
     "waves": [
@@ -1338,7 +1318,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.8
+        "hpScale": 0.9
        }
       ]
      },
@@ -1357,7 +1337,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.92
+        "hpScale": 1.03
        }
       ]
      },
@@ -1377,7 +1357,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.04
+        "hpScale": 1.17
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -1385,7 +1365,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.04
+        "hpScale": 1.17
        }
       ]
      },
@@ -1405,7 +1385,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.16
+        "hpScale": 1.31
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -1413,7 +1393,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.16
+        "hpScale": 1.31
        }
       ]
      },
@@ -1434,7 +1414,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.36
+        "hpScale": 1.53
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -1442,7 +1422,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.36
+        "hpScale": 1.53
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -1450,7 +1430,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.36
+        "hpScale": 1.53
        }
       ]
      },
@@ -1471,7 +1451,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 1.8
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -1479,7 +1459,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 1.8
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -1487,7 +1467,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 1.8
        }
       ]
      },
@@ -1508,7 +1488,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.92
+        "hpScale": 2.16
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -1516,7 +1496,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.92
+        "hpScale": 2.16
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -1524,7 +1504,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.92
+        "hpScale": 2.16
        }
       ]
      },
@@ -1545,7 +1525,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.24
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -1553,7 +1533,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.24
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -1561,7 +1541,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.24
+        "hpScale": 2.52
        }
       ]
      }
@@ -1663,14 +1643,10 @@
     ],
     "streetId": "street_hoang_dieu",
     "shopIndex": 2,
-    "mapStageId": "street_hoang_dieu",
     "featuredTowerId": "gt_hoang_dieu_lau_hem",
     "facadeKey": "mat_tien_lau_hem",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
+    "roomStyle": "quan_an",
+    "roomLayout": "chu_u_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -1731,11 +1707,11 @@
    }
   },
   {
-   "hpMultiplier": 0.8,
+   "hpMultiplier": 1.5,
    "balance": {
     "randomWinWithExpectedGear": 0.5416666666666666,
     "botWinRate": 1,
-    "botLivesAvg": 19,
+    "botLivesAvg": 17.666666666666668,
     "target": 0.5750000000000001
    },
    "stage": {
@@ -1748,94 +1724,94 @@
     "paths": [
      [
       {
-       "x": 326,
-       "y": 30
+       "x": 180,
+       "y": 520
       },
       {
-       "x": 234,
-       "y": 138
+       "x": 180,
+       "y": 450
       },
       {
-       "x": 232,
-       "y": 162
+       "x": 300,
+       "y": 450
       },
       {
-       "x": 248,
-       "y": 219
+       "x": 300,
+       "y": 90
       },
       {
-       "x": 243,
-       "y": 234
+       "x": 60,
+       "y": 90
       },
       {
-       "x": 95,
-       "y": 407
+       "x": 60,
+       "y": 330
       },
       {
-       "x": 71,
-       "y": 462
+       "x": 200,
+       "y": 330
       },
       {
-       "x": 34,
-       "y": 490
+       "x": 200,
+       "y": 210
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 294,
-      "y": 138
+      "x": 200,
+      "y": 410
      },
      {
       "id": "pad_2",
-      "x": 186,
-      "y": 198
+      "x": 240,
+      "y": 360
      },
      {
       "id": "pad_3",
-      "x": 294,
-      "y": 210
-     },
-     {
-      "id": "pad_4",
-      "x": 210,
-      "y": 102
-     },
-     {
-      "id": "pad_5",
-      "x": 126,
-      "y": 438
-     },
-     {
-      "id": "pad_6",
-      "x": 162,
-      "y": 258
-     },
-     {
-      "id": "pad_7",
-      "x": 42,
-      "y": 390
-     },
-     {
-      "id": "pad_8",
-      "x": 270,
+      "x": 110,
       "y": 270
      },
      {
+      "id": "pad_4",
+      "x": 130,
+      "y": 410
+     },
+     {
+      "id": "pad_5",
+      "x": 160,
+      "y": 230
+     },
+     {
+      "id": "pad_6",
+      "x": 240,
+      "y": 290
+     },
+     {
+      "id": "pad_7",
+      "x": 240,
+      "y": 180
+     },
+     {
+      "id": "pad_8",
+      "x": 120,
+      "y": 180
+     },
+     {
       "id": "pad_9",
-      "x": 222,
-      "y": 318
+      "x": 140,
+      "y": 480
      },
      {
       "id": "pad_10",
-      "x": 234,
-      "y": 42
+      "x": 160,
+      "y": 130
      },
      {
       "id": "pad_11",
-      "x": 90,
-      "y": 342
+      "x": 70,
+      "y": 370
      }
     ],
     "waves": [
@@ -1854,7 +1830,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.8
+        "hpScale": 1.5
        }
       ]
      },
@@ -1873,7 +1849,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.92
+        "hpScale": 1.73
        }
       ]
      },
@@ -1893,7 +1869,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.04
+        "hpScale": 1.95
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -1901,7 +1877,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.04
+        "hpScale": 1.95
        }
       ]
      },
@@ -1921,7 +1897,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.16
+        "hpScale": 2.17
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -1929,7 +1905,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.16
+        "hpScale": 2.17
        }
       ]
      },
@@ -1950,7 +1926,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.36
+        "hpScale": 2.55
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -1958,7 +1934,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.36
+        "hpScale": 2.55
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -1966,7 +1942,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.36
+        "hpScale": 2.55
        }
       ]
      },
@@ -1987,7 +1963,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 3
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -1995,7 +1971,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 3
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -2003,7 +1979,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 3
        }
       ]
      },
@@ -2024,7 +2000,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.92
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -2032,7 +2008,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.92
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -2040,7 +2016,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.92
+        "hpScale": 3.6
        }
       ]
      },
@@ -2061,7 +2037,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.24
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -2069,7 +2045,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.24
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -2077,7 +2053,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.24
+        "hpScale": 4.2
        }
       ]
      }
@@ -2180,14 +2156,10 @@
     ],
     "streetId": "street_hoang_dieu",
     "shopIndex": 3,
-    "mapStageId": "street_hoang_dieu",
     "featuredTowerId": "gt_hoang_dieu_xiu_mai",
     "facadeKey": "mat_tien_xiu_mai",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
+    "roomStyle": "quan_an",
+    "roomLayout": "xoan",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -2248,11 +2220,11 @@
    }
   },
   {
-   "hpMultiplier": 0.8,
+   "hpMultiplier": 1.3,
    "balance": {
-    "randomWinWithExpectedGear": 0.6666666666666666,
+    "randomWinWithExpectedGear": 0.625,
     "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
+    "botLivesAvg": 18.666666666666668,
     "target": 0.5375000000000001
    },
    "stage": {
@@ -2265,94 +2237,94 @@
     "paths": [
      [
       {
-       "x": 326,
-       "y": 30
+       "x": 180,
+       "y": 520
       },
       {
-       "x": 234,
-       "y": 138
+       "x": 180,
+       "y": 450
       },
       {
-       "x": 232,
-       "y": 162
+       "x": 60,
+       "y": 450
       },
       {
-       "x": 248,
-       "y": 219
+       "x": 60,
+       "y": 90
       },
       {
-       "x": 243,
-       "y": 234
+       "x": 300,
+       "y": 90
       },
       {
-       "x": 95,
-       "y": 407
+       "x": 300,
+       "y": 330
       },
       {
-       "x": 71,
-       "y": 462
+       "x": 160,
+       "y": 330
       },
       {
-       "x": 34,
-       "y": 490
+       "x": 160,
+       "y": 210
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 294,
-      "y": 138
-     },
-     {
-      "id": "pad_2",
-      "x": 186,
-      "y": 198
-     },
-     {
-      "id": "pad_3",
-      "x": 294,
-      "y": 210
-     },
-     {
-      "id": "pad_4",
-      "x": 210,
-      "y": 102
-     },
-     {
-      "id": "pad_5",
-      "x": 126,
-      "y": 438
-     },
-     {
-      "id": "pad_6",
-      "x": 162,
-      "y": 258
-     },
-     {
-      "id": "pad_7",
-      "x": 42,
+      "x": 140,
       "y": 390
      },
      {
+      "id": "pad_2",
+      "x": 210,
+      "y": 390
+     },
+     {
+      "id": "pad_3",
+      "x": 220,
+      "y": 260
+     },
+     {
+      "id": "pad_4",
+      "x": 120,
+      "y": 290
+     },
+     {
+      "id": "pad_5",
+      "x": 120,
+      "y": 180
+     },
+     {
+      "id": "pad_6",
+      "x": 210,
+      "y": 150
+     },
+     {
+      "id": "pad_7",
+      "x": 220,
+      "y": 460
+     },
+     {
       "id": "pad_8",
-      "x": 270,
-      "y": 270
+      "x": 260,
+      "y": 190
      },
      {
       "id": "pad_9",
-      "x": 222,
-      "y": 318
+      "x": 270,
+      "y": 370
      },
      {
       "id": "pad_10",
-      "x": 234,
-      "y": 42
+      "x": 30,
+      "y": 480
      },
      {
       "id": "pad_11",
-      "x": 90,
-      "y": 342
+      "x": 130,
+      "y": 50
      }
     ],
     "waves": [
@@ -2371,7 +2343,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.8
+        "hpScale": 1.3
        }
       ]
      },
@@ -2390,7 +2362,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.92
+        "hpScale": 1.5
        }
       ]
      },
@@ -2410,7 +2382,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.04
+        "hpScale": 1.69
        },
        {
         "enemyId": "ge_hoang_dieu_2",
@@ -2418,7 +2390,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.04
+        "hpScale": 1.69
        }
       ]
      },
@@ -2438,7 +2410,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.16
+        "hpScale": 1.89
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -2446,7 +2418,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.16
+        "hpScale": 1.89
        }
       ]
      },
@@ -2466,7 +2438,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.36
+        "hpScale": 2.21
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -2474,7 +2446,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.36
+        "hpScale": 2.21
        }
       ]
      },
@@ -2494,7 +2466,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 2.6
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -2502,7 +2474,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 2.6
        }
       ]
      },
@@ -2522,7 +2494,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.92
+        "hpScale": 3.12
        },
        {
         "enemyId": "ge_hoang_dieu_1",
@@ -2530,7 +2502,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.92
+        "hpScale": 3.12
        }
       ]
      },
@@ -2552,7 +2524,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.24
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_hoang_dieu_2",
@@ -2560,7 +2532,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.24
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -2568,7 +2540,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.24
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -2576,7 +2548,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.24
+        "hpScale": 3.64
        }
       ]
      }
@@ -2680,14 +2652,10 @@
     ],
     "streetId": "street_hoang_dieu",
     "shopIndex": 4,
-    "mapStageId": "street_hoang_dieu",
     "featuredTowerId": "gt_hoang_dieu_banh_trang",
     "facadeKey": "mat_tien_banh_trang",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
+    "roomStyle": "quan_an",
+    "roomLayout": "xoan_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -2748,9 +2716,9 @@
    }
   },
   {
-   "hpMultiplier": 1.1,
+   "hpMultiplier": 1.2,
    "balance": {
-    "randomWinWithExpectedGear": 0.3958333333333333,
+    "randomWinWithExpectedGear": 0.4166666666666667,
     "botWinRate": 1,
     "botLivesAvg": 12.666666666666666,
     "target": 0.5
@@ -2765,94 +2733,96 @@
     "paths": [
      [
       {
-       "x": 326,
-       "y": 30
+       "x": 70,
+       "y": 520
       },
       {
-       "x": 234,
-       "y": 138
+       "x": 70,
+       "y": 360
       },
       {
-       "x": 232,
-       "y": 162
+       "x": 180,
+       "y": 300
       },
       {
-       "x": 248,
-       "y": 219
+       "x": 180,
+       "y": 70
+      }
+     ],
+     [
+      {
+       "x": 290,
+       "y": 520
       },
       {
-       "x": 243,
-       "y": 234
+       "x": 290,
+       "y": 360
       },
       {
-       "x": 95,
-       "y": 407
+       "x": 180,
+       "y": 300
       },
       {
-       "x": 71,
-       "y": 462
-      },
-      {
-       "x": 34,
-       "y": 490
+       "x": 180,
+       "y": 70
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 294,
-      "y": 138
+      "x": 160,
+      "y": 360
      },
      {
       "id": "pad_2",
-      "x": 186,
-      "y": 198
-     },
-     {
-      "id": "pad_3",
-      "x": 294,
-      "y": 210
-     },
-     {
-      "id": "pad_4",
-      "x": 210,
-      "y": 102
-     },
-     {
-      "id": "pad_5",
-      "x": 126,
-      "y": 438
-     },
-     {
-      "id": "pad_6",
-      "x": 162,
-      "y": 258
-     },
-     {
-      "id": "pad_7",
-      "x": 42,
-      "y": 390
-     },
-     {
-      "id": "pad_8",
-      "x": 270,
+      "x": 130,
       "y": 270
      },
      {
+      "id": "pad_3",
+      "x": 230,
+      "y": 270
+     },
+     {
+      "id": "pad_4",
+      "x": 220,
+      "y": 380
+     },
+     {
+      "id": "pad_5",
+      "x": 140,
+      "y": 200
+     },
+     {
+      "id": "pad_6",
+      "x": 220,
+      "y": 200
+     },
+     {
+      "id": "pad_7",
+      "x": 110,
+      "y": 410
+     },
+     {
+      "id": "pad_8",
+      "x": 70,
+      "y": 300
+     },
+     {
       "id": "pad_9",
-      "x": 222,
-      "y": 318
+      "x": 290,
+      "y": 300
      },
      {
       "id": "pad_10",
-      "x": 234,
-      "y": 42
+      "x": 120,
+      "y": 140
      },
      {
       "id": "pad_11",
-      "x": 90,
-      "y": 342
+      "x": 220,
+      "y": 130
      }
     ],
     "waves": [
@@ -2871,7 +2841,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.1
+        "hpScale": 1.2
        }
       ]
      },
@@ -2889,8 +2859,8 @@
         "count": 2,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.26
+        "pathIndex": 1,
+        "hpScale": 1.38
        }
       ]
      },
@@ -2910,15 +2880,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.43
+        "hpScale": 1.56
        },
        {
         "enemyId": "ge_hoang_dieu_2",
         "count": 2,
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.43
+        "pathIndex": 1,
+        "hpScale": 1.56
        }
       ]
      },
@@ -2936,8 +2906,8 @@
         "count": 7,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.6
+        "pathIndex": 1,
+        "hpScale": 1.74
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -2945,7 +2915,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 1.74
        }
       ]
      },
@@ -2964,15 +2934,15 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.87
+        "hpScale": 2.04
        },
        {
         "enemyId": "ge_hoang_dieu_3",
         "count": 5,
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.87
+        "pathIndex": 1,
+        "hpScale": 2.04
        }
       ]
      },
@@ -2991,8 +2961,8 @@
         "count": 3,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.2
+        "pathIndex": 1,
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -3000,7 +2970,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.2
+        "hpScale": 2.4
        }
       ]
      },
@@ -3019,15 +2989,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.64
+        "hpScale": 2.88
        },
        {
         "enemyId": "ge_hoang_dieu_1",
         "count": 9,
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.64
+        "pathIndex": 1,
+        "hpScale": 2.88
        }
       ]
      },
@@ -3047,8 +3017,8 @@
         "count": 9,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.08
+        "pathIndex": 1,
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_hoang_dieu_2",
@@ -3056,15 +3026,15 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.08
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_hoang_dieu_3",
         "count": 6,
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.08
+        "pathIndex": 1,
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -3072,7 +3042,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.08
+        "hpScale": 3.36
        }
       ]
      }
@@ -3177,14 +3147,10 @@
     ],
     "streetId": "street_hoang_dieu",
     "shopIndex": 5,
-    "mapStageId": "street_hoang_dieu",
     "featuredTowerId": "gt_hoang_dieu_com_ga",
     "facadeKey": "mat_tien_com_ga",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
+    "roomStyle": "quan_an",
+    "roomLayout": "hai_cua",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -3247,9 +3213,9 @@
   {
    "hpMultiplier": 1,
    "balance": {
-    "randomWinWithExpectedGear": 0.3333333333333333,
+    "randomWinWithExpectedGear": 0.4583333333333333,
     "botWinRate": 1,
-    "botLivesAvg": 15.666666666666666,
+    "botLivesAvg": 18.666666666666668,
     "target": 0.4625
    },
    "stage": {
@@ -3262,94 +3228,96 @@
     "paths": [
      [
       {
-       "x": 326,
-       "y": 30
+       "x": 290,
+       "y": 520
       },
       {
-       "x": 234,
-       "y": 138
+       "x": 290,
+       "y": 360
       },
       {
-       "x": 232,
-       "y": 162
+       "x": 180,
+       "y": 300
       },
       {
-       "x": 248,
-       "y": 219
+       "x": 180,
+       "y": 70
+      }
+     ],
+     [
+      {
+       "x": 70,
+       "y": 520
       },
       {
-       "x": 243,
-       "y": 234
+       "x": 70,
+       "y": 360
       },
       {
-       "x": 95,
-       "y": 407
+       "x": 180,
+       "y": 300
       },
       {
-       "x": 71,
-       "y": 462
-      },
-      {
-       "x": 34,
-       "y": 490
+       "x": 180,
+       "y": 70
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 294,
-      "y": 138
+      "x": 160,
+      "y": 360
      },
      {
       "id": "pad_2",
-      "x": 186,
-      "y": 198
-     },
-     {
-      "id": "pad_3",
-      "x": 294,
-      "y": 210
-     },
-     {
-      "id": "pad_4",
-      "x": 210,
-      "y": 102
-     },
-     {
-      "id": "pad_5",
-      "x": 126,
-      "y": 438
-     },
-     {
-      "id": "pad_6",
-      "x": 162,
-      "y": 258
-     },
-     {
-      "id": "pad_7",
-      "x": 42,
-      "y": 390
-     },
-     {
-      "id": "pad_8",
-      "x": 270,
+      "x": 130,
       "y": 270
      },
      {
+      "id": "pad_3",
+      "x": 230,
+      "y": 270
+     },
+     {
+      "id": "pad_4",
+      "x": 220,
+      "y": 380
+     },
+     {
+      "id": "pad_5",
+      "x": 140,
+      "y": 200
+     },
+     {
+      "id": "pad_6",
+      "x": 220,
+      "y": 200
+     },
+     {
+      "id": "pad_7",
+      "x": 110,
+      "y": 410
+     },
+     {
+      "id": "pad_8",
+      "x": 70,
+      "y": 300
+     },
+     {
       "id": "pad_9",
-      "x": 222,
-      "y": 318
+      "x": 290,
+      "y": 300
      },
      {
       "id": "pad_10",
-      "x": 234,
-      "y": 42
+      "x": 120,
+      "y": 140
      },
      {
       "id": "pad_11",
-      "x": 90,
-      "y": 342
+      "x": 220,
+      "y": 130
      }
     ],
     "waves": [
@@ -3386,7 +3354,7 @@
         "count": 2,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
+        "pathIndex": 1,
         "hpScale": 1.15
        }
       ]
@@ -3414,7 +3382,7 @@
         "count": 2,
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
+        "pathIndex": 1,
         "hpScale": 1.3
        }
       ]
@@ -3433,7 +3401,7 @@
         "count": 7,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
+        "pathIndex": 1,
         "hpScale": 1.45
        },
        {
@@ -3468,7 +3436,7 @@
         "count": 5,
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
+        "pathIndex": 1,
         "hpScale": 1.7
        }
       ]
@@ -3488,7 +3456,7 @@
         "count": 3,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
+        "pathIndex": 1,
         "hpScale": 2
        },
        {
@@ -3523,7 +3491,7 @@
         "count": 9,
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
+        "pathIndex": 1,
         "hpScale": 2.4
        }
       ]
@@ -3544,7 +3512,7 @@
         "count": 9,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
+        "pathIndex": 1,
         "hpScale": 2.8
        },
        {
@@ -3560,7 +3528,7 @@
         "count": 6,
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
+        "pathIndex": 1,
         "hpScale": 2.8
        },
        {
@@ -3675,14 +3643,10 @@
     ],
     "streetId": "street_hoang_dieu",
     "shopIndex": 6,
-    "mapStageId": "street_hoang_dieu",
     "featuredTowerId": "gt_hoang_dieu_chao_gang",
     "facadeKey": "mat_tien_chao_gang",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
+    "roomStyle": "quan_an",
+    "roomLayout": "hai_cua_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -3743,11 +3707,11 @@
    }
   },
   {
-   "hpMultiplier": 0.7,
+   "hpMultiplier": 1,
    "balance": {
-    "randomWinWithExpectedGear": 0.6041666666666666,
+    "randomWinWithExpectedGear": 0.4375,
     "botWinRate": 1,
-    "botLivesAvg": 20,
+    "botLivesAvg": 20.666666666666668,
     "target": 0.42500000000000004
    },
    "stage": {
@@ -3760,94 +3724,98 @@
     "paths": [
      [
       {
-       "x": 326,
-       "y": 30
+       "x": 180,
+       "y": 520
       },
       {
-       "x": 234,
-       "y": 138
+       "x": 180,
+       "y": 430
       },
       {
-       "x": 232,
-       "y": 162
+       "x": 64,
+       "y": 430
       },
       {
-       "x": 248,
-       "y": 219
+       "x": 64,
+       "y": 300
       },
       {
-       "x": 243,
-       "y": 234
+       "x": 296,
+       "y": 300
       },
       {
-       "x": 95,
-       "y": 407
+       "x": 296,
+       "y": 170
       },
       {
-       "x": 71,
-       "y": 462
+       "x": 64,
+       "y": 170
       },
       {
-       "x": 34,
-       "y": 490
+       "x": 64,
+       "y": 60
+      },
+      {
+       "x": 180,
+       "y": 60
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 294,
-      "y": 138
+      "x": 130,
+      "y": 380
      },
      {
       "id": "pad_2",
-      "x": 186,
-      "y": 198
+      "x": 130,
+      "y": 120
      },
      {
       "id": "pad_3",
-      "x": 294,
-      "y": 210
+      "x": 90,
+      "y": 470
      },
      {
       "id": "pad_4",
-      "x": 210,
-      "y": 102
+      "x": 220,
+      "y": 230
      },
      {
       "id": "pad_5",
-      "x": 126,
-      "y": 438
+      "x": 200,
+      "y": 380
      },
      {
       "id": "pad_6",
-      "x": 162,
-      "y": 258
+      "x": 90,
+      "y": 220
      },
      {
       "id": "pad_7",
-      "x": 42,
-      "y": 390
+      "x": 140,
+      "y": 260
      },
      {
       "id": "pad_8",
-      "x": 270,
-      "y": 270
+      "x": 200,
+      "y": 120
      },
      {
       "id": "pad_9",
-      "x": 222,
-      "y": 318
+      "x": 220,
+      "y": 440
      },
      {
       "id": "pad_10",
-      "x": 234,
-      "y": 42
+      "x": 40,
+      "y": 260
      },
      {
       "id": "pad_11",
-      "x": 90,
-      "y": 342
+      "x": 250,
+      "y": 340
      }
     ],
     "waves": [
@@ -3866,7 +3834,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.7
+        "hpScale": 1
        }
       ]
      },
@@ -3885,7 +3853,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.81
+        "hpScale": 1.15
        }
       ]
      },
@@ -3905,7 +3873,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.91
+        "hpScale": 1.3
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -3913,7 +3881,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 0.91
+        "hpScale": 1.3
        }
       ]
      },
@@ -3933,7 +3901,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.01
+        "hpScale": 1.45
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -3941,7 +3909,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.01
+        "hpScale": 1.45
        }
       ]
      },
@@ -3961,7 +3929,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.19
+        "hpScale": 1.7
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -3969,7 +3937,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.19
+        "hpScale": 1.7
        }
       ]
      },
@@ -3990,7 +3958,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.4
+        "hpScale": 2
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -3998,7 +3966,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.4
+        "hpScale": 2
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -4006,7 +3974,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.4
+        "hpScale": 2
        }
       ]
      },
@@ -4027,7 +3995,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -4035,7 +4003,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_hoang_dieu_2",
@@ -4043,7 +4011,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 2.4
        }
       ]
      },
@@ -4066,7 +4034,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.96
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -4074,7 +4042,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.96
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -4082,7 +4050,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.96
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -4090,7 +4058,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.96
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -4098,7 +4066,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.96
+        "hpScale": 2.8
        }
       ]
      }
@@ -4205,14 +4173,10 @@
     ],
     "streetId": "street_hoang_dieu",
     "shopIndex": 7,
-    "mapStageId": "street_hoang_dieu",
     "featuredTowerId": "gt_hoang_dieu_yaourt",
     "facadeKey": "mat_tien_yaourt",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
+    "roomStyle": "cafe",
+    "roomLayout": "zigzag",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -4273,11 +4237,11 @@
    }
   },
   {
-   "hpMultiplier": 1,
+   "hpMultiplier": 1.4,
    "balance": {
-    "randomWinWithExpectedGear": 0.4583333333333333,
+    "randomWinWithExpectedGear": 0.4375,
     "botWinRate": 1,
-    "botLivesAvg": 16.666666666666668,
+    "botLivesAvg": 20,
     "target": 0.3875
    },
    "stage": {
@@ -4290,94 +4254,98 @@
     "paths": [
      [
       {
-       "x": 326,
-       "y": 30
+       "x": 180,
+       "y": 520
       },
       {
-       "x": 234,
-       "y": 138
+       "x": 180,
+       "y": 430
       },
       {
-       "x": 232,
-       "y": 162
+       "x": 296,
+       "y": 430
       },
       {
-       "x": 248,
-       "y": 219
+       "x": 296,
+       "y": 300
       },
       {
-       "x": 243,
-       "y": 234
+       "x": 64,
+       "y": 300
       },
       {
-       "x": 95,
-       "y": 407
+       "x": 64,
+       "y": 170
       },
       {
-       "x": 71,
-       "y": 462
+       "x": 296,
+       "y": 170
       },
       {
-       "x": 34,
-       "y": 490
+       "x": 296,
+       "y": 60
+      },
+      {
+       "x": 180,
+       "y": 60
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 294,
-      "y": 138
+      "x": 230,
+      "y": 380
      },
      {
       "id": "pad_2",
-      "x": 186,
-      "y": 198
+      "x": 210,
+      "y": 110
      },
      {
       "id": "pad_3",
-      "x": 294,
-      "y": 210
+      "x": 270,
+      "y": 470
      },
      {
       "id": "pad_4",
-      "x": 210,
-      "y": 102
+      "x": 130,
+      "y": 220
      },
      {
       "id": "pad_5",
-      "x": 126,
-      "y": 438
-     },
-     {
-      "id": "pad_6",
-      "x": 162,
-      "y": 258
-     },
-     {
-      "id": "pad_7",
-      "x": 42,
+      "x": 150,
       "y": 390
      },
      {
+      "id": "pad_6",
+      "x": 230,
+      "y": 220
+     },
+     {
+      "id": "pad_7",
+      "x": 280,
+      "y": 260
+     },
+     {
       "id": "pad_8",
-      "x": 270,
-      "y": 270
+      "x": 130,
+      "y": 450
      },
      {
       "id": "pad_9",
-      "x": 222,
-      "y": 318
+      "x": 150,
+      "y": 130
      },
      {
       "id": "pad_10",
-      "x": 234,
-      "y": 42
+      "x": 320,
+      "y": 210
      },
      {
       "id": "pad_11",
-      "x": 90,
-      "y": 342
+      "x": 180,
+      "y": 260
      }
     ],
     "waves": [
@@ -4396,7 +4364,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1
+        "hpScale": 1.4
        }
       ]
      },
@@ -4415,7 +4383,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.15
+        "hpScale": 1.61
        }
       ]
      },
@@ -4435,7 +4403,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.82
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -4443,7 +4411,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.82
        }
       ]
      },
@@ -4463,7 +4431,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.45
+        "hpScale": 2.03
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -4471,7 +4439,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.45
+        "hpScale": 2.03
        }
       ]
      },
@@ -4491,7 +4459,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 2.38
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -4499,7 +4467,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 2.38
        }
       ]
      },
@@ -4520,7 +4488,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -4528,7 +4496,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -4536,7 +4504,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 2.8
        }
       ]
      },
@@ -4556,7 +4524,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -4564,7 +4532,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_hoang_dieu_1",
@@ -4572,7 +4540,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 3.36
        }
       ]
      },
@@ -4594,7 +4562,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -4602,7 +4570,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -4610,7 +4578,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -4618,7 +4586,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -4626,7 +4594,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 3.92
        }
       ]
      }
@@ -4734,14 +4702,10 @@
     ],
     "streetId": "street_hoang_dieu",
     "shopIndex": 8,
-    "mapStageId": "street_hoang_dieu",
     "featuredTowerId": "gt_hoang_dieu_pizza",
     "facadeKey": "mat_tien_pizza",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
+    "roomStyle": "cafe",
+    "roomLayout": "zigzag_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -4802,11 +4766,11 @@
    }
   },
   {
-   "hpMultiplier": 1.3,
+   "hpMultiplier": 1.7,
    "balance": {
-    "randomWinWithExpectedGear": 0.2916666666666667,
+    "randomWinWithExpectedGear": 0.3541666666666667,
     "botWinRate": 1,
-    "botLivesAvg": 17.333333333333332,
+    "botLivesAvg": 19,
     "target": 0.35000000000000003
    },
    "stage": {
@@ -4819,94 +4783,86 @@
     "paths": [
      [
       {
-       "x": 326,
-       "y": 30
+       "x": 60,
+       "y": 520
       },
       {
-       "x": 234,
-       "y": 138
+       "x": 60,
+       "y": 120
       },
       {
-       "x": 232,
-       "y": 162
+       "x": 180,
+       "y": 120
       },
       {
-       "x": 248,
-       "y": 219
+       "x": 180,
+       "y": 380
       },
       {
-       "x": 243,
-       "y": 234
+       "x": 300,
+       "y": 380
       },
       {
-       "x": 95,
-       "y": 407
-      },
-      {
-       "x": 71,
-       "y": 462
-      },
-      {
-       "x": 34,
-       "y": 490
+       "x": 300,
+       "y": 60
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 294,
-      "y": 138
+      "x": 240,
+      "y": 290
      },
      {
       "id": "pad_2",
-      "x": 186,
-      "y": 198
-     },
-     {
-      "id": "pad_3",
-      "x": 294,
+      "x": 120,
       "y": 210
      },
      {
+      "id": "pad_3",
+      "x": 220,
+      "y": 150
+     },
+     {
       "id": "pad_4",
-      "x": 210,
-      "y": 102
+      "x": 120,
+      "y": 80
      },
      {
       "id": "pad_5",
-      "x": 126,
-      "y": 438
+      "x": 130,
+      "y": 320
      },
      {
       "id": "pad_6",
-      "x": 162,
-      "y": 258
+      "x": 220,
+      "y": 420
      },
      {
       "id": "pad_7",
-      "x": 42,
-      "y": 390
+      "x": 240,
+      "y": 210
      },
      {
       "id": "pad_8",
-      "x": 270,
-      "y": 270
+      "x": 120,
+      "y": 390
      },
      {
       "id": "pad_9",
-      "x": 222,
-      "y": 318
+      "x": 200,
+      "y": 80
      },
      {
       "id": "pad_10",
-      "x": 234,
-      "y": 42
+      "x": 290,
+      "y": 420
      },
      {
       "id": "pad_11",
-      "x": 90,
-      "y": 342
+      "x": 160,
+      "y": 440
      }
     ],
     "waves": [
@@ -4925,7 +4881,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.7
        }
       ]
      },
@@ -4944,7 +4900,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.5
+        "hpScale": 1.95
        }
       ]
      },
@@ -4964,7 +4920,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.69
+        "hpScale": 2.21
        },
        {
         "enemyId": "ge_hoang_dieu_2",
@@ -4972,7 +4928,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.69
+        "hpScale": 2.21
        }
       ]
      },
@@ -4992,7 +4948,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.89
+        "hpScale": 2.47
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -5000,7 +4956,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.89
+        "hpScale": 2.47
        }
       ]
      },
@@ -5020,7 +4976,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.89
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -5028,7 +4984,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.89
        }
       ]
      },
@@ -5049,7 +5005,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 3.4
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -5057,7 +5013,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 3.4
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -5065,7 +5021,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 3.4
        }
       ]
      },
@@ -5086,7 +5042,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 4.08
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -5094,7 +5050,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 4.08
        },
        {
         "enemyId": "ge_hoang_dieu_1",
@@ -5102,7 +5058,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 4.08
        }
       ]
      },
@@ -5125,7 +5081,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_hoang_dieu_2",
@@ -5133,7 +5089,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -5141,7 +5097,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -5149,7 +5105,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -5157,7 +5113,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 4.76
        }
       ]
      }
@@ -5266,14 +5222,10 @@
     ],
     "streetId": "street_hoang_dieu",
     "shopIndex": 9,
-    "mapStageId": "street_hoang_dieu",
     "featuredTowerId": "gt_hoang_dieu_khach_san",
     "facadeKey": "mat_tien_khach_san",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
+    "roomStyle": "luu_tru",
+    "roomLayout": "chu_u",
     "botPlan": [
      {
       "padId": "pad_1",

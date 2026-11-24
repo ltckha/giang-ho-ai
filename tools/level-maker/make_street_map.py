@@ -91,8 +91,7 @@ def draw(sid, geo, theme_name, out_path):
                 t2 = min(L, t + 8)
                 d.line([(ax + (bx - ax) * t / L) * S, (ay + (by - ay) * t / L) * S, (ax + (bx - ax) * t2 / L) * S, (ay + (by - ay) * t2 / L) * S], fill=(250, 244, 226), width=4)
     # sân nhỏ chừa cho mặt tiền tiệm
-    pr = max(26, min(48, fr))
-    d.ellipse([(fx - pr) * S, (fy - pr * 0.75) * S, (fx + pr) * S, (fy + pr * 0.75) * S], fill=th['tile'], outline=INK, width=3)
+    pr = -100  # màn phố không đặt mặt tiền tiệm → không chừa sân
     # dãy nhà ngay ngắn dọc đường
     names = ['nha_dalat_1', 'nha_dalat_2', 'nha_pho_1', 'nha_pho_2', 'nha_pho_3'] if theme_name != 'saigon' else ['nha_saigon_1', 'nha_saigon_2', 'nha_pho_1', 'nha_pho_2', 'nha_pho_3']
     houses = [h for h in (_deco(n, 40 * S) for n in names) if h]

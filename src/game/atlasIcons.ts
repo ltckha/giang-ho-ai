@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import type { GearSlotId } from '../core/equipment';
-import { ALL_ENEMY_DEFINITIONS, ALL_TOWER_DEFINITIONS, REAL_STREET_STAGES, STAGES } from '../core/tdDefinitions';
+import { ALL_ENEMY_DEFINITIONS, ALL_TOWER_DEFINITIONS, REAL_STREET_SHOPS, REAL_STREET_STAGES, STAGES } from '../core/tdDefinitions';
 import type { ElementType, EnemyId, StageId, TowerId } from '../core/types';
 import sparkAtlas from '../../public/assets/spark_atlas.json';
 import streetsAtlas from '../../public/assets/streets_atlas.json';
@@ -21,6 +21,10 @@ export const STAGE4_MAP_KEY = 'map_trum_pho';
 export const STREET_MAP_KEYS: Record<string, string> = Object.fromEntries(
   REAL_STREET_STAGES.map((st) => [st.id, `map_${st.id}`]),
 );
+/** Nền phòng trong tiệm cho từng màn tiệm phố thật */
+export const SHOP_ROOM_MAP_KEYS: Record<string, string> = Object.fromEntries(
+  Object.values(REAL_STREET_SHOPS).flat().map((st) => [st.id, `map_${st.id}`]),
+);
 
 const iconDataUrlCache = new Map<string, string>();
 
@@ -29,7 +33,9 @@ export function getStageMapKey(stageId: StageId): string | undefined {
   if (stageId === 'stage_2') return STAGE2_MAP_KEY;
   if (stageId === 'stage_3') return STAGE3_MAP_KEY;
   if (stageId === 'stage_4') return STAGE4_MAP_KEY;
-  return STREET_MAP_KEYS[STAGES[stageId]?.mapStageId ?? stageId];
+  const st = STAGES[stageId];
+  if (st?.shopIndex) return SHOP_ROOM_MAP_KEYS[stageId];
+  return STREET_MAP_KEYS[st?.mapStageId ?? stageId];
 }
 
 function getSparkTowerArt(defId: string): string | null {

@@ -400,3 +400,10 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Đợt 17: 10 loại món đặc sản Đà Lạt (dâu tây, mứt, đồ len, atiso, hoa khô, bánh tráng nướng, lẩu gà, sữa đậu nành, hostel, tiệm bánh mì) → món ở 3 phố mới có hình riêng. Đợt 18: 10 mặt tiền. Đợt 19: 12 cảnh Đà Lạt (nhà thờ Con Gà, quảng trường atiso, ga, thuyền thiên nga, mai anh đào…) → đặt đúng toạ độ trên bản đồ. Đợt 20: 9 quái thời tiết + trùm Bão Lũ Cao Nguyên (cho màn sự kiện sau). Đợt 21: 3 trùm phố mới + 3 thẻ phố.
 - Kho Spark: 45 loại món, 65 quái, 69 mặt tiền. Lỗi nhỏ: quai_mat_dien có 2 mặt; banh_trang_nuong / lau_ga b1≈b2.
 - `npm test` 86/86, e2e 17/17.
+
+## 24/11/2026 — Màn tiệm vào TRONG tiệm (sửa lỗi anh Kha chỉ ra) + Spark 22–24 (Claude)
+- Quy tắc: màn tiệm chơi bên trong tiệm (như Phố Dốc), màn phố chơi ngoài đường. Trước đây màn tiệm phố thật dùng nền đường phố → sai.
+- tools/level-maker/make_rooms.py: 8 bố cục phòng (zigzag, chữ U, xoắn, hai cửa × lật), đường từ cửa (dưới) tới quầy (trên). make-street.ts gán bố cục + kiểu nội thất theo loại địa điểm (lưu trú / quán ăn / cà phê / tiệm). tools/level-maker/make_room_map.py vẽ 52 phòng (public/assets/rooms/): tường cửa sổ, sàn theo kiểu, thảm đường đi, quầy cuối đường, giường/sofa, bàn ghế, kệ hàng + món của chính tiệm bày trang trí. Độ khó cân lại cho cả 6 phố.
+- Nền phố tự vẽ: bỏ sân chừa mặt tiền (màn phố không đặt mặt tiền).
+- Spark 22–24: 6 loại món + mặt tiền (cơm tấm, cơm gà, cháo, pizza, bánh mì chảo, khách sạn), 15 hiệu ứng (chưa gắn), 13 đồ sự kiện Tết / Noel / lễ hội hoa (cất cho màn sự kiện). Cần vẽ lại: deco_cay_mai (có chữ 福), facade_chao (chữ MENU).
+- `npm test` 86/86, e2e 17/17.

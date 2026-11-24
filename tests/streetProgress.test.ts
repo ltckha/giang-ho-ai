@@ -8,11 +8,11 @@ describe('Phố thật: các màn tiệm rồi mới tới màn phố', () => {
   const street = REAL_STREET_STAGES[0]!;
   const shops = REAL_STREET_SHOPS[street.id]!;
 
-  it('mỗi phố có 8–10 màn tiệm, đúng thứ tự, dùng nền phố', () => {
+  it('mỗi phố có 8–10 màn tiệm, đúng thứ tự, chơi trong phòng tiệm (không dùng đường phố)', () => {
     for (const st of REAL_STREET_STAGES) {
       const list = REAL_STREET_SHOPS[st.id]!;
       expect(list.length).toBeGreaterThanOrEqual(8);
-      list.forEach((s, i) => { expect(s.shopIndex).toBe(i + 1); expect(s.mapStageId).toBe(st.id); expect(s.featuredTowerId).toBeDefined(); });
+      list.forEach((s, i) => { expect(s.shopIndex).toBe(i + 1); expect(s.mapStageId).toBeUndefined(); expect(s.roomStyle).toBeDefined(); expect(s.paths).not.toEqual(st.paths); expect(s.featuredTowerId).toBeDefined(); });
     }
   });
 

@@ -717,11 +717,11 @@
  },
  "shops": [
   {
-   "hpMultiplier": 0.4,
+   "hpMultiplier": 0.9,
    "balance": {
-    "randomWinWithExpectedGear": 0.7916666666666666,
+    "randomWinWithExpectedGear": 0.6666666666666666,
     "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
+    "botLivesAvg": 19.333333333333332,
     "target": 0.65
    },
    "stage": {
@@ -734,86 +734,96 @@
     "paths": [
      [
       {
-       "x": 330,
-       "y": 487
+       "x": 70,
+       "y": 520
       },
       {
-       "x": 305,
-       "y": 468
+       "x": 70,
+       "y": 360
       },
       {
-       "x": 174,
-       "y": 399
+       "x": 180,
+       "y": 300
       },
       {
-       "x": 68,
-       "y": 308
+       "x": 180,
+       "y": 70
+      }
+     ],
+     [
+      {
+       "x": 290,
+       "y": 520
       },
       {
-       "x": 56,
-       "y": 301
+       "x": 290,
+       "y": 360
       },
       {
-       "x": 30,
-       "y": 296
+       "x": 180,
+       "y": 300
+      },
+      {
+       "x": 180,
+       "y": 70
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 150,
-      "y": 282
+      "x": 160,
+      "y": 360
      },
      {
       "id": "pad_2",
-      "x": 90,
-      "y": 378
+      "x": 130,
+      "y": 270
      },
      {
       "id": "pad_3",
-      "x": 66,
-      "y": 246
+      "x": 230,
+      "y": 270
      },
      {
       "id": "pad_4",
-      "x": 30,
-      "y": 342
+      "x": 220,
+      "y": 380
      },
      {
       "id": "pad_5",
-      "x": 222,
-      "y": 78
+      "x": 140,
+      "y": 200
      },
      {
       "id": "pad_6",
-      "x": 282,
-      "y": 54
+      "x": 220,
+      "y": 200
      },
      {
       "id": "pad_7",
-      "x": 270,
-      "y": 162
+      "x": 110,
+      "y": 410
      },
      {
       "id": "pad_8",
-      "x": 210,
-      "y": 330
+      "x": 70,
+      "y": 300
      },
      {
       "id": "pad_9",
-      "x": 222,
-      "y": 474
+      "x": 290,
+      "y": 300
      },
      {
       "id": "pad_10",
-      "x": 282,
-      "y": 390
+      "x": 120,
+      "y": 140
      },
      {
       "id": "pad_11",
-      "x": 162,
-      "y": 438
+      "x": 220,
+      "y": 130
      }
     ],
     "waves": [
@@ -832,7 +842,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.4
+        "hpScale": 0.9
        }
       ]
      },
@@ -850,8 +860,8 @@
         "count": 4,
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 0.46
+        "pathIndex": 1,
+        "hpScale": 1.03
        }
       ]
      },
@@ -871,15 +881,15 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.52
+        "hpScale": 1.17
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
         "count": 4,
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 0.52
+        "pathIndex": 1,
+        "hpScale": 1.17
        }
       ]
      },
@@ -898,8 +908,8 @@
         "count": 3,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 0.58
+        "pathIndex": 1,
+        "hpScale": 1.31
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -907,7 +917,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 0.58
+        "hpScale": 1.31
        }
       ]
      },
@@ -928,15 +938,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.68
+        "hpScale": 1.53
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
         "count": 3,
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 0.68
+        "pathIndex": 1,
+        "hpScale": 1.53
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -944,7 +954,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 0.68
+        "hpScale": 1.53
        }
       ]
      },
@@ -964,8 +974,8 @@
         "count": 4,
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 0.8
+        "pathIndex": 1,
+        "hpScale": 1.8
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -973,15 +983,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 0.8
+        "hpScale": 1.8
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
         "count": 3,
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 0.8
+        "pathIndex": 1,
+        "hpScale": 1.8
        }
       ]
      },
@@ -1002,15 +1012,15 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.96
+        "hpScale": 2.16
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
         "count": 5,
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 0.96
+        "pathIndex": 1,
+        "hpScale": 2.16
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -1018,7 +1028,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 0.96
+        "hpScale": 2.16
        }
       ]
      },
@@ -1038,8 +1048,8 @@
         "count": 4,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.12
+        "pathIndex": 1,
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -1047,15 +1057,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.12
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
         "count": 5,
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.12
+        "pathIndex": 1,
+        "hpScale": 2.52
        }
       ]
      }
@@ -1149,47 +1159,43 @@
     ],
     "streetId": "street_pho_ca_phe",
     "shopIndex": 1,
-    "mapStageId": "street_pho_ca_phe",
     "featuredTowerId": "gt_pho_ca_phe_cafe_som",
     "facadeKey": "mat_tien_cafe_som",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
+    "roomStyle": "cafe",
+    "roomLayout": "hai_cua",
     "botPlan": [
      {
-      "padId": "pad_2",
+      "padId": "pad_1",
       "defId": "gt_pho_ca_phe_cafe_som",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_4",
+      "padId": "pad_2",
       "defId": "metal_tower",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_1",
+      "padId": "pad_3",
       "defId": "fl_vent",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_3",
+      "padId": "pad_4",
       "defId": "gt_pho_ca_phe_cafe_som",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_9",
+      "padId": "pad_5",
       "defId": "metal_tower",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_10",
+      "padId": "pad_6",
       "defId": "fire_tower",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_11",
+      "padId": "pad_7",
       "defId": "gt_pho_ca_phe_cafe_som",
       "preferredBranch": "A"
      },
@@ -1199,17 +1205,17 @@
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_5",
+      "padId": "pad_9",
       "defId": "fire_tower",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_6",
+      "padId": "pad_10",
       "defId": "gt_pho_ca_phe_cafe_som",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_7",
+      "padId": "pad_11",
       "defId": "metal_tower",
       "preferredBranch": "A"
      }
@@ -1217,9 +1223,9 @@
    }
   },
   {
-   "hpMultiplier": 1,
+   "hpMultiplier": 0.8,
    "balance": {
-    "randomWinWithExpectedGear": 0.5625,
+    "randomWinWithExpectedGear": 0.5416666666666666,
     "botWinRate": 1,
     "botLivesAvg": 18.666666666666668,
     "target": 0.6071428571428572
@@ -1234,130 +1240,96 @@
     "paths": [
      [
       {
-       "x": 321,
-       "y": 33
+       "x": 290,
+       "y": 520
       },
       {
-       "x": 321,
-       "y": 88
+       "x": 290,
+       "y": 360
       },
       {
-       "x": 312,
-       "y": 105
+       "x": 180,
+       "y": 300
       },
       {
-       "x": 293,
-       "y": 117
+       "x": 180,
+       "y": 70
+      }
+     ],
+     [
+      {
+       "x": 70,
+       "y": 520
       },
       {
-       "x": 272,
-       "y": 118
+       "x": 70,
+       "y": 360
       },
       {
-       "x": 251,
-       "y": 111
+       "x": 180,
+       "y": 300
       },
       {
-       "x": 225,
-       "y": 121
-      },
-      {
-       "x": 131,
-       "y": 223
-      },
-      {
-       "x": 106,
-       "y": 261
-      },
-      {
-       "x": 111,
-       "y": 291
-      },
-      {
-       "x": 125,
-       "y": 318
-      },
-      {
-       "x": 256,
-       "y": 423
-      },
-      {
-       "x": 278,
-       "y": 457
-      },
-      {
-       "x": 174,
-       "y": 399
-      },
-      {
-       "x": 68,
-       "y": 308
-      },
-      {
-       "x": 56,
-       "y": 301
-      },
-      {
-       "x": 30,
-       "y": 296
+       "x": 180,
+       "y": 70
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 150,
-      "y": 282
+      "x": 160,
+      "y": 360
      },
      {
       "id": "pad_2",
-      "x": 90,
-      "y": 378
+      "x": 130,
+      "y": 270
      },
      {
       "id": "pad_3",
-      "x": 66,
-      "y": 246
+      "x": 230,
+      "y": 270
      },
      {
       "id": "pad_4",
-      "x": 30,
-      "y": 342
+      "x": 220,
+      "y": 380
      },
      {
       "id": "pad_5",
-      "x": 222,
-      "y": 78
+      "x": 140,
+      "y": 200
      },
      {
       "id": "pad_6",
-      "x": 282,
-      "y": 54
+      "x": 220,
+      "y": 200
      },
      {
       "id": "pad_7",
-      "x": 270,
-      "y": 162
+      "x": 110,
+      "y": 410
      },
      {
       "id": "pad_8",
-      "x": 210,
-      "y": 330
+      "x": 70,
+      "y": 300
      },
      {
       "id": "pad_9",
-      "x": 222,
-      "y": 474
+      "x": 290,
+      "y": 300
      },
      {
       "id": "pad_10",
-      "x": 282,
-      "y": 390
+      "x": 120,
+      "y": 140
      },
      {
       "id": "pad_11",
-      "x": 162,
-      "y": 438
+      "x": 220,
+      "y": 130
      }
     ],
     "waves": [
@@ -1376,7 +1348,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1
+        "hpScale": 0.8
        }
       ]
      },
@@ -1394,8 +1366,8 @@
         "count": 4,
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.15
+        "pathIndex": 1,
+        "hpScale": 0.92
        }
       ]
      },
@@ -1415,15 +1387,15 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.04
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
         "count": 4,
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.3
+        "pathIndex": 1,
+        "hpScale": 1.04
        }
       ]
      },
@@ -1442,8 +1414,8 @@
         "count": 3,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.45
+        "pathIndex": 1,
+        "hpScale": 1.16
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -1451,7 +1423,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.45
+        "hpScale": 1.16
        }
       ]
      },
@@ -1472,15 +1444,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 1.36
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
         "count": 3,
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.7
+        "pathIndex": 1,
+        "hpScale": 1.36
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -1488,7 +1460,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 1.36
        }
       ]
      },
@@ -1508,8 +1480,8 @@
         "count": 4,
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2
+        "pathIndex": 1,
+        "hpScale": 1.6
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -1517,15 +1489,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 1.6
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
         "count": 3,
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2
+        "pathIndex": 1,
+        "hpScale": 1.6
        }
       ]
      },
@@ -1546,15 +1518,15 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 1.92
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
         "count": 5,
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.4
+        "pathIndex": 1,
+        "hpScale": 1.92
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -1562,7 +1534,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 1.92
        }
       ]
      },
@@ -1582,8 +1554,8 @@
         "count": 4,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.8
+        "pathIndex": 1,
+        "hpScale": 2.24
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -1591,15 +1563,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.24
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
         "count": 5,
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.8
+        "pathIndex": 1,
+        "hpScale": 2.24
        }
       ]
      }
@@ -1694,37 +1666,13 @@
     ],
     "streetId": "street_pho_ca_phe",
     "shopIndex": 2,
-    "mapStageId": "street_pho_ca_phe",
     "featuredTowerId": "gt_pho_ca_phe_o_long",
     "facadeKey": "mat_tien_o_long",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
+    "roomStyle": "cafe",
+    "roomLayout": "hai_cua_lat",
     "botPlan": [
      {
-      "padId": "pad_5",
-      "defId": "metal_tower",
-      "preferredBranch": "A"
-     },
-     {
       "padId": "pad_1",
-      "defId": "fire_tower",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_pho_ca_phe_o_long",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "fire_tower",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
       "defId": "metal_tower",
       "preferredBranch": "A"
      },
@@ -1734,7 +1682,27 @@
       "preferredBranch": "B"
      },
      {
+      "padId": "pad_3",
+      "defId": "gt_pho_ca_phe_o_long",
+      "preferredBranch": "A"
+     },
+     {
       "padId": "pad_4",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "fire_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
       "defId": "metal_tower",
       "preferredBranch": "A"
      },
@@ -1744,17 +1712,17 @@
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_11",
+      "padId": "pad_9",
       "defId": "metal_tower",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_9",
+      "padId": "pad_10",
       "defId": "fire_tower",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_10",
+      "padId": "pad_11",
       "defId": "metal_tower",
       "preferredBranch": "A"
      }
@@ -1762,9 +1730,9 @@
    }
   },
   {
-   "hpMultiplier": 0.6,
+   "hpMultiplier": 1.1,
    "balance": {
-    "randomWinWithExpectedGear": 0.3958333333333333,
+    "randomWinWithExpectedGear": 0.625,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.5642857142857143
@@ -1779,86 +1747,98 @@
     "paths": [
      [
       {
-       "x": 330,
-       "y": 487
+       "x": 180,
+       "y": 520
       },
       {
-       "x": 305,
-       "y": 468
+       "x": 180,
+       "y": 430
       },
       {
-       "x": 174,
-       "y": 399
+       "x": 64,
+       "y": 430
       },
       {
-       "x": 68,
-       "y": 308
+       "x": 64,
+       "y": 300
       },
       {
-       "x": 56,
-       "y": 301
+       "x": 296,
+       "y": 300
       },
       {
-       "x": 30,
-       "y": 296
+       "x": 296,
+       "y": 170
+      },
+      {
+       "x": 64,
+       "y": 170
+      },
+      {
+       "x": 64,
+       "y": 60
+      },
+      {
+       "x": 180,
+       "y": 60
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 150,
-      "y": 282
+      "x": 130,
+      "y": 380
      },
      {
       "id": "pad_2",
-      "x": 90,
-      "y": 378
+      "x": 130,
+      "y": 120
      },
      {
       "id": "pad_3",
-      "x": 66,
-      "y": 246
+      "x": 90,
+      "y": 470
      },
      {
       "id": "pad_4",
-      "x": 30,
-      "y": 342
+      "x": 220,
+      "y": 230
      },
      {
       "id": "pad_5",
-      "x": 222,
-      "y": 78
+      "x": 200,
+      "y": 380
      },
      {
       "id": "pad_6",
-      "x": 282,
-      "y": 54
+      "x": 90,
+      "y": 220
      },
      {
       "id": "pad_7",
-      "x": 270,
-      "y": 162
+      "x": 140,
+      "y": 260
      },
      {
       "id": "pad_8",
-      "x": 210,
-      "y": 330
+      "x": 200,
+      "y": 120
      },
      {
       "id": "pad_9",
-      "x": 222,
-      "y": 474
+      "x": 220,
+      "y": 440
      },
      {
       "id": "pad_10",
-      "x": 282,
-      "y": 390
+      "x": 40,
+      "y": 260
      },
      {
       "id": "pad_11",
-      "x": 162,
-      "y": 438
+      "x": 250,
+      "y": 340
      }
     ],
     "waves": [
@@ -1877,7 +1857,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.6
+        "hpScale": 1.1
        }
       ]
      },
@@ -1896,7 +1876,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.69
+        "hpScale": 1.26
        }
       ]
      },
@@ -1916,7 +1896,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.78
+        "hpScale": 1.43
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -1924,7 +1904,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 0.78
+        "hpScale": 1.43
        }
       ]
      },
@@ -1944,7 +1924,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.87
+        "hpScale": 1.6
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -1952,7 +1932,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 0.87
+        "hpScale": 1.6
        }
       ]
      },
@@ -1973,7 +1953,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.02
+        "hpScale": 1.87
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -1981,7 +1961,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.02
+        "hpScale": 1.87
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -1989,7 +1969,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.02
+        "hpScale": 1.87
        }
       ]
      },
@@ -2010,7 +1990,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 2.2
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -2018,7 +1998,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 2.2
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -2026,7 +2006,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 2.2
        }
       ]
      },
@@ -2047,7 +2027,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.44
+        "hpScale": 2.64
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -2055,7 +2035,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.44
+        "hpScale": 2.64
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -2063,7 +2043,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.44
+        "hpScale": 2.64
        }
       ]
      },
@@ -2084,7 +2064,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 3.08
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -2092,7 +2072,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 3.08
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -2100,7 +2080,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 3.08
        }
       ]
      }
@@ -2196,47 +2176,43 @@
     ],
     "streetId": "street_pho_ca_phe",
     "shopIndex": 3,
-    "mapStageId": "street_pho_ca_phe",
     "featuredTowerId": "gt_pho_ca_phe_kem_ly",
     "facadeKey": "mat_tien_kem_ly",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
+    "roomStyle": "cafe",
+    "roomLayout": "zigzag",
     "botPlan": [
      {
-      "padId": "pad_2",
+      "padId": "pad_1",
       "defId": "gt_pho_ca_phe_kem_ly",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_4",
+      "padId": "pad_2",
       "defId": "metal_tower",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_1",
+      "padId": "pad_3",
       "defId": "fl_vent",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_3",
+      "padId": "pad_4",
       "defId": "gt_pho_ca_phe_kem_ly",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_9",
+      "padId": "pad_5",
       "defId": "metal_tower",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_10",
+      "padId": "pad_6",
       "defId": "fire_tower",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_11",
+      "padId": "pad_7",
       "defId": "gt_pho_ca_phe_kem_ly",
       "preferredBranch": "A"
      },
@@ -2246,17 +2222,17 @@
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_5",
+      "padId": "pad_9",
       "defId": "fire_tower",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_6",
+      "padId": "pad_10",
       "defId": "gt_pho_ca_phe_kem_ly",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_7",
+      "padId": "pad_11",
       "defId": "metal_tower",
       "preferredBranch": "A"
      }
@@ -2268,7 +2244,7 @@
    "balance": {
     "randomWinWithExpectedGear": 0.4583333333333333,
     "botWinRate": 1,
-    "botLivesAvg": 16,
+    "botLivesAvg": 18,
     "target": 0.5214285714285715
    },
    "stage": {
@@ -2281,130 +2257,98 @@
     "paths": [
      [
       {
-       "x": 321,
-       "y": 33
+       "x": 180,
+       "y": 520
       },
       {
-       "x": 321,
-       "y": 88
+       "x": 180,
+       "y": 430
       },
       {
-       "x": 312,
-       "y": 105
+       "x": 296,
+       "y": 430
       },
       {
-       "x": 293,
-       "y": 117
+       "x": 296,
+       "y": 300
       },
       {
-       "x": 272,
-       "y": 118
+       "x": 64,
+       "y": 300
       },
       {
-       "x": 251,
-       "y": 111
+       "x": 64,
+       "y": 170
       },
       {
-       "x": 225,
-       "y": 121
+       "x": 296,
+       "y": 170
       },
       {
-       "x": 131,
-       "y": 223
+       "x": 296,
+       "y": 60
       },
       {
-       "x": 106,
-       "y": 261
-      },
-      {
-       "x": 111,
-       "y": 291
-      },
-      {
-       "x": 125,
-       "y": 318
-      },
-      {
-       "x": 256,
-       "y": 423
-      },
-      {
-       "x": 278,
-       "y": 457
-      },
-      {
-       "x": 174,
-       "y": 399
-      },
-      {
-       "x": 68,
-       "y": 308
-      },
-      {
-       "x": 56,
-       "y": 301
-      },
-      {
-       "x": 30,
-       "y": 296
+       "x": 180,
+       "y": 60
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 150,
-      "y": 282
+      "x": 230,
+      "y": 380
      },
      {
       "id": "pad_2",
-      "x": 90,
-      "y": 378
+      "x": 210,
+      "y": 110
      },
      {
       "id": "pad_3",
-      "x": 66,
-      "y": 246
+      "x": 270,
+      "y": 470
      },
      {
       "id": "pad_4",
-      "x": 30,
-      "y": 342
+      "x": 130,
+      "y": 220
      },
      {
       "id": "pad_5",
-      "x": 222,
-      "y": 78
-     },
-     {
-      "id": "pad_6",
-      "x": 282,
-      "y": 54
-     },
-     {
-      "id": "pad_7",
-      "x": 270,
-      "y": 162
-     },
-     {
-      "id": "pad_8",
-      "x": 210,
-      "y": 330
-     },
-     {
-      "id": "pad_9",
-      "x": 222,
-      "y": 474
-     },
-     {
-      "id": "pad_10",
-      "x": 282,
+      "x": 150,
       "y": 390
      },
      {
+      "id": "pad_6",
+      "x": 230,
+      "y": 220
+     },
+     {
+      "id": "pad_7",
+      "x": 280,
+      "y": 260
+     },
+     {
+      "id": "pad_8",
+      "x": 130,
+      "y": 450
+     },
+     {
+      "id": "pad_9",
+      "x": 150,
+      "y": 130
+     },
+     {
+      "id": "pad_10",
+      "x": 320,
+      "y": 210
+     },
+     {
       "id": "pad_11",
-      "x": 162,
-      "y": 438
+      "x": 180,
+      "y": 260
      }
     ],
     "waves": [
@@ -2725,47 +2669,43 @@
     ],
     "streetId": "street_pho_ca_phe",
     "shopIndex": 4,
-    "mapStageId": "street_pho_ca_phe",
     "featuredTowerId": "gt_pho_ca_phe_tra_sua",
     "facadeKey": "mat_tien_tra_sua",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
+    "roomStyle": "cafe",
+    "roomLayout": "zigzag_lat",
     "botPlan": [
      {
-      "padId": "pad_5",
-      "defId": "gt_pho_ca_phe_tra_sua",
-      "preferredBranch": "A"
-     },
-     {
       "padId": "pad_1",
-      "defId": "metal_tower",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "fl_vent",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_7",
       "defId": "gt_pho_ca_phe_tra_sua",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "metal_tower",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_2",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_pho_ca_phe_tra_sua",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
       "defId": "fire_tower",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_4",
+      "padId": "pad_7",
       "defId": "gt_pho_ca_phe_tra_sua",
       "preferredBranch": "A"
      },
@@ -2775,17 +2715,17 @@
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_11",
+      "padId": "pad_9",
       "defId": "fire_tower",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_9",
+      "padId": "pad_10",
       "defId": "gt_pho_ca_phe_tra_sua",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_10",
+      "padId": "pad_11",
       "defId": "metal_tower",
       "preferredBranch": "A"
      }
@@ -2793,11 +2733,11 @@
    }
   },
   {
-   "hpMultiplier": 0.6,
+   "hpMultiplier": 1.3,
    "balance": {
-    "randomWinWithExpectedGear": 0.4791666666666667,
+    "randomWinWithExpectedGear": 0.5,
     "botWinRate": 1,
-    "botLivesAvg": 18.333333333333332,
+    "botLivesAvg": 16,
     "target": 0.4785714285714286
    },
    "stage": {
@@ -2810,86 +2750,86 @@
     "paths": [
      [
       {
-       "x": 330,
-       "y": 487
+       "x": 60,
+       "y": 520
       },
       {
-       "x": 305,
-       "y": 468
+       "x": 60,
+       "y": 120
       },
       {
-       "x": 174,
-       "y": 399
+       "x": 180,
+       "y": 120
       },
       {
-       "x": 68,
-       "y": 308
+       "x": 180,
+       "y": 380
       },
       {
-       "x": 56,
-       "y": 301
+       "x": 300,
+       "y": 380
       },
       {
-       "x": 30,
-       "y": 296
+       "x": 300,
+       "y": 60
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 150,
-      "y": 282
+      "x": 240,
+      "y": 290
      },
      {
       "id": "pad_2",
-      "x": 90,
-      "y": 378
+      "x": 120,
+      "y": 210
      },
      {
       "id": "pad_3",
-      "x": 66,
-      "y": 246
+      "x": 220,
+      "y": 150
      },
      {
       "id": "pad_4",
-      "x": 30,
-      "y": 342
+      "x": 120,
+      "y": 80
      },
      {
       "id": "pad_5",
-      "x": 222,
-      "y": 78
+      "x": 130,
+      "y": 320
      },
      {
       "id": "pad_6",
-      "x": 282,
-      "y": 54
+      "x": 220,
+      "y": 420
      },
      {
       "id": "pad_7",
-      "x": 270,
-      "y": 162
+      "x": 240,
+      "y": 210
      },
      {
       "id": "pad_8",
-      "x": 210,
-      "y": 330
-     },
-     {
-      "id": "pad_9",
-      "x": 222,
-      "y": 474
-     },
-     {
-      "id": "pad_10",
-      "x": 282,
+      "x": 120,
       "y": 390
      },
      {
+      "id": "pad_9",
+      "x": 200,
+      "y": 80
+     },
+     {
+      "id": "pad_10",
+      "x": 290,
+      "y": 420
+     },
+     {
       "id": "pad_11",
-      "x": 162,
-      "y": 438
+      "x": 160,
+      "y": 440
      }
     ],
     "waves": [
@@ -2908,7 +2848,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.6
+        "hpScale": 1.3
        }
       ]
      },
@@ -2927,7 +2867,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.69
+        "hpScale": 1.5
        }
       ]
      },
@@ -2947,7 +2887,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.78
+        "hpScale": 1.69
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -2955,7 +2895,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 0.78
+        "hpScale": 1.69
        }
       ]
      },
@@ -2975,7 +2915,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.87
+        "hpScale": 1.89
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -2983,7 +2923,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 0.87
+        "hpScale": 1.89
        }
       ]
      },
@@ -3003,7 +2943,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.02
+        "hpScale": 2.21
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -3011,7 +2951,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.02
+        "hpScale": 2.21
        }
       ]
      },
@@ -3031,7 +2971,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 2.6
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -3039,7 +2979,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 2.6
        }
       ]
      },
@@ -3059,7 +2999,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.44
+        "hpScale": 3.12
        },
        {
         "enemyId": "ge_pho_ca_phe_1",
@@ -3067,7 +3007,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.44
+        "hpScale": 3.12
        }
       ]
      },
@@ -3088,7 +3028,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -3096,7 +3036,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -3104,7 +3044,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -3112,7 +3052,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 3.64
        }
       ]
      }
@@ -3210,47 +3150,43 @@
     ],
     "streetId": "street_pho_ca_phe",
     "shopIndex": 5,
-    "mapStageId": "street_pho_ca_phe",
     "featuredTowerId": "gt_pho_ca_phe_retro",
     "facadeKey": "mat_tien_retro",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
+    "roomStyle": "cafe",
+    "roomLayout": "chu_u",
     "botPlan": [
      {
-      "padId": "pad_2",
+      "padId": "pad_1",
       "defId": "gt_pho_ca_phe_retro",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_4",
+      "padId": "pad_2",
       "defId": "metal_tower",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_1",
+      "padId": "pad_3",
       "defId": "fl_vent",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_3",
+      "padId": "pad_4",
       "defId": "gt_pho_ca_phe_retro",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_9",
+      "padId": "pad_5",
       "defId": "metal_tower",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_10",
+      "padId": "pad_6",
       "defId": "fire_tower",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_11",
+      "padId": "pad_7",
       "defId": "gt_pho_ca_phe_retro",
       "preferredBranch": "A"
      },
@@ -3260,17 +3196,17 @@
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_5",
+      "padId": "pad_9",
       "defId": "fire_tower",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_6",
+      "padId": "pad_10",
       "defId": "gt_pho_ca_phe_retro",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_7",
+      "padId": "pad_11",
       "defId": "metal_tower",
       "preferredBranch": "A"
      }
@@ -3280,9 +3216,9 @@
   {
    "hpMultiplier": 1.5,
    "balance": {
-    "randomWinWithExpectedGear": 0.4166666666666667,
+    "randomWinWithExpectedGear": 0.3958333333333333,
     "botWinRate": 1,
-    "botLivesAvg": 18.333333333333332,
+    "botLivesAvg": 17.333333333333332,
     "target": 0.4357142857142857
    },
    "stage": {
@@ -3295,130 +3231,86 @@
     "paths": [
      [
       {
-       "x": 321,
-       "y": 33
+       "x": 300,
+       "y": 520
       },
       {
-       "x": 321,
-       "y": 88
+       "x": 300,
+       "y": 120
       },
       {
-       "x": 312,
-       "y": 105
+       "x": 180,
+       "y": 120
       },
       {
-       "x": 293,
-       "y": 117
+       "x": 180,
+       "y": 380
       },
       {
-       "x": 272,
-       "y": 118
+       "x": 60,
+       "y": 380
       },
       {
-       "x": 251,
-       "y": 111
-      },
-      {
-       "x": 225,
-       "y": 121
-      },
-      {
-       "x": 131,
-       "y": 223
-      },
-      {
-       "x": 106,
-       "y": 261
-      },
-      {
-       "x": 111,
-       "y": 291
-      },
-      {
-       "x": 125,
-       "y": 318
-      },
-      {
-       "x": 256,
-       "y": 423
-      },
-      {
-       "x": 278,
-       "y": 457
-      },
-      {
-       "x": 174,
-       "y": 399
-      },
-      {
-       "x": 68,
-       "y": 308
-      },
-      {
-       "x": 56,
-       "y": 301
-      },
-      {
-       "x": 30,
-       "y": 296
+       "x": 60,
+       "y": 60
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 150,
-      "y": 282
+      "x": 120,
+      "y": 290
      },
      {
       "id": "pad_2",
-      "x": 90,
-      "y": 378
+      "x": 240,
+      "y": 210
      },
      {
       "id": "pad_3",
-      "x": 66,
-      "y": 246
+      "x": 140,
+      "y": 150
      },
      {
       "id": "pad_4",
-      "x": 30,
-      "y": 342
+      "x": 120,
+      "y": 420
      },
      {
       "id": "pad_5",
-      "x": 222,
-      "y": 78
+      "x": 220,
+      "y": 340
      },
      {
       "id": "pad_6",
-      "x": 282,
-      "y": 54
+      "x": 230,
+      "y": 80
      },
      {
       "id": "pad_7",
-      "x": 270,
-      "y": 162
+      "x": 120,
+      "y": 210
      },
      {
       "id": "pad_8",
       "x": 210,
-      "y": 330
+      "y": 420
      },
      {
       "id": "pad_9",
-      "x": 222,
-      "y": 474
+      "x": 150,
+      "y": 80
      },
      {
       "id": "pad_10",
-      "x": 282,
-      "y": 390
+      "x": 220,
+      "y": 270
      },
      {
       "id": "pad_11",
-      "x": 162,
-      "y": 438
+      "x": 50,
+      "y": 420
      }
     ],
     "waves": [
@@ -3741,47 +3633,43 @@
     ],
     "streetId": "street_pho_ca_phe",
     "shopIndex": 6,
-    "mapStageId": "street_pho_ca_phe",
     "featuredTowerId": "gt_pho_ca_phe_kem_bo",
     "facadeKey": "mat_tien_kem_bo",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
+    "roomStyle": "cafe",
+    "roomLayout": "chu_u_lat",
     "botPlan": [
      {
-      "padId": "pad_5",
-      "defId": "gt_pho_ca_phe_kem_bo",
-      "preferredBranch": "A"
-     },
-     {
       "padId": "pad_1",
-      "defId": "metal_tower",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "fl_vent",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_7",
       "defId": "gt_pho_ca_phe_kem_bo",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "metal_tower",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_2",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_pho_ca_phe_kem_bo",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
       "defId": "fire_tower",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_4",
+      "padId": "pad_7",
       "defId": "gt_pho_ca_phe_kem_bo",
       "preferredBranch": "A"
      },
@@ -3791,17 +3679,17 @@
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_11",
+      "padId": "pad_9",
       "defId": "fire_tower",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_9",
+      "padId": "pad_10",
       "defId": "gt_pho_ca_phe_kem_bo",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_10",
+      "padId": "pad_11",
       "defId": "metal_tower",
       "preferredBranch": "A"
      }
@@ -3809,11 +3697,11 @@
    }
   },
   {
-   "hpMultiplier": 0.6,
+   "hpMultiplier": 1.6,
    "balance": {
-    "randomWinWithExpectedGear": 0.4791666666666667,
+    "randomWinWithExpectedGear": 0.4375,
     "botWinRate": 1,
-    "botLivesAvg": 17.333333333333332,
+    "botLivesAvg": 18,
     "target": 0.3928571428571429
    },
    "stage": {
@@ -3826,86 +3714,94 @@
     "paths": [
      [
       {
-       "x": 330,
-       "y": 487
+       "x": 180,
+       "y": 520
       },
       {
-       "x": 305,
-       "y": 468
+       "x": 180,
+       "y": 450
       },
       {
-       "x": 174,
-       "y": 399
+       "x": 300,
+       "y": 450
       },
       {
-       "x": 68,
-       "y": 308
+       "x": 300,
+       "y": 90
       },
       {
-       "x": 56,
-       "y": 301
+       "x": 60,
+       "y": 90
       },
       {
-       "x": 30,
-       "y": 296
+       "x": 60,
+       "y": 330
+      },
+      {
+       "x": 200,
+       "y": 330
+      },
+      {
+       "x": 200,
+       "y": 210
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 150,
-      "y": 282
+      "x": 200,
+      "y": 410
      },
      {
       "id": "pad_2",
-      "x": 90,
-      "y": 378
+      "x": 240,
+      "y": 360
      },
      {
       "id": "pad_3",
-      "x": 66,
-      "y": 246
+      "x": 110,
+      "y": 270
      },
      {
       "id": "pad_4",
-      "x": 30,
-      "y": 342
+      "x": 130,
+      "y": 410
      },
      {
       "id": "pad_5",
-      "x": 222,
-      "y": 78
+      "x": 160,
+      "y": 230
      },
      {
       "id": "pad_6",
-      "x": 282,
-      "y": 54
+      "x": 240,
+      "y": 290
      },
      {
       "id": "pad_7",
-      "x": 270,
-      "y": 162
+      "x": 240,
+      "y": 180
      },
      {
       "id": "pad_8",
-      "x": 210,
-      "y": 330
+      "x": 120,
+      "y": 180
      },
      {
       "id": "pad_9",
-      "x": 222,
-      "y": 474
+      "x": 140,
+      "y": 480
      },
      {
       "id": "pad_10",
-      "x": 282,
-      "y": 390
+      "x": 160,
+      "y": 130
      },
      {
       "id": "pad_11",
-      "x": 162,
-      "y": 438
+      "x": 70,
+      "y": 370
      }
     ],
     "waves": [
@@ -3924,7 +3820,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.6
+        "hpScale": 1.6
        }
       ]
      },
@@ -3943,7 +3839,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.69
+        "hpScale": 1.84
        }
       ]
      },
@@ -3963,7 +3859,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.78
+        "hpScale": 2.08
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -3971,7 +3867,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 0.78
+        "hpScale": 2.08
        }
       ]
      },
@@ -3991,7 +3887,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.87
+        "hpScale": 2.32
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -3999,7 +3895,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 0.87
+        "hpScale": 2.32
        }
       ]
      },
@@ -4019,7 +3915,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.02
+        "hpScale": 2.72
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -4027,7 +3923,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.02
+        "hpScale": 2.72
        }
       ]
      },
@@ -4048,7 +3944,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 3.2
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -4056,7 +3952,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 3.2
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -4064,7 +3960,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 3.2
        }
       ]
      },
@@ -4085,7 +3981,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.44
+        "hpScale": 3.84
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4093,7 +3989,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.44
+        "hpScale": 3.84
        },
        {
         "enemyId": "ge_pho_ca_phe_1",
@@ -4101,7 +3997,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.44
+        "hpScale": 3.84
        }
       ]
      },
@@ -4124,7 +4020,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -4132,7 +4028,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -4140,7 +4036,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4148,7 +4044,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -4156,7 +4052,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 4.48
        }
       ]
      }
@@ -4256,47 +4152,43 @@
     ],
     "streetId": "street_pho_ca_phe",
     "shopIndex": 7,
-    "mapStageId": "street_pho_ca_phe",
     "featuredTowerId": "gt_pho_ca_phe_cafe_xua",
     "facadeKey": "mat_tien_cafe_xua",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
+    "roomStyle": "cafe",
+    "roomLayout": "xoan",
     "botPlan": [
      {
-      "padId": "pad_2",
+      "padId": "pad_1",
       "defId": "gt_pho_ca_phe_cafe_xua",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_4",
+      "padId": "pad_2",
       "defId": "metal_tower",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_1",
+      "padId": "pad_3",
       "defId": "fl_vent",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_3",
+      "padId": "pad_4",
       "defId": "gt_pho_ca_phe_cafe_xua",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_9",
+      "padId": "pad_5",
       "defId": "metal_tower",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_10",
+      "padId": "pad_6",
       "defId": "fire_tower",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_11",
+      "padId": "pad_7",
       "defId": "gt_pho_ca_phe_cafe_xua",
       "preferredBranch": "A"
      },
@@ -4306,17 +4198,17 @@
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_5",
+      "padId": "pad_9",
       "defId": "fire_tower",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_6",
+      "padId": "pad_10",
       "defId": "gt_pho_ca_phe_cafe_xua",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_7",
+      "padId": "pad_11",
       "defId": "metal_tower",
       "preferredBranch": "A"
      }
@@ -4324,11 +4216,11 @@
    }
   },
   {
-   "hpMultiplier": 1.7,
+   "hpMultiplier": 2.1,
    "balance": {
-    "randomWinWithExpectedGear": 0.2916666666666667,
+    "randomWinWithExpectedGear": 0.4166666666666667,
     "botWinRate": 1,
-    "botLivesAvg": 12.666666666666666,
+    "botLivesAvg": 13.333333333333334,
     "target": 0.35000000000000003
    },
    "stage": {
@@ -4341,130 +4233,94 @@
     "paths": [
      [
       {
-       "x": 321,
-       "y": 33
+       "x": 180,
+       "y": 520
       },
       {
-       "x": 321,
-       "y": 88
+       "x": 180,
+       "y": 450
       },
       {
-       "x": 312,
-       "y": 105
+       "x": 60,
+       "y": 450
       },
       {
-       "x": 293,
-       "y": 117
+       "x": 60,
+       "y": 90
       },
       {
-       "x": 272,
-       "y": 118
+       "x": 300,
+       "y": 90
       },
       {
-       "x": 251,
-       "y": 111
+       "x": 300,
+       "y": 330
       },
       {
-       "x": 225,
-       "y": 121
+       "x": 160,
+       "y": 330
       },
       {
-       "x": 131,
-       "y": 223
-      },
-      {
-       "x": 106,
-       "y": 261
-      },
-      {
-       "x": 111,
-       "y": 291
-      },
-      {
-       "x": 125,
-       "y": 318
-      },
-      {
-       "x": 256,
-       "y": 423
-      },
-      {
-       "x": 278,
-       "y": 457
-      },
-      {
-       "x": 174,
-       "y": 399
-      },
-      {
-       "x": 68,
-       "y": 308
-      },
-      {
-       "x": 56,
-       "y": 301
-      },
-      {
-       "x": 30,
-       "y": 296
+       "x": 160,
+       "y": 210
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 150,
-      "y": 282
-     },
-     {
-      "id": "pad_2",
-      "x": 90,
-      "y": 378
-     },
-     {
-      "id": "pad_3",
-      "x": 66,
-      "y": 246
-     },
-     {
-      "id": "pad_4",
-      "x": 30,
-      "y": 342
-     },
-     {
-      "id": "pad_5",
-      "x": 222,
-      "y": 78
-     },
-     {
-      "id": "pad_6",
-      "x": 282,
-      "y": 54
-     },
-     {
-      "id": "pad_7",
-      "x": 270,
-      "y": 162
-     },
-     {
-      "id": "pad_8",
-      "x": 210,
-      "y": 330
-     },
-     {
-      "id": "pad_9",
-      "x": 222,
-      "y": 474
-     },
-     {
-      "id": "pad_10",
-      "x": 282,
+      "x": 140,
       "y": 390
      },
      {
+      "id": "pad_2",
+      "x": 210,
+      "y": 390
+     },
+     {
+      "id": "pad_3",
+      "x": 220,
+      "y": 260
+     },
+     {
+      "id": "pad_4",
+      "x": 120,
+      "y": 290
+     },
+     {
+      "id": "pad_5",
+      "x": 120,
+      "y": 180
+     },
+     {
+      "id": "pad_6",
+      "x": 210,
+      "y": 150
+     },
+     {
+      "id": "pad_7",
+      "x": 220,
+      "y": 460
+     },
+     {
+      "id": "pad_8",
+      "x": 260,
+      "y": 190
+     },
+     {
+      "id": "pad_9",
+      "x": 270,
+      "y": 370
+     },
+     {
+      "id": "pad_10",
+      "x": 30,
+      "y": 480
+     },
+     {
       "id": "pad_11",
-      "x": 162,
-      "y": 438
+      "x": 130,
+      "y": 50
      }
     ],
     "waves": [
@@ -4483,7 +4339,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 2.1
        }
       ]
      },
@@ -4502,7 +4358,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.95
+        "hpScale": 2.42
        }
       ]
      },
@@ -4522,7 +4378,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.73
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -4530,7 +4386,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.73
        }
       ]
      },
@@ -4550,7 +4406,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.47
+        "hpScale": 3.05
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4558,7 +4414,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.47
+        "hpScale": 3.05
        }
       ]
      },
@@ -4578,7 +4434,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.89
+        "hpScale": 3.57
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4586,7 +4442,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.89
+        "hpScale": 3.57
        }
       ]
      },
@@ -4606,7 +4462,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.4
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4614,7 +4470,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.4
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -4622,7 +4478,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.4
+        "hpScale": 4.2
        }
       ]
      },
@@ -4643,7 +4499,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.08
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -4651,7 +4507,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.08
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_pho_ca_phe_1",
@@ -4659,7 +4515,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.08
+        "hpScale": 5.04
        }
       ]
      },
@@ -4681,7 +4537,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.76
+        "hpScale": 5.88
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -4689,7 +4545,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.76
+        "hpScale": 5.88
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4697,7 +4553,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.76
+        "hpScale": 5.88
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -4705,7 +4561,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.76
+        "hpScale": 5.88
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -4713,7 +4569,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.76
+        "hpScale": 5.88
        }
       ]
      }
@@ -4814,47 +4670,43 @@
     ],
     "streetId": "street_pho_ca_phe",
     "shopIndex": 8,
-    "mapStageId": "street_pho_ca_phe",
     "featuredTowerId": "gt_pho_ca_phe_san_thuong",
     "facadeKey": "mat_tien_san_thuong",
-    "facadeSpot": {
-     "x": 64,
-     "y": 64,
-     "size": 120
-    },
+    "roomStyle": "cafe",
+    "roomLayout": "xoan_lat",
     "botPlan": [
      {
-      "padId": "pad_5",
-      "defId": "gt_pho_ca_phe_san_thuong",
-      "preferredBranch": "A"
-     },
-     {
       "padId": "pad_1",
-      "defId": "metal_tower",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "fl_vent",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_7",
       "defId": "gt_pho_ca_phe_san_thuong",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "metal_tower",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_2",
+      "defId": "metal_tower",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "fl_vent",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_pho_ca_phe_san_thuong",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "metal_tower",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
       "defId": "fire_tower",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_4",
+      "padId": "pad_7",
       "defId": "gt_pho_ca_phe_san_thuong",
       "preferredBranch": "A"
      },
@@ -4864,17 +4716,17 @@
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_11",
+      "padId": "pad_9",
       "defId": "fire_tower",
       "preferredBranch": "A"
      },
      {
-      "padId": "pad_9",
+      "padId": "pad_10",
       "defId": "gt_pho_ca_phe_san_thuong",
       "preferredBranch": "B"
      },
      {
-      "padId": "pad_10",
+      "padId": "pad_11",
       "defId": "metal_tower",
       "preferredBranch": "A"
      }

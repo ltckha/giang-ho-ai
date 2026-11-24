@@ -183,6 +183,9 @@ export interface StageDefinition {
   /** Màn tiệm: mặt tiền tiệm chính (khung trong facade_atlas) và chỗ đặt trên nền (toạ độ khung 360×520) */
   facadeKey?: string;
   facadeSpot?: { x: number; y: number; size: number };
+  /** Màn tiệm phố thật: kiểu nội thất + bố cục phòng (nền map_<id>.webp do make_room_map.py vẽ) */
+  roomStyle?: 'luu_tru' | 'quan_an' | 'cafe' | 'tiem';
+  roomLayout?: string;
   /** Màn phố: đồ dọn phố (luôn được mang) và số món tiệm tối đa được mang thêm */
   cleanTowerIds?: TowerId[];
   maxShopTowers?: number;

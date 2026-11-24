@@ -29,6 +29,16 @@ function buildCleanTowers(): Record<string, TowerDefinition> {
   return buildTowers({ id: 'street_don', places: CLEAN.tools.map((t) => ({ key: t.key, art: t.art, name: t.names[0], type: 'Đồ dọn phố', trait: t.why.toLowerCase(), tower: { element: t.element, role: t.role, names: t.names, ult: t.ult, why: t.why } })) } as unknown as StreetSpec);
 }
 const GEO = JSON.parse(readFileSync(join(ROOT, 'src/core/streets/realStreets.generated.json'), 'utf8'));
+/** Bố cục phòng trong tiệm (tools/level-maker/make_rooms.py) — màn tiệm chơi bên trong tiệm */
+const ROOMS = JSON.parse(readFileSync(join(ROOT, 'src/core/streets/rooms.generated.json'), 'utf8')) as { id: string; paths: { x: number; y: number }[][]; pads: { id: string; x: number; y: number }[] }[];
+/** Kiểu nội thất theo loại địa điểm */
+function roomStyleOf(type: string, name: string): 'luu_tru' | 'quan_an' | 'cafe' | 'tiem' {
+  const t = `${type} ${name}`.toLowerCase();
+  if (/khách sạn|homestay|hostel|nhà nghỉ/.test(t)) return 'luu_tru';
+  if (/cà phê|trà|kem|chè|yaourt|sữa/.test(t)) return 'cafe';
+  if (/quán|lẩu|phở|cơm|bánh căn|bánh mì|cháo|nướng|pizza|bánh tráng|ăn/.test(t)) return 'quan_an';
+  return 'tiem';
+}
 
 interface PlaceSpec {
   key: string; name: string; type: string; trait: string; art?: string;
@@ -367,17 +377,19 @@ function make(id: string) {
     const pestDefs = Object.fromEntries(pestIds.map((e) => [e, enemies[e]!]));
     const rest = chooseLoadout(poolTowers(pool.filter((t) => t !== featured)), pestDefs, spec.loadoutSize - 1);
     const loadout = [featured, ...rest];
-    const route = idx % geo.paths.length;
+    let hsh = 0;
+    for (const ch of spec.id) hsh = (hsh * 31 + ch.charCodeAt(0)) % 997;
+    const room = ROOMS[(idx - 1 + hsh) % ROOMS.length]!;
     const build = (k: number): StageDefinition => {
       const stage: StageDefinition = {
         id: `${spec.id}_t${idx}` as never, stageNumber: 10 + idx, name: p.name, subtitle: `${spec.name} · tiệm ${idx}/${n}: ${p.type}`,
         startingEssence: spec.startingEssence, startingLives: spec.startingLives,
-        paths: [geo.paths[route]], pads: geo.pads,
-        waves: buildWaves(spec, pestIds, enemies, 1, k, 8),
+        paths: room.paths, pads: room.pads,
+        waves: buildWaves(spec, pestIds, enemies, room.paths.length, k, 8),
         towerIds: pool as never, loadoutSize: spec.loadoutSize, defaultLoadout: loadout as never,
         enableSynergy: true, attribution: geo.attribution, places,
-        streetId: spec.id as never, shopIndex: idx, mapStageId: spec.id as never, featuredTowerId: featured as never,
-        facadeKey: `mat_tien_${p.key}`, facadeSpot: findFacadeSpot(geo.paths, geo.pads),
+        streetId: spec.id as never, shopIndex: idx, featuredTowerId: featured as never,
+        facadeKey: `mat_tien_${p.key}`, roomStyle: roomStyleOf(p.type, p.name), roomLayout: room.id,
       };
       stage.botPlan = makeBotPlan(stage, loadout, ALL_TOWER_DEFINITIONS as never) as never;
       return stage;

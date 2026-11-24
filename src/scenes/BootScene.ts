@@ -7,6 +7,7 @@ import {
   STAGE2_MAP_KEY,
   STAGE3_MAP_KEY,
   STAGE4_MAP_KEY,
+  SHOP_ROOM_MAP_KEYS,
   STREET_MAP_KEYS,
   STREETS_ATLAS_KEY,
 } from '../game/atlasIcons';
@@ -116,6 +117,9 @@ export class BootScene extends Phaser.Scene {
     this.load.image(STAGE4_MAP_KEY, './assets/map_trum_pho.webp');
     for (const mapKey of Object.values(STREET_MAP_KEYS)) {
       this.load.image(mapKey, `./assets/${mapKey}.webp`);
+    }
+    for (const mapKey of Object.values(SHOP_ROOM_MAP_KEYS)) {
+      this.load.image(mapKey, `./assets/rooms/${mapKey}.webp`);
     }
 
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
