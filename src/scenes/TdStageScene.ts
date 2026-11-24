@@ -187,6 +187,7 @@ export class TdStageScene extends Phaser.Scene {
   public selectedPadId: string | null = null;
 
   private mapImage: Phaser.GameObjects.Image | null = null;
+  private mapBackdrop: Phaser.GameObjects.Image | null = null;
   /** Màn tiệm phố thật: mặt tiền tiệm chính (Spark vẽ) đặt trên nền */
   private facadeImage: Phaser.GameObjects.Image | null = null;
   private placeholderMap: Phaser.GameObjects.Graphics | null = null;
@@ -402,9 +403,12 @@ export class TdStageScene extends Phaser.Scene {
     this.computeViewportTransform();
 
     this.mapImage = null;
+    this.mapBackdrop = null;
     this.placeholderMap = null;
     const mapKey = getStageMapKey(this.engine.stage.id);
     if (mapKey && this.textures.exists(mapKey)) {
+      // Nền phủ kín màn hình dài (Claude 24/11): chính hình nền phóng to, tối & mờ — hết 2 dải trống trên / dưới
+      this.mapBackdrop = this.add.image(0, 0, mapKey).setOrigin(0.5).setDepth(0).setTint(0x8a7766).setAlpha(0.55);
       this.mapImage = this.add
         .image(this.mapOffsetX, this.mapOffsetY, mapKey)
         .setOrigin(0, 0)
@@ -573,6 +577,11 @@ export class TdStageScene extends Phaser.Scene {
       this.facadeImage.setPosition(sp.x, sp.y).setDisplaySize(spot.size * this.mapScale, spot.size * this.mapScale);
     }
     if (!this.mapImage) return;
+    if (this.mapBackdrop) {
+      const { width, height } = this.scale;
+      const k = Math.max(width / this.mapBackdrop.width, height / this.mapBackdrop.height);
+      this.mapBackdrop.setPosition(width / 2, height / 2).setScale(k);
+    }
     this.mapImage.setPosition(this.mapOffsetX, this.mapOffsetY);
     this.mapImage.setDisplaySize(LOGICAL_WIDTH * this.mapScale, logicalH * this.mapScale);
   }
@@ -3791,9 +3800,9 @@ export class TdStageScene extends Phaser.Scene {
             <button class="td-close-btn" id="btn-close-sheet" aria-label="Đóng">✕</button>
           </div>
           <div class="td-cur-stats">
-            Sức đánh: <strong>${Math.round(curStats.damage * existingTower.buffDamageMultiplier)}</strong> •
-            Tầm: <strong>${Math.round(curStats.range * existingTower.buffRangeMultiplier)}</strong> •
-            Nhịp: <strong>${(curStats.cooldownSec / existingTower.buffSpeedMultiplier).toFixed(2)}s</strong>
+            <span title="Sức đánh">⚔️ <strong>${Math.round(curStats.damage * existingTower.buffDamageMultiplier)}</strong></span>
+            <span title="Tầm đánh">🎯 <strong>${Math.round(curStats.range * existingTower.buffRangeMultiplier)}</strong></span>
+            <span title="Đánh mỗi ... giây">⏱ <strong>${(curStats.cooldownSec / existingTower.buffSpeedMultiplier).toFixed(1)}s</strong></span>
             ${chainInlineHtml}
             ${synergyInlineHtml}
           </div>
@@ -3930,17 +3939,13 @@ export class TdStageScene extends Phaser.Scene {
           : isStage2
             ? 'ổ bánh'
             : 'đôi giày';
+    // Gọn chữ (Claude 24/11): thắng chỉ báo còn lành; thua 1 mẹo ngắn
     const descText = isWin
-      ? `Bạn đã giữ gọn ${stageName} qua cả ${this.engine.getTotalWaves()} đợt! Còn lành: ${this.engine.lives}/${this.engine.maxLives} ${unitLabel}.`
-      : isStage4
-        ? 'Bão Lốc Cuối Mùa và quân 3 tiệm đã cuốn qua dốc. Hãy chọn đủ 5 hành + 1 món hỗ trợ, ghép chuỗi tương sinh dài và dùng Tuyệt chiêu Bậc 4 nhé!'
-        : isRealStreet
-          ? `Quái phố ${stageName} đã tràn đến cuối dốc. Hãy chọn 6 món khắc chế hành chủ đạo và ghép chuỗi tương sinh (+25% / +40%) nhé!`
-          : isStage3
-            ? 'Rệp, sương muối và Trùm Mùa Nồm đã làm héo giàn hoa. Hãy đổi món khắc chế theo từng hành của Trùm và ghép cặp tương sinh (+15%) nhé!'
-            : isStage2
-              ? 'Hơi ẩm, ruồi và than hồng đã tràn lên kệ bánh. Hãy ghép cặp tương sinh (+15%) và đặt món khắc chế "Trúng tủ!" nhé!'
-              : 'Mưa bùn và gián đã tràn lên kệ giày. Hãy xem hành đợt sắp tới để đặt món khắc chế "Trúng tủ!" nhé!';
+      ? `${this.engine.getTotalWaves()} đợt • còn lành ${this.engine.lives}/${this.engine.maxLives} ${unitLabel}`
+      : isStage4 || isRealStreet
+        ? '💡 Chọn món khắc hành quái + ghép chuỗi tương sinh'
+        : '💡 Xem hành đợt sắp tới, đặt món khắc chế'
+    ;
 
     const badgeIconUrl = getAtlasFrameDataUrl(this, 'icon_badge_giu_tron_pho');
     const stage4BadgeHtml =
@@ -4017,8 +4022,8 @@ export class TdStageScene extends Phaser.Scene {
               }
             </div>
             <div class="td-chest-caption">
-              <strong>Mở Rương Trang Bị (+${this.lastDrops.length} món)</strong>
-              <span>${isStage4 ? 'Quà Trùm Phố: có món Hàng hiệu ★! ' : ''}Đã cất vào kho chủ tiệm • Về Màn Chính để mặc ngay!</span>
+              <strong>🎁 +${this.lastDrops.length} món${isStage4 ? ' • có ★' : ''}</strong>
+              <span>đã cất vào 🎒</span>
             </div>
           </div>
           <div class="td-drop-card-list">${cardsHtml}</div>
@@ -4049,10 +4054,10 @@ export class TdStageScene extends Phaser.Scene {
         ${isWin && this.lastVehicleUnlocked ? `<div class="td-result-badge-card" data-testid="td-result-vehicle">${vehicleIconHtml(this, VEHICLES[this.lastVehicleUnlocked])}<div class="td-result-badge-text"><strong>Nhận xe mới: ${VEHICLES[this.lastVehicleUnlocked].name}</strong><span>${VEHICLES[this.lastVehicleUnlocked].passiveText} • Chiêu: ${VEHICLES[this.lastVehicleUnlocked].activeName}</span></div></div>` : ''}
         <p class="td-result-desc">${descText}</p>
         ${dropsHtml}
+        ${nextStreetStage ? `<button id="btn-next-street-stage" data-testid="btn-next-street-stage" class="td-btn-primary td-result-next">▶ ${nextStreetStage.shopIndex ? nextStreetStage.name : 'Ra phố đánh trùm 👹'}</button>` : ''}
         <div class="td-result-actions">
-          ${nextStreetStage ? `<button id="btn-next-street-stage" data-testid="btn-next-street-stage" class="td-btn-primary">${nextStreetStage.shopIndex ? `Tiệm tiếp theo: ${nextStreetStage.name}` : 'Ra phố đánh trùm'}</button>` : ''}
-          <button id="btn-retry-stage" data-testid="btn-retry-stage" class="${nextStreetStage ? 'td-btn-secondary' : 'td-btn-primary'}">${retryLabel}</button>
-          <button id="btn-back-title" data-testid="btn-back-title" class="td-btn-secondary">Về Màn Chính</button>
+          <button id="btn-retry-stage" data-testid="btn-retry-stage" class="${nextStreetStage ? 'td-btn-secondary' : 'td-btn-primary'}" title="${retryLabel}">↻ Chơi lại</button>
+          <button id="btn-back-title" data-testid="btn-back-title" class="td-btn-secondary" title="Về màn chính">🏠 Về</button>
         </div>
       </div>
     `;
