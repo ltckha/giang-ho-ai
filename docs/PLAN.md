@@ -104,6 +104,13 @@ Game hiện là **thủ thành Gọn Phố** (đặt món giữ tiệm, ngũ hà
 4. **Chạy thử không cần TikTok:** giả lập bình luận, tim, quà.
 5. **Test:** lớp đọc sự kiện giả lập; máy chơi không kẹt, không đứng yên quá lâu.
 
+### Tiến độ LIVE (Claude 24/11)
+- **Kênh phát: @gon.simpli** (anh Kha chốt 24/11) — cùng kênh đăng video game.
+- **Bước 1 xong** (commit 0a10154): chế độ LIVE trong game — máy tự chơi nối 62 màn (thắng 62/62 khi mặc đồ đúng giai đoạn), bảng "Bạn giữ tiệm", khung bình luận, tim → xu, quà → bùa làm chậm quái, nút Máy/Người, khán giả THỬ ghi rõ chữ THỬ. Vào bằng ?live=1 hoặc nút 📺 (chế độ chủ). Nhận sự kiện qua window.gonPhoLive.push hoặc ?ws=ws://localhost:….
+- Chưa làm: gợi ý hành qua bình luận, tên người xem trên món (mục 2 trên).
+- **Bước 2 (chờ anh "làm"):** bộ đọc chạy trên máy tính anh (thư viện không chính thức tiktok-live-connector 2.x), chỉ cần @gon.simpli, phát sự kiện sang game chạy tại localhost.
+- **Bước 3:** hướng dẫn gắn vào LIVE Studio / OBS.
+
 ### Luật bắt buộc (nghiên cứu Hub 24/11)
 - TikTok cắt LIVE và hạn chế kênh khi LIVE không người, màn hình lặp lại. Máy chơi là lớp phụ; luôn có người thật lúc LIVE.
 - Không làm: vượt captcha LIVE Studio, LIVE nhiều tài khoản cùng lúc, proxy, nuôi tài khoản, vòng quay / rút thăm may mắn.
