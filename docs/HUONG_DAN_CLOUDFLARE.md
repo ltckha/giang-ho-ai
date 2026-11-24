@@ -1,6 +1,9 @@
 # Đưa game Gọn Phố lên Cloudflare Pages (anh Kha làm 1 lần, máy tính ~10 phút)
 
-## ĐÃ XONG 24/11/2026
+## LINK CHÍNH TỪ 25/11/2026: https://gon-pho.pages.dev
+Dự án Pages "gon-pho" (tài khoản Gọn, nối GitHub ltckha/giang-ho-ai). Dự án cũ "giang-ho-ai" (giang-ho-ai.pages.dev) chạy song song tới khi anh xoá.
+
+## ĐÃ XONG 24/11/2026 (dự án cũ)
 - **Link chơi công khai: https://giang-ho-ai.pages.dev** (tài khoản Cloudflare "Gọn", dự án Pages "giang-ho-ai" nối GitHub ltckha/giang-ho-ai).
 - Branch control: Production branch **phat-hanh**, tự phát hành khi nhánh này đổi.
 - Tên dự án tự đặt theo tên kho, không đổi được. Muốn link đẹp: gắn tên miền Gọn sau này, hoặc đổi tên kho + tạo dự án mới "gon-pho" cùng lúc.

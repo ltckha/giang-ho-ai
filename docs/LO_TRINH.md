@@ -1,6 +1,6 @@
 # Lộ trình Gọn Phố (bản chép từ trang lộ trình, cập nhật 25/11/2026)
 
-Game công khai: https://giang-ho-ai.pages.dev · Kế hoạch chi tiết: docs/PLAN.md · Các lần rà: docs/REVIEW_LOG.md
+Game công khai: https://gon-pho.pages.dev · Kế hoạch chi tiết: docs/PLAN.md · Các lần rà: docs/REVIEW_LOG.md
 
 
 ## Chặng 1: Nền tảng game
@@ -59,7 +59,7 @@ _Có link công khai; người chơi đến dần qua video và LIVE, góp ý qu
 ## Chặng 5: Video kênh Gọn
 _Làm sau khi game hoàn thiện (anh Kha chốt 24/11). Clip 15–30 giây máy tự chơi, anh duyệt từng bài._
 
-- ⏳ Chờ anh — Đổi link sang gon-pho.pages.dev trước video đầu · Anh Kha làm (đã chốt)
+- ✅ Xong — Link chính gon-pho.pages.dev · Anh Kha làm (đã chốt)
 - ⏳ Chờ anh — Bật đếm người chơi ẩn danh Cloudflare · Anh Kha làm (đã chốt)
 - ✅ Xong — Công cụ quay video máy tự chơi + 3 clip thử · Claude
 - ✅ Xong — Quay được mọi màn (62 màn), máy tự chơi thắng 62/62 · Claude
