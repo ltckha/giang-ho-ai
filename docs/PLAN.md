@@ -120,6 +120,10 @@ Game hiện là **thủ thành Gọn Phố** (đặt món giữ tiệm, ngũ hà
 ### Link trong video (25/11)
 Kênh @gon.simpli chưa có ô "Trang web" ở hồ sơ → mỗi clip có cảnh kết 2 giây: chữ to **gon-pho.pages.dev** + mã QR (máy tính quét được). Link trong mô tả / bình luận TikTok thường không bấm được.
 
+### Anh Kha chốt 25/11 (tối)
+- **Giữ nét riêng theo loại tiệm** (src/core/roomPerks.ts): quán ăn 🔥 Bếp nóng (Hỏa +15%), cà phê ☕ (đánh nhanh +8%), khách sạn 🛎️ (+25 xu), tiệm bán hàng 🏷️ (đặt món rẻ 8%).
+- Vào tiệm chơi luôn (không bảng Chuẩn bị); món tiệm = món tiệm + cùng phố + đồ dọn phố. Bảng Chuẩn bị chỉ ở màn trùm phố.
+
 ### Tiến độ LIVE (Claude 24/11)
 - **Kênh phát: @gon.simpli** (anh Kha chốt 24/11) — cùng kênh đăng video game.
 - **Thứ tự (anh Kha chốt 24/11): chuẩn bị kỹ hết → đăng video một thời gian, kênh ổn → mới lên LIVE.** Chưa cài gì lên máy anh cho tới lúc đó.
