@@ -40,3 +40,11 @@ Game là 1 trang Pages riêng, không gắn vào trang GỌN (trang đó có m�
 - Claude sửa game trên nhánh làm việc; chỉ khi anh nhắn **"phát hành"** Claude mới đẩy bản đã kiểm lên nhánh **phat-hanh** → Cloudflare tự cập nhật link.
 - Mua tên miền Gọn rồi: project gon-pho → Custom domains → thêm **pho.<tên miền>**.
 - Không cần đưa mật khẩu / mã khoá cho Claude.
+
+## 🔑 Máy chủ lưu "QR chìa khoá" (D1) — anh Kha làm 1 lần (~3 phút)
+Code: functions/api/luu.ts → src/server/luuHandler.ts (tự tạo bảng `luu` lần đầu). Chưa gắn D1 thì game vẫn chạy, nút QR chìa khoá báo "Máy chủ chưa bật".
+1. dash.cloudflare.com → tài khoản **Gọn** → **Storage & databases** → **D1 SQL database** → **Create** → tên `gon-pho-luu` → Create.
+2. **Workers & Pages** → **gon-pho** → **Settings** → **Bindings** → **Add** → **D1 database** → Variable name `DB` → chọn `gon-pho-luu` → **Save**.
+3. Nhắn Claude "phát hành" (gắn D1 có hiệu lực từ lần phát hành kế).
+Giới hạn miễn phí D1: 5 triệu dòng đọc / 100.000 dòng ghi mỗi ngày, 500 MB mỗi cơ sở, 10 cơ sở, 5 GB mỗi tài khoản: https://developers.cloudflare.com/d1/platform/limits
+Đông người: tách nhiều cơ sở theo ký tự đầu chìa khoá (vd 0–7 → luu_a, 8–f → luu_b) hoặc lên gói Workers Paid — code chỉ đổi chỗ chọn DB.
