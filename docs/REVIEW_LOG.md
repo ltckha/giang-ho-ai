@@ -411,3 +411,8 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 ## 24/11/2026 — Phòng tiệm bằng nội thất Spark (đợt 25–26) (Claude)
 - make_room_map.py dùng hình Spark: sàn lát (thảm / xi măng / gỗ / đá theo kiểu tiệm), tường + cửa sổ, tranh, đồng hồ; quầy cuối đường theo kiểu (lễ tân / bếp / pha chế / thu ngân); giường, sofa, bàn quán, bàn cà phê, ghế bành, kệ hàng, tủ kính, chậu cây; món của tiệm đặt trên bàn / kệ. 52 phòng vẽ lại. Hình gốc: art/noi_that/.
 - Ô nền lộ đường nối (không dùng): nen_san_gach, nen_tuong_gach, nen_via_he; cần vẽ lại: noi_cua_ra_vao, noi_den_cay, nen_soi, nen_tham_loi_di (không phủ kín).
+
+## 24–25/11/2026 — Antigravity đánh giá độc lập (7.0/10) → Claude sửa
+Đã sửa: tải nền màn khi vào màn (bớt ~7 MB lúc mở, sw chờ 20s); máy quay/LIVE lấy đúng bộ món của màn (getStageTowerList) + bỏ "Chiêu xe!" sai chỗ; mô tả bậc 3 trung lập theo vai (make-street, cân bằng giữ nguyên); không mưa/sương trong phòng; Phố Dốc có ▶ tiệm kế; ra trùm qua bảng Chuẩn bị; bảng Chuẩn bị (.selected, món thứ 7 tự thay, ellipsis, z-index, tiêu đề); xác nhận trước khi xem lại hướng dẫn; nút xe gọn; ký hiệu vai trên thẻ đặt món; chữ 1 từ cho chỉ số trang bị; icon Spark đầu trang; nhớ x2; bong bóng hướng dẫn không che bảng; đế gỗ ô đặt món trong 52 phòng; màn phố nhà không che ô; og-image mới + URL tuyệt đối.
+Chờ anh Kha: đổi link gon-pho.pages.dev, bật Web Analytics, mở trùm sau 4–5 tiệm, giữ/bỏ mục online, dừng thêm phố.
+Chưa làm: hiệu ứng nền riêng theo loại phòng, tốc độ x3.
