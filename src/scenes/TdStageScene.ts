@@ -3,7 +3,7 @@ import { TitleScene } from './TitleScene';
 import { FX_KEYS } from './BootScene';
 import Phaser from 'phaser';
 import { ELEMENT_INFO } from '../core/elements';
-import { getGearBonus, getVehicle, grantStageDrops, loadTdSave, markTutorialDone, saveTdProgress, shouldShowTutorial } from '../core/saveSystem';
+import { getGearBonus, getVehicle, grantStageDrops, loadTdSave, markTutorialDone, saveHardWin, saveTdProgress, shouldShowTutorial } from '../core/saveSystem';
 import { vehicleAppliesTo, VEHICLES, type VehicleId } from '../core/vehicles';
 import { vehicleIconHtml } from '../game/vehicleUi';
 import { RARITY_LABEL, statText, type GearItem } from '../core/equipment';
@@ -383,7 +383,10 @@ export class TdStageScene extends Phaser.Scene {
     for (const fx of FX_KEYS) if (!this.textures.exists(fx)) this.load.image(fx, `./assets/fx/${fx}.webp`);
   }
 
-  public create(data?: { stageId?: StageId; forceTutorial?: boolean; loadout?: TowerId[]; live?: LiveStageData }): void {
+  private hardMode = false;
+
+  public create(data?: { stageId?: StageId; forceTutorial?: boolean; loadout?: TowerId[]; live?: LiveStageData; hard?: boolean }): void {
+    this.hardMode = Boolean(data?.hard);
     // Chọn màn: từ nút ở màn hình đầu, hoặc thêm ?stage=2 / ?stage=3 / ?stage=4 vào link (để thử / quay video)
     const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
     let stageId: StageId = data?.stageId ?? 'stage_1';
@@ -418,6 +421,7 @@ export class TdStageScene extends Phaser.Scene {
       loadout: resolvedLoadout,
       // Xe chỉ có tác dụng khi ra phố (Claude, vehicles.ts)
       vehicle: vehicleAppliesTo(stageDef) ? getVehicle(save) : undefined,
+      hard: this.hardMode,
     });
     this.lastVehicleUnlocked = null;
     music.setTrack(
@@ -2001,6 +2005,11 @@ export class TdStageScene extends Phaser.Scene {
           this.lastVehicleUnlocked = (after.lastVehicleUnlocked as VehicleId | undefined) ?? null;
           // Rơi trang bị theo số sao (Claude)
           this.lastDrops = grantStageDrops(this.engine.stage.stageNumber, stars);
+          // ★ Khó: ghi sao Khó + rơi thêm 1 lượt đồ
+          if (this.hardMode) {
+            saveHardWin(this.engine.stage.id, stars);
+            this.lastDrops = [...this.lastDrops, ...grantStageDrops(this.engine.stage.stageNumber, stars)];
+          }
         }
       }
     }
@@ -4217,7 +4226,7 @@ export class TdStageScene extends Phaser.Scene {
 
     this.modalRoot.innerHTML = `
       <div class="td-result-modal td-shoebox-panel" data-testid="td-result-modal">
-        <div class="td-result-ribbon">${ribbonText}</div>
+        <div class="td-result-ribbon">${this.hardMode ? '★ KHÓ · ' : ''}${ribbonText}</div>
         <h2 class="td-result-title">${titleText}</h2>
         <div class="td-result-stars ${this.reduceMotion ? 'no-anim' : ''}" data-testid="td-result-stars">${starsHtml}</div>
         ${stage4BadgeHtml}
@@ -4261,7 +4270,7 @@ export class TdStageScene extends Phaser.Scene {
 
     this.modalRoot.querySelector('#btn-retry-stage')?.addEventListener('click', () => {
       sound.playUiClick();
-      this.scene.restart({ stageId: this.engine.stage.id });
+      this.scene.restart({ stageId: this.engine.stage.id, hard: this.hardMode });
     });
 
     this.modalRoot.querySelector('#btn-back-title')?.addEventListener('click', () => {

@@ -263,6 +263,7 @@ export class TitleScene extends Phaser.Scene {
       }
     })();
 
+    const curHard = (loadTdSave().hardStarsByStage ?? {}) as Record<string, number>;
     const hasStreetChampionBadge =
       Boolean(save.badges?.includes('giu_tron_pho')) || (save.starsByStage.stage_4 ?? 0) > 0;
     const isRealStreetsUnlocked = hasStreetChampionBadge || isBotBypass || ownerOpenAll;
@@ -607,6 +608,15 @@ export class TitleScene extends Phaser.Scene {
       root.querySelector<HTMLDivElement>(id)?.removeAttribute('hidden');
     };
     root.querySelector('#btn-open-gear')?.addEventListener('click', () => openSheet('#td-gear-sheet'));
+    // ★ Khó (mở khi màn 3 sao): quái nhiều máu, nhanh hơn, rơi thêm đồ — anh Kha chốt 25/11
+    root.addEventListener('click', (ev) => {
+      const b = (ev.target as HTMLElement).closest<HTMLButtonElement>('[data-hard-stage]');
+      if (!b) return;
+      ev.stopPropagation();
+      sound.playUiClick();
+      this.unmountOverlay();
+      this.scene.start(SCENE_KEYS.TD_STAGE, { stageId: b.dataset.hardStage as StageId, hard: true });
+    });
 
     /* ===== 💾 Mã lưu + nhắc đưa ra màn hình chính (Claude 24/11) ===== */
     requestPersistentStorage();
@@ -1006,6 +1016,7 @@ export class TitleScene extends Phaser.Scene {
                 <span class="td-shoprow-name"><b>${shop.isBoss ? '👹' : shop.order}</b><span class="td-stage-name">${stage.name}</span></span>
                 <span class="td-shoprow-stars" data-testid="stage${shop.order}-stars">${!unlocked ? '🔒<span class="td-sr">Khóa</span>' : stars > 0 ? '★'.repeat(stars) : ''}</span>
               </div>
+${unlocked && stars >= 3 && !STAGES[shop.stageId]?.loadoutSize ? `<button type="button" class="td-shoprow-hard" data-hard-stage="${shop.stageId}" data-testid="btn-hard-${shop.stageId}" title="Chế độ Khó: quái nhiều máu, nhanh hơn — rơi thêm đồ">★${(curHard[shop.stageId] ?? 0) > 0 ? '✓' : ''}</button>` : ''}
               <button type="button" class="td-shoprow-play" id="btn-start-stage-${shop.order}" data-testid="btn-start-stage-${shop.order}"
                 data-launch-stage="${shop.stageId}" ${unlocked ? '' : 'disabled aria-disabled="true"'}>${unlocked ? '▶' : '🔒'}<span class="td-sr">${openBtnLabel}</span></button>
             </div>
@@ -1104,6 +1115,7 @@ export class TitleScene extends Phaser.Scene {
                   <span class="td-shoprow-name"><b>${isBossRow ? '👹' : st.shopIndex}</b><span>${name}</span></span>
                   <span class="td-shoprow-stars">${!open ? '🔒' : stars > 0 ? '★'.repeat(stars) : ''}</span>
                 </div>
+${open && stars >= 3 && !st.loadoutSize ? `<button type="button" class="td-shoprow-hard" data-hard-stage="${st.id}" data-testid="btn-hard-${st.id}" title="Chế độ Khó: quái nhiều máu, nhanh hơn — rơi thêm đồ">★${(curHard[st.id] ?? 0) > 0 ? '✓' : ''}</button>` : ''}
                 <button type="button" class="td-shoprow-play" data-play-real="${st.id}"
                   ${isSel ? `id="btn-start-${activeStreet.id}" data-testid="btn-start-${activeStreet.id}"` : `data-testid="btn-play-${st.id}"`}
                   ${open ? '' : 'disabled aria-disabled="true"'}>${open ? '▶' : '🔒'}</button>

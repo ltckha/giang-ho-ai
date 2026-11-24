@@ -4118,3 +4118,7 @@ body:has(.td-sheet) .td-tut-dock.pos-above-bottom { top: 64px; bottom: auto; }
 .td-sheet .td-el-badge img { width: 16px; height: 16px; }
 a.td-save-btn { text-decoration: none; text-align: center; display: inline-flex; align-items: center; justify-content: center; }
 .td-save-raw summary { font-size: 12px; color: #6b4a2e; cursor: pointer; margin-top: 4px; }
+/* ★ Khó: nút nhỏ cạnh ▶ khi màn đã 3 sao */
+.td-shoprow-hard { flex: none; border: 2px solid #7a1f1f; background: linear-gradient(#ffcf5a, #f59e0b); color: #5a1010; font-weight: 900; font-size: 13px; border-radius: 10px; padding: 4px 7px; margin-right: 4px; cursor: pointer; }
+.td-shoprow-hard { font-size: 11px; padding: 2px 5px; border-radius: 8px; margin-right: 2px; line-height: 1.2; }
+.td-shoprow-stars { font-size: 11px; }

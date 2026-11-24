@@ -47,6 +47,7 @@ export function loadTdSave(storage?: Pick<Storage, 'getItem'>): TdSaveData {
         ? parsed.gearInventory.map(migrateGearItem).filter((x): x is GearItem => x !== null)
         : starterGear(),
       gearEquipped: parsed.gearEquipped ?? (Array.isArray(parsed.gearInventory) ? {} : { hat: 'starter_hat', glasses: 'starter_glasses' }),
+      hardStarsByStage: parsed.hardStarsByStage && typeof parsed.hardStarsByStage === 'object' ? parsed.hardStarsByStage : {},
       updatedAt: typeof parsed.updatedAt === 'number' ? parsed.updatedAt : Date.now(),
     };
   } catch {
@@ -150,6 +151,15 @@ export function equipGear(slot: GearSlotId, uid: string | null, storage?: Pick<S
 }
 
 /** Thắng màn: rơi đồ theo số sao, cất vào kho. Trả về các món vừa rơi. */
+/** Ghi sao chế độ ★ Khó */
+export function saveHardWin(stageId: StageId, stars: 1 | 2 | 3, storage?: Pick<Storage, 'getItem' | 'setItem'>): void {
+  const store = resolveStore(storage);
+  const cur = loadTdSave(store);
+  cur.hardStarsByStage = { ...(cur.hardStarsByStage ?? {}) };
+  if (stars > (cur.hardStarsByStage[stageId] ?? 0)) cur.hardStarsByStage[stageId] = stars;
+  writeSave(store, cur);
+}
+
 export function grantStageDrops(
   stageNumber: number,
   stars: 1 | 2 | 3,

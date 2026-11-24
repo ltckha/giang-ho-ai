@@ -289,6 +289,8 @@ export interface CombatEvent {
 }
 
 export interface TdSaveData {
+  /** Sao chế độ ★ Khó theo màn */
+  hardStarsByStage?: Partial<Record<string, number>>;
   version: 1;
   unlockedStage: 1 | 2 | 3 | 4;
   starsByStage: Partial<Record<StageId, 1 | 2 | 3>>;

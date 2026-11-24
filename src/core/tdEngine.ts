@@ -44,6 +44,9 @@ interface PendingSpawn {
   hpScale: number;
 }
 
+export const HARD_HP = 1.6;
+export const HARD_SPEED = 1.12;
+
 export function distance2D(a: Point2D, b: Point2D): number {
   const dx = a.x - b.x;
   const dy = a.y - b.y;
@@ -87,8 +90,12 @@ export class TowerDefenseEngine {
   public vehicleUsed = false;
   private vehicleCalmRemaining = 0;
 
-  constructor(stage: StageDefinition, options?: { gear?: GearBonus; loadout?: TowerId[]; vehicle?: VehicleId }) {
+  /** Chế độ ★ Khó (mở khi màn đã 3 sao) — anh Kha chốt 25/11 */
+  public readonly hard: boolean;
+
+  constructor(stage: StageDefinition, options?: { gear?: GearBonus; loadout?: TowerId[]; vehicle?: VehicleId; hard?: boolean }) {
     this.stage = stage;
+    this.hard = Boolean(options?.hard);
     let lo = stage.loadoutSize
       ? (options?.loadout && options.loadout.length ? options.loadout : stage.defaultLoadout ?? []).slice(0, stage.loadoutSize)
       : null;
@@ -538,7 +545,9 @@ export class TowerDefenseEngine {
     const startPt = overridePos ? { x: overridePos.x, y: overridePos.y } : path[0]!;
     // Trang bị "Đi mưa không ướt" / "Xịt côn trùng": quái Thủy / Mộc vào tiệm đã yếu đi
     const weaken = def.element === 'thuy' ? this.gear.stats.weaken_thuy : def.element === 'moc' ? this.gear.stats.weaken_moc : 0;
-    const maxHp = Math.max(1, Math.round(def.maxHp * hpScale * (1 - weaken)));
+    // Chế độ ★ Khó: quái nhiều máu hơn 60%, đi nhanh hơn 12% (quái con khi tách đã mang sẵn máu gốc)
+    const hardHp = this.hard && !overridePos ? HARD_HP : 1;
+    const maxHp = Math.max(1, Math.round(def.maxHp * hpScale * hardHp * (1 - weaken)));
 
     const enemy: ActiveEnemy = {
       uid: this.nextUid('enemy'),
@@ -547,7 +556,7 @@ export class TowerDefenseEngine {
       trait: def.trait,
       hp: maxHp,
       maxHp,
-      baseSpeed: def.speed,
+      baseSpeed: def.speed * (this.hard ? HARD_SPEED : 1),
       armor: def.armor,
       reward: def.reward,
       lifeCost: def.lifeCost,
