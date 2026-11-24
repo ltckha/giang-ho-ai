@@ -1,4 +1,4 @@
-import { exportSaveCode, importSaveCode, hasProgress, requestPersistentStorage, isInstalledApp, isIOS, canPromptInstall, promptInstall } from '../game/saveCode';
+import { exportSaveCode, importSaveCode, saveLink, codeFromLocation, hasProgress, requestPersistentStorage, isInstalledApp, isIOS, canPromptInstall, promptInstall } from '../game/saveCode';
 import { isLiveActive, startLive, stopLive } from '../game/liveMode';
 import Phaser from 'phaser';
 import { ALL_ELEMENTS, ELEMENT_COUNTERS, ELEMENT_GENERATES, ELEMENT_INFO } from '../core/elements';
@@ -136,6 +136,18 @@ export class TitleScene extends Phaser.Scene {
   }
 
   public create(): void {
+    // Mở từ link mã lưu (#ma=…): hỏi rồi chuyển tiến độ sang máy này (anh Kha 25/11)
+    const linkCode = codeFromLocation();
+    if (linkCode) {
+      history.replaceState(null, '', location.pathname + location.search);
+      if (!hasProgress() || window.confirm('Chuyển tiến độ trong link vào máy này? (tiến độ đang có trên máy này sẽ được thay)')) {
+        void importSaveCode(linkCode).then((res) => {
+          window.alert(res.ok ? '✔ Đã chuyển tiến độ — chơi tiếp nhé!' : '⚠️ Link lưu bị thiếu hoặc hỏng.');
+          this.unmountOverlay();
+          this.scene.restart();
+        });
+      }
+    }
     // LIVE TikTok (Claude): ?live=1 vào thẳng; về màn chính thì tắt LIVE
     if (isLiveActive()) stopLive();
     const liveQ = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
@@ -607,18 +619,29 @@ export class TitleScene extends Phaser.Scene {
         return;
       }
       const code = await exportSaveCode();
+      const link = saveLink(code);
+      // Gọn (anh Kha 25/11): gửi LINK — bấm link ở máy khác là tự chuyển tiến độ
       saveArea.innerHTML = `
-        <textarea class="td-save-code" id="td-save-code-out" data-testid="td-save-code-out" readonly rows="3"></textarea>
-        <div class="td-save-row"><button type="button" class="td-save-btn primary" id="btn-save-copy">📋 Chép mã</button></div>
-        <div class="td-save-msg">Dán mã này ở máy mới (📥). Mã cũ không tự cập nhật — đổi máy lần nào lấy mã lần đó.</div>`;
+        <div class="td-save-row">
+          ${typeof navigator.share === 'function' ? `<button type="button" class="td-save-btn primary" id="btn-save-share" data-testid="btn-save-share">📤 Gửi</button>` : ''}
+          <a class="td-save-btn" id="btn-save-email" data-testid="btn-save-email" href="mailto:?subject=${encodeURIComponent('Mã lưu Gọn Phố')}&body=${encodeURIComponent(`Bấm link này trên máy khác để chơi tiếp Gọn Phố:\n${link}`)}">📧 Email</a>
+          <button type="button" class="td-save-btn" id="btn-save-copy">📋 Chép link</button>
+        </div>
+        <div class="td-save-msg">Mở link ở máy khác là chơi tiếp. Đổi máy lần nào lấy lại lần đó.</div>
+        <details class="td-save-raw"><summary>Xem mã</summary><textarea class="td-save-code" id="td-save-code-out" data-testid="td-save-code-out" readonly rows="3"></textarea></details>`;
       const ta = saveArea.querySelector<HTMLTextAreaElement>('#td-save-code-out')!;
       ta.value = code;
+      saveArea.querySelector('#btn-save-share')?.addEventListener('click', () => {
+        void navigator.share({ title: 'Gọn Phố — chơi tiếp', text: 'Bấm link để chơi tiếp Gọn Phố:', url: link }).catch(() => {});
+      });
       saveArea.querySelector('#btn-save-copy')?.addEventListener('click', async () => {
         try {
-          await navigator.clipboard.writeText(code);
+          await navigator.clipboard.writeText(link);
         } catch {
+          ta.value = link;
           ta.select();
           document.execCommand('copy');
+          ta.value = code;
         }
         const b = saveArea.querySelector<HTMLButtonElement>('#btn-save-copy');
         if (b) b.textContent = '✔ Đã chép';
@@ -628,11 +651,13 @@ export class TitleScene extends Phaser.Scene {
       sound.playUiClick();
       if (!saveArea) return;
       saveArea.innerHTML = `
-        <textarea class="td-save-code" id="td-save-code-in" data-testid="td-save-code-in" rows="3" placeholder="Dán mã GP1… vào đây"></textarea>
+        <textarea class="td-save-code" id="td-save-code-in" data-testid="td-save-code-in" rows="3" placeholder="Dán link hoặc mã GP1… vào đây"></textarea>
         <div class="td-save-row"><button type="button" class="td-save-btn primary" id="btn-save-import" data-testid="btn-save-import">✔ Dùng mã này</button></div>
         <div class="td-save-msg" id="td-save-import-msg">Tiến độ trên máy này sẽ được thay bằng tiến độ trong mã.</div>`;
       saveArea.querySelector('#btn-save-import')?.addEventListener('click', async () => {
-        const raw = saveArea.querySelector<HTMLTextAreaElement>('#td-save-code-in')?.value ?? '';
+        let raw = saveArea.querySelector<HTMLTextAreaElement>('#td-save-code-in')?.value ?? '';
+        const mm = raw.match(/#ma=([^\s]+)/);
+        if (mm) raw = decodeURIComponent(mm[1]!);
         const msg = saveArea.querySelector<HTMLDivElement>('#td-save-import-msg');
         if (hasProgress() && !window.confirm('Thay tiến độ trên máy này bằng mã vừa dán?')) return;
         const res = await importSaveCode(raw);

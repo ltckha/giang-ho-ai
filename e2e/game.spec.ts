@@ -1598,5 +1598,14 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     await pb.getByTestId('btn-save-import').click();
     await expect.poll(() => pb.evaluate(() => localStorage.getItem('giang_ho_ai_thu_thanh_save_v1'))).toBe(saveA);
     await ctxB.close();
+
+    // Máy C: chỉ bấm LINK mã lưu (#ma=…) là tự chuyển tiến độ
+    const ctxC = await browser.newContext({ viewport: { width: 390, height: 844 } });
+    const pc = await ctxC.newPage();
+    pc.on('dialog', (d) => d.accept());
+    const base = page.url().split('#')[0];
+    await pc.goto(`${base}#ma=${code}`);
+    await expect.poll(() => pc.evaluate(() => localStorage.getItem('giang_ho_ai_thu_thanh_save_v1'))).toBe(saveA);
+    await ctxC.close();
   });
 });

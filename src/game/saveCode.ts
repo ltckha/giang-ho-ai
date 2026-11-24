@@ -67,6 +67,19 @@ export async function exportSaveCode(): Promise<string> {
   return `${PREFIX}${body}.${check(body)}`;
 }
 
+/** Link mở game + tự chuyển tiến độ (bấm ở máy khác, hoặc quét mã QR) */
+export function saveLink(code: string): string {
+  const base = typeof location !== 'undefined' && location.origin.startsWith('http') ? `${location.origin}${location.pathname}` : 'https://gon-pho.pages.dev/';
+  return `${base}#ma=${code}`;
+}
+
+/** Mã lưu trong link đang mở (#ma=…), nếu có */
+export function codeFromLocation(): string | null {
+  if (typeof location === 'undefined') return null;
+  const m = location.hash.match(/^#ma=(.+)$/);
+  return m ? decodeURIComponent(m[1]!) : null;
+}
+
 export type ImportResult = { ok: true; keys: number } | { ok: false; reason: 'format' | 'broken' | 'empty' };
 
 /** Đọc mã; chỉ ghi khi mã hợp lệ (ghi đè tiến độ máy này) */

@@ -4106,3 +4106,15 @@ img.td-vehicle-ico { object-fit: contain; }
 body:has(.td-sheet) .td-tut-dock.pos-above-bottom { top: 64px; bottom: auto; }
 /* Biểu tượng nút Spark vẽ (thay emoji hệ thống) */
 .td-icon-btn .td-ui-ico { width: 78%; height: 78%; object-fit: contain; pointer-events: none; }
+
+/* Bảng chạm món gọn (anh Kha 25/11): hình + số tăng, câu đầy đủ khi chạm giữ */
+.td-dchips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.td-dchip { display: inline-flex; align-items: center; gap: 2px; padding: 1px 7px; border-radius: 999px; background: #f6ecd6; color: #4a2e1a; font-size: 12px; font-weight: 800; white-space: nowrap; }
+.td-dchip b { color: #15803d; }
+.td-branch-tag { font-size: 12px; font-weight: 900; color: #7a4a00; margin-top: 2px; }
+.td-branch-name { font-size: 13px; }
+.td-sell-btn { font-size: 15px; padding: 6px 12px; }
+.td-sheet .td-el-badge { font-size: 0; padding: 2px 4px; }
+.td-sheet .td-el-badge img { width: 16px; height: 16px; }
+a.td-save-btn { text-decoration: none; text-align: center; display: inline-flex; align-items: center; justify-content: center; }
+.td-save-raw summary { font-size: 12px; color: #6b4a2e; cursor: pointer; margin-top: 4px; }

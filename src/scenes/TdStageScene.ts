@@ -304,6 +304,43 @@ export class TdStageScene extends Phaser.Scene {
     return t ? this.toScreen(t.x, t.y) : null;
   }
 
+  /** Bay 1 bản sao hình món (tuyệt chiêu "đúng món" — anh Kha 25/11) */
+  private flyItem(
+    tex: { key: string; frame: string | number },
+    from: { x: number; y: number },
+    to: { x: number; y: number },
+    sizePx: number,
+    opts: { delay?: number; dur?: number; arc?: number; spin?: number; onHit?: () => void; drop?: boolean } = {},
+  ): void {
+    const img = this.add.image(from.x, from.y, tex.key, tex.frame).setDepth(35).setAlpha(0);
+    const k = sizePx / Math.max(img.width, img.height);
+    img.setScale(k * (opts.drop ? 1.6 : 0.6));
+    const dur = (opts.dur ?? 420) * (this.reduceMotion ? 0.7 : 1);
+    const arc = opts.arc ?? 40;
+    const sx = opts.drop ? to.x : from.x;
+    const sy = opts.drop ? to.y - 220 * this.mapScale : from.y;
+    const prog = { t: 0 };
+    this.tweens.add({
+      targets: prog,
+      t: 1,
+      delay: opts.delay ?? 0,
+      duration: dur,
+      ease: opts.drop ? 'Quad.easeIn' : 'Sine.easeInOut',
+      onStart: () => img.setAlpha(1),
+      onUpdate: () => {
+        const t = prog.t;
+        img.x = sx + (to.x - sx) * t;
+        img.y = sy + (to.y - sy) * t - (opts.drop ? 0 : Math.sin(Math.PI * t) * arc * this.mapScale);
+        img.angle = (opts.spin ?? 540) * t;
+        img.setScale(k * (opts.drop ? 1.6 - 0.4 * t : 0.6 + 0.5 * Math.sin(Math.PI * t) + 0.2 * t));
+      },
+      onComplete: () => {
+        opts.onHit?.();
+        this.tweens.add({ targets: img, alpha: 0, scale: img.scale * 1.3, duration: 160, onComplete: () => img.destroy() });
+      },
+    });
+  }
+
   public fxUpgrade(padId: string): void {
     const p = this.towerScreenPos(padId);
     if (p) this.fxPop('fx_nang_cap', p.x, p.y - 18 * this.mapScale, 62 * this.mapScale, { from: 0.4, dur: 620 });
@@ -1739,6 +1776,50 @@ export class TdStageScene extends Phaser.Scene {
 
         sound.playUltimate(role);
 
+        // Chiêu "đúng món": bản sao hình chính món đó bay / dội / toả theo vai (anh Kha 25/11)
+        const srcRec = ev.towerUid ? this.towerSprites.get(ev.towerUid) : undefined;
+        if (srcRec) {
+          const tex = { key: srcRec.sprite.texture.key, frame: srcRec.sprite.frame.name };
+          const targets = this.engine.enemies
+            .filter((e) => e.hp > 0 && Math.hypot(e.x - ev.x, e.y - ev.y) <= (ev.splashRadius ?? 95) * 1.2)
+            .slice(0, 8)
+            .map((e) => this.toScreen(e.x, e.y));
+          const burstKey = `fx_no_${el}`;
+          const itemPx = 34 * this.mapScale;
+          if (role === 'single_far') {
+            // loạt món bay liên hoàn vào từng quái
+            (targets.length ? targets : [up]).concat(targets).slice(0, 10).forEach((tp, k) =>
+              this.flyItem(tex, up, tp, itemPx, { delay: k * 70, dur: 360, arc: 46, onHit: () => this.fxPop(burstKey, tp.x, tp.y, 40 * this.mapScale, { dur: 300 }) }),
+            );
+          } else if (role === 'heavy_slow') {
+            // món khổng lồ dội từ trên xuống giữa vùng
+            this.flyItem(tex, up, up, 90 * this.mapScale, { dur: 380, drop: true, spin: 0, onHit: () => {
+              this.fxPop(burstKey, up.x, up.y, radiusPx * 1.4, { dur: 520 });
+              if (!this.reduceMotion) this.cameras.main.shake(180, 0.006);
+            } });
+          } else if (role === 'slow_aura') {
+            // món toả ra đứng canh trên từng quái
+            targets.forEach((tp, k) => this.flyItem(tex, up, tp, itemPx, { delay: k * 50, dur: 420, arc: 20, spin: 0, onHit: () => this.fxPop(`fx_tuyet_${el}`, tp.x, tp.y, 44 * this.mapScale, { dur: 700, spin: 90 }) }));
+          } else if (role === 'aoe_splash') {
+            // mưa món rơi khắp vùng
+            const n = this.reduceMotion ? 4 : 8;
+            for (let k = 0; k < n; k += 1) {
+              const a = (Math.PI * 2 * k) / n;
+              const tp = targets[k] ?? { x: up.x + Math.cos(a) * radiusPx * 0.6, y: up.y + Math.sin(a) * radiusPx * 0.6 };
+              this.flyItem(tex, up, tp, itemPx * 1.1, { delay: k * 60, dur: 340, drop: true, spin: 200, onHit: () => this.fxPop(burstKey, tp.x, tp.y, 52 * this.mapScale, { dur: 360 }) });
+            }
+          } else {
+            // hỗ trợ: món bay vòng sang các món đồng đội trong tầm
+            this.engine.towers
+              .filter((t) => t.uid !== ev.towerUid && Math.hypot(t.x - ev.x, t.y - ev.y) <= (ev.splashRadius ?? 95) * 1.3)
+              .slice(0, 6)
+              .forEach((t, k) => {
+                const tp = this.toScreen(t.x, t.y);
+                this.flyItem(tex, up, tp, itemPx * 0.9, { delay: k * 90, dur: 460, arc: 60, spin: 360, onHit: () => this.fxPop('fx_nang_cap', tp.x, tp.y - 14 * this.mapScale, 40 * this.mapScale, { dur: 420 }) });
+              });
+          }
+        }
+
         // Hình hiệu ứng Spark theo hành × vai (Claude): vòng tuyệt chiêu + nổ trên quái
         const ring = `fx_tuyet_${el}`;
         const burst = `fx_no_${el}`;
@@ -1749,7 +1830,6 @@ export class TdStageScene extends Phaser.Scene {
           this.fxPop(ring, up.x, up.y, 120 * this.mapScale, { from: 0.2, dur: 700, spin: 200 });
           this.fxPop(burst, up.x, up.y - 10 * this.mapScale, 80 * this.mapScale, { from: 0.3, dur: 480, delay: 120 });
         } else if (role === 'heavy_slow') {
-          this.fxPop(burst, up.x, up.y, radiusPx * 1.5, { from: 0.25, dur: 620 });
           inRange.forEach((e, k) => {
             const ep = this.toScreen(e.x, e.y);
             this.fxPop(burst, ep.x, ep.y, 64 * this.mapScale, { from: 0.3, dur: 460, delay: 140 + k * 55 });
@@ -1767,7 +1847,7 @@ export class TdStageScene extends Phaser.Scene {
             this.fxPop(burst, ep.x, ep.y, 84 * this.mapScale, { from: 0.25, dur: 560, delay: 180 + k * 70 });
           });
         } else {
-          this.fxPop('fx_chuoi_sinh', up.x, up.y, radiusPx * 1.8, { from: 0.2, dur: 900, spin: 140, alpha: 0.9 });
+          this.fxPop('fx_chuoi_sinh', up.x, up.y, radiusPx * 1.15, { from: 0.2, dur: 900, spin: 140, alpha: 0.8 });
           this.fxPop(ring, up.x, up.y, 90 * this.mapScale, { from: 0.3, dur: 600, delay: 150 });
         }
 
@@ -3692,6 +3772,32 @@ export class TdStageScene extends Phaser.Scene {
       );
       const refund = this.engine.getSellRefund(existingTower.totalInvested);
 
+      // Gọn chữ (anh Kha 25/11): chỉ hình + số tăng; câu đầy đủ khi chạm giữ (title)
+      const curT = getTowerTierStats(existingTower.defId, existingTower.tier, existingTower.branch);
+      const deltaChips = (nx: { damage: number; range: number; cooldownSec: number }): string => {
+        const out: string[] = [];
+        const dd = nx.damage - curT.damage;
+        const dr = Math.round(nx.range) - Math.round(curT.range);
+        const dc = Math.round((curT.cooldownSec - nx.cooldownSec) * 10) / 10;
+        if (dd) out.push(`<span class="td-dchip" title="Sức đánh">⚔️ <b>${dd > 0 ? '+' : ''}${dd}</b></span>`);
+        if (dr) out.push(`<span class="td-dchip" title="Tầm đánh">🎯 <b>${dr > 0 ? '+' : ''}${dr}</b></span>`);
+        if (dc) out.push(`<span class="td-dchip" title="Đánh nhanh hơn">⏱ <b>${dc > 0 ? 'nhanh ' : 'chậm '}${Math.abs(dc)}s</b></span>`);
+        return `<div class="td-dchips">${out.join('')}</div>`;
+      };
+      const BRANCH_TAG: Record<TowerRole, [string, string]> = {
+        single_far: ['🎯 xuyên 2 con', '🛡️ phá giáp'],
+        heavy_slow: ['💫 choáng', '➡️ quét 3 con'],
+        slow_aura: ['🧊 giữ chân', '🌀 chậm rộng'],
+        aoe_splash: ['🩸 vùng rút máu', '💥 nổ rộng'],
+        support_buff: ['🛡️ chống đứng im', '⬆️ đội mạnh hơn'],
+      };
+      const ULT_TAG: Record<TowerRole, string> = {
+        single_far: '⚡ ×2,5 tốc 5s',
+        heavy_slow: '💥 ×3 sức + choáng',
+        slow_aura: '🧊 khoá quái 2s',
+        aoe_splash: '🔥 nổ ×2,5 + đốt',
+        support_buff: '✨ đội +60% tốc 6s',
+      };
       let upgradeSectionHtml = '';
       if (existingTower.tier === 1) {
         const t2 = def.tier2;
@@ -3703,14 +3809,15 @@ export class TdStageScene extends Phaser.Scene {
             class="td-upgrade-btn ${canAfford ? '' : 'disabled'}"
             id="btn-upgrade-t2"
             data-testid="btn-upgrade-t2"
+            title="${t2.name}: ${t2.description}"
           >
             ${t2Sprite ? `<img class="td-opt-sprite" src="${t2Sprite}" alt="${t2.name}" />` : ''}
             <div class="td-opt-body">
               <div class="td-opt-head">
-                <strong>Lên Bậc 2: ${t2.name}</strong>
+                <strong>⬆ ${t2.name}</strong>
                 <span class="td-price-tag">${t2Cost}${coinImgHtml}</span>
               </div>
-              <div class="td-opt-role">${t2.description}</div>
+              ${deltaChips(t2)}
             </div>
           </button>
         `;
@@ -3729,25 +3836,29 @@ export class TdStageScene extends Phaser.Scene {
               class="td-upgrade-btn td-branch-card ${canA ? '' : 'disabled'}"
               data-branch="A"
               data-testid="btn-upgrade-3A"
+              title="${t3A.name}: ${t3A.description}"
             >
               <div class="td-branch-top">
                 ${s3A ? `<img class="td-branch-sprite" src="${s3A}" alt="${t3A.name}" />` : ''}
                 <span class="td-price-tag">${t3ACost}${coinImgHtml}</span>
               </div>
-              <strong class="td-branch-name">Nhánh A: ${t3A.name}</strong>
-              <div class="td-opt-role">${t3A.description}</div>
+              <strong class="td-branch-name">${t3A.name}</strong>
+              <div class="td-branch-tag">${BRANCH_TAG[def.role][0]}</div>
+              ${deltaChips(t3A)}
             </button>
             <button
               class="td-upgrade-btn td-branch-card ${canB ? '' : 'disabled'}"
               data-branch="B"
               data-testid="btn-upgrade-3B"
+              title="${t3B.name}: ${t3B.description}"
             >
               <div class="td-branch-top">
                 ${s3B ? `<img class="td-branch-sprite" src="${s3B}" alt="${t3B.name}" />` : ''}
                 <span class="td-price-tag">${t3BCost}${coinImgHtml}</span>
               </div>
-              <strong class="td-branch-name">Nhánh B: ${t3B.name}</strong>
-              <div class="td-opt-role">${t3B.description}</div>
+              <strong class="td-branch-name">${t3B.name}</strong>
+              <div class="td-branch-tag">${BRANCH_TAG[def.role][1]}</div>
+              ${deltaChips(t3B)}
             </button>
           </div>
         `;
@@ -3774,12 +3885,11 @@ export class TdStageScene extends Phaser.Scene {
                 <span class="td-ult-crest-ico" aria-hidden="true">${roleEmblem[def.role]}</span>
               </div>
               <div class="td-opt-body">
-                <div class="td-opt-head">
-                  <strong>Bậc 4: ${ultName}</strong>
+                <div class="td-opt-head" title="${ultText}">
+                  <strong>${ultName}</strong>
                   <span class="td-price-tag td-ult-price">${ultCost}${coinImgHtml}</span>
                 </div>
-                <div class="td-ult-passive-pill">★ +20% sức đánh vĩnh viễn • Hồi 30s</div>
-                <div class="td-opt-role">${ultText}</div>
+                <div class="td-dchips"><span class="td-dchip">${ULT_TAG[def.role]}</span><span class="td-dchip">⚔️ +20%</span><span class="td-dchip">⏱ 30s</span></div>
               </div>
             </button>`;
         } else {
@@ -3795,11 +3905,11 @@ export class TdStageScene extends Phaser.Scene {
                 <span class="td-ult-crest-ico" aria-hidden="true">${roleEmblem[def.role]}</span>
               </div>
               <div class="td-opt-body">
-                <div class="td-opt-head">
-                  <strong>Tuyệt chiêu: ${ultName}</strong>
-                  <span class="td-ult-status-pill">${cd > 0 ? `Hồi ${cd}s` : '★ Sẵn sàng!'}</span>
+                <div class="td-opt-head" title="${ultText}">
+                  <strong>${ultName}</strong>
+                  <span class="td-ult-status-pill">${cd > 0 ? `⏱ ${cd}s` : '★ Dùng!'}</span>
                 </div>
-                <div class="td-opt-role">${ultText}</div>
+                <div class="td-dchips"><span class="td-dchip">${ULT_TAG[def.role]}</span></div>
                 <div class="td-ult-cd-bar" aria-hidden="true">
                   <div class="td-ult-cd-bar-fill" style="width:${fillPct}%"></div>
                 </div>
@@ -3854,7 +3964,7 @@ export class TdStageScene extends Phaser.Scene {
           </div>
           ${upgradeSectionHtml}
           <button class="td-sell-btn" id="btn-sell-tower" data-testid="btn-sell-tower">
-            Cất món / Bán lại (+${refund} xu)
+            ♻️ +${refund}
           </button>
         </div>
       `;
