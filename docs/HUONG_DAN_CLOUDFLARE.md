@@ -1,5 +1,13 @@
 # Đưa game Gọn Phố lên Cloudflare Pages (anh Kha làm 1 lần, máy tính ~10 phút)
 
+## ĐÃ XONG 24/11/2026
+- **Link chơi công khai: https://giang-ho-ai.pages.dev** (tài khoản Cloudflare "Gọn", dự án Pages "giang-ho-ai" nối GitHub ltckha/giang-ho-ai).
+- Branch control: Production branch **phat-hanh**, tự phát hành khi nhánh này đổi.
+- Tên dự án tự đặt theo tên kho, không đổi được. Muốn link đẹp: gắn tên miền Gọn sau này, hoặc đổi tên kho + tạo dự án mới "gon-pho" cùng lúc.
+- Tài khoản "zz Dư - không dùng" (trước tên Gọn Simpli) là tài khoản trống tạo dư — Cloudflare không cho tự xoá tài khoản phụ; KHÔNG bấm "Delete user" (xoá cả hồ sơ đăng nhập).
+- Phát hành: anh nhắn "phát hành" → Claude đẩy bản đã kiểm lên nhánh phat-hanh (`git push origin <commit>:phat-hanh`) → Cloudflare tự dựng ~1 phút → Claude mở link kiểm lại.
+
+
 Tài khoản: **tài khoản Cloudflare mới tên "Gọn"** (anh Kha chốt 24/11): GỌN và game Gọn Phố nằm chung, tách khỏi phần web Hiệu giày Hải Nancy. Tạo thêm tài khoản Free ngay trong cùng lần đăng nhập (tối đa 5 tài khoản thêm): https://developers.cloudflare.com/changelog/post/2026-08-04-free-dashboard-button/
 Game là 1 trang Pages riêng, không gắn vào trang GỌN (trang đó có mật khẩu). Worker "gon" chuyển sang tài khoản Gọn do phiên GỌN lo, anh duyệt bên đó.
 
