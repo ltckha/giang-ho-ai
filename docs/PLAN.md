@@ -110,6 +110,13 @@ Game hiện là **thủ thành Gọn Phố** (đặt món giữ tiệm, ngũ hà
 3. **Góp ý: lấy từ bình luận video và LIVE** (không lập nhóm Zalo).
 - **Xong 24/11: https://giang-ho-ai.pages.dev** (tài khoản Cloudflare "Gọn", nhánh phát hành phat-hanh). Chi tiết docs/HUONG_DAN_CLOUDFLARE.md.
 
+### Anh Kha chốt 25/11 (sau rà soát Antigravity)
+1. Đổi link sang **gon-pho.pages.dev** trước video đầu (anh tạo dự án Pages mới "gon-pho" trong tài khoản Gọn).
+2. Bật **Cloudflare Web Analytics** (đếm ẩn danh, không cookie) cho dự án gon-pho.
+3. **Trùm phố mở khi giữ được nửa số tiệm** (8 → 4, 9–10 → 5); tiệm còn lại là màn phụ. Đã làm (streetProgress.bossShopsNeeded).
+4. Game online / trao đổi đồ: **giữ** trong mục Mở rộng, để rất xa.
+5. **Dừng thêm phố mới / màn sự kiện** cho tới khi đăng video; dồn sức vào chất lượng.
+
 ### Tiến độ LIVE (Claude 24/11)
 - **Kênh phát: @gon.simpli** (anh Kha chốt 24/11) — cùng kênh đăng video game.
 - **Thứ tự (anh Kha chốt 24/11): chuẩn bị kỹ hết → đăng video một thời gian, kênh ổn → mới lên LIVE.** Chưa cài gì lên máy anh cho tới lúc đó.

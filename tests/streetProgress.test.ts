@@ -26,8 +26,13 @@ describe('Phố thật: các màn tiệm rồi mới tới màn phố', () => {
     expect(isStreetStageUnlocked(save, shops[0]!.id)).toBe(true);
     expect(isStreetStageUnlocked(save, shops[1]!.id)).toBe(false);
     expect(isStreetStageUnlocked(save, street.id)).toBe(false);
-    for (const s of shops) save.starsByStage[s.id as StageId] = 1;
+    // giữ được nửa số tiệm (làm tròn lên) là mở trùm phố — anh Kha chốt 25/11
+    const need = Math.ceil(shops.length / 2);
+    shops.slice(0, need - 1).forEach((s) => (save.starsByStage[s.id as StageId] = 1));
+    expect(isStreetStageUnlocked(save, street.id)).toBe(false);
+    save.starsByStage[shops[need - 1]!.id as StageId] = 1;
     expect(isStreetStageUnlocked(save, street.id)).toBe(true);
     expect(streetProgress(save, street.id).nextStageId).toBe(street.id);
+    expect(isStreetStageUnlocked(save, shops[need]!.id)).toBe(true);
   });
 });

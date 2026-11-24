@@ -1,3 +1,4 @@
+import { isStreetStageUnlocked } from '../core/streetProgress';
 import { TitleScene } from './TitleScene';
 import { FX_KEYS } from './BootScene';
 import Phaser from 'phaser';
@@ -4087,9 +4088,19 @@ export class TdStageScene extends Phaser.Scene {
     const streetShops = curStage.streetId ? REAL_STREET_SHOPS[curStage.streetId] ?? [] : [];
     // Phố Dốc cũng nối thẳng Màn 1 → 2 → 3 → Trùm (Antigravity rà 24/11)
     const PHO_DOC_NEXT: Record<string, StageId> = { stage_1: 'stage_2', stage_2: 'stage_3', stage_3: 'stage_4' };
+    // Vừa đủ số tiệm mở trùm (nửa số tiệm) mà chưa thắng trùm → mời ra phố đánh trùm luôn
+    const bossNow =
+      isWin && curStage.shopIndex && curStage.streetId && !this.liveMode
+        ? (() => {
+            const sv = loadTdSave();
+            return isStreetStageUnlocked(sv, curStage.streetId!) && !((sv.starsByStage[curStage.streetId!] ?? 0) > 0)
+              ? STAGES[curStage.streetId!]
+              : undefined;
+          })()
+        : undefined;
     const nextStreetStage =
       isWin && curStage.shopIndex
-        ? (streetShops[curStage.shopIndex] ?? (curStage.streetId ? STAGES[curStage.streetId] : undefined))
+        ? (bossNow ?? streetShops[curStage.shopIndex] ?? (curStage.streetId ? STAGES[curStage.streetId] : undefined))
         : isWin && PHO_DOC_NEXT[curStage.id]
           ? STAGES[PHO_DOC_NEXT[curStage.id]!]
           : undefined;

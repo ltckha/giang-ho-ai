@@ -282,7 +282,7 @@ export class TitleScene extends Phaser.Scene {
       <div class="td-help-page"><div class="td-help-row">${ring(ELEMENT_COUNTERS, 'kim')}</div><p>Món <b>khắc</b> quái → đánh mạnh gần gấp đôi. Đặt sai → yếu.</p></div>
       <div class="td-help-page"><div class="td-help-row">${ring(ELEMENT_GENERATES, 'moc')}</div><p>Hai món <b>sinh</b> nhau đứng cạnh → cùng mạnh lên.</p></div>
       <div class="td-help-page"><div class="td-help-row td-help-emoji">⭕ → 🏠 → ⬆️</div><p>Chạm ô trống để đặt món, chạm món để nâng cấp. Gọi đợt sớm được thêm xu.</p></div>
-      <div class="td-help-page"><div class="td-help-row td-help-emoji">🏠 🏠 🏠 → 👹</div><p>Giữ hết các tiệm trên phố rồi ra phố đánh trùm. Xe có 1 chiêu mỗi màn.</p></div>
+      <div class="td-help-page"><div class="td-help-row td-help-emoji">🏠 🏠 🏠 → 👹</div><p>Giữ được nửa số tiệm là ra phố đánh trùm. Tiệm còn lại chơi thêm lấy sao, đồ, xe.</p></div>
       <div class="td-help-page"><div class="td-help-row td-help-emoji">🎁 → 🎒</div><p>Thắng màn rơi đồ. Mặc đồ ở nút 🎒.</p></div>
     `;
 
