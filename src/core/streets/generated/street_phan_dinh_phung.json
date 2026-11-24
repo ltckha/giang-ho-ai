@@ -4778,7 +4778,7 @@
     "buffRangePct": 0.12,
     "cleanseDisrupt": true,
     "bonusKillReward": 2,
-    "description": "Bảo hộ món quanh máy không bị chuột gặm đứng im & thưởng +2 xu mỗi quái dọn được."
+    "description": "Bình Dầu Gió: giữ món quanh không bị làm đứng im, +2 xu mỗi quái dọn được."
    },
    "tier3B": {
     "name": "Cối Giã Thảo Dược",
@@ -4790,7 +4790,7 @@
     "buffSpeedPct": 0.3,
     "buffRangePct": 0.16,
     "cleanseDisrupt": true,
-    "description": "Cộng hưởng nhiệt mạnh: tăng 40% sức, 30% tốc đánh và 16% tầm cho món cạnh bên."
+    "description": "Cối Giã Thảo Dược: món cạnh bên mạnh thêm 40%, nhanh thêm 30%, xa thêm 16%."
    }
   },
   "gt_phan_dinh_phung_tiem_toc": {
@@ -4823,7 +4823,7 @@
     "range": 144,
     "cooldownSec": 0.48,
     "pierceCount": 2,
-    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+    "description": "Tông Đơ Điện: đánh liên hoàn rất nhanh, xuyên thêm 1 con phía sau."
    },
    "tier3B": {
     "name": "Dao Cạo Bạc",
@@ -4833,7 +4833,7 @@
     "cooldownSec": 0.54,
     "burnDps": 18,
     "burnDurationSec": 3,
-    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+    "description": "Dao Cạo Bạc: phá 15% giáp, quái trúng mất máu thêm vài giây."
    }
   },
   "gt_phan_dinh_phung_nha_sach": {
@@ -4875,7 +4875,7 @@
     "slowPercent": 0.54,
     "slowDurationSec": 2.8,
     "stunDurationSec": 1,
-    "description": "Làm chậm 54% và mỗi phát xịt thứ 3 phủ bọt mát giữ chân quái 1.0s."
+    "description": "Bộ Từ Điển: làm chậm 54%, cứ 3 lần đánh giữ chân quái 1 giây."
    },
    "tier3B": {
     "name": "Thùng Sách Cũ",
@@ -4887,7 +4887,7 @@
     "slowPercent": 0.48,
     "slowDurationSec": 2.7,
     "knockbackDist": 14,
-    "description": "Luồng phun xoáy rộng làm chậm 48% và đẩy lùi nhẹ bầy quái."
+    "description": "Thùng Sách Cũ: vùng làm chậm rộng 48% và đẩy lùi nhẹ cả bầy."
    }
   },
   "gt_phan_dinh_phung_studio": {
@@ -4929,7 +4929,7 @@
     "slowPercent": 0.54,
     "slowDurationSec": 2.8,
     "stunDurationSec": 1,
-    "description": "Làm chậm 54% và mỗi phát xịt thứ 3 phủ bọt mát giữ chân quái 1.0s."
+    "description": "Ô Phản Sáng: làm chậm 54%, cứ 3 lần đánh giữ chân quái 1 giây."
    },
    "tier3B": {
     "name": "Máy Ảnh Phim",
@@ -4941,7 +4941,7 @@
     "slowPercent": 0.48,
     "slowDurationSec": 2.7,
     "knockbackDist": 14,
-    "description": "Luồng phun xoáy rộng làm chậm 48% và đẩy lùi nhẹ bầy quái."
+    "description": "Máy Ảnh Phim: vùng làm chậm rộng 48% và đẩy lùi nhẹ cả bầy."
    }
   },
   "gt_phan_dinh_phung_pho": {
@@ -4978,7 +4978,7 @@
     "splashRadius": 72,
     "burnDps": 22,
     "burnDurationSec": 3,
-    "description": "Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s."
+    "description": "Bếp Than Liu Riu: để lại vùng rút máu 22 mỗi giây trong 3 giây."
    },
    "tier3B": {
     "name": "Nồi Hầm Xương Đêm",
@@ -4987,7 +4987,7 @@
     "range": 120,
     "cooldownSec": 0.94,
     "splashRadius": 80,
-    "description": "Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao."
+    "description": "Nồi Hầm Xương Đêm: nổ lan rất rộng, sát thương bùng phát cao."
    }
   },
   "gt_phan_dinh_phung_xe_may": {
@@ -5020,7 +5020,7 @@
     "range": 115,
     "cooldownSec": 1.08,
     "stunDurationSec": 0.6,
-    "description": "Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày."
+    "description": "Búa Gò: đòn nặng làm choáng 0,6 giây, hợp quái máu dày."
    },
    "tier3B": {
     "name": "Máy Bơm Hơi",
@@ -5029,7 +5029,7 @@
     "range": 122,
     "cooldownSec": 1,
     "pierceCount": 3,
-    "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
+    "description": "Máy Bơm Hơi: quét thẳng một đường, trúng tối đa 3 con."
    }
   },
   "gt_phan_dinh_phung_tap_hoa": {
@@ -5062,7 +5062,7 @@
     "range": 115,
     "cooldownSec": 1.08,
     "stunDurationSec": 0.6,
-    "description": "Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày."
+    "description": "Két Nước Ngọt: đòn nặng làm choáng 0,6 giây, hợp quái máu dày."
    },
    "tier3B": {
     "name": "Kệ Hàng Chất Đầy",
@@ -5071,7 +5071,7 @@
     "range": 122,
     "cooldownSec": 1,
     "pierceCount": 3,
-    "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
+    "description": "Kệ Hàng Chất Đầy: quét thẳng một đường, trúng tối đa 3 con."
    }
   },
   "gt_phan_dinh_phung_cafe_coc": {
@@ -5108,7 +5108,7 @@
     "splashRadius": 72,
     "burnDps": 22,
     "burnDurationSec": 3,
-    "description": "Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s."
+    "description": "Bình Ủ Lạnh: để lại vùng rút máu 22 mỗi giây trong 3 giây."
    },
    "tier3B": {
     "name": "Ấm Rót Cổ Ngỗng",
@@ -5117,7 +5117,7 @@
     "range": 120,
     "cooldownSec": 0.94,
     "splashRadius": 80,
-    "description": "Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao."
+    "description": "Ấm Rót Cổ Ngỗng: nổ lan rất rộng, sát thương bùng phát cao."
    }
   },
   "gt_don_kep_rac": {
@@ -5150,7 +5150,7 @@
     "range": 144,
     "cooldownSec": 0.48,
     "pierceCount": 2,
-    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+    "description": "Xe Rác Đẩy Tay: đánh liên hoàn rất nhanh, xuyên thêm 1 con phía sau."
    },
    "tier3B": {
     "name": "Xe Ép Rác Mini",
@@ -5160,7 +5160,7 @@
     "cooldownSec": 0.54,
     "burnDps": 18,
     "burnDurationSec": 3,
-    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+    "description": "Xe Ép Rác Mini: phá 15% giáp, quái trúng mất máu thêm vài giây."
    }
   },
   "gt_don_choi_tre": {
@@ -5197,7 +5197,7 @@
     "splashRadius": 72,
     "burnDps": 22,
     "burnDurationSec": 3,
-    "description": "Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s."
+    "description": "Chổi Quét Đôi: để lại vùng rút máu 22 mỗi giây trong 3 giây."
    },
    "tier3B": {
     "name": "Hàng Cây Chắn Bụi",
@@ -5206,7 +5206,7 @@
     "range": 120,
     "cooldownSec": 0.94,
     "splashRadius": 80,
-    "description": "Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao."
+    "description": "Hàng Cây Chắn Bụi: nổ lan rất rộng, sát thương bùng phát cao."
    }
   },
   "gt_don_voi_xit": {
@@ -5248,7 +5248,7 @@
     "slowPercent": 0.54,
     "slowDurationSec": 2.8,
     "stunDurationSec": 1,
-    "description": "Làm chậm 54% và mỗi phát xịt thứ 3 phủ bọt mát giữ chân quái 1.0s."
+    "description": "Xe Phun Nước: làm chậm 54%, cứ 3 lần đánh giữ chân quái 1 giây."
    },
    "tier3B": {
     "name": "Bồn Nước Mát",
@@ -5260,7 +5260,7 @@
     "slowPercent": 0.48,
     "slowDurationSec": 2.7,
     "knockbackDist": 14,
-    "description": "Luồng phun xoáy rộng làm chậm 48% và đẩy lùi nhẹ bầy quái."
+    "description": "Bồn Nước Mát: vùng làm chậm rộng 48% và đẩy lùi nhẹ cả bầy."
    }
   },
   "gt_don_den_duong": {
@@ -5305,7 +5305,7 @@
     "buffRangePct": 0.12,
     "cleanseDisrupt": true,
     "bonusKillReward": 2,
-    "description": "Bảo hộ món quanh máy không bị chuột gặm đứng im & thưởng +2 xu mỗi quái dọn được."
+    "description": "Đèn Pha Công Trình: giữ món quanh không bị làm đứng im, +2 xu mỗi quái dọn được."
    },
    "tier3B": {
     "name": "Cột Đèn Năng Lượng",
@@ -5317,7 +5317,7 @@
     "buffSpeedPct": 0.3,
     "buffRangePct": 0.16,
     "cleanseDisrupt": true,
-    "description": "Cộng hưởng nhiệt mạnh: tăng 40% sức, 30% tốc đánh và 16% tầm cho món cạnh bên."
+    "description": "Cột Đèn Năng Lượng: món cạnh bên mạnh thêm 40%, nhanh thêm 30%, xa thêm 16%."
    }
   },
   "gt_don_bao_cat": {
@@ -5350,7 +5350,7 @@
     "range": 115,
     "cooldownSec": 1.08,
     "stunDurationSec": 0.6,
-    "description": "Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày."
+    "description": "Rãnh Thoát Nước: đòn nặng làm choáng 0,6 giây, hợp quái máu dày."
    },
    "tier3B": {
     "name": "Bờ Kè Đá",
@@ -5359,7 +5359,7 @@
     "range": 122,
     "cooldownSec": 1,
     "pierceCount": 3,
-    "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
+    "description": "Bờ Kè Đá: quét thẳng một đường, trúng tối đa 3 con."
    }
   }
  },

@@ -5472,7 +5472,7 @@
     "slowPercent": 0.54,
     "slowDurationSec": 2.8,
     "stunDurationSec": 1,
-    "description": "Làm chậm 54% và mỗi phát xịt thứ 3 phủ bọt mát giữ chân quái 1.0s."
+    "description": "Máy Xay Bơ: làm chậm 54%, cứ 3 lần đánh giữ chân quái 1 giây."
    },
    "tier3B": {
     "name": "Tủ Kem Mát Lạnh",
@@ -5484,7 +5484,7 @@
     "slowPercent": 0.48,
     "slowDurationSec": 2.7,
     "knockbackDist": 14,
-    "description": "Luồng phun xoáy rộng làm chậm 48% và đẩy lùi nhẹ bầy quái."
+    "description": "Tủ Kem Mát Lạnh: vùng làm chậm rộng 48% và đẩy lùi nhẹ cả bầy."
    }
   },
   "gt_nguyen_van_troi_che": {
@@ -5529,7 +5529,7 @@
     "buffRangePct": 0.12,
     "cleanseDisrupt": true,
     "bonusKillReward": 2,
-    "description": "Bảo hộ món quanh máy không bị chuột gặm đứng im & thưởng +2 xu mỗi quái dọn được."
+    "description": "Tủ Kính Chè: giữ món quanh không bị làm đứng im, +2 xu mỗi quái dọn được."
    },
    "tier3B": {
     "name": "Gánh Chè",
@@ -5541,7 +5541,7 @@
     "buffSpeedPct": 0.3,
     "buffRangePct": 0.16,
     "cleanseDisrupt": true,
-    "description": "Cộng hưởng nhiệt mạnh: tăng 40% sức, 30% tốc đánh và 16% tầm cho món cạnh bên."
+    "description": "Gánh Chè: món cạnh bên mạnh thêm 40%, nhanh thêm 30%, xa thêm 16%."
    }
   },
   "gt_nguyen_van_troi_banh_trang": {
@@ -5578,7 +5578,7 @@
     "splashRadius": 72,
     "burnDps": 22,
     "burnDurationSec": 3,
-    "description": "Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s."
+    "description": "Bếp Than Bánh Tráng: để lại vùng rút máu 22 mỗi giây trong 3 giây."
    },
    "tier3B": {
     "name": "Xe Đẩy Bánh Tráng",
@@ -5587,7 +5587,7 @@
     "range": 120,
     "cooldownSec": 0.94,
     "splashRadius": 80,
-    "description": "Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao."
+    "description": "Xe Đẩy Bánh Tráng: nổ lan rất rộng, sát thương bùng phát cao."
    }
   },
   "gt_nguyen_van_troi_pho": {
@@ -5620,7 +5620,7 @@
     "range": 115,
     "cooldownSec": 1.08,
     "stunDurationSec": 0.6,
-    "description": "Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày."
+    "description": "Thố Đá Nóng: đòn nặng làm choáng 0,6 giây, hợp quái máu dày."
    },
    "tier3B": {
     "name": "Bếp Than Liu Riu",
@@ -5629,7 +5629,7 @@
     "range": 122,
     "cooldownSec": 1,
     "pierceCount": 3,
-    "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
+    "description": "Bếp Than Liu Riu: quét thẳng một đường, trúng tối đa 3 con."
    }
   },
   "gt_nguyen_van_troi_lau_ga": {
@@ -5662,7 +5662,7 @@
     "range": 144,
     "cooldownSec": 0.48,
     "pierceCount": 2,
-    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+    "description": "Bếp Gas Mini: đánh liên hoàn rất nhanh, xuyên thêm 1 con phía sau."
    },
    "tier3B": {
     "name": "Bàn Lẩu Đầy Đủ",
@@ -5672,7 +5672,7 @@
     "cooldownSec": 0.54,
     "burnDps": 18,
     "burnDurationSec": 3,
-    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+    "description": "Bàn Lẩu Đầy Đủ: phá 15% giáp, quái trúng mất máu thêm vài giây."
    }
   },
   "gt_nguyen_van_troi_nuong": {
@@ -5705,7 +5705,7 @@
     "range": 144,
     "cooldownSec": 0.48,
     "pierceCount": 2,
-    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+    "description": "Xiên Nướng Lửa Hồng: đánh liên hoàn rất nhanh, xuyên thêm 1 con phía sau."
    },
    "tier3B": {
     "name": "Lò Nướng Cả Dãy",
@@ -5715,7 +5715,7 @@
     "cooldownSec": 0.54,
     "burnDps": 18,
     "burnDurationSec": 3,
-    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+    "description": "Lò Nướng Cả Dãy: phá 15% giáp, quái trúng mất máu thêm vài giây."
    }
   },
   "gt_nguyen_van_troi_com_tam": {
@@ -5748,7 +5748,7 @@
     "range": 115,
     "cooldownSec": 1.08,
     "stunDurationSec": 0.6,
-    "description": "Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày."
+    "description": "Chảo Gang: đòn nặng làm choáng 0,6 giây, hợp quái máu dày."
    },
    "tier3B": {
     "name": "Lò Nướng Sườn",
@@ -5757,7 +5757,7 @@
     "range": 122,
     "cooldownSec": 1,
     "pierceCount": 3,
-    "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
+    "description": "Lò Nướng Sườn: quét thẳng một đường, trúng tối đa 3 con."
    }
   },
   "gt_nguyen_van_troi_banh_mi": {
@@ -5790,7 +5790,7 @@
     "range": 144,
     "cooldownSec": 0.48,
     "pierceCount": 2,
-    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+    "description": "Lò Gạch: đánh liên hoàn rất nhanh, xuyên thêm 1 con phía sau."
    },
    "tier3B": {
     "name": "Xe Bánh Mì Xíu Mại",
@@ -5800,7 +5800,7 @@
     "cooldownSec": 0.54,
     "burnDps": 18,
     "burnDurationSec": 3,
-    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+    "description": "Xe Bánh Mì Xíu Mại: phá 15% giáp, quái trúng mất máu thêm vài giây."
    }
   },
   "gt_nguyen_van_troi_homestay": {
@@ -5842,7 +5842,7 @@
     "slowPercent": 0.54,
     "slowDurationSec": 2.8,
     "stunDurationSec": 1,
-    "description": "Làm chậm 54% và mỗi phát xịt thứ 3 phủ bọt mát giữ chân quái 1.0s."
+    "description": "Giường Gỗ Thông: làm chậm 54%, cứ 3 lần đánh giữ chân quái 1 giây."
    },
    "tier3B": {
     "name": "Bếp Củi Chung",
@@ -5854,7 +5854,7 @@
     "slowPercent": 0.48,
     "slowDurationSec": 2.7,
     "knockbackDist": 14,
-    "description": "Luồng phun xoáy rộng làm chậm 48% và đẩy lùi nhẹ bầy quái."
+    "description": "Bếp Củi Chung: vùng làm chậm rộng 48% và đẩy lùi nhẹ cả bầy."
    }
   },
   "gt_don_kep_rac": {
@@ -5887,7 +5887,7 @@
     "range": 144,
     "cooldownSec": 0.48,
     "pierceCount": 2,
-    "description": "Ném liên hoàn siêu nhanh, dép văng xuyên thêm 1 mục tiêu sát sau."
+    "description": "Xe Rác Đẩy Tay: đánh liên hoàn rất nhanh, xuyên thêm 1 con phía sau."
    },
    "tier3B": {
     "name": "Xe Ép Rác Mini",
@@ -5897,7 +5897,7 @@
     "cooldownSec": 0.54,
     "burnDps": 18,
     "burnDurationSec": 3,
-    "description": "Đế gai ma sát quét sạch vỏ bùn cứng, phá 15% giáp và rỉ máu liên tục."
+    "description": "Xe Ép Rác Mini: phá 15% giáp, quái trúng mất máu thêm vài giây."
    }
   },
   "gt_don_choi_tre": {
@@ -5934,7 +5934,7 @@
     "splashRadius": 72,
     "burnDps": 22,
     "burnDurationSec": 3,
-    "description": "Rải lớp hạt hút khô trên sàn tiếp tục rút máu quái 22/giây trong 3s."
+    "description": "Chổi Quét Đôi: để lại vùng rút máu 22 mỗi giây trong 3 giây."
    },
    "tier3B": {
     "name": "Hàng Cây Chắn Bụi",
@@ -5943,7 +5943,7 @@
     "range": 120,
     "cooldownSec": 0.94,
     "splashRadius": 80,
-    "description": "Túi bung nhiều gói nhỏ nổ lan cực rộng với sát thương bùng phát cao."
+    "description": "Hàng Cây Chắn Bụi: nổ lan rất rộng, sát thương bùng phát cao."
    }
   },
   "gt_don_voi_xit": {
@@ -5985,7 +5985,7 @@
     "slowPercent": 0.54,
     "slowDurationSec": 2.8,
     "stunDurationSec": 1,
-    "description": "Làm chậm 54% và mỗi phát xịt thứ 3 phủ bọt mát giữ chân quái 1.0s."
+    "description": "Xe Phun Nước: làm chậm 54%, cứ 3 lần đánh giữ chân quái 1 giây."
    },
    "tier3B": {
     "name": "Bồn Nước Mát",
@@ -5997,7 +5997,7 @@
     "slowPercent": 0.48,
     "slowDurationSec": 2.7,
     "knockbackDist": 14,
-    "description": "Luồng phun xoáy rộng làm chậm 48% và đẩy lùi nhẹ bầy quái."
+    "description": "Bồn Nước Mát: vùng làm chậm rộng 48% và đẩy lùi nhẹ cả bầy."
    }
   },
   "gt_don_den_duong": {
@@ -6042,7 +6042,7 @@
     "buffRangePct": 0.12,
     "cleanseDisrupt": true,
     "bonusKillReward": 2,
-    "description": "Bảo hộ món quanh máy không bị chuột gặm đứng im & thưởng +2 xu mỗi quái dọn được."
+    "description": "Đèn Pha Công Trình: giữ món quanh không bị làm đứng im, +2 xu mỗi quái dọn được."
    },
    "tier3B": {
     "name": "Cột Đèn Năng Lượng",
@@ -6054,7 +6054,7 @@
     "buffSpeedPct": 0.3,
     "buffRangePct": 0.16,
     "cleanseDisrupt": true,
-    "description": "Cộng hưởng nhiệt mạnh: tăng 40% sức, 30% tốc đánh và 16% tầm cho món cạnh bên."
+    "description": "Cột Đèn Năng Lượng: món cạnh bên mạnh thêm 40%, nhanh thêm 30%, xa thêm 16%."
    }
   },
   "gt_don_bao_cat": {
@@ -6087,7 +6087,7 @@
     "range": 115,
     "cooldownSec": 1.08,
     "stunDurationSec": 0.6,
-    "description": "Cú dẫm cực nặng gây choáng 0.6s cho quái máu dày."
+    "description": "Rãnh Thoát Nước: đòn nặng làm choáng 0,6 giây, hợp quái máu dày."
    },
    "tier3B": {
     "name": "Bờ Kè Đá",
@@ -6096,7 +6096,7 @@
     "range": 122,
     "cooldownSec": 1,
     "pierceCount": 3,
-    "description": "Đá trượt hàng đinh sắt xuyên thẳng tối đa 3 con trên đường đi."
+    "description": "Bờ Kè Đá: quét thẳng một đường, trúng tối đa 3 con."
    }
   }
  },
