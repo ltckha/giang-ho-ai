@@ -5,10 +5,10 @@ import { TitleScene } from './TitleScene';
 import { FX_KEYS } from './BootScene';
 import Phaser from 'phaser';
 import { ELEMENT_INFO } from '../core/elements';
-import { getGearBonus, getVehicle, grantStageDrops, loadTdSave, markTutorialDone, saveHardWin, saveTdProgress, shouldShowTutorial } from '../core/saveSystem';
+import { equipGear, getEquipped, getGearBonus, getVehicle, grantStageDrops, loadTdSave, markTutorialDone, saveHardWin, saveTdProgress, shouldShowTutorial } from '../core/saveSystem';
 import { vehicleAppliesTo, VEHICLES, type VehicleId } from '../core/vehicles';
 import { vehicleIconHtml } from '../game/vehicleUi';
-import { RARITY_LABEL, statText, type GearItem } from '../core/equipment';
+import { BETTER_MIN, itemScoreDelta, RARITY_LABEL, statText, type GearItem, type GearSlotId } from '../core/equipment';
 import { TutorialController } from '../core/tutorial';
 import { ULTIMATE_COOLDOWN_SEC, ULTIMATE_MIN_STAGE, ultimateNameFor, ULTIMATE_ROLE_TEXT } from '../core/ultimates';
 import { runBotTurn } from '../core/tdBot';
@@ -4161,8 +4161,19 @@ export class TdStageScene extends Phaser.Scene {
     let dropsHtml = '';
     if (isWin && this.lastDrops.length > 0) {
       const startOpen = this.reduceMotion;
+      // So với món đang mặc ở cùng ô: mạnh hơn → mời "Mặc ngay" (anh Kha 25/11)
+      const eqNow = getEquipped(loadTdSave());
       const cardsHtml = this.lastDrops
         .map((g, idx) => {
+          const curItem = eqNow[g.slot];
+          const dd = itemScoreDelta(eqNow, g);
+          const cmpHtml = !curItem
+            ? `<div class="td-drop-cmp up">🆕 Ô còn trống <button type="button" class="td-drop-equip" data-equip-drop="${g.uid}" data-equip-slot="${g.slot}" data-testid="drop-equip-${idx}">Mặc ngay</button></div>`
+            : dd >= BETTER_MIN
+              ? `<div class="td-drop-cmp up">▲ Mạnh hơn món đang mặc <button type="button" class="td-drop-equip" data-equip-drop="${g.uid}" data-equip-slot="${g.slot}" data-testid="drop-equip-${idx}">Mặc ngay</button></div>`
+              : dd <= -BETTER_MIN
+                ? `<div class="td-drop-cmp down">▼ Yếu hơn món đang mặc — cất vào 🎒</div>`
+                : `<div class="td-drop-cmp">＝ Ngang món đang mặc — cất vào 🎒</div>`;
           const theme = RARITY_THEME[g.rarity];
           const elInfo = ELEMENT_INFO[g.element];
           const gearIconUrl = getGearAtlasFrameDataUrl(this, getGearIconFrameName(g.slot, g.element));
@@ -4198,6 +4209,7 @@ export class TdStageScene extends Phaser.Scene {
                   <span class="td-drop-hidden-pill">+${g.hidden.length} dòng ẩn</span>
                 </div>
                 <div class="td-drop-stats">${visibleLinesHtml}</div>
+                ${cmpHtml}
               </div>
             </div>
           `;
@@ -4283,6 +4295,17 @@ export class TdStageScene extends Phaser.Scene {
         this.time.delayedCall(260, openChest);
         dropsBox?.querySelector('#td-chest-stage')?.addEventListener('click', openChest);
       }
+      this.modalRoot.querySelectorAll<HTMLButtonElement>('[data-equip-drop]').forEach((b) => {
+        b.onclick = () => {
+          equipGear(b.dataset.equipSlot as GearSlotId, b.dataset.equipDrop!);
+          sound.playBuildOrUpgrade();
+          // ô đó đã có món mới: các nút cùng ô khác thôi mời
+          this.modalRoot?.querySelectorAll<HTMLButtonElement>(`[data-equip-slot="${b.dataset.equipSlot}"]`).forEach((x) => {
+            x.disabled = true;
+            x.textContent = x === b ? '✔ Đã mặc' : '—';
+          });
+        };
+      });
     }
 
     this.modalRoot.querySelector('#btn-next-street-stage')?.addEventListener('click', () => {

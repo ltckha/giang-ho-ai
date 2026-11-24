@@ -596,3 +596,74 @@ export function previewEquip(eq: Equipped, item: GearItem): { linesDelta: number
     fullRing: after.fullRing,
   };
 }
+
+/* ===== Gợi ý mặc đồ (Claude, anh Kha 25/11): chấm điểm tổng bộ đồ để so món mạnh / yếu hơn ===== */
+
+/** Điểm tổng của bộ đồ: sức đánh là chính, cộng tầm, tốc, tim, xu, chiêu, dòng ẩn sáng, viên mãn */
+export function gearScore(b: GearBonus): number {
+  const avgDmg = ALL_ELEMENTS.reduce((a, el) => a + gearDamageFor(b, el), 0) / ALL_ELEMENTS.length;
+  const st = b.stats;
+  return (
+    avgDmg * 100 +
+    b.rangePct * 50 +
+    b.speedPct * 60 +
+    b.startCoins * 0.25 +
+    b.lives * 2 +
+    b.coinPct * 30 +
+    b.ultCdPct * 25 +
+    (st.counter_dmg ?? 0) * 40 +
+    (st.synergy_bonus ?? 0) * 30 +
+    (st.boss_dmg ?? 0) * 30 +
+    (st.build_discount ?? 0) * 40 +
+    (st.upgrade_discount ?? 0) * 35 +
+    (st.slow_dur ?? 0) * 15 +
+    ((st.weaken_thuy ?? 0) + (st.weaken_moc ?? 0)) * 15 +
+    (st.extra_drop ?? 0) * 3 +
+    (st.ult_cost ?? 0) * 0.05 +
+    (st.sell_refund ?? 0) * 10 +
+    b.activeLines * 1.5 +
+    (b.fullRing ? 20 : 0)
+  );
+}
+
+/** Mặc món này vào ô của nó thì điểm tổng tăng / giảm bao nhiêu (đang mặc chính món đó → 0) */
+export function itemScoreDelta(eq: Equipped, item: GearItem): number {
+  if (eq[item.slot]?.uid === item.uid) return 0;
+  return Math.round((gearScore(computeGearBonus({ ...eq, [item.slot]: item })) - gearScore(computeGearBonus(eq))) * 10) / 10;
+}
+
+/** Ngưỡng coi là "mạnh hơn" (tránh gợi ý thay vì chênh lệch rất nhỏ) */
+export const BETTER_MIN = 0.5;
+
+/** Bộ đồ mạnh nhất từ kho (thử từng ô, lặp vài vòng vì dòng ẩn phụ thuộc ô bên cạnh) */
+export function bestEquip(eq: Equipped, inventory: GearItem[]): Equipped {
+  let cur: Equipped = { ...eq };
+  for (let pass = 0; pass < 3; pass++) {
+    let changed = false;
+    for (const sl of GEAR_SLOTS) {
+      let best = cur[sl.id];
+      let bestScore = gearScore(computeGearBonus(cur));
+      for (const it of inventory) {
+        if (it.slot !== sl.id || it.uid === best?.uid) continue;
+        const sc = gearScore(computeGearBonus({ ...cur, [sl.id]: it }));
+        if (sc > bestScore + 0.01) {
+          best = it;
+          bestScore = sc;
+        }
+      }
+      if (best && best.uid !== cur[sl.id]?.uid) {
+        cur = { ...cur, [sl.id]: best };
+        changed = true;
+      }
+    }
+    if (!changed) break;
+  }
+  return cur;
+}
+
+/** Các ô đang có món tốt hơn trong kho */
+export function slotsWithUpgrade(eq: Equipped, inventory: GearItem[]): Set<GearSlotId> {
+  const out = new Set<GearSlotId>();
+  for (const it of inventory) if (itemScoreDelta(eq, it) >= BETTER_MIN) out.add(it.slot);
+  return out;
+}

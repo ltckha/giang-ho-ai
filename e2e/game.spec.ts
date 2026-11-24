@@ -1654,4 +1654,29 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     expect(await pb.evaluate(() => localStorage.getItem('gonpho_khoa'))).toBe(key);
     await ctxB.close();
   });
+
+  test('Việc 13 — Túi đồ + Mặc đồ tốt nhất: mở túi thấy hết đồ có ▲, bấm mặc tốt nhất thì hết gợi ý', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    await page.evaluate(() => {
+      const inv = [
+        { uid: 'h1', slot: 'hat', name: 'Mũ thường', element: 'moc', rarity: 'thuong', visible: [{ kind: 'elem_dmg', value: 0.03 }], hidden: [{ kind: 'range', value: 0.02 }] },
+        { uid: 'h2', slot: 'hat', name: 'Mũ hiệu', element: 'moc', rarity: 'hieu', visible: [{ kind: 'all_dmg', value: 0.12 }], hidden: [{ kind: 'range', value: 0.05 }] },
+        { uid: 'g1', slot: 'glasses', name: 'Kính', element: 'hoa', rarity: 'tot', visible: [{ kind: 'range', value: 0.06 }], hidden: [{ kind: 'speed', value: 0.04 }] },
+      ];
+      localStorage.setItem('giang_ho_ai_thu_thanh_save_v1', JSON.stringify({ version: 1, unlockedStage: 2, starsByStage: { stage_1: 3 }, bestLivesByStage: {}, tutorialDone: true, updatedAt: 1, gearInventory: inv, gearEquipped: { hat: 'h1' } }));
+      localStorage.setItem('gonpho_nhac_cai', 'tat');
+    });
+    await page.reload();
+    await page.getByTestId('btn-open-gear').click();
+    await expect(page.getByTestId('btn-gear-best')).toBeVisible();
+    await page.getByTestId('btn-gear-bag').click();
+    const bag = page.getByTestId('td-gear-bag-panel');
+    await expect(bag.locator('[data-bag-item]')).toHaveCount(3);
+    await expect(bag.locator('.td-bag-tag.up').first()).toBeVisible();
+    await page.getByTestId('btn-gear-best').click();
+    await expect(page.getByTestId('btn-gear-best')).toHaveCount(0);
+    const eq = await page.evaluate(() => JSON.parse(localStorage.getItem('giang_ho_ai_thu_thanh_save_v1')!).gearEquipped);
+    expect(eq).toEqual({ hat: 'h2', glasses: 'g1' });
+  });
 });

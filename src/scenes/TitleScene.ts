@@ -9,6 +9,10 @@ import {
   GEAR_SETS,
   GEAR_SLOTS,
   previewEquip,
+  itemScoreDelta,
+  bestEquip,
+  slotsWithUpgrade,
+  BETTER_MIN,
   RARITY_LABEL,
   statShort,
   statTiny,
@@ -363,11 +367,13 @@ export class TitleScene extends Phaser.Scene {
           <div class="td-gear-header-row">
             <div class="td-gear-title" id="td-gear-head"></div>
             <div class="td-gear-header-right">
-              <div class="td-gear-bag-pill" id="td-gear-inv-count" data-tip="Số món trong kho"></div>
+              <button type="button" class="td-gear-bag-pill" id="td-gear-inv-count" data-testid="btn-gear-bag" title="Mở túi đồ"></button>
               <button type="button" class="td-gear-help-btn" id="btn-gear-rules" data-testid="btn-gear-rules" aria-expanded="false" title="Xem luật trang bị">?</button>
             </div>
           </div>
           <div id="td-gear-rules-wrap"></div>
+          <div id="td-gear-best"></div>
+          <div id="td-gear-bag"></div>
           <div id="td-gear-fullring-banner"></div>
           <div class="td-gear-ring-stage" id="td-gear-ring-stage"></div>
           <div id="td-gear-pick"></div>
@@ -1280,6 +1286,7 @@ ${open && stars >= 3 && !(st.loadoutSize && !st.shopIndex) ? `<button type="butt
     /* ==================== VIỆC 6: GỌN CHỮ BẢNG TRANG BỊ ==================== */
     let pickSlot: GearSlotId | null = null;
     let showGearRules = false;
+    let showBag = false;
     let expandAllSets = false;
     let selectedBonusChipIdx: number | null = null;
     let revealedStatKey: string | null = null;
@@ -1309,7 +1316,64 @@ ${open && stars >= 3 && !(st.loadoutSize && !st.shopIndex) ? `<button type="butt
 
       const invBadge = root.querySelector<HTMLDivElement>('#td-gear-inv-count');
       if (invBadge) {
-        invBadge.textContent = `🎒 ${invLen}`;
+        invBadge.textContent = `🎒 ${invLen} ${showBag ? '▴' : '▾'}`;
+        invBadge.onclick = () => {
+          showBag = !showBag;
+          sound.playUiClick();
+          renderGear();
+        };
+      }
+
+      // ✨ Gợi ý: có món tốt hơn trong túi → nút mặc nhanh bộ mạnh nhất (anh Kha 25/11)
+      const inv = cur.gearInventory ?? [];
+      const upSlots = slotsWithUpgrade(eq, inv);
+      const upSlotsRing = upSlots;
+      const bestWrap = root.querySelector<HTMLDivElement>('#td-gear-best');
+      if (bestWrap) {
+        bestWrap.innerHTML = upSlots.size
+          ? `<button type="button" class="td-gear-best-btn" id="btn-gear-best" data-testid="btn-gear-best">✨ Mặc đồ tốt nhất <b>▲ ${upSlots.size} ô</b></button>`
+          : '';
+        bestWrap.querySelector('#btn-gear-best')?.addEventListener('click', () => {
+          const best = bestEquip(eq, inv);
+          for (const sl of GEAR_SLOTS) if (best[sl.id] && best[sl.id]!.uid !== eq[sl.id]?.uid) equipGear(sl.id, best[sl.id]!.uid);
+          sound.playBuildOrUpgrade();
+          renderGear();
+        });
+      }
+
+      // 🎒 Túi đồ: thấy hết đồ, xếp theo ô, ▲ mạnh hơn / ▼ yếu hơn món đang mặc, chạm để mặc
+      const bagWrap = root.querySelector<HTMLDivElement>('#td-gear-bag');
+      if (bagWrap) {
+        if (!showBag) bagWrap.innerHTML = '';
+        else {
+          const groups = GEAR_SLOTS.map((sl) => {
+            const items = inv.filter((it) => it.slot === sl.id);
+            if (!items.length) return '';
+            const cards = items
+              .map((it) => {
+                const on = eq[sl.id]?.uid === it.uid;
+                const d = itemScoreDelta(eq, it);
+                const tag = on ? '<span class="td-bag-tag on">✔</span>' : d >= BETTER_MIN ? `<span class="td-bag-tag up">▲${d}</span>` : d <= -BETTER_MIN ? `<span class="td-bag-tag down">▼</span>` : '<span class="td-bag-tag">＝</span>';
+                const theme = RARITY_THEME[it.rarity];
+                const ico = getGearAtlasFrameDataUrl(this, getGearIconFrameName(it.slot, it.element));
+                return `<button type="button" class="td-bag-item ${on ? 'on' : ''}" data-bag-item="${it.uid}" data-bag-slot="${it.slot}" title="${it.name} (${RARITY_LABEL[it.rarity]}, ${ELEMENT_INFO[it.element].label})" style="border-color:${theme.border};background:${theme.bg}">
+                  ${ico ? `<img src="${ico}" alt="" />` : ''}
+                  <span class="td-bag-el" style="background:${ELEMENT_INFO[it.element].colorHex}"></span>
+                  ${tag}
+                </button>`;
+              })
+              .join('');
+            return `<div class="td-bag-row"><span class="td-bag-slot">${sl.label}</span><div class="td-bag-items">${cards}</div></div>`;
+          }).join('');
+          bagWrap.innerHTML = `<div class="td-bag-panel" data-testid="td-gear-bag-panel">${groups || '<div class="td-stage-sub">Túi trống — thắng màn để nhận đồ.</div>'}</div>`;
+          bagWrap.querySelectorAll<HTMLButtonElement>('[data-bag-item]').forEach((b) => {
+            b.onclick = () => {
+              equipGear(b.dataset.bagSlot as GearSlotId, b.dataset.bagItem!);
+              sound.playBuildOrUpgrade();
+              renderGear();
+            };
+          });
+        }
       }
 
       // 1. Nút "?" mở luật đầy đủ
@@ -1461,6 +1525,8 @@ ${open && stars >= 3 && !(st.loadoutSize && !st.shopIndex) ? `<button type="butt
                 aria-label="${sl.label} trống"
               >
                 ${isSupA ? '<span class="td-sup-tag">A</span>' : isSupB ? '<span class="td-sup-tag">B</span>' : ''}
+              ${upSlotsRing.has(sl.id) ? '<span class="td-slot-up" title="Có món tốt hơn trong túi">▲</span>' : ''}
+                ${upSlotsRing.has(sl.id) ? '<span class="td-slot-up" title="Có món tốt hơn trong túi">▲</span>' : ''}
                 ${getEmptySlotSilhouetteSvg(sl.id)}
               </button>
             `;
