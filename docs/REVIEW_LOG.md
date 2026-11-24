@@ -407,3 +407,7 @@ NÉT VẼ: ĐỒNG Ý (anh Kha duyệt 22/11/2026, theo 3 hình mẫu trong docs
 - Nền phố tự vẽ: bỏ sân chừa mặt tiền (màn phố không đặt mặt tiền).
 - Spark 22–24: 6 loại món + mặt tiền (cơm tấm, cơm gà, cháo, pizza, bánh mì chảo, khách sạn), 15 hiệu ứng (chưa gắn), 13 đồ sự kiện Tết / Noel / lễ hội hoa (cất cho màn sự kiện). Cần vẽ lại: deco_cay_mai (có chữ 福), facade_chao (chữ MENU).
 - `npm test` 86/86, e2e 17/17.
+
+## 24/11/2026 — Phòng tiệm bằng nội thất Spark (đợt 25–26) (Claude)
+- make_room_map.py dùng hình Spark: sàn lát (thảm / xi măng / gỗ / đá theo kiểu tiệm), tường + cửa sổ, tranh, đồng hồ; quầy cuối đường theo kiểu (lễ tân / bếp / pha chế / thu ngân); giường, sofa, bàn quán, bàn cà phê, ghế bành, kệ hàng, tủ kính, chậu cây; món của tiệm đặt trên bàn / kệ. 52 phòng vẽ lại. Hình gốc: art/noi_that/.
+- Ô nền lộ đường nối (không dùng): nen_san_gach, nen_tuong_gach, nen_via_he; cần vẽ lại: noi_cua_ra_vao, noi_den_cay, nen_soi, nen_tham_loi_di (không phủ kín).

@@ -68,6 +68,28 @@ def furniture(d, im, style, x, y, rnd, decos):
         dz = rnd.choice(decos)
         im.paste(dz, (int(X - dz.width / 2), int(Y - dz.height * 0.7)), dz)
 
+NT = os.path.join(ROOT, 'art', 'noi_that')
+TILE = {'luu_tru': 'nen_san_tham', 'quan_an': 'nen_san_xi_mang', 'cafe': 'nen_san_go', 'tiem': 'nen_san_da'}
+WALL = {'luu_tru': 'nen_tuong_go', 'quan_an': 'nen_tuong_voi', 'cafe': 'nen_tuong_go', 'tiem': 'nen_tuong_voi'}
+COUNTER = {'luu_tru': 'noi_quay_le_tan', 'quan_an': 'noi_bep_quan', 'cafe': 'noi_quay_pha_che', 'tiem': 'noi_quay_thu_ngan'}
+FURN = {
+    'luu_tru': ['noi_giuong_doi', 'noi_giuong_doi', 'noi_giuong_tang', 'noi_sofa', 'noi_ban_tra', 'noi_tu_quan_ao', 'noi_chau_cay_lon', 'noi_tham_tron'],
+    'quan_an': ['noi_ban_quan', 'noi_ban_quan', 'noi_ban_quan', 'noi_ban_go_dai', 'noi_tu_lanh', 'noi_chau_cay_lon'],
+    'cafe': ['noi_ban_cafe', 'noi_ban_cafe', 'noi_ban_cafe', 'noi_ghe_banh', 'noi_ke_ly', 'noi_chau_cay_lon', 'noi_tham_tron'],
+    'tiem': ['noi_ke_hang', 'noi_ke_hang', 'noi_tu_kinh', 'noi_gio_hang', 'noi_thung_hang', 'noi_chau_cay_lon'],
+}
+def nt(name, px):
+    return sprite(os.path.join(NT, f'{name}.png'), px)
+def tile_fill(im, name, box):
+    f = os.path.join(NT, f'{name}.png')
+    if not os.path.exists(f): return False
+    t = Image.open(f).convert('RGB').resize((160, 160), Image.LANCZOS)
+    x0, y0, x1, y1 = box
+    for y in range(y0, y1, 160):
+        for x in range(x0, x1, 160):
+            im.paste(t.crop((0, 0, min(160, x1 - x), min(160, y1 - y))), (x, y))
+    return True
+
 def draw(stage, out):
     style = stage.get('roomStyle', 'tiem'); st = STYLE[style]
     rnd = random.Random(stage['id'])
@@ -75,11 +97,20 @@ def draw(stage, out):
     pads = [(p['x'], p['y']) for p in stage['pads']]
     segs = [(r[i], r[i + 1]) for r in paths for i in range(len(r) - 1)]
     im = Image.new('RGB', (W * S, H * S), st['floor']); d = ImageDraw.Draw(im)
-    floor(d, st, style)
+    if not tile_fill(im, TILE[style], (0, 0, W * S, H * S)):
+        floor(d, st, style)
+    d = ImageDraw.Draw(im)
     # tường trên + 2 bên, cửa sổ
-    d.rectangle([0, 0, W * S, 36 * S], fill=st['wall'])
-    for x in range(30, W, 80):
-        d.rounded_rectangle([x * S, 8 * S, (x + 40) * S, 30 * S], 6, fill=(186, 220, 236), outline=INK, width=4)
+    if not tile_fill(im, WALL[style], (0, 0, W * S, 40 * S)):
+        d.rectangle([0, 0, W * S, 40 * S], fill=st['wall'])
+    d = ImageDraw.Draw(im)
+    d.line([0, 40 * S, W * S, 40 * S], fill=INK, width=6)
+    win = nt('noi_cua_so', 34 * S); pic = nt('noi_tranh_tuong', 26 * S); clk = nt('noi_dong_ho_tuong', 22 * S)
+    for i, x in enumerate(range(40, W - 20, 80)):
+        it = [win, pic, win, clk][i % 4] or win
+        if it is not None:
+            im.paste(it, (int(x * S - it.width / 2), int(20 * S - it.height / 2)), it)
+    d = ImageDraw.Draw(im)
     d.rectangle([0, 0, 8 * S, H * S], fill=st['wall']); d.rectangle([(W - 8) * S, 0, W * S, H * S], fill=st['wall'])
     # thảm đường đi
     for r in paths:
@@ -89,8 +120,12 @@ def draw(stage, out):
         d.line(pts, fill=tuple(max(0, c - 30) for c in st['rug']), width=6, joint='curve')
     # quầy ở cuối đường (nơi quái muốn tới)
     ex, ey = paths[0][-1]
-    d.rounded_rectangle([(ex - 44) * S, (ey - 20) * S, (ex + 44) * S, (ey + 4) * S], 10, fill=(126, 84, 52), outline=INK, width=5)
-    d.rectangle([(ex - 40) * S, (ey - 24) * S, (ex + 40) * S, (ey - 16) * S], fill=(176, 126, 80))
+    ctr = nt(COUNTER[style], 84 * S)
+    if ctr is not None:
+        im.paste(ctr, (int(ex * S - ctr.width / 2), int((ey - 6) * S - ctr.height * 0.85)), ctr)
+        d = ImageDraw.Draw(im)
+    else:
+        d.rounded_rectangle([(ex - 44) * S, (ey - 20) * S, (ex + 44) * S, (ey + 4) * S], 10, fill=(126, 84, 52), outline=INK, width=5)
     # thảm chùi chân ở cửa
     for r in paths:
         sx, sy = r[0]
@@ -103,19 +138,33 @@ def draw(stage, out):
             sp = sprite(os.path.join(ROOT, 'art', 'spark', f'mon_{art}_{t}.png'), 40 * S)
             if sp: decos.append(sp)
     placed = []
-    for _ in range(600):
-        x, y = rnd.uniform(40, W - 40), rnd.uniform(64, H - 40)
-        if min(seg_d((x, y), a, b) for a, b in segs) < 50: continue
-        if any(math.hypot(x - px, y - py) < 40 for px, py in pads): continue
-        if any(math.hypot(x - qx, y - qy) < 66 for qx, qy in placed): continue
+    pool = FURN[style][:]
+    rnd.shuffle(pool)
+    items = []
+    for _ in range(900):
+        x, y = rnd.uniform(44, W - 44), rnd.uniform(78, H - 44)
+        if min(seg_d((x, y), a, b) for a, b in segs) < 52: continue
+        if any(math.hypot(x - px, y - py) < 42 for px, py in pads): continue
+        if any(math.hypot(x - qx, y - qy) < 70 for qx, qy in placed): continue
+        if math.hypot(x - ex, y - ey) < 60: continue
         placed.append((x, y))
-        furniture(d, im, style, x, y, rnd, decos if rnd.random() < 0.6 else [])
-        d = ImageDraw.Draw(im)
+        name = pool[len(items) % len(pool)]
+        size = 74 if name in ('noi_giuong_doi', 'noi_giuong_tang', 'noi_ban_go_dai', 'noi_sofa', 'noi_ke_hang') else 60
+        img = nt(name, size * S)
+        if img is None:
+            furniture(d, im, style, x, y, rnd, []); d = ImageDraw.Draw(im); continue
+        items.append((x, y, img, decos[len(items) % len(decos)] if decos and name in ('noi_ban_quan', 'noi_ban_cafe', 'noi_ban_tra', 'noi_ke_hang', 'noi_tu_kinh') else None))
         if len(placed) >= 8: break
+    for x, y, img, dz in sorted(items, key=lambda t: t[1]):
+        im.paste(img, (int(x * S - img.width / 2), int(y * S - img.height * 0.7)), img)
+        if dz is not None:
+            dz2 = dz.copy(); dz2.thumbnail((30 * S, 30 * S))
+            im.paste(dz2, (int(x * S - dz2.width / 2), int(y * S - img.height * 0.7 - dz2.height * 0.4)), dz2)
+    d = ImageDraw.Draw(im)
     # chậu cây góc phòng
-    plant = sprite(os.path.join(ROOT, 'art', 'spark', 'deco_bon_hoa.png'), 36 * S)
+    plant = nt('noi_chau_cay_lon', 40 * S)
     if plant:
-        for x, y in [(24, 52), (W - 24, 52)]:
+        for x, y in [(24, 64), (W - 24, 64)]:
             if all(math.hypot(x - px, y - py) > 30 for px, py in pads):
                 im.paste(plant, (int(x * S - plant.width / 2), int(y * S - plant.height / 2)), plant)
     im.save(out, 'WEBP', quality=80, method=6)
