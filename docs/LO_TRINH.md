@@ -97,3 +97,4 @@ _Thành phố khác, màn theo thời sự, chợ ứng dụng._
 - ⬜ Chưa làm — Chế độ Vô tận · Claude
 - ⬜ Chưa làm — Lên Google Play / App Store · Anh Kha quyết
 - ⬜ Chưa làm — Game online, tài khoản, trao đổi đồ — hỏi luật sư trước (Nghị định 147/2024 cấm mua bán vật phẩm ảo giữa người chơi; game online cần giấy phép) · Anh Kha quyết
+- ⬜ Chưa làm — Thẻ QR: trước tặng kèm đơn Hiệu giày Hải Nancy / Yen Handmade Leather (đếm lượt quét); sau làm đồ lưu niệm Đà Lạt (thẻ sưu tầm, móc khoá, sticker hình Spark) bán Shopee; thẻ kèm quà trong game chỉ làm sau khi hỏi luật sư · Anh Kha quyết khi có người chơi
