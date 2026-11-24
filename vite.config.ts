@@ -39,7 +39,23 @@ self.addEventListener('activate', (e) => {
   );
 });
 self.addEventListener('fetch', (e) => {
-  if (e.request.method !== 'GET' || new URL(e.request.url).origin !== self.location.origin) return;
+  const url = new URL(e.request.url);
+  if (e.request.method !== 'GET' || url.origin !== self.location.origin) return;
+  if (url.pathname.startsWith('/api/')) return; // máy chủ lưu QR chìa khoá: luôn hỏi mạng
+  // Mở game (trang chính): hỏi mạng trước để luôn có bản mới nhất; mất mạng mới dùng bản đã lưu (anh Kha 25/11)
+  if (e.request.mode === 'navigate') {
+    e.respondWith(
+      fetch(e.request)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put('./', copy)).catch(() => {});
+          return res;
+        })
+        .catch(() => caches.match('./')),
+    );
+    return;
+  }
+  // Hình, mã game (tên có mã băm, không đổi nội dung): dùng bản đã lưu cho nhanh
   e.respondWith(
     caches.match(e.request, { ignoreSearch: true }).then((hit) => hit || fetch(e.request).catch(() => caches.match('./'))),
   );
