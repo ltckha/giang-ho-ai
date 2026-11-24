@@ -260,6 +260,52 @@ export class TdStageScene extends Phaser.Scene {
     this.spawnFloatingLabel(width * 0.5, 120, text, color, 18, true);
   }
 
+  /** Bật 1 hình hiệu ứng Spark: phóng to + mờ dần (+ xoay nếu cần) */
+  private fxPop(
+    key: string,
+    x: number,
+    y: number,
+    sizePx: number,
+    opts: { dur?: number; spin?: number; from?: number; delay?: number; depth?: number; alpha?: number } = {},
+  ): void {
+    if (!this.textures.exists(key)) return;
+    const img = this.add.image(x, y, key).setDepth(opts.depth ?? 34).setAlpha(0);
+    const base = sizePx / Math.max(img.width, img.height);
+    const from = opts.from ?? 0.35;
+    img.setScale(base * from);
+    const dur = (opts.dur ?? 520) * (this.reduceMotion ? 0.6 : 1);
+    // Phóng to nhanh rồi giữ rõ, gần cuối mới tan
+    this.tweens.add({
+      targets: img,
+      delay: opts.delay ?? 0,
+      scale: base,
+      angle: opts.spin ?? 0,
+      duration: dur,
+      ease: 'Back.easeOut',
+      onStart: () => img.setAlpha(opts.alpha ?? 1),
+      onComplete: () => img.destroy(),
+    });
+    this.tweens.add({
+      targets: img,
+      delay: (opts.delay ?? 0) + dur * 0.55,
+      alpha: 0,
+      duration: dur * 0.45,
+      ease: 'Quad.easeIn',
+    });
+  }
+
+  private towerScreenPos(padId: string): { x: number; y: number } | null {
+    const t = this.engine.getTowerAtPad(padId);
+    return t ? this.toScreen(t.x, t.y) : null;
+  }
+
+  public fxUpgrade(padId: string): void {
+    const p = this.towerScreenPos(padId);
+    if (p) this.fxPop('fx_nang_cap', p.x, p.y - 18 * this.mapScale, 62 * this.mapScale, { from: 0.4, dur: 620 });
+  }
+
+  private lastCounterFxMs = 0;
+
   private liveTapFx(padId: string, text: string): void {
     const pad = this.engine.stage.pads.find((p) => p.id === padId);
     if (!pad) return;
@@ -690,6 +736,7 @@ export class TdStageScene extends Phaser.Scene {
           const icon = { build: '＋', upgrade: '⬆', ult_unlock: '★', ult: '💥', vehicle: '🛵' }[act.kind];
           const name = act.defId ? getTowerTierStats(act.defId, 1).name ?? '' : '';
           if (act.padId) this.liveTapFx(act.padId, `${icon} ${name}`.trim());
+          if (act.padId && (act.kind === 'upgrade' || act.kind === 'ult_unlock')) this.fxUpgrade(act.padId);
           else this.liveLabel(`${icon} Chiêu xe!`, '#9fe8ff');
         }
       }
@@ -1453,6 +1500,11 @@ export class TdStageScene extends Phaser.Scene {
             14,
             true,
           );
+          const nowMs = this.time.now;
+          if (nowMs - this.lastCounterFxMs > 140) {
+            this.lastCounterFxMs = nowMs;
+            this.fxPop('fx_trung_tu', sPos.x, sPos.y - 6, 40 * this.mapScale, { from: 0.5, dur: 380, spin: 25 });
+          }
           if (!this.reduceMotion) {
             this.cameras.main.shake(65, 0.0022);
           }
@@ -1638,6 +1690,38 @@ export class TdStageScene extends Phaser.Scene {
         const ultTitle = ev.text ?? (ev.towerDefId ? ultimateNameFor(ev.towerDefId, TOWER_DEFINITIONS[ev.towerDefId]?.ultimateName) : 'Tuyệt chiêu');
 
         sound.playUltimate(role);
+
+        // Hình hiệu ứng Spark theo hành × vai (Claude): vòng tuyệt chiêu + nổ trên quái
+        const ring = `fx_tuyet_${el}`;
+        const burst = `fx_no_${el}`;
+        const inRange = this.engine.enemies
+          .filter((e) => e.hp > 0 && Math.hypot(e.x - ev.x, e.y - ev.y) <= (ev.splashRadius ?? 95))
+          .slice(0, 7);
+        if (role === 'single_far') {
+          this.fxPop(ring, up.x, up.y, 120 * this.mapScale, { from: 0.2, dur: 700, spin: 200 });
+          this.fxPop(burst, up.x, up.y - 10 * this.mapScale, 80 * this.mapScale, { from: 0.3, dur: 480, delay: 120 });
+        } else if (role === 'heavy_slow') {
+          this.fxPop(burst, up.x, up.y, radiusPx * 1.5, { from: 0.25, dur: 620 });
+          inRange.forEach((e, k) => {
+            const ep = this.toScreen(e.x, e.y);
+            this.fxPop(burst, ep.x, ep.y, 64 * this.mapScale, { from: 0.3, dur: 460, delay: 140 + k * 55 });
+          });
+        } else if (role === 'slow_aura') {
+          this.fxPop(ring, up.x, up.y, radiusPx * 2.1, { from: 0.15, dur: 950, spin: 120, alpha: 0.9 });
+          inRange.forEach((e, k) => {
+            const ep = this.toScreen(e.x, e.y);
+            this.fxPop(ring, ep.x, ep.y, 46 * this.mapScale, { from: 0.6, dur: 900, spin: -90, delay: 200 + k * 40 });
+          });
+        } else if (role === 'aoe_splash') {
+          this.fxPop(ring, up.x, up.y, radiusPx * 1.9, { from: 0.2, dur: 700, spin: -160, alpha: 0.85 });
+          inRange.forEach((e, k) => {
+            const ep = this.toScreen(e.x, e.y);
+            this.fxPop(burst, ep.x, ep.y, 84 * this.mapScale, { from: 0.25, dur: 560, delay: 180 + k * 70 });
+          });
+        } else {
+          this.fxPop('fx_chuoi_sinh', up.x, up.y, radiusPx * 1.8, { from: 0.2, dur: 900, spin: 140, alpha: 0.9 });
+          this.fxPop(ring, up.x, up.y, 90 * this.mapScale, { from: 0.3, dur: 600, delay: 150 });
+        }
 
         if (ev.towerUid) {
           const trec = this.towerSprites.get(ev.towerUid);
@@ -2645,6 +2729,10 @@ export class TdStageScene extends Phaser.Scene {
     const isFullCycle = this.engine.status === 'playing' && this.engine.fullCycleActive;
     if (isFullCycle !== this.wasFullCycleActive) {
       this.wasFullCycleActive = isFullCycle;
+      if (isFullCycle) {
+        const { width, height } = this.scale;
+        this.fxPop('fx_chuoi_sinh', width / 2, height * 0.45, Math.min(width, height) * 0.7, { from: 0.2, dur: 1300, spin: 220, alpha: 0.95, depth: 36 });
+      }
       if (this.fullCycleBannerRoot) {
         this.fullCycleBannerRoot.innerHTML = isFullCycle
           ? `<div class="td-full-cycle-banner ${this.reduceMotion ? 'no-anim' : ''}" data-testid="td-full-cycle-banner">
@@ -3724,6 +3812,7 @@ export class TdStageScene extends Phaser.Scene {
       this.modalRoot.querySelector('#btn-upgrade-t2')?.addEventListener('click', () => {
         if (this.engine.upgradeTower(padId)) {
           sound.playBuildOrUpgrade();
+          this.fxUpgrade(padId);
           this.renderPadModal(padId);
           this.refreshHud();
         }
@@ -3734,6 +3823,7 @@ export class TdStageScene extends Phaser.Scene {
           const branch = btn.dataset.branch as TowerBranch;
           if (this.engine.upgradeTower(padId, branch)) {
             sound.playBuildOrUpgrade();
+            this.fxUpgrade(padId);
             this.renderPadModal(padId);
             this.refreshHud();
           }
@@ -3743,6 +3833,7 @@ export class TdStageScene extends Phaser.Scene {
       this.modalRoot.querySelector('#btn-unlock-ultimate')?.addEventListener('click', () => {
         if (this.engine.unlockUltimate(padId)) {
           sound.playUltimateUnlock();
+          this.fxUpgrade(padId);
           this.renderPadModal(padId);
           this.refreshHud();
           this.refreshUltimateButtons();
