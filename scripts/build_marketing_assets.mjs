@@ -102,7 +102,7 @@ const renderBrandLogoSvg = new Function(`${brandJs}; return renderBrandLogoSvg;`
 const atlasJson = JSON.parse(fs.readFileSync(ATLAS_JSON_PATH, 'utf8'));
 const atlasDataUrl = fileDataUrl(ATLAS_IMG_PATH, 'image/webp');
 
-const shotStreet = fileDataUrl(path.join(SCREENSHOTS_DIR, 'c3_01_street_top.png'), 'image/png');
+const shotStreet = fileDataUrl(path.join(REPO_ROOT, 'docs', 'marketing', 'home_gon_pho.png'), 'image/png');
 const shotCombat1 = fileDataUrl(path.join(SCREENSHOTS_DIR, 'man1v2_03_sau_combat.png'), 'image/png');
 const shotCombat2 = fileDataUrl(path.join(SCREENSHOTS_DIR, 'man2_03_combat.png'), 'image/png');
 const shotUlt = fileDataUrl(path.join(SCREENSHOTS_DIR, 'ult_03_cast_and_cd.png'), 'image/png');
