@@ -117,6 +117,9 @@ Game hiện là **thủ thành Gọn Phố** (đặt món giữ tiệm, ngũ hà
 4. Game online / trao đổi đồ: **giữ** trong mục Mở rộng, để rất xa.
 5. **Dừng thêm phố mới / màn sự kiện** cho tới khi đăng video; dồn sức vào chất lượng.
 
+### Link trong video (25/11)
+Kênh @gon.simpli chưa có ô "Trang web" ở hồ sơ → mỗi clip có cảnh kết 2 giây: chữ to **gon-pho.pages.dev** + mã QR (máy tính quét được). Link trong mô tả / bình luận TikTok thường không bấm được.
+
 ### Tiến độ LIVE (Claude 24/11)
 - **Kênh phát: @gon.simpli** (anh Kha chốt 24/11) — cùng kênh đăng video game.
 - **Thứ tự (anh Kha chốt 24/11): chuẩn bị kỹ hết → đăng video một thời gian, kênh ổn → mới lên LIVE.** Chưa cài gì lên máy anh cho tới lúc đó.
