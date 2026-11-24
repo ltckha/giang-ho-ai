@@ -88,6 +88,7 @@ const FX_KEYS = [
   'fx_tuyet_kim', 'fx_tuyet_moc', 'fx_tuyet_thuy', 'fx_tuyet_hoa', 'fx_tuyet_tho',
   'fx_no_kim', 'fx_no_moc', 'fx_no_thuy', 'fx_no_hoa', 'fx_no_tho',
   'fx_chuoi_sinh', 'fx_trung_tu', 'fx_nang_cap', 'fx_tim', 'fx_xu',
+  'fx_xe_di_bo', 'fx_xe_dap', 'fx_xe_so', 'fx_xe_ga', 'fx_xe_dien', 'fx_xe_ba_gac', 'fx_xe_jeep',
 ];
 
 export class BootScene extends Phaser.Scene {

@@ -307,6 +307,21 @@ export class TdStageScene extends Phaser.Scene {
 
   private lastCounterFxMs = 0;
 
+  /** Hiệu ứng chiêu xe (Spark đợt 31): hình lớn giữa sân + nhỏ trên từng quái + tên chiêu */
+  public vehicleFx(): void {
+    const v = this.engine.vehicle;
+    if (!v) return;
+    const key = `fx_${v.id === 'di_bo' ? 'xe_di_bo' : v.id}`;
+    const { width, height } = this.scale;
+    this.fxPop(key, width / 2, height * 0.45, Math.min(width, height) * 0.62, { from: 0.25, dur: 1100, spin: 0, depth: 36 });
+    this.engine.enemies.slice(0, 8).forEach((e, k) => {
+      const ep = this.toScreen(e.x, e.y);
+      this.fxPop(key, ep.x, ep.y, 46 * this.mapScale, { from: 0.4, dur: 700, delay: 200 + k * 60 });
+    });
+    this.spawnFloatingLabel(width / 2, height * 0.45 - Math.min(width, height) * 0.3, `🛵 ${v.activeName}!`, '#ffe066', 18, true);
+    sound.playUltimate('aoe_splash');
+  }
+
   private liveTapFx(padId: string, text: string): void {
     const pad = this.engine.stage.pads.find((p) => p.id === padId);
     if (!pad) return;
@@ -746,7 +761,7 @@ export class TdStageScene extends Phaser.Scene {
           const name = act.defId ? getTowerTierStats(act.defId, 1).name ?? '' : '';
           if (act.padId) this.liveTapFx(act.padId, `${icon} ${name}`.trim());
           if (act.padId && (act.kind === 'upgrade' || act.kind === 'ult_unlock')) this.fxUpgrade(act.padId);
-          else this.liveLabel(`${icon} Chiêu xe!`, '#9fe8ff');
+          else this.vehicleFx();
         }
       }
     }
@@ -3305,6 +3320,7 @@ export class TdStageScene extends Phaser.Scene {
     hud.querySelector<HTMLButtonElement>('#btn-vehicle')?.addEventListener('click', (ev) => {
       if (!this.engine.useVehicle()) return;
       sound.playUiClick();
+      this.vehicleFx();
       (ev.currentTarget as HTMLButtonElement).disabled = true;
       (ev.currentTarget as HTMLButtonElement).classList.add('used');
     });
