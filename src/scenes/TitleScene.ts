@@ -1,4 +1,4 @@
-import { exportSaveCode, importSaveCode, saveLink, codeFromLocation, hasProgress, requestPersistentStorage, isInstalledApp, isIOS, canPromptInstall, promptInstall } from '../game/saveCode';
+import { exportSaveCode, importSaveCode, saveLink, saveQrPng, codeFromLocation, hasProgress, requestPersistentStorage, isInstalledApp, isIOS, canPromptInstall, promptInstall } from '../game/saveCode';
 import { isLiveActive, startLive, stopLive } from '../game/liveMode';
 import Phaser from 'phaser';
 import { ALL_ELEMENTS, ELEMENT_COUNTERS, ELEMENT_GENERATES, ELEMENT_INFO } from '../core/elements';
@@ -637,10 +637,20 @@ export class TitleScene extends Phaser.Scene {
           <a class="td-save-btn" id="btn-save-email" data-testid="btn-save-email" href="mailto:?subject=${encodeURIComponent('Mã lưu Gọn Phố')}&body=${encodeURIComponent(`Bấm link này trên máy khác để chơi tiếp Gọn Phố:\n${link}`)}">📧 Email</a>
           <button type="button" class="td-save-btn" id="btn-save-copy">📋 Chép link</button>
         </div>
-        <div class="td-save-msg">Mở link ở máy khác là chơi tiếp. Đổi máy lần nào lấy lại lần đó.</div>
+        <div class="td-save-qr-wrap"><img class="td-save-qr" id="td-save-qr" data-testid="td-save-qr" alt="Mã QR lưu tiến độ" /></div>
+        <div class="td-save-row"><a class="td-save-btn" id="btn-save-qr" data-testid="btn-save-qr" download="gon-pho-ma-luu.png">🖼️ Lưu ảnh QR</a></div>
+        <div class="td-save-msg">Máy khác quét QR hoặc mở link là chơi tiếp. iPhone: chạm giữ hình QR → Lưu vào Ảnh. Đổi máy lần nào lấy lại lần đó.</div>
         <details class="td-save-raw"><summary>Xem mã</summary><textarea class="td-save-code" id="td-save-code-out" data-testid="td-save-code-out" readonly rows="3"></textarea></details>`;
       const ta = saveArea.querySelector<HTMLTextAreaElement>('#td-save-code-out')!;
       ta.value = code;
+      try {
+        const png = saveQrPng(link);
+        saveArea.querySelector<HTMLImageElement>('#td-save-qr')!.src = png;
+        saveArea.querySelector<HTMLAnchorElement>('#btn-save-qr')!.href = png;
+      } catch {
+        saveArea.querySelector('.td-save-qr-wrap')?.remove();
+        saveArea.querySelector('#btn-save-qr')?.remove();
+      }
       saveArea.querySelector('#btn-save-share')?.addEventListener('click', () => {
         void navigator.share({ title: 'Gọn Phố — chơi tiếp', text: 'Bấm link để chơi tiếp Gọn Phố:', url: link }).catch(() => {});
       });

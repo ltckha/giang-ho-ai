@@ -3,6 +3,7 @@
  * Mã = "GP1." + base64url( nén deflate( JSON các khoá tiến độ ) ) + "." + 6 ký tự kiểm tra.
  * Sau này lên online: dán mã 1 lần để chuyển vào tài khoản; đồ cũ thành loại "không trao đổi" (chặn gian lận).
  */
+import qrcode from 'qrcode-generator';
 import { TD_SAVE_KEY } from '../core/saveSystem';
 import { REAL_STREET_LOADOUT_PREFIX } from './preferences';
 
@@ -71,6 +72,41 @@ export async function exportSaveCode(): Promise<string> {
 export function saveLink(code: string): string {
   const base = typeof location !== 'undefined' && location.origin.startsWith('http') ? `${location.origin}${location.pathname}` : 'https://gon-pho.pages.dev/';
   return `${base}#ma=${code}`;
+}
+
+/**
+ * Ảnh thẻ QR (PNG) chứa link lưu: quét bằng camera máy khác là mở game + chuyển tiến độ (anh Kha 25/11).
+ * Trả về dataURL để hiện và lưu thành ảnh.
+ */
+export function saveQrPng(link: string): string {
+  const qr = qrcode(0, 'L');
+  qr.addData(link);
+  qr.make();
+  const n = qr.getModuleCount();
+  const cell = Math.max(4, Math.floor(520 / (n + 8)));
+  const qrSize = cell * (n + 8);
+  const W = qrSize + 40;
+  const H = qrSize + 130;
+  const c = document.createElement('canvas');
+  c.width = W;
+  c.height = H;
+  const g = c.getContext('2d')!;
+  g.fillStyle = '#fff4dc';
+  g.fillRect(0, 0, W, H);
+  g.fillStyle = '#4a2e1a';
+  g.font = 'bold 34px system-ui, sans-serif';
+  g.textAlign = 'center';
+  g.fillText('Gọn Phố — chơi tiếp', W / 2, 52);
+  const ox = 20;
+  const oy = 74;
+  g.fillStyle = '#ffffff';
+  g.fillRect(ox, oy, qrSize, qrSize);
+  g.fillStyle = '#2b1a12';
+  for (let r = 0; r < n; r++) for (let col = 0; col < n; col++) if (qr.isDark(r, col)) g.fillRect(ox + (col + 4) * cell, oy + (r + 4) * cell, cell, cell);
+  g.fillStyle = '#6b4a2e';
+  g.font = '22px system-ui, sans-serif';
+  g.fillText('Quét bằng camera máy khác để chuyển tiến độ', W / 2, H - 22);
+  return c.toDataURL('image/png');
 }
 
 /** Mã lưu trong link đang mở (#ma=…), nếu có */

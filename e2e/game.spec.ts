@@ -1582,6 +1582,9 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     await page.getByTestId('btn-open-help').click();
     await page.getByTestId('btn-save-export').click();
     const code = await page.getByTestId('td-save-code-out').inputValue();
+    // Có ảnh QR chứa link lưu + nút lưu ảnh
+    await expect(page.getByTestId('td-save-qr')).toHaveAttribute('src', /^data:image\/png;base64,/);
+    await expect(page.getByTestId('btn-save-qr')).toHaveAttribute('download', 'gon-pho-ma-luu.png');
     expect(code.startsWith('GP1.')).toBe(true);
     const saveA = await page.evaluate(() => localStorage.getItem('giang_ho_ai_thu_thanh_save_v1'));
 
