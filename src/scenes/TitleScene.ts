@@ -1085,7 +1085,7 @@ export class TitleScene extends Phaser.Scene {
             data-testid="stage${shop.order}-card" data-shop-id="${shop.stageId}">
             <div class="td-shoprow-main">
               <div class="td-shoprow-hit" role="button" tabindex="0" data-select-shop="${shop.stageId}" data-testid="street-shop-${shop.order}" aria-expanded="${isSelected ? 'true' : 'false'}">
-                <span class="td-shoprow-thumb">${({ stage_1: 'giay', stage_2: 'banh', stage_3: 'hoa' } as Record<string, string>)[shop.stageId] ? `<img class="${unlocked ? '' : 'td-thumb-locked'}" src="./assets/ui/mat_tien_doc_${({ stage_1: 'giay', stage_2: 'banh', stage_3: 'hoa' } as Record<string, string>)[shop.stageId]}.webp" alt="" />` : renderShopFacadeSvg(shop, unlocked)}</span>
+                <span class="td-shoprow-thumb">${({ stage_1: 'giay', stage_2: 'banh', stage_3: 'hoa' } as Record<string, string>)[shop.stageId] ? `<img class="${unlocked ? '' : 'td-thumb-locked'}" data-shutter="${unlocked ? 'open' : 'closed'}" src="./assets/ui/mat_tien_doc_${({ stage_1: 'giay', stage_2: 'banh', stage_3: 'hoa' } as Record<string, string>)[shop.stageId]}.webp" alt="" />` : renderShopFacadeSvg(shop, unlocked)}</span>
                 <span class="td-shoprow-name"><b>${shop.isBoss ? '👹' : shop.order}</b><span class="td-stage-name">${stage.name}</span></span>
                 <span class="td-shoprow-stars" data-testid="stage${shop.order}-stars">${!unlocked ? '🔒<span class="td-sr">Khóa</span>' : stars > 0 ? '★'.repeat(stars) : ''}</span>
               </div>
