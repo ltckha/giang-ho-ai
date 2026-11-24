@@ -257,6 +257,8 @@ export class TitleScene extends Phaser.Scene {
     const allowed = stage.towerIds ?? [];
     const size = stage.loadoutSize ?? 6;
     const fallback = (stage.defaultLoadout ?? allowed.slice(0, size)).slice(0, size);
+    // Màn tiệm: bộ món cố định của tiệm, không chọn (anh Kha 25/11)
+    if (stage.shopIndex) return fallback;
     if (stage.id === 'stage_4') {
       const saved = loadTdSave().streetLoadout;
       if (saved && saved.length > 0) {
@@ -1188,7 +1190,7 @@ ${unlocked && stars >= 3 && !STAGES[shop.stageId]?.loadoutSize ? `<button type="
                   <span class="td-shoprow-name"><b>${isBossRow ? '👹' : st.shopIndex}</b><span>${name}</span></span>
                   <span class="td-shoprow-stars">${!open ? '🔒' : stars > 0 ? '★'.repeat(stars) : ''}</span>
                 </div>
-${open && stars >= 3 && !st.loadoutSize ? `<button type="button" class="td-shoprow-hard" data-hard-stage="${st.id}" data-testid="btn-hard-${st.id}" title="Chế độ Khó: quái nhiều máu, nhanh hơn — rơi thêm đồ"><img class="td-ui-ico-sm" src="./assets/ui/ui_kho.webp" alt="★" />${(curHard[st.id] ?? 0) > 0 ? '✓' : ''}</button>` : ''}
+${open && stars >= 3 && !(st.loadoutSize && !st.shopIndex) ? `<button type="button" class="td-shoprow-hard" data-hard-stage="${st.id}" data-testid="btn-hard-${st.id}" title="Chế độ Khó: quái nhiều máu, nhanh hơn — rơi thêm đồ"><img class="td-ui-ico-sm" src="./assets/ui/ui_kho.webp" alt="★" />${(curHard[st.id] ?? 0) > 0 ? '✓' : ''}</button>` : ''}
                 <button type="button" class="td-shoprow-play" data-play-real="${st.id}"
                   ${isSel ? `id="btn-start-${activeStreet.id}" data-testid="btn-start-${activeStreet.id}"` : `data-testid="btn-play-${st.id}"`}
                   ${open ? '' : 'disabled aria-disabled="true"'}>${open ? '▶' : '🔒'}</button>
@@ -1259,7 +1261,7 @@ ${open && stars >= 3 && !st.loadoutSize ? `<button type="button" class="td-shopr
         btn.onclick = () => {
           const stg = STAGES[btn.dataset.playReal as StageId];
           if (!stg || btn.disabled || !(isRealStreetsUnlocked && canPlay(stg.id))) return;
-          if (stg.loadoutSize && !isBotBypass) {
+          if (stg.loadoutSize && !stg.shopIndex && !isBotBypass) {
             sound.playUiClick();
             openLoadoutPicker(stg);
           } else {

@@ -22,7 +22,6 @@ import type { ElementType, EnemyDefinition, EnemyTrait, StageDefinition, TowerDe
 
 const ROOT = process.cwd();
 /** Món người chơi đã có sau Phố 1 (3 tiệm đầu) — dùng chung cho mọi phố thật */
-const BASE_POOL = Object.keys(ALL_TOWER_DEFINITIONS).filter((id) => !id.startsWith('gt_')) as string[];
 /** Đồ dọn phố (màn phố) — content/street_clean_tools.json */
 const CLEAN = JSON.parse(readFileSync(join(ROOT, 'content/street_clean_tools.json'), 'utf8')) as { tools: { key: string; art: string; element: ElementType; role: TowerRole; names: [string, string, string, string]; ult: string; why: string }[] };
 function buildCleanTowers(): Record<string, TowerDefinition> {
@@ -376,12 +375,20 @@ function make(id: string) {
   const n = spec.places.length;
   const poolTowers = (ids2: string[]) => Object.fromEntries(ids2.map((t) => [t, ALL_TOWER_DEFINITIONS[t as never]!])) as Record<string, TowerDefinition>;
 
+  /* ---- Đồ dọn phố (dùng chung cho màn tiệm + màn phố) ---- */
+  const clean = buildCleanTowers();
+  Object.assign(towers, clean);
+  Object.assign(ALL_TOWER_DEFINITIONS, clean);
+  const cleanIds = Object.keys(clean);
+
   /* ---- Màn tiệm: mỗi địa điểm 1 màn ---- */
   const shops: { hpMultiplier: number; balance: object; stage: StageDefinition }[] = [];
   spec.places.forEach((p, i) => {
     const idx = i + 1;
     const featured = `gt_${shortId(spec.id)}_${p.key}`;
-    const pool = [...BASE_POOL, ...streetTowerIds.slice(0, idx)];
+    // Món hợp tiệm (anh Kha 25/11): món của chính tiệm + món các tiệm cùng phố + đồ dọn phố (đủ 5 hành).
+    // Không lấy món Phố Dốc (dép tông, vỉ đập ruồi…) — không hợp quán chè, khách sạn…
+    const pool = [featured, ...streetTowerIds.filter((t) => t !== featured), ...cleanIds];
     const pestIds = shopPests(spec, ids, enemies, p.tower.element, idx, n);
     const pestDefs = Object.fromEntries(pestIds.map((e) => [e, enemies[e]!]));
     const rest = chooseLoadout(poolTowers(pool.filter((t) => t !== featured)), pestDefs, spec.loadoutSize - 1);
@@ -410,11 +417,7 @@ function make(id: string) {
   });
 
   /* ---- Màn phố: cả con phố + trùm — mang 4 đồ dọn phố + tối đa 2 món tiệm ---- */
-  const clean = buildCleanTowers();
-  Object.assign(towers, clean);
-  Object.assign(ALL_TOWER_DEFINITIONS, clean);
-  const cleanIds = Object.keys(clean);
-  const shopPool = [...BASE_POOL, ...streetTowerIds];
+  const shopPool = [...streetTowerIds];
   const pool = [...cleanIds, ...shopPool];
   const streetPestDefs = Object.fromEntries(streetIds.map((e) => [e, enemies[e]!]));
   const cleanPick = chooseLoadout(clean, streetPestDefs, 4);

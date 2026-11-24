@@ -415,6 +415,8 @@ export class TdStageScene extends Phaser.Scene {
           : (loadRealStreetLoadout(stageId, allowed, stageDef.loadoutSize) as TowerId[] | null) ?? undefined);
       const valid = candidate?.filter((id) => allowed.includes(id)).slice(0, stageDef.loadoutSize);
       resolvedLoadout = valid && valid.length === stageDef.loadoutSize ? valid : stageDef.defaultLoadout;
+      // Màn tiệm: luôn dùng bộ món của tiệm (không chọn trước — anh Kha 25/11)
+      if (stageDef.shopIndex && !data?.loadout) resolvedLoadout = stageDef.defaultLoadout;
     }
 
     // Trang bị chủ tiệm đang mặc (lưu trên máy)
@@ -3391,7 +3393,7 @@ export class TdStageScene extends Phaser.Scene {
           <button id="btn-speed-toggle" data-testid="btn-speed-toggle" class="td-ctrl-btn" title="Đổi tốc độ x1 / x2 / x3">x1</button>
           <button id="btn-reduce-motion" data-testid="btn-reduce-motion" class="td-ctrl-btn" title="Giảm hiệu ứng cho máy yếu">✨</button>
           ${showBotBtn ? `<button id="btn-bot-toggle" data-testid="btn-bot-toggle" class="td-ctrl-btn" title="Bật/Tắt Tự động đặt món">Bot</button>` : ''}
-          <button id="btn-pause-toggle" data-testid="btn-pause-toggle" class="td-ctrl-btn" title="Tạm dừng">⏸</button>
+          <button id="btn-pause-toggle" data-testid="btn-pause-toggle" class="td-ctrl-btn td-pause-btn-top" title="Tạm dừng / Chơi lại / Thoát" aria-label="Tạm dừng"><span class="td-pause-ico" aria-hidden="true"><i></i><i></i></span></button>
         </div>
       </div>
 
@@ -3548,7 +3550,12 @@ export class TdStageScene extends Phaser.Scene {
 
     const pauseBtn = this.hudRoot.querySelector<HTMLButtonElement>('#btn-pause-toggle');
     if (pauseBtn) {
-      pauseBtn.textContent = this.paused ? '▶' : '⏸';
+      // Ký hiệu tạm dừng vẽ bằng 2 vạch (emoji ⏸ trên iPhone hiện thành chấm "▪" — anh Kha 25/11)
+      const want = this.paused ? 'play' : 'pause';
+      if (pauseBtn.dataset.ico !== want) {
+        pauseBtn.dataset.ico = want;
+        pauseBtn.innerHTML = this.paused ? '<span class="td-play-ico" aria-hidden="true"></span>' : '<span class="td-pause-ico" aria-hidden="true"><i></i><i></i></span>';
+      }
       pauseBtn.classList.toggle('active', this.paused);
     }
 
@@ -4255,7 +4262,7 @@ export class TdStageScene extends Phaser.Scene {
         ${isWin && this.lastVehicleUnlocked ? `<div class="td-result-badge-card" data-testid="td-result-vehicle">${vehicleIconHtml(this, VEHICLES[this.lastVehicleUnlocked])}<div class="td-result-badge-text"><strong>Nhận xe mới: ${VEHICLES[this.lastVehicleUnlocked].name}</strong><span>${VEHICLES[this.lastVehicleUnlocked].passiveText} • Chiêu: ${VEHICLES[this.lastVehicleUnlocked].activeName}</span></div></div>` : ''}
         <p class="td-result-desc">${descText}</p>
         ${dropsHtml}
-        ${nextStreetStage ? `<button id="btn-next-street-stage" data-testid="btn-next-street-stage" class="td-btn-primary td-result-next">▶ ${nextStreetStage.loadoutSize ? 'Ra phố đánh trùm 👹' : nextStreetStage.name}</button>` : ''}
+        ${nextStreetStage ? `<button id="btn-next-street-stage" data-testid="btn-next-street-stage" class="td-btn-primary td-result-next">▶ ${nextStreetStage.loadoutSize && !nextStreetStage.shopIndex ? 'Ra phố đánh trùm 👹' : nextStreetStage.name}</button>` : ''}
         <div class="td-result-actions">
           <button id="btn-retry-stage" data-testid="btn-retry-stage" class="${nextStreetStage ? 'td-btn-secondary' : 'td-btn-primary'}" title="${retryLabel}">↻ Chơi lại</button>
           <button id="btn-back-title" data-testid="btn-back-title" class="td-btn-secondary" title="Về màn chính">🏠 Về</button>
@@ -4282,7 +4289,7 @@ export class TdStageScene extends Phaser.Scene {
       if (!nextStreetStage) return;
       sound.playUiClick();
       // Màn cần chọn món (trùm phố / Trùm Phố Dốc): về màn chính mở sẵn bảng Chuẩn bị, không nhảy cóc
-      if (nextStreetStage.loadoutSize) {
+      if (nextStreetStage.loadoutSize && !nextStreetStage.shopIndex) {
         TitleScene.pendingLoadoutStage = nextStreetStage.id;
         this.scene.start(SCENE_KEYS.TITLE);
         return;
