@@ -137,6 +137,7 @@
     },
     {
       "key": "chao_dem",
+      "art": "noi_chao",
       "name": "Cháo Đêm Hồ Sương",
       "type": "Quán cháo đêm",
       "trait": "mở tới 2 giờ sáng, cháo cá kho",
@@ -183,6 +184,7 @@
     },
     {
       "key": "com_ga",
+      "art": "noi_com_ga",
       "name": "Cơm Gà Hẻm Dã Quỳ",
       "type": "Quán cơm gà trong hẻm",
       "trait": "cơm gà Hải Nam",

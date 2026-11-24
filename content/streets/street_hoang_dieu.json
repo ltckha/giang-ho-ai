@@ -112,6 +112,7 @@
     },
     {
       "key": "com_ga",
+      "art": "dao_chat_ga",
       "name": "Cơm Gà Lan Hài",
       "type": "Quán cơm gà đầu phố",
       "trait": "cơm gà xé, nước mắm gừng",
@@ -135,6 +136,7 @@
     },
     {
       "key": "chao_gang",
+      "art": "chao_gang",
       "name": "Bánh Mì Chảo Mây Ngàn",
       "type": "Quán bánh mì chảo xíu mại",
       "trait": "chảo gang nóng buổi sáng",
@@ -176,6 +178,7 @@
     },
     {
       "key": "pizza",
+      "art": "de_pizza",
       "name": "Tiệm Pizza Nhỏ Đồi Chè",
       "type": "Tiệm pizza nhỏ đầu phố",
       "trait": "lò nướng nhỏ",
