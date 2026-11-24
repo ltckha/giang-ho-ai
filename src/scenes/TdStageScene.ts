@@ -7,6 +7,8 @@ import { RARITY_LABEL, statText, type GearItem } from '../core/equipment';
 import { TutorialController } from '../core/tutorial';
 import { ULTIMATE_COOLDOWN_SEC, ULTIMATE_MIN_STAGE, ultimateNameFor, ULTIMATE_ROLE_TEXT } from '../core/ultimates';
 import { runBotTurn } from '../core/tdBot';
+import { liveBotAct, LIVE_THINK_SEC, type LivePlan } from '../core/liveBot';
+import { isLiveActive, isLiveMachine, liveOnStageEnd, registerLiveHost, type LiveStageData } from '../game/liveMode';
 import {
   ALL_ENEMY_DEFINITIONS as ENEMY_DEFINITIONS,
   ALL_TOWER_DEFINITIONS as TOWER_DEFINITIONS,
@@ -242,7 +244,32 @@ export class TdStageScene extends Phaser.Scene {
     super({ key: SCENE_KEYS.TD_STAGE });
   }
 
-  public create(data?: { stageId?: StageId; forceTutorial?: boolean; loadout?: TowerId[] }): void {
+  /* ---- Chế độ LIVE (Claude, game/liveMode.ts) ---- */
+  private liveMode = false;
+  private livePlan: LivePlan | null = null;
+  private liveClock = 0;
+  private liveNextThink = 0;
+
+  public setLivePlan(plan: LivePlan | null): void {
+    this.livePlan = plan;
+    this.liveNextThink = this.liveClock;
+  }
+
+  public liveLabel(text: string, color: string): void {
+    const { width } = this.scale;
+    this.spawnFloatingLabel(width * 0.5, 120, text, color, 18, true);
+  }
+
+  private liveTapFx(padId: string, text: string): void {
+    const pad = this.engine.stage.pads.find((p) => p.id === padId);
+    if (!pad) return;
+    const sp = this.toScreen(pad.x, pad.y);
+    const ring = this.add.circle(sp.x, sp.y, 10 * this.mapScale).setStrokeStyle(3, 0xffffff, 0.95).setDepth(40);
+    this.tweens.add({ targets: ring, scale: 3, alpha: 0, duration: 520, ease: 'Cubic.easeOut', onComplete: () => ring.destroy() });
+    this.spawnFloatingLabel(sp.x, sp.y - 26 * this.mapScale, text, '#fff3c4', 13, true);
+  }
+
+  public create(data?: { stageId?: StageId; forceTutorial?: boolean; loadout?: TowerId[]; live?: LiveStageData }): void {
     // Chọn màn: từ nút ở màn hình đầu, hoặc thêm ?stage=2 / ?stage=3 / ?stage=4 vào link (để thử / quay video)
     const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
     let stageId: StageId = data?.stageId ?? 'stage_1';
@@ -252,7 +279,8 @@ export class TdStageScene extends Phaser.Scene {
       if (q === '3') stageId = 'stage_3';
       if (q === '4') stageId = 'stage_4';
     }
-    const isVideoMode = params?.get('video') === '1';
+    this.liveMode = isLiveActive();
+    const isVideoMode = params?.get('video') === '1' || this.liveMode;
     this.videoMode = isVideoMode;
     const isBotQuery = params?.get('bot') === '1';
 
@@ -272,7 +300,7 @@ export class TdStageScene extends Phaser.Scene {
 
     // Trang bị chủ tiệm đang mặc (lưu trên máy)
     this.engine = new TowerDefenseEngine(stageDef, {
-      gear: getGearBonus(save),
+      gear: data?.live?.gear ?? getGearBonus(save),
       loadout: resolvedLoadout,
       // Xe chỉ có tác dụng khi ra phố (Claude, vehicles.ts)
       vehicle: vehicleAppliesTo(stageDef) ? getVehicle(save) : undefined,
@@ -290,7 +318,11 @@ export class TdStageScene extends Phaser.Scene {
     this.lastDrops = [];
     this.speedMultiplier = isVideoMode ? 2 : 1;
     this.paused = false;
-    this.autoBotEnabled = isVideoMode && isBotQuery;
+    this.autoBotEnabled = isVideoMode && isBotQuery && !this.liveMode;
+    this.livePlan = data?.live?.plan ?? null;
+    this.liveClock = 0;
+    this.liveNextThink = 0;
+    if (this.liveMode) registerLiveHost(this, Boolean(this.livePlan));
     this.reduceMotion = getInitialReduceMotion();
     this.selectedPadId = null;
     this.activeSynergyLinks = new Set();
@@ -647,6 +679,21 @@ export class TdStageScene extends Phaser.Scene {
     if (this.autoBotEnabled) {
       runBotTurn(this.engine);
     }
+    if (this.livePlan && isLiveMachine()) {
+      this.liveClock += simDt;
+      if (this.liveClock >= this.liveNextThink) {
+        // Nhịp như người: mỗi lần nghĩ cách nhau ~0.8–1.2 lần nhịp chuẩn
+        this.liveNextThink = this.liveClock + LIVE_THINK_SEC * (0.8 + Math.random() * 0.4);
+        const act = liveBotAct(this.engine, this.livePlan);
+        if (act) {
+          if (act.kind === 'build' || act.kind === 'upgrade' || act.kind === 'ult_unlock') sound.playBuildOrUpgrade();
+          const icon = { build: '＋', upgrade: '⬆', ult_unlock: '★', ult: '💥', vehicle: '🛵' }[act.kind];
+          const name = act.defId ? getTowerTierStats(act.defId, 1).name ?? '' : '';
+          if (act.padId) this.liveTapFx(act.padId, `${icon} ${name}`.trim());
+          else this.liveLabel(`${icon} Chiêu xe!`, '#9fe8ff');
+        }
+      }
+    }
     const subSteps = Math.max(1, Math.ceil(simDt / 0.05));
     const stepDt = simDt / subSteps;
     for (let i = 0; i < subSteps; i += 1) {
@@ -723,6 +770,7 @@ export class TdStageScene extends Phaser.Scene {
         for (let i = 0; i < 3; i += 1) this.spawnVictoryFirework();
       }
       this.showStageResultModal();
+      if (this.liveMode) liveOnStageEnd(this.engine.status === 'won');
     }
   }
 
@@ -1736,7 +1784,7 @@ export class TdStageScene extends Phaser.Scene {
       } else if (ev.type === 'stage_win') {
         sound.playVictory();
         const stars = calculateStarRating(this.engine.lives, this.engine.maxLives);
-        if (stars !== 0) {
+        if (stars !== 0 && !this.liveMode) {
           const after = saveTdProgress(this.engine.stage.id, stars, this.engine.lives);
           this.lastVehicleUnlocked = (after.lastVehicleUnlocked as VehicleId | undefined) ?? null;
           // Rơi trang bị theo số sao (Claude)

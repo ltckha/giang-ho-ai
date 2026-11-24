@@ -15,7 +15,7 @@ interface BotPlanItem {
  * Bot tự động chơi thông minh để kiểm thử cân bằng Màn 1 "Tiệm Giày Hẻm Dốc".
  * Phối hợp đủ 5 món giữ tiệm theo đúng vòng khắc Ngũ Hành (docs/CHU_DE_GIU_TIEM.md).
  */
-const STAGE_1_PLAN: BotPlanItem[] = [
+export const STAGE_1_PLAN: BotPlanItem[] = [
   { padId: 'pad_1', defId: 'fire_tower', preferredBranch: 'A' }, // Túi Hút Ẩm (Thổ) đầu đường — khắc Giọt Mưa (Thủy)
   { padId: 'pad_3', defId: 'wood_tower', preferredBranch: 'A' }, // Dép Tông (Mộc) giữa khúc cua 1 — khắc Cục Bùn (Thổ)
   { padId: 'pad_2', defId: 'metal_tower', preferredBranch: 'A' }, // Bốt Đế Đinh (Kim) đoạn trên — xuyên vỏ & khắc Gián (Mộc)

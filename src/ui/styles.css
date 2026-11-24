@@ -4024,3 +4024,29 @@ img.td-vehicle-ico { object-fit: contain; }
 .td-map-card-sub { font-size: 9px; }
 .td-first-tip { position: absolute; left: 50%; top: 62px; transform: translateX(-50%); max-width: 92%; padding: 6px 12px; border-radius: 12px; background: rgba(43, 26, 18, 0.92); color: #fff3d6; font-size: 13px; font-weight: 800; text-align: center; pointer-events: none; z-index: 40; animation: tdTipIn 0.25s ease-out; }
 @keyframes tdTipIn { from { opacity: 0; transform: translate(-50%, -6px); } to { opacity: 1; transform: translate(-50%, 0); } }
+
+/* ===== Chế độ LIVE TikTok (Claude, game/liveMode.ts) ===== */
+#gp-live { position: fixed; inset: 0; pointer-events: none; z-index: 9000; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; color: #fff3d6; }
+#gp-live .gp-live-top { position: absolute; left: 8px; right: 8px; top: 62px; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 800; text-shadow: 0 1px 2px #000; }
+#gp-live .gp-live-dot { flex: none; padding: 2px 8px; border-radius: 6px; background: #e8344e; color: #fff; }
+#gp-live .gp-live-dot.demo { background: #7a5cff; }
+#gp-live .gp-live-stage { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#gp-live .gp-live-score { flex: none; }
+#gp-live .gp-live-hint { position: absolute; left: 8px; right: 8px; top: 86px; font-size: 11px; font-weight: 700; opacity: 0.85; text-shadow: 0 1px 2px #000; }
+#gp-live .gp-live-board { position: absolute; right: 6px; top: 108px; width: 132px; padding: 6px 8px; border-radius: 10px; background: rgba(20, 12, 8, 0.62); font-size: 11px; }
+#gp-live .gp-live-board-title { font-weight: 900; margin-bottom: 3px; color: #ffd76a; }
+#gp-live .gp-live-row { display: flex; gap: 4px; align-items: center; line-height: 1.5; }
+#gp-live .gp-live-row b { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
+#gp-live .gp-live-row i { font-style: normal; color: #ff9fb2; font-weight: 900; }
+#gp-live .gp-live-feed { position: absolute; left: 6px; bottom: 112px; width: min(58%, 260px); display: flex; flex-direction: column; gap: 4px; }
+#gp-live .gp-live-msg { padding: 3px 8px; border-radius: 10px; background: rgba(20, 12, 8, 0.55); font-size: 11px; line-height: 1.35; animation: gpLiveIn 0.25s ease-out; }
+#gp-live .gp-live-msg b { color: #ffd76a; margin-right: 4px; }
+#gp-live .gp-live-banner { position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%) scale(0.8); max-width: 90%; padding: 10px 16px; border-radius: 14px; background: rgba(43, 26, 18, 0.92); font-size: 16px; font-weight: 900; text-align: center; opacity: 0; transition: opacity 0.25s, transform 0.25s; }
+#gp-live .gp-live-banner.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+#gp-live .gp-live-hearts { position: absolute; right: 8px; bottom: 120px; width: 70px; height: 260px; }
+#gp-live .gp-live-hearts span { position: absolute; bottom: 0; font-size: 22px; animation: gpLiveHeart 2.1s ease-out forwards; }
+#gp-live .gp-live-ctrl { position: absolute; left: 6px; right: auto; top: auto; bottom: 78px; transform: none; display: flex; gap: 6px; pointer-events: auto; opacity: 0.55; }
+#gp-live .gp-live-ctrl:hover, #gp-live .gp-live-ctrl:active { opacity: 1; }
+#gp-live .gp-live-ctrl button { border: 0; border-radius: 10px; padding: 5px 9px; background: rgba(20, 12, 8, 0.8); color: #fff3d6; font-size: 12px; font-weight: 800; cursor: pointer; }
+@keyframes gpLiveIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes gpLiveHeart { 0% { opacity: 0; transform: translateY(0) scale(0.6); } 15% { opacity: 1; } 100% { opacity: 0; transform: translateY(-240px) scale(1.2) rotate(-12deg); } }

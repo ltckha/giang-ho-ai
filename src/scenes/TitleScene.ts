@@ -1,3 +1,4 @@
+import { isLiveActive, startLive, stopLive } from '../game/liveMode';
 import Phaser from 'phaser';
 import { ALL_ELEMENTS, ELEMENT_COUNTERS, ELEMENT_GENERATES, ELEMENT_INFO } from '../core/elements';
 import {
@@ -124,12 +125,20 @@ export class TitleScene extends Phaser.Scene {
   private weatherGfx: Phaser.GameObjects.Graphics | null = null;
   private reduceMotion = false;
   private hashChangeHandler: (() => void) | null = null;
+  private static liveAutoStarted = false;
 
   constructor() {
     super({ key: SCENE_KEYS.TITLE });
   }
 
   public create(): void {
+    // LIVE TikTok (Claude): ?live=1 vào thẳng; về màn chính thì tắt LIVE
+    if (isLiveActive()) stopLive();
+    if (typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('live') === '1' && !TitleScene.liveAutoStarted) {
+      TitleScene.liveAutoStarted = true;
+      startLive(this.scene);
+      return;
+    }
     // Lối vào thử phố thật / trùm phố: thêm #<mã màn> vào link (vd #street_pho_ca_phe) — Claude
     const hashStage = typeof window !== 'undefined' ? window.location.hash.replace('#', '') : '';
     if (hashStage && hashStage in STAGES && (hashStage.startsWith('street_') || hashStage === 'stage_4')) {
@@ -285,6 +294,7 @@ export class TitleScene extends Phaser.Scene {
             <button type="button" id="btn-toggle-sfx" data-testid="btn-toggle-sfx" class="td-icon-btn ${sound.isMuted() ? 'muted' : ''}" aria-label="Tiếng">${sound.isMuted() ? '🔕' : '🔊'}</button>
             <button type="button" id="btn-open-gear" data-testid="btn-open-gear" class="td-icon-btn" aria-label="Trang bị">🎒</button>
             <button type="button" id="btn-open-help" data-testid="btn-open-help" class="td-icon-btn" aria-label="Hướng dẫn">?</button>
+            ${ownerOpenAll ? `<button type="button" id="btn-start-live" data-testid="btn-start-live" class="td-icon-btn" aria-label="Phát LIVE: máy tự chơi">📺</button>` : ''}
           </div>
         </div>
         <div class="td-home-map td-dalat-map-stage" id="td-street-tabs" data-testid="street-tabs"></div>
@@ -575,6 +585,11 @@ export class TitleScene extends Phaser.Scene {
       root.querySelector<HTMLDivElement>(id)?.removeAttribute('hidden');
     };
     root.querySelector('#btn-open-gear')?.addEventListener('click', () => openSheet('#td-gear-sheet'));
+    root.querySelector('#btn-start-live')?.addEventListener('click', () => {
+      sound.playUiClick();
+      this.unmountOverlay();
+      startLive(this.scene);
+    });
     // Chế độ chủ: bấm giữ chữ "Gọn Phố" 3 giây → bật / tắt mở hết màn (Claude)
     const heading = root.querySelector<HTMLElement>('.td-title-heading');
     if (heading) {
