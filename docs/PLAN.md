@@ -104,6 +104,12 @@ Game hiện là **thủ thành Gọn Phố** (đặt món giữ tiệm, ngũ hà
 4. **Chạy thử không cần TikTok:** giả lập bình luận, tim, quà.
 5. **Test:** lớp đọc sự kiện giả lập; máy chơi không kẹt, không đứng yên quá lâu.
 
+### Đưa game lên mạng (anh Kha chốt 24/11 chiều)
+1. **Chỗ đưa game lên: Cloudflare Pages**, dùng chung tài khoản Cloudflare anh đang có (tên miền giayhainancy.vn). Anh muốn xem bên Gọn (dự án ~/Developer/Gon trên máy anh, phiên GỌN 2026T46) chuyển qua dùng chung luôn — Claude phiên này không đọc được thư mục đó, đã soạn câu hỏi cho phiên GỌN.
+2. **Bỏ bước 10–20 người quen chơi thử riêng:** có link công khai → đăng video → LIVE, người chơi đến dần.
+3. **Góp ý: lấy từ bình luận video và LIVE** (không lập nhóm Zalo).
+- Kế hoạch triển khai: chờ anh nói "làm".
+
 ### Tiến độ LIVE (Claude 24/11)
 - **Kênh phát: @gon.simpli** (anh Kha chốt 24/11) — cùng kênh đăng video game.
 - **Thứ tự (anh Kha chốt 24/11): chuẩn bị kỹ hết → đăng video một thời gian, kênh ổn → mới lên LIVE.** Chưa cài gì lên máy anh cho tới lúc đó.
