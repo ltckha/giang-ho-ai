@@ -52,7 +52,7 @@ export function saveMusicMuted(muted: boolean): void {
   writeBoolPref(MUSIC_MUTED_KEY, muted);
 }
 
-const REAL_STREET_LOADOUT_PREFIX = 'gon_tiem_real_street_loadout_v1_';
+export const REAL_STREET_LOADOUT_PREFIX = 'gon_tiem_real_street_loadout_v1_';
 
 export function loadRealStreetLoadout(stageId: string, allowed: string[], size: number): string[] | null {
   if (typeof window === 'undefined') return null;

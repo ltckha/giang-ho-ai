@@ -1,3 +1,4 @@
+import { exportSaveCode, importSaveCode, hasProgress, requestPersistentStorage, isInstalledApp, isIOS, canPromptInstall, promptInstall } from '../game/saveCode';
 import { isLiveActive, startLive, stopLive } from '../game/liveMode';
 import Phaser from 'phaser';
 import { ALL_ELEMENTS, ELEMENT_COUNTERS, ELEMENT_GENERATES, ELEMENT_INFO } from '../core/elements';
@@ -300,6 +301,7 @@ export class TitleScene extends Phaser.Scene {
             ${ownerOpenAll ? `<button type="button" id="btn-start-live" data-testid="btn-start-live" class="td-icon-btn" aria-label="Phát LIVE: máy tự chơi">📺</button>` : ''}
           </div>
         </div>
+        <div id="td-install-nudge"></div>
         <div class="td-home-map td-dalat-map-stage" id="td-street-tabs" data-testid="street-tabs"></div>
 
         <section class="td-street-section ${this.reduceMotion ? 'no-anim' : ''}" data-testid="shop-street">
@@ -334,6 +336,14 @@ export class TitleScene extends Phaser.Scene {
         <div class="td-sheet-layer" id="td-help-sheet" data-testid="td-help-sheet" hidden>
           <div class="td-sheet-panel">
             <button type="button" class="td-close-btn td-sheet-close" data-close-sheet aria-label="Đóng">✕</button>
+            <div class="td-save-box" data-testid="td-save-box">
+              <div class="td-save-title">💾 Chơi tiếp ở máy khác</div>
+              <div class="td-save-row">
+                <button type="button" class="td-save-btn" id="btn-save-export" data-testid="btn-save-export">📤 Lấy mã</button>
+                <button type="button" class="td-save-btn" id="btn-save-import-open" data-testid="btn-save-import-open">📥 Dán mã</button>
+              </div>
+              <div id="td-save-area"></div>
+            </div>
             <div class="td-help-pages">${helpHtml}</div>
             <div class="td-element-guide" id="td-element-guide" data-testid="td-element-guide"></div>
           </div>
@@ -582,6 +592,87 @@ export class TitleScene extends Phaser.Scene {
       root.querySelector<HTMLDivElement>(id)?.removeAttribute('hidden');
     };
     root.querySelector('#btn-open-gear')?.addEventListener('click', () => openSheet('#td-gear-sheet'));
+
+    /* ===== 💾 Mã lưu + nhắc đưa ra màn hình chính (Claude 24/11) ===== */
+    requestPersistentStorage();
+    const saveArea = root.querySelector<HTMLDivElement>('#td-save-area');
+    root.querySelector('#btn-save-export')?.addEventListener('click', async () => {
+      sound.playUiClick();
+      if (!saveArea) return;
+      if (!hasProgress()) {
+        saveArea.innerHTML = `<div class="td-save-msg">Chưa có gì để lưu — chơi 1 màn trước nhé.</div>`;
+        return;
+      }
+      const code = await exportSaveCode();
+      saveArea.innerHTML = `
+        <textarea class="td-save-code" id="td-save-code-out" data-testid="td-save-code-out" readonly rows="3"></textarea>
+        <div class="td-save-row"><button type="button" class="td-save-btn primary" id="btn-save-copy">📋 Chép mã</button></div>
+        <div class="td-save-msg">Dán mã này ở máy mới (📥). Mã cũ không tự cập nhật — đổi máy lần nào lấy mã lần đó.</div>`;
+      const ta = saveArea.querySelector<HTMLTextAreaElement>('#td-save-code-out')!;
+      ta.value = code;
+      saveArea.querySelector('#btn-save-copy')?.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(code);
+        } catch {
+          ta.select();
+          document.execCommand('copy');
+        }
+        const b = saveArea.querySelector<HTMLButtonElement>('#btn-save-copy');
+        if (b) b.textContent = '✔ Đã chép';
+      });
+    });
+    root.querySelector('#btn-save-import-open')?.addEventListener('click', () => {
+      sound.playUiClick();
+      if (!saveArea) return;
+      saveArea.innerHTML = `
+        <textarea class="td-save-code" id="td-save-code-in" data-testid="td-save-code-in" rows="3" placeholder="Dán mã GP1… vào đây"></textarea>
+        <div class="td-save-row"><button type="button" class="td-save-btn primary" id="btn-save-import" data-testid="btn-save-import">✔ Dùng mã này</button></div>
+        <div class="td-save-msg" id="td-save-import-msg">Tiến độ trên máy này sẽ được thay bằng tiến độ trong mã.</div>`;
+      saveArea.querySelector('#btn-save-import')?.addEventListener('click', async () => {
+        const raw = saveArea.querySelector<HTMLTextAreaElement>('#td-save-code-in')?.value ?? '';
+        const msg = saveArea.querySelector<HTMLDivElement>('#td-save-import-msg');
+        if (hasProgress() && !window.confirm('Thay tiến độ trên máy này bằng mã vừa dán?')) return;
+        const res = await importSaveCode(raw);
+        if (!res.ok) {
+          if (msg) msg.textContent = res.reason === 'broken' ? '⚠️ Mã bị thiếu hoặc sai một chữ — chép lại đủ mã nhé.' : '⚠️ Đây không phải mã lưu Gọn Phố.';
+          return;
+        }
+        if (msg) msg.textContent = '✔ Đã chuyển tiến độ!';
+        this.unmountOverlay();
+        this.scene.restart();
+      });
+    });
+
+    // Nhắc đưa game ra màn hình chính: sau khi thắng màn đầu, chưa cài, chưa tắt nhắc
+    const nudge = root.querySelector<HTMLDivElement>('#td-install-nudge');
+    const nudgeOff = (() => {
+      try {
+        return localStorage.getItem('gonpho_nhac_cai') === 'tat';
+      } catch {
+        return true;
+      }
+    })();
+    if (nudge && !nudgeOff && !isInstalledApp() && (save.starsByStage.stage_1 ?? 0) > 0) {
+      const how = canPromptInstall()
+        ? `<button type="button" class="td-save-btn primary" id="btn-install-now" data-testid="btn-install-now">📲 Cài</button>`
+        : isIOS()
+          ? `<span class="td-nudge-how">Bấm <b>⬆︎ Chia sẻ</b> → <b>Thêm vào MH chính</b></span>`
+          : `<span class="td-nudge-how">Menu <b>⋮</b> → <b>Thêm vào màn hình chính</b></span>`;
+      nudge.innerHTML = `<div class="td-install-nudge" data-testid="td-install-nudge">
+          <span class="td-nudge-txt">📲 Đưa game ra màn hình chính để giữ tiến độ</span>
+          ${how}
+          <button type="button" class="td-close-btn td-nudge-close" id="btn-nudge-close" aria-label="Tắt nhắc">✕</button>
+        </div>`;
+      nudge.querySelector('#btn-install-now')?.addEventListener('click', () => void promptInstall());
+      nudge.querySelector('#btn-nudge-close')?.addEventListener('click', () => {
+        try {
+          localStorage.setItem('gonpho_nhac_cai', 'tat');
+        } catch {
+          /* bỏ qua */
+        }
+        nudge.innerHTML = '';
+      });
+    }
     root.querySelector('#btn-start-live')?.addEventListener('click', () => {
       sound.playUiClick();
       this.unmountOverlay();

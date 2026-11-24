@@ -1570,4 +1570,33 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     expect(consoleErrors).toEqual([]);
     expect(externalRequests).toEqual([]);
   });
+
+  test('Việc 11 — 💾 Mã lưu: lấy mã ở máy A, dán ở máy B ra đúng tiến độ; mã sai báo lỗi', async ({ page, browser }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    await page.evaluate(() => {
+      localStorage.setItem('giang_ho_ai_thu_thanh_save_v1', JSON.stringify({ version: 1, unlockedStage: 3, starsByStage: { stage_1: 3, stage_2: 2 }, bestLivesByStage: {}, tutorialDone: true, updatedAt: 1 }));
+    });
+    await page.reload();
+    await expect(page.getByTestId('td-install-nudge')).toBeVisible();
+    await page.getByTestId('btn-open-help').click();
+    await page.getByTestId('btn-save-export').click();
+    const code = await page.getByTestId('td-save-code-out').inputValue();
+    expect(code.startsWith('GP1.')).toBe(true);
+    const saveA = await page.evaluate(() => localStorage.getItem('giang_ho_ai_thu_thanh_save_v1'));
+
+    const ctxB = await browser.newContext({ viewport: { width: 390, height: 844 } });
+    const pb = await ctxB.newPage();
+    pb.on('dialog', (d) => d.accept());
+    await pb.goto(page.url());
+    await pb.getByTestId('btn-open-help').click();
+    await pb.getByTestId('btn-save-import-open').click();
+    await pb.getByTestId('td-save-code-in').fill(code.slice(0, -2) + 'zz');
+    await pb.getByTestId('btn-save-import').click();
+    await expect(pb.locator('#td-save-import-msg')).toContainText('thiếu hoặc sai');
+    await pb.getByTestId('td-save-code-in').fill(code);
+    await pb.getByTestId('btn-save-import').click();
+    await expect.poll(() => pb.evaluate(() => localStorage.getItem('giang_ho_ai_thu_thanh_save_v1'))).toBe(saveA);
+    await ctxB.close();
+  });
 });

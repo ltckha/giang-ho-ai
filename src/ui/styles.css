@@ -4066,3 +4066,17 @@ img.td-vehicle-ico { object-fit: contain; }
 .td-gear-item-list .td-gear-preview { font-size: 12px; padding: 2px 6px; }
 .td-gear-item-list .td-gear-empty-box { grid-column: 1 / -1; }
 .td-sup-need { display: inline-flex; align-items: center; gap: 4px; }
+
+/* 💾 Mã lưu + nhắc cài (Claude 24/11) */
+.td-save-box { margin: 4px 0 12px; padding: 10px 12px; border-radius: 14px; background: #fff4dc; border: 2px solid #e6c98f; }
+.td-save-title { font-weight: 900; font-size: 15px; color: #4a2e1a; margin-bottom: 8px; }
+.td-save-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0; }
+.td-save-btn { flex: 1; min-width: 120px; border: 2px solid #2b1a12; border-radius: 12px; padding: 8px 10px; background: #fffaf0; color: #2b1a12; font-weight: 900; font-size: 14px; cursor: pointer; }
+.td-save-btn.primary { background: #2f9e57; color: #fff; }
+.td-save-code { width: 100%; font: 12px ui-monospace, monospace; border-radius: 10px; border: 2px solid #c9a96e; padding: 6px; background: #fff; color: #2b1a12; word-break: break-all; user-select: text; -webkit-user-select: text; }
+.td-save-msg { font-size: 12px; color: #6b4a2e; margin-top: 4px; }
+.td-install-nudge { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 6px 0; padding: 8px 10px; border-radius: 12px; background: #e9f7ee; border: 2px solid #2f9e57; color: #1f4f33; font-size: 13px; font-weight: 800; }
+.td-nudge-txt { flex: 1 1 160px; }
+.td-nudge-how { font-weight: 700; }
+.td-install-nudge .td-save-btn { flex: none; min-width: 0; padding: 4px 10px; }
+.td-nudge-close { position: static; width: 28px; height: 28px; font-size: 14px; }
