@@ -28,7 +28,7 @@ _Mỗi phố: các màn tiệm rồi màn phố đánh trùm. Tập trung Đà L
 - ✅ Xong — 6 món + 11 mặt tiền tiệm còn thiếu hình (đợt 30) · Spark
 - ✅ Xong — Màn phố (đánh trùm) 6 phố đồng bộ nét Spark: đường liền mạch, mặt tiền chính các tiệm của phố dọc 2 bên · Claude + Spark (đợt 31)
 - ✅ Xong — Hiệu ứng chiêu xe (7 xe) · Spark đợt 31 + Claude
-- ⏳ Chờ anh — Mở trùm phố sau 4–5 tiệm (tiệm còn lại thành màn phụ) · Anh Kha quyết
+- ✅ Xong — Mở trùm phố sau 4–5 tiệm (tiệm còn lại thành màn phụ) · Claude (anh chốt 25/11)
 
 ## Chặng 3: Gọn giao diện cho người mới
 _Nhìn vào là chơi ngay, ít chữ, cần thì bấm ?._
@@ -59,8 +59,8 @@ _Có link công khai; người chơi đến dần qua video và LIVE, góp ý qu
 ## Chặng 5: Video kênh Gọn
 _Làm sau khi game hoàn thiện (anh Kha chốt 24/11). Clip 15–30 giây máy tự chơi, anh duyệt từng bài._
 
-- ⏳ Chờ anh — Đổi link sang gon-pho.pages.dev trước video đầu · Anh Kha quyết
-- ⏳ Chờ anh — Bật đếm người chơi ẩn danh Cloudflare · Anh Kha quyết
+- ⏳ Chờ anh — Đổi link sang gon-pho.pages.dev trước video đầu · Anh Kha làm (đã chốt)
+- ⏳ Chờ anh — Bật đếm người chơi ẩn danh Cloudflare · Anh Kha làm (đã chốt)
 - ✅ Xong — Công cụ quay video máy tự chơi + 3 clip thử · Claude
 - ✅ Xong — Quay được mọi màn (62 màn), máy tự chơi thắng 62/62 · Claude
 - ⬜ Chưa làm — Clip có tiếng trong game · Claude
@@ -85,6 +85,7 @@ _Món là sản phẩm thật, nút Xem món này ra link Shopee của anh._
 ## Chặng 8: Mở rộng
 _Thành phố khác, màn theo thời sự, chợ ứng dụng._
 
+- ✅ Xong — Dừng thêm phố mới / màn sự kiện cho tới khi đăng video · Anh Kha chốt 25/11
 - ⏳ Chờ anh — Phố Chợ Bến Thành (Sài Gòn): làm xong, đang cất · Anh Kha mở lại khi muốn
 - ⬜ Chưa làm — Màn sự kiện theo thời sự (bão, ngập, nắng nóng, lễ hội) · Claude + Spark, anh duyệt
 - ⬜ Chưa làm — Chế độ Vô tận · Claude
