@@ -4125,3 +4125,8 @@ a.td-save-btn { text-decoration: none; text-align: center; display: inline-flex;
 .td-save-qr-wrap { display: flex; justify-content: center; margin: 6px 0; }
 .td-save-qr { width: min(240px, 70vw); height: auto; border-radius: 10px; border: 2px solid #c9a96e; user-select: auto; -webkit-user-select: auto; -webkit-touch-callout: default; }
 .td-save-sub { margin-top: 10px; font-size: 13px; opacity: 0.85; }
+/* Hình Spark đợt 32: mặt tiền Phố Dốc + biểu tượng nút */
+.td-shoprow-thumb img.td-thumb-locked { filter: grayscale(0.85) brightness(0.8); }
+.td-ui-ico-sm { width: 20px; height: 20px; object-fit: contain; vertical-align: middle; }
+.td-shoprow-hard { background: none; border: none; padding: 0; margin-right: 2px; }
+.td-shoprow-hard .td-ui-ico-sm { width: 30px; height: 30px; }

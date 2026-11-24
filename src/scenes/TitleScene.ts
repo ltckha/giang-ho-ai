@@ -381,7 +381,7 @@ export class TitleScene extends Phaser.Scene {
             <div class="td-save-box" data-testid="td-save-box">
               <div class="td-save-title">🔑 Lưu 1 lần — tự đồng bộ</div>
               <div class="td-save-row">
-                <button type="button" class="td-save-btn primary" id="btn-key-qr" data-testid="btn-key-qr">🔑 QR chìa khoá</button>
+                <button type="button" class="td-save-btn primary" id="btn-key-qr" data-testid="btn-key-qr"><img class="td-ui-ico-sm" src="./assets/ui/ui_luu.webp" alt="" /> QR chìa khoá</button>
               </div>
               <div id="td-key-area"></div>
               <div class="td-save-title td-save-sub">💾 Cách khác (không cần mạng)</div>
@@ -696,8 +696,8 @@ export class TitleScene extends Phaser.Scene {
       // Gọn (anh Kha 25/11): gửi LINK — bấm link ở máy khác là tự chuyển tiến độ
       saveArea.innerHTML = `
         <div class="td-save-row">
-          ${typeof navigator.share === 'function' ? `<button type="button" class="td-save-btn primary" id="btn-save-share" data-testid="btn-save-share">📤 Gửi</button>` : ''}
-          <a class="td-save-btn" id="btn-save-email" data-testid="btn-save-email" href="mailto:?subject=${encodeURIComponent('Mã lưu Gọn Phố')}&body=${encodeURIComponent(`Bấm link này trên máy khác để chơi tiếp Gọn Phố:\n${link}`)}">📧 Email</a>
+          ${typeof navigator.share === 'function' ? `<button type="button" class="td-save-btn primary" id="btn-save-share" data-testid="btn-save-share"><img class="td-ui-ico-sm" src="./assets/ui/ui_gui.webp" alt="" /> Gửi</button>` : ''}
+          <a class="td-save-btn" id="btn-save-email" data-testid="btn-save-email" href="mailto:?subject=${encodeURIComponent('Mã lưu Gọn Phố')}&body=${encodeURIComponent(`Bấm link này trên máy khác để chơi tiếp Gọn Phố:\n${link}`)}"><img class="td-ui-ico-sm" src="./assets/ui/ui_email.webp" alt="" /> Email</a>
           <button type="button" class="td-save-btn" id="btn-save-copy">📋 Chép link</button>
         </div>
         <div class="td-save-qr-wrap"><img class="td-save-qr" id="td-save-qr" data-testid="td-save-qr" alt="Mã QR lưu tiến độ" /></div>
@@ -1085,11 +1085,11 @@ export class TitleScene extends Phaser.Scene {
             data-testid="stage${shop.order}-card" data-shop-id="${shop.stageId}">
             <div class="td-shoprow-main">
               <div class="td-shoprow-hit" role="button" tabindex="0" data-select-shop="${shop.stageId}" data-testid="street-shop-${shop.order}" aria-expanded="${isSelected ? 'true' : 'false'}">
-                <span class="td-shoprow-thumb">${renderShopFacadeSvg(shop, unlocked)}</span>
+                <span class="td-shoprow-thumb">${({ stage_1: 'giay', stage_2: 'banh', stage_3: 'hoa' } as Record<string, string>)[shop.stageId] ? `<img class="${unlocked ? '' : 'td-thumb-locked'}" src="./assets/ui/mat_tien_doc_${({ stage_1: 'giay', stage_2: 'banh', stage_3: 'hoa' } as Record<string, string>)[shop.stageId]}.webp" alt="" />` : renderShopFacadeSvg(shop, unlocked)}</span>
                 <span class="td-shoprow-name"><b>${shop.isBoss ? '👹' : shop.order}</b><span class="td-stage-name">${stage.name}</span></span>
                 <span class="td-shoprow-stars" data-testid="stage${shop.order}-stars">${!unlocked ? '🔒<span class="td-sr">Khóa</span>' : stars > 0 ? '★'.repeat(stars) : ''}</span>
               </div>
-${unlocked && stars >= 3 && !STAGES[shop.stageId]?.loadoutSize ? `<button type="button" class="td-shoprow-hard" data-hard-stage="${shop.stageId}" data-testid="btn-hard-${shop.stageId}" title="Chế độ Khó: quái nhiều máu, nhanh hơn — rơi thêm đồ">★${(curHard[shop.stageId] ?? 0) > 0 ? '✓' : ''}</button>` : ''}
+${unlocked && stars >= 3 && !STAGES[shop.stageId]?.loadoutSize ? `<button type="button" class="td-shoprow-hard" data-hard-stage="${shop.stageId}" data-testid="btn-hard-${shop.stageId}" title="Chế độ Khó: quái nhiều máu, nhanh hơn — rơi thêm đồ"><img class="td-ui-ico-sm" src="./assets/ui/ui_kho.webp" alt="★" />${(curHard[shop.stageId] ?? 0) > 0 ? '✓' : ''}</button>` : ''}
               <button type="button" class="td-shoprow-play" id="btn-start-stage-${shop.order}" data-testid="btn-start-stage-${shop.order}"
                 data-launch-stage="${shop.stageId}" ${unlocked ? '' : 'disabled aria-disabled="true"'}>${unlocked ? '▶' : '🔒'}<span class="td-sr">${openBtnLabel}</span></button>
             </div>
@@ -1188,7 +1188,7 @@ ${unlocked && stars >= 3 && !STAGES[shop.stageId]?.loadoutSize ? `<button type="
                   <span class="td-shoprow-name"><b>${isBossRow ? '👹' : st.shopIndex}</b><span>${name}</span></span>
                   <span class="td-shoprow-stars">${!open ? '🔒' : stars > 0 ? '★'.repeat(stars) : ''}</span>
                 </div>
-${open && stars >= 3 && !st.loadoutSize ? `<button type="button" class="td-shoprow-hard" data-hard-stage="${st.id}" data-testid="btn-hard-${st.id}" title="Chế độ Khó: quái nhiều máu, nhanh hơn — rơi thêm đồ">★${(curHard[st.id] ?? 0) > 0 ? '✓' : ''}</button>` : ''}
+${open && stars >= 3 && !st.loadoutSize ? `<button type="button" class="td-shoprow-hard" data-hard-stage="${st.id}" data-testid="btn-hard-${st.id}" title="Chế độ Khó: quái nhiều máu, nhanh hơn — rơi thêm đồ"><img class="td-ui-ico-sm" src="./assets/ui/ui_kho.webp" alt="★" />${(curHard[st.id] ?? 0) > 0 ? '✓' : ''}</button>` : ''}
                 <button type="button" class="td-shoprow-play" data-play-real="${st.id}"
                   ${isSel ? `id="btn-start-${activeStreet.id}" data-testid="btn-start-${activeStreet.id}"` : `data-testid="btn-play-${st.id}"`}
                   ${open ? '' : 'disabled aria-disabled="true"'}>${open ? '▶' : '🔒'}</button>
