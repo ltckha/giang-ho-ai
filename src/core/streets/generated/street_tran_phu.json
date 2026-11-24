@@ -4940,6 +4940,7 @@
   },
   "gt_tran_phu_chao_dem": {
    "id": "gt_tran_phu_chao_dem",
+   "art": "noi_chao",
    "element": "thuy",
    "role": "slow_aura",
    "roleLabel": "Phun sương làm chậm",
@@ -5036,6 +5037,7 @@
   },
   "gt_tran_phu_com_ga": {
    "id": "gt_tran_phu_com_ga",
+   "art": "noi_com_ga",
    "element": "hoa",
    "role": "single_far",
    "roleLabel": "Ném nhanh 1 con tầm xa",

@@ -5474,6 +5474,7 @@
   },
   "gt_hoang_dieu_com_ga": {
    "id": "gt_hoang_dieu_com_ga",
+   "art": "dao_chat_ga",
    "element": "kim",
    "role": "single_far",
    "roleLabel": "Ném nhanh 1 con tầm xa",
@@ -5516,6 +5517,7 @@
   },
   "gt_hoang_dieu_chao_gang": {
    "id": "gt_hoang_dieu_chao_gang",
+   "art": "chao_gang",
    "element": "kim",
    "role": "heavy_slow",
    "roleLabel": "Đạp mạnh, chậm, xuyên vỏ",
@@ -5614,6 +5616,7 @@
   },
   "gt_hoang_dieu_pizza": {
    "id": "gt_hoang_dieu_pizza",
+   "art": "de_pizza",
    "element": "tho",
    "role": "aoe_splash",
    "roleLabel": "Quăng gói hút ẩm đánh lan",

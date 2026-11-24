@@ -5720,6 +5720,7 @@
   },
   "gt_nguyen_van_troi_com_tam": {
    "id": "gt_nguyen_van_troi_com_tam",
+   "art": "kep_suon",
    "element": "kim",
    "role": "heavy_slow",
    "roleLabel": "Đạp mạnh, chậm, xuyên vỏ",
