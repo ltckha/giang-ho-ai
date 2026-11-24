@@ -4,7 +4,7 @@
  "balance": {
   "randomWinWithExpectedGear": 0.3333333333333333,
   "botWinRate": 1,
-  "botLivesAvg": 15.333333333333334,
+  "botLivesAvg": 16,
   "gearTier": "after_street_1"
  },
  "stage": {
@@ -685,9 +685,9 @@
  },
  "shops": [
   {
-   "hpMultiplier": 0.8,
+   "hpMultiplier": 1.1,
    "balance": {
-    "randomWinWithExpectedGear": 0.6458333333333334,
+    "randomWinWithExpectedGear": 0.6666666666666666,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.65
@@ -697,1517 +697,6 @@
     "stageNumber": 11,
     "name": "Lẩu Bò Nhà Gỗ Sim Tím",
     "subtitle": "Phố Lẩu Bò Hoàng Diệu · tiệm 1/9: Quán lẩu bò nhà gỗ",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 60,
-       "y": 520
-      },
-      {
-       "x": 60,
-       "y": 120
-      },
-      {
-       "x": 180,
-       "y": 120
-      },
-      {
-       "x": 180,
-       "y": 380
-      },
-      {
-       "x": 300,
-       "y": 380
-      },
-      {
-       "x": 300,
-       "y": 60
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 240,
-      "y": 290
-     },
-     {
-      "id": "pad_2",
-      "x": 120,
-      "y": 210
-     },
-     {
-      "id": "pad_3",
-      "x": 220,
-      "y": 150
-     },
-     {
-      "id": "pad_4",
-      "x": 120,
-      "y": 80
-     },
-     {
-      "id": "pad_5",
-      "x": 130,
-      "y": 320
-     },
-     {
-      "id": "pad_6",
-      "x": 220,
-      "y": 420
-     },
-     {
-      "id": "pad_7",
-      "x": 240,
-      "y": 210
-     },
-     {
-      "id": "pad_8",
-      "x": 120,
-      "y": 390
-     },
-     {
-      "id": "pad_9",
-      "x": 200,
-      "y": 80
-     },
-     {
-      "id": "pad_10",
-      "x": 290,
-      "y": 420
-     },
-     {
-      "id": "pad_11",
-      "x": 160,
-      "y": 440
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
-      "title": "Đợt 1: Bụi Bột",
-      "mainElements": [
-       "tho"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 0.8
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Ruồi Bếp",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 0.92
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Chuột Cống & Ruồi Bếp",
-      "mainElements": [
-       "kim",
-       "moc"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 2,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.04
-       },
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.04
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Bụi Bột & Chuột Cống",
-      "mainElements": [
-       "tho",
-       "kim"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.16
-       },
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 2,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.16
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Ruồi Bếp & Bụi Bột & Chuột Cống",
-      "mainElements": [
-       "moc",
-       "tho",
-       "kim"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.36
-       },
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.36
-       },
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.36
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Chuột Cống & Ruồi Bếp & Bụi Bột",
-      "mainElements": [
-       "kim",
-       "moc",
-       "tho"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.6
-       },
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.6
-       },
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.6
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Bụi Bột & Chuột Cống & Ruồi Bếp",
-      "mainElements": [
-       "tho",
-       "kim",
-       "moc"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.92
-       },
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.92
-       },
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.92
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "tho",
-       "moc",
-       "kim"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.24
-       },
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.24
-       },
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.24
-       }
-      ]
-     }
-    ],
-    "towerIds": [
-     "gt_hoang_dieu_lau_nha_go",
-     "gt_hoang_dieu_lau_hem",
-     "gt_hoang_dieu_xiu_mai",
-     "gt_hoang_dieu_banh_trang",
-     "gt_hoang_dieu_com_ga",
-     "gt_hoang_dieu_chao_gang",
-     "gt_hoang_dieu_yaourt",
-     "gt_hoang_dieu_pizza",
-     "gt_hoang_dieu_khach_san",
-     "gt_don_kep_rac",
-     "gt_don_choi_tre",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_don_bao_cat"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_hoang_dieu_lau_nha_go",
-     "gt_hoang_dieu_com_ga",
-     "gt_hoang_dieu_yaourt",
-     "gt_hoang_dieu_lau_hem",
-     "gt_don_den_duong",
-     "gt_hoang_dieu_xiu_mai"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "lau_nha_go",
-      "name": "Lẩu Bò Nhà Gỗ Sim Tím",
-      "type": "Quán lẩu bò nhà gỗ",
-      "trait": "nồi lẩu bò bốc hơi, gần như luôn kín khách",
-      "towerId": "gt_hoang_dieu_lau_nha_go"
-     },
-     {
-      "key": "lau_hem",
-      "name": "Lẩu Bò Hẻm Sương Mai",
-      "type": "Quán lẩu bò trong hẻm",
-      "trait": "khách địa phương, đông 6–8 giờ tối",
-      "towerId": "gt_hoang_dieu_lau_hem"
-     },
-     {
-      "key": "xiu_mai",
-      "name": "Bánh Mì Xíu Mại Hồ Sương",
-      "type": "Quán bánh mì xíu mại buổi sáng",
-      "trait": "chén xíu mại, ổ bánh nóng, hết hàng lúc 9 giờ",
-      "towerId": "gt_hoang_dieu_xiu_mai"
-     },
-     {
-      "key": "banh_trang",
-      "name": "Bánh Tráng Nướng Dã Quỳ",
-      "type": "Bánh tráng nướng bếp than buổi chiều",
-      "trait": "bếp than đỏ từ 2 giờ chiều",
-      "towerId": "gt_hoang_dieu_banh_trang"
-     },
-     {
-      "key": "com_ga",
-      "name": "Cơm Gà Lan Hài",
-      "type": "Quán cơm gà đầu phố",
-      "trait": "cơm gà xé, nước mắm gừng",
-      "towerId": "gt_hoang_dieu_com_ga"
-     },
-     {
-      "key": "chao_gang",
-      "name": "Bánh Mì Chảo Mây Ngàn",
-      "type": "Quán bánh mì chảo xíu mại",
-      "trait": "chảo gang nóng buổi sáng",
-      "towerId": "gt_hoang_dieu_chao_gang"
-     },
-     {
-      "key": "yaourt",
-      "name": "Yaourt Phô Mai Cỏ Hồng",
-      "type": "Quầy yaourt phô mai",
-      "trait": "yaourt phô mai không quá ngọt",
-      "towerId": "gt_hoang_dieu_yaourt"
-     },
-     {
-      "key": "pizza",
-      "name": "Tiệm Pizza Nhỏ Đồi Chè",
-      "type": "Tiệm pizza nhỏ đầu phố",
-      "trait": "lò nướng nhỏ",
-      "towerId": "gt_hoang_dieu_pizza"
-     },
-     {
-      "key": "khach_san",
-      "name": "Khách Sạn Phố Núi Mai Anh Đào",
-      "type": "Khách sạn mặt tiền",
-      "trait": "phòng nhìn ra phố lẩu",
-      "towerId": "gt_hoang_dieu_khach_san"
-     }
-    ],
-    "streetId": "street_hoang_dieu",
-    "shopIndex": 1,
-    "featuredTowerId": "gt_hoang_dieu_lau_nha_go",
-    "facadeKey": "mat_tien_lau_nha_go",
-    "roomStyle": "quan_an",
-    "roomLayout": "chu_u",
-    "botPlan": [
-     {
-      "padId": "pad_1",
-      "defId": "gt_hoang_dieu_lau_nha_go",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_2",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_hoang_dieu_yaourt",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "gt_hoang_dieu_xiu_mai",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "gt_hoang_dieu_lau_nha_go",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_hoang_dieu_lau_hem",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_hoang_dieu_xiu_mai",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_hoang_dieu_lau_nha_go",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_hoang_dieu_lau_hem",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 1.1,
-   "balance": {
-    "randomWinWithExpectedGear": 0.6875,
-    "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
-    "target": 0.6125
-   },
-   "stage": {
-    "id": "street_hoang_dieu_t2",
-    "stageNumber": 12,
-    "name": "Lẩu Bò Hẻm Sương Mai",
-    "subtitle": "Phố Lẩu Bò Hoàng Diệu · tiệm 2/9: Quán lẩu bò trong hẻm",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 300,
-       "y": 520
-      },
-      {
-       "x": 300,
-       "y": 120
-      },
-      {
-       "x": 180,
-       "y": 120
-      },
-      {
-       "x": 180,
-       "y": 380
-      },
-      {
-       "x": 60,
-       "y": 380
-      },
-      {
-       "x": 60,
-       "y": 60
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 120,
-      "y": 290
-     },
-     {
-      "id": "pad_2",
-      "x": 240,
-      "y": 210
-     },
-     {
-      "id": "pad_3",
-      "x": 140,
-      "y": 150
-     },
-     {
-      "id": "pad_4",
-      "x": 120,
-      "y": 420
-     },
-     {
-      "id": "pad_5",
-      "x": 220,
-      "y": 340
-     },
-     {
-      "id": "pad_6",
-      "x": 230,
-      "y": 80
-     },
-     {
-      "id": "pad_7",
-      "x": 120,
-      "y": 210
-     },
-     {
-      "id": "pad_8",
-      "x": 210,
-      "y": 420
-     },
-     {
-      "id": "pad_9",
-      "x": 150,
-      "y": 80
-     },
-     {
-      "id": "pad_10",
-      "x": 220,
-      "y": 270
-     },
-     {
-      "id": "pad_11",
-      "x": 50,
-      "y": 420
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
-      "title": "Đợt 1: Ruồi Bếp",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.1
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Than Nướng Bén Lửa",
-      "mainElements": [
-       "hoa"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 3,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.26
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Chuột Cống & Than Nướng Bén Lửa",
-      "mainElements": [
-       "kim",
-       "hoa"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 2,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.43
-       },
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 3,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.43
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Ruồi Bếp & Chuột Cống",
-      "mainElements": [
-       "moc",
-       "kim"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.6
-       },
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 2,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.6
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Than Nướng Bén Lửa & Ruồi Bếp & Chuột Cống",
-      "mainElements": [
-       "hoa",
-       "moc",
-       "kim"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.87
-       },
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.87
-       },
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.87
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Chuột Cống & Than Nướng Bén Lửa & Ruồi Bếp",
-      "mainElements": [
-       "kim",
-       "hoa",
-       "moc"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.2
-       },
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.2
-       },
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.2
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Ruồi Bếp & Chuột Cống & Than Nướng Bén Lửa",
-      "mainElements": [
-       "moc",
-       "kim",
-       "hoa"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.64
-       },
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.64
-       },
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.64
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "moc",
-       "hoa",
-       "kim"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.08
-       },
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.08
-       },
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.08
-       }
-      ]
-     }
-    ],
-    "towerIds": [
-     "gt_hoang_dieu_lau_hem",
-     "gt_hoang_dieu_lau_nha_go",
-     "gt_hoang_dieu_xiu_mai",
-     "gt_hoang_dieu_banh_trang",
-     "gt_hoang_dieu_com_ga",
-     "gt_hoang_dieu_chao_gang",
-     "gt_hoang_dieu_yaourt",
-     "gt_hoang_dieu_pizza",
-     "gt_hoang_dieu_khach_san",
-     "gt_don_kep_rac",
-     "gt_don_choi_tre",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_don_bao_cat"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_hoang_dieu_lau_hem",
-     "gt_hoang_dieu_com_ga",
-     "gt_hoang_dieu_yaourt",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_hoang_dieu_xiu_mai"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "lau_nha_go",
-      "name": "Lẩu Bò Nhà Gỗ Sim Tím",
-      "type": "Quán lẩu bò nhà gỗ",
-      "trait": "nồi lẩu bò bốc hơi, gần như luôn kín khách",
-      "towerId": "gt_hoang_dieu_lau_nha_go"
-     },
-     {
-      "key": "lau_hem",
-      "name": "Lẩu Bò Hẻm Sương Mai",
-      "type": "Quán lẩu bò trong hẻm",
-      "trait": "khách địa phương, đông 6–8 giờ tối",
-      "towerId": "gt_hoang_dieu_lau_hem"
-     },
-     {
-      "key": "xiu_mai",
-      "name": "Bánh Mì Xíu Mại Hồ Sương",
-      "type": "Quán bánh mì xíu mại buổi sáng",
-      "trait": "chén xíu mại, ổ bánh nóng, hết hàng lúc 9 giờ",
-      "towerId": "gt_hoang_dieu_xiu_mai"
-     },
-     {
-      "key": "banh_trang",
-      "name": "Bánh Tráng Nướng Dã Quỳ",
-      "type": "Bánh tráng nướng bếp than buổi chiều",
-      "trait": "bếp than đỏ từ 2 giờ chiều",
-      "towerId": "gt_hoang_dieu_banh_trang"
-     },
-     {
-      "key": "com_ga",
-      "name": "Cơm Gà Lan Hài",
-      "type": "Quán cơm gà đầu phố",
-      "trait": "cơm gà xé, nước mắm gừng",
-      "towerId": "gt_hoang_dieu_com_ga"
-     },
-     {
-      "key": "chao_gang",
-      "name": "Bánh Mì Chảo Mây Ngàn",
-      "type": "Quán bánh mì chảo xíu mại",
-      "trait": "chảo gang nóng buổi sáng",
-      "towerId": "gt_hoang_dieu_chao_gang"
-     },
-     {
-      "key": "yaourt",
-      "name": "Yaourt Phô Mai Cỏ Hồng",
-      "type": "Quầy yaourt phô mai",
-      "trait": "yaourt phô mai không quá ngọt",
-      "towerId": "gt_hoang_dieu_yaourt"
-     },
-     {
-      "key": "pizza",
-      "name": "Tiệm Pizza Nhỏ Đồi Chè",
-      "type": "Tiệm pizza nhỏ đầu phố",
-      "trait": "lò nướng nhỏ",
-      "towerId": "gt_hoang_dieu_pizza"
-     },
-     {
-      "key": "khach_san",
-      "name": "Khách Sạn Phố Núi Mai Anh Đào",
-      "type": "Khách sạn mặt tiền",
-      "trait": "phòng nhìn ra phố lẩu",
-      "towerId": "gt_hoang_dieu_khach_san"
-     }
-    ],
-    "streetId": "street_hoang_dieu",
-    "shopIndex": 2,
-    "featuredTowerId": "gt_hoang_dieu_lau_hem",
-    "facadeKey": "mat_tien_lau_hem",
-    "roomStyle": "quan_an",
-    "roomLayout": "chu_u_lat",
-    "botPlan": [
-     {
-      "padId": "pad_1",
-      "defId": "gt_hoang_dieu_lau_hem",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_2",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_hoang_dieu_yaourt",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "gt_hoang_dieu_xiu_mai",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "gt_hoang_dieu_lau_hem",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_don_voi_xit",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_hoang_dieu_xiu_mai",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_hoang_dieu_lau_hem",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_don_voi_xit",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 1.4,
-   "balance": {
-    "randomWinWithExpectedGear": 0.6041666666666666,
-    "botWinRate": 1,
-    "botLivesAvg": 20.333333333333332,
-    "target": 0.5750000000000001
-   },
-   "stage": {
-    "id": "street_hoang_dieu_t3",
-    "stageNumber": 13,
-    "name": "Bánh Mì Xíu Mại Hồ Sương",
-    "subtitle": "Phố Lẩu Bò Hoàng Diệu · tiệm 3/9: Quán bánh mì xíu mại buổi sáng",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 180,
-       "y": 520
-      },
-      {
-       "x": 180,
-       "y": 450
-      },
-      {
-       "x": 300,
-       "y": 450
-      },
-      {
-       "x": 300,
-       "y": 90
-      },
-      {
-       "x": 60,
-       "y": 90
-      },
-      {
-       "x": 60,
-       "y": 330
-      },
-      {
-       "x": 200,
-       "y": 330
-      },
-      {
-       "x": 200,
-       "y": 210
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 200,
-      "y": 410
-     },
-     {
-      "id": "pad_2",
-      "x": 240,
-      "y": 360
-     },
-     {
-      "id": "pad_3",
-      "x": 110,
-      "y": 270
-     },
-     {
-      "id": "pad_4",
-      "x": 130,
-      "y": 410
-     },
-     {
-      "id": "pad_5",
-      "x": 160,
-      "y": 230
-     },
-     {
-      "id": "pad_6",
-      "x": 240,
-      "y": 290
-     },
-     {
-      "id": "pad_7",
-      "x": 240,
-      "y": 180
-     },
-     {
-      "id": "pad_8",
-      "x": 120,
-      "y": 180
-     },
-     {
-      "id": "pad_9",
-      "x": 140,
-      "y": 480
-     },
-     {
-      "id": "pad_10",
-      "x": 160,
-      "y": 130
-     },
-     {
-      "id": "pad_11",
-      "x": 70,
-      "y": 370
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
-      "title": "Đợt 1: Than Nướng Bén Lửa",
-      "mainElements": [
-       "hoa"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 3,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.4
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Chuột Cống",
-      "mainElements": [
-       "kim"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 2,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.61
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Nước Đá Tan & Chuột Cống",
-      "mainElements": [
-       "thuy",
-       "kim"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_6",
-        "count": 1,
-        "intervalSec": 2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.82
-       },
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 2,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.82
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Than Nướng Bén Lửa & Nước Đá Tan",
-      "mainElements": [
-       "hoa",
-       "thuy"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.03
-       },
-       {
-        "enemyId": "ge_hoang_dieu_6",
-        "count": 1,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.03
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Chuột Cống & Than Nướng Bén Lửa & Nước Đá Tan",
-      "mainElements": [
-       "kim",
-       "hoa",
-       "thuy"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.38
-       },
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.38
-       },
-       {
-        "enemyId": "ge_hoang_dieu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.38
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Nước Đá Tan & Chuột Cống & Than Nướng Bén Lửa",
-      "mainElements": [
-       "thuy",
-       "kim",
-       "hoa"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.8
-       },
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.8
-       },
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.8
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Than Nướng Bén Lửa & Nước Đá Tan & Chuột Cống",
-      "mainElements": [
-       "hoa",
-       "thuy",
-       "kim"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       },
-       {
-        "enemyId": "ge_hoang_dieu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       },
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "hoa",
-       "kim",
-       "thuy"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.92
-       },
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.92
-       },
-       {
-        "enemyId": "ge_hoang_dieu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.92
-       }
-      ]
-     }
-    ],
-    "towerIds": [
-     "gt_hoang_dieu_xiu_mai",
-     "gt_hoang_dieu_lau_nha_go",
-     "gt_hoang_dieu_lau_hem",
-     "gt_hoang_dieu_banh_trang",
-     "gt_hoang_dieu_com_ga",
-     "gt_hoang_dieu_chao_gang",
-     "gt_hoang_dieu_yaourt",
-     "gt_hoang_dieu_pizza",
-     "gt_hoang_dieu_khach_san",
-     "gt_don_kep_rac",
-     "gt_don_choi_tre",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_don_bao_cat"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_hoang_dieu_xiu_mai",
-     "gt_hoang_dieu_com_ga",
-     "gt_hoang_dieu_yaourt",
-     "gt_hoang_dieu_lau_hem",
-     "gt_don_den_duong",
-     "gt_hoang_dieu_pizza"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "lau_nha_go",
-      "name": "Lẩu Bò Nhà Gỗ Sim Tím",
-      "type": "Quán lẩu bò nhà gỗ",
-      "trait": "nồi lẩu bò bốc hơi, gần như luôn kín khách",
-      "towerId": "gt_hoang_dieu_lau_nha_go"
-     },
-     {
-      "key": "lau_hem",
-      "name": "Lẩu Bò Hẻm Sương Mai",
-      "type": "Quán lẩu bò trong hẻm",
-      "trait": "khách địa phương, đông 6–8 giờ tối",
-      "towerId": "gt_hoang_dieu_lau_hem"
-     },
-     {
-      "key": "xiu_mai",
-      "name": "Bánh Mì Xíu Mại Hồ Sương",
-      "type": "Quán bánh mì xíu mại buổi sáng",
-      "trait": "chén xíu mại, ổ bánh nóng, hết hàng lúc 9 giờ",
-      "towerId": "gt_hoang_dieu_xiu_mai"
-     },
-     {
-      "key": "banh_trang",
-      "name": "Bánh Tráng Nướng Dã Quỳ",
-      "type": "Bánh tráng nướng bếp than buổi chiều",
-      "trait": "bếp than đỏ từ 2 giờ chiều",
-      "towerId": "gt_hoang_dieu_banh_trang"
-     },
-     {
-      "key": "com_ga",
-      "name": "Cơm Gà Lan Hài",
-      "type": "Quán cơm gà đầu phố",
-      "trait": "cơm gà xé, nước mắm gừng",
-      "towerId": "gt_hoang_dieu_com_ga"
-     },
-     {
-      "key": "chao_gang",
-      "name": "Bánh Mì Chảo Mây Ngàn",
-      "type": "Quán bánh mì chảo xíu mại",
-      "trait": "chảo gang nóng buổi sáng",
-      "towerId": "gt_hoang_dieu_chao_gang"
-     },
-     {
-      "key": "yaourt",
-      "name": "Yaourt Phô Mai Cỏ Hồng",
-      "type": "Quầy yaourt phô mai",
-      "trait": "yaourt phô mai không quá ngọt",
-      "towerId": "gt_hoang_dieu_yaourt"
-     },
-     {
-      "key": "pizza",
-      "name": "Tiệm Pizza Nhỏ Đồi Chè",
-      "type": "Tiệm pizza nhỏ đầu phố",
-      "trait": "lò nướng nhỏ",
-      "towerId": "gt_hoang_dieu_pizza"
-     },
-     {
-      "key": "khach_san",
-      "name": "Khách Sạn Phố Núi Mai Anh Đào",
-      "type": "Khách sạn mặt tiền",
-      "trait": "phòng nhìn ra phố lẩu",
-      "towerId": "gt_hoang_dieu_khach_san"
-     }
-    ],
-    "streetId": "street_hoang_dieu",
-    "shopIndex": 3,
-    "featuredTowerId": "gt_hoang_dieu_xiu_mai",
-    "facadeKey": "mat_tien_xiu_mai",
-    "roomStyle": "quan_an",
-    "roomLayout": "xoan",
-    "botPlan": [
-     {
-      "padId": "pad_1",
-      "defId": "gt_hoang_dieu_xiu_mai",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_2",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_hoang_dieu_yaourt",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "gt_hoang_dieu_pizza",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "gt_hoang_dieu_xiu_mai",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_hoang_dieu_lau_hem",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_hoang_dieu_pizza",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_hoang_dieu_xiu_mai",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_hoang_dieu_lau_hem",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 1.4,
-   "balance": {
-    "randomWinWithExpectedGear": 0.5,
-    "botWinRate": 1,
-    "botLivesAvg": 18.666666666666668,
-    "target": 0.5375000000000001
-   },
-   "stage": {
-    "id": "street_hoang_dieu_t4",
-    "stageNumber": 14,
-    "name": "Bánh Tráng Nướng Dã Quỳ",
-    "subtitle": "Phố Lẩu Bò Hoàng Diệu · tiệm 4/9: Bánh tráng nướng bếp than buổi chiều",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -2301,6 +790,1560 @@
       "id": "pad_11",
       "x": 130,
       "y": 50
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Bụi Bột",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.26
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Chuột Cống & Ruồi Bếp",
+      "mainElements": [
+       "kim",
+       "moc"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.43
+       },
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.43
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Bụi Bột & Chuột Cống",
+      "mainElements": [
+       "tho",
+       "kim"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       },
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Ruồi Bếp & Bụi Bột & Chuột Cống",
+      "mainElements": [
+       "moc",
+       "tho",
+       "kim"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       },
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       },
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Chuột Cống & Ruồi Bếp & Bụi Bột",
+      "mainElements": [
+       "kim",
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       },
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       },
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Bụi Bột & Chuột Cống & Ruồi Bếp",
+      "mainElements": [
+       "tho",
+       "kim",
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       },
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       },
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "tho",
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "gt_hoang_dieu_lau_nha_go",
+     "gt_hoang_dieu_lau_hem",
+     "gt_hoang_dieu_xiu_mai",
+     "gt_hoang_dieu_banh_trang",
+     "gt_hoang_dieu_com_ga",
+     "gt_hoang_dieu_chao_gang",
+     "gt_hoang_dieu_pizza",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong",
+     "gt_nguyen_van_troi_com_tam",
+     "gt_phan_dinh_phung_pho",
+     "gt_tang_bat_ho_banh_can",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tran_phu_banh_mi_ga",
+     "gt_tran_phu_chao_dem",
+     "gt_tran_phu_com_ga",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_hoang_dieu_lau_nha_go",
+     "gt_hoang_dieu_com_ga",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_hoang_dieu_lau_hem",
+     "gt_don_den_duong",
+     "gt_hoang_dieu_xiu_mai"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "lau_nha_go",
+      "name": "Lẩu Bò Nhà Gỗ Sim Tím",
+      "type": "Quán lẩu bò nhà gỗ",
+      "trait": "nồi lẩu bò bốc hơi, gần như luôn kín khách",
+      "towerId": "gt_hoang_dieu_lau_nha_go"
+     },
+     {
+      "key": "lau_hem",
+      "name": "Lẩu Bò Hẻm Sương Mai",
+      "type": "Quán lẩu bò trong hẻm",
+      "trait": "khách địa phương, đông 6–8 giờ tối",
+      "towerId": "gt_hoang_dieu_lau_hem"
+     },
+     {
+      "key": "xiu_mai",
+      "name": "Bánh Mì Xíu Mại Hồ Sương",
+      "type": "Quán bánh mì xíu mại buổi sáng",
+      "trait": "chén xíu mại, ổ bánh nóng, hết hàng lúc 9 giờ",
+      "towerId": "gt_hoang_dieu_xiu_mai"
+     },
+     {
+      "key": "banh_trang",
+      "name": "Bánh Tráng Nướng Dã Quỳ",
+      "type": "Bánh tráng nướng bếp than buổi chiều",
+      "trait": "bếp than đỏ từ 2 giờ chiều",
+      "towerId": "gt_hoang_dieu_banh_trang"
+     },
+     {
+      "key": "com_ga",
+      "name": "Cơm Gà Lan Hài",
+      "type": "Quán cơm gà đầu phố",
+      "trait": "cơm gà xé, nước mắm gừng",
+      "towerId": "gt_hoang_dieu_com_ga"
+     },
+     {
+      "key": "chao_gang",
+      "name": "Bánh Mì Chảo Mây Ngàn",
+      "type": "Quán bánh mì chảo xíu mại",
+      "trait": "chảo gang nóng buổi sáng",
+      "towerId": "gt_hoang_dieu_chao_gang"
+     },
+     {
+      "key": "yaourt",
+      "name": "Yaourt Phô Mai Cỏ Hồng",
+      "type": "Quầy yaourt phô mai",
+      "trait": "yaourt phô mai không quá ngọt",
+      "towerId": "gt_hoang_dieu_yaourt"
+     },
+     {
+      "key": "pizza",
+      "name": "Tiệm Pizza Nhỏ Đồi Chè",
+      "type": "Tiệm pizza nhỏ đầu phố",
+      "trait": "lò nướng nhỏ",
+      "towerId": "gt_hoang_dieu_pizza"
+     },
+     {
+      "key": "khach_san",
+      "name": "Khách Sạn Phố Núi Mai Anh Đào",
+      "type": "Khách sạn mặt tiền",
+      "trait": "phòng nhìn ra phố lẩu",
+      "towerId": "gt_hoang_dieu_khach_san"
+     }
+    ],
+    "streetId": "street_hoang_dieu",
+    "shopIndex": 1,
+    "featuredTowerId": "gt_hoang_dieu_lau_nha_go",
+    "facadeKey": "mat_tien_lau_nha_go",
+    "roomStyle": "quan_an",
+    "roomLayout": "xoan_lat",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_hoang_dieu_lau_nha_go",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_tang_bat_ho_goc_cay",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_hoang_dieu_xiu_mai",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_hoang_dieu_lau_nha_go",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_hoang_dieu_lau_hem",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_hoang_dieu_xiu_mai",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_hoang_dieu_lau_nha_go",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_hoang_dieu_lau_hem",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 0.9,
+   "balance": {
+    "randomWinWithExpectedGear": 0.625,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.6125
+   },
+   "stage": {
+    "id": "street_hoang_dieu_t2",
+    "stageNumber": 12,
+    "name": "Lẩu Bò Hẻm Sương Mai",
+    "subtitle": "Phố Lẩu Bò Hoàng Diệu · tiệm 2/9: Quán lẩu bò trong hẻm",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 70,
+       "y": 520
+      },
+      {
+       "x": 70,
+       "y": 360
+      },
+      {
+       "x": 180,
+       "y": 300
+      },
+      {
+       "x": 180,
+       "y": 70
+      }
+     ],
+     [
+      {
+       "x": 290,
+       "y": 520
+      },
+      {
+       "x": 290,
+       "y": 360
+      },
+      {
+       "x": 180,
+       "y": 300
+      },
+      {
+       "x": 180,
+       "y": 70
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 160,
+      "y": 360
+     },
+     {
+      "id": "pad_2",
+      "x": 130,
+      "y": 270
+     },
+     {
+      "id": "pad_3",
+      "x": 230,
+      "y": 270
+     },
+     {
+      "id": "pad_4",
+      "x": 220,
+      "y": 380
+     },
+     {
+      "id": "pad_5",
+      "x": 140,
+      "y": 200
+     },
+     {
+      "id": "pad_6",
+      "x": 220,
+      "y": 200
+     },
+     {
+      "id": "pad_7",
+      "x": 110,
+      "y": 410
+     },
+     {
+      "id": "pad_8",
+      "x": 70,
+      "y": 300
+     },
+     {
+      "id": "pad_9",
+      "x": 290,
+      "y": 300
+     },
+     {
+      "id": "pad_10",
+      "x": 120,
+      "y": 140
+     },
+     {
+      "id": "pad_11",
+      "x": 220,
+      "y": 130
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.9
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Than Nướng Bén Lửa",
+      "mainElements": [
+       "hoa"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 1,
+        "hpScale": 1.03
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Chuột Cống & Than Nướng Bén Lửa",
+      "mainElements": [
+       "kim",
+       "hoa"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.17
+       },
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 1,
+        "hpScale": 1.17
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Ruồi Bếp & Chuột Cống",
+      "mainElements": [
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 1,
+        "hpScale": 1.31
+       },
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.31
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Than Nướng Bén Lửa & Ruồi Bếp & Chuột Cống",
+      "mainElements": [
+       "hoa",
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       },
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 1,
+        "hpScale": 1.53
+       },
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Chuột Cống & Than Nướng Bén Lửa & Ruồi Bếp",
+      "mainElements": [
+       "kim",
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 1,
+        "hpScale": 1.8
+       },
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       },
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 1,
+        "hpScale": 1.8
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Ruồi Bếp & Chuột Cống & Than Nướng Bén Lửa",
+      "mainElements": [
+       "moc",
+       "kim",
+       "hoa"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       },
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 1,
+        "hpScale": 2.16
+       },
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "hoa",
+       "kim"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 1,
+        "hpScale": 2.52
+       },
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       },
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 1,
+        "hpScale": 2.52
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "gt_hoang_dieu_lau_hem",
+     "gt_hoang_dieu_lau_nha_go",
+     "gt_hoang_dieu_xiu_mai",
+     "gt_hoang_dieu_banh_trang",
+     "gt_hoang_dieu_com_ga",
+     "gt_hoang_dieu_chao_gang",
+     "gt_hoang_dieu_pizza",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong",
+     "gt_nguyen_van_troi_com_tam",
+     "gt_phan_dinh_phung_pho",
+     "gt_tang_bat_ho_banh_can",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tran_phu_banh_mi_ga",
+     "gt_tran_phu_chao_dem",
+     "gt_tran_phu_com_ga",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_hoang_dieu_lau_hem",
+     "gt_hoang_dieu_com_ga",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tran_phu_chao_dem",
+     "gt_don_den_duong",
+     "gt_hoang_dieu_xiu_mai"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "lau_nha_go",
+      "name": "Lẩu Bò Nhà Gỗ Sim Tím",
+      "type": "Quán lẩu bò nhà gỗ",
+      "trait": "nồi lẩu bò bốc hơi, gần như luôn kín khách",
+      "towerId": "gt_hoang_dieu_lau_nha_go"
+     },
+     {
+      "key": "lau_hem",
+      "name": "Lẩu Bò Hẻm Sương Mai",
+      "type": "Quán lẩu bò trong hẻm",
+      "trait": "khách địa phương, đông 6–8 giờ tối",
+      "towerId": "gt_hoang_dieu_lau_hem"
+     },
+     {
+      "key": "xiu_mai",
+      "name": "Bánh Mì Xíu Mại Hồ Sương",
+      "type": "Quán bánh mì xíu mại buổi sáng",
+      "trait": "chén xíu mại, ổ bánh nóng, hết hàng lúc 9 giờ",
+      "towerId": "gt_hoang_dieu_xiu_mai"
+     },
+     {
+      "key": "banh_trang",
+      "name": "Bánh Tráng Nướng Dã Quỳ",
+      "type": "Bánh tráng nướng bếp than buổi chiều",
+      "trait": "bếp than đỏ từ 2 giờ chiều",
+      "towerId": "gt_hoang_dieu_banh_trang"
+     },
+     {
+      "key": "com_ga",
+      "name": "Cơm Gà Lan Hài",
+      "type": "Quán cơm gà đầu phố",
+      "trait": "cơm gà xé, nước mắm gừng",
+      "towerId": "gt_hoang_dieu_com_ga"
+     },
+     {
+      "key": "chao_gang",
+      "name": "Bánh Mì Chảo Mây Ngàn",
+      "type": "Quán bánh mì chảo xíu mại",
+      "trait": "chảo gang nóng buổi sáng",
+      "towerId": "gt_hoang_dieu_chao_gang"
+     },
+     {
+      "key": "yaourt",
+      "name": "Yaourt Phô Mai Cỏ Hồng",
+      "type": "Quầy yaourt phô mai",
+      "trait": "yaourt phô mai không quá ngọt",
+      "towerId": "gt_hoang_dieu_yaourt"
+     },
+     {
+      "key": "pizza",
+      "name": "Tiệm Pizza Nhỏ Đồi Chè",
+      "type": "Tiệm pizza nhỏ đầu phố",
+      "trait": "lò nướng nhỏ",
+      "towerId": "gt_hoang_dieu_pizza"
+     },
+     {
+      "key": "khach_san",
+      "name": "Khách Sạn Phố Núi Mai Anh Đào",
+      "type": "Khách sạn mặt tiền",
+      "trait": "phòng nhìn ra phố lẩu",
+      "towerId": "gt_hoang_dieu_khach_san"
+     }
+    ],
+    "streetId": "street_hoang_dieu",
+    "shopIndex": 2,
+    "featuredTowerId": "gt_hoang_dieu_lau_hem",
+    "facadeKey": "mat_tien_lau_hem",
+    "roomStyle": "quan_an",
+    "roomLayout": "hai_cua",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_hoang_dieu_lau_hem",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_tang_bat_ho_goc_cay",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_hoang_dieu_xiu_mai",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_hoang_dieu_lau_hem",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_tran_phu_chao_dem",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_hoang_dieu_xiu_mai",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_hoang_dieu_lau_hem",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_tran_phu_chao_dem",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 0.9,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4791666666666667,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.5750000000000001
+   },
+   "stage": {
+    "id": "street_hoang_dieu_t3",
+    "stageNumber": 13,
+    "name": "Bánh Mì Xíu Mại Hồ Sương",
+    "subtitle": "Phố Lẩu Bò Hoàng Diệu · tiệm 3/9: Quán bánh mì xíu mại buổi sáng",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 360,
+       "y": 450
+      },
+      {
+       "x": 250,
+       "y": 450
+      },
+      {
+       "x": 250,
+       "y": 300
+      },
+      {
+       "x": 100,
+       "y": 300
+      },
+      {
+       "x": 100,
+       "y": 170
+      },
+      {
+       "x": 250,
+       "y": 170
+      },
+      {
+       "x": 250,
+       "y": 70
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 180,
+      "y": 230
+     },
+     {
+      "id": "pad_2",
+      "x": 160,
+      "y": 130
+     },
+     {
+      "id": "pad_3",
+      "x": 290,
+      "y": 360
+     },
+     {
+      "id": "pad_4",
+      "x": 190,
+      "y": 360
+     },
+     {
+      "id": "pad_5",
+      "x": 250,
+      "y": 220
+     },
+     {
+      "id": "pad_6",
+      "x": 200,
+      "y": 80
+     },
+     {
+      "id": "pad_7",
+      "x": 330,
+      "y": 410
+     },
+     {
+      "id": "pad_8",
+      "x": 60,
+      "y": 210
+     },
+     {
+      "id": "pad_9",
+      "x": 210,
+      "y": 430
+     },
+     {
+      "id": "pad_10",
+      "x": 290,
+      "y": 130
+     },
+     {
+      "id": "pad_11",
+      "x": 60,
+      "y": 280
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Than Nướng Bén Lửa",
+      "mainElements": [
+       "hoa"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.9
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Chuột Cống",
+      "mainElements": [
+       "kim"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.03
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Nước Đá Tan & Chuột Cống",
+      "mainElements": [
+       "thuy",
+       "kim"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_6",
+        "count": 1,
+        "intervalSec": 2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.17
+       },
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.17
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Than Nướng Bén Lửa & Nước Đá Tan",
+      "mainElements": [
+       "hoa",
+       "thuy"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.31
+       },
+       {
+        "enemyId": "ge_hoang_dieu_6",
+        "count": 1,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.31
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Chuột Cống & Than Nướng Bén Lửa & Nước Đá Tan",
+      "mainElements": [
+       "kim",
+       "hoa",
+       "thuy"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       },
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       },
+       {
+        "enemyId": "ge_hoang_dieu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.53
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Nước Đá Tan & Chuột Cống & Than Nướng Bén Lửa",
+      "mainElements": [
+       "thuy",
+       "kim",
+       "hoa"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       },
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       },
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Than Nướng Bén Lửa & Nước Đá Tan & Chuột Cống",
+      "mainElements": [
+       "hoa",
+       "thuy",
+       "kim"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       },
+       {
+        "enemyId": "ge_hoang_dieu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       },
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.16
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "hoa",
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       },
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       },
+       {
+        "enemyId": "ge_hoang_dieu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.52
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "gt_hoang_dieu_xiu_mai",
+     "gt_hoang_dieu_lau_nha_go",
+     "gt_hoang_dieu_lau_hem",
+     "gt_hoang_dieu_banh_trang",
+     "gt_hoang_dieu_com_ga",
+     "gt_hoang_dieu_chao_gang",
+     "gt_hoang_dieu_pizza",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong",
+     "gt_nguyen_van_troi_com_tam",
+     "gt_nguyen_van_troi_banh_mi",
+     "gt_phan_dinh_phung_pho",
+     "gt_tang_bat_ho_banh_can",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tran_phu_banh_mi_ga",
+     "gt_tran_phu_chao_dem",
+     "gt_tran_phu_com_ga",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_hoang_dieu_xiu_mai",
+     "gt_hoang_dieu_com_ga",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_hoang_dieu_lau_hem",
+     "gt_don_den_duong",
+     "gt_hoang_dieu_pizza"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "lau_nha_go",
+      "name": "Lẩu Bò Nhà Gỗ Sim Tím",
+      "type": "Quán lẩu bò nhà gỗ",
+      "trait": "nồi lẩu bò bốc hơi, gần như luôn kín khách",
+      "towerId": "gt_hoang_dieu_lau_nha_go"
+     },
+     {
+      "key": "lau_hem",
+      "name": "Lẩu Bò Hẻm Sương Mai",
+      "type": "Quán lẩu bò trong hẻm",
+      "trait": "khách địa phương, đông 6–8 giờ tối",
+      "towerId": "gt_hoang_dieu_lau_hem"
+     },
+     {
+      "key": "xiu_mai",
+      "name": "Bánh Mì Xíu Mại Hồ Sương",
+      "type": "Quán bánh mì xíu mại buổi sáng",
+      "trait": "chén xíu mại, ổ bánh nóng, hết hàng lúc 9 giờ",
+      "towerId": "gt_hoang_dieu_xiu_mai"
+     },
+     {
+      "key": "banh_trang",
+      "name": "Bánh Tráng Nướng Dã Quỳ",
+      "type": "Bánh tráng nướng bếp than buổi chiều",
+      "trait": "bếp than đỏ từ 2 giờ chiều",
+      "towerId": "gt_hoang_dieu_banh_trang"
+     },
+     {
+      "key": "com_ga",
+      "name": "Cơm Gà Lan Hài",
+      "type": "Quán cơm gà đầu phố",
+      "trait": "cơm gà xé, nước mắm gừng",
+      "towerId": "gt_hoang_dieu_com_ga"
+     },
+     {
+      "key": "chao_gang",
+      "name": "Bánh Mì Chảo Mây Ngàn",
+      "type": "Quán bánh mì chảo xíu mại",
+      "trait": "chảo gang nóng buổi sáng",
+      "towerId": "gt_hoang_dieu_chao_gang"
+     },
+     {
+      "key": "yaourt",
+      "name": "Yaourt Phô Mai Cỏ Hồng",
+      "type": "Quầy yaourt phô mai",
+      "trait": "yaourt phô mai không quá ngọt",
+      "towerId": "gt_hoang_dieu_yaourt"
+     },
+     {
+      "key": "pizza",
+      "name": "Tiệm Pizza Nhỏ Đồi Chè",
+      "type": "Tiệm pizza nhỏ đầu phố",
+      "trait": "lò nướng nhỏ",
+      "towerId": "gt_hoang_dieu_pizza"
+     },
+     {
+      "key": "khach_san",
+      "name": "Khách Sạn Phố Núi Mai Anh Đào",
+      "type": "Khách sạn mặt tiền",
+      "trait": "phòng nhìn ra phố lẩu",
+      "towerId": "gt_hoang_dieu_khach_san"
+     }
+    ],
+    "streetId": "street_hoang_dieu",
+    "shopIndex": 3,
+    "featuredTowerId": "gt_hoang_dieu_xiu_mai",
+    "facadeKey": "mat_tien_xiu_mai",
+    "roomStyle": "quan_an",
+    "roomLayout": "cua_ben_lat",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_hoang_dieu_xiu_mai",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_tang_bat_ho_goc_cay",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_hoang_dieu_pizza",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_hoang_dieu_xiu_mai",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_hoang_dieu_lau_hem",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_hoang_dieu_pizza",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_hoang_dieu_xiu_mai",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_hoang_dieu_lau_hem",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.4,
+   "balance": {
+    "randomWinWithExpectedGear": 0.5625,
+    "botWinRate": 1,
+    "botLivesAvg": 20,
+    "target": 0.5375000000000001
+   },
+   "stage": {
+    "id": "street_hoang_dieu_t4",
+    "stageNumber": 14,
+    "name": "Bánh Tráng Nướng Dã Quỳ",
+    "subtitle": "Phố Lẩu Bò Hoàng Diệu · tiệm 4/9: Bánh tráng nướng bếp than buổi chiều",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 60,
+       "y": 520
+      },
+      {
+       "x": 60,
+       "y": 90
+      },
+      {
+       "x": 300,
+       "y": 90
+      },
+      {
+       "x": 300,
+       "y": 210
+      },
+      {
+       "x": 150,
+       "y": 210
+      },
+      {
+       "x": 150,
+       "y": 330
+      },
+      {
+       "x": 300,
+       "y": 330
+      },
+      {
+       "x": 300,
+       "y": 440
+      },
+      {
+       "x": 200,
+       "y": 440
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 230,
+      "y": 270
+     },
+     {
+      "id": "pad_2",
+      "x": 210,
+      "y": 380
+     },
+     {
+      "id": "pad_3",
+      "x": 210,
+      "y": 150
+     },
+     {
+      "id": "pad_4",
+      "x": 110,
+      "y": 270
+     },
+     {
+      "id": "pad_5",
+      "x": 120,
+      "y": 180
+     },
+     {
+      "id": "pad_6",
+      "x": 290,
+      "y": 290
+     },
+     {
+      "id": "pad_7",
+      "x": 140,
+      "y": 370
+     },
+     {
+      "id": "pad_8",
+      "x": 280,
+      "y": 480
+     },
+     {
+      "id": "pad_9",
+      "x": 330,
+      "y": 240
+     },
+     {
+      "id": "pad_10",
+      "x": 160,
+      "y": 430
+     },
+     {
+      "id": "pad_11",
+      "x": 210,
+      "y": 480
      }
     ],
     "waves": [
@@ -2536,9 +2579,18 @@
      "gt_hoang_dieu_xiu_mai",
      "gt_hoang_dieu_com_ga",
      "gt_hoang_dieu_chao_gang",
-     "gt_hoang_dieu_yaourt",
      "gt_hoang_dieu_pizza",
-     "gt_hoang_dieu_khach_san",
+     "gt_nguyen_van_troi_banh_trang",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong",
+     "gt_nguyen_van_troi_com_tam",
+     "gt_phan_dinh_phung_pho",
+     "gt_tang_bat_ho_banh_can",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tran_phu_banh_mi_ga",
+     "gt_tran_phu_chao_dem",
+     "gt_tran_phu_com_ga",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -2549,7 +2601,7 @@
     "defaultLoadout": [
      "gt_hoang_dieu_banh_trang",
      "gt_hoang_dieu_com_ga",
-     "gt_hoang_dieu_yaourt",
+     "gt_tang_bat_ho_goc_cay",
      "gt_hoang_dieu_lau_hem",
      "gt_don_den_duong",
      "gt_hoang_dieu_xiu_mai"
@@ -2626,7 +2678,7 @@
     "featuredTowerId": "gt_hoang_dieu_banh_trang",
     "facadeKey": "mat_tien_banh_trang",
     "roomStyle": "quan_an",
-    "roomLayout": "xoan_lat",
+    "roomLayout": "chu_e",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -2640,7 +2692,7 @@
      },
      {
       "padId": "pad_3",
-      "defId": "gt_hoang_dieu_yaourt",
+      "defId": "gt_tang_bat_ho_goc_cay",
       "preferredBranch": "A"
      },
      {
@@ -2687,7 +2739,7 @@
    }
   },
   {
-   "hpMultiplier": 1.2,
+   "hpMultiplier": 1.4,
    "balance": {
     "randomWinWithExpectedGear": 0.4791666666666667,
     "botWinRate": 1,
@@ -2704,34 +2756,24 @@
     "paths": [
      [
       {
-       "x": 70,
+       "x": 310,
        "y": 520
       },
       {
-       "x": 70,
-       "y": 360
+       "x": 310,
+       "y": 450
       },
       {
-       "x": 180,
-       "y": 300
+       "x": 50,
+       "y": 370
       },
       {
-       "x": 180,
-       "y": 70
-      }
-     ],
-     [
-      {
-       "x": 290,
-       "y": 520
+       "x": 310,
+       "y": 270
       },
       {
-       "x": 290,
-       "y": 360
-      },
-      {
-       "x": 180,
-       "y": 300
+       "x": 50,
+       "y": 170
       },
       {
        "x": 180,
@@ -2742,58 +2784,58 @@
     "pads": [
      {
       "id": "pad_1",
-      "x": 160,
-      "y": 360
+      "x": 140,
+      "y": 160
      },
      {
       "id": "pad_2",
-      "x": 130,
-      "y": 270
+      "x": 210,
+      "y": 480
      },
      {
       "id": "pad_3",
-      "x": 230,
-      "y": 270
+      "x": 250,
+      "y": 360
      },
      {
       "id": "pad_4",
-      "x": 220,
-      "y": 380
+      "x": 110,
+      "y": 280
      },
      {
       "id": "pad_5",
-      "x": 140,
-      "y": 200
+      "x": 80,
+      "y": 90
      },
      {
       "id": "pad_6",
-      "x": 220,
-      "y": 200
+      "x": 180,
+      "y": 270
      },
      {
       "id": "pad_7",
-      "x": 110,
-      "y": 410
+      "x": 300,
+      "y": 400
      },
      {
       "id": "pad_8",
-      "x": 70,
-      "y": 300
+      "x": 210,
+      "y": 170
      },
      {
       "id": "pad_9",
-      "x": 290,
-      "y": 300
+      "x": 130,
+      "y": 440
      },
      {
       "id": "pad_10",
-      "x": 120,
-      "y": 140
+      "x": 30,
+      "y": 130
      },
      {
       "id": "pad_11",
-      "x": 220,
-      "y": 130
+      "x": 50,
+      "y": 220
      }
     ],
     "waves": [
@@ -2812,7 +2854,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 1.4
        }
       ]
      },
@@ -2830,8 +2872,8 @@
         "count": 2,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 1.38
+        "pathIndex": 0,
+        "hpScale": 1.61
        }
       ]
      },
@@ -2851,15 +2893,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.56
+        "hpScale": 1.82
        },
        {
         "enemyId": "ge_hoang_dieu_2",
         "count": 2,
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 1.56
+        "pathIndex": 0,
+        "hpScale": 1.82
        }
       ]
      },
@@ -2877,8 +2919,8 @@
         "count": 7,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 1.74
+        "pathIndex": 0,
+        "hpScale": 2.03
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -2886,7 +2928,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.74
+        "hpScale": 2.03
        }
       ]
      },
@@ -2905,15 +2947,15 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.04
+        "hpScale": 2.38
        },
        {
         "enemyId": "ge_hoang_dieu_3",
         "count": 5,
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 2.04
+        "pathIndex": 0,
+        "hpScale": 2.38
        }
       ]
      },
@@ -2932,8 +2974,8 @@
         "count": 3,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 2.4
+        "pathIndex": 0,
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -2941,7 +2983,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.8
        }
       ]
      },
@@ -2960,15 +3002,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_hoang_dieu_1",
         "count": 9,
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 2.88
+        "pathIndex": 0,
+        "hpScale": 3.36
        }
       ]
      },
@@ -2988,8 +3030,8 @@
         "count": 9,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 3.36
+        "pathIndex": 0,
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_hoang_dieu_2",
@@ -2997,15 +3039,15 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_hoang_dieu_3",
         "count": 6,
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 3.36
+        "pathIndex": 0,
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -3013,7 +3055,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.92
        }
       ]
      }
@@ -3025,9 +3067,17 @@
      "gt_hoang_dieu_xiu_mai",
      "gt_hoang_dieu_banh_trang",
      "gt_hoang_dieu_chao_gang",
-     "gt_hoang_dieu_yaourt",
      "gt_hoang_dieu_pizza",
-     "gt_hoang_dieu_khach_san",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong",
+     "gt_nguyen_van_troi_com_tam",
+     "gt_phan_dinh_phung_pho",
+     "gt_tang_bat_ho_banh_can",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tran_phu_banh_mi_ga",
+     "gt_tran_phu_chao_dem",
+     "gt_tran_phu_com_ga",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -3038,7 +3088,7 @@
     "defaultLoadout": [
      "gt_hoang_dieu_com_ga",
      "gt_hoang_dieu_chao_gang",
-     "gt_hoang_dieu_yaourt",
+     "gt_tang_bat_ho_goc_cay",
      "gt_hoang_dieu_lau_hem",
      "gt_don_den_duong",
      "gt_hoang_dieu_xiu_mai"
@@ -3115,7 +3165,7 @@
     "featuredTowerId": "gt_hoang_dieu_com_ga",
     "facadeKey": "mat_tien_com_ga",
     "roomStyle": "quan_an",
-    "roomLayout": "hai_cua",
+    "roomLayout": "rang_cua_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -3129,7 +3179,7 @@
      },
      {
       "padId": "pad_3",
-      "defId": "gt_hoang_dieu_yaourt",
+      "defId": "gt_tang_bat_ho_goc_cay",
       "preferredBranch": "A"
      },
      {
@@ -3176,11 +3226,11 @@
    }
   },
   {
-   "hpMultiplier": 1.1,
+   "hpMultiplier": 1.5,
    "balance": {
-    "randomWinWithExpectedGear": 0.5208333333333334,
+    "randomWinWithExpectedGear": 0.4791666666666667,
     "botWinRate": 1,
-    "botLivesAvg": 18,
+    "botLivesAvg": 17.666666666666668,
     "target": 0.4625
    },
    "stage": {
@@ -3188,1017 +3238,6 @@
     "stageNumber": 16,
     "name": "Bánh Mì Chảo Mây Ngàn",
     "subtitle": "Phố Lẩu Bò Hoàng Diệu · tiệm 6/9: Quán bánh mì chảo xíu mại",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 290,
-       "y": 520
-      },
-      {
-       "x": 290,
-       "y": 360
-      },
-      {
-       "x": 180,
-       "y": 300
-      },
-      {
-       "x": 180,
-       "y": 70
-      }
-     ],
-     [
-      {
-       "x": 70,
-       "y": 520
-      },
-      {
-       "x": 70,
-       "y": 360
-      },
-      {
-       "x": 180,
-       "y": 300
-      },
-      {
-       "x": 180,
-       "y": 70
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 160,
-      "y": 360
-     },
-     {
-      "id": "pad_2",
-      "x": 130,
-      "y": 270
-     },
-     {
-      "id": "pad_3",
-      "x": 230,
-      "y": 270
-     },
-     {
-      "id": "pad_4",
-      "x": 220,
-      "y": 380
-     },
-     {
-      "id": "pad_5",
-      "x": 140,
-      "y": 200
-     },
-     {
-      "id": "pad_6",
-      "x": 220,
-      "y": 200
-     },
-     {
-      "id": "pad_7",
-      "x": 110,
-      "y": 410
-     },
-     {
-      "id": "pad_8",
-      "x": 70,
-      "y": 300
-     },
-     {
-      "id": "pad_9",
-      "x": 290,
-      "y": 300
-     },
-     {
-      "id": "pad_10",
-      "x": 120,
-      "y": 140
-     },
-     {
-      "id": "pad_11",
-      "x": 220,
-      "y": 130
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
-      "title": "Đợt 1: Kiến Bu Đường",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_1",
-        "count": 6,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.1
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Bụi Bột",
-      "mainElements": [
-       "tho"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 1.26
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Ruồi Bếp & Bụi Bột",
-      "mainElements": [
-       "moc",
-       "tho"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.43
-       },
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 1.43
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Kiến Bu Đường & Ruồi Bếp",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_1",
-        "count": 7,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 1.6
-       },
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.6
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Kiến Bu Đường & Ruồi Bếp",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_1",
-        "count": 8,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.87
-       },
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 1.87
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Bụi Bột & Than Nướng Bén Lửa",
-      "mainElements": [
-       "tho",
-       "hoa"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 2.2
-       },
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.2
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Ruồi Bếp & Kiến Bu Đường",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.64
-       },
-       {
-        "enemyId": "ge_hoang_dieu_1",
-        "count": 9,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 2.64
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "moc",
-       "tho",
-       "hoa"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_1",
-        "count": 9,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 3.08
-       },
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.08
-       },
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 3.08
-       },
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.08
-       }
-      ]
-     }
-    ],
-    "towerIds": [
-     "gt_hoang_dieu_chao_gang",
-     "gt_hoang_dieu_lau_nha_go",
-     "gt_hoang_dieu_lau_hem",
-     "gt_hoang_dieu_xiu_mai",
-     "gt_hoang_dieu_banh_trang",
-     "gt_hoang_dieu_com_ga",
-     "gt_hoang_dieu_yaourt",
-     "gt_hoang_dieu_pizza",
-     "gt_hoang_dieu_khach_san",
-     "gt_don_kep_rac",
-     "gt_don_choi_tre",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_don_bao_cat"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_hoang_dieu_chao_gang",
-     "gt_hoang_dieu_com_ga",
-     "gt_hoang_dieu_yaourt",
-     "gt_hoang_dieu_lau_hem",
-     "gt_don_den_duong",
-     "gt_hoang_dieu_xiu_mai"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "lau_nha_go",
-      "name": "Lẩu Bò Nhà Gỗ Sim Tím",
-      "type": "Quán lẩu bò nhà gỗ",
-      "trait": "nồi lẩu bò bốc hơi, gần như luôn kín khách",
-      "towerId": "gt_hoang_dieu_lau_nha_go"
-     },
-     {
-      "key": "lau_hem",
-      "name": "Lẩu Bò Hẻm Sương Mai",
-      "type": "Quán lẩu bò trong hẻm",
-      "trait": "khách địa phương, đông 6–8 giờ tối",
-      "towerId": "gt_hoang_dieu_lau_hem"
-     },
-     {
-      "key": "xiu_mai",
-      "name": "Bánh Mì Xíu Mại Hồ Sương",
-      "type": "Quán bánh mì xíu mại buổi sáng",
-      "trait": "chén xíu mại, ổ bánh nóng, hết hàng lúc 9 giờ",
-      "towerId": "gt_hoang_dieu_xiu_mai"
-     },
-     {
-      "key": "banh_trang",
-      "name": "Bánh Tráng Nướng Dã Quỳ",
-      "type": "Bánh tráng nướng bếp than buổi chiều",
-      "trait": "bếp than đỏ từ 2 giờ chiều",
-      "towerId": "gt_hoang_dieu_banh_trang"
-     },
-     {
-      "key": "com_ga",
-      "name": "Cơm Gà Lan Hài",
-      "type": "Quán cơm gà đầu phố",
-      "trait": "cơm gà xé, nước mắm gừng",
-      "towerId": "gt_hoang_dieu_com_ga"
-     },
-     {
-      "key": "chao_gang",
-      "name": "Bánh Mì Chảo Mây Ngàn",
-      "type": "Quán bánh mì chảo xíu mại",
-      "trait": "chảo gang nóng buổi sáng",
-      "towerId": "gt_hoang_dieu_chao_gang"
-     },
-     {
-      "key": "yaourt",
-      "name": "Yaourt Phô Mai Cỏ Hồng",
-      "type": "Quầy yaourt phô mai",
-      "trait": "yaourt phô mai không quá ngọt",
-      "towerId": "gt_hoang_dieu_yaourt"
-     },
-     {
-      "key": "pizza",
-      "name": "Tiệm Pizza Nhỏ Đồi Chè",
-      "type": "Tiệm pizza nhỏ đầu phố",
-      "trait": "lò nướng nhỏ",
-      "towerId": "gt_hoang_dieu_pizza"
-     },
-     {
-      "key": "khach_san",
-      "name": "Khách Sạn Phố Núi Mai Anh Đào",
-      "type": "Khách sạn mặt tiền",
-      "trait": "phòng nhìn ra phố lẩu",
-      "towerId": "gt_hoang_dieu_khach_san"
-     }
-    ],
-    "streetId": "street_hoang_dieu",
-    "shopIndex": 6,
-    "featuredTowerId": "gt_hoang_dieu_chao_gang",
-    "facadeKey": "mat_tien_chao_gang",
-    "roomStyle": "quan_an",
-    "roomLayout": "hai_cua_lat",
-    "botPlan": [
-     {
-      "padId": "pad_1",
-      "defId": "gt_hoang_dieu_chao_gang",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_2",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_hoang_dieu_yaourt",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "gt_hoang_dieu_xiu_mai",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "gt_hoang_dieu_chao_gang",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_hoang_dieu_lau_hem",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_hoang_dieu_xiu_mai",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_hoang_dieu_chao_gang",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_hoang_dieu_lau_hem",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 1.2,
-   "balance": {
-    "randomWinWithExpectedGear": 0.5208333333333334,
-    "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
-    "target": 0.42500000000000004
-   },
-   "stage": {
-    "id": "street_hoang_dieu_t7",
-    "stageNumber": 17,
-    "name": "Yaourt Phô Mai Cỏ Hồng",
-    "subtitle": "Phố Lẩu Bò Hoàng Diệu · tiệm 7/9: Quầy yaourt phô mai",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 180,
-       "y": 520
-      },
-      {
-       "x": 180,
-       "y": 430
-      },
-      {
-       "x": 64,
-       "y": 430
-      },
-      {
-       "x": 64,
-       "y": 300
-      },
-      {
-       "x": 296,
-       "y": 300
-      },
-      {
-       "x": 296,
-       "y": 170
-      },
-      {
-       "x": 64,
-       "y": 170
-      },
-      {
-       "x": 64,
-       "y": 60
-      },
-      {
-       "x": 180,
-       "y": 60
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 130,
-      "y": 380
-     },
-     {
-      "id": "pad_2",
-      "x": 130,
-      "y": 120
-     },
-     {
-      "id": "pad_3",
-      "x": 90,
-      "y": 470
-     },
-     {
-      "id": "pad_4",
-      "x": 220,
-      "y": 230
-     },
-     {
-      "id": "pad_5",
-      "x": 200,
-      "y": 380
-     },
-     {
-      "id": "pad_6",
-      "x": 90,
-      "y": 220
-     },
-     {
-      "id": "pad_7",
-      "x": 140,
-      "y": 260
-     },
-     {
-      "id": "pad_8",
-      "x": 200,
-      "y": 120
-     },
-     {
-      "id": "pad_9",
-      "x": 220,
-      "y": 440
-     },
-     {
-      "id": "pad_10",
-      "x": 40,
-      "y": 260
-     },
-     {
-      "id": "pad_11",
-      "x": 250,
-      "y": 340
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
-      "title": "Đợt 1: Bụi Bột",
-      "mainElements": [
-       "tho"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.2
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Ruồi Bếp",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.38
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Than Nướng Bén Lửa & Ruồi Bếp",
-      "mainElements": [
-       "hoa",
-       "moc"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 3,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.56
-       },
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.56
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Bụi Bột & Than Nướng Bén Lửa",
-      "mainElements": [
-       "tho",
-       "hoa"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.74
-       },
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.74
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Bụi Bột & Than Nướng Bén Lửa",
-      "mainElements": [
-       "tho",
-       "hoa"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.04
-       },
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.04
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Bụi Bột & Than Nướng Bén Lửa & Nước Đá Tan",
-      "mainElements": [
-       "tho",
-       "hoa",
-       "thuy"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.4
-       },
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.4
-       },
-       {
-        "enemyId": "ge_hoang_dieu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.4
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Ruồi Bếp & Chuột Cống & Bụi Bột",
-      "mainElements": [
-       "moc",
-       "kim",
-       "tho"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.88
-       },
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.88
-       },
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.88
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "tho",
-       "moc",
-       "hoa",
-       "kim",
-       "thuy"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       },
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       },
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       },
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       },
-       {
-        "enemyId": "ge_hoang_dieu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       }
-      ]
-     }
-    ],
-    "towerIds": [
-     "gt_hoang_dieu_yaourt",
-     "gt_hoang_dieu_lau_nha_go",
-     "gt_hoang_dieu_lau_hem",
-     "gt_hoang_dieu_xiu_mai",
-     "gt_hoang_dieu_banh_trang",
-     "gt_hoang_dieu_com_ga",
-     "gt_hoang_dieu_chao_gang",
-     "gt_hoang_dieu_pizza",
-     "gt_hoang_dieu_khach_san",
-     "gt_don_kep_rac",
-     "gt_don_choi_tre",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_don_bao_cat"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_hoang_dieu_yaourt",
-     "gt_hoang_dieu_com_ga",
-     "gt_hoang_dieu_khach_san",
-     "gt_hoang_dieu_lau_hem",
-     "gt_don_den_duong",
-     "gt_hoang_dieu_xiu_mai"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "lau_nha_go",
-      "name": "Lẩu Bò Nhà Gỗ Sim Tím",
-      "type": "Quán lẩu bò nhà gỗ",
-      "trait": "nồi lẩu bò bốc hơi, gần như luôn kín khách",
-      "towerId": "gt_hoang_dieu_lau_nha_go"
-     },
-     {
-      "key": "lau_hem",
-      "name": "Lẩu Bò Hẻm Sương Mai",
-      "type": "Quán lẩu bò trong hẻm",
-      "trait": "khách địa phương, đông 6–8 giờ tối",
-      "towerId": "gt_hoang_dieu_lau_hem"
-     },
-     {
-      "key": "xiu_mai",
-      "name": "Bánh Mì Xíu Mại Hồ Sương",
-      "type": "Quán bánh mì xíu mại buổi sáng",
-      "trait": "chén xíu mại, ổ bánh nóng, hết hàng lúc 9 giờ",
-      "towerId": "gt_hoang_dieu_xiu_mai"
-     },
-     {
-      "key": "banh_trang",
-      "name": "Bánh Tráng Nướng Dã Quỳ",
-      "type": "Bánh tráng nướng bếp than buổi chiều",
-      "trait": "bếp than đỏ từ 2 giờ chiều",
-      "towerId": "gt_hoang_dieu_banh_trang"
-     },
-     {
-      "key": "com_ga",
-      "name": "Cơm Gà Lan Hài",
-      "type": "Quán cơm gà đầu phố",
-      "trait": "cơm gà xé, nước mắm gừng",
-      "towerId": "gt_hoang_dieu_com_ga"
-     },
-     {
-      "key": "chao_gang",
-      "name": "Bánh Mì Chảo Mây Ngàn",
-      "type": "Quán bánh mì chảo xíu mại",
-      "trait": "chảo gang nóng buổi sáng",
-      "towerId": "gt_hoang_dieu_chao_gang"
-     },
-     {
-      "key": "yaourt",
-      "name": "Yaourt Phô Mai Cỏ Hồng",
-      "type": "Quầy yaourt phô mai",
-      "trait": "yaourt phô mai không quá ngọt",
-      "towerId": "gt_hoang_dieu_yaourt"
-     },
-     {
-      "key": "pizza",
-      "name": "Tiệm Pizza Nhỏ Đồi Chè",
-      "type": "Tiệm pizza nhỏ đầu phố",
-      "trait": "lò nướng nhỏ",
-      "towerId": "gt_hoang_dieu_pizza"
-     },
-     {
-      "key": "khach_san",
-      "name": "Khách Sạn Phố Núi Mai Anh Đào",
-      "type": "Khách sạn mặt tiền",
-      "trait": "phòng nhìn ra phố lẩu",
-      "towerId": "gt_hoang_dieu_khach_san"
-     }
-    ],
-    "streetId": "street_hoang_dieu",
-    "shopIndex": 7,
-    "featuredTowerId": "gt_hoang_dieu_yaourt",
-    "facadeKey": "mat_tien_yaourt",
-    "roomStyle": "cafe",
-    "roomLayout": "zigzag",
-    "botPlan": [
-     {
-      "padId": "pad_1",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_2",
-      "defId": "gt_hoang_dieu_khach_san",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_hoang_dieu_yaourt",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "gt_hoang_dieu_xiu_mai",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_hoang_dieu_khach_san",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_hoang_dieu_lau_hem",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_hoang_dieu_xiu_mai",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_hoang_dieu_khach_san",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_hoang_dieu_lau_hem",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 1.7,
-   "balance": {
-    "randomWinWithExpectedGear": 0.3958333333333333,
-    "botWinRate": 1,
-    "botLivesAvg": 19.333333333333332,
-    "target": 0.3875
-   },
-   "stage": {
-    "id": "street_hoang_dieu_t8",
-    "stageNumber": 18,
-    "name": "Tiệm Pizza Nhỏ Đồi Chè",
-    "subtitle": "Phố Lẩu Bò Hoàng Diệu · tiệm 8/9: Tiệm pizza nhỏ đầu phố",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -4314,18 +3353,38 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 1.5
        }
       ]
      },
      {
       "waveNumber": 2,
-      "title": "Đợt 2: Ruồi Bếp",
+      "title": "Đợt 2: Bụi Bột",
       "mainElements": [
-       "moc"
+       "tho"
       ],
       "earlyBonusMax": 13,
       "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.73
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Ruồi Bếp & Bụi Bột",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
       "groups": [
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -4334,43 +3393,22 @@
         "delayBeforeSec": 0,
         "pathIndex": 0,
         "hpScale": 1.95
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Than Nướng Bén Lửa & Ruồi Bếp",
-      "mainElements": [
-       "hoa",
-       "moc"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 3,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.21
        },
        {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 4,
-        "intervalSec": 0.85,
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 2,
+        "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 1.95
        }
       ]
      },
      {
       "waveNumber": 4,
-      "title": "Đợt 4: Kiến Bu Đường & Than Nướng Bén Lửa",
+      "title": "Đợt 4: Kiến Bu Đường & Ruồi Bếp",
       "mainElements": [
-       "moc",
-       "hoa"
+       "moc"
       ],
       "earlyBonusMax": 15,
       "clearReward": 15,
@@ -4381,24 +3419,23 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.47
+        "hpScale": 2.17
        },
        {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 4,
-        "intervalSec": 1.2,
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 5,
+        "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.47
+        "hpScale": 2.17
        }
       ]
      },
      {
       "waveNumber": 5,
-      "title": "Đợt 5: Kiến Bu Đường & Than Nướng Bén Lửa",
+      "title": "Đợt 5: Kiến Bu Đường & Ruồi Bếp",
       "mainElements": [
-       "moc",
-       "hoa"
+       "moc"
       ],
       "earlyBonusMax": 16,
       "clearReward": 16,
@@ -4409,36 +3446,35 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.89
+        "hpScale": 2.55
        },
        {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 4,
-        "intervalSec": 1.2,
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 5,
+        "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.89
+        "hpScale": 2.55
        }
       ]
      },
      {
       "waveNumber": 6,
-      "title": "Đợt 6: Kiến Bu Đường & Than Nướng Bén Lửa & Nước Đá Tan",
+      "title": "Đợt 6: Bụi Bột & Than Nướng Bén Lửa",
       "mainElements": [
-       "moc",
-       "hoa",
-       "thuy"
+       "tho",
+       "hoa"
       ],
       "earlyBonusMax": 17,
       "clearReward": 16,
       "groups": [
        {
-        "enemyId": "ge_hoang_dieu_1",
-        "count": 8,
-        "intervalSec": 0.6,
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 3,
+        "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.4
+        "hpScale": 3
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -4446,24 +3482,15 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.4
-       },
-       {
-        "enemyId": "ge_hoang_dieu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.4
+        "hpScale": 3
        }
       ]
      },
      {
       "waveNumber": 7,
-      "title": "Đợt 7: Ruồi Bếp & Chuột Cống & Kiến Bu Đường",
+      "title": "Đợt 7: Ruồi Bếp & Kiến Bu Đường",
       "mainElements": [
-       "moc",
-       "kim"
+       "moc"
       ],
       "earlyBonusMax": 18,
       "clearReward": 17,
@@ -4474,15 +3501,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.08
-       },
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.08
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_hoang_dieu_1",
@@ -4490,7 +3509,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.08
+        "hpScale": 3.6
        }
       ]
      },
@@ -4499,9 +3518,8 @@
       "title": "Đợt 8: Giờ cao điểm cả phố",
       "mainElements": [
        "moc",
-       "hoa",
-       "kim",
-       "thuy"
+       "tho",
+       "hoa"
       ],
       "earlyBonusMax": 0,
       "clearReward": 0,
@@ -4512,7 +3530,15 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.76
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -4520,7 +3546,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.76
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -4528,37 +3554,29 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.76
-       },
-       {
-        "enemyId": "ge_hoang_dieu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.76
-       },
-       {
-        "enemyId": "ge_hoang_dieu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.76
+        "hpScale": 4.2
        }
       ]
      }
     ],
     "towerIds": [
-     "gt_hoang_dieu_pizza",
+     "gt_hoang_dieu_chao_gang",
      "gt_hoang_dieu_lau_nha_go",
      "gt_hoang_dieu_lau_hem",
      "gt_hoang_dieu_xiu_mai",
      "gt_hoang_dieu_banh_trang",
      "gt_hoang_dieu_com_ga",
-     "gt_hoang_dieu_chao_gang",
-     "gt_hoang_dieu_yaourt",
-     "gt_hoang_dieu_khach_san",
+     "gt_hoang_dieu_pizza",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong",
+     "gt_nguyen_van_troi_com_tam",
+     "gt_phan_dinh_phung_pho",
+     "gt_tang_bat_ho_banh_can",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tran_phu_banh_mi_ga",
+     "gt_tran_phu_chao_dem",
+     "gt_tran_phu_com_ga",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -4567,9 +3585,9 @@
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
-     "gt_hoang_dieu_pizza",
+     "gt_hoang_dieu_chao_gang",
      "gt_hoang_dieu_com_ga",
-     "gt_hoang_dieu_yaourt",
+     "gt_tang_bat_ho_goc_cay",
      "gt_hoang_dieu_lau_hem",
      "gt_don_den_duong",
      "gt_hoang_dieu_xiu_mai"
@@ -4642,15 +3660,15 @@
      }
     ],
     "streetId": "street_hoang_dieu",
-    "shopIndex": 8,
-    "featuredTowerId": "gt_hoang_dieu_pizza",
-    "facadeKey": "mat_tien_pizza",
-    "roomStyle": "cafe",
+    "shopIndex": 6,
+    "featuredTowerId": "gt_hoang_dieu_chao_gang",
+    "facadeKey": "mat_tien_chao_gang",
+    "roomStyle": "quan_an",
     "roomLayout": "zigzag_lat",
     "botPlan": [
      {
       "padId": "pad_1",
-      "defId": "gt_hoang_dieu_pizza",
+      "defId": "gt_hoang_dieu_chao_gang",
       "preferredBranch": "A"
      },
      {
@@ -4660,7 +3678,7 @@
      },
      {
       "padId": "pad_3",
-      "defId": "gt_hoang_dieu_yaourt",
+      "defId": "gt_tang_bat_ho_goc_cay",
       "preferredBranch": "A"
      },
      {
@@ -4670,7 +3688,7 @@
      },
      {
       "padId": "pad_5",
-      "defId": "gt_hoang_dieu_pizza",
+      "defId": "gt_hoang_dieu_chao_gang",
       "preferredBranch": "A"
      },
      {
@@ -4690,7 +3708,7 @@
      },
      {
       "padId": "pad_9",
-      "defId": "gt_hoang_dieu_pizza",
+      "defId": "gt_hoang_dieu_chao_gang",
       "preferredBranch": "A"
      },
      {
@@ -4707,18 +3725,18 @@
    }
   },
   {
-   "hpMultiplier": 1.7,
+   "hpMultiplier": 1,
    "balance": {
-    "randomWinWithExpectedGear": 0.375,
+    "randomWinWithExpectedGear": 0.4791666666666667,
     "botWinRate": 1,
-    "botLivesAvg": 17.666666666666668,
-    "target": 0.35000000000000003
+    "botLivesAvg": 19.666666666666668,
+    "target": 0.42500000000000004
    },
    "stage": {
-    "id": "street_hoang_dieu_t9",
-    "stageNumber": 19,
-    "name": "Khách Sạn Phố Núi Mai Anh Đào",
-    "subtitle": "Phố Lẩu Bò Hoàng Diệu · tiệm 9/9: Khách sạn mặt tiền",
+    "id": "street_hoang_dieu_t7",
+    "stageNumber": 17,
+    "name": "Yaourt Phô Mai Cỏ Hồng",
+    "subtitle": "Phố Lẩu Bò Hoàng Diệu · tiệm 7/9: Quầy yaourt phô mai",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -4809,6 +3827,532 @@
     "waves": [
      {
       "waveNumber": 1,
+      "title": "Đợt 1: Bụi Bột",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.15
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Than Nướng Bén Lửa & Ruồi Bếp",
+      "mainElements": [
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       },
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Bụi Bột & Than Nướng Bén Lửa",
+      "mainElements": [
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       },
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Bụi Bột & Than Nướng Bén Lửa",
+      "mainElements": [
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       },
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Bụi Bột & Than Nướng Bén Lửa & Nước Đá Tan",
+      "mainElements": [
+       "tho",
+       "hoa",
+       "thuy"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2
+       },
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2
+       },
+       {
+        "enemyId": "ge_hoang_dieu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Ruồi Bếp & Chuột Cống & Bụi Bột",
+      "mainElements": [
+       "moc",
+       "kim",
+       "tho"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "tho",
+       "moc",
+       "hoa",
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_hoang_dieu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "gt_hoang_dieu_yaourt",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_nguyen_van_troi_che",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_pho_ca_phe_o_long",
+     "gt_pho_ca_phe_kem_ly",
+     "gt_pho_ca_phe_tra_sua",
+     "gt_pho_ca_phe_retro",
+     "gt_pho_ca_phe_kem_bo",
+     "gt_pho_ca_phe_cafe_xua",
+     "gt_pho_ca_phe_san_thuong",
+     "gt_tang_bat_ho_banh_qua",
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_tang_bat_ho_bar_ham",
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_tang_bat_ho_an_vat",
+     "gt_tran_phu_tiem_banh",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_hoang_dieu_yaourt",
+     "gt_pho_ca_phe_retro",
+     "gt_nguyen_van_troi_che",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_don_den_duong",
+     "gt_pho_ca_phe_cafe_xua"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "lau_nha_go",
+      "name": "Lẩu Bò Nhà Gỗ Sim Tím",
+      "type": "Quán lẩu bò nhà gỗ",
+      "trait": "nồi lẩu bò bốc hơi, gần như luôn kín khách",
+      "towerId": "gt_hoang_dieu_lau_nha_go"
+     },
+     {
+      "key": "lau_hem",
+      "name": "Lẩu Bò Hẻm Sương Mai",
+      "type": "Quán lẩu bò trong hẻm",
+      "trait": "khách địa phương, đông 6–8 giờ tối",
+      "towerId": "gt_hoang_dieu_lau_hem"
+     },
+     {
+      "key": "xiu_mai",
+      "name": "Bánh Mì Xíu Mại Hồ Sương",
+      "type": "Quán bánh mì xíu mại buổi sáng",
+      "trait": "chén xíu mại, ổ bánh nóng, hết hàng lúc 9 giờ",
+      "towerId": "gt_hoang_dieu_xiu_mai"
+     },
+     {
+      "key": "banh_trang",
+      "name": "Bánh Tráng Nướng Dã Quỳ",
+      "type": "Bánh tráng nướng bếp than buổi chiều",
+      "trait": "bếp than đỏ từ 2 giờ chiều",
+      "towerId": "gt_hoang_dieu_banh_trang"
+     },
+     {
+      "key": "com_ga",
+      "name": "Cơm Gà Lan Hài",
+      "type": "Quán cơm gà đầu phố",
+      "trait": "cơm gà xé, nước mắm gừng",
+      "towerId": "gt_hoang_dieu_com_ga"
+     },
+     {
+      "key": "chao_gang",
+      "name": "Bánh Mì Chảo Mây Ngàn",
+      "type": "Quán bánh mì chảo xíu mại",
+      "trait": "chảo gang nóng buổi sáng",
+      "towerId": "gt_hoang_dieu_chao_gang"
+     },
+     {
+      "key": "yaourt",
+      "name": "Yaourt Phô Mai Cỏ Hồng",
+      "type": "Quầy yaourt phô mai",
+      "trait": "yaourt phô mai không quá ngọt",
+      "towerId": "gt_hoang_dieu_yaourt"
+     },
+     {
+      "key": "pizza",
+      "name": "Tiệm Pizza Nhỏ Đồi Chè",
+      "type": "Tiệm pizza nhỏ đầu phố",
+      "trait": "lò nướng nhỏ",
+      "towerId": "gt_hoang_dieu_pizza"
+     },
+     {
+      "key": "khach_san",
+      "name": "Khách Sạn Phố Núi Mai Anh Đào",
+      "type": "Khách sạn mặt tiền",
+      "trait": "phòng nhìn ra phố lẩu",
+      "towerId": "gt_hoang_dieu_khach_san"
+     }
+    ],
+    "streetId": "street_hoang_dieu",
+    "shopIndex": 7,
+    "featuredTowerId": "gt_hoang_dieu_yaourt",
+    "facadeKey": "mat_tien_yaourt",
+    "roomStyle": "cafe",
+    "roomLayout": "chu_u",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_pho_ca_phe_retro",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_nguyen_van_troi_kem_bo",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_hoang_dieu_yaourt",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_pho_ca_phe_retro",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_nguyen_van_troi_kem_bo",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_pho_ca_phe_cafe_xua",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_pho_ca_phe_retro",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_nguyen_van_troi_kem_bo",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_pho_ca_phe_cafe_xua",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_pho_ca_phe_retro",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_nguyen_van_troi_kem_bo",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 2.1,
+   "balance": {
+    "randomWinWithExpectedGear": 0.375,
+    "botWinRate": 1,
+    "botLivesAvg": 20,
+    "target": 0.3875
+   },
+   "stage": {
+    "id": "street_hoang_dieu_t8",
+    "stageNumber": 18,
+    "name": "Tiệm Pizza Nhỏ Đồi Chè",
+    "subtitle": "Phố Lẩu Bò Hoàng Diệu · tiệm 8/9: Tiệm pizza nhỏ đầu phố",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 180,
+       "y": 520
+      },
+      {
+       "x": 180,
+       "y": 450
+      },
+      {
+       "x": 60,
+       "y": 450
+      },
+      {
+       "x": 60,
+       "y": 90
+      },
+      {
+       "x": 300,
+       "y": 90
+      },
+      {
+       "x": 300,
+       "y": 330
+      },
+      {
+       "x": 160,
+       "y": 330
+      },
+      {
+       "x": 160,
+       "y": 210
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 140,
+      "y": 390
+     },
+     {
+      "id": "pad_2",
+      "x": 210,
+      "y": 390
+     },
+     {
+      "id": "pad_3",
+      "x": 220,
+      "y": 260
+     },
+     {
+      "id": "pad_4",
+      "x": 120,
+      "y": 290
+     },
+     {
+      "id": "pad_5",
+      "x": 120,
+      "y": 180
+     },
+     {
+      "id": "pad_6",
+      "x": 210,
+      "y": 150
+     },
+     {
+      "id": "pad_7",
+      "x": 220,
+      "y": 460
+     },
+     {
+      "id": "pad_8",
+      "x": 260,
+      "y": 190
+     },
+     {
+      "id": "pad_9",
+      "x": 270,
+      "y": 370
+     },
+     {
+      "id": "pad_10",
+      "x": 30,
+      "y": 480
+     },
+     {
+      "id": "pad_11",
+      "x": 130,
+      "y": 50
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
       "title": "Đợt 1: Kiến Bu Đường",
       "mainElements": [
        "moc"
@@ -4822,35 +4366,35 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 2.1
        }
       ]
      },
      {
       "waveNumber": 2,
-      "title": "Đợt 2: Bụi Bột",
+      "title": "Đợt 2: Ruồi Bếp",
       "mainElements": [
-       "tho"
+       "moc"
       ],
       "earlyBonusMax": 13,
       "clearReward": 14,
       "groups": [
        {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 2,
-        "intervalSec": 1.6,
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 4,
+        "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.95
+        "hpScale": 2.42
        }
       ]
      },
      {
       "waveNumber": 3,
-      "title": "Đợt 3: Than Nướng Bén Lửa & Bụi Bột",
+      "title": "Đợt 3: Than Nướng Bén Lửa & Ruồi Bếp",
       "mainElements": [
        "hoa",
-       "tho"
+       "moc"
       ],
       "earlyBonusMax": 14,
       "clearReward": 15,
@@ -4861,15 +4405,15 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.73
        },
        {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 2,
-        "intervalSec": 1.6,
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 4,
+        "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.73
        }
       ]
      },
@@ -4889,7 +4433,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.47
+        "hpScale": 3.05
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -4897,7 +4441,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.47
+        "hpScale": 3.05
        }
       ]
      },
@@ -4917,7 +4461,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.89
+        "hpScale": 3.57
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -4925,7 +4469,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.89
+        "hpScale": 3.57
        }
       ]
      },
@@ -4946,7 +4490,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.4
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -4954,7 +4498,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.4
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -4962,7 +4506,533 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.4
+        "hpScale": 4.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Ruồi Bếp & Chuột Cống & Kiến Bu Đường",
+      "mainElements": [
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 5.04
+       },
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.04
+       },
+       {
+        "enemyId": "ge_hoang_dieu_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.04
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "hoa",
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 5.88
+       },
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.88
+       },
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.88
+       },
+       {
+        "enemyId": "ge_hoang_dieu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.88
+       },
+       {
+        "enemyId": "ge_hoang_dieu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.88
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "gt_hoang_dieu_pizza",
+     "gt_hoang_dieu_lau_nha_go",
+     "gt_hoang_dieu_lau_hem",
+     "gt_hoang_dieu_xiu_mai",
+     "gt_hoang_dieu_banh_trang",
+     "gt_hoang_dieu_com_ga",
+     "gt_hoang_dieu_chao_gang",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong",
+     "gt_nguyen_van_troi_com_tam",
+     "gt_phan_dinh_phung_pho",
+     "gt_tang_bat_ho_banh_can",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tran_phu_banh_mi_ga",
+     "gt_tran_phu_chao_dem",
+     "gt_tran_phu_com_ga",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_hoang_dieu_pizza",
+     "gt_hoang_dieu_com_ga",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_hoang_dieu_lau_hem",
+     "gt_don_den_duong",
+     "gt_hoang_dieu_xiu_mai"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "lau_nha_go",
+      "name": "Lẩu Bò Nhà Gỗ Sim Tím",
+      "type": "Quán lẩu bò nhà gỗ",
+      "trait": "nồi lẩu bò bốc hơi, gần như luôn kín khách",
+      "towerId": "gt_hoang_dieu_lau_nha_go"
+     },
+     {
+      "key": "lau_hem",
+      "name": "Lẩu Bò Hẻm Sương Mai",
+      "type": "Quán lẩu bò trong hẻm",
+      "trait": "khách địa phương, đông 6–8 giờ tối",
+      "towerId": "gt_hoang_dieu_lau_hem"
+     },
+     {
+      "key": "xiu_mai",
+      "name": "Bánh Mì Xíu Mại Hồ Sương",
+      "type": "Quán bánh mì xíu mại buổi sáng",
+      "trait": "chén xíu mại, ổ bánh nóng, hết hàng lúc 9 giờ",
+      "towerId": "gt_hoang_dieu_xiu_mai"
+     },
+     {
+      "key": "banh_trang",
+      "name": "Bánh Tráng Nướng Dã Quỳ",
+      "type": "Bánh tráng nướng bếp than buổi chiều",
+      "trait": "bếp than đỏ từ 2 giờ chiều",
+      "towerId": "gt_hoang_dieu_banh_trang"
+     },
+     {
+      "key": "com_ga",
+      "name": "Cơm Gà Lan Hài",
+      "type": "Quán cơm gà đầu phố",
+      "trait": "cơm gà xé, nước mắm gừng",
+      "towerId": "gt_hoang_dieu_com_ga"
+     },
+     {
+      "key": "chao_gang",
+      "name": "Bánh Mì Chảo Mây Ngàn",
+      "type": "Quán bánh mì chảo xíu mại",
+      "trait": "chảo gang nóng buổi sáng",
+      "towerId": "gt_hoang_dieu_chao_gang"
+     },
+     {
+      "key": "yaourt",
+      "name": "Yaourt Phô Mai Cỏ Hồng",
+      "type": "Quầy yaourt phô mai",
+      "trait": "yaourt phô mai không quá ngọt",
+      "towerId": "gt_hoang_dieu_yaourt"
+     },
+     {
+      "key": "pizza",
+      "name": "Tiệm Pizza Nhỏ Đồi Chè",
+      "type": "Tiệm pizza nhỏ đầu phố",
+      "trait": "lò nướng nhỏ",
+      "towerId": "gt_hoang_dieu_pizza"
+     },
+     {
+      "key": "khach_san",
+      "name": "Khách Sạn Phố Núi Mai Anh Đào",
+      "type": "Khách sạn mặt tiền",
+      "trait": "phòng nhìn ra phố lẩu",
+      "towerId": "gt_hoang_dieu_khach_san"
+     }
+    ],
+    "streetId": "street_hoang_dieu",
+    "shopIndex": 8,
+    "featuredTowerId": "gt_hoang_dieu_pizza",
+    "facadeKey": "mat_tien_pizza",
+    "roomStyle": "cafe",
+    "roomLayout": "xoan_lat",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_hoang_dieu_pizza",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_tang_bat_ho_goc_cay",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_hoang_dieu_xiu_mai",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_hoang_dieu_pizza",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_hoang_dieu_lau_hem",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_hoang_dieu_xiu_mai",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_hoang_dieu_pizza",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_hoang_dieu_lau_hem",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.4,
+   "balance": {
+    "randomWinWithExpectedGear": 0.3125,
+    "botWinRate": 1,
+    "botLivesAvg": 19.333333333333332,
+    "target": 0.35000000000000003
+   },
+   "stage": {
+    "id": "street_hoang_dieu_t9",
+    "stageNumber": 19,
+    "name": "Khách Sạn Phố Núi Mai Anh Đào",
+    "subtitle": "Phố Lẩu Bò Hoàng Diệu · tiệm 9/9: Khách sạn mặt tiền",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 70,
+       "y": 520
+      },
+      {
+       "x": 70,
+       "y": 360
+      },
+      {
+       "x": 180,
+       "y": 300
+      },
+      {
+       "x": 180,
+       "y": 70
+      }
+     ],
+     [
+      {
+       "x": 290,
+       "y": 520
+      },
+      {
+       "x": 290,
+       "y": 360
+      },
+      {
+       "x": 180,
+       "y": 300
+      },
+      {
+       "x": 180,
+       "y": 70
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 160,
+      "y": 360
+     },
+     {
+      "id": "pad_2",
+      "x": 130,
+      "y": 270
+     },
+     {
+      "id": "pad_3",
+      "x": 230,
+      "y": 270
+     },
+     {
+      "id": "pad_4",
+      "x": 220,
+      "y": 380
+     },
+     {
+      "id": "pad_5",
+      "x": 140,
+      "y": 200
+     },
+     {
+      "id": "pad_6",
+      "x": 220,
+      "y": 200
+     },
+     {
+      "id": "pad_7",
+      "x": 110,
+      "y": 410
+     },
+     {
+      "id": "pad_8",
+      "x": 70,
+      "y": 300
+     },
+     {
+      "id": "pad_9",
+      "x": 290,
+      "y": 300
+     },
+     {
+      "id": "pad_10",
+      "x": 120,
+      "y": 140
+     },
+     {
+      "id": "pad_11",
+      "x": 220,
+      "y": 130
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.4
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Bột",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 1,
+        "hpScale": 1.61
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Than Nướng Bén Lửa & Bụi Bột",
+      "mainElements": [
+       "hoa",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.82
+       },
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 1,
+        "hpScale": 1.82
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Đường & Than Nướng Bén Lửa",
+      "mainElements": [
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 1,
+        "hpScale": 2.03
+       },
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.03
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Kiến Bu Đường & Than Nướng Bén Lửa",
+      "mainElements": [
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.38
+       },
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 1,
+        "hpScale": 2.38
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Kiến Bu Đường & Than Nướng Bén Lửa & Nước Đá Tan",
+      "mainElements": [
+       "moc",
+       "hoa",
+       "thuy"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 1,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_hoang_dieu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 1,
+        "hpScale": 2.8
        }
       ]
      },
@@ -4983,15 +5053,15 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.08
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_hoang_dieu_5",
         "count": 3,
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.08
+        "pathIndex": 1,
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_hoang_dieu_1",
@@ -4999,7 +5069,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.08
+        "hpScale": 3.36
        }
       ]
      },
@@ -5021,8 +5091,8 @@
         "count": 9,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 4.76
+        "pathIndex": 1,
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_hoang_dieu_2",
@@ -5030,15 +5100,15 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.76
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_hoang_dieu_4",
         "count": 5,
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.76
+        "pathIndex": 1,
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -5046,29 +5116,27 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.76
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_hoang_dieu_6",
         "count": 2,
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.76
+        "pathIndex": 1,
+        "hpScale": 3.92
        }
       ]
      }
     ],
     "towerIds": [
      "gt_hoang_dieu_khach_san",
-     "gt_hoang_dieu_lau_nha_go",
-     "gt_hoang_dieu_lau_hem",
-     "gt_hoang_dieu_xiu_mai",
-     "gt_hoang_dieu_banh_trang",
-     "gt_hoang_dieu_com_ga",
-     "gt_hoang_dieu_chao_gang",
-     "gt_hoang_dieu_yaourt",
-     "gt_hoang_dieu_pizza",
+     "gt_nguyen_van_troi_homestay",
+     "gt_tang_bat_ho_khach_san",
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tran_phu_ks_ho",
+     "gt_tran_phu_ks_phap",
+     "gt_tran_phu_ks_binh_dan",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -5078,11 +5146,11 @@
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_hoang_dieu_khach_san",
-     "gt_hoang_dieu_com_ga",
-     "gt_hoang_dieu_yaourt",
-     "gt_hoang_dieu_lau_hem",
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tran_phu_ks_binh_dan",
+     "gt_don_voi_xit",
      "gt_don_den_duong",
-     "gt_hoang_dieu_xiu_mai"
+     "gt_tran_phu_ks_phap"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -5156,7 +5224,7 @@
     "featuredTowerId": "gt_hoang_dieu_khach_san",
     "facadeKey": "mat_tien_khach_san",
     "roomStyle": "luu_tru",
-    "roomLayout": "chu_u",
+    "roomLayout": "hai_cua",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -5165,17 +5233,17 @@
      },
      {
       "padId": "pad_2",
-      "defId": "gt_hoang_dieu_com_ga",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "gt_hoang_dieu_yaourt",
+      "defId": "gt_don_den_duong",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_hoang_dieu_xiu_mai",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "B"
      },
      {
@@ -5185,17 +5253,17 @@
      },
      {
       "padId": "pad_6",
-      "defId": "gt_hoang_dieu_com_ga",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_hoang_dieu_lau_hem",
+      "defId": "gt_tran_phu_ks_binh_dan",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "gt_hoang_dieu_xiu_mai",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "B"
      },
      {
@@ -5205,12 +5273,12 @@
      },
      {
       "padId": "pad_10",
-      "defId": "gt_hoang_dieu_com_ga",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "gt_hoang_dieu_lau_hem",
+      "defId": "gt_tran_phu_ks_binh_dan",
       "preferredBranch": "A"
      }
     ]

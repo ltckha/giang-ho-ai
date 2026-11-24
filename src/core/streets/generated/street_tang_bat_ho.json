@@ -4,7 +4,7 @@
  "balance": {
   "randomWinWithExpectedGear": 0.2708333333333333,
   "botWinRate": 1,
-  "botLivesAvg": 18.666666666666668,
+  "botLivesAvg": 19,
   "gearTier": "after_street_1"
  },
  "stage": {
@@ -750,11 +750,11 @@
  },
  "shops": [
   {
-   "hpMultiplier": 0.7,
+   "hpMultiplier": 0.8,
    "balance": {
-    "randomWinWithExpectedGear": 0.5625,
+    "randomWinWithExpectedGear": 0.6458333333333334,
     "botWinRate": 1,
-    "botLivesAvg": 20,
+    "botLivesAvg": 20.666666666666668,
     "target": 0.65
    },
    "stage": {
@@ -762,6 +762,1046 @@
     "stageNumber": 11,
     "name": "Tiệm Bánh Quà Mimosa",
     "subtitle": "Phố Tăng Bạt Hổ – Trương Công Định · tiệm 1/10: Tiệm bánh quà đặc sản",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 300,
+       "y": 520
+      },
+      {
+       "x": 300,
+       "y": 120
+      },
+      {
+       "x": 180,
+       "y": 120
+      },
+      {
+       "x": 180,
+       "y": 380
+      },
+      {
+       "x": 60,
+       "y": 380
+      },
+      {
+       "x": 60,
+       "y": 60
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 120,
+      "y": 290
+     },
+     {
+      "id": "pad_2",
+      "x": 240,
+      "y": 210
+     },
+     {
+      "id": "pad_3",
+      "x": 140,
+      "y": 150
+     },
+     {
+      "id": "pad_4",
+      "x": 120,
+      "y": 420
+     },
+     {
+      "id": "pad_5",
+      "x": 220,
+      "y": 340
+     },
+     {
+      "id": "pad_6",
+      "x": 230,
+      "y": 80
+     },
+     {
+      "id": "pad_7",
+      "x": 120,
+      "y": 210
+     },
+     {
+      "id": "pad_8",
+      "x": 210,
+      "y": 420
+     },
+     {
+      "id": "pad_9",
+      "x": 150,
+      "y": 80
+     },
+     {
+      "id": "pad_10",
+      "x": 220,
+      "y": 270
+     },
+     {
+      "id": "pad_11",
+      "x": 50,
+      "y": 420
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Bùn Dốc Phố Tây",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.8
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Muỗi Đèn Bar",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 0.92
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Chuột Sau Chợ & Muỗi Đèn Bar",
+      "mainElements": [
+       "kim",
+       "moc"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.04
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.04
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Bùn Dốc Phố Tây & Chuột Sau Chợ",
+      "mainElements": [
+       "tho",
+       "kim"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.16
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.16
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Muỗi Đèn Bar & Bùn Dốc Phố Tây & Chuột Sau Chợ",
+      "mainElements": [
+       "moc",
+       "tho",
+       "kim"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.36
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.36
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.36
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Chuột Sau Chợ & Muỗi Đèn Bar & Bùn Dốc Phố Tây",
+      "mainElements": [
+       "kim",
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Bùn Dốc Phố Tây & Chuột Sau Chợ & Muỗi Đèn Bar",
+      "mainElements": [
+       "tho",
+       "kim",
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.92
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.92
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.92
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "tho",
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.24
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.24
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.24
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "gt_tang_bat_ho_banh_qua",
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_tang_bat_ho_bar_ham",
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_tang_bat_ho_an_vat",
+     "gt_hoang_dieu_yaourt",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_nguyen_van_troi_che",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_pho_ca_phe_o_long",
+     "gt_pho_ca_phe_kem_ly",
+     "gt_pho_ca_phe_tra_sua",
+     "gt_pho_ca_phe_retro",
+     "gt_pho_ca_phe_kem_bo",
+     "gt_pho_ca_phe_cafe_xua",
+     "gt_pho_ca_phe_san_thuong",
+     "gt_tran_phu_tiem_banh",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_tang_bat_ho_banh_qua",
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_hoang_dieu_yaourt",
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_don_den_duong",
+     "gt_pho_ca_phe_cafe_xua"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "banh_qua",
+      "name": "Tiệm Bánh Quà Mimosa",
+      "type": "Tiệm bánh quà đặc sản",
+      "trait": "hộp bánh quy làm quà, ghế ngoài hiên",
+      "towerId": "gt_tang_bat_ho_banh_qua"
+     },
+     {
+      "key": "sua_nanh",
+      "name": "Quán Sữa Nóng Sương Mai",
+      "type": "Quán sữa đậu nành đêm",
+      "trait": "ly sữa nóng, đông khách buổi tối",
+      "towerId": "gt_tang_bat_ho_sua_nanh"
+     },
+     {
+      "key": "banh_can",
+      "name": "Bánh Căn Dã Quỳ",
+      "type": "Quán bánh căn",
+      "trait": "khuôn đất nung, trứng cút",
+      "towerId": "gt_tang_bat_ho_banh_can"
+     },
+     {
+      "key": "goc_cay",
+      "name": "Quán Sáng Gốc Thông Ba Lá",
+      "type": "Quán ăn sáng dưới gốc cây",
+      "trait": "ngồi dưới gốc cây lớn",
+      "towerId": "gt_tang_bat_ho_goc_cay"
+     },
+     {
+      "key": "khach_san",
+      "name": "Khách Sạn Mini Cẩm Tú Cầu",
+      "type": "Khách sạn mini",
+      "trait": "sảnh nhỏ, thảm lót",
+      "towerId": "gt_tang_bat_ho_khach_san"
+     },
+     {
+      "key": "thue_xe",
+      "name": "Hostel Thuê Xe Mây Ngàn",
+      "type": "Hostel cho dân ba lô, thuê xe máy",
+      "trait": "giường tầng, dàn xe máy cho thuê",
+      "towerId": "gt_tang_bat_ho_thue_xe"
+     },
+     {
+      "key": "bar_ham",
+      "name": "Bar Hầm Sim Tím",
+      "type": "Cocktail bar dưới hầm",
+      "trait": "pha theo yêu cầu, đá lạnh",
+      "towerId": "gt_tang_bat_ho_bar_ham"
+     },
+     {
+      "key": "cafe_xe_dap",
+      "name": "Cà Phê Xe Đạp Lan Hài",
+      "type": "Quán cà phê trong nhà cũ, trang trí xe đạp",
+      "trait": "xe đạp cũ treo tường",
+      "towerId": "gt_tang_bat_ho_cafe_xe_dap"
+     },
+     {
+      "key": "an_vat",
+      "name": "Tiệm Ăn Vặt Atiso",
+      "type": "Tiệm ăn vặt, đặc sản",
+      "trait": "kệ mứt, đồ ăn vặt đặc sản",
+      "towerId": "gt_tang_bat_ho_an_vat"
+     },
+     {
+      "key": "giat_say",
+      "name": "Giặt Sấy Hồ Sương",
+      "type": "Tiệm giặt sấy cho khách trọ (Trương Công Định)",
+      "trait": "máy giặt quay ù ù, bọt xà phòng",
+      "towerId": "gt_tang_bat_ho_giat_say"
+     }
+    ],
+    "streetId": "street_tang_bat_ho",
+    "shopIndex": 1,
+    "featuredTowerId": "gt_tang_bat_ho_banh_qua",
+    "facadeKey": "mat_tien_banh_qua",
+    "roomStyle": "tiem",
+    "roomLayout": "chu_u_lat",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_tang_bat_ho_banh_qua",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_hoang_dieu_yaourt",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_pho_ca_phe_cafe_xua",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_tang_bat_ho_banh_qua",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_tang_bat_ho_sua_nanh",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_pho_ca_phe_cafe_xua",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_tang_bat_ho_banh_qua",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_tang_bat_ho_sua_nanh",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.6,
+   "balance": {
+    "randomWinWithExpectedGear": 0.6041666666666666,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.6166666666666667
+   },
+   "stage": {
+    "id": "street_tang_bat_ho_t2",
+    "stageNumber": 12,
+    "name": "Quán Sữa Nóng Sương Mai",
+    "subtitle": "Phố Tăng Bạt Hổ – Trương Công Định · tiệm 2/10: Quán sữa đậu nành đêm",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 180,
+       "y": 520
+      },
+      {
+       "x": 180,
+       "y": 450
+      },
+      {
+       "x": 300,
+       "y": 450
+      },
+      {
+       "x": 300,
+       "y": 90
+      },
+      {
+       "x": 60,
+       "y": 90
+      },
+      {
+       "x": 60,
+       "y": 330
+      },
+      {
+       "x": 200,
+       "y": 330
+      },
+      {
+       "x": 200,
+       "y": 210
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 200,
+      "y": 410
+     },
+     {
+      "id": "pad_2",
+      "x": 240,
+      "y": 360
+     },
+     {
+      "id": "pad_3",
+      "x": 110,
+      "y": 270
+     },
+     {
+      "id": "pad_4",
+      "x": 130,
+      "y": 410
+     },
+     {
+      "id": "pad_5",
+      "x": 160,
+      "y": 230
+     },
+     {
+      "id": "pad_6",
+      "x": 240,
+      "y": 290
+     },
+     {
+      "id": "pad_7",
+      "x": 240,
+      "y": 180
+     },
+     {
+      "id": "pad_8",
+      "x": 120,
+      "y": 180
+     },
+     {
+      "id": "pad_9",
+      "x": 140,
+      "y": 480
+     },
+     {
+      "id": "pad_10",
+      "x": 160,
+      "y": 130
+     },
+     {
+      "id": "pad_11",
+      "x": 70,
+      "y": 370
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Muỗi Đèn Bar",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Khói Than Hẻm",
+      "mainElements": [
+       "hoa"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.84
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Chuột Sau Chợ & Khói Than Hẻm",
+      "mainElements": [
+       "kim",
+       "hoa"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.08
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.08
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Muỗi Đèn Bar & Chuột Sau Chợ",
+      "mainElements": [
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.32
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.32
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Khói Than Hẻm & Muỗi Đèn Bar & Chuột Sau Chợ",
+      "mainElements": [
+       "hoa",
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.72
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.72
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.72
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Chuột Sau Chợ & Khói Than Hẻm & Muỗi Đèn Bar",
+      "mainElements": [
+       "kim",
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.2
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.2
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Muỗi Đèn Bar & Chuột Sau Chợ & Khói Than Hẻm",
+      "mainElements": [
+       "moc",
+       "kim",
+       "hoa"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.84
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.84
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.84
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "hoa",
+       "kim"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 4.48
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.48
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.48
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_tang_bat_ho_banh_qua",
+     "gt_tang_bat_ho_bar_ham",
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_tang_bat_ho_an_vat",
+     "gt_hoang_dieu_yaourt",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_nguyen_van_troi_che",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_pho_ca_phe_o_long",
+     "gt_pho_ca_phe_kem_ly",
+     "gt_pho_ca_phe_tra_sua",
+     "gt_pho_ca_phe_retro",
+     "gt_pho_ca_phe_kem_bo",
+     "gt_pho_ca_phe_cafe_xua",
+     "gt_pho_ca_phe_san_thuong",
+     "gt_tran_phu_tiem_banh",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_hoang_dieu_yaourt",
+     "gt_tang_bat_ho_bar_ham",
+     "gt_don_den_duong",
+     "gt_pho_ca_phe_cafe_xua"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "banh_qua",
+      "name": "Tiệm Bánh Quà Mimosa",
+      "type": "Tiệm bánh quà đặc sản",
+      "trait": "hộp bánh quy làm quà, ghế ngoài hiên",
+      "towerId": "gt_tang_bat_ho_banh_qua"
+     },
+     {
+      "key": "sua_nanh",
+      "name": "Quán Sữa Nóng Sương Mai",
+      "type": "Quán sữa đậu nành đêm",
+      "trait": "ly sữa nóng, đông khách buổi tối",
+      "towerId": "gt_tang_bat_ho_sua_nanh"
+     },
+     {
+      "key": "banh_can",
+      "name": "Bánh Căn Dã Quỳ",
+      "type": "Quán bánh căn",
+      "trait": "khuôn đất nung, trứng cút",
+      "towerId": "gt_tang_bat_ho_banh_can"
+     },
+     {
+      "key": "goc_cay",
+      "name": "Quán Sáng Gốc Thông Ba Lá",
+      "type": "Quán ăn sáng dưới gốc cây",
+      "trait": "ngồi dưới gốc cây lớn",
+      "towerId": "gt_tang_bat_ho_goc_cay"
+     },
+     {
+      "key": "khach_san",
+      "name": "Khách Sạn Mini Cẩm Tú Cầu",
+      "type": "Khách sạn mini",
+      "trait": "sảnh nhỏ, thảm lót",
+      "towerId": "gt_tang_bat_ho_khach_san"
+     },
+     {
+      "key": "thue_xe",
+      "name": "Hostel Thuê Xe Mây Ngàn",
+      "type": "Hostel cho dân ba lô, thuê xe máy",
+      "trait": "giường tầng, dàn xe máy cho thuê",
+      "towerId": "gt_tang_bat_ho_thue_xe"
+     },
+     {
+      "key": "bar_ham",
+      "name": "Bar Hầm Sim Tím",
+      "type": "Cocktail bar dưới hầm",
+      "trait": "pha theo yêu cầu, đá lạnh",
+      "towerId": "gt_tang_bat_ho_bar_ham"
+     },
+     {
+      "key": "cafe_xe_dap",
+      "name": "Cà Phê Xe Đạp Lan Hài",
+      "type": "Quán cà phê trong nhà cũ, trang trí xe đạp",
+      "trait": "xe đạp cũ treo tường",
+      "towerId": "gt_tang_bat_ho_cafe_xe_dap"
+     },
+     {
+      "key": "an_vat",
+      "name": "Tiệm Ăn Vặt Atiso",
+      "type": "Tiệm ăn vặt, đặc sản",
+      "trait": "kệ mứt, đồ ăn vặt đặc sản",
+      "towerId": "gt_tang_bat_ho_an_vat"
+     },
+     {
+      "key": "giat_say",
+      "name": "Giặt Sấy Hồ Sương",
+      "type": "Tiệm giặt sấy cho khách trọ (Trương Công Định)",
+      "trait": "máy giặt quay ù ù, bọt xà phòng",
+      "towerId": "gt_tang_bat_ho_giat_say"
+     }
+    ],
+    "streetId": "street_tang_bat_ho",
+    "shopIndex": 2,
+    "featuredTowerId": "gt_tang_bat_ho_sua_nanh",
+    "facadeKey": "mat_tien_sua_nanh",
+    "roomStyle": "cafe",
+    "roomLayout": "xoan",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_tang_bat_ho_sua_nanh",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_hoang_dieu_yaourt",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_pho_ca_phe_cafe_xua",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_tang_bat_ho_sua_nanh",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_tang_bat_ho_bar_ham",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_pho_ca_phe_cafe_xua",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_tang_bat_ho_sua_nanh",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_tang_bat_ho_bar_ham",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.1,
+   "balance": {
+    "randomWinWithExpectedGear": 0.5833333333333334,
+    "botWinRate": 1,
+    "botLivesAvg": 20.333333333333332,
+    "target": 0.5833333333333334
+   },
+   "stage": {
+    "id": "street_tang_bat_ho_t3",
+    "stageNumber": 13,
+    "name": "Bánh Căn Dã Quỳ",
+    "subtitle": "Phố Tăng Bạt Hổ – Trương Công Định · tiệm 3/10: Quán bánh căn",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -862,1048 +1902,6 @@
     "waves": [
      {
       "waveNumber": 1,
-      "title": "Đợt 1: Bùn Dốc Phố Tây",
-      "mainElements": [
-       "tho"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 0.7
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Muỗi Đèn Bar",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 0.81
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Chuột Sau Chợ & Muỗi Đèn Bar",
-      "mainElements": [
-       "kim",
-       "moc"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_5",
-        "count": 2,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 0.91
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 0.91
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Bùn Dốc Phố Tây & Chuột Sau Chợ",
-      "mainElements": [
-       "tho",
-       "kim"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 1.01
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_5",
-        "count": 2,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.01
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Muỗi Đèn Bar & Bùn Dốc Phố Tây & Chuột Sau Chợ",
-      "mainElements": [
-       "moc",
-       "tho",
-       "kim"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.19
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 1.19
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.19
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Chuột Sau Chợ & Muỗi Đèn Bar & Bùn Dốc Phố Tây",
-      "mainElements": [
-       "kim",
-       "moc",
-       "tho"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 1.4
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.4
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 1.4
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Bùn Dốc Phố Tây & Chuột Sau Chợ & Muỗi Đèn Bar",
-      "mainElements": [
-       "tho",
-       "kim",
-       "moc"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.68
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 1.68
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.68
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "tho",
-       "moc",
-       "kim"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 1.96
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.96
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 1.96
-       }
-      ]
-     }
-    ],
-    "towerIds": [
-     "gt_tang_bat_ho_banh_qua",
-     "gt_tang_bat_ho_sua_nanh",
-     "gt_tang_bat_ho_banh_can",
-     "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_khach_san",
-     "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_bar_ham",
-     "gt_tang_bat_ho_cafe_xe_dap",
-     "gt_tang_bat_ho_an_vat",
-     "gt_tang_bat_ho_giat_say",
-     "gt_don_kep_rac",
-     "gt_don_choi_tre",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_don_bao_cat"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_tang_bat_ho_banh_qua",
-     "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_sua_nanh",
-     "gt_don_den_duong",
-     "gt_tang_bat_ho_banh_can"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "banh_qua",
-      "name": "Tiệm Bánh Quà Mimosa",
-      "type": "Tiệm bánh quà đặc sản",
-      "trait": "hộp bánh quy làm quà, ghế ngoài hiên",
-      "towerId": "gt_tang_bat_ho_banh_qua"
-     },
-     {
-      "key": "sua_nanh",
-      "name": "Quán Sữa Nóng Sương Mai",
-      "type": "Quán sữa đậu nành đêm",
-      "trait": "ly sữa nóng, đông khách buổi tối",
-      "towerId": "gt_tang_bat_ho_sua_nanh"
-     },
-     {
-      "key": "banh_can",
-      "name": "Bánh Căn Dã Quỳ",
-      "type": "Quán bánh căn",
-      "trait": "khuôn đất nung, trứng cút",
-      "towerId": "gt_tang_bat_ho_banh_can"
-     },
-     {
-      "key": "goc_cay",
-      "name": "Quán Sáng Gốc Thông Ba Lá",
-      "type": "Quán ăn sáng dưới gốc cây",
-      "trait": "ngồi dưới gốc cây lớn",
-      "towerId": "gt_tang_bat_ho_goc_cay"
-     },
-     {
-      "key": "khach_san",
-      "name": "Khách Sạn Mini Cẩm Tú Cầu",
-      "type": "Khách sạn mini",
-      "trait": "sảnh nhỏ, thảm lót",
-      "towerId": "gt_tang_bat_ho_khach_san"
-     },
-     {
-      "key": "thue_xe",
-      "name": "Hostel Thuê Xe Mây Ngàn",
-      "type": "Hostel cho dân ba lô, thuê xe máy",
-      "trait": "giường tầng, dàn xe máy cho thuê",
-      "towerId": "gt_tang_bat_ho_thue_xe"
-     },
-     {
-      "key": "bar_ham",
-      "name": "Bar Hầm Sim Tím",
-      "type": "Cocktail bar dưới hầm",
-      "trait": "pha theo yêu cầu, đá lạnh",
-      "towerId": "gt_tang_bat_ho_bar_ham"
-     },
-     {
-      "key": "cafe_xe_dap",
-      "name": "Cà Phê Xe Đạp Lan Hài",
-      "type": "Quán cà phê trong nhà cũ, trang trí xe đạp",
-      "trait": "xe đạp cũ treo tường",
-      "towerId": "gt_tang_bat_ho_cafe_xe_dap"
-     },
-     {
-      "key": "an_vat",
-      "name": "Tiệm Ăn Vặt Atiso",
-      "type": "Tiệm ăn vặt, đặc sản",
-      "trait": "kệ mứt, đồ ăn vặt đặc sản",
-      "towerId": "gt_tang_bat_ho_an_vat"
-     },
-     {
-      "key": "giat_say",
-      "name": "Giặt Sấy Hồ Sương",
-      "type": "Tiệm giặt sấy cho khách trọ (Trương Công Định)",
-      "trait": "máy giặt quay ù ù, bọt xà phòng",
-      "towerId": "gt_tang_bat_ho_giat_say"
-     }
-    ],
-    "streetId": "street_tang_bat_ho",
-    "shopIndex": 1,
-    "featuredTowerId": "gt_tang_bat_ho_banh_qua",
-    "facadeKey": "mat_tien_banh_qua",
-    "roomStyle": "tiem",
-    "roomLayout": "hai_cua_lat",
-    "botPlan": [
-     {
-      "padId": "pad_1",
-      "defId": "gt_tang_bat_ho_banh_qua",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_2",
-      "defId": "gt_tang_bat_ho_thue_xe",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_tang_bat_ho_goc_cay",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_banh_can",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "gt_tang_bat_ho_banh_qua",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_tang_bat_ho_thue_xe",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_sua_nanh",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_tang_bat_ho_banh_can",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_tang_bat_ho_banh_qua",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_thue_xe",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_tang_bat_ho_sua_nanh",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 1.2,
-   "balance": {
-    "randomWinWithExpectedGear": 0.5625,
-    "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
-    "target": 0.6166666666666667
-   },
-   "stage": {
-    "id": "street_tang_bat_ho_t2",
-    "stageNumber": 12,
-    "name": "Quán Sữa Nóng Sương Mai",
-    "subtitle": "Phố Tăng Bạt Hổ – Trương Công Định · tiệm 2/10: Quán sữa đậu nành đêm",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 180,
-       "y": 520
-      },
-      {
-       "x": 180,
-       "y": 430
-      },
-      {
-       "x": 64,
-       "y": 430
-      },
-      {
-       "x": 64,
-       "y": 300
-      },
-      {
-       "x": 296,
-       "y": 300
-      },
-      {
-       "x": 296,
-       "y": 170
-      },
-      {
-       "x": 64,
-       "y": 170
-      },
-      {
-       "x": 64,
-       "y": 60
-      },
-      {
-       "x": 180,
-       "y": 60
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 130,
-      "y": 380
-     },
-     {
-      "id": "pad_2",
-      "x": 130,
-      "y": 120
-     },
-     {
-      "id": "pad_3",
-      "x": 90,
-      "y": 470
-     },
-     {
-      "id": "pad_4",
-      "x": 220,
-      "y": 230
-     },
-     {
-      "id": "pad_5",
-      "x": 200,
-      "y": 380
-     },
-     {
-      "id": "pad_6",
-      "x": 90,
-      "y": 220
-     },
-     {
-      "id": "pad_7",
-      "x": 140,
-      "y": 260
-     },
-     {
-      "id": "pad_8",
-      "x": 200,
-      "y": 120
-     },
-     {
-      "id": "pad_9",
-      "x": 220,
-      "y": 440
-     },
-     {
-      "id": "pad_10",
-      "x": 40,
-      "y": 260
-     },
-     {
-      "id": "pad_11",
-      "x": 250,
-      "y": 340
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
-      "title": "Đợt 1: Muỗi Đèn Bar",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.2
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Khói Than Hẻm",
-      "mainElements": [
-       "hoa"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 3,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.38
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Chuột Sau Chợ & Khói Than Hẻm",
-      "mainElements": [
-       "kim",
-       "hoa"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_5",
-        "count": 2,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.56
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 3,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.56
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Muỗi Đèn Bar & Chuột Sau Chợ",
-      "mainElements": [
-       "moc",
-       "kim"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.74
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_5",
-        "count": 2,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.74
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Khói Than Hẻm & Muỗi Đèn Bar & Chuột Sau Chợ",
-      "mainElements": [
-       "hoa",
-       "moc",
-       "kim"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.04
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.04
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.04
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Chuột Sau Chợ & Khói Than Hẻm & Muỗi Đèn Bar",
-      "mainElements": [
-       "kim",
-       "hoa",
-       "moc"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.4
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.4
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.4
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Muỗi Đèn Bar & Chuột Sau Chợ & Khói Than Hẻm",
-      "mainElements": [
-       "moc",
-       "kim",
-       "hoa"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.88
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.88
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.88
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "moc",
-       "hoa",
-       "kim"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       }
-      ]
-     }
-    ],
-    "towerIds": [
-     "gt_tang_bat_ho_sua_nanh",
-     "gt_tang_bat_ho_banh_qua",
-     "gt_tang_bat_ho_banh_can",
-     "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_khach_san",
-     "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_bar_ham",
-     "gt_tang_bat_ho_cafe_xe_dap",
-     "gt_tang_bat_ho_an_vat",
-     "gt_tang_bat_ho_giat_say",
-     "gt_don_kep_rac",
-     "gt_don_choi_tre",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_don_bao_cat"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_tang_bat_ho_sua_nanh",
-     "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_bar_ham",
-     "gt_don_den_duong",
-     "gt_tang_bat_ho_banh_can"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "banh_qua",
-      "name": "Tiệm Bánh Quà Mimosa",
-      "type": "Tiệm bánh quà đặc sản",
-      "trait": "hộp bánh quy làm quà, ghế ngoài hiên",
-      "towerId": "gt_tang_bat_ho_banh_qua"
-     },
-     {
-      "key": "sua_nanh",
-      "name": "Quán Sữa Nóng Sương Mai",
-      "type": "Quán sữa đậu nành đêm",
-      "trait": "ly sữa nóng, đông khách buổi tối",
-      "towerId": "gt_tang_bat_ho_sua_nanh"
-     },
-     {
-      "key": "banh_can",
-      "name": "Bánh Căn Dã Quỳ",
-      "type": "Quán bánh căn",
-      "trait": "khuôn đất nung, trứng cút",
-      "towerId": "gt_tang_bat_ho_banh_can"
-     },
-     {
-      "key": "goc_cay",
-      "name": "Quán Sáng Gốc Thông Ba Lá",
-      "type": "Quán ăn sáng dưới gốc cây",
-      "trait": "ngồi dưới gốc cây lớn",
-      "towerId": "gt_tang_bat_ho_goc_cay"
-     },
-     {
-      "key": "khach_san",
-      "name": "Khách Sạn Mini Cẩm Tú Cầu",
-      "type": "Khách sạn mini",
-      "trait": "sảnh nhỏ, thảm lót",
-      "towerId": "gt_tang_bat_ho_khach_san"
-     },
-     {
-      "key": "thue_xe",
-      "name": "Hostel Thuê Xe Mây Ngàn",
-      "type": "Hostel cho dân ba lô, thuê xe máy",
-      "trait": "giường tầng, dàn xe máy cho thuê",
-      "towerId": "gt_tang_bat_ho_thue_xe"
-     },
-     {
-      "key": "bar_ham",
-      "name": "Bar Hầm Sim Tím",
-      "type": "Cocktail bar dưới hầm",
-      "trait": "pha theo yêu cầu, đá lạnh",
-      "towerId": "gt_tang_bat_ho_bar_ham"
-     },
-     {
-      "key": "cafe_xe_dap",
-      "name": "Cà Phê Xe Đạp Lan Hài",
-      "type": "Quán cà phê trong nhà cũ, trang trí xe đạp",
-      "trait": "xe đạp cũ treo tường",
-      "towerId": "gt_tang_bat_ho_cafe_xe_dap"
-     },
-     {
-      "key": "an_vat",
-      "name": "Tiệm Ăn Vặt Atiso",
-      "type": "Tiệm ăn vặt, đặc sản",
-      "trait": "kệ mứt, đồ ăn vặt đặc sản",
-      "towerId": "gt_tang_bat_ho_an_vat"
-     },
-     {
-      "key": "giat_say",
-      "name": "Giặt Sấy Hồ Sương",
-      "type": "Tiệm giặt sấy cho khách trọ (Trương Công Định)",
-      "trait": "máy giặt quay ù ù, bọt xà phòng",
-      "towerId": "gt_tang_bat_ho_giat_say"
-     }
-    ],
-    "streetId": "street_tang_bat_ho",
-    "shopIndex": 2,
-    "featuredTowerId": "gt_tang_bat_ho_sua_nanh",
-    "facadeKey": "mat_tien_sua_nanh",
-    "roomStyle": "cafe",
-    "roomLayout": "zigzag",
-    "botPlan": [
-     {
-      "padId": "pad_1",
-      "defId": "gt_tang_bat_ho_sua_nanh",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_2",
-      "defId": "gt_tang_bat_ho_thue_xe",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_tang_bat_ho_goc_cay",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_banh_can",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "gt_tang_bat_ho_sua_nanh",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_tang_bat_ho_thue_xe",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_bar_ham",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_tang_bat_ho_banh_can",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_tang_bat_ho_sua_nanh",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_thue_xe",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_tang_bat_ho_bar_ham",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 1.4,
-   "balance": {
-    "randomWinWithExpectedGear": 0.5208333333333334,
-    "botWinRate": 1,
-    "botLivesAvg": 15,
-    "target": 0.5833333333333334
-   },
-   "stage": {
-    "id": "street_tang_bat_ho_t3",
-    "stageNumber": 13,
-    "name": "Bánh Căn Dã Quỳ",
-    "subtitle": "Phố Tăng Bạt Hổ – Trương Công Định · tiệm 3/10: Quán bánh căn",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 180,
-       "y": 520
-      },
-      {
-       "x": 180,
-       "y": 430
-      },
-      {
-       "x": 296,
-       "y": 430
-      },
-      {
-       "x": 296,
-       "y": 300
-      },
-      {
-       "x": 64,
-       "y": 300
-      },
-      {
-       "x": 64,
-       "y": 170
-      },
-      {
-       "x": 296,
-       "y": 170
-      },
-      {
-       "x": 296,
-       "y": 60
-      },
-      {
-       "x": 180,
-       "y": 60
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 230,
-      "y": 380
-     },
-     {
-      "id": "pad_2",
-      "x": 210,
-      "y": 110
-     },
-     {
-      "id": "pad_3",
-      "x": 270,
-      "y": 470
-     },
-     {
-      "id": "pad_4",
-      "x": 130,
-      "y": 220
-     },
-     {
-      "id": "pad_5",
-      "x": 150,
-      "y": 390
-     },
-     {
-      "id": "pad_6",
-      "x": 230,
-      "y": 220
-     },
-     {
-      "id": "pad_7",
-      "x": 280,
-      "y": 260
-     },
-     {
-      "id": "pad_8",
-      "x": 130,
-      "y": 450
-     },
-     {
-      "id": "pad_9",
-      "x": 150,
-      "y": 130
-     },
-     {
-      "id": "pad_10",
-      "x": 320,
-      "y": 210
-     },
-     {
-      "id": "pad_11",
-      "x": 180,
-      "y": 260
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
       "title": "Đợt 1: Mưa Phùn Đêm",
       "mainElements": [
        "thuy"
@@ -1917,7 +1915,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.4
+        "hpScale": 1.1
        }
       ]
      },
@@ -1935,8 +1933,8 @@
         "count": 3,
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.61
+        "pathIndex": 1,
+        "hpScale": 1.26
        }
       ]
      },
@@ -1956,15 +1954,15 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.82
+        "hpScale": 1.43
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
         "count": 3,
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.82
+        "pathIndex": 1,
+        "hpScale": 1.43
        }
       ]
      },
@@ -1983,8 +1981,8 @@
         "count": 7,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.03
+        "pathIndex": 1,
+        "hpScale": 1.6
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -1992,7 +1990,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.03
+        "hpScale": 1.6
        }
       ]
      },
@@ -2013,15 +2011,15 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.38
+        "hpScale": 1.87
        },
        {
         "enemyId": "ge_tang_bat_ho_1",
         "count": 8,
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.38
+        "pathIndex": 1,
+        "hpScale": 1.87
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -2029,7 +2027,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.38
+        "hpScale": 1.87
        }
       ]
      },
@@ -2049,8 +2047,8 @@
         "count": 3,
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.8
+        "pathIndex": 1,
+        "hpScale": 2.2
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -2058,15 +2056,15 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.2
        },
        {
         "enemyId": "ge_tang_bat_ho_1",
         "count": 8,
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.8
+        "pathIndex": 1,
+        "hpScale": 2.2
        }
       ]
      },
@@ -2087,15 +2085,15 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 2.64
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
         "count": 3,
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
+        "pathIndex": 1,
+        "hpScale": 2.64
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -2103,7 +2101,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 2.64
        }
       ]
      },
@@ -2123,8 +2121,8 @@
         "count": 9,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.92
+        "pathIndex": 1,
+        "hpScale": 3.08
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -2132,30 +2130,37 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.92
+        "hpScale": 3.08
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
         "count": 3,
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.92
+        "pathIndex": 1,
+        "hpScale": 3.08
        }
       ]
      }
     ],
     "towerIds": [
      "gt_tang_bat_ho_banh_can",
-     "gt_tang_bat_ho_banh_qua",
-     "gt_tang_bat_ho_sua_nanh",
      "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_khach_san",
-     "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_bar_ham",
-     "gt_tang_bat_ho_cafe_xe_dap",
-     "gt_tang_bat_ho_an_vat",
-     "gt_tang_bat_ho_giat_say",
+     "gt_hoang_dieu_lau_nha_go",
+     "gt_hoang_dieu_lau_hem",
+     "gt_hoang_dieu_xiu_mai",
+     "gt_hoang_dieu_banh_trang",
+     "gt_hoang_dieu_com_ga",
+     "gt_hoang_dieu_chao_gang",
+     "gt_hoang_dieu_pizza",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong",
+     "gt_nguyen_van_troi_com_tam",
+     "gt_phan_dinh_phung_pho",
+     "gt_tran_phu_banh_mi_ga",
+     "gt_tran_phu_chao_dem",
+     "gt_tran_phu_com_ga",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -2165,11 +2170,11 @@
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_tang_bat_ho_banh_can",
-     "gt_tang_bat_ho_thue_xe",
+     "gt_hoang_dieu_com_ga",
      "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_sua_nanh",
+     "gt_hoang_dieu_lau_hem",
      "gt_don_den_duong",
-     "gt_tang_bat_ho_khach_san"
+     "gt_hoang_dieu_xiu_mai"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -2250,7 +2255,7 @@
     "featuredTowerId": "gt_tang_bat_ho_banh_can",
     "facadeKey": "mat_tien_banh_can",
     "roomStyle": "quan_an",
-    "roomLayout": "zigzag_lat",
+    "roomLayout": "hai_cua_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -2259,7 +2264,7 @@
      },
      {
       "padId": "pad_2",
-      "defId": "gt_tang_bat_ho_thue_xe",
+      "defId": "gt_hoang_dieu_com_ga",
       "preferredBranch": "B"
      },
      {
@@ -2269,7 +2274,7 @@
      },
      {
       "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_khach_san",
+      "defId": "gt_hoang_dieu_xiu_mai",
       "preferredBranch": "B"
      },
      {
@@ -2279,17 +2284,17 @@
      },
      {
       "padId": "pad_6",
-      "defId": "gt_tang_bat_ho_thue_xe",
+      "defId": "gt_hoang_dieu_com_ga",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_sua_nanh",
+      "defId": "gt_hoang_dieu_lau_hem",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "gt_tang_bat_ho_khach_san",
+      "defId": "gt_hoang_dieu_xiu_mai",
       "preferredBranch": "B"
      },
      {
@@ -2299,12 +2304,12 @@
      },
      {
       "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_thue_xe",
+      "defId": "gt_hoang_dieu_com_ga",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "gt_tang_bat_ho_sua_nanh",
+      "defId": "gt_hoang_dieu_lau_hem",
       "preferredBranch": "A"
      }
     ]
@@ -2313,7 +2318,7 @@
   {
    "hpMultiplier": 0.8,
    "balance": {
-    "randomWinWithExpectedGear": 0.6041666666666666,
+    "randomWinWithExpectedGear": 0.4791666666666667,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.55
@@ -2328,85 +2333,89 @@
     "paths": [
      [
       {
-       "x": 60,
-       "y": 520
+       "x": 0,
+       "y": 450
       },
       {
-       "x": 60,
-       "y": 120
+       "x": 110,
+       "y": 450
       },
       {
-       "x": 180,
-       "y": 120
+       "x": 110,
+       "y": 300
       },
       {
-       "x": 180,
-       "y": 380
+       "x": 260,
+       "y": 300
       },
       {
-       "x": 300,
-       "y": 380
+       "x": 260,
+       "y": 170
       },
       {
-       "x": 300,
-       "y": 60
+       "x": 110,
+       "y": 170
+      },
+      {
+       "x": 110,
+       "y": 70
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 240,
-      "y": 290
+      "x": 170,
+      "y": 230
      },
      {
       "id": "pad_2",
-      "x": 120,
-      "y": 210
+      "x": 200,
+      "y": 130
      },
      {
       "id": "pad_3",
-      "x": 220,
-      "y": 150
+      "x": 50,
+      "y": 360
      },
      {
       "id": "pad_4",
-      "x": 120,
-      "y": 80
+      "x": 150,
+      "y": 370
      },
      {
       "id": "pad_5",
-      "x": 130,
-      "y": 320
-     },
-     {
-      "id": "pad_6",
-      "x": 220,
-      "y": 420
-     },
-     {
-      "id": "pad_7",
-      "x": 240,
+      "x": 110,
       "y": 210
      },
      {
+      "id": "pad_6",
+      "x": 210,
+      "y": 340
+     },
+     {
+      "id": "pad_7",
+      "x": 150,
+      "y": 90
+     },
+     {
       "id": "pad_8",
-      "x": 120,
-      "y": 390
+      "x": 300,
+      "y": 210
      },
      {
       "id": "pad_9",
-      "x": 200,
-      "y": 80
+      "x": 70,
+      "y": 130
      },
      {
       "id": "pad_10",
-      "x": 290,
-      "y": 420
+      "x": 80,
+      "y": 270
      },
      {
       "id": "pad_11",
-      "x": 160,
+      "x": 150,
       "y": 440
      }
     ],
@@ -2656,15 +2665,22 @@
     ],
     "towerIds": [
      "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_banh_qua",
-     "gt_tang_bat_ho_sua_nanh",
      "gt_tang_bat_ho_banh_can",
-     "gt_tang_bat_ho_khach_san",
-     "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_bar_ham",
-     "gt_tang_bat_ho_cafe_xe_dap",
-     "gt_tang_bat_ho_an_vat",
-     "gt_tang_bat_ho_giat_say",
+     "gt_hoang_dieu_lau_nha_go",
+     "gt_hoang_dieu_lau_hem",
+     "gt_hoang_dieu_xiu_mai",
+     "gt_hoang_dieu_banh_trang",
+     "gt_hoang_dieu_com_ga",
+     "gt_hoang_dieu_chao_gang",
+     "gt_hoang_dieu_pizza",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong",
+     "gt_nguyen_van_troi_com_tam",
+     "gt_phan_dinh_phung_pho",
+     "gt_tran_phu_banh_mi_ga",
+     "gt_tran_phu_chao_dem",
+     "gt_tran_phu_com_ga",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -2674,9 +2690,9 @@
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_an_vat",
-     "gt_tang_bat_ho_sua_nanh",
+     "gt_hoang_dieu_com_ga",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_hoang_dieu_lau_hem",
      "gt_don_den_duong",
      "gt_tang_bat_ho_banh_can"
     ],
@@ -2759,16 +2775,16 @@
     "featuredTowerId": "gt_tang_bat_ho_goc_cay",
     "facadeKey": "mat_tien_goc_cay",
     "roomStyle": "quan_an",
-    "roomLayout": "chu_u",
+    "roomLayout": "cua_ben",
     "botPlan": [
      {
       "padId": "pad_1",
-      "defId": "gt_tang_bat_ho_thue_xe",
+      "defId": "gt_hoang_dieu_com_ga",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_2",
-      "defId": "gt_tang_bat_ho_an_vat",
+      "defId": "gt_nguyen_van_troi_lau_ga",
       "preferredBranch": "B"
      },
      {
@@ -2783,17 +2799,17 @@
      },
      {
       "padId": "pad_5",
-      "defId": "gt_tang_bat_ho_thue_xe",
+      "defId": "gt_hoang_dieu_com_ga",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "gt_tang_bat_ho_an_vat",
+      "defId": "gt_nguyen_van_troi_lau_ga",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_sua_nanh",
+      "defId": "gt_hoang_dieu_lau_hem",
       "preferredBranch": "A"
      },
      {
@@ -2803,12 +2819,1507 @@
      },
      {
       "padId": "pad_9",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_nguyen_van_troi_lau_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_hoang_dieu_lau_hem",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.9,
+   "balance": {
+    "randomWinWithExpectedGear": 0.5208333333333334,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.5166666666666667
+   },
+   "stage": {
+    "id": "street_tang_bat_ho_t5",
+    "stageNumber": 15,
+    "name": "Khách Sạn Mini Cẩm Tú Cầu",
+    "subtitle": "Phố Tăng Bạt Hổ – Trương Công Định · tiệm 5/10: Khách sạn mini",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 300,
+       "y": 520
+      },
+      {
+       "x": 300,
+       "y": 90
+      },
+      {
+       "x": 60,
+       "y": 90
+      },
+      {
+       "x": 60,
+       "y": 210
+      },
+      {
+       "x": 210,
+       "y": 210
+      },
+      {
+       "x": 210,
+       "y": 330
+      },
+      {
+       "x": 60,
+       "y": 330
+      },
+      {
+       "x": 60,
+       "y": 440
+      },
+      {
+       "x": 160,
+       "y": 440
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 120,
+      "y": 270
+     },
+     {
+      "id": "pad_2",
+      "x": 140,
+      "y": 370
+     },
+     {
+      "id": "pad_3",
+      "x": 140,
+      "y": 150
+     },
+     {
+      "id": "pad_4",
+      "x": 240,
+      "y": 180
+     },
+     {
+      "id": "pad_5",
+      "x": 250,
+      "y": 270
+     },
+     {
+      "id": "pad_6",
+      "x": 60,
+      "y": 290
+     },
+     {
+      "id": "pad_7",
+      "x": 200,
+      "y": 390
+     },
+     {
+      "id": "pad_8",
+      "x": 200,
+      "y": 130
+     },
+     {
+      "id": "pad_9",
+      "x": 60,
+      "y": 480
+     },
+     {
+      "id": "pad_10",
+      "x": 250,
+      "y": 340
+     },
+     {
+      "id": "pad_11",
+      "x": 130,
+      "y": 480
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Mưa Phùn Đêm",
+      "mainElements": [
+       "thuy"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.9
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bùn Dốc Phố Tây",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.18
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Muỗi Đèn Bar & Bùn Dốc Phố Tây",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.47
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.47
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Mưa Phùn Đêm & Muỗi Đèn Bar",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.76
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.76
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Mưa Phùn Đêm & Muỗi Đèn Bar",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.23
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.23
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Bùn Dốc Phố Tây & Rêu Tường Cũ",
+      "mainElements": [
+       "tho",
+       "moc"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.8
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.8
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Muỗi Đèn Bar & Mưa Phùn Đêm",
+      "mainElements": [
+       "moc",
+       "thuy"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 4.56
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.56
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "thuy",
+       "tho",
+       "moc"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 5.32
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.32
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.32
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.32
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "gt_tang_bat_ho_khach_san",
+     "gt_tang_bat_ho_thue_xe",
+     "gt_hoang_dieu_khach_san",
+     "gt_tran_phu_ks_ho",
+     "gt_tran_phu_ks_phap",
+     "gt_tran_phu_ks_binh_dan",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_tang_bat_ho_khach_san",
+     "gt_tang_bat_ho_thue_xe",
+     "gt_hoang_dieu_khach_san",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_tran_phu_ks_phap"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "banh_qua",
+      "name": "Tiệm Bánh Quà Mimosa",
+      "type": "Tiệm bánh quà đặc sản",
+      "trait": "hộp bánh quy làm quà, ghế ngoài hiên",
+      "towerId": "gt_tang_bat_ho_banh_qua"
+     },
+     {
+      "key": "sua_nanh",
+      "name": "Quán Sữa Nóng Sương Mai",
+      "type": "Quán sữa đậu nành đêm",
+      "trait": "ly sữa nóng, đông khách buổi tối",
+      "towerId": "gt_tang_bat_ho_sua_nanh"
+     },
+     {
+      "key": "banh_can",
+      "name": "Bánh Căn Dã Quỳ",
+      "type": "Quán bánh căn",
+      "trait": "khuôn đất nung, trứng cút",
+      "towerId": "gt_tang_bat_ho_banh_can"
+     },
+     {
+      "key": "goc_cay",
+      "name": "Quán Sáng Gốc Thông Ba Lá",
+      "type": "Quán ăn sáng dưới gốc cây",
+      "trait": "ngồi dưới gốc cây lớn",
+      "towerId": "gt_tang_bat_ho_goc_cay"
+     },
+     {
+      "key": "khach_san",
+      "name": "Khách Sạn Mini Cẩm Tú Cầu",
+      "type": "Khách sạn mini",
+      "trait": "sảnh nhỏ, thảm lót",
+      "towerId": "gt_tang_bat_ho_khach_san"
+     },
+     {
+      "key": "thue_xe",
+      "name": "Hostel Thuê Xe Mây Ngàn",
+      "type": "Hostel cho dân ba lô, thuê xe máy",
+      "trait": "giường tầng, dàn xe máy cho thuê",
+      "towerId": "gt_tang_bat_ho_thue_xe"
+     },
+     {
+      "key": "bar_ham",
+      "name": "Bar Hầm Sim Tím",
+      "type": "Cocktail bar dưới hầm",
+      "trait": "pha theo yêu cầu, đá lạnh",
+      "towerId": "gt_tang_bat_ho_bar_ham"
+     },
+     {
+      "key": "cafe_xe_dap",
+      "name": "Cà Phê Xe Đạp Lan Hài",
+      "type": "Quán cà phê trong nhà cũ, trang trí xe đạp",
+      "trait": "xe đạp cũ treo tường",
+      "towerId": "gt_tang_bat_ho_cafe_xe_dap"
+     },
+     {
+      "key": "an_vat",
+      "name": "Tiệm Ăn Vặt Atiso",
+      "type": "Tiệm ăn vặt, đặc sản",
+      "trait": "kệ mứt, đồ ăn vặt đặc sản",
+      "towerId": "gt_tang_bat_ho_an_vat"
+     },
+     {
+      "key": "giat_say",
+      "name": "Giặt Sấy Hồ Sương",
+      "type": "Tiệm giặt sấy cho khách trọ (Trương Công Định)",
+      "trait": "máy giặt quay ù ù, bọt xà phòng",
+      "towerId": "gt_tang_bat_ho_giat_say"
+     }
+    ],
+    "streetId": "street_tang_bat_ho",
+    "shopIndex": 5,
+    "featuredTowerId": "gt_tang_bat_ho_khach_san",
+    "facadeKey": "mat_tien_khach_san",
+    "roomStyle": "luu_tru",
+    "roomLayout": "chu_e_lat",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_tang_bat_ho_khach_san",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_tang_bat_ho_thue_xe",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_don_den_duong",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_don_voi_xit",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_tang_bat_ho_khach_san",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_tang_bat_ho_thue_xe",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_hoang_dieu_khach_san",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_don_voi_xit",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_tang_bat_ho_khach_san",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_tang_bat_ho_thue_xe",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_hoang_dieu_khach_san",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 2.1,
+   "balance": {
+    "randomWinWithExpectedGear": 0.5,
+    "botWinRate": 1,
+    "botLivesAvg": 19.666666666666668,
+    "target": 0.4833333333333334
+   },
+   "stage": {
+    "id": "street_tang_bat_ho_t6",
+    "stageNumber": 16,
+    "name": "Hostel Thuê Xe Mây Ngàn",
+    "subtitle": "Phố Tăng Bạt Hổ – Trương Công Định · tiệm 6/10: Hostel cho dân ba lô, thuê xe máy",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 50,
+       "y": 520
+      },
+      {
+       "x": 50,
+       "y": 450
+      },
+      {
+       "x": 310,
+       "y": 370
+      },
+      {
+       "x": 50,
+       "y": 270
+      },
+      {
+       "x": 310,
+       "y": 170
+      },
+      {
+       "x": 180,
+       "y": 70
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 130,
+      "y": 470
+     },
+     {
+      "id": "pad_2",
+      "x": 210,
+      "y": 150
+     },
+     {
+      "id": "pad_3",
+      "x": 90,
+      "y": 370
+     },
+     {
+      "id": "pad_4",
+      "x": 220,
+      "y": 290
+     },
+     {
+      "id": "pad_5",
+      "x": 30,
+      "y": 410
+     },
+     {
+      "id": "pad_6",
+      "x": 160,
+      "y": 360
+     },
+     {
+      "id": "pad_7",
+      "x": 280,
+      "y": 90
+     },
+     {
+      "id": "pad_8",
+      "x": 150,
+      "y": 170
+     },
+     {
+      "id": "pad_9",
+      "x": 260,
+      "y": 240
+     },
+     {
+      "id": "pad_10",
+      "x": 230,
+      "y": 440
+     },
+     {
+      "id": "pad_11",
+      "x": 80,
+      "y": 210
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Mưa Phùn Đêm",
+      "mainElements": [
+       "thuy"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bùn Dốc Phố Tây",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.42
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Muỗi Đèn Bar & Bùn Dốc Phố Tây",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.73
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.73
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Mưa Phùn Đêm & Muỗi Đèn Bar",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.05
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.05
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Mưa Phùn Đêm & Muỗi Đèn Bar",
+      "mainElements": [
+       "thuy",
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.57
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.57
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Bùn Dốc Phố Tây & Khói Than Hẻm",
+      "mainElements": [
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Muỗi Đèn Bar & Mưa Phùn Đêm",
+      "mainElements": [
+       "moc",
+       "thuy"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 5.04
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.04
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "thuy",
+       "tho",
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 5.88
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.88
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.88
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.88
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tang_bat_ho_khach_san",
+     "gt_hoang_dieu_khach_san",
+     "gt_tran_phu_ks_ho",
+     "gt_tran_phu_ks_phap",
+     "gt_tran_phu_ks_binh_dan",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tran_phu_ks_ho",
+     "gt_hoang_dieu_khach_san",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_tran_phu_ks_phap"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "banh_qua",
+      "name": "Tiệm Bánh Quà Mimosa",
+      "type": "Tiệm bánh quà đặc sản",
+      "trait": "hộp bánh quy làm quà, ghế ngoài hiên",
+      "towerId": "gt_tang_bat_ho_banh_qua"
+     },
+     {
+      "key": "sua_nanh",
+      "name": "Quán Sữa Nóng Sương Mai",
+      "type": "Quán sữa đậu nành đêm",
+      "trait": "ly sữa nóng, đông khách buổi tối",
+      "towerId": "gt_tang_bat_ho_sua_nanh"
+     },
+     {
+      "key": "banh_can",
+      "name": "Bánh Căn Dã Quỳ",
+      "type": "Quán bánh căn",
+      "trait": "khuôn đất nung, trứng cút",
+      "towerId": "gt_tang_bat_ho_banh_can"
+     },
+     {
+      "key": "goc_cay",
+      "name": "Quán Sáng Gốc Thông Ba Lá",
+      "type": "Quán ăn sáng dưới gốc cây",
+      "trait": "ngồi dưới gốc cây lớn",
+      "towerId": "gt_tang_bat_ho_goc_cay"
+     },
+     {
+      "key": "khach_san",
+      "name": "Khách Sạn Mini Cẩm Tú Cầu",
+      "type": "Khách sạn mini",
+      "trait": "sảnh nhỏ, thảm lót",
+      "towerId": "gt_tang_bat_ho_khach_san"
+     },
+     {
+      "key": "thue_xe",
+      "name": "Hostel Thuê Xe Mây Ngàn",
+      "type": "Hostel cho dân ba lô, thuê xe máy",
+      "trait": "giường tầng, dàn xe máy cho thuê",
+      "towerId": "gt_tang_bat_ho_thue_xe"
+     },
+     {
+      "key": "bar_ham",
+      "name": "Bar Hầm Sim Tím",
+      "type": "Cocktail bar dưới hầm",
+      "trait": "pha theo yêu cầu, đá lạnh",
+      "towerId": "gt_tang_bat_ho_bar_ham"
+     },
+     {
+      "key": "cafe_xe_dap",
+      "name": "Cà Phê Xe Đạp Lan Hài",
+      "type": "Quán cà phê trong nhà cũ, trang trí xe đạp",
+      "trait": "xe đạp cũ treo tường",
+      "towerId": "gt_tang_bat_ho_cafe_xe_dap"
+     },
+     {
+      "key": "an_vat",
+      "name": "Tiệm Ăn Vặt Atiso",
+      "type": "Tiệm ăn vặt, đặc sản",
+      "trait": "kệ mứt, đồ ăn vặt đặc sản",
+      "towerId": "gt_tang_bat_ho_an_vat"
+     },
+     {
+      "key": "giat_say",
+      "name": "Giặt Sấy Hồ Sương",
+      "type": "Tiệm giặt sấy cho khách trọ (Trương Công Định)",
+      "trait": "máy giặt quay ù ù, bọt xà phòng",
+      "towerId": "gt_tang_bat_ho_giat_say"
+     }
+    ],
+    "streetId": "street_tang_bat_ho",
+    "shopIndex": 6,
+    "featuredTowerId": "gt_tang_bat_ho_thue_xe",
+    "facadeKey": "mat_tien_thue_xe",
+    "roomStyle": "luu_tru",
+    "roomLayout": "rang_cua",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_tang_bat_ho_thue_xe",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_tran_phu_ks_ho",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_don_den_duong",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_don_voi_xit",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_tang_bat_ho_thue_xe",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_tran_phu_ks_ho",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_hoang_dieu_khach_san",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_don_voi_xit",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
       "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_an_vat",
+      "defId": "gt_tran_phu_ks_ho",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_hoang_dieu_khach_san",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1,
+   "balance": {
+    "randomWinWithExpectedGear": 0.5625,
+    "botWinRate": 1,
+    "botLivesAvg": 20,
+    "target": 0.45000000000000007
+   },
+   "stage": {
+    "id": "street_tang_bat_ho_t7",
+    "stageNumber": 17,
+    "name": "Bar Hầm Sim Tím",
+    "subtitle": "Phố Tăng Bạt Hổ – Trương Công Định · tiệm 7/10: Cocktail bar dưới hầm",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 180,
+       "y": 520
+      },
+      {
+       "x": 180,
+       "y": 430
+      },
+      {
+       "x": 64,
+       "y": 430
+      },
+      {
+       "x": 64,
+       "y": 300
+      },
+      {
+       "x": 296,
+       "y": 300
+      },
+      {
+       "x": 296,
+       "y": 170
+      },
+      {
+       "x": 64,
+       "y": 170
+      },
+      {
+       "x": 64,
+       "y": 60
+      },
+      {
+       "x": 180,
+       "y": 60
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 130,
+      "y": 380
+     },
+     {
+      "id": "pad_2",
+      "x": 130,
+      "y": 120
+     },
+     {
+      "id": "pad_3",
+      "x": 90,
+      "y": 470
+     },
+     {
+      "id": "pad_4",
+      "x": 220,
+      "y": 230
+     },
+     {
+      "id": "pad_5",
+      "x": 200,
+      "y": 380
+     },
+     {
+      "id": "pad_6",
+      "x": 90,
+      "y": 220
+     },
+     {
+      "id": "pad_7",
+      "x": 140,
+      "y": 260
+     },
+     {
+      "id": "pad_8",
+      "x": 200,
+      "y": 120
+     },
+     {
+      "id": "pad_9",
+      "x": 220,
+      "y": 440
+     },
+     {
+      "id": "pad_10",
+      "x": 40,
+      "y": 260
+     },
+     {
+      "id": "pad_11",
+      "x": 250,
+      "y": 340
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Bùn Dốc Phố Tây",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Muỗi Đèn Bar",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.15
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Khói Than Hẻm & Muỗi Đèn Bar",
+      "mainElements": [
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.3
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Bùn Dốc Phố Tây & Khói Than Hẻm",
+      "mainElements": [
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.45
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Bùn Dốc Phố Tây & Khói Than Hẻm",
+      "mainElements": [
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.7
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Muỗi Đèn Bar & Chuột Sau Chợ",
+      "mainElements": [
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Khói Than Hẻm & Bùn Dốc Phố Tây",
+      "mainElements": [
+       "hoa",
+       "tho"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "tho",
+       "moc",
+       "hoa",
+       "kim"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.8
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "gt_tang_bat_ho_bar_ham",
+     "gt_tang_bat_ho_banh_qua",
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_tang_bat_ho_an_vat",
+     "gt_hoang_dieu_yaourt",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_nguyen_van_troi_che",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_pho_ca_phe_o_long",
+     "gt_pho_ca_phe_kem_ly",
+     "gt_pho_ca_phe_tra_sua",
+     "gt_pho_ca_phe_retro",
+     "gt_pho_ca_phe_kem_bo",
+     "gt_pho_ca_phe_cafe_xua",
+     "gt_pho_ca_phe_san_thuong",
+     "gt_tran_phu_tiem_banh",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_tang_bat_ho_bar_ham",
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_hoang_dieu_yaourt",
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_don_den_duong",
+     "gt_pho_ca_phe_cafe_xua"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "banh_qua",
+      "name": "Tiệm Bánh Quà Mimosa",
+      "type": "Tiệm bánh quà đặc sản",
+      "trait": "hộp bánh quy làm quà, ghế ngoài hiên",
+      "towerId": "gt_tang_bat_ho_banh_qua"
+     },
+     {
+      "key": "sua_nanh",
+      "name": "Quán Sữa Nóng Sương Mai",
+      "type": "Quán sữa đậu nành đêm",
+      "trait": "ly sữa nóng, đông khách buổi tối",
+      "towerId": "gt_tang_bat_ho_sua_nanh"
+     },
+     {
+      "key": "banh_can",
+      "name": "Bánh Căn Dã Quỳ",
+      "type": "Quán bánh căn",
+      "trait": "khuôn đất nung, trứng cút",
+      "towerId": "gt_tang_bat_ho_banh_can"
+     },
+     {
+      "key": "goc_cay",
+      "name": "Quán Sáng Gốc Thông Ba Lá",
+      "type": "Quán ăn sáng dưới gốc cây",
+      "trait": "ngồi dưới gốc cây lớn",
+      "towerId": "gt_tang_bat_ho_goc_cay"
+     },
+     {
+      "key": "khach_san",
+      "name": "Khách Sạn Mini Cẩm Tú Cầu",
+      "type": "Khách sạn mini",
+      "trait": "sảnh nhỏ, thảm lót",
+      "towerId": "gt_tang_bat_ho_khach_san"
+     },
+     {
+      "key": "thue_xe",
+      "name": "Hostel Thuê Xe Mây Ngàn",
+      "type": "Hostel cho dân ba lô, thuê xe máy",
+      "trait": "giường tầng, dàn xe máy cho thuê",
+      "towerId": "gt_tang_bat_ho_thue_xe"
+     },
+     {
+      "key": "bar_ham",
+      "name": "Bar Hầm Sim Tím",
+      "type": "Cocktail bar dưới hầm",
+      "trait": "pha theo yêu cầu, đá lạnh",
+      "towerId": "gt_tang_bat_ho_bar_ham"
+     },
+     {
+      "key": "cafe_xe_dap",
+      "name": "Cà Phê Xe Đạp Lan Hài",
+      "type": "Quán cà phê trong nhà cũ, trang trí xe đạp",
+      "trait": "xe đạp cũ treo tường",
+      "towerId": "gt_tang_bat_ho_cafe_xe_dap"
+     },
+     {
+      "key": "an_vat",
+      "name": "Tiệm Ăn Vặt Atiso",
+      "type": "Tiệm ăn vặt, đặc sản",
+      "trait": "kệ mứt, đồ ăn vặt đặc sản",
+      "towerId": "gt_tang_bat_ho_an_vat"
+     },
+     {
+      "key": "giat_say",
+      "name": "Giặt Sấy Hồ Sương",
+      "type": "Tiệm giặt sấy cho khách trọ (Trương Công Định)",
+      "trait": "máy giặt quay ù ù, bọt xà phòng",
+      "towerId": "gt_tang_bat_ho_giat_say"
+     }
+    ],
+    "streetId": "street_tang_bat_ho",
+    "shopIndex": 7,
+    "featuredTowerId": "gt_tang_bat_ho_bar_ham",
+    "facadeKey": "mat_tien_bar_ham",
+    "roomStyle": "tiem",
+    "roomLayout": "zigzag",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_tang_bat_ho_bar_ham",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_hoang_dieu_yaourt",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_pho_ca_phe_cafe_xua",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_tang_bat_ho_bar_ham",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_tang_bat_ho_sua_nanh",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_pho_ca_phe_cafe_xua",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_tang_bat_ho_bar_ham",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
       "preferredBranch": "B"
      },
      {
@@ -2820,18 +4331,18 @@
    }
   },
   {
-   "hpMultiplier": 1.4,
+   "hpMultiplier": 1.6,
    "balance": {
-    "randomWinWithExpectedGear": 0.5,
+    "randomWinWithExpectedGear": 0.4166666666666667,
     "botWinRate": 1,
-    "botLivesAvg": 17.666666666666668,
-    "target": 0.5166666666666667
+    "botLivesAvg": 18.333333333333332,
+    "target": 0.4166666666666667
    },
    "stage": {
-    "id": "street_tang_bat_ho_t5",
-    "stageNumber": 15,
-    "name": "Khách Sạn Mini Cẩm Tú Cầu",
-    "subtitle": "Phố Tăng Bạt Hổ – Trương Công Định · tiệm 5/10: Khách sạn mini",
+    "id": "street_tang_bat_ho_t8",
+    "stageNumber": 18,
+    "name": "Cà Phê Xe Đạp Lan Hài",
+    "subtitle": "Phố Tăng Bạt Hổ – Trương Công Định · tiệm 8/10: Quán cà phê trong nhà cũ, trang trí xe đạp",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -2935,38 +4446,18 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.4
+        "hpScale": 1.6
        }
       ]
      },
      {
       "waveNumber": 2,
-      "title": "Đợt 2: Bùn Dốc Phố Tây",
+      "title": "Đợt 2: Muỗi Đèn Bar",
       "mainElements": [
-       "tho"
+       "moc"
       ],
       "earlyBonusMax": 13,
       "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.61
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Muỗi Đèn Bar & Bùn Dốc Phố Tây",
-      "mainElements": [
-       "moc",
-       "tho"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
       "groups": [
        {
         "enemyId": "ge_tang_bat_ho_3",
@@ -2974,24 +4465,44 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.82
+        "hpScale": 1.84
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Khói Than Hẻm & Muỗi Đèn Bar",
+      "mainElements": [
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.08
        },
        {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 2,
-        "intervalSec": 1.6,
+        "enemyId": "ge_tang_bat_ho_3",
+        "count": 4,
+        "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.82
+        "hpScale": 2.08
        }
       ]
      },
      {
       "waveNumber": 4,
-      "title": "Đợt 4: Mưa Phùn Đêm & Muỗi Đèn Bar",
+      "title": "Đợt 4: Mưa Phùn Đêm & Khói Than Hẻm",
       "mainElements": [
        "thuy",
-       "moc"
+       "hoa"
       ],
       "earlyBonusMax": 15,
       "clearReward": 15,
@@ -3002,24 +4513,24 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.03
+        "hpScale": 2.32
        },
        {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 5,
-        "intervalSec": 0.85,
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 4,
+        "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.03
+        "hpScale": 2.32
        }
       ]
      },
      {
       "waveNumber": 5,
-      "title": "Đợt 5: Mưa Phùn Đêm & Muỗi Đèn Bar",
+      "title": "Đợt 5: Mưa Phùn Đêm & Khói Than Hẻm",
       "mainElements": [
        "thuy",
-       "moc"
+       "hoa"
       ],
       "earlyBonusMax": 16,
       "clearReward": 16,
@@ -3030,35 +4541,44 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.38
+        "hpScale": 2.72
        },
        {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 5,
-        "intervalSec": 0.85,
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 4,
+        "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.38
+        "hpScale": 2.72
        }
       ]
      },
      {
       "waveNumber": 6,
-      "title": "Đợt 6: Bùn Dốc Phố Tây & Rêu Tường Cũ",
+      "title": "Đợt 6: Mưa Phùn Đêm & Khói Than Hẻm & Rêu Tường Cũ",
       "mainElements": [
-       "tho",
+       "thuy",
+       "hoa",
        "moc"
       ],
       "earlyBonusMax": 17,
       "clearReward": 16,
       "groups": [
        {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 3,
-        "intervalSec": 1.6,
+        "enemyId": "ge_tang_bat_ho_1",
+        "count": 8,
+        "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 3.2
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.2
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -3066,15 +4586,16 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 3.2
        }
       ]
      },
      {
       "waveNumber": 7,
-      "title": "Đợt 7: Muỗi Đèn Bar & Mưa Phùn Đêm",
+      "title": "Đợt 7: Muỗi Đèn Bar & Chuột Sau Chợ & Mưa Phùn Đêm",
       "mainElements": [
        "moc",
+       "kim",
        "thuy"
       ],
       "earlyBonusMax": 18,
@@ -3086,7 +4607,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.84
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.84
        },
        {
         "enemyId": "ge_tang_bat_ho_1",
@@ -3094,7 +4623,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.84
        }
       ]
      },
@@ -3103,8 +4632,9 @@
       "title": "Đợt 8: Giờ cao điểm cả phố",
       "mainElements": [
        "thuy",
-       "tho",
-       "moc"
+       "moc",
+       "hoa",
+       "kim"
       ],
       "earlyBonusMax": 0,
       "clearReward": 0,
@@ -3115,15 +4645,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.92
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.92
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_tang_bat_ho_3",
@@ -3131,7 +4653,23 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.92
+        "hpScale": 4.48
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.48
+       },
+       {
+        "enemyId": "ge_tang_bat_ho_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -3139,22 +4677,29 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.92
+        "hpScale": 4.48
        }
       ]
      }
     ],
     "towerIds": [
-     "gt_tang_bat_ho_khach_san",
+     "gt_tang_bat_ho_cafe_xe_dap",
      "gt_tang_bat_ho_banh_qua",
      "gt_tang_bat_ho_sua_nanh",
-     "gt_tang_bat_ho_banh_can",
-     "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_thue_xe",
      "gt_tang_bat_ho_bar_ham",
-     "gt_tang_bat_ho_cafe_xe_dap",
      "gt_tang_bat_ho_an_vat",
-     "gt_tang_bat_ho_giat_say",
+     "gt_hoang_dieu_yaourt",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_nguyen_van_troi_che",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_pho_ca_phe_o_long",
+     "gt_pho_ca_phe_kem_ly",
+     "gt_pho_ca_phe_tra_sua",
+     "gt_pho_ca_phe_retro",
+     "gt_pho_ca_phe_kem_bo",
+     "gt_pho_ca_phe_cafe_xua",
+     "gt_pho_ca_phe_san_thuong",
+     "gt_tran_phu_tiem_banh",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -3163,12 +4708,12 @@
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
-     "gt_tang_bat_ho_khach_san",
-     "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_goc_cay",
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_pho_ca_phe_retro",
+     "gt_hoang_dieu_yaourt",
      "gt_tang_bat_ho_sua_nanh",
      "gt_don_den_duong",
-     "gt_tang_bat_ho_banh_can"
+     "gt_pho_ca_phe_cafe_xua"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -3245,40 +4790,40 @@
      }
     ],
     "streetId": "street_tang_bat_ho",
-    "shopIndex": 5,
-    "featuredTowerId": "gt_tang_bat_ho_khach_san",
-    "facadeKey": "mat_tien_khach_san",
-    "roomStyle": "luu_tru",
+    "shopIndex": 8,
+    "featuredTowerId": "gt_tang_bat_ho_cafe_xe_dap",
+    "facadeKey": "mat_tien_cafe_xe_dap",
+    "roomStyle": "cafe",
     "roomLayout": "chu_u_lat",
     "botPlan": [
      {
       "padId": "pad_1",
-      "defId": "gt_tang_bat_ho_khach_san",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_2",
-      "defId": "gt_tang_bat_ho_thue_xe",
+      "defId": "gt_pho_ca_phe_retro",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "gt_tang_bat_ho_goc_cay",
+      "defId": "gt_hoang_dieu_yaourt",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_banh_can",
+      "defId": "gt_pho_ca_phe_cafe_xua",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "gt_tang_bat_ho_khach_san",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "gt_tang_bat_ho_thue_xe",
+      "defId": "gt_pho_ca_phe_retro",
       "preferredBranch": "B"
      },
      {
@@ -3288,17 +4833,17 @@
      },
      {
       "padId": "pad_8",
-      "defId": "gt_tang_bat_ho_banh_can",
+      "defId": "gt_pho_ca_phe_cafe_xua",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "gt_tang_bat_ho_khach_san",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_thue_xe",
+      "defId": "gt_pho_ca_phe_retro",
       "preferredBranch": "B"
      },
      {
@@ -3310,18 +4855,18 @@
    }
   },
   {
-   "hpMultiplier": 1.7,
+   "hpMultiplier": 1.8,
    "balance": {
-    "randomWinWithExpectedGear": 0.5,
+    "randomWinWithExpectedGear": 0.375,
     "botWinRate": 1,
-    "botLivesAvg": 18.333333333333332,
-    "target": 0.4833333333333334
+    "botLivesAvg": 15,
+    "target": 0.38333333333333336
    },
    "stage": {
-    "id": "street_tang_bat_ho_t6",
-    "stageNumber": 16,
-    "name": "Hostel Thuê Xe Mây Ngàn",
-    "subtitle": "Phố Tăng Bạt Hổ – Trương Công Định · tiệm 6/10: Hostel cho dân ba lô, thuê xe máy",
+    "id": "street_tang_bat_ho_t9",
+    "stageNumber": 19,
+    "name": "Tiệm Ăn Vặt Atiso",
+    "subtitle": "Phố Tăng Bạt Hổ – Trương Công Định · tiệm 9/10: Tiệm ăn vặt, đặc sản",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -3433,7 +4978,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 1.8
        }
       ]
      },
@@ -3452,27 +4997,27 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.95
+        "hpScale": 2.07
        }
       ]
      },
      {
       "waveNumber": 3,
-      "title": "Đợt 3: Muỗi Đèn Bar & Bùn Dốc Phố Tây",
+      "title": "Đợt 3: Khói Than Hẻm & Bùn Dốc Phố Tây",
       "mainElements": [
-       "moc",
+       "hoa",
        "tho"
       ],
       "earlyBonusMax": 14,
       "clearReward": 15,
       "groups": [
        {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 4,
-        "intervalSec": 0.85,
+        "enemyId": "ge_tang_bat_ho_4",
+        "count": 3,
+        "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.34
        },
        {
         "enemyId": "ge_tang_bat_ho_2",
@@ -3480,1007 +5025,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.21
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Mưa Phùn Đêm & Muỗi Đèn Bar",
-      "mainElements": [
-       "thuy",
-       "moc"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_1",
-        "count": 7,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.47
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.47
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Mưa Phùn Đêm & Muỗi Đèn Bar",
-      "mainElements": [
-       "thuy",
-       "moc"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_1",
-        "count": 8,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.89
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.89
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Bùn Dốc Phố Tây & Khói Than Hẻm",
-      "mainElements": [
-       "tho",
-       "hoa"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.4
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.4
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Muỗi Đèn Bar & Mưa Phùn Đêm",
-      "mainElements": [
-       "moc",
-       "thuy"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 4.08
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_1",
-        "count": 9,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.08
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "thuy",
-       "tho",
-       "moc",
-       "hoa"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_1",
-        "count": 9,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 4.76
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.76
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.76
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.76
-       }
-      ]
-     }
-    ],
-    "towerIds": [
-     "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_banh_qua",
-     "gt_tang_bat_ho_sua_nanh",
-     "gt_tang_bat_ho_banh_can",
-     "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_khach_san",
-     "gt_tang_bat_ho_bar_ham",
-     "gt_tang_bat_ho_cafe_xe_dap",
-     "gt_tang_bat_ho_an_vat",
-     "gt_tang_bat_ho_giat_say",
-     "gt_don_kep_rac",
-     "gt_don_choi_tre",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_don_bao_cat"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_cafe_xe_dap",
-     "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_sua_nanh",
-     "gt_don_den_duong",
-     "gt_tang_bat_ho_banh_can"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "banh_qua",
-      "name": "Tiệm Bánh Quà Mimosa",
-      "type": "Tiệm bánh quà đặc sản",
-      "trait": "hộp bánh quy làm quà, ghế ngoài hiên",
-      "towerId": "gt_tang_bat_ho_banh_qua"
-     },
-     {
-      "key": "sua_nanh",
-      "name": "Quán Sữa Nóng Sương Mai",
-      "type": "Quán sữa đậu nành đêm",
-      "trait": "ly sữa nóng, đông khách buổi tối",
-      "towerId": "gt_tang_bat_ho_sua_nanh"
-     },
-     {
-      "key": "banh_can",
-      "name": "Bánh Căn Dã Quỳ",
-      "type": "Quán bánh căn",
-      "trait": "khuôn đất nung, trứng cút",
-      "towerId": "gt_tang_bat_ho_banh_can"
-     },
-     {
-      "key": "goc_cay",
-      "name": "Quán Sáng Gốc Thông Ba Lá",
-      "type": "Quán ăn sáng dưới gốc cây",
-      "trait": "ngồi dưới gốc cây lớn",
-      "towerId": "gt_tang_bat_ho_goc_cay"
-     },
-     {
-      "key": "khach_san",
-      "name": "Khách Sạn Mini Cẩm Tú Cầu",
-      "type": "Khách sạn mini",
-      "trait": "sảnh nhỏ, thảm lót",
-      "towerId": "gt_tang_bat_ho_khach_san"
-     },
-     {
-      "key": "thue_xe",
-      "name": "Hostel Thuê Xe Mây Ngàn",
-      "type": "Hostel cho dân ba lô, thuê xe máy",
-      "trait": "giường tầng, dàn xe máy cho thuê",
-      "towerId": "gt_tang_bat_ho_thue_xe"
-     },
-     {
-      "key": "bar_ham",
-      "name": "Bar Hầm Sim Tím",
-      "type": "Cocktail bar dưới hầm",
-      "trait": "pha theo yêu cầu, đá lạnh",
-      "towerId": "gt_tang_bat_ho_bar_ham"
-     },
-     {
-      "key": "cafe_xe_dap",
-      "name": "Cà Phê Xe Đạp Lan Hài",
-      "type": "Quán cà phê trong nhà cũ, trang trí xe đạp",
-      "trait": "xe đạp cũ treo tường",
-      "towerId": "gt_tang_bat_ho_cafe_xe_dap"
-     },
-     {
-      "key": "an_vat",
-      "name": "Tiệm Ăn Vặt Atiso",
-      "type": "Tiệm ăn vặt, đặc sản",
-      "trait": "kệ mứt, đồ ăn vặt đặc sản",
-      "towerId": "gt_tang_bat_ho_an_vat"
-     },
-     {
-      "key": "giat_say",
-      "name": "Giặt Sấy Hồ Sương",
-      "type": "Tiệm giặt sấy cho khách trọ (Trương Công Định)",
-      "trait": "máy giặt quay ù ù, bọt xà phòng",
-      "towerId": "gt_tang_bat_ho_giat_say"
-     }
-    ],
-    "streetId": "street_tang_bat_ho",
-    "shopIndex": 6,
-    "featuredTowerId": "gt_tang_bat_ho_thue_xe",
-    "facadeKey": "mat_tien_thue_xe",
-    "roomStyle": "luu_tru",
-    "roomLayout": "xoan",
-    "botPlan": [
-     {
-      "padId": "pad_1",
-      "defId": "gt_tang_bat_ho_thue_xe",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_2",
-      "defId": "gt_tang_bat_ho_cafe_xe_dap",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_tang_bat_ho_goc_cay",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_banh_can",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "gt_tang_bat_ho_thue_xe",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_tang_bat_ho_cafe_xe_dap",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_sua_nanh",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_tang_bat_ho_banh_can",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_tang_bat_ho_thue_xe",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_cafe_xe_dap",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_tang_bat_ho_sua_nanh",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 1.2,
-   "balance": {
-    "randomWinWithExpectedGear": 0.5208333333333334,
-    "botWinRate": 1,
-    "botLivesAvg": 19.333333333333332,
-    "target": 0.45000000000000007
-   },
-   "stage": {
-    "id": "street_tang_bat_ho_t7",
-    "stageNumber": 17,
-    "name": "Bar Hầm Sim Tím",
-    "subtitle": "Phố Tăng Bạt Hổ – Trương Công Định · tiệm 7/10: Cocktail bar dưới hầm",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 180,
-       "y": 520
-      },
-      {
-       "x": 180,
-       "y": 450
-      },
-      {
-       "x": 60,
-       "y": 450
-      },
-      {
-       "x": 60,
-       "y": 90
-      },
-      {
-       "x": 300,
-       "y": 90
-      },
-      {
-       "x": 300,
-       "y": 330
-      },
-      {
-       "x": 160,
-       "y": 330
-      },
-      {
-       "x": 160,
-       "y": 210
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 140,
-      "y": 390
-     },
-     {
-      "id": "pad_2",
-      "x": 210,
-      "y": 390
-     },
-     {
-      "id": "pad_3",
-      "x": 220,
-      "y": 260
-     },
-     {
-      "id": "pad_4",
-      "x": 120,
-      "y": 290
-     },
-     {
-      "id": "pad_5",
-      "x": 120,
-      "y": 180
-     },
-     {
-      "id": "pad_6",
-      "x": 210,
-      "y": 150
-     },
-     {
-      "id": "pad_7",
-      "x": 220,
-      "y": 460
-     },
-     {
-      "id": "pad_8",
-      "x": 260,
-      "y": 190
-     },
-     {
-      "id": "pad_9",
-      "x": 270,
-      "y": 370
-     },
-     {
-      "id": "pad_10",
-      "x": 30,
-      "y": 480
-     },
-     {
-      "id": "pad_11",
-      "x": 130,
-      "y": 50
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
-      "title": "Đợt 1: Bùn Dốc Phố Tây",
-      "mainElements": [
-       "tho"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.2
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Muỗi Đèn Bar",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.38
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Khói Than Hẻm & Muỗi Đèn Bar",
-      "mainElements": [
-       "hoa",
-       "moc"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 3,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.56
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.56
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Bùn Dốc Phố Tây & Khói Than Hẻm",
-      "mainElements": [
-       "tho",
-       "hoa"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.74
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.74
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Bùn Dốc Phố Tây & Khói Than Hẻm",
-      "mainElements": [
-       "tho",
-       "hoa"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.04
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.04
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Muỗi Đèn Bar & Chuột Sau Chợ",
-      "mainElements": [
-       "moc",
-       "kim"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.4
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.4
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Khói Than Hẻm & Bùn Dốc Phố Tây",
-      "mainElements": [
-       "hoa",
-       "tho"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.88
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.88
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "tho",
-       "moc",
-       "hoa",
-       "kim"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       }
-      ]
-     }
-    ],
-    "towerIds": [
-     "gt_tang_bat_ho_bar_ham",
-     "gt_tang_bat_ho_banh_qua",
-     "gt_tang_bat_ho_sua_nanh",
-     "gt_tang_bat_ho_banh_can",
-     "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_khach_san",
-     "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_cafe_xe_dap",
-     "gt_tang_bat_ho_an_vat",
-     "gt_tang_bat_ho_giat_say",
-     "gt_don_kep_rac",
-     "gt_don_choi_tre",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_don_bao_cat"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_tang_bat_ho_bar_ham",
-     "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_sua_nanh",
-     "gt_don_den_duong",
-     "gt_tang_bat_ho_banh_can"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "banh_qua",
-      "name": "Tiệm Bánh Quà Mimosa",
-      "type": "Tiệm bánh quà đặc sản",
-      "trait": "hộp bánh quy làm quà, ghế ngoài hiên",
-      "towerId": "gt_tang_bat_ho_banh_qua"
-     },
-     {
-      "key": "sua_nanh",
-      "name": "Quán Sữa Nóng Sương Mai",
-      "type": "Quán sữa đậu nành đêm",
-      "trait": "ly sữa nóng, đông khách buổi tối",
-      "towerId": "gt_tang_bat_ho_sua_nanh"
-     },
-     {
-      "key": "banh_can",
-      "name": "Bánh Căn Dã Quỳ",
-      "type": "Quán bánh căn",
-      "trait": "khuôn đất nung, trứng cút",
-      "towerId": "gt_tang_bat_ho_banh_can"
-     },
-     {
-      "key": "goc_cay",
-      "name": "Quán Sáng Gốc Thông Ba Lá",
-      "type": "Quán ăn sáng dưới gốc cây",
-      "trait": "ngồi dưới gốc cây lớn",
-      "towerId": "gt_tang_bat_ho_goc_cay"
-     },
-     {
-      "key": "khach_san",
-      "name": "Khách Sạn Mini Cẩm Tú Cầu",
-      "type": "Khách sạn mini",
-      "trait": "sảnh nhỏ, thảm lót",
-      "towerId": "gt_tang_bat_ho_khach_san"
-     },
-     {
-      "key": "thue_xe",
-      "name": "Hostel Thuê Xe Mây Ngàn",
-      "type": "Hostel cho dân ba lô, thuê xe máy",
-      "trait": "giường tầng, dàn xe máy cho thuê",
-      "towerId": "gt_tang_bat_ho_thue_xe"
-     },
-     {
-      "key": "bar_ham",
-      "name": "Bar Hầm Sim Tím",
-      "type": "Cocktail bar dưới hầm",
-      "trait": "pha theo yêu cầu, đá lạnh",
-      "towerId": "gt_tang_bat_ho_bar_ham"
-     },
-     {
-      "key": "cafe_xe_dap",
-      "name": "Cà Phê Xe Đạp Lan Hài",
-      "type": "Quán cà phê trong nhà cũ, trang trí xe đạp",
-      "trait": "xe đạp cũ treo tường",
-      "towerId": "gt_tang_bat_ho_cafe_xe_dap"
-     },
-     {
-      "key": "an_vat",
-      "name": "Tiệm Ăn Vặt Atiso",
-      "type": "Tiệm ăn vặt, đặc sản",
-      "trait": "kệ mứt, đồ ăn vặt đặc sản",
-      "towerId": "gt_tang_bat_ho_an_vat"
-     },
-     {
-      "key": "giat_say",
-      "name": "Giặt Sấy Hồ Sương",
-      "type": "Tiệm giặt sấy cho khách trọ (Trương Công Định)",
-      "trait": "máy giặt quay ù ù, bọt xà phòng",
-      "towerId": "gt_tang_bat_ho_giat_say"
-     }
-    ],
-    "streetId": "street_tang_bat_ho",
-    "shopIndex": 7,
-    "featuredTowerId": "gt_tang_bat_ho_bar_ham",
-    "facadeKey": "mat_tien_bar_ham",
-    "roomStyle": "tiem",
-    "roomLayout": "xoan_lat",
-    "botPlan": [
-     {
-      "padId": "pad_1",
-      "defId": "gt_tang_bat_ho_bar_ham",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_2",
-      "defId": "gt_tang_bat_ho_thue_xe",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_tang_bat_ho_goc_cay",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_banh_can",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "gt_tang_bat_ho_bar_ham",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_tang_bat_ho_thue_xe",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_sua_nanh",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_tang_bat_ho_banh_can",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_tang_bat_ho_bar_ham",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_thue_xe",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_tang_bat_ho_sua_nanh",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 1.2,
-   "balance": {
-    "randomWinWithExpectedGear": 0.4791666666666667,
-    "botWinRate": 1,
-    "botLivesAvg": 18,
-    "target": 0.4166666666666667
-   },
-   "stage": {
-    "id": "street_tang_bat_ho_t8",
-    "stageNumber": 18,
-    "name": "Cà Phê Xe Đạp Lan Hài",
-    "subtitle": "Phố Tăng Bạt Hổ – Trương Công Định · tiệm 8/10: Quán cà phê trong nhà cũ, trang trí xe đạp",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 70,
-       "y": 520
-      },
-      {
-       "x": 70,
-       "y": 360
-      },
-      {
-       "x": 180,
-       "y": 300
-      },
-      {
-       "x": 180,
-       "y": 70
-      }
-     ],
-     [
-      {
-       "x": 290,
-       "y": 520
-      },
-      {
-       "x": 290,
-       "y": 360
-      },
-      {
-       "x": 180,
-       "y": 300
-      },
-      {
-       "x": 180,
-       "y": 70
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 160,
-      "y": 360
-     },
-     {
-      "id": "pad_2",
-      "x": 130,
-      "y": 270
-     },
-     {
-      "id": "pad_3",
-      "x": 230,
-      "y": 270
-     },
-     {
-      "id": "pad_4",
-      "x": 220,
-      "y": 380
-     },
-     {
-      "id": "pad_5",
-      "x": 140,
-      "y": 200
-     },
-     {
-      "id": "pad_6",
-      "x": 220,
-      "y": 200
-     },
-     {
-      "id": "pad_7",
-      "x": 110,
-      "y": 410
-     },
-     {
-      "id": "pad_8",
-      "x": 70,
-      "y": 300
-     },
-     {
-      "id": "pad_9",
-      "x": 290,
-      "y": 300
-     },
-     {
-      "id": "pad_10",
-      "x": 120,
-      "y": 140
-     },
-     {
-      "id": "pad_11",
-      "x": 220,
-      "y": 130
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
-      "title": "Đợt 1: Mưa Phùn Đêm",
-      "mainElements": [
-       "thuy"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_1",
-        "count": 6,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.2
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Muỗi Đèn Bar",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 1.38
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Khói Than Hẻm & Muỗi Đèn Bar",
-      "mainElements": [
-       "hoa",
-       "moc"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 3,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.56
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 1.56
+        "hpScale": 2.34
        }
       ]
      },
@@ -4499,8 +5044,8 @@
         "count": 7,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 1.74
+        "pathIndex": 0,
+        "hpScale": 2.61
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -4508,7 +5053,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.74
+        "hpScale": 2.61
        }
       ]
      },
@@ -4528,15 +5073,15 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.04
+        "hpScale": 3.06
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
         "count": 4,
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 2.04
+        "pathIndex": 0,
+        "hpScale": 3.06
        }
       ]
      },
@@ -4556,8 +5101,8 @@
         "count": 8,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 2.4
+        "pathIndex": 0,
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -4565,23 +5110,23 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
         "count": 2,
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 2.4
+        "pathIndex": 0,
+        "hpScale": 3.6
        }
       ]
      },
      {
       "waveNumber": 7,
-      "title": "Đợt 7: Muỗi Đèn Bar & Chuột Sau Chợ & Mưa Phùn Đêm",
+      "title": "Đợt 7: Bùn Dốc Phố Tây & Chuột Sau Chợ & Mưa Phùn Đêm",
       "mainElements": [
-       "moc",
+       "tho",
        "kim",
        "thuy"
       ],
@@ -4589,20 +5134,20 @@
       "clearReward": 17,
       "groups": [
        {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 6,
-        "intervalSec": 0.85,
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 4,
+        "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 4.32
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
         "count": 3,
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 2.88
+        "pathIndex": 0,
+        "hpScale": 4.32
        },
        {
         "enemyId": "ge_tang_bat_ho_1",
@@ -4610,7 +5155,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 4.32
        }
       ]
      },
@@ -4619,9 +5164,10 @@
       "title": "Đợt 8: Giờ cao điểm cả phố",
       "mainElements": [
        "thuy",
-       "moc",
+       "tho",
        "hoa",
-       "kim"
+       "kim",
+       "moc"
       ],
       "earlyBonusMax": 0,
       "clearReward": 0,
@@ -4631,24 +5177,24 @@
         "count": 9,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 3.36
+        "pathIndex": 0,
+        "hpScale": 5.04
        },
        {
-        "enemyId": "ge_tang_bat_ho_3",
-        "count": 6,
-        "intervalSec": 0.85,
+        "enemyId": "ge_tang_bat_ho_2",
+        "count": 4,
+        "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
         "count": 5,
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 3.36
+        "pathIndex": 0,
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -4656,30 +5202,37 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
         "count": 2,
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 3.36
+        "pathIndex": 0,
+        "hpScale": 5.04
        }
       ]
      }
     ],
     "towerIds": [
-     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_tang_bat_ho_an_vat",
      "gt_tang_bat_ho_banh_qua",
      "gt_tang_bat_ho_sua_nanh",
-     "gt_tang_bat_ho_banh_can",
-     "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_khach_san",
-     "gt_tang_bat_ho_thue_xe",
      "gt_tang_bat_ho_bar_ham",
-     "gt_tang_bat_ho_an_vat",
-     "gt_tang_bat_ho_giat_say",
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_hoang_dieu_yaourt",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_nguyen_van_troi_che",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_pho_ca_phe_o_long",
+     "gt_pho_ca_phe_kem_ly",
+     "gt_pho_ca_phe_tra_sua",
+     "gt_pho_ca_phe_retro",
+     "gt_pho_ca_phe_kem_bo",
+     "gt_pho_ca_phe_cafe_xua",
+     "gt_pho_ca_phe_san_thuong",
+     "gt_tran_phu_tiem_banh",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -4688,12 +5241,12 @@
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
+     "gt_tang_bat_ho_an_vat",
      "gt_tang_bat_ho_cafe_xe_dap",
-     "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_goc_cay",
+     "gt_hoang_dieu_yaourt",
      "gt_tang_bat_ho_sua_nanh",
      "gt_don_den_duong",
-     "gt_tang_bat_ho_banh_can"
+     "gt_pho_ca_phe_cafe_xua"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -4770,40 +5323,40 @@
      }
     ],
     "streetId": "street_tang_bat_ho",
-    "shopIndex": 8,
-    "featuredTowerId": "gt_tang_bat_ho_cafe_xe_dap",
-    "facadeKey": "mat_tien_cafe_xe_dap",
-    "roomStyle": "cafe",
-    "roomLayout": "hai_cua",
+    "shopIndex": 9,
+    "featuredTowerId": "gt_tang_bat_ho_an_vat",
+    "facadeKey": "mat_tien_an_vat",
+    "roomStyle": "quan_an",
+    "roomLayout": "xoan",
     "botPlan": [
      {
       "padId": "pad_1",
-      "defId": "gt_tang_bat_ho_cafe_xe_dap",
+      "defId": "gt_tang_bat_ho_an_vat",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_2",
-      "defId": "gt_tang_bat_ho_thue_xe",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "gt_tang_bat_ho_goc_cay",
+      "defId": "gt_hoang_dieu_yaourt",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_banh_can",
+      "defId": "gt_pho_ca_phe_cafe_xua",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "gt_tang_bat_ho_cafe_xe_dap",
+      "defId": "gt_tang_bat_ho_an_vat",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "gt_tang_bat_ho_thue_xe",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
       "preferredBranch": "B"
      },
      {
@@ -4813,17 +5366,17 @@
      },
      {
       "padId": "pad_8",
-      "defId": "gt_tang_bat_ho_banh_can",
+      "defId": "gt_pho_ca_phe_cafe_xua",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "gt_tang_bat_ho_cafe_xe_dap",
+      "defId": "gt_tang_bat_ho_an_vat",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_thue_xe",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
       "preferredBranch": "B"
      },
      {
@@ -4837,16 +5390,16 @@
   {
    "hpMultiplier": 1,
    "balance": {
-    "randomWinWithExpectedGear": 0.4166666666666667,
+    "randomWinWithExpectedGear": 0.4375,
     "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
-    "target": 0.38333333333333336
+    "botLivesAvg": 18,
+    "target": 0.35000000000000003
    },
    "stage": {
-    "id": "street_tang_bat_ho_t9",
-    "stageNumber": 19,
-    "name": "Tiệm Ăn Vặt Atiso",
-    "subtitle": "Phố Tăng Bạt Hổ – Trương Công Định · tiệm 9/10: Tiệm ăn vặt, đặc sản",
+    "id": "street_tang_bat_ho_t10",
+    "stageNumber": 20,
+    "name": "Giặt Sấy Hồ Sương",
+    "subtitle": "Phố Tăng Bạt Hổ – Trương Công Định · tiệm 10/10: Tiệm giặt sấy cho khách trọ (Trương Công Định)",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -5198,546 +5751,13 @@
      }
     ],
     "towerIds": [
-     "gt_tang_bat_ho_an_vat",
-     "gt_tang_bat_ho_banh_qua",
-     "gt_tang_bat_ho_sua_nanh",
-     "gt_tang_bat_ho_banh_can",
-     "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_khach_san",
-     "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_bar_ham",
-     "gt_tang_bat_ho_cafe_xe_dap",
      "gt_tang_bat_ho_giat_say",
-     "gt_don_kep_rac",
-     "gt_don_choi_tre",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_don_bao_cat"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_tang_bat_ho_an_vat",
-     "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_sua_nanh",
-     "gt_don_den_duong",
-     "gt_tang_bat_ho_banh_can"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "banh_qua",
-      "name": "Tiệm Bánh Quà Mimosa",
-      "type": "Tiệm bánh quà đặc sản",
-      "trait": "hộp bánh quy làm quà, ghế ngoài hiên",
-      "towerId": "gt_tang_bat_ho_banh_qua"
-     },
-     {
-      "key": "sua_nanh",
-      "name": "Quán Sữa Nóng Sương Mai",
-      "type": "Quán sữa đậu nành đêm",
-      "trait": "ly sữa nóng, đông khách buổi tối",
-      "towerId": "gt_tang_bat_ho_sua_nanh"
-     },
-     {
-      "key": "banh_can",
-      "name": "Bánh Căn Dã Quỳ",
-      "type": "Quán bánh căn",
-      "trait": "khuôn đất nung, trứng cút",
-      "towerId": "gt_tang_bat_ho_banh_can"
-     },
-     {
-      "key": "goc_cay",
-      "name": "Quán Sáng Gốc Thông Ba Lá",
-      "type": "Quán ăn sáng dưới gốc cây",
-      "trait": "ngồi dưới gốc cây lớn",
-      "towerId": "gt_tang_bat_ho_goc_cay"
-     },
-     {
-      "key": "khach_san",
-      "name": "Khách Sạn Mini Cẩm Tú Cầu",
-      "type": "Khách sạn mini",
-      "trait": "sảnh nhỏ, thảm lót",
-      "towerId": "gt_tang_bat_ho_khach_san"
-     },
-     {
-      "key": "thue_xe",
-      "name": "Hostel Thuê Xe Mây Ngàn",
-      "type": "Hostel cho dân ba lô, thuê xe máy",
-      "trait": "giường tầng, dàn xe máy cho thuê",
-      "towerId": "gt_tang_bat_ho_thue_xe"
-     },
-     {
-      "key": "bar_ham",
-      "name": "Bar Hầm Sim Tím",
-      "type": "Cocktail bar dưới hầm",
-      "trait": "pha theo yêu cầu, đá lạnh",
-      "towerId": "gt_tang_bat_ho_bar_ham"
-     },
-     {
-      "key": "cafe_xe_dap",
-      "name": "Cà Phê Xe Đạp Lan Hài",
-      "type": "Quán cà phê trong nhà cũ, trang trí xe đạp",
-      "trait": "xe đạp cũ treo tường",
-      "towerId": "gt_tang_bat_ho_cafe_xe_dap"
-     },
-     {
-      "key": "an_vat",
-      "name": "Tiệm Ăn Vặt Atiso",
-      "type": "Tiệm ăn vặt, đặc sản",
-      "trait": "kệ mứt, đồ ăn vặt đặc sản",
-      "towerId": "gt_tang_bat_ho_an_vat"
-     },
-     {
-      "key": "giat_say",
-      "name": "Giặt Sấy Hồ Sương",
-      "type": "Tiệm giặt sấy cho khách trọ (Trương Công Định)",
-      "trait": "máy giặt quay ù ù, bọt xà phòng",
-      "towerId": "gt_tang_bat_ho_giat_say"
-     }
-    ],
-    "streetId": "street_tang_bat_ho",
-    "shopIndex": 9,
-    "featuredTowerId": "gt_tang_bat_ho_an_vat",
-    "facadeKey": "mat_tien_an_vat",
-    "roomStyle": "quan_an",
-    "roomLayout": "hai_cua_lat",
-    "botPlan": [
-     {
-      "padId": "pad_1",
-      "defId": "gt_tang_bat_ho_an_vat",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_2",
-      "defId": "gt_tang_bat_ho_thue_xe",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_tang_bat_ho_goc_cay",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_banh_can",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "gt_tang_bat_ho_an_vat",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_tang_bat_ho_thue_xe",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_sua_nanh",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_tang_bat_ho_banh_can",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_tang_bat_ho_an_vat",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_thue_xe",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_tang_bat_ho_sua_nanh",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 1.2,
-   "balance": {
-    "randomWinWithExpectedGear": 0.2916666666666667,
-    "botWinRate": 1,
-    "botLivesAvg": 15.666666666666666,
-    "target": 0.35000000000000003
-   },
-   "stage": {
-    "id": "street_tang_bat_ho_t10",
-    "stageNumber": 20,
-    "name": "Giặt Sấy Hồ Sương",
-    "subtitle": "Phố Tăng Bạt Hổ – Trương Công Định · tiệm 10/10: Tiệm giặt sấy cho khách trọ (Trương Công Định)",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 180,
-       "y": 520
-      },
-      {
-       "x": 180,
-       "y": 430
-      },
-      {
-       "x": 64,
-       "y": 430
-      },
-      {
-       "x": 64,
-       "y": 300
-      },
-      {
-       "x": 296,
-       "y": 300
-      },
-      {
-       "x": 296,
-       "y": 170
-      },
-      {
-       "x": 64,
-       "y": 170
-      },
-      {
-       "x": 64,
-       "y": 60
-      },
-      {
-       "x": 180,
-       "y": 60
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 130,
-      "y": 380
-     },
-     {
-      "id": "pad_2",
-      "x": 130,
-      "y": 120
-     },
-     {
-      "id": "pad_3",
-      "x": 90,
-      "y": 470
-     },
-     {
-      "id": "pad_4",
-      "x": 220,
-      "y": 230
-     },
-     {
-      "id": "pad_5",
-      "x": 200,
-      "y": 380
-     },
-     {
-      "id": "pad_6",
-      "x": 90,
-      "y": 220
-     },
-     {
-      "id": "pad_7",
-      "x": 140,
-      "y": 260
-     },
-     {
-      "id": "pad_8",
-      "x": 200,
-      "y": 120
-     },
-     {
-      "id": "pad_9",
-      "x": 220,
-      "y": 440
-     },
-     {
-      "id": "pad_10",
-      "x": 40,
-      "y": 260
-     },
-     {
-      "id": "pad_11",
-      "x": 250,
-      "y": 340
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
-      "title": "Đợt 1: Mưa Phùn Đêm",
-      "mainElements": [
-       "thuy"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_1",
-        "count": 6,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.2
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Bùn Dốc Phố Tây",
-      "mainElements": [
-       "tho"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.38
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Khói Than Hẻm & Bùn Dốc Phố Tây",
-      "mainElements": [
-       "hoa",
-       "tho"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 3,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.56
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.56
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Mưa Phùn Đêm & Khói Than Hẻm",
-      "mainElements": [
-       "thuy",
-       "hoa"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_1",
-        "count": 7,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.74
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.74
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Mưa Phùn Đêm & Khói Than Hẻm",
-      "mainElements": [
-       "thuy",
-       "hoa"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_1",
-        "count": 8,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.04
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.04
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Mưa Phùn Đêm & Khói Than Hẻm & Rêu Tường Cũ",
-      "mainElements": [
-       "thuy",
-       "hoa",
-       "moc"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_1",
-        "count": 8,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.4
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.4
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.4
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Bùn Dốc Phố Tây & Chuột Sau Chợ & Mưa Phùn Đêm",
-      "mainElements": [
-       "tho",
-       "kim",
-       "thuy"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.88
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.88
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_1",
-        "count": 9,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.88
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "thuy",
-       "tho",
-       "hoa",
-       "kim",
-       "moc"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_tang_bat_ho_1",
-        "count": 9,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       },
-       {
-        "enemyId": "ge_tang_bat_ho_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       }
-      ]
-     }
-    ],
-    "towerIds": [
-     "gt_tang_bat_ho_giat_say",
-     "gt_tang_bat_ho_banh_qua",
-     "gt_tang_bat_ho_sua_nanh",
-     "gt_tang_bat_ho_banh_can",
-     "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_khach_san",
-     "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_bar_ham",
-     "gt_tang_bat_ho_cafe_xe_dap",
-     "gt_tang_bat_ho_an_vat",
+     "gt_phan_dinh_phung_nha_thuoc",
+     "gt_phan_dinh_phung_tiem_toc",
+     "gt_phan_dinh_phung_nha_sach",
+     "gt_phan_dinh_phung_studio",
+     "gt_phan_dinh_phung_xe_may",
+     "gt_phan_dinh_phung_tap_hoa",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -5747,11 +5767,11 @@
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_tang_bat_ho_giat_say",
-     "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_sua_nanh",
+     "gt_phan_dinh_phung_tiem_toc",
+     "gt_phan_dinh_phung_nha_thuoc",
+     "gt_don_voi_xit",
      "gt_don_den_duong",
-     "gt_tang_bat_ho_banh_can"
+     "gt_phan_dinh_phung_tap_hoa"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -5832,7 +5852,7 @@
     "featuredTowerId": "gt_tang_bat_ho_giat_say",
     "facadeKey": "mat_tien_giat_say",
     "roomStyle": "tiem",
-    "roomLayout": "zigzag",
+    "roomLayout": "hai_cua_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -5841,17 +5861,17 @@
      },
      {
       "padId": "pad_2",
-      "defId": "gt_tang_bat_ho_thue_xe",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "gt_tang_bat_ho_goc_cay",
+      "defId": "gt_phan_dinh_phung_nha_thuoc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_banh_can",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "B"
      },
      {
@@ -5861,17 +5881,17 @@
      },
      {
       "padId": "pad_6",
-      "defId": "gt_tang_bat_ho_thue_xe",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_sua_nanh",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "gt_tang_bat_ho_banh_can",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "B"
      },
      {
@@ -5881,12 +5901,12 @@
      },
      {
       "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_thue_xe",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "gt_tang_bat_ho_sua_nanh",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "A"
      }
     ]

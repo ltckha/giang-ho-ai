@@ -675,7 +675,7 @@
  },
  "shops": [
   {
-   "hpMultiplier": 1.4,
+   "hpMultiplier": 1.8,
    "balance": {
     "randomWinWithExpectedGear": 0.625,
     "botWinRate": 1,
@@ -687,504 +687,6 @@
     "stageNumber": 11,
     "name": "Khách Sạn Bên Hồ Thông Xanh",
     "subtitle": "Phố Trần Phú – Ba Tháng Hai · tiệm 1/8: Khách sạn di sản bên hồ",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 290,
-       "y": 520
-      },
-      {
-       "x": 290,
-       "y": 360
-      },
-      {
-       "x": 180,
-       "y": 300
-      },
-      {
-       "x": 180,
-       "y": 70
-      }
-     ],
-     [
-      {
-       "x": 70,
-       "y": 520
-      },
-      {
-       "x": 70,
-       "y": 360
-      },
-      {
-       "x": 180,
-       "y": 300
-      },
-      {
-       "x": 180,
-       "y": 70
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 160,
-      "y": 360
-     },
-     {
-      "id": "pad_2",
-      "x": 130,
-      "y": 270
-     },
-     {
-      "id": "pad_3",
-      "x": 230,
-      "y": 270
-     },
-     {
-      "id": "pad_4",
-      "x": 220,
-      "y": 380
-     },
-     {
-      "id": "pad_5",
-      "x": 140,
-      "y": 200
-     },
-     {
-      "id": "pad_6",
-      "x": 220,
-      "y": 200
-     },
-     {
-      "id": "pad_7",
-      "x": 110,
-      "y": 410
-     },
-     {
-      "id": "pad_8",
-      "x": 70,
-      "y": 300
-     },
-     {
-      "id": "pad_9",
-      "x": 290,
-      "y": 300
-     },
-     {
-      "id": "pad_10",
-      "x": 120,
-      "y": 140
-     },
-     {
-      "id": "pad_11",
-      "x": 220,
-      "y": 130
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
-      "title": "Đợt 1: Kiến Bu Đường",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_1",
-        "count": 6,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.4
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Bụi Bột",
-      "mainElements": [
-       "tho"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 1.61
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Ruồi Bếp & Bụi Bột",
-      "mainElements": [
-       "moc",
-       "tho"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.82
-       },
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 1.82
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Kiến Bu Đường & Ruồi Bếp",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_1",
-        "count": 7,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 2.03
-       },
-       {
-        "enemyId": "ge_tran_phu_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.03
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Bụi Bột & Kiến Bu Đường & Ruồi Bếp",
-      "mainElements": [
-       "tho",
-       "moc"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.38
-       },
-       {
-        "enemyId": "ge_tran_phu_1",
-        "count": 8,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 2.38
-       },
-       {
-        "enemyId": "ge_tran_phu_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.38
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Ruồi Bếp & Bụi Bột & Kiến Bu Đường",
-      "mainElements": [
-       "moc",
-       "tho"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 2.8
-       },
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.8
-       },
-       {
-        "enemyId": "ge_tran_phu_1",
-        "count": 8,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 2.8
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Kiến Bu Đường & Ruồi Bếp & Bụi Bột",
-      "mainElements": [
-       "moc",
-       "tho"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_1",
-        "count": 9,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       },
-       {
-        "enemyId": "ge_tran_phu_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 3.36
-       },
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "moc",
-       "tho"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_1",
-        "count": 9,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 3.92
-       },
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.92
-       },
-       {
-        "enemyId": "ge_tran_phu_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 3.92
-       }
-      ]
-     }
-    ],
-    "towerIds": [
-     "gt_tran_phu_ks_ho",
-     "gt_tran_phu_ks_phap",
-     "gt_tran_phu_pho",
-     "gt_tran_phu_tiem_banh",
-     "gt_tran_phu_banh_mi_ga",
-     "gt_tran_phu_chao_dem",
-     "gt_tran_phu_ks_binh_dan",
-     "gt_tran_phu_com_ga",
-     "gt_don_kep_rac",
-     "gt_don_choi_tre",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_don_bao_cat"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_tran_phu_ks_ho",
-     "gt_tran_phu_banh_mi_ga",
-     "gt_tran_phu_ks_binh_dan",
-     "gt_tran_phu_chao_dem",
-     "gt_don_den_duong",
-     "gt_tran_phu_ks_phap"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "ks_ho",
-      "name": "Khách Sạn Bên Hồ Thông Xanh",
-      "type": "Khách sạn di sản bên hồ",
-      "trait": "thời Pháp, nhìn ra hồ",
-      "towerId": "gt_tran_phu_ks_ho"
-     },
-     {
-      "key": "ks_phap",
-      "name": "Khách Sạn Cổ Mai Anh Đào",
-      "type": "Khách sạn Pháp cổ cạnh nhà thờ",
-      "trait": "nhà cổ thời Pháp",
-      "towerId": "gt_tran_phu_ks_phap"
-     },
-     {
-      "key": "pho",
-      "name": "Phở Bằng Lăng",
-      "type": "Quán phở",
-      "trait": "nước xương bò, bán sáng và chiều tối",
-      "towerId": "gt_tran_phu_pho"
-     },
-     {
-      "key": "tiem_banh",
-      "name": "Tiệm Bánh Lâu Đời Mimosa",
-      "type": "Tiệm bánh mì, bánh ngọt lâu đời",
-      "trait": "mở từ 5 giờ sáng tới khuya",
-      "towerId": "gt_tran_phu_tiem_banh"
-     },
-     {
-      "key": "banh_mi_ga",
-      "name": "Bánh Mì Gà Sương Mai",
-      "type": "Quán bánh mì gà buổi sáng",
-      "trait": "bán 6–9 giờ, hết hàng sau 3 tiếng",
-      "towerId": "gt_tran_phu_banh_mi_ga"
-     },
-     {
-      "key": "chao_dem",
-      "name": "Cháo Đêm Hồ Sương",
-      "type": "Quán cháo đêm",
-      "trait": "mở tới 2 giờ sáng, cháo cá kho",
-      "towerId": "gt_tran_phu_chao_dem"
-     },
-     {
-      "key": "ks_binh_dan",
-      "name": "Khách Sạn Nhỏ Cẩm Tú Cầu",
-      "type": "Khách sạn bình dân trên Ba Tháng Hai",
-      "trait": "đi bộ 2–3 phút ra chợ",
-      "towerId": "gt_tran_phu_ks_binh_dan"
-     },
-     {
-      "key": "com_ga",
-      "name": "Cơm Gà Hẻm Dã Quỳ",
-      "type": "Quán cơm gà trong hẻm",
-      "trait": "cơm gà Hải Nam",
-      "towerId": "gt_tran_phu_com_ga"
-     }
-    ],
-    "streetId": "street_tran_phu",
-    "shopIndex": 1,
-    "featuredTowerId": "gt_tran_phu_ks_ho",
-    "facadeKey": "mat_tien_ks_ho",
-    "roomStyle": "luu_tru",
-    "roomLayout": "hai_cua_lat",
-    "botPlan": [
-     {
-      "padId": "pad_1",
-      "defId": "gt_tran_phu_ks_ho",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_2",
-      "defId": "gt_tran_phu_banh_mi_ga",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_don_den_duong",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "gt_tran_phu_chao_dem",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "gt_tran_phu_ks_ho",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_tran_phu_banh_mi_ga",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_tran_phu_ks_binh_dan",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_tran_phu_chao_dem",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_tran_phu_ks_ho",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_tran_phu_banh_mi_ga",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_tran_phu_ks_binh_dan",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 1.4,
-   "balance": {
-    "randomWinWithExpectedGear": 0.5416666666666666,
-    "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
-    "target": 0.6071428571428572
-   },
-   "stage": {
-    "id": "street_tran_phu_t2",
-    "stageNumber": 12,
-    "name": "Khách Sạn Cổ Mai Anh Đào",
-    "subtitle": "Phố Trần Phú – Ba Tháng Hai · tiệm 2/8: Khách sạn Pháp cổ cạnh nhà thờ",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -1282,6 +784,492 @@
       "id": "pad_11",
       "x": 250,
       "y": 340
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Bột",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.07
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Ruồi Bếp & Bụi Bột",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.34
+       },
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.34
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Đường & Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.61
+       },
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.61
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Bụi Bột & Kiến Bu Đường & Ruồi Bếp",
+      "mainElements": [
+       "tho",
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.06
+       },
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.06
+       },
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.06
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Ruồi Bếp & Bụi Bột & Kiến Bu Đường",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       },
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       },
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Kiến Bu Đường & Ruồi Bếp & Bụi Bột",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 4.32
+       },
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.32
+       },
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.32
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 5.04
+       },
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.04
+       },
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.04
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "gt_tran_phu_ks_ho",
+     "gt_tran_phu_ks_phap",
+     "gt_tran_phu_ks_binh_dan",
+     "gt_hoang_dieu_khach_san",
+     "gt_tang_bat_ho_khach_san",
+     "gt_tang_bat_ho_thue_xe",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_tran_phu_ks_ho",
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tran_phu_ks_binh_dan",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_tran_phu_ks_phap"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "ks_ho",
+      "name": "Khách Sạn Bên Hồ Thông Xanh",
+      "type": "Khách sạn di sản bên hồ",
+      "trait": "thời Pháp, nhìn ra hồ",
+      "towerId": "gt_tran_phu_ks_ho"
+     },
+     {
+      "key": "ks_phap",
+      "name": "Khách Sạn Cổ Mai Anh Đào",
+      "type": "Khách sạn Pháp cổ cạnh nhà thờ",
+      "trait": "nhà cổ thời Pháp",
+      "towerId": "gt_tran_phu_ks_phap"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Bằng Lăng",
+      "type": "Quán phở",
+      "trait": "nước xương bò, bán sáng và chiều tối",
+      "towerId": "gt_tran_phu_pho"
+     },
+     {
+      "key": "tiem_banh",
+      "name": "Tiệm Bánh Lâu Đời Mimosa",
+      "type": "Tiệm bánh mì, bánh ngọt lâu đời",
+      "trait": "mở từ 5 giờ sáng tới khuya",
+      "towerId": "gt_tran_phu_tiem_banh"
+     },
+     {
+      "key": "banh_mi_ga",
+      "name": "Bánh Mì Gà Sương Mai",
+      "type": "Quán bánh mì gà buổi sáng",
+      "trait": "bán 6–9 giờ, hết hàng sau 3 tiếng",
+      "towerId": "gt_tran_phu_banh_mi_ga"
+     },
+     {
+      "key": "chao_dem",
+      "name": "Cháo Đêm Hồ Sương",
+      "type": "Quán cháo đêm",
+      "trait": "mở tới 2 giờ sáng, cháo cá kho",
+      "towerId": "gt_tran_phu_chao_dem"
+     },
+     {
+      "key": "ks_binh_dan",
+      "name": "Khách Sạn Nhỏ Cẩm Tú Cầu",
+      "type": "Khách sạn bình dân trên Ba Tháng Hai",
+      "trait": "đi bộ 2–3 phút ra chợ",
+      "towerId": "gt_tran_phu_ks_binh_dan"
+     },
+     {
+      "key": "com_ga",
+      "name": "Cơm Gà Hẻm Dã Quỳ",
+      "type": "Quán cơm gà trong hẻm",
+      "trait": "cơm gà Hải Nam",
+      "towerId": "gt_tran_phu_com_ga"
+     }
+    ],
+    "streetId": "street_tran_phu",
+    "shopIndex": 1,
+    "featuredTowerId": "gt_tran_phu_ks_ho",
+    "facadeKey": "mat_tien_ks_ho",
+    "roomStyle": "luu_tru",
+    "roomLayout": "zigzag",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_tran_phu_ks_ho",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_tang_bat_ho_thue_xe",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_don_den_duong",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_don_voi_xit",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_tran_phu_ks_ho",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_tang_bat_ho_thue_xe",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_tran_phu_ks_binh_dan",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_don_voi_xit",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_tran_phu_ks_ho",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_tang_bat_ho_thue_xe",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_tran_phu_ks_binh_dan",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.4,
+   "balance": {
+    "randomWinWithExpectedGear": 0.6458333333333334,
+    "botWinRate": 1,
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.6071428571428572
+   },
+   "stage": {
+    "id": "street_tran_phu_t2",
+    "stageNumber": 12,
+    "name": "Khách Sạn Cổ Mai Anh Đào",
+    "subtitle": "Phố Trần Phú – Ba Tháng Hai · tiệm 2/8: Khách sạn Pháp cổ cạnh nhà thờ",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 300,
+       "y": 520
+      },
+      {
+       "x": 300,
+       "y": 120
+      },
+      {
+       "x": 180,
+       "y": 120
+      },
+      {
+       "x": 180,
+       "y": 380
+      },
+      {
+       "x": 60,
+       "y": 380
+      },
+      {
+       "x": 60,
+       "y": 60
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 120,
+      "y": 290
+     },
+     {
+      "id": "pad_2",
+      "x": 240,
+      "y": 210
+     },
+     {
+      "id": "pad_3",
+      "x": 140,
+      "y": 150
+     },
+     {
+      "id": "pad_4",
+      "x": 120,
+      "y": 420
+     },
+     {
+      "id": "pad_5",
+      "x": 220,
+      "y": 340
+     },
+     {
+      "id": "pad_6",
+      "x": 230,
+      "y": 80
+     },
+     {
+      "id": "pad_7",
+      "x": 120,
+      "y": 210
+     },
+     {
+      "id": "pad_8",
+      "x": 210,
+      "y": 420
+     },
+     {
+      "id": "pad_9",
+      "x": 150,
+      "y": 80
+     },
+     {
+      "id": "pad_10",
+      "x": 220,
+      "y": 270
+     },
+     {
+      "id": "pad_11",
+      "x": 50,
+      "y": 420
      }
     ],
     "waves": [
@@ -1531,12 +1519,10 @@
     "towerIds": [
      "gt_tran_phu_ks_phap",
      "gt_tran_phu_ks_ho",
-     "gt_tran_phu_pho",
-     "gt_tran_phu_tiem_banh",
-     "gt_tran_phu_banh_mi_ga",
-     "gt_tran_phu_chao_dem",
      "gt_tran_phu_ks_binh_dan",
-     "gt_tran_phu_com_ga",
+     "gt_hoang_dieu_khach_san",
+     "gt_tang_bat_ho_khach_san",
+     "gt_tang_bat_ho_thue_xe",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -1548,9 +1534,9 @@
      "gt_tran_phu_ks_phap",
      "gt_tran_phu_ks_ho",
      "gt_tran_phu_ks_binh_dan",
-     "gt_tran_phu_chao_dem",
+     "gt_don_voi_xit",
      "gt_don_den_duong",
-     "gt_tran_phu_tiem_banh"
+     "gt_tang_bat_ho_khach_san"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -1617,7 +1603,7 @@
     "featuredTowerId": "gt_tran_phu_ks_phap",
     "facadeKey": "mat_tien_ks_phap",
     "roomStyle": "luu_tru",
-    "roomLayout": "zigzag",
+    "roomLayout": "chu_u_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -1636,7 +1622,7 @@
      },
      {
       "padId": "pad_4",
-      "defId": "gt_tran_phu_tiem_banh",
+      "defId": "gt_tang_bat_ho_khach_san",
       "preferredBranch": "B"
      },
      {
@@ -1651,12 +1637,12 @@
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tran_phu_chao_dem",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "gt_tran_phu_tiem_banh",
+      "defId": "gt_tang_bat_ho_khach_san",
       "preferredBranch": "B"
      },
      {
@@ -1671,16 +1657,16 @@
      },
      {
       "padId": "pad_11",
-      "defId": "gt_tran_phu_chao_dem",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 0.9,
+   "hpMultiplier": 1.5,
    "balance": {
-    "randomWinWithExpectedGear": 0.75,
+    "randomWinWithExpectedGear": 0.5208333333333334,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.5642857142857143
@@ -1690,1457 +1676,6 @@
     "stageNumber": 13,
     "name": "Phở Bằng Lăng",
     "subtitle": "Phố Trần Phú – Ba Tháng Hai · tiệm 3/8: Quán phở",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 180,
-       "y": 520
-      },
-      {
-       "x": 180,
-       "y": 430
-      },
-      {
-       "x": 296,
-       "y": 430
-      },
-      {
-       "x": 296,
-       "y": 300
-      },
-      {
-       "x": 64,
-       "y": 300
-      },
-      {
-       "x": 64,
-       "y": 170
-      },
-      {
-       "x": 296,
-       "y": 170
-      },
-      {
-       "x": 296,
-       "y": 60
-      },
-      {
-       "x": 180,
-       "y": 60
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 230,
-      "y": 380
-     },
-     {
-      "id": "pad_2",
-      "x": 210,
-      "y": 110
-     },
-     {
-      "id": "pad_3",
-      "x": 270,
-      "y": 470
-     },
-     {
-      "id": "pad_4",
-      "x": 130,
-      "y": 220
-     },
-     {
-      "id": "pad_5",
-      "x": 150,
-      "y": 390
-     },
-     {
-      "id": "pad_6",
-      "x": 230,
-      "y": 220
-     },
-     {
-      "id": "pad_7",
-      "x": 280,
-      "y": 260
-     },
-     {
-      "id": "pad_8",
-      "x": 130,
-      "y": 450
-     },
-     {
-      "id": "pad_9",
-      "x": 150,
-      "y": 130
-     },
-     {
-      "id": "pad_10",
-      "x": 320,
-      "y": 210
-     },
-     {
-      "id": "pad_11",
-      "x": 180,
-      "y": 260
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
-      "title": "Đợt 1: Than Nướng Bén Lửa",
-      "mainElements": [
-       "hoa"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_4",
-        "count": 3,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 0.9
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Chuột Cống",
-      "mainElements": [
-       "kim"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_5",
-        "count": 2,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.03
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Nước Đá Tan & Chuột Cống",
-      "mainElements": [
-       "thuy",
-       "kim"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_6",
-        "count": 1,
-        "intervalSec": 2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.17
-       },
-       {
-        "enemyId": "ge_tran_phu_5",
-        "count": 2,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.17
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Than Nướng Bén Lửa & Nước Đá Tan",
-      "mainElements": [
-       "hoa",
-       "thuy"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.31
-       },
-       {
-        "enemyId": "ge_tran_phu_6",
-        "count": 1,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.31
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Chuột Cống & Than Nướng Bén Lửa & Nước Đá Tan",
-      "mainElements": [
-       "kim",
-       "hoa",
-       "thuy"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.53
-       },
-       {
-        "enemyId": "ge_tran_phu_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.53
-       },
-       {
-        "enemyId": "ge_tran_phu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.53
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Nước Đá Tan & Chuột Cống & Than Nướng Bén Lửa",
-      "mainElements": [
-       "thuy",
-       "kim",
-       "hoa"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.8
-       },
-       {
-        "enemyId": "ge_tran_phu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.8
-       },
-       {
-        "enemyId": "ge_tran_phu_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.8
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Than Nướng Bén Lửa & Nước Đá Tan & Chuột Cống",
-      "mainElements": [
-       "hoa",
-       "thuy",
-       "kim"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.16
-       },
-       {
-        "enemyId": "ge_tran_phu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.16
-       },
-       {
-        "enemyId": "ge_tran_phu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.16
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "hoa",
-       "kim",
-       "thuy"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.52
-       },
-       {
-        "enemyId": "ge_tran_phu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.52
-       },
-       {
-        "enemyId": "ge_tran_phu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.52
-       }
-      ]
-     }
-    ],
-    "towerIds": [
-     "gt_tran_phu_pho",
-     "gt_tran_phu_ks_ho",
-     "gt_tran_phu_ks_phap",
-     "gt_tran_phu_tiem_banh",
-     "gt_tran_phu_banh_mi_ga",
-     "gt_tran_phu_chao_dem",
-     "gt_tran_phu_ks_binh_dan",
-     "gt_tran_phu_com_ga",
-     "gt_don_kep_rac",
-     "gt_don_choi_tre",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_don_bao_cat"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_tran_phu_pho",
-     "gt_tran_phu_ks_ho",
-     "gt_tran_phu_ks_binh_dan",
-     "gt_tran_phu_chao_dem",
-     "gt_don_den_duong",
-     "gt_tran_phu_ks_phap"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "ks_ho",
-      "name": "Khách Sạn Bên Hồ Thông Xanh",
-      "type": "Khách sạn di sản bên hồ",
-      "trait": "thời Pháp, nhìn ra hồ",
-      "towerId": "gt_tran_phu_ks_ho"
-     },
-     {
-      "key": "ks_phap",
-      "name": "Khách Sạn Cổ Mai Anh Đào",
-      "type": "Khách sạn Pháp cổ cạnh nhà thờ",
-      "trait": "nhà cổ thời Pháp",
-      "towerId": "gt_tran_phu_ks_phap"
-     },
-     {
-      "key": "pho",
-      "name": "Phở Bằng Lăng",
-      "type": "Quán phở",
-      "trait": "nước xương bò, bán sáng và chiều tối",
-      "towerId": "gt_tran_phu_pho"
-     },
-     {
-      "key": "tiem_banh",
-      "name": "Tiệm Bánh Lâu Đời Mimosa",
-      "type": "Tiệm bánh mì, bánh ngọt lâu đời",
-      "trait": "mở từ 5 giờ sáng tới khuya",
-      "towerId": "gt_tran_phu_tiem_banh"
-     },
-     {
-      "key": "banh_mi_ga",
-      "name": "Bánh Mì Gà Sương Mai",
-      "type": "Quán bánh mì gà buổi sáng",
-      "trait": "bán 6–9 giờ, hết hàng sau 3 tiếng",
-      "towerId": "gt_tran_phu_banh_mi_ga"
-     },
-     {
-      "key": "chao_dem",
-      "name": "Cháo Đêm Hồ Sương",
-      "type": "Quán cháo đêm",
-      "trait": "mở tới 2 giờ sáng, cháo cá kho",
-      "towerId": "gt_tran_phu_chao_dem"
-     },
-     {
-      "key": "ks_binh_dan",
-      "name": "Khách Sạn Nhỏ Cẩm Tú Cầu",
-      "type": "Khách sạn bình dân trên Ba Tháng Hai",
-      "trait": "đi bộ 2–3 phút ra chợ",
-      "towerId": "gt_tran_phu_ks_binh_dan"
-     },
-     {
-      "key": "com_ga",
-      "name": "Cơm Gà Hẻm Dã Quỳ",
-      "type": "Quán cơm gà trong hẻm",
-      "trait": "cơm gà Hải Nam",
-      "towerId": "gt_tran_phu_com_ga"
-     }
-    ],
-    "streetId": "street_tran_phu",
-    "shopIndex": 3,
-    "featuredTowerId": "gt_tran_phu_pho",
-    "facadeKey": "mat_tien_pho",
-    "roomStyle": "quan_an",
-    "roomLayout": "zigzag_lat",
-    "botPlan": [
-     {
-      "padId": "pad_1",
-      "defId": "gt_tran_phu_pho",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_2",
-      "defId": "gt_tran_phu_ks_ho",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_don_den_duong",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "gt_tran_phu_chao_dem",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "gt_tran_phu_pho",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_tran_phu_ks_ho",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_tran_phu_ks_binh_dan",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_tran_phu_chao_dem",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_tran_phu_pho",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_tran_phu_ks_ho",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_tran_phu_ks_binh_dan",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 1.1,
-   "balance": {
-    "randomWinWithExpectedGear": 0.6041666666666666,
-    "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
-    "target": 0.5214285714285715
-   },
-   "stage": {
-    "id": "street_tran_phu_t4",
-    "stageNumber": 14,
-    "name": "Tiệm Bánh Lâu Đời Mimosa",
-    "subtitle": "Phố Trần Phú – Ba Tháng Hai · tiệm 4/8: Tiệm bánh mì, bánh ngọt lâu đời",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 60,
-       "y": 520
-      },
-      {
-       "x": 60,
-       "y": 120
-      },
-      {
-       "x": 180,
-       "y": 120
-      },
-      {
-       "x": 180,
-       "y": 380
-      },
-      {
-       "x": 300,
-       "y": 380
-      },
-      {
-       "x": 300,
-       "y": 60
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 240,
-      "y": 290
-     },
-     {
-      "id": "pad_2",
-      "x": 120,
-      "y": 210
-     },
-     {
-      "id": "pad_3",
-      "x": 220,
-      "y": 150
-     },
-     {
-      "id": "pad_4",
-      "x": 120,
-      "y": 80
-     },
-     {
-      "id": "pad_5",
-      "x": 130,
-      "y": 320
-     },
-     {
-      "id": "pad_6",
-      "x": 220,
-      "y": 420
-     },
-     {
-      "id": "pad_7",
-      "x": 240,
-      "y": 210
-     },
-     {
-      "id": "pad_8",
-      "x": 120,
-      "y": 390
-     },
-     {
-      "id": "pad_9",
-      "x": 200,
-      "y": 80
-     },
-     {
-      "id": "pad_10",
-      "x": 290,
-      "y": 420
-     },
-     {
-      "id": "pad_11",
-      "x": 160,
-      "y": 440
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
-      "title": "Đợt 1: Kiến Bu Đường",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_1",
-        "count": 6,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.1
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Bụi Bột",
-      "mainElements": [
-       "tho"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.26
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Chuột Cống & Bụi Bột",
-      "mainElements": [
-       "kim",
-       "tho"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_5",
-        "count": 2,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.43
-       },
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.43
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Kiến Bu Đường & Chuột Cống",
-      "mainElements": [
-       "moc",
-       "kim"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_1",
-        "count": 7,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.6
-       },
-       {
-        "enemyId": "ge_tran_phu_5",
-        "count": 2,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.6
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Kiến Bu Đường & Chuột Cống",
-      "mainElements": [
-       "moc",
-       "kim"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_1",
-        "count": 8,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.87
-       },
-       {
-        "enemyId": "ge_tran_phu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.87
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Bụi Bột & Nước Đá Tan",
-      "mainElements": [
-       "tho",
-       "thuy"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.2
-       },
-       {
-        "enemyId": "ge_tran_phu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.2
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Chuột Cống & Kiến Bu Đường",
-      "mainElements": [
-       "kim",
-       "moc"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.64
-       },
-       {
-        "enemyId": "ge_tran_phu_1",
-        "count": 9,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.64
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "moc",
-       "tho",
-       "kim",
-       "thuy"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_1",
-        "count": 9,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.08
-       },
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.08
-       },
-       {
-        "enemyId": "ge_tran_phu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.08
-       },
-       {
-        "enemyId": "ge_tran_phu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.08
-       }
-      ]
-     }
-    ],
-    "towerIds": [
-     "gt_tran_phu_tiem_banh",
-     "gt_tran_phu_ks_ho",
-     "gt_tran_phu_ks_phap",
-     "gt_tran_phu_pho",
-     "gt_tran_phu_banh_mi_ga",
-     "gt_tran_phu_chao_dem",
-     "gt_tran_phu_ks_binh_dan",
-     "gt_tran_phu_com_ga",
-     "gt_don_kep_rac",
-     "gt_don_choi_tre",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_don_bao_cat"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_tran_phu_tiem_banh",
-     "gt_tran_phu_ks_ho",
-     "gt_tran_phu_ks_binh_dan",
-     "gt_tran_phu_chao_dem",
-     "gt_don_den_duong",
-     "gt_tran_phu_ks_phap"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "ks_ho",
-      "name": "Khách Sạn Bên Hồ Thông Xanh",
-      "type": "Khách sạn di sản bên hồ",
-      "trait": "thời Pháp, nhìn ra hồ",
-      "towerId": "gt_tran_phu_ks_ho"
-     },
-     {
-      "key": "ks_phap",
-      "name": "Khách Sạn Cổ Mai Anh Đào",
-      "type": "Khách sạn Pháp cổ cạnh nhà thờ",
-      "trait": "nhà cổ thời Pháp",
-      "towerId": "gt_tran_phu_ks_phap"
-     },
-     {
-      "key": "pho",
-      "name": "Phở Bằng Lăng",
-      "type": "Quán phở",
-      "trait": "nước xương bò, bán sáng và chiều tối",
-      "towerId": "gt_tran_phu_pho"
-     },
-     {
-      "key": "tiem_banh",
-      "name": "Tiệm Bánh Lâu Đời Mimosa",
-      "type": "Tiệm bánh mì, bánh ngọt lâu đời",
-      "trait": "mở từ 5 giờ sáng tới khuya",
-      "towerId": "gt_tran_phu_tiem_banh"
-     },
-     {
-      "key": "banh_mi_ga",
-      "name": "Bánh Mì Gà Sương Mai",
-      "type": "Quán bánh mì gà buổi sáng",
-      "trait": "bán 6–9 giờ, hết hàng sau 3 tiếng",
-      "towerId": "gt_tran_phu_banh_mi_ga"
-     },
-     {
-      "key": "chao_dem",
-      "name": "Cháo Đêm Hồ Sương",
-      "type": "Quán cháo đêm",
-      "trait": "mở tới 2 giờ sáng, cháo cá kho",
-      "towerId": "gt_tran_phu_chao_dem"
-     },
-     {
-      "key": "ks_binh_dan",
-      "name": "Khách Sạn Nhỏ Cẩm Tú Cầu",
-      "type": "Khách sạn bình dân trên Ba Tháng Hai",
-      "trait": "đi bộ 2–3 phút ra chợ",
-      "towerId": "gt_tran_phu_ks_binh_dan"
-     },
-     {
-      "key": "com_ga",
-      "name": "Cơm Gà Hẻm Dã Quỳ",
-      "type": "Quán cơm gà trong hẻm",
-      "trait": "cơm gà Hải Nam",
-      "towerId": "gt_tran_phu_com_ga"
-     }
-    ],
-    "streetId": "street_tran_phu",
-    "shopIndex": 4,
-    "featuredTowerId": "gt_tran_phu_tiem_banh",
-    "facadeKey": "mat_tien_tiem_banh",
-    "roomStyle": "quan_an",
-    "roomLayout": "chu_u",
-    "botPlan": [
-     {
-      "padId": "pad_1",
-      "defId": "gt_tran_phu_tiem_banh",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_2",
-      "defId": "gt_tran_phu_ks_ho",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_don_den_duong",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "gt_tran_phu_chao_dem",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "gt_tran_phu_tiem_banh",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_tran_phu_ks_ho",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_tran_phu_ks_binh_dan",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_tran_phu_chao_dem",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_tran_phu_tiem_banh",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_tran_phu_ks_ho",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_tran_phu_ks_binh_dan",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 2,
-   "balance": {
-    "randomWinWithExpectedGear": 0.4791666666666667,
-    "botWinRate": 1,
-    "botLivesAvg": 20,
-    "target": 0.4785714285714286
-   },
-   "stage": {
-    "id": "street_tran_phu_t5",
-    "stageNumber": 15,
-    "name": "Bánh Mì Gà Sương Mai",
-    "subtitle": "Phố Trần Phú – Ba Tháng Hai · tiệm 5/8: Quán bánh mì gà buổi sáng",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 300,
-       "y": 520
-      },
-      {
-       "x": 300,
-       "y": 120
-      },
-      {
-       "x": 180,
-       "y": 120
-      },
-      {
-       "x": 180,
-       "y": 380
-      },
-      {
-       "x": 60,
-       "y": 380
-      },
-      {
-       "x": 60,
-       "y": 60
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 120,
-      "y": 290
-     },
-     {
-      "id": "pad_2",
-      "x": 240,
-      "y": 210
-     },
-     {
-      "id": "pad_3",
-      "x": 140,
-      "y": 150
-     },
-     {
-      "id": "pad_4",
-      "x": 120,
-      "y": 420
-     },
-     {
-      "id": "pad_5",
-      "x": 220,
-      "y": 340
-     },
-     {
-      "id": "pad_6",
-      "x": 230,
-      "y": 80
-     },
-     {
-      "id": "pad_7",
-      "x": 120,
-      "y": 210
-     },
-     {
-      "id": "pad_8",
-      "x": 210,
-      "y": 420
-     },
-     {
-      "id": "pad_9",
-      "x": 150,
-      "y": 80
-     },
-     {
-      "id": "pad_10",
-      "x": 220,
-      "y": 270
-     },
-     {
-      "id": "pad_11",
-      "x": 50,
-      "y": 420
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
-      "title": "Đợt 1: Kiến Bu Đường",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_1",
-        "count": 6,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Bụi Bột",
-      "mainElements": [
-       "tho"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.3
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Ruồi Bếp & Bụi Bột",
-      "mainElements": [
-       "moc",
-       "tho"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.6
-       },
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.6
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Kiến Bu Đường & Ruồi Bếp",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_1",
-        "count": 7,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.9
-       },
-       {
-        "enemyId": "ge_tran_phu_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.9
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Kiến Bu Đường & Ruồi Bếp",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_1",
-        "count": 8,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.4
-       },
-       {
-        "enemyId": "ge_tran_phu_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.4
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Bụi Bột & Nước Đá Tan",
-      "mainElements": [
-       "tho",
-       "thuy"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 4
-       },
-       {
-        "enemyId": "ge_tran_phu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Ruồi Bếp & Kiến Bu Đường",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 4.8
-       },
-       {
-        "enemyId": "ge_tran_phu_1",
-        "count": 9,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.8
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "moc",
-       "tho",
-       "thuy"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_1",
-        "count": 9,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 5.6
-       },
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 5.6
-       },
-       {
-        "enemyId": "ge_tran_phu_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 5.6
-       },
-       {
-        "enemyId": "ge_tran_phu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 5.6
-       }
-      ]
-     }
-    ],
-    "towerIds": [
-     "gt_tran_phu_banh_mi_ga",
-     "gt_tran_phu_ks_ho",
-     "gt_tran_phu_ks_phap",
-     "gt_tran_phu_pho",
-     "gt_tran_phu_tiem_banh",
-     "gt_tran_phu_chao_dem",
-     "gt_tran_phu_ks_binh_dan",
-     "gt_tran_phu_com_ga",
-     "gt_don_kep_rac",
-     "gt_don_choi_tre",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_don_bao_cat"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_tran_phu_banh_mi_ga",
-     "gt_tran_phu_ks_ho",
-     "gt_tran_phu_ks_binh_dan",
-     "gt_tran_phu_chao_dem",
-     "gt_don_den_duong",
-     "gt_tran_phu_ks_phap"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "ks_ho",
-      "name": "Khách Sạn Bên Hồ Thông Xanh",
-      "type": "Khách sạn di sản bên hồ",
-      "trait": "thời Pháp, nhìn ra hồ",
-      "towerId": "gt_tran_phu_ks_ho"
-     },
-     {
-      "key": "ks_phap",
-      "name": "Khách Sạn Cổ Mai Anh Đào",
-      "type": "Khách sạn Pháp cổ cạnh nhà thờ",
-      "trait": "nhà cổ thời Pháp",
-      "towerId": "gt_tran_phu_ks_phap"
-     },
-     {
-      "key": "pho",
-      "name": "Phở Bằng Lăng",
-      "type": "Quán phở",
-      "trait": "nước xương bò, bán sáng và chiều tối",
-      "towerId": "gt_tran_phu_pho"
-     },
-     {
-      "key": "tiem_banh",
-      "name": "Tiệm Bánh Lâu Đời Mimosa",
-      "type": "Tiệm bánh mì, bánh ngọt lâu đời",
-      "trait": "mở từ 5 giờ sáng tới khuya",
-      "towerId": "gt_tran_phu_tiem_banh"
-     },
-     {
-      "key": "banh_mi_ga",
-      "name": "Bánh Mì Gà Sương Mai",
-      "type": "Quán bánh mì gà buổi sáng",
-      "trait": "bán 6–9 giờ, hết hàng sau 3 tiếng",
-      "towerId": "gt_tran_phu_banh_mi_ga"
-     },
-     {
-      "key": "chao_dem",
-      "name": "Cháo Đêm Hồ Sương",
-      "type": "Quán cháo đêm",
-      "trait": "mở tới 2 giờ sáng, cháo cá kho",
-      "towerId": "gt_tran_phu_chao_dem"
-     },
-     {
-      "key": "ks_binh_dan",
-      "name": "Khách Sạn Nhỏ Cẩm Tú Cầu",
-      "type": "Khách sạn bình dân trên Ba Tháng Hai",
-      "trait": "đi bộ 2–3 phút ra chợ",
-      "towerId": "gt_tran_phu_ks_binh_dan"
-     },
-     {
-      "key": "com_ga",
-      "name": "Cơm Gà Hẻm Dã Quỳ",
-      "type": "Quán cơm gà trong hẻm",
-      "trait": "cơm gà Hải Nam",
-      "towerId": "gt_tran_phu_com_ga"
-     }
-    ],
-    "streetId": "street_tran_phu",
-    "shopIndex": 5,
-    "featuredTowerId": "gt_tran_phu_banh_mi_ga",
-    "facadeKey": "mat_tien_banh_mi_ga",
-    "roomStyle": "quan_an",
-    "roomLayout": "chu_u_lat",
-    "botPlan": [
-     {
-      "padId": "pad_1",
-      "defId": "gt_tran_phu_banh_mi_ga",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_2",
-      "defId": "gt_tran_phu_ks_ho",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_don_den_duong",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "gt_tran_phu_chao_dem",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "gt_tran_phu_banh_mi_ga",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_tran_phu_ks_ho",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_tran_phu_ks_binh_dan",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_tran_phu_chao_dem",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_tran_phu_banh_mi_ga",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_tran_phu_ks_ho",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_tran_phu_ks_binh_dan",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 2.5,
-   "balance": {
-    "randomWinWithExpectedGear": 0.4166666666666667,
-    "botWinRate": 1,
-    "botLivesAvg": 20.333333333333332,
-    "target": 0.4357142857142857
-   },
-   "stage": {
-    "id": "street_tran_phu_t6",
-    "stageNumber": 16,
-    "name": "Cháo Đêm Hồ Sương",
-    "subtitle": "Phố Trần Phú – Ba Tháng Hai · tiệm 6/8: Quán cháo đêm",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -3239,141 +1774,116 @@
     "waves": [
      {
       "waveNumber": 1,
-      "title": "Đợt 1: Kiến Bu Đường",
+      "title": "Đợt 1: Than Nướng Bén Lửa",
       "mainElements": [
-       "moc"
+       "hoa"
       ],
       "earlyBonusMax": 12,
       "clearReward": 14,
       "groups": [
        {
-        "enemyId": "ge_tran_phu_1",
-        "count": 6,
-        "intervalSec": 0.6,
+        "enemyId": "ge_tran_phu_4",
+        "count": 3,
+        "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.5
+        "hpScale": 1.5
        }
       ]
      },
      {
       "waveNumber": 2,
-      "title": "Đợt 2: Bụi Bột",
+      "title": "Đợt 2: Chuột Cống",
       "mainElements": [
-       "tho"
+       "kim"
       ],
       "earlyBonusMax": 13,
       "clearReward": 14,
       "groups": [
        {
-        "enemyId": "ge_tran_phu_2",
+        "enemyId": "ge_tran_phu_5",
         "count": 2,
-        "intervalSec": 1.6,
+        "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 1.73
        }
       ]
      },
      {
       "waveNumber": 3,
-      "title": "Đợt 3: Ruồi Bếp & Bụi Bột",
+      "title": "Đợt 3: Nước Đá Tan & Chuột Cống",
       "mainElements": [
-       "moc",
-       "tho"
+       "thuy",
+       "kim"
       ],
       "earlyBonusMax": 14,
       "clearReward": 15,
       "groups": [
        {
-        "enemyId": "ge_tran_phu_3",
-        "count": 4,
-        "intervalSec": 0.85,
+        "enemyId": "ge_tran_phu_6",
+        "count": 1,
+        "intervalSec": 2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.25
+        "hpScale": 1.95
        },
        {
-        "enemyId": "ge_tran_phu_2",
+        "enemyId": "ge_tran_phu_5",
         "count": 2,
-        "intervalSec": 1.6,
+        "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.25
+        "hpScale": 1.95
        }
       ]
      },
      {
       "waveNumber": 4,
-      "title": "Đợt 4: Kiến Bu Đường & Ruồi Bếp",
+      "title": "Đợt 4: Than Nướng Bén Lửa & Nước Đá Tan",
       "mainElements": [
-       "moc"
+       "hoa",
+       "thuy"
       ],
       "earlyBonusMax": 15,
       "clearReward": 15,
       "groups": [
        {
-        "enemyId": "ge_tran_phu_1",
-        "count": 7,
-        "intervalSec": 0.6,
+        "enemyId": "ge_tran_phu_4",
+        "count": 4,
+        "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.63
+        "hpScale": 2.17
        },
        {
-        "enemyId": "ge_tran_phu_3",
-        "count": 5,
-        "intervalSec": 0.85,
+        "enemyId": "ge_tran_phu_6",
+        "count": 1,
+        "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.63
+        "hpScale": 2.17
        }
       ]
      },
      {
       "waveNumber": 5,
-      "title": "Đợt 5: Kiến Bu Đường & Ruồi Bếp",
+      "title": "Đợt 5: Chuột Cống & Than Nướng Bén Lửa & Nước Đá Tan",
       "mainElements": [
-       "moc"
+       "kim",
+       "hoa",
+       "thuy"
       ],
       "earlyBonusMax": 16,
       "clearReward": 16,
       "groups": [
        {
-        "enemyId": "ge_tran_phu_1",
-        "count": 8,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 4.25
-       },
-       {
-        "enemyId": "ge_tran_phu_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.25
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Bụi Bột & Than Nướng Bén Lửa",
-      "mainElements": [
-       "tho",
-       "hoa"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_2",
+        "enemyId": "ge_tran_phu_5",
         "count": 3,
-        "intervalSec": 1.6,
+        "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5
+        "hpScale": 2.55
        },
        {
         "enemyId": "ge_tran_phu_4",
@@ -3381,34 +1891,89 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5
+        "hpScale": 2.55
+       },
+       {
+        "enemyId": "ge_tran_phu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.55
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Nước Đá Tan & Chuột Cống & Than Nướng Bén Lửa",
+      "mainElements": [
+       "thuy",
+       "kim",
+       "hoa"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3
+       },
+       {
+        "enemyId": "ge_tran_phu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3
+       },
+       {
+        "enemyId": "ge_tran_phu_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3
        }
       ]
      },
      {
       "waveNumber": 7,
-      "title": "Đợt 7: Ruồi Bếp & Kiến Bu Đường",
+      "title": "Đợt 7: Than Nướng Bén Lửa & Nước Đá Tan & Chuột Cống",
       "mainElements": [
-       "moc"
+       "hoa",
+       "thuy",
+       "kim"
       ],
       "earlyBonusMax": 18,
       "clearReward": 17,
       "groups": [
        {
-        "enemyId": "ge_tran_phu_3",
-        "count": 6,
-        "intervalSec": 0.85,
+        "enemyId": "ge_tran_phu_4",
+        "count": 5,
+        "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 6
+        "hpScale": 3.6
        },
        {
-        "enemyId": "ge_tran_phu_1",
-        "count": 9,
-        "intervalSec": 0.6,
+        "enemyId": "ge_tran_phu_6",
+        "count": 2,
+        "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6
+        "hpScale": 3.6
+       },
+       {
+        "enemyId": "ge_tran_phu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.6
        }
       ]
      },
@@ -3416,57 +1981,59 @@
       "waveNumber": 8,
       "title": "Đợt 8: Giờ cao điểm cả phố",
       "mainElements": [
-       "moc",
-       "tho",
-       "hoa"
+       "hoa",
+       "kim",
+       "thuy"
       ],
       "earlyBonusMax": 0,
       "clearReward": 0,
       "groups": [
        {
-        "enemyId": "ge_tran_phu_1",
-        "count": 9,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 7
-       },
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 7
-       },
-       {
-        "enemyId": "ge_tran_phu_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 7
-       },
-       {
         "enemyId": "ge_tran_phu_4",
         "count": 5,
         "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_tran_phu_5",
+        "count": 3,
+        "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 7
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_tran_phu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
        }
       ]
      }
     ],
     "towerIds": [
-     "gt_tran_phu_chao_dem",
-     "gt_tran_phu_ks_ho",
-     "gt_tran_phu_ks_phap",
      "gt_tran_phu_pho",
-     "gt_tran_phu_tiem_banh",
      "gt_tran_phu_banh_mi_ga",
-     "gt_tran_phu_ks_binh_dan",
+     "gt_tran_phu_chao_dem",
      "gt_tran_phu_com_ga",
+     "gt_hoang_dieu_lau_nha_go",
+     "gt_hoang_dieu_lau_hem",
+     "gt_hoang_dieu_xiu_mai",
+     "gt_hoang_dieu_banh_trang",
+     "gt_hoang_dieu_com_ga",
+     "gt_hoang_dieu_chao_gang",
+     "gt_hoang_dieu_pizza",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong",
+     "gt_nguyen_van_troi_com_tam",
+     "gt_phan_dinh_phung_pho",
+     "gt_tang_bat_ho_banh_can",
+     "gt_tang_bat_ho_goc_cay",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -3475,12 +2042,12 @@
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
+     "gt_tran_phu_pho",
+     "gt_tran_phu_banh_mi_ga",
+     "gt_tang_bat_ho_goc_cay",
      "gt_tran_phu_chao_dem",
-     "gt_tran_phu_ks_ho",
-     "gt_tran_phu_ks_binh_dan",
-     "gt_don_voi_xit",
      "gt_don_den_duong",
-     "gt_tran_phu_ks_phap"
+     "gt_hoang_dieu_xiu_mai"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -3543,603 +2110,93 @@
      }
     ],
     "streetId": "street_tran_phu",
-    "shopIndex": 6,
-    "featuredTowerId": "gt_tran_phu_chao_dem",
-    "facadeKey": "mat_tien_chao_dem",
+    "shopIndex": 3,
+    "featuredTowerId": "gt_tran_phu_pho",
+    "facadeKey": "mat_tien_pho",
     "roomStyle": "quan_an",
     "roomLayout": "xoan",
     "botPlan": [
      {
       "padId": "pad_1",
-      "defId": "gt_tran_phu_chao_dem",
+      "defId": "gt_tran_phu_pho",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_2",
-      "defId": "gt_tran_phu_ks_ho",
+      "defId": "gt_tran_phu_banh_mi_ga",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "gt_don_den_duong",
+      "defId": "gt_tang_bat_ho_goc_cay",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_don_voi_xit",
+      "defId": "gt_hoang_dieu_xiu_mai",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "gt_tran_phu_chao_dem",
+      "defId": "gt_tran_phu_pho",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "gt_tran_phu_ks_ho",
+      "defId": "gt_tran_phu_banh_mi_ga",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tran_phu_ks_binh_dan",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_don_voi_xit",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
       "defId": "gt_tran_phu_chao_dem",
       "preferredBranch": "A"
      },
      {
+      "padId": "pad_8",
+      "defId": "gt_hoang_dieu_xiu_mai",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_tran_phu_pho",
+      "preferredBranch": "A"
+     },
+     {
       "padId": "pad_10",
-      "defId": "gt_tran_phu_ks_ho",
+      "defId": "gt_tran_phu_banh_mi_ga",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "gt_tran_phu_ks_binh_dan",
+      "defId": "gt_tran_phu_chao_dem",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 1.9,
+   "hpMultiplier": 0.8,
    "balance": {
-    "randomWinWithExpectedGear": 0.3958333333333333,
+    "randomWinWithExpectedGear": 0.5,
     "botWinRate": 1,
-    "botLivesAvg": 19.333333333333332,
-    "target": 0.3928571428571429
+    "botLivesAvg": 20.666666666666668,
+    "target": 0.5214285714285715
    },
    "stage": {
-    "id": "street_tran_phu_t7",
-    "stageNumber": 17,
-    "name": "Khách Sạn Nhỏ Cẩm Tú Cầu",
-    "subtitle": "Phố Trần Phú – Ba Tháng Hai · tiệm 7/8: Khách sạn bình dân trên Ba Tháng Hai",
+    "id": "street_tran_phu_t4",
+    "stageNumber": 14,
+    "name": "Tiệm Bánh Lâu Đời Mimosa",
+    "subtitle": "Phố Trần Phú – Ba Tháng Hai · tiệm 4/8: Tiệm bánh mì, bánh ngọt lâu đời",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
      [
       {
-       "x": 180,
+       "x": 290,
        "y": 520
       },
       {
-       "x": 180,
-       "y": 450
-      },
-      {
-       "x": 60,
-       "y": 450
-      },
-      {
-       "x": 60,
-       "y": 90
-      },
-      {
-       "x": 300,
-       "y": 90
-      },
-      {
-       "x": 300,
-       "y": 330
-      },
-      {
-       "x": 160,
-       "y": 330
-      },
-      {
-       "x": 160,
-       "y": 210
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 140,
-      "y": 390
-     },
-     {
-      "id": "pad_2",
-      "x": 210,
-      "y": 390
-     },
-     {
-      "id": "pad_3",
-      "x": 220,
-      "y": 260
-     },
-     {
-      "id": "pad_4",
-      "x": 120,
-      "y": 290
-     },
-     {
-      "id": "pad_5",
-      "x": 120,
-      "y": 180
-     },
-     {
-      "id": "pad_6",
-      "x": 210,
-      "y": 150
-     },
-     {
-      "id": "pad_7",
-      "x": 220,
-      "y": 460
-     },
-     {
-      "id": "pad_8",
-      "x": 260,
-      "y": 190
-     },
-     {
-      "id": "pad_9",
-      "x": 270,
-      "y": 370
-     },
-     {
-      "id": "pad_10",
-      "x": 30,
-      "y": 480
-     },
-     {
-      "id": "pad_11",
-      "x": 130,
-      "y": 50
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
-      "title": "Đợt 1: Bụi Bột",
-      "mainElements": [
-       "tho"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.9
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Ruồi Bếp",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.18
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Than Nướng Bén Lửa & Ruồi Bếp",
-      "mainElements": [
-       "hoa",
-       "moc"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_4",
-        "count": 3,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.47
-       },
-       {
-        "enemyId": "ge_tran_phu_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.47
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Bụi Bột & Than Nướng Bén Lửa",
-      "mainElements": [
-       "tho",
-       "hoa"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.76
-       },
-       {
-        "enemyId": "ge_tran_phu_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.76
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Bụi Bột & Than Nướng Bén Lửa",
-      "mainElements": [
-       "tho",
-       "hoa"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.23
-       },
-       {
-        "enemyId": "ge_tran_phu_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.23
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Bụi Bột & Than Nướng Bén Lửa & Nước Đá Tan",
-      "mainElements": [
-       "tho",
-       "hoa",
-       "thuy"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.8
-       },
-       {
-        "enemyId": "ge_tran_phu_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.8
-       },
-       {
-        "enemyId": "ge_tran_phu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.8
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Ruồi Bếp & Chuột Cống & Bụi Bột",
-      "mainElements": [
-       "moc",
-       "kim",
-       "tho"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 4.56
-       },
-       {
-        "enemyId": "ge_tran_phu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.56
-       },
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.56
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "tho",
-       "moc",
-       "hoa",
-       "kim",
-       "thuy"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_tran_phu_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 5.32
-       },
-       {
-        "enemyId": "ge_tran_phu_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 5.32
-       },
-       {
-        "enemyId": "ge_tran_phu_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 5.32
-       },
-       {
-        "enemyId": "ge_tran_phu_5",
-        "count": 3,
-        "intervalSec": 1.8,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 5.32
-       },
-       {
-        "enemyId": "ge_tran_phu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 5.32
-       }
-      ]
-     }
-    ],
-    "towerIds": [
-     "gt_tran_phu_ks_binh_dan",
-     "gt_tran_phu_ks_ho",
-     "gt_tran_phu_ks_phap",
-     "gt_tran_phu_pho",
-     "gt_tran_phu_tiem_banh",
-     "gt_tran_phu_banh_mi_ga",
-     "gt_tran_phu_chao_dem",
-     "gt_tran_phu_com_ga",
-     "gt_don_kep_rac",
-     "gt_don_choi_tre",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_don_bao_cat"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_tran_phu_ks_binh_dan",
-     "gt_tran_phu_ks_ho",
-     "gt_don_choi_tre",
-     "gt_tran_phu_chao_dem",
-     "gt_don_den_duong",
-     "gt_tran_phu_ks_phap"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "ks_ho",
-      "name": "Khách Sạn Bên Hồ Thông Xanh",
-      "type": "Khách sạn di sản bên hồ",
-      "trait": "thời Pháp, nhìn ra hồ",
-      "towerId": "gt_tran_phu_ks_ho"
-     },
-     {
-      "key": "ks_phap",
-      "name": "Khách Sạn Cổ Mai Anh Đào",
-      "type": "Khách sạn Pháp cổ cạnh nhà thờ",
-      "trait": "nhà cổ thời Pháp",
-      "towerId": "gt_tran_phu_ks_phap"
-     },
-     {
-      "key": "pho",
-      "name": "Phở Bằng Lăng",
-      "type": "Quán phở",
-      "trait": "nước xương bò, bán sáng và chiều tối",
-      "towerId": "gt_tran_phu_pho"
-     },
-     {
-      "key": "tiem_banh",
-      "name": "Tiệm Bánh Lâu Đời Mimosa",
-      "type": "Tiệm bánh mì, bánh ngọt lâu đời",
-      "trait": "mở từ 5 giờ sáng tới khuya",
-      "towerId": "gt_tran_phu_tiem_banh"
-     },
-     {
-      "key": "banh_mi_ga",
-      "name": "Bánh Mì Gà Sương Mai",
-      "type": "Quán bánh mì gà buổi sáng",
-      "trait": "bán 6–9 giờ, hết hàng sau 3 tiếng",
-      "towerId": "gt_tran_phu_banh_mi_ga"
-     },
-     {
-      "key": "chao_dem",
-      "name": "Cháo Đêm Hồ Sương",
-      "type": "Quán cháo đêm",
-      "trait": "mở tới 2 giờ sáng, cháo cá kho",
-      "towerId": "gt_tran_phu_chao_dem"
-     },
-     {
-      "key": "ks_binh_dan",
-      "name": "Khách Sạn Nhỏ Cẩm Tú Cầu",
-      "type": "Khách sạn bình dân trên Ba Tháng Hai",
-      "trait": "đi bộ 2–3 phút ra chợ",
-      "towerId": "gt_tran_phu_ks_binh_dan"
-     },
-     {
-      "key": "com_ga",
-      "name": "Cơm Gà Hẻm Dã Quỳ",
-      "type": "Quán cơm gà trong hẻm",
-      "trait": "cơm gà Hải Nam",
-      "towerId": "gt_tran_phu_com_ga"
-     }
-    ],
-    "streetId": "street_tran_phu",
-    "shopIndex": 7,
-    "featuredTowerId": "gt_tran_phu_ks_binh_dan",
-    "facadeKey": "mat_tien_ks_binh_dan",
-    "roomStyle": "luu_tru",
-    "roomLayout": "xoan_lat",
-    "botPlan": [
-     {
-      "padId": "pad_1",
-      "defId": "gt_tran_phu_ks_binh_dan",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_2",
-      "defId": "gt_tran_phu_ks_ho",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_don_den_duong",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "gt_tran_phu_chao_dem",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "gt_tran_phu_ks_binh_dan",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_tran_phu_ks_ho",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_don_choi_tre",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_tran_phu_chao_dem",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_tran_phu_ks_binh_dan",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_tran_phu_ks_ho",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_don_choi_tre",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 1.5,
-   "balance": {
-    "randomWinWithExpectedGear": 0.2708333333333333,
-    "botWinRate": 1,
-    "botLivesAvg": 19.666666666666668,
-    "target": 0.35000000000000003
-   },
-   "stage": {
-    "id": "street_tran_phu_t8",
-    "stageNumber": 18,
-    "name": "Cơm Gà Hẻm Dã Quỳ",
-    "subtitle": "Phố Trần Phú – Ba Tháng Hai · tiệm 8/8: Quán cơm gà trong hẻm",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 70,
-       "y": 520
-      },
-      {
-       "x": 70,
+       "x": 290,
        "y": 360
       },
       {
@@ -4153,11 +2210,11 @@
      ],
      [
       {
-       "x": 290,
+       "x": 70,
        "y": 520
       },
       {
-       "x": 290,
+       "x": 70,
        "y": 360
       },
       {
@@ -4243,6 +2300,1466 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
+        "hpScale": 0.8
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Bột",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 1,
+        "hpScale": 0.92
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Chuột Cống & Bụi Bột",
+      "mainElements": [
+       "kim",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.04
+       },
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 1,
+        "hpScale": 1.04
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Đường & Chuột Cống",
+      "mainElements": [
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 1,
+        "hpScale": 1.16
+       },
+       {
+        "enemyId": "ge_tran_phu_5",
+        "count": 2,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.16
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Kiến Bu Đường & Chuột Cống",
+      "mainElements": [
+       "moc",
+       "kim"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.36
+       },
+       {
+        "enemyId": "ge_tran_phu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 1,
+        "hpScale": 1.36
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Bụi Bột & Nước Đá Tan",
+      "mainElements": [
+       "tho",
+       "thuy"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 1,
+        "hpScale": 1.6
+       },
+       {
+        "enemyId": "ge_tran_phu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Chuột Cống & Kiến Bu Đường",
+      "mainElements": [
+       "kim",
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.92
+       },
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 1,
+        "hpScale": 1.92
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "tho",
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 1,
+        "hpScale": 2.24
+       },
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.24
+       },
+       {
+        "enemyId": "ge_tran_phu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 1,
+        "hpScale": 2.24
+       },
+       {
+        "enemyId": "ge_tran_phu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.24
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "gt_tran_phu_tiem_banh",
+     "gt_hoang_dieu_yaourt",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_nguyen_van_troi_che",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_pho_ca_phe_o_long",
+     "gt_pho_ca_phe_kem_ly",
+     "gt_pho_ca_phe_tra_sua",
+     "gt_pho_ca_phe_retro",
+     "gt_pho_ca_phe_kem_bo",
+     "gt_pho_ca_phe_cafe_xua",
+     "gt_pho_ca_phe_san_thuong",
+     "gt_tang_bat_ho_banh_qua",
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_tang_bat_ho_bar_ham",
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_tang_bat_ho_an_vat",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_tran_phu_tiem_banh",
+     "gt_pho_ca_phe_retro",
+     "gt_hoang_dieu_yaourt",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_don_den_duong",
+     "gt_pho_ca_phe_cafe_xua"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "ks_ho",
+      "name": "Khách Sạn Bên Hồ Thông Xanh",
+      "type": "Khách sạn di sản bên hồ",
+      "trait": "thời Pháp, nhìn ra hồ",
+      "towerId": "gt_tran_phu_ks_ho"
+     },
+     {
+      "key": "ks_phap",
+      "name": "Khách Sạn Cổ Mai Anh Đào",
+      "type": "Khách sạn Pháp cổ cạnh nhà thờ",
+      "trait": "nhà cổ thời Pháp",
+      "towerId": "gt_tran_phu_ks_phap"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Bằng Lăng",
+      "type": "Quán phở",
+      "trait": "nước xương bò, bán sáng và chiều tối",
+      "towerId": "gt_tran_phu_pho"
+     },
+     {
+      "key": "tiem_banh",
+      "name": "Tiệm Bánh Lâu Đời Mimosa",
+      "type": "Tiệm bánh mì, bánh ngọt lâu đời",
+      "trait": "mở từ 5 giờ sáng tới khuya",
+      "towerId": "gt_tran_phu_tiem_banh"
+     },
+     {
+      "key": "banh_mi_ga",
+      "name": "Bánh Mì Gà Sương Mai",
+      "type": "Quán bánh mì gà buổi sáng",
+      "trait": "bán 6–9 giờ, hết hàng sau 3 tiếng",
+      "towerId": "gt_tran_phu_banh_mi_ga"
+     },
+     {
+      "key": "chao_dem",
+      "name": "Cháo Đêm Hồ Sương",
+      "type": "Quán cháo đêm",
+      "trait": "mở tới 2 giờ sáng, cháo cá kho",
+      "towerId": "gt_tran_phu_chao_dem"
+     },
+     {
+      "key": "ks_binh_dan",
+      "name": "Khách Sạn Nhỏ Cẩm Tú Cầu",
+      "type": "Khách sạn bình dân trên Ba Tháng Hai",
+      "trait": "đi bộ 2–3 phút ra chợ",
+      "towerId": "gt_tran_phu_ks_binh_dan"
+     },
+     {
+      "key": "com_ga",
+      "name": "Cơm Gà Hẻm Dã Quỳ",
+      "type": "Quán cơm gà trong hẻm",
+      "trait": "cơm gà Hải Nam",
+      "towerId": "gt_tran_phu_com_ga"
+     }
+    ],
+    "streetId": "street_tran_phu",
+    "shopIndex": 4,
+    "featuredTowerId": "gt_tran_phu_tiem_banh",
+    "facadeKey": "mat_tien_tiem_banh",
+    "roomStyle": "quan_an",
+    "roomLayout": "hai_cua_lat",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_tran_phu_tiem_banh",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_pho_ca_phe_retro",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_hoang_dieu_yaourt",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_pho_ca_phe_cafe_xua",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_tran_phu_tiem_banh",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_pho_ca_phe_retro",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_nguyen_van_troi_kem_bo",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_pho_ca_phe_cafe_xua",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_tran_phu_tiem_banh",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_pho_ca_phe_retro",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_nguyen_van_troi_kem_bo",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.5,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4166666666666667,
+    "botWinRate": 1,
+    "botLivesAvg": 14.333333333333334,
+    "target": 0.4785714285714286
+   },
+   "stage": {
+    "id": "street_tran_phu_t5",
+    "stageNumber": 15,
+    "name": "Bánh Mì Gà Sương Mai",
+    "subtitle": "Phố Trần Phú – Ba Tháng Hai · tiệm 5/8: Quán bánh mì gà buổi sáng",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 0,
+       "y": 450
+      },
+      {
+       "x": 110,
+       "y": 450
+      },
+      {
+       "x": 110,
+       "y": 300
+      },
+      {
+       "x": 260,
+       "y": 300
+      },
+      {
+       "x": 260,
+       "y": 170
+      },
+      {
+       "x": 110,
+       "y": 170
+      },
+      {
+       "x": 110,
+       "y": 70
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 170,
+      "y": 230
+     },
+     {
+      "id": "pad_2",
+      "x": 200,
+      "y": 130
+     },
+     {
+      "id": "pad_3",
+      "x": 50,
+      "y": 360
+     },
+     {
+      "id": "pad_4",
+      "x": 150,
+      "y": 370
+     },
+     {
+      "id": "pad_5",
+      "x": 110,
+      "y": 210
+     },
+     {
+      "id": "pad_6",
+      "x": 210,
+      "y": 340
+     },
+     {
+      "id": "pad_7",
+      "x": 150,
+      "y": 90
+     },
+     {
+      "id": "pad_8",
+      "x": 300,
+      "y": 210
+     },
+     {
+      "id": "pad_9",
+      "x": 70,
+      "y": 130
+     },
+     {
+      "id": "pad_10",
+      "x": 80,
+      "y": 270
+     },
+     {
+      "id": "pad_11",
+      "x": 150,
+      "y": 440
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.5
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Bột",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.73
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Ruồi Bếp & Bụi Bột",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.95
+       },
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.95
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Đường & Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.17
+       },
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.17
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Kiến Bu Đường & Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.55
+       },
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.55
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Bụi Bột & Nước Đá Tan",
+      "mainElements": [
+       "tho",
+       "thuy"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3
+       },
+       {
+        "enemyId": "ge_tran_phu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Ruồi Bếp & Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       },
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "tho",
+       "thuy"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_tran_phu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "gt_tran_phu_banh_mi_ga",
+     "gt_tran_phu_pho",
+     "gt_tran_phu_chao_dem",
+     "gt_tran_phu_com_ga",
+     "gt_hoang_dieu_lau_nha_go",
+     "gt_hoang_dieu_lau_hem",
+     "gt_hoang_dieu_xiu_mai",
+     "gt_hoang_dieu_banh_trang",
+     "gt_hoang_dieu_com_ga",
+     "gt_hoang_dieu_chao_gang",
+     "gt_hoang_dieu_pizza",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong",
+     "gt_nguyen_van_troi_com_tam",
+     "gt_tang_bat_ho_banh_can",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_tran_phu_banh_mi_ga",
+     "gt_hoang_dieu_com_ga",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tran_phu_chao_dem",
+     "gt_don_den_duong",
+     "gt_hoang_dieu_xiu_mai"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "ks_ho",
+      "name": "Khách Sạn Bên Hồ Thông Xanh",
+      "type": "Khách sạn di sản bên hồ",
+      "trait": "thời Pháp, nhìn ra hồ",
+      "towerId": "gt_tran_phu_ks_ho"
+     },
+     {
+      "key": "ks_phap",
+      "name": "Khách Sạn Cổ Mai Anh Đào",
+      "type": "Khách sạn Pháp cổ cạnh nhà thờ",
+      "trait": "nhà cổ thời Pháp",
+      "towerId": "gt_tran_phu_ks_phap"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Bằng Lăng",
+      "type": "Quán phở",
+      "trait": "nước xương bò, bán sáng và chiều tối",
+      "towerId": "gt_tran_phu_pho"
+     },
+     {
+      "key": "tiem_banh",
+      "name": "Tiệm Bánh Lâu Đời Mimosa",
+      "type": "Tiệm bánh mì, bánh ngọt lâu đời",
+      "trait": "mở từ 5 giờ sáng tới khuya",
+      "towerId": "gt_tran_phu_tiem_banh"
+     },
+     {
+      "key": "banh_mi_ga",
+      "name": "Bánh Mì Gà Sương Mai",
+      "type": "Quán bánh mì gà buổi sáng",
+      "trait": "bán 6–9 giờ, hết hàng sau 3 tiếng",
+      "towerId": "gt_tran_phu_banh_mi_ga"
+     },
+     {
+      "key": "chao_dem",
+      "name": "Cháo Đêm Hồ Sương",
+      "type": "Quán cháo đêm",
+      "trait": "mở tới 2 giờ sáng, cháo cá kho",
+      "towerId": "gt_tran_phu_chao_dem"
+     },
+     {
+      "key": "ks_binh_dan",
+      "name": "Khách Sạn Nhỏ Cẩm Tú Cầu",
+      "type": "Khách sạn bình dân trên Ba Tháng Hai",
+      "trait": "đi bộ 2–3 phút ra chợ",
+      "towerId": "gt_tran_phu_ks_binh_dan"
+     },
+     {
+      "key": "com_ga",
+      "name": "Cơm Gà Hẻm Dã Quỳ",
+      "type": "Quán cơm gà trong hẻm",
+      "trait": "cơm gà Hải Nam",
+      "towerId": "gt_tran_phu_com_ga"
+     }
+    ],
+    "streetId": "street_tran_phu",
+    "shopIndex": 5,
+    "featuredTowerId": "gt_tran_phu_banh_mi_ga",
+    "facadeKey": "mat_tien_banh_mi_ga",
+    "roomStyle": "quan_an",
+    "roomLayout": "cua_ben",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_tran_phu_banh_mi_ga",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_tang_bat_ho_goc_cay",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_hoang_dieu_xiu_mai",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_tran_phu_banh_mi_ga",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_tran_phu_chao_dem",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_hoang_dieu_xiu_mai",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_tran_phu_banh_mi_ga",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_tran_phu_chao_dem",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.8,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4375,
+    "botWinRate": 1,
+    "botLivesAvg": 14.666666666666666,
+    "target": 0.4357142857142857
+   },
+   "stage": {
+    "id": "street_tran_phu_t6",
+    "stageNumber": 16,
+    "name": "Cháo Đêm Hồ Sương",
+    "subtitle": "Phố Trần Phú – Ba Tháng Hai · tiệm 6/8: Quán cháo đêm",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 300,
+       "y": 520
+      },
+      {
+       "x": 300,
+       "y": 90
+      },
+      {
+       "x": 60,
+       "y": 90
+      },
+      {
+       "x": 60,
+       "y": 210
+      },
+      {
+       "x": 210,
+       "y": 210
+      },
+      {
+       "x": 210,
+       "y": 330
+      },
+      {
+       "x": 60,
+       "y": 330
+      },
+      {
+       "x": 60,
+       "y": 440
+      },
+      {
+       "x": 160,
+       "y": 440
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 120,
+      "y": 270
+     },
+     {
+      "id": "pad_2",
+      "x": 140,
+      "y": 370
+     },
+     {
+      "id": "pad_3",
+      "x": 140,
+      "y": 150
+     },
+     {
+      "id": "pad_4",
+      "x": 240,
+      "y": 180
+     },
+     {
+      "id": "pad_5",
+      "x": 250,
+      "y": 270
+     },
+     {
+      "id": "pad_6",
+      "x": 60,
+      "y": 290
+     },
+     {
+      "id": "pad_7",
+      "x": 200,
+      "y": 390
+     },
+     {
+      "id": "pad_8",
+      "x": 200,
+      "y": 130
+     },
+     {
+      "id": "pad_9",
+      "x": 60,
+      "y": 480
+     },
+     {
+      "id": "pad_10",
+      "x": 250,
+      "y": 340
+     },
+     {
+      "id": "pad_11",
+      "x": 130,
+      "y": 480
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.8
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Bột",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.07
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Ruồi Bếp & Bụi Bột",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.34
+       },
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.34
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Đường & Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.61
+       },
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.61
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Kiến Bu Đường & Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.06
+       },
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.06
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Bụi Bột & Than Nướng Bén Lửa",
+      "mainElements": [
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       },
+       {
+        "enemyId": "ge_tran_phu_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Ruồi Bếp & Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 4.32
+       },
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.32
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 5.04
+       },
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.04
+       },
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.04
+       },
+       {
+        "enemyId": "ge_tran_phu_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 5.04
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "gt_tran_phu_chao_dem",
+     "gt_tran_phu_pho",
+     "gt_tran_phu_banh_mi_ga",
+     "gt_tran_phu_com_ga",
+     "gt_hoang_dieu_lau_nha_go",
+     "gt_hoang_dieu_lau_hem",
+     "gt_hoang_dieu_xiu_mai",
+     "gt_hoang_dieu_banh_trang",
+     "gt_hoang_dieu_com_ga",
+     "gt_hoang_dieu_chao_gang",
+     "gt_hoang_dieu_pizza",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong",
+     "gt_nguyen_van_troi_com_tam",
+     "gt_tang_bat_ho_banh_can",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_tran_phu_chao_dem",
+     "gt_tran_phu_banh_mi_ga",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_hoang_dieu_lau_hem",
+     "gt_don_den_duong",
+     "gt_hoang_dieu_xiu_mai"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "ks_ho",
+      "name": "Khách Sạn Bên Hồ Thông Xanh",
+      "type": "Khách sạn di sản bên hồ",
+      "trait": "thời Pháp, nhìn ra hồ",
+      "towerId": "gt_tran_phu_ks_ho"
+     },
+     {
+      "key": "ks_phap",
+      "name": "Khách Sạn Cổ Mai Anh Đào",
+      "type": "Khách sạn Pháp cổ cạnh nhà thờ",
+      "trait": "nhà cổ thời Pháp",
+      "towerId": "gt_tran_phu_ks_phap"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Bằng Lăng",
+      "type": "Quán phở",
+      "trait": "nước xương bò, bán sáng và chiều tối",
+      "towerId": "gt_tran_phu_pho"
+     },
+     {
+      "key": "tiem_banh",
+      "name": "Tiệm Bánh Lâu Đời Mimosa",
+      "type": "Tiệm bánh mì, bánh ngọt lâu đời",
+      "trait": "mở từ 5 giờ sáng tới khuya",
+      "towerId": "gt_tran_phu_tiem_banh"
+     },
+     {
+      "key": "banh_mi_ga",
+      "name": "Bánh Mì Gà Sương Mai",
+      "type": "Quán bánh mì gà buổi sáng",
+      "trait": "bán 6–9 giờ, hết hàng sau 3 tiếng",
+      "towerId": "gt_tran_phu_banh_mi_ga"
+     },
+     {
+      "key": "chao_dem",
+      "name": "Cháo Đêm Hồ Sương",
+      "type": "Quán cháo đêm",
+      "trait": "mở tới 2 giờ sáng, cháo cá kho",
+      "towerId": "gt_tran_phu_chao_dem"
+     },
+     {
+      "key": "ks_binh_dan",
+      "name": "Khách Sạn Nhỏ Cẩm Tú Cầu",
+      "type": "Khách sạn bình dân trên Ba Tháng Hai",
+      "trait": "đi bộ 2–3 phút ra chợ",
+      "towerId": "gt_tran_phu_ks_binh_dan"
+     },
+     {
+      "key": "com_ga",
+      "name": "Cơm Gà Hẻm Dã Quỳ",
+      "type": "Quán cơm gà trong hẻm",
+      "trait": "cơm gà Hải Nam",
+      "towerId": "gt_tran_phu_com_ga"
+     }
+    ],
+    "streetId": "street_tran_phu",
+    "shopIndex": 6,
+    "featuredTowerId": "gt_tran_phu_chao_dem",
+    "facadeKey": "mat_tien_chao_dem",
+    "roomStyle": "quan_an",
+    "roomLayout": "chu_e_lat",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_tran_phu_chao_dem",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_tran_phu_banh_mi_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_tang_bat_ho_goc_cay",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_hoang_dieu_xiu_mai",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_tran_phu_chao_dem",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_tran_phu_banh_mi_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_hoang_dieu_lau_hem",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_hoang_dieu_xiu_mai",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_tran_phu_chao_dem",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_tran_phu_banh_mi_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_hoang_dieu_lau_hem",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.5,
+   "balance": {
+    "randomWinWithExpectedGear": 0.3958333333333333,
+    "botWinRate": 1,
+    "botLivesAvg": 20,
+    "target": 0.3928571428571429
+   },
+   "stage": {
+    "id": "street_tran_phu_t7",
+    "stageNumber": 17,
+    "name": "Khách Sạn Nhỏ Cẩm Tú Cầu",
+    "subtitle": "Phố Trần Phú – Ba Tháng Hai · tiệm 7/8: Khách sạn bình dân trên Ba Tháng Hai",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 50,
+       "y": 520
+      },
+      {
+       "x": 50,
+       "y": 450
+      },
+      {
+       "x": 310,
+       "y": 370
+      },
+      {
+       "x": 50,
+       "y": 270
+      },
+      {
+       "x": 310,
+       "y": 170
+      },
+      {
+       "x": 180,
+       "y": 70
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 130,
+      "y": 470
+     },
+     {
+      "id": "pad_2",
+      "x": 210,
+      "y": 150
+     },
+     {
+      "id": "pad_3",
+      "x": 90,
+      "y": 370
+     },
+     {
+      "id": "pad_4",
+      "x": 220,
+      "y": 290
+     },
+     {
+      "id": "pad_5",
+      "x": 30,
+      "y": 410
+     },
+     {
+      "id": "pad_6",
+      "x": 160,
+      "y": 360
+     },
+     {
+      "id": "pad_7",
+      "x": 280,
+      "y": 90
+     },
+     {
+      "id": "pad_8",
+      "x": 150,
+      "y": 170
+     },
+     {
+      "id": "pad_9",
+      "x": 260,
+      "y": 240
+     },
+     {
+      "id": "pad_10",
+      "x": 230,
+      "y": 440
+     },
+     {
+      "id": "pad_11",
+      "x": 80,
+      "y": 210
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Bụi Bột",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
         "hpScale": 1.5
        }
       ]
@@ -4261,7 +3778,7 @@
         "count": 4,
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
+        "pathIndex": 0,
         "hpScale": 1.73
        }
       ]
@@ -4289,8 +3806,520 @@
         "count": 4,
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
+        "pathIndex": 0,
         "hpScale": 1.95
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Bụi Bột & Than Nướng Bén Lửa",
+      "mainElements": [
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.17
+       },
+       {
+        "enemyId": "ge_tran_phu_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.17
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Bụi Bột & Than Nướng Bén Lửa",
+      "mainElements": [
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.55
+       },
+       {
+        "enemyId": "ge_tran_phu_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.55
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Bụi Bột & Than Nướng Bén Lửa & Nước Đá Tan",
+      "mainElements": [
+       "tho",
+       "hoa",
+       "thuy"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3
+       },
+       {
+        "enemyId": "ge_tran_phu_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3
+       },
+       {
+        "enemyId": "ge_tran_phu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Ruồi Bếp & Chuột Cống & Bụi Bột",
+      "mainElements": [
+       "moc",
+       "kim",
+       "tho"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       },
+       {
+        "enemyId": "ge_tran_phu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       },
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "tho",
+       "moc",
+       "hoa",
+       "kim",
+       "thuy"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_tran_phu_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_tran_phu_5",
+        "count": 3,
+        "intervalSec": 1.8,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       },
+       {
+        "enemyId": "ge_tran_phu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "gt_tran_phu_ks_binh_dan",
+     "gt_tran_phu_ks_ho",
+     "gt_tran_phu_ks_phap",
+     "gt_hoang_dieu_khach_san",
+     "gt_tang_bat_ho_khach_san",
+     "gt_tang_bat_ho_thue_xe",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_tran_phu_ks_binh_dan",
+     "gt_tran_phu_ks_ho",
+     "gt_hoang_dieu_khach_san",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_tran_phu_ks_phap"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "ks_ho",
+      "name": "Khách Sạn Bên Hồ Thông Xanh",
+      "type": "Khách sạn di sản bên hồ",
+      "trait": "thời Pháp, nhìn ra hồ",
+      "towerId": "gt_tran_phu_ks_ho"
+     },
+     {
+      "key": "ks_phap",
+      "name": "Khách Sạn Cổ Mai Anh Đào",
+      "type": "Khách sạn Pháp cổ cạnh nhà thờ",
+      "trait": "nhà cổ thời Pháp",
+      "towerId": "gt_tran_phu_ks_phap"
+     },
+     {
+      "key": "pho",
+      "name": "Phở Bằng Lăng",
+      "type": "Quán phở",
+      "trait": "nước xương bò, bán sáng và chiều tối",
+      "towerId": "gt_tran_phu_pho"
+     },
+     {
+      "key": "tiem_banh",
+      "name": "Tiệm Bánh Lâu Đời Mimosa",
+      "type": "Tiệm bánh mì, bánh ngọt lâu đời",
+      "trait": "mở từ 5 giờ sáng tới khuya",
+      "towerId": "gt_tran_phu_tiem_banh"
+     },
+     {
+      "key": "banh_mi_ga",
+      "name": "Bánh Mì Gà Sương Mai",
+      "type": "Quán bánh mì gà buổi sáng",
+      "trait": "bán 6–9 giờ, hết hàng sau 3 tiếng",
+      "towerId": "gt_tran_phu_banh_mi_ga"
+     },
+     {
+      "key": "chao_dem",
+      "name": "Cháo Đêm Hồ Sương",
+      "type": "Quán cháo đêm",
+      "trait": "mở tới 2 giờ sáng, cháo cá kho",
+      "towerId": "gt_tran_phu_chao_dem"
+     },
+     {
+      "key": "ks_binh_dan",
+      "name": "Khách Sạn Nhỏ Cẩm Tú Cầu",
+      "type": "Khách sạn bình dân trên Ba Tháng Hai",
+      "trait": "đi bộ 2–3 phút ra chợ",
+      "towerId": "gt_tran_phu_ks_binh_dan"
+     },
+     {
+      "key": "com_ga",
+      "name": "Cơm Gà Hẻm Dã Quỳ",
+      "type": "Quán cơm gà trong hẻm",
+      "trait": "cơm gà Hải Nam",
+      "towerId": "gt_tran_phu_com_ga"
+     }
+    ],
+    "streetId": "street_tran_phu",
+    "shopIndex": 7,
+    "featuredTowerId": "gt_tran_phu_ks_binh_dan",
+    "facadeKey": "mat_tien_ks_binh_dan",
+    "roomStyle": "luu_tru",
+    "roomLayout": "rang_cua",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_tran_phu_ks_binh_dan",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_tran_phu_ks_ho",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_don_den_duong",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_don_voi_xit",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_tran_phu_ks_binh_dan",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_tran_phu_ks_ho",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_hoang_dieu_khach_san",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_don_voi_xit",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_tran_phu_ks_binh_dan",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_tran_phu_ks_ho",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_hoang_dieu_khach_san",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.6,
+   "balance": {
+    "randomWinWithExpectedGear": 0.3333333333333333,
+    "botWinRate": 1,
+    "botLivesAvg": 18.666666666666668,
+    "target": 0.35000000000000003
+   },
+   "stage": {
+    "id": "street_tran_phu_t8",
+    "stageNumber": 18,
+    "name": "Cơm Gà Hẻm Dã Quỳ",
+    "subtitle": "Phố Trần Phú – Ba Tháng Hai · tiệm 8/8: Quán cơm gà trong hẻm",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 180,
+       "y": 520
+      },
+      {
+       "x": 180,
+       "y": 430
+      },
+      {
+       "x": 64,
+       "y": 430
+      },
+      {
+       "x": 64,
+       "y": 300
+      },
+      {
+       "x": 296,
+       "y": 300
+      },
+      {
+       "x": 296,
+       "y": 170
+      },
+      {
+       "x": 64,
+       "y": 170
+      },
+      {
+       "x": 64,
+       "y": 60
+      },
+      {
+       "x": 180,
+       "y": 60
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 130,
+      "y": 380
+     },
+     {
+      "id": "pad_2",
+      "x": 130,
+      "y": 120
+     },
+     {
+      "id": "pad_3",
+      "x": 90,
+      "y": 470
+     },
+     {
+      "id": "pad_4",
+      "x": 220,
+      "y": 230
+     },
+     {
+      "id": "pad_5",
+      "x": 200,
+      "y": 380
+     },
+     {
+      "id": "pad_6",
+      "x": 90,
+      "y": 220
+     },
+     {
+      "id": "pad_7",
+      "x": 140,
+      "y": 260
+     },
+     {
+      "id": "pad_8",
+      "x": 200,
+      "y": 120
+     },
+     {
+      "id": "pad_9",
+      "x": 220,
+      "y": 440
+     },
+     {
+      "id": "pad_10",
+      "x": 40,
+      "y": 260
+     },
+     {
+      "id": "pad_11",
+      "x": 250,
+      "y": 340
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.84
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Than Nướng Bén Lửa & Ruồi Bếp",
+      "mainElements": [
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_tran_phu_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.08
+       },
+       {
+        "enemyId": "ge_tran_phu_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.08
        }
       ]
      },
@@ -4309,8 +4338,8 @@
         "count": 7,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 2.17
+        "pathIndex": 0,
+        "hpScale": 2.32
        },
        {
         "enemyId": "ge_tran_phu_4",
@@ -4318,7 +4347,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.17
+        "hpScale": 2.32
        }
       ]
      },
@@ -4338,15 +4367,15 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.55
+        "hpScale": 2.72
        },
        {
         "enemyId": "ge_tran_phu_4",
         "count": 4,
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 2.55
+        "pathIndex": 0,
+        "hpScale": 2.72
        }
       ]
      },
@@ -4366,8 +4395,8 @@
         "count": 8,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 3
+        "pathIndex": 0,
+        "hpScale": 3.2
        },
        {
         "enemyId": "ge_tran_phu_4",
@@ -4375,15 +4404,15 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3
+        "hpScale": 3.2
        },
        {
         "enemyId": "ge_tran_phu_6",
         "count": 2,
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 3
+        "pathIndex": 0,
+        "hpScale": 3.2
        }
       ]
      },
@@ -4403,15 +4432,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.84
        },
        {
         "enemyId": "ge_tran_phu_5",
         "count": 3,
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 3.6
+        "pathIndex": 0,
+        "hpScale": 3.84
        },
        {
         "enemyId": "ge_tran_phu_1",
@@ -4419,7 +4448,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.84
        }
       ]
      },
@@ -4440,8 +4469,8 @@
         "count": 9,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 4.2
+        "pathIndex": 0,
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_tran_phu_3",
@@ -4449,15 +4478,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_tran_phu_4",
         "count": 5,
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 4.2
+        "pathIndex": 0,
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_tran_phu_5",
@@ -4465,28 +4494,37 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_tran_phu_6",
         "count": 2,
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 4.2
+        "pathIndex": 0,
+        "hpScale": 4.48
        }
       ]
      }
     ],
     "towerIds": [
      "gt_tran_phu_com_ga",
-     "gt_tran_phu_ks_ho",
-     "gt_tran_phu_ks_phap",
      "gt_tran_phu_pho",
-     "gt_tran_phu_tiem_banh",
      "gt_tran_phu_banh_mi_ga",
      "gt_tran_phu_chao_dem",
-     "gt_tran_phu_ks_binh_dan",
+     "gt_hoang_dieu_lau_nha_go",
+     "gt_hoang_dieu_lau_hem",
+     "gt_hoang_dieu_xiu_mai",
+     "gt_hoang_dieu_banh_trang",
+     "gt_hoang_dieu_com_ga",
+     "gt_hoang_dieu_chao_gang",
+     "gt_hoang_dieu_pizza",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong",
+     "gt_nguyen_van_troi_com_tam",
+     "gt_tang_bat_ho_banh_can",
+     "gt_tang_bat_ho_goc_cay",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -4496,11 +4534,11 @@
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_tran_phu_com_ga",
-     "gt_tran_phu_ks_ho",
-     "gt_tran_phu_ks_binh_dan",
+     "gt_tran_phu_banh_mi_ga",
+     "gt_tang_bat_ho_goc_cay",
      "gt_tran_phu_chao_dem",
      "gt_don_den_duong",
-     "gt_tran_phu_ks_phap"
+     "gt_hoang_dieu_xiu_mai"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -4567,7 +4605,7 @@
     "featuredTowerId": "gt_tran_phu_com_ga",
     "facadeKey": "mat_tien_com_ga",
     "roomStyle": "quan_an",
-    "roomLayout": "hai_cua",
+    "roomLayout": "zigzag",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -4576,17 +4614,17 @@
      },
      {
       "padId": "pad_2",
-      "defId": "gt_tran_phu_ks_ho",
+      "defId": "gt_tran_phu_banh_mi_ga",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "gt_don_den_duong",
+      "defId": "gt_tang_bat_ho_goc_cay",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_tran_phu_chao_dem",
+      "defId": "gt_hoang_dieu_xiu_mai",
       "preferredBranch": "B"
      },
      {
@@ -4596,17 +4634,17 @@
      },
      {
       "padId": "pad_6",
-      "defId": "gt_tran_phu_ks_ho",
+      "defId": "gt_tran_phu_banh_mi_ga",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tran_phu_ks_binh_dan",
+      "defId": "gt_tran_phu_chao_dem",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "gt_tran_phu_chao_dem",
+      "defId": "gt_hoang_dieu_xiu_mai",
       "preferredBranch": "B"
      },
      {
@@ -4616,12 +4654,12 @@
      },
      {
       "padId": "pad_10",
-      "defId": "gt_tran_phu_ks_ho",
+      "defId": "gt_tran_phu_banh_mi_ga",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "gt_tran_phu_ks_binh_dan",
+      "defId": "gt_tran_phu_chao_dem",
       "preferredBranch": "A"
      }
     ]
