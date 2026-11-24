@@ -2,7 +2,7 @@
 """
 Bố cục PHÒNG TRONG TIỆM cho màn tiệm phố thật (Claude, 24/11/2026).
 Màn tiệm chơi bên trong tiệm (như Phố Dốc), không phải ngoài đường.
-Sinh 8 bố cục (4 mẫu × lật trái/phải): đường đi từ cửa tiệm (dưới) vòng qua phòng tới quầy (trên),
+Sinh 14 bố cục (7 mẫu × lật trái/phải): đường đi từ cửa tiệm (dưới) vòng qua phòng tới quầy (trên),
 ô đặt món tự tính cách đường 38–70 đơn vị. Ghi src/core/streets/rooms.generated.json
 """
 import json, math, os
@@ -13,6 +13,10 @@ T = {
     'chu_u': [[(60, 520), (60, 120), (180, 120), (180, 380), (300, 380), (300, 60)]],
     'xoan': [[(180, 520), (180, 450), (300, 450), (300, 90), (60, 90), (60, 330), (200, 330), (200, 210)]],
     'hai_cua': [[(70, 520), (70, 360), (180, 300), (180, 70)], [(290, 520), (290, 360), (180, 300), (180, 70)]],
+    # thêm 3 mẫu (kiểm tra thực tế 24/11: 4 mẫu đường đi làm các tiệm trông giống nhau)
+    'cua_ben': [[(0, 450), (110, 450), (110, 300), (260, 300), (260, 170), (110, 170), (110, 70)]],
+    'chu_e': [[(60, 520), (60, 90), (300, 90), (300, 210), (150, 210), (150, 330), (300, 330), (300, 440), (200, 440)]],
+    'rang_cua': [[(50, 520), (50, 450), (310, 370), (50, 270), (310, 170), (180, 70)]],
 }
 def seg_d(p, a, b):
     ax, ay = a; bx, by = b; px, py = p; dx, dy = bx - ax, by - ay

@@ -3303,12 +3303,12 @@ button {
 .td-chain-pill {
   position: absolute;
   transform: translate(-50%, -50%);
-  padding: 2px 7px;
+  padding: 1px 5px;
   border-radius: 99px;
-  background: rgba(34, 20, 11, 0.88);
+  background: rgba(34, 20, 11, 0.8);
   border: 1.6px solid #facc15;
   color: #fef08a;
-  font-size: 9.5px;
+  font-size: 8.5px;
   font-weight: 800;
   letter-spacing: 0.02em;
   white-space: nowrap;

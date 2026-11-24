@@ -173,7 +173,8 @@ def draw(g, out):
                 items.append((y, x, img))
                 break
     # đồ đường phố
-    for name, px, need, tries in [(n, 52, False, 3) for n in PROPS_BIG] + [(n, 34, True, 2) for n in PROPS_SMALL] * 2:
+    # vòng 2 cây / xe đẩy để lấp mảng cỏ trống xa đường (kiểm tra thực tế 24/11: nửa bản đồ trống trơn)
+    for name, px, need, tries in [(n, 52, False, 3) for n in PROPS_BIG] * 2 + [(n, 34, True, 2) for n in PROPS_SMALL] * 2 + [(n, 44, False, 2) for n in PROPS_BIG]:
         img = sprite(os.path.join(SP, f'deco_{name}.png'), px * S)
         if img is None:
             continue

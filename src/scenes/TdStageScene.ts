@@ -2865,7 +2865,7 @@ export class TdStageScene extends Phaser.Scene {
         seenChainUids.add(link.receiver.uid);
         chainBadges.push({
           x: Math.round(mx),
-          y: Math.round(my - 14 * this.mapScale),
+          y: Math.round(my), // nằm giữa 2 món trên dây nối, không đè lên món (kiểm tra thực tế 24/11)
           len: chainLen,
           pct: getSynergyChainBonusPct(chainLen),
           colorHex: chainLen >= 4 ? '#f59e0b' : giverEl.colorHex,
