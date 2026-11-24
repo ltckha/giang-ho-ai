@@ -83,27 +83,28 @@ Game kiếm hiệp, không cài AI thật; câu chuyện kể lại thời đạ
 
 **Đổi tên game (anh Kha chốt 23/11):** "Gọn Tiệm, Sạch Phố" → **Gọn Phố** (dòng phụ giữ "Ngũ hành giữ tiệm"). Khớp kênh Gọn. Đã đổi: màn hình chờ, màn chính, logo, biểu tượng app, ảnh chia sẻ link, tên khi cài ra màn hình điện thoại.
 
-## Giai đoạn 4: chế độ TikTok LIVE
-Điều phối gửi (anh Kha thêm 24/11). Làm SAU khi Giai đoạn 1–3 chơi được. Chưa giao Antigravity phần này cho tới khi xong Giai đoạn 1.
+## Giai đoạn 4: chế độ TikTok LIVE (Điều phối đề xuất 24/11, Claude chỉnh cho khớp game hiện tại)
+Làm SAU chặng 3 "Người thật chơi thử" (game đã có link công khai, có người chơi quay lại). Lý do: LIVE cần game ổn định, đẹp, đủ màn.
+Phân việc: Claude làm code; Spark vẽ hình (Antigravity đang hết lượt — không giao Antigravity trừ khi có lượt lại).
 
-1. Khung đứng 1080x1920, chạy trong trình duyệt, gắn vào TikTok LIVE Studio bằng nguồn "Liên kết" (trang overlay chạy trên máy, ví dụ localhost).
-2. Người xem tham gia:
-   - Bình luận tên → thành 1 đồng đội AI trong tổ (mang tên người xem, tối đa vài người cùng lúc, xoay vòng).
-   - Thả tim → hồi máu cả đội; quà nhỏ → mưa vật phẩm; quà lớn → gọi trùm ra.
+Game hiện là **thủ thành Gọn Phố** (đặt món giữ tiệm, ngũ hành khắc chế), không có nhân vật chính đi bản đồ / lên cấp. Vì vậy:
+
+1. **Khung LIVE:** trang dọc 1080×1920 chạy trên máy (localhost), gắn vào TikTok LIVE Studio bằng nguồn "Liên kết". Dùng lại chế độ quay video dọc đã có (?video=1), thêm ô hiện bình luận / quà / bảng xếp hạng.
+2. **Người xem tham gia (theo kiểu thủ thành):**
+   - Bình luận tên → món tiếp theo được đặt mang tên người xem (hiện tên trên món), xoay vòng tối đa vài người.
+   - Bình luận gợi ý hành ("kim", "thủy"…) → máy ưu tiên đặt món hành đó; "gọi đợt" → gọi đợt sớm.
+   - Thả tim → hồi tim giữ tiệm; quà nhỏ → thêm xu / mưa xu; quà lớn → bật tuyệt chiêu hoặc gọi trùm phố ra sớm.
    - Bảng xếp hạng người xem góp nhiều nhất trong buổi.
-   - Đọc quà / bình luận bằng thư viện không chính thức (TikTok không có API chính thức): tách riêng 1 lớp, hỏng thì game vẫn chạy bình thường. Chỉ cần @tên kênh, không lưu mật khẩu / token TikTok trong repo.
-3. Agent chơi như người thật lúc LIVE:
-   - Tự điều khiển nhân vật chính: đánh quái, đi bản đồ, lên cấp, đánh trùm.
-   - Nhịp như tay người: lúc nhanh lúc chậm, có lúc đi sai / né hụt, nghỉ ngắn, không lặp y hệt.
-   - Đọc bình luận và phản ứng bằng chữ trên màn hình (cảm ơn quà, làm theo gợi ý "đánh trùm đi"…). Không dùng giọng AI.
-   - Có nút chuyển qua lại: người thật cầm / agent cầm.
-4. Có chế độ chạy thử không cần TikTok: giả lập bình luận, tim, quà để test.
-5. Test: tách test cho phần đọc sự kiện giả lập, phần agent (không kẹt, không đứng yên quá lâu).
+   - Đọc quà / bình luận bằng thư viện không chính thức (TikTok không có API chính thức), tách riêng 1 lớp; hỏng thì game vẫn chạy. Chỉ cần @tên kênh, không lưu mật khẩu / token trong repo.
+3. **Máy chơi như người thật lúc LIVE:** dựa trên bot tự chơi đã có (src/core/tdBot.ts):
+   - Tự đặt món, nâng cấp, gọi đợt, dùng tuyệt chiêu, dùng chiêu xe; chọn màn tiếp theo trên bản đồ.
+   - Nhịp như tay người: lúc nhanh lúc chậm, có lúc đặt chưa tối ưu, nghỉ ngắn, không lặp y hệt giữa các ván.
+   - Phản ứng bằng chữ trên màn hình (cảm ơn quà, làm theo gợi ý). Không dùng giọng AI.
+   - Nút chuyển: người thật cầm / máy cầm.
+4. **Chạy thử không cần TikTok:** giả lập bình luận, tim, quà.
+5. **Test:** lớp đọc sự kiện giả lập; máy chơi không kẹt, không đứng yên quá lâu.
 
 ### Luật bắt buộc (nghiên cứu Hub 24/11)
-- TikTok cắt LIVE và hạn chế kênh khi LIVE không người, màn hình lặp lại. Agent là lớp phụ; khuyên có người thật lúc LIVE.
+- TikTok cắt LIVE và hạn chế kênh khi LIVE không người, màn hình lặp lại. Máy chơi là lớp phụ; luôn có người thật lúc LIVE.
 - Không làm: vượt captcha LIVE Studio, LIVE nhiều tài khoản cùng lúc, proxy, nuôi tài khoản, vòng quay / rút thăm may mắn.
-- Không đưa khoá, mật khẩu, token tài khoản cho Antigravity hay vào repo.
-
-### Ghi chú đối chiếu (Claude, 24/11)
-Game hiện là thủ thành "Gọn Phố" (đặt món giữ tiệm), không có nhân vật chính đi bản đồ / lên cấp. Khi tới Giai đoạn 4 cần anh Kha chốt cách hiểu cho thủ thành, ví dụ: đồng đội AI = món đặt mang tên người xem; agent = máy tự đặt món / gọi đợt / dùng tuyệt chiêu theo nhịp người (đã có sẵn bot tự chơi và công cụ quay khung dọc 9:16 làm nền).
+- Không đưa khoá, mật khẩu, token tài khoản cho bất kỳ phiên nào hay vào repo.
