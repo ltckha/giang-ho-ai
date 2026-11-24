@@ -3941,7 +3941,7 @@ export class TdStageScene extends Phaser.Scene {
             : 'đôi giày';
     // Gọn chữ (Claude 24/11): thắng chỉ báo còn lành; thua 1 mẹo ngắn
     const descText = isWin
-      ? `${this.engine.getTotalWaves()} đợt • còn lành ${this.engine.lives}/${this.engine.maxLives} ${unitLabel}`
+      ? `${stageName} • ${this.engine.getTotalWaves()} đợt • còn lành ${this.engine.lives}/${this.engine.maxLives} ${unitLabel}`
       : isStage4 || isRealStreet
         ? '💡 Chọn món khắc hành quái + ghép chuỗi tương sinh'
         : '💡 Xem hành đợt sắp tới, đặt món khắc chế'
