@@ -1,3 +1,4 @@
+import { applyRoomPerk, roomPerkOf } from '../core/roomPerks';
 import { pushProgress } from '../game/cloudSync';
 import { isStreetStageUnlocked } from '../core/streetProgress';
 import { TitleScene } from './TitleScene';
@@ -185,7 +186,7 @@ interface EnemyVisualRecord {
 
 export class TdStageScene extends Phaser.Scene {
   public engine!: TowerDefenseEngine;
-  public speedMultiplier: 1 | 2 = 1;
+  public speedMultiplier: 1 | 2 | 3 = 1;
   public paused = false;
   public autoBotEnabled = false;
   public reduceMotion = false;
@@ -418,13 +419,24 @@ export class TdStageScene extends Phaser.Scene {
 
     // Trang bị chủ tiệm đang mặc (lưu trên máy)
     this.engine = new TowerDefenseEngine(stageDef, {
-      gear: data?.live?.gear ?? getGearBonus(save),
+      gear: applyRoomPerk(data?.live?.gear ?? getGearBonus(save), stageDef),
       loadout: resolvedLoadout,
       // Xe chỉ có tác dụng khi ra phố (Claude, vehicles.ts)
       vehicle: vehicleAppliesTo(stageDef) ? getVehicle(save) : undefined,
       hard: this.hardMode,
     });
     this.lastVehicleUnlocked = null;
+    const perk = roomPerkOf(stageDef);
+    if (perk)
+      this.time.delayedCall(600, () => {
+        if (!this.hudRoot) return;
+        const el = document.createElement('div');
+        el.className = 'td-first-tip td-perk-tip';
+        el.dataset.testid = 'td-room-perk';
+        el.textContent = `${perk.icon} ${perk.name}: ${perk.text}`;
+        this.hudRoot.appendChild(el);
+        this.time.delayedCall(3500, () => el.remove());
+      });
     music.setTrack(
       stageId === 'stage_4'
         ? 'boss'
@@ -438,7 +450,8 @@ export class TdStageScene extends Phaser.Scene {
     // Nhớ tốc độ x2 giữa các màn (Antigravity rà 24/11)
     const savedSpeed = (() => {
       try {
-        return localStorage.getItem('gonpho_toc_do') === '2' ? 2 : 1;
+        const v = localStorage.getItem('gonpho_toc_do');
+        return v === '3' ? 3 : v === '2' ? 2 : 1;
       } catch {
         return 1;
       }
@@ -1612,6 +1625,12 @@ export class TdStageScene extends Phaser.Scene {
       } else if (ev.type === 'kill') {
         sound.playEnemyDeath();
         this.spawnEnemyDeathEffect(ev.enemyDefId ?? 'fast_metal', sPos.x, sPos.y);
+        // Vụ nổ nhỏ theo hành của quái (hình Spark) — quái bị dọn nhìn đã tay hơn
+        const kEl = ev.enemyDefId ? ENEMY_DEFINITIONS[ev.enemyDefId]?.element : undefined;
+        if (kEl) {
+          const isBoss = ev.enemyDefId ? ENEMY_DEFINITIONS[ev.enemyDefId]?.trait === 'boss' : false;
+          this.fxPop(`fx_no_${kEl}`, sPos.x, sPos.y, (isBoss ? 140 : 46) * this.mapScale, { from: 0.4, dur: isBoss ? 700 : 340, spin: 40 });
+        }
 
         // Tiền xu & tiền giấy bay vòng về Chiếc Ví ở góc trên trái
         const isBill = (ev.reward ?? 0) >= 12;
@@ -3369,7 +3388,7 @@ export class TdStageScene extends Phaser.Scene {
           </div>
         </div>
         <div class="td-ctrl-group">
-          <button id="btn-speed-toggle" data-testid="btn-speed-toggle" class="td-ctrl-btn" title="Đổi tốc độ x1 / x2">x1</button>
+          <button id="btn-speed-toggle" data-testid="btn-speed-toggle" class="td-ctrl-btn" title="Đổi tốc độ x1 / x2 / x3">x1</button>
           <button id="btn-reduce-motion" data-testid="btn-reduce-motion" class="td-ctrl-btn" title="Giảm hiệu ứng cho máy yếu">✨</button>
           ${showBotBtn ? `<button id="btn-bot-toggle" data-testid="btn-bot-toggle" class="td-ctrl-btn" title="Bật/Tắt Tự động đặt món">Bot</button>` : ''}
           <button id="btn-pause-toggle" data-testid="btn-pause-toggle" class="td-ctrl-btn" title="Tạm dừng">⏸</button>
@@ -3442,7 +3461,8 @@ export class TdStageScene extends Phaser.Scene {
 
     hud.querySelector<HTMLButtonElement>('#btn-speed-toggle')?.addEventListener('click', () => {
       sound.playUiClick();
-      this.speedMultiplier = this.speedMultiplier === 1 ? 2 : 1;
+      // x1 → x2 → x3 → x1 (Antigravity rà 25/11: người quen tay muốn nhanh hơn)
+      this.speedMultiplier = this.speedMultiplier === 1 ? 2 : this.speedMultiplier === 2 ? 3 : 1;
       try {
         localStorage.setItem('gonpho_toc_do', String(this.speedMultiplier));
       } catch {
@@ -3510,7 +3530,7 @@ export class TdStageScene extends Phaser.Scene {
     const speedBtn = this.hudRoot.querySelector<HTMLButtonElement>('#btn-speed-toggle');
     if (speedBtn) {
       speedBtn.textContent = `x${this.speedMultiplier}`;
-      speedBtn.classList.toggle('active', this.speedMultiplier === 2);
+      speedBtn.classList.toggle('active', this.speedMultiplier > 1);
     }
 
     const rmBtn = this.hudRoot.querySelector<HTMLButtonElement>('#btn-reduce-motion');
