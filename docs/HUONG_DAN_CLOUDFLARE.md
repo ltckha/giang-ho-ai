@@ -1,13 +1,15 @@
 # Đưa game Gọn Phố lên Cloudflare Pages (anh Kha làm 1 lần, máy tính ~10 phút)
 
-Tài khoản: Cloudflare "Giày Hải Nancy" (cùng giayhainancy.vn, cùng Worker "gon"). Game là 1 trang Pages riêng, không gắn vào trang GỌN.
+Tài khoản: **tài khoản Cloudflare mới tên "Gọn"** (anh Kha chốt 24/11): GỌN và game Gọn Phố nằm chung, tách khỏi phần web Hiệu giày Hải Nancy. Tạo thêm tài khoản Free ngay trong cùng lần đăng nhập (tối đa 5 tài khoản thêm): https://developers.cloudflare.com/changelog/post/2026-08-04-free-dashboard-button/
+Game là 1 trang Pages riêng, không gắn vào trang GỌN (trang đó có mật khẩu). Worker "gon" chuyển sang tài khoản Gọn do phiên GỌN lo, anh duyệt bên đó.
 
 ## Vì sao không lo dung lượng (nguồn Cloudflare)
-- Game chỉ là file tĩnh (~16 MB, 122 file), không dùng Functions → lượt mở game **miễn phí, không giới hạn**, không trừ vào 100.000 lượt/ngày của Worker "gon": https://developers.cloudflare.com/pages/functions/pricing/
+- Game chỉ là file tĩnh (~16 MB, 122 file), không dùng Functions → lượt mở game **miễn phí, không giới hạn**, không trừ vào 100.000 lượt/ngày của Worker (hạn mức tính riêng từng tài khoản): https://developers.cloudflare.com/pages/functions/pricing/
 - Giới hạn gói miễn phí: 20.000 file, mỗi file ≤ 25 MiB, 500 lần dựng/tháng: https://developers.cloudflare.com/pages/platform/limits/
 
 ## Các bước
-1. Vào https://dash.cloudflare.com → chọn tài khoản Giày Hải Nancy.
+0. Vào https://dash.cloudflare.com → bấm tên tài khoản góc trên trái (ô chuyển tài khoản) → **Create Account** → đặt tên **Gọn** → tạo xong thì chuyển sang tài khoản Gọn.
+1. Kiểm tra góc trên trái đang là tài khoản **Gọn** (không phải Giày Hải Nancy).
 2. Menu trái **Workers & Pages** → **Create application** → thẻ **Pages** → **Connect to Git**.
    (Nếu màn hình mặc định ra Workers, tìm dòng "Looking to deploy Pages? Get started".)
 3. Chọn GitHub, cho phép ứng dụng Cloudflare: chọn **Only select repositories** → chọn **ltckha/giang-ho-ai** → Install & Authorize.

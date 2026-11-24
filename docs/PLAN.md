@@ -105,7 +105,7 @@ Game hiện là **thủ thành Gọn Phố** (đặt món giữ tiệm, ngũ hà
 5. **Test:** lớp đọc sự kiện giả lập; máy chơi không kẹt, không đứng yên quá lâu.
 
 ### Đưa game lên mạng (anh Kha chốt 24/11 chiều)
-1. **Chỗ đưa game lên: Cloudflare Pages**, dùng chung tài khoản Cloudflare anh đang có (tên miền giayhainancy.vn). Anh muốn xem bên Gọn (dự án ~/Developer/Gon trên máy anh, phiên GỌN 2026T46) chuyển qua dùng chung luôn — Claude phiên này không đọc được thư mục đó, đã soạn câu hỏi cho phiên GỌN.
+1. **Chỗ đưa game lên: Cloudflare Pages** trong **tài khoản Cloudflare mới "Gọn"** (cùng lần đăng nhập): GỌN + game nằm chung, tách khỏi web Hiệu giày Hải Nancy. Worker "gon" chuyển sang do phiên GỌN lo. (Trước đó định dùng chung tài khoản giayhainancy.vn — anh đổi 24/11.) Anh muốn xem bên Gọn (dự án ~/Developer/Gon trên máy anh, phiên GỌN 2026T46) chuyển qua dùng chung luôn — Claude phiên này không đọc được thư mục đó, đã soạn câu hỏi cho phiên GỌN.
 2. **Bỏ bước 10–20 người quen chơi thử riêng:** có link công khai → đăng video → LIVE, người chơi đến dần.
 3. **Góp ý: lấy từ bình luận video và LIVE** (không lập nhóm Zalo).
 - Kế hoạch triển khai: chờ anh nói "làm".
