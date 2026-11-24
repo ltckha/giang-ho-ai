@@ -26,8 +26,8 @@ _Mỗi phố: các màn tiệm rồi màn phố đánh trùm. Tập trung Đà L
 - ✅ Xong — 52 tiệm chơi trong phòng, 18 kiểu phòng theo loại tiệm (nội thất Spark đợt 25–29) · Claude + Spark
 - ✅ Xong — Chiêu thức đẹp, đa dạng hơn (ráp 15 hình hiệu ứng Spark) · Claude + Spark
 - ✅ Xong — 6 món + 11 mặt tiền tiệm còn thiếu hình (đợt 30) · Spark
-- 🟡 Đang làm — Màn phố (đánh trùm) 6 phố đồng bộ nét Spark: đường liền mạch, mặt tiền chính các tiệm của phố dọc 2 bên · Claude + Spark (đợt 31)
-- 🟡 Đang làm — Hiệu ứng chiêu xe (7 xe) · Spark đợt 31 + Claude
+- ✅ Xong — Màn phố (đánh trùm) 6 phố đồng bộ nét Spark: đường liền mạch, mặt tiền chính các tiệm của phố dọc 2 bên · Claude + Spark (đợt 31)
+- ✅ Xong — Hiệu ứng chiêu xe (7 xe) · Spark đợt 31 + Claude
 
 ## Chặng 3: Gọn giao diện cho người mới
 _Nhìn vào là chơi ngay, ít chữ, cần thì bấm ?._
