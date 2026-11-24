@@ -90,24 +90,103 @@ def tile_fill(im, name, box):
             im.paste(t.crop((0, 0, min(160, x1 - x), min(160, y1 - y))), (x, y))
     return True
 
+# ===== 17 kiểu phòng theo loại tiệm (Claude 24/11) =====
+# Mỗi ô có thể ghi "a|b": dùng hình a, chưa có thì dùng b (chờ Spark vẽ đợt sau).
+KINDS = [
+    # (mã, mẫu tên, kiểu gốc, nền, tường, quầy, đồ trong phòng, đồ treo tường trên)
+    ('bar',        r'bar|cocktail',                  'cafe',    'nen_san_go_toi|nen_san_go', 'nen_tuong_gach_the|nen_tuong_go', 'noi_quay_bar',
+        ['noi_sofa_da', 'noi_sofa_da', 'noi_ke_chai', 'noi_ban_ghe_cao', 'noi_ban_cafe'], 'noi_den_neon'),
+    ('khach_san',  r'khách sạn',                     'luu_tru', 'nen_san_tham', 'nen_tuong_giay_hoa|nen_tuong_go', 'noi_quay_le_tan',
+        ['noi_ghe_sanh', 'noi_xe_hanh_ly', 'noi_tham_do', 'noi_sofa', 'noi_chau_cay_lon', 'noi_ban_tra', 'noi_ghe_sanh'], 'noi_den_chum'),
+    ('homestay',   r'homestay|hostel|nhà nghỉ',      'luu_tru', 'nen_san_go_thong|nen_san_go', 'nen_tuong_go_thong|nen_tuong_go', 'noi_quay_le_tan',
+        ['noi_giuong_tang', 'noi_tu_khoa', 'noi_ke_mu_bao_hiem', 'noi_lo_suoi', 'noi_ban_den_long', 'noi_giuong_tang'], None),
+    ('lau_nuong',  r'lẩu|nướng phố|quán nướng',      'quan_an', 'nen_san_xi_mang', 'nen_tuong_gach_the|nen_tuong_voi', 'noi_quay_lau',
+        ['noi_ban_lau', 'noi_ban_lau', 'noi_bep_nuong_than', 'noi_ban_lau', 'noi_ke_rau_nam', 'noi_tu_lanh'], None),
+    ('tiem_banh',  r'tiệm bánh|pizza',               'tiem',    'nen_gach_caro|nen_san_da', 'nen_tuong_giay_hoa|nen_tuong_voi', 'noi_tu_banh_ngot',
+        ['noi_ke_banh_mi', 'noi_lo_nuong', 'noi_ban_nhoi_bot', 'noi_ke_banh_mi', 'noi_ban_tron_nho'], None),
+    ('tra',        r'trà',                           'cafe',    'nen_san_go', 'nen_tuong_xanh_reu|nen_tuong_go', 'noi_quay_tra_sua',
+        ['noi_ban_ghe_cao', 'noi_ke_hu_tra', 'noi_ban_ghe_cao', 'noi_ban_tra', 'noi_chau_cay_lon'], None),
+    ('kem_che',    r'kem|chè|yaourt|sữa nóng',       'cafe',    'nen_gach_bong|nen_san_da', 'nen_tuong_giay_hoa|nen_tuong_voi', 'noi_tu_kem',
+        ['noi_ban_tron_nho', 'noi_ban_tron_nho', 'noi_quay_che', 'noi_noi_sua_nong', 'noi_ban_tron_nho', 'noi_chau_cay_lon'], None),
+    ('cafe_tre',   r'sân thượng|xe đạp|cóc',         'cafe',    'nen_san_go_thong|nen_san_go', 'nen_tuong_go_thong|nen_tuong_go', 'noi_quay_pha_che',
+        ['noi_ban_ban_cong', 'noi_xe_dap_cu', 'noi_ban_ban_cong', 'noi_day_den', 'noi_chau_cay_lon', 'noi_ban_cafe'], None),
+    ('cafe_xua',   r'cà phê',                        'cafe',    'nen_san_go_toi|nen_san_go', 'nen_tuong_gach_the|nen_tuong_go', 'noi_quay_phin',
+        ['noi_ban_go_thap', 'noi_may_hat_dia', 'noi_ban_go_thap', 'noi_ke_do_co', 'noi_ban_go_thap', 'noi_ghe_banh'], None),
+    ('pho_com',    r'phở|cơm|cháo|bún',              'quan_an', 'nen_gach_bong|nen_san_da', 'nen_tuong_voi', 'noi_quay_nuoc_leo',
+        ['noi_ban_inox', 'noi_ban_inox', 'noi_khay_rau_thom', 'noi_ban_inox', 'noi_tu_com', 'noi_tu_lanh'], None),
+    ('an_sang',    r'bánh mì|bánh căn|bánh tráng|quán sáng|ăn vặt|xíu mại', 'quan_an', 'nen_san_xi_mang', 'nen_tuong_xanh_reu|nen_tuong_voi', 'noi_xe_banh_mi',
+        ['noi_ban_ghe_dau', 'noi_ban_ghe_dau', 'noi_bep_banh_can', 'noi_bep_banh_trang', 'noi_ban_ghe_dau', 'noi_ban_quan'], None),
+    ('nha_thuoc',  r'nhà thuốc',                     'tiem',    'nen_san_gach_men|nen_san_da', 'nen_tuong_voi', 'noi_quay_thuoc|noi_quay_thu_ngan',
+        ['noi_tu_kinh_thuoc|noi_tu_kinh', 'noi_ke_hang', 'noi_tu_kinh_thuoc|noi_tu_kinh', 'noi_chau_cay_lon'], None),
+    ('tiem_toc',   r'tóc|móng',                      'tiem',    'nen_gach_caro|nen_san_da', 'nen_tuong_giay_hoa|nen_tuong_voi', 'noi_quay_thu_ngan',
+        ['noi_ghe_cat_toc|noi_ghe_banh', 'noi_giuong_goi|noi_sofa', 'noi_ghe_cat_toc|noi_ghe_banh', 'noi_ban_lam_mong|noi_ban_tra', 'noi_chau_cay_lon'], None),
+    ('nha_sach',   r'nhà sách|sách',                 'tiem',    'nen_san_go', 'nen_tuong_go', 'noi_quay_thu_ngan',
+        ['noi_ke_sach_cao|noi_ke_hang', 'noi_ban_doc|noi_ban_go_dai', 'noi_ke_sach_cao|noi_ke_hang', 'noi_goc_thieu_nhi|noi_tham_tron', 'noi_ke_sach_cao|noi_ke_hang'], None),
+    ('studio_anh', r'studio|ảnh',                    'tiem',    'nen_san_go_toi|nen_san_go', 'nen_tuong_voi', 'noi_quay_le_tan',
+        ['noi_phong_chup|noi_tham_tron', 'noi_moc_vay_cuoi|noi_tu_quan_ao', 'noi_may_anh_chan|noi_den_cay', 'noi_sofa', 'noi_chau_cay_lon'], None),
+    ('sua_xe',     r'xe máy|sửa xe',                 'tiem',    'nen_san_be_tong|nen_san_xi_mang', 'nen_tuong_gach_the|nen_tuong_voi', 'noi_quay_tinh_tien',
+        ['noi_xe_tren_bang|noi_thung_hang', 'noi_thung_do_nghe|noi_ke_hang', 'noi_chong_lop|noi_thung_hang', 'noi_ke_mu_bao_hiem', 'noi_thung_hang'], None),
+    ('tap_hoa',    r'tạp hoá|tạp hóa',               'tiem',    'nen_san_da', 'nen_tuong_voi', 'noi_quay_tinh_tien',
+        ['noi_ke_hang', 'noi_tu_mat|noi_tu_lanh', 'noi_ke_hang', 'noi_bao_gao|noi_thung_hang', 'noi_gio_hang', 'noi_thung_hang'], None),
+    ('giat_say',   r'giặt',                          'tiem',    'nen_san_gach_men|nen_san_da', 'nen_tuong_voi', 'noi_quay_thu_ngan',
+        ['noi_may_giat_say|noi_tu_lanh', 'noi_may_giat_say|noi_tu_lanh', 'noi_ban_gap_do|noi_ban_go_dai', 'noi_gio_do|noi_gio_hang', 'noi_ke_hang'], None),
+]
+BIG = {'noi_giuong_doi', 'noi_giuong_tang', 'noi_ban_go_dai', 'noi_sofa', 'noi_ke_hang', 'noi_ban_lau', 'noi_sofa_da', 'noi_ghe_sanh',
+       'noi_tham_do', 'noi_ke_sach_cao', 'noi_phong_chup', 'noi_xe_tren_bang', 'noi_may_giat_say', 'noi_ban_ban_cong', 'noi_ban_inox',
+       'noi_ke_banh_mi', 'noi_ke_chai', 'noi_lo_suoi', 'noi_tu_khoa', 'noi_ban_ghe_dau'}
+TABLES = ('noi_ban_', 'noi_ke_hang', 'noi_tu_kinh', 'noi_ke_banh_mi')
+
+# Quầy riêng theo món chính của tiệm (đè quầy chung của kiểu phòng)
+COUNTER_BY_NAME = [(r'bánh căn', 'noi_bep_banh_can'), (r'bánh tráng', 'noi_bep_banh_trang'), (r'chè|sữa nóng', 'noi_quay_che'),
+                   (r'quán nướng', 'noi_bep_nuong_than')]
+
+def pick(names):
+    for n in (names or '').split('|'):
+        if n and os.path.exists(os.path.join(NT, f'{n}.png')): return n
+    return None
+
+def kind_of(name):
+    import re
+    t = (name or '').lower()
+    for k in KINDS:
+        if re.search(k[1], t): return k
+    return None
+
 def draw(stage, out):
-    style = stage.get('roomStyle', 'tiem'); st = STYLE[style]
+    style = stage.get('roomStyle', 'tiem')
+    kd = kind_of(stage.get('name', ''))
+    if kd:
+        style = kd[2]
+        tile_name, wall_name, ctr_name, furn, top = pick(kd[3]), pick(kd[4]), pick(kd[5]), [pick(x) for x in kd[6]], pick(kd[7]) if kd[7] else None
+        furn = [x for x in furn if x] or FURN[style]
+        import re
+        for pat, cn in COUNTER_BY_NAME:
+            if re.search(pat, stage.get('name', '').lower()) and pick(cn):
+                furn = [x if x != cn else 'noi_ban_quan' for x in furn]
+                ctr_name = cn
+                break
+    else:
+        tile_name, wall_name, ctr_name, furn, top = TILE[style], WALL[style], COUNTER[style], FURN[style], None
+    st = STYLE[style]
+    stage['_kind'] = kd[0] if kd else style
     rnd = random.Random(stage['id'])
     paths = [[(p['x'], p['y']) for p in r] for r in stage['paths']]
     pads = [(p['x'], p['y']) for p in stage['pads']]
     segs = [(r[i], r[i + 1]) for r in paths for i in range(len(r) - 1)]
     im = Image.new('RGB', (W * S, H * S), st['floor']); d = ImageDraw.Draw(im)
-    if not tile_fill(im, TILE[style], (0, 0, W * S, H * S)):
+    if not tile_fill(im, tile_name or '', (0, 0, W * S, H * S)):
         floor(d, st, style)
     d = ImageDraw.Draw(im)
     # tường trên + 2 bên, cửa sổ
-    if not tile_fill(im, WALL[style], (0, 0, W * S, 40 * S)):
+    if not tile_fill(im, wall_name or '', (0, 0, W * S, 40 * S)):
         d.rectangle([0, 0, W * S, 40 * S], fill=st['wall'])
     d = ImageDraw.Draw(im)
     d.line([0, 40 * S, W * S, 40 * S], fill=INK, width=6)
     win = nt('noi_cua_so', 34 * S); pic = nt('noi_tranh_tuong', 26 * S); clk = nt('noi_dong_ho_tuong', 22 * S)
     for i, x in enumerate(range(40, W - 20, 80)):
         it = [win, pic, win, clk][i % 4] or win
+        if top and i % 2 == 1:
+            it = nt(top, 34 * S) or it
         if it is not None:
             im.paste(it, (int(x * S - it.width / 2), int(20 * S - it.height / 2)), it)
     d = ImageDraw.Draw(im)
@@ -120,7 +199,7 @@ def draw(stage, out):
         d.line(pts, fill=tuple(max(0, c - 30) for c in st['rug']), width=6, joint='curve')
     # quầy ở cuối đường (nơi quái muốn tới)
     ex, ey = paths[0][-1]
-    ctr = nt(COUNTER[style], 84 * S)
+    ctr = nt(ctr_name or COUNTER[style], 84 * S)
     if ctr is not None:
         im.paste(ctr, (int(ex * S - ctr.width / 2), int((ey - 6) * S - ctr.height * 0.85)), ctr)
         d = ImageDraw.Draw(im)
@@ -138,7 +217,7 @@ def draw(stage, out):
             sp = sprite(os.path.join(ROOT, 'art', 'spark', f'mon_{art}_{t}.png'), 40 * S)
             if sp: decos.append(sp)
     placed = []
-    pool = FURN[style][:]
+    pool = furn[:]
     rnd.shuffle(pool)
     items = []
     for _ in range(900):
@@ -149,11 +228,11 @@ def draw(stage, out):
         if math.hypot(x - ex, y - ey) < 60: continue
         placed.append((x, y))
         name = pool[len(items) % len(pool)]
-        size = 74 if name in ('noi_giuong_doi', 'noi_giuong_tang', 'noi_ban_go_dai', 'noi_sofa', 'noi_ke_hang') else 60
+        size = 74 if name in BIG else 60
         img = nt(name, size * S)
         if img is None:
             furniture(d, im, style, x, y, rnd, []); d = ImageDraw.Draw(im); continue
-        items.append((x, y, img, decos[len(items) % len(decos)] if decos and name in ('noi_ban_quan', 'noi_ban_cafe', 'noi_ban_tra', 'noi_ke_hang', 'noi_tu_kinh') else None))
+        items.append((x, y, img, decos[len(items) % len(decos)] if decos and name.startswith(TABLES) and name not in ('noi_ban_lau', 'noi_ban_nhoi_bot') else None))
         if len(placed) >= 8: break
     for x, y, img, dz in sorted(items, key=lambda t: t[1]):
         im.paste(img, (int(x * S - img.width / 2), int(y * S - img.height * 0.7)), img)
@@ -167,10 +246,13 @@ def draw(stage, out):
         for x, y in [(24, 64), (W - 24, 64)]:
             if all(math.hypot(x - px, y - py) > 30 for px, py in pads):
                 im.paste(plant, (int(x * S - plant.width / 2), int(y * S - plant.height / 2)), plant)
+    if stage['_kind'] == 'bar':   # bar dưới hầm: tối hơn, ánh tím ấm
+        im = Image.blend(im, Image.new('RGB', im.size, (40, 20, 60)), 0.28)
     im.save(out, 'WEBP', quality=80, method=6)
 
 os.makedirs(os.path.join(ROOT, 'public/assets/rooms'), exist_ok=True)
 n = 0
+kinds_used = {}
 for f in sorted(glob.glob(os.path.join(ROOT, 'src/core/streets/generated/*.json'))):
     g = json.load(open(f, encoding='utf-8'))
     for sh in g.get('shops', []):
@@ -178,4 +260,5 @@ for f in sorted(glob.glob(os.path.join(ROOT, 'src/core/streets/generated/*.json'
         feat = g['towers'].get(st.get('featuredTowerId', ''), {})
         st['_art'] = feat.get('art')
         draw(st, os.path.join(ROOT, 'public/assets/rooms', f"map_{st['id']}.webp")); n += 1
-print('vẽ phòng:', n)
+        kinds_used[st['_kind']] = kinds_used.get(st['_kind'], 0) + 1
+print('vẽ phòng:', n, '· kiểu phòng:', len(kinds_used), kinds_used)
