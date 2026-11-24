@@ -7,15 +7,17 @@ import type { StageDefinition } from './types';
 
 export interface RoomPerk {
   icon: string;
+  /** Huy hiệu Spark (public/assets/ui/<art>.webp) */
+  art: string;
   name: string;
   text: string;
 }
 
 export const ROOM_PERKS: Record<NonNullable<StageDefinition['roomStyle']>, RoomPerk> = {
-  quan_an: { icon: '🔥', name: 'Bếp nóng', text: 'món hành Hỏa mạnh thêm 15%' },
-  cafe: { icon: '☕', name: 'Mùi cà phê', text: 'mọi món đánh nhanh thêm 8%' },
-  luu_tru: { icon: '🛎️', name: 'Khách quen', text: '+25 xu đầu màn' },
-  tiem: { icon: '🏷️', name: 'Ngày giảm giá', text: 'đặt món rẻ hơn 8%' },
+  quan_an: { art: 'perk_bep_nong', icon: '🔥', name: 'Bếp nóng', text: 'món hành Hỏa mạnh thêm 15%' },
+  cafe: { art: 'perk_ca_phe', icon: '☕', name: 'Mùi cà phê', text: 'mọi món đánh nhanh thêm 8%' },
+  luu_tru: { art: 'perk_khach_quen', icon: '🛎️', name: 'Khách quen', text: '+25 xu đầu màn' },
+  tiem: { art: 'perk_giam_gia', icon: '🏷️', name: 'Ngày giảm giá', text: 'đặt món rẻ hơn 8%' },
 };
 
 export function roomPerkOf(stage: StageDefinition): RoomPerk | null {

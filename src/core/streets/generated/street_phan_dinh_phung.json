@@ -2,9 +2,9 @@
  "generatedBy": "tools/level-maker/make-street.ts",
  "hpMultiplier": 1.6,
  "balance": {
-  "randomWinWithExpectedGear": 0.3333333333333333,
+  "randomWinWithExpectedGear": 0.2708333333333333,
   "botWinRate": 1,
-  "botLivesAvg": 14.666666666666666,
+  "botLivesAvg": 14,
   "gearTier": "after_street_1"
  },
  "stage": {
@@ -554,21 +554,6 @@
    "gt_don_voi_xit",
    "gt_don_den_duong",
    "gt_don_bao_cat",
-   "wood_tower",
-   "metal_tower",
-   "water_tower",
-   "fire_tower",
-   "earth_tower",
-   "bk_swatter",
-   "bk_jar",
-   "bk_fan",
-   "bk_oven",
-   "bk_fridge",
-   "fl_can",
-   "fl_shears",
-   "fl_lime",
-   "fl_heater",
-   "fl_vent",
    "gt_phan_dinh_phung_nha_thuoc",
    "gt_phan_dinh_phung_tiem_toc",
    "gt_phan_dinh_phung_nha_sach",
@@ -584,8 +569,8 @@
    "gt_don_choi_tre",
    "gt_don_voi_xit",
    "gt_don_den_duong",
-   "metal_tower",
-   "fl_vent"
+   "gt_phan_dinh_phung_tiem_toc",
+   "gt_phan_dinh_phung_nha_thuoc"
   ],
   "enableSynergy": true,
   "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -674,7 +659,7 @@
    },
    {
     "padId": "pad_4",
-    "defId": "metal_tower",
+    "defId": "gt_phan_dinh_phung_tiem_toc",
     "preferredBranch": "B"
    },
    {
@@ -694,7 +679,7 @@
    },
    {
     "padId": "pad_8",
-    "defId": "metal_tower",
+    "defId": "gt_phan_dinh_phung_tiem_toc",
     "preferredBranch": "B"
    },
    {
@@ -716,9 +701,9 @@
  },
  "shops": [
   {
-   "hpMultiplier": 0.8,
+   "hpMultiplier": 1.4,
    "balance": {
-    "randomWinWithExpectedGear": 0.6458333333333334,
+    "randomWinWithExpectedGear": 0.6041666666666666,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.65
@@ -831,7 +816,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.8
+        "hpScale": 1.4
        }
       ]
      },
@@ -850,7 +835,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.92
+        "hpScale": 1.61
        }
       ]
      },
@@ -870,7 +855,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.04
+        "hpScale": 1.82
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -878,7 +863,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.04
+        "hpScale": 1.82
        }
       ]
      },
@@ -898,7 +883,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.16
+        "hpScale": 2.03
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -906,7 +891,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.16
+        "hpScale": 2.03
        }
       ]
      },
@@ -927,7 +912,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.36
+        "hpScale": 2.38
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -935,7 +920,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.36
+        "hpScale": 2.38
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -943,7 +928,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.36
+        "hpScale": 2.38
        }
       ]
      },
@@ -964,7 +949,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -972,7 +957,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -980,7 +965,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 2.8
        }
       ]
      },
@@ -1001,7 +986,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.92
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1009,7 +994,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.92
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -1017,7 +1002,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.92
+        "hpScale": 3.36
        }
       ]
      },
@@ -1038,7 +1023,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.24
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -1046,7 +1031,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.24
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1054,37 +1039,34 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.24
+        "hpScale": 3.92
        }
       ]
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
-     "gt_phan_dinh_phung_nha_thuoc"
+     "gt_phan_dinh_phung_nha_thuoc",
+     "gt_phan_dinh_phung_tiem_toc",
+     "gt_phan_dinh_phung_nha_sach",
+     "gt_phan_dinh_phung_studio",
+     "gt_phan_dinh_phung_pho",
+     "gt_phan_dinh_phung_xe_may",
+     "gt_phan_dinh_phung_tap_hoa",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_phan_dinh_phung_nha_thuoc",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_phan_dinh_phung_tiem_toc",
+     "gt_phan_dinh_phung_nha_sach",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_don_den_duong",
+     "gt_phan_dinh_phung_tap_hoa"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -1155,12 +1137,12 @@
     "botPlan": [
      {
       "padId": "pad_1",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_2",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_nha_sach",
       "preferredBranch": "B"
      },
      {
@@ -1170,53 +1152,53 @@
      },
      {
       "padId": "pad_4",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_nha_sach",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_nha_sach",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 1.5,
+   "hpMultiplier": 1.8,
    "balance": {
-    "randomWinWithExpectedGear": 0.6041666666666666,
+    "randomWinWithExpectedGear": 0.5625,
     "botWinRate": 1,
-    "botLivesAvg": 20.333333333333332,
+    "botLivesAvg": 20.666666666666668,
     "target": 0.6071428571428572
    },
    "stage": {
@@ -1335,7 +1317,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.5
+        "hpScale": 1.8
        }
       ]
      },
@@ -1354,7 +1336,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.73
+        "hpScale": 2.07
        }
       ]
      },
@@ -1374,7 +1356,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.95
+        "hpScale": 2.34
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1382,7 +1364,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.95
+        "hpScale": 2.34
        }
       ]
      },
@@ -1402,7 +1384,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.17
+        "hpScale": 2.61
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -1410,7 +1392,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.17
+        "hpScale": 2.61
        }
       ]
      },
@@ -1431,7 +1413,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.55
+        "hpScale": 3.06
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -1439,7 +1421,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.55
+        "hpScale": 3.06
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -1447,7 +1429,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.55
+        "hpScale": 3.06
        }
       ]
      },
@@ -1468,7 +1450,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1476,7 +1458,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -1484,7 +1466,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3
+        "hpScale": 3.6
        }
       ]
      },
@@ -1505,7 +1487,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 4.32
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -1513,7 +1495,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 4.32
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1521,7 +1503,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 4.32
        }
       ]
      },
@@ -1542,7 +1524,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1550,7 +1532,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -1558,38 +1540,34 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 5.04
        }
       ]
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
+     "gt_phan_dinh_phung_tiem_toc",
      "gt_phan_dinh_phung_nha_thuoc",
-     "gt_phan_dinh_phung_tiem_toc"
+     "gt_phan_dinh_phung_nha_sach",
+     "gt_phan_dinh_phung_studio",
+     "gt_phan_dinh_phung_pho",
+     "gt_phan_dinh_phung_xe_may",
+     "gt_phan_dinh_phung_tap_hoa",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_phan_dinh_phung_tiem_toc",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_phan_dinh_phung_xe_may",
+     "gt_phan_dinh_phung_nha_thuoc",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_don_den_duong",
+     "gt_phan_dinh_phung_tap_hoa"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -1665,61 +1643,61 @@
      },
      {
       "padId": "pad_2",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_xe_may",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "fl_vent",
+      "defId": "gt_phan_dinh_phung_nha_thuoc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_xe_may",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_phan_dinh_phung_xe_may",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 1.3,
+   "hpMultiplier": 1.4,
    "balance": {
-    "randomWinWithExpectedGear": 0.5625,
+    "randomWinWithExpectedGear": 0.5416666666666666,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.5642857142857143
@@ -1840,7 +1818,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.4
        }
       ]
      },
@@ -1859,7 +1837,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.5
+        "hpScale": 1.61
        }
       ]
      },
@@ -1879,7 +1857,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.69
+        "hpScale": 1.82
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1887,7 +1865,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.69
+        "hpScale": 1.82
        }
       ]
      },
@@ -1907,7 +1885,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.89
+        "hpScale": 2.03
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -1915,7 +1893,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.89
+        "hpScale": 2.03
        }
       ]
      },
@@ -1936,7 +1914,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.38
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -1944,7 +1922,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.38
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -1952,7 +1930,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.38
        }
       ]
      },
@@ -1973,7 +1951,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1981,7 +1959,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -1989,7 +1967,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 2.8
        }
       ]
      },
@@ -2010,7 +1988,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -2018,7 +1996,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -2026,7 +2004,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 3.36
        }
       ]
      },
@@ -2047,7 +2025,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -2055,7 +2033,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -2063,39 +2041,34 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.92
        }
       ]
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
+     "gt_phan_dinh_phung_nha_sach",
      "gt_phan_dinh_phung_nha_thuoc",
      "gt_phan_dinh_phung_tiem_toc",
-     "gt_phan_dinh_phung_nha_sach"
+     "gt_phan_dinh_phung_studio",
+     "gt_phan_dinh_phung_pho",
+     "gt_phan_dinh_phung_xe_may",
+     "gt_phan_dinh_phung_tap_hoa",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_phan_dinh_phung_nha_sach",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_phan_dinh_phung_tiem_toc",
+     "gt_phan_dinh_phung_nha_thuoc",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_don_den_duong",
+     "gt_phan_dinh_phung_tap_hoa"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -2171,52 +2144,52 @@
      },
      {
       "padId": "pad_2",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "fl_vent",
+      "defId": "gt_phan_dinh_phung_nha_thuoc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_phan_dinh_phung_nha_sach",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_nha_sach",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_phan_dinh_phung_nha_sach",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_nha_sach",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_phan_dinh_phung_nha_sach",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      }
     ]
@@ -2225,9 +2198,9 @@
   {
    "hpMultiplier": 1,
    "balance": {
-    "randomWinWithExpectedGear": 0.5833333333333334,
+    "randomWinWithExpectedGear": 0.6041666666666666,
     "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
+    "botLivesAvg": 20,
     "target": 0.5214285714285715
    },
    "stage": {
@@ -2559,34 +2532,28 @@
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
+     "gt_phan_dinh_phung_studio",
      "gt_phan_dinh_phung_nha_thuoc",
      "gt_phan_dinh_phung_tiem_toc",
      "gt_phan_dinh_phung_nha_sach",
-     "gt_phan_dinh_phung_studio"
+     "gt_phan_dinh_phung_pho",
+     "gt_phan_dinh_phung_xe_may",
+     "gt_phan_dinh_phung_tap_hoa",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_phan_dinh_phung_studio",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_phan_dinh_phung_tiem_toc",
+     "gt_phan_dinh_phung_nha_thuoc",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_don_den_duong",
+     "gt_phan_dinh_phung_tap_hoa"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -2662,52 +2629,52 @@
      },
      {
       "padId": "pad_2",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "fl_vent",
+      "defId": "gt_phan_dinh_phung_nha_thuoc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_phan_dinh_phung_studio",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_studio",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_phan_dinh_phung_studio",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_studio",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_phan_dinh_phung_studio",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      }
     ]
@@ -2716,7 +2683,7 @@
   {
    "hpMultiplier": 0.9,
    "balance": {
-    "randomWinWithExpectedGear": 0.625,
+    "randomWinWithExpectedGear": 0.5416666666666666,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.4785714285714286
@@ -3050,35 +3017,28 @@
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
+     "gt_phan_dinh_phung_pho",
      "gt_phan_dinh_phung_nha_thuoc",
      "gt_phan_dinh_phung_tiem_toc",
      "gt_phan_dinh_phung_nha_sach",
      "gt_phan_dinh_phung_studio",
-     "gt_phan_dinh_phung_pho"
+     "gt_phan_dinh_phung_xe_may",
+     "gt_phan_dinh_phung_tap_hoa",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_phan_dinh_phung_pho",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_phan_dinh_phung_tiem_toc",
+     "gt_phan_dinh_phung_nha_thuoc",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_don_den_duong",
+     "gt_phan_dinh_phung_tap_hoa"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -3154,63 +3114,63 @@
      },
      {
       "padId": "pad_2",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "fl_vent",
+      "defId": "gt_phan_dinh_phung_nha_thuoc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_phan_dinh_phung_pho",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_pho",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_phan_dinh_phung_pho",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_pho",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_phan_dinh_phung_pho",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 1.3,
+   "hpMultiplier": 1.5,
    "balance": {
-    "randomWinWithExpectedGear": 0.3541666666666667,
+    "randomWinWithExpectedGear": 0.3958333333333333,
     "botWinRate": 1,
-    "botLivesAvg": 16.333333333333332,
+    "botLivesAvg": 13.333333333333334,
     "target": 0.4357142857142857
    },
    "stage": {
@@ -3333,7 +3293,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.5
        }
       ]
      },
@@ -3352,7 +3312,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.5
+        "hpScale": 1.73
        }
       ]
      },
@@ -3372,7 +3332,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.69
+        "hpScale": 1.95
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -3380,7 +3340,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.69
+        "hpScale": 1.95
        }
       ]
      },
@@ -3400,7 +3360,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.89
+        "hpScale": 2.17
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -3408,7 +3368,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.89
+        "hpScale": 2.17
        }
       ]
      },
@@ -3428,7 +3388,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.55
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -3436,7 +3396,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.55
        }
       ]
      },
@@ -3456,7 +3416,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 3
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -3464,7 +3424,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 3
        }
       ]
      },
@@ -3484,7 +3444,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_phan_dinh_phung_1",
@@ -3492,7 +3452,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 3.6
        }
       ]
      },
@@ -3514,7 +3474,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -3522,7 +3482,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -3530,7 +3490,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -3538,42 +3498,34 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 4.2
        }
       ]
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
+     "gt_phan_dinh_phung_xe_may",
      "gt_phan_dinh_phung_nha_thuoc",
      "gt_phan_dinh_phung_tiem_toc",
      "gt_phan_dinh_phung_nha_sach",
      "gt_phan_dinh_phung_studio",
      "gt_phan_dinh_phung_pho",
-     "gt_phan_dinh_phung_xe_may"
+     "gt_phan_dinh_phung_tap_hoa",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_phan_dinh_phung_xe_may",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_phan_dinh_phung_tiem_toc",
+     "gt_phan_dinh_phung_nha_thuoc",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_don_den_duong",
+     "gt_phan_dinh_phung_tap_hoa"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -3649,63 +3601,63 @@
      },
      {
       "padId": "pad_2",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "fl_vent",
+      "defId": "gt_phan_dinh_phung_nha_thuoc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_phan_dinh_phung_xe_may",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_xe_may",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_phan_dinh_phung_xe_may",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_xe_may",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_phan_dinh_phung_xe_may",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 1.2,
+   "hpMultiplier": 1.4,
    "balance": {
-    "randomWinWithExpectedGear": 0.375,
+    "randomWinWithExpectedGear": 0.3333333333333333,
     "botWinRate": 1,
-    "botLivesAvg": 19.333333333333332,
+    "botLivesAvg": 17.666666666666668,
     "target": 0.3928571428571429
    },
    "stage": {
@@ -3828,7 +3780,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 1.4
        }
       ]
      },
@@ -3847,7 +3799,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.38
+        "hpScale": 1.61
        }
       ]
      },
@@ -3867,7 +3819,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.56
+        "hpScale": 1.82
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -3875,7 +3827,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.56
+        "hpScale": 1.82
        }
       ]
      },
@@ -3895,7 +3847,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.74
+        "hpScale": 2.03
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -3903,7 +3855,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.74
+        "hpScale": 2.03
        }
       ]
      },
@@ -3923,7 +3875,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.04
+        "hpScale": 2.38
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -3931,7 +3883,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.04
+        "hpScale": 2.38
        }
       ]
      },
@@ -3952,7 +3904,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -3960,7 +3912,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -3968,7 +3920,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.8
        }
       ]
      },
@@ -3989,7 +3941,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -3997,7 +3949,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_phan_dinh_phung_1",
@@ -4005,7 +3957,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 3.36
        }
       ]
      },
@@ -4028,7 +3980,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -4036,7 +3988,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -4044,7 +3996,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -4052,7 +4004,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -4060,43 +4012,34 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.92
        }
       ]
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
+     "gt_phan_dinh_phung_tap_hoa",
      "gt_phan_dinh_phung_nha_thuoc",
      "gt_phan_dinh_phung_tiem_toc",
      "gt_phan_dinh_phung_nha_sach",
      "gt_phan_dinh_phung_studio",
      "gt_phan_dinh_phung_pho",
      "gt_phan_dinh_phung_xe_may",
-     "gt_phan_dinh_phung_tap_hoa"
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_phan_dinh_phung_tap_hoa",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_phan_dinh_phung_tiem_toc",
+     "gt_phan_dinh_phung_nha_thuoc",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -4172,63 +4115,63 @@
      },
      {
       "padId": "pad_2",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "fl_vent",
+      "defId": "gt_phan_dinh_phung_nha_thuoc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "defId": "gt_don_bao_cat",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "metal_tower",
+      "defId": "gt_don_bao_cat",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 1.8,
+   "hpMultiplier": 1.9,
    "balance": {
-    "randomWinWithExpectedGear": 0.3125,
+    "randomWinWithExpectedGear": 0.4166666666666667,
     "botWinRate": 1,
-    "botLivesAvg": 18.666666666666668,
+    "botLivesAvg": 15.666666666666666,
     "target": 0.35000000000000003
    },
    "stage": {
@@ -4339,7 +4282,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.8
+        "hpScale": 1.9
        }
       ]
      },
@@ -4358,7 +4301,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.07
+        "hpScale": 2.18
        }
       ]
      },
@@ -4378,7 +4321,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.34
+        "hpScale": 2.47
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -4386,7 +4329,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.34
+        "hpScale": 2.47
        }
       ]
      },
@@ -4406,7 +4349,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.61
+        "hpScale": 2.76
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -4414,7 +4357,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.61
+        "hpScale": 2.76
        }
       ]
      },
@@ -4434,7 +4377,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.06
+        "hpScale": 3.23
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -4442,7 +4385,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.06
+        "hpScale": 3.23
        }
       ]
      },
@@ -4463,7 +4406,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.8
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -4471,7 +4414,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.8
        },
        {
         "enemyId": "ge_phan_dinh_phung_6",
@@ -4479,7 +4422,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.8
        }
       ]
      },
@@ -4500,7 +4443,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.32
+        "hpScale": 4.56
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -4508,7 +4451,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.32
+        "hpScale": 4.56
        },
        {
         "enemyId": "ge_phan_dinh_phung_1",
@@ -4516,7 +4459,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.32
+        "hpScale": 4.56
        }
       ]
      },
@@ -4538,7 +4481,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 5.32
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -4546,7 +4489,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 5.32
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -4554,7 +4497,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 5.32
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -4562,7 +4505,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 5.32
        },
        {
         "enemyId": "ge_phan_dinh_phung_6",
@@ -4570,27 +4513,13 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 5.32
        }
       ]
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
+     "gt_phan_dinh_phung_cafe_coc",
      "gt_phan_dinh_phung_nha_thuoc",
      "gt_phan_dinh_phung_tiem_toc",
      "gt_phan_dinh_phung_nha_sach",
@@ -4598,16 +4527,20 @@
      "gt_phan_dinh_phung_pho",
      "gt_phan_dinh_phung_xe_may",
      "gt_phan_dinh_phung_tap_hoa",
-     "gt_phan_dinh_phung_cafe_coc"
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_phan_dinh_phung_cafe_coc",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_phan_dinh_phung_tiem_toc",
+     "gt_phan_dinh_phung_nha_thuoc",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_phan_dinh_phung_tap_hoa"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -4683,52 +4616,52 @@
      },
      {
       "padId": "pad_2",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "fl_vent",
+      "defId": "gt_phan_dinh_phung_nha_thuoc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_phan_dinh_phung_cafe_coc",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_phan_dinh_phung_cafe_coc",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "metal_tower",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "fire_tower",
+      "defId": "gt_phan_dinh_phung_cafe_coc",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_phan_dinh_phung_cafe_coc",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "A"
      }
     ]

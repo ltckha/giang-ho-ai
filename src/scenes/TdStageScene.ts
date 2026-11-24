@@ -435,7 +435,7 @@ export class TdStageScene extends Phaser.Scene {
         const el = document.createElement('div');
         el.className = 'td-first-tip td-perk-tip';
         el.dataset.testid = 'td-room-perk';
-        el.textContent = `${perk.icon} ${perk.name}: ${perk.text}`;
+        el.innerHTML = `<img class="td-perk-ico" src="./assets/ui/${perk.art}.webp" alt="" /><span><b>${perk.name}</b>: ${perk.text}</span>`;
         this.hudRoot.appendChild(el);
         this.time.delayedCall(3500, () => el.remove());
       });
@@ -3393,7 +3393,7 @@ export class TdStageScene extends Phaser.Scene {
           <button id="btn-speed-toggle" data-testid="btn-speed-toggle" class="td-ctrl-btn" title="Đổi tốc độ x1 / x2 / x3">x1</button>
           <button id="btn-reduce-motion" data-testid="btn-reduce-motion" class="td-ctrl-btn" title="Giảm hiệu ứng cho máy yếu">✨</button>
           ${showBotBtn ? `<button id="btn-bot-toggle" data-testid="btn-bot-toggle" class="td-ctrl-btn" title="Bật/Tắt Tự động đặt món">Bot</button>` : ''}
-          <button id="btn-pause-toggle" data-testid="btn-pause-toggle" class="td-ctrl-btn td-pause-btn-top" title="Tạm dừng / Chơi lại / Thoát" aria-label="Tạm dừng"><span class="td-pause-ico" aria-hidden="true"><i></i><i></i></span></button>
+          <button id="btn-pause-toggle" data-testid="btn-pause-toggle" class="td-ctrl-btn td-pause-btn-top" title="Tạm dừng / Chơi lại / Thoát" aria-label="Tạm dừng"><img class="td-ui-ico-btn" src="./assets/ui/ui_tam_dung.webp" alt="" /></button>
         </div>
       </div>
 
@@ -3531,7 +3531,7 @@ export class TdStageScene extends Phaser.Scene {
 
     const speedBtn = this.hudRoot.querySelector<HTMLButtonElement>('#btn-speed-toggle');
     if (speedBtn) {
-      speedBtn.textContent = `x${this.speedMultiplier}`;
+      speedBtn.innerHTML = `<img class="td-ui-ico-sm" src="./assets/ui/ui_toc_do.webp" alt="" />x${this.speedMultiplier}`;
       speedBtn.classList.toggle('active', this.speedMultiplier > 1);
     }
 
@@ -3554,7 +3554,7 @@ export class TdStageScene extends Phaser.Scene {
       const want = this.paused ? 'play' : 'pause';
       if (pauseBtn.dataset.ico !== want) {
         pauseBtn.dataset.ico = want;
-        pauseBtn.innerHTML = this.paused ? '<span class="td-play-ico" aria-hidden="true"></span>' : '<span class="td-pause-ico" aria-hidden="true"><i></i><i></i></span>';
+        pauseBtn.innerHTML = this.paused ? '<img class="td-ui-ico-btn" src="./assets/ui/ui_tiep_tuc.webp" alt="" />' : '<img class="td-ui-ico-btn" src="./assets/ui/ui_tam_dung.webp" alt="" />';
       }
       pauseBtn.classList.toggle('active', this.paused);
     }
@@ -3587,7 +3587,7 @@ export class TdStageScene extends Phaser.Scene {
             <div class="td-up-elements"><span class="td-up-next">▶</span>${enemyPreviews}</div>
           `;
         } else {
-          const isStreet = this.engine.stage.id === 'stage_4' || this.engine.stage.id.startsWith('street_');
+          const isStreet = this.engine.stage.id === 'stage_4' || (this.engine.stage.id.startsWith('street_') && !this.engine.stage.shopIndex);
           upcomingBox.innerHTML = `<div class="td-up-title">${isStreet ? '⛈' : '🏁'}</div>`;
         }
       }
@@ -4002,7 +4002,7 @@ export class TdStageScene extends Phaser.Scene {
           </div>
           ${upgradeSectionHtml}
           <button class="td-sell-btn" id="btn-sell-tower" data-testid="btn-sell-tower">
-            ♻️ +${refund}
+            <img class="td-ui-ico-sm" src="./assets/ui/ui_ban_mon.webp" alt="" /> +${refund}
           </button>
         </div>
       `;
@@ -4373,7 +4373,7 @@ export class TdStageScene extends Phaser.Scene {
     if (!this.pauseMenuRoot || this.engine.status !== 'playing') return;
     const stageName = this.engine.stage.name;
     const trackName = music.getTrackLabel() || stageName;
-    const isStreet = this.engine.stage.id === 'stage_4' || this.engine.stage.id.startsWith('street_');
+    const isStreet = this.engine.stage.id === 'stage_4' || (this.engine.stage.id.startsWith('street_') && !this.engine.stage.shopIndex);
     this.pauseMenuRoot.innerHTML = `
       <div class="td-pause-backdrop" data-testid="td-pause-menu">
         <div class="td-pause-card td-shoebox-panel">
@@ -4405,16 +4405,16 @@ export class TdStageScene extends Phaser.Scene {
           </div>
           <div class="td-pause-actions">
             <button type="button" id="btn-resume-game" data-testid="btn-resume-game" class="td-btn-primary">
-              ▶ ${isStreet ? 'Tiếp tục giữ phố' : 'Tiếp tục giữ tiệm'}
+              <img class="td-ui-ico-sm" src="./assets/ui/ui_tiep_tuc.webp" alt="" /> ${isStreet ? 'Tiếp tục giữ phố' : 'Tiếp tục giữ tiệm'}
             </button>
             <button type="button" id="btn-replay-tutorial" data-testid="btn-replay-tutorial" class="td-btn-secondary td-pause-btn">
               📖 Xem lại hướng dẫn
             </button>
             <button type="button" id="btn-pause-restart" data-testid="btn-pause-restart" class="td-btn-secondary td-pause-btn">
-              🔄 Chơi lại màn này
+              <img class="td-ui-ico-sm" src="./assets/ui/ui_choi_lai.webp" alt="" /> Chơi lại màn này
             </button>
             <button type="button" id="btn-pause-title" data-testid="btn-pause-title" class="td-btn-secondary td-pause-btn">
-              🏠 Về màn chính
+              <img class="td-ui-ico-sm" src="./assets/ui/ui_ve_nha.webp" alt="" /> Về màn chính
             </button>
           </div>
         </div>

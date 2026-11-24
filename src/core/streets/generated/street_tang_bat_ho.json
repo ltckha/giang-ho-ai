@@ -4,7 +4,7 @@
  "balance": {
   "randomWinWithExpectedGear": 0.3333333333333333,
   "botWinRate": 1,
-  "botLivesAvg": 18,
+  "botLivesAvg": 20,
   "gearTier": "after_street_1"
  },
  "stage": {
@@ -587,21 +587,6 @@
    "gt_don_voi_xit",
    "gt_don_den_duong",
    "gt_don_bao_cat",
-   "wood_tower",
-   "metal_tower",
-   "water_tower",
-   "fire_tower",
-   "earth_tower",
-   "bk_swatter",
-   "bk_jar",
-   "bk_fan",
-   "bk_oven",
-   "bk_fridge",
-   "fl_can",
-   "fl_shears",
-   "fl_lime",
-   "fl_heater",
-   "fl_vent",
    "gt_tang_bat_ho_banh_qua",
    "gt_tang_bat_ho_sua_nanh",
    "gt_tang_bat_ho_banh_can",
@@ -619,8 +604,8 @@
    "gt_don_choi_tre",
    "gt_don_voi_xit",
    "gt_don_den_duong",
-   "metal_tower",
-   "fl_vent"
+   "gt_tang_bat_ho_thue_xe",
+   "gt_tang_bat_ho_goc_cay"
   ],
   "enableSynergy": true,
   "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -723,7 +708,7 @@
    },
    {
     "padId": "pad_4",
-    "defId": "metal_tower",
+    "defId": "gt_tang_bat_ho_thue_xe",
     "preferredBranch": "B"
    },
    {
@@ -743,7 +728,7 @@
    },
    {
     "padId": "pad_8",
-    "defId": "metal_tower",
+    "defId": "gt_tang_bat_ho_thue_xe",
     "preferredBranch": "B"
    },
    {
@@ -1119,31 +1104,30 @@
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
-     "gt_tang_bat_ho_banh_qua"
+     "gt_tang_bat_ho_banh_qua",
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_tang_bat_ho_banh_can",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tang_bat_ho_khach_san",
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tang_bat_ho_bar_ham",
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_tang_bat_ho_an_vat",
+     "gt_tang_bat_ho_giat_say",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_tang_bat_ho_banh_qua",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_don_den_duong",
+     "gt_tang_bat_ho_banh_can"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -1233,63 +1217,63 @@
      },
      {
       "padId": "pad_2",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "fl_vent",
+      "defId": "gt_tang_bat_ho_goc_cay",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_banh_qua",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_banh_qua",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_banh_qua",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_banh_qua",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_banh_qua",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 1,
+   "hpMultiplier": 1.2,
    "balance": {
-    "randomWinWithExpectedGear": 0.6875,
+    "randomWinWithExpectedGear": 0.7291666666666666,
     "botWinRate": 1,
-    "botLivesAvg": 19.333333333333332,
+    "botLivesAvg": 20.333333333333332,
     "target": 0.6166666666666667
    },
    "stage": {
@@ -1412,7 +1396,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1
+        "hpScale": 1.2
        }
       ]
      },
@@ -1431,7 +1415,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.15
+        "hpScale": 1.38
        }
       ]
      },
@@ -1451,7 +1435,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.56
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -1459,7 +1443,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.56
        }
       ]
      },
@@ -1479,7 +1463,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.45
+        "hpScale": 1.74
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -1487,7 +1471,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.45
+        "hpScale": 1.74
        }
       ]
      },
@@ -1508,7 +1492,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 2.04
        },
        {
         "enemyId": "ge_tang_bat_ho_3",
@@ -1516,7 +1500,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 2.04
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -1524,7 +1508,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 2.04
        }
       ]
      },
@@ -1545,7 +1529,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -1553,7 +1537,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_tang_bat_ho_3",
@@ -1561,7 +1545,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 2.4
        }
       ]
      },
@@ -1582,7 +1566,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.88
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -1590,7 +1574,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.88
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -1598,7 +1582,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.88
        }
       ]
      },
@@ -1619,7 +1603,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -1627,7 +1611,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -1635,38 +1619,36 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 3.36
        }
       ]
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
+     "gt_tang_bat_ho_sua_nanh",
      "gt_tang_bat_ho_banh_qua",
-     "gt_tang_bat_ho_sua_nanh"
+     "gt_tang_bat_ho_banh_can",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tang_bat_ho_khach_san",
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tang_bat_ho_bar_ham",
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_tang_bat_ho_an_vat",
+     "gt_tang_bat_ho_giat_say",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_tang_bat_ho_sua_nanh",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tang_bat_ho_bar_ham",
+     "gt_don_den_duong",
+     "gt_tang_bat_ho_banh_can"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -1756,63 +1738,63 @@
      },
      {
       "padId": "pad_2",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "fl_vent",
+      "defId": "gt_tang_bat_ho_goc_cay",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_sua_nanh",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_sua_nanh",
+      "defId": "gt_tang_bat_ho_bar_ham",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_sua_nanh",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_bar_ham",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 1.3,
+   "hpMultiplier": 1.5,
    "balance": {
-    "randomWinWithExpectedGear": 0.6666666666666666,
+    "randomWinWithExpectedGear": 0.5,
     "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
+    "botLivesAvg": 19.333333333333332,
     "target": 0.5833333333333334
    },
    "stage": {
@@ -1935,7 +1917,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.5
        }
       ]
      },
@@ -1954,7 +1936,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.5
+        "hpScale": 1.73
        }
       ]
      },
@@ -1974,7 +1956,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.69
+        "hpScale": 1.95
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -1982,7 +1964,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.69
+        "hpScale": 1.95
        }
       ]
      },
@@ -2002,7 +1984,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.89
+        "hpScale": 2.17
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -2010,7 +1992,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.89
+        "hpScale": 2.17
        }
       ]
      },
@@ -2031,7 +2013,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.55
        },
        {
         "enemyId": "ge_tang_bat_ho_1",
@@ -2039,7 +2021,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.55
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -2047,7 +2029,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.55
        }
       ]
      },
@@ -2068,7 +2050,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 3
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -2076,7 +2058,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 3
        },
        {
         "enemyId": "ge_tang_bat_ho_1",
@@ -2084,7 +2066,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 3
        }
       ]
      },
@@ -2105,7 +2087,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -2113,7 +2095,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -2121,7 +2103,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 3.6
        }
       ]
      },
@@ -2142,7 +2124,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -2150,7 +2132,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -2158,39 +2140,36 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 4.2
        }
       ]
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
+     "gt_tang_bat_ho_banh_can",
      "gt_tang_bat_ho_banh_qua",
      "gt_tang_bat_ho_sua_nanh",
-     "gt_tang_bat_ho_banh_can"
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tang_bat_ho_khach_san",
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tang_bat_ho_bar_ham",
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_tang_bat_ho_an_vat",
+     "gt_tang_bat_ho_giat_say",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_tang_bat_ho_banh_can",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_don_den_duong",
+     "gt_tang_bat_ho_khach_san"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -2280,61 +2259,61 @@
      },
      {
       "padId": "pad_2",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "fl_vent",
+      "defId": "gt_tang_bat_ho_goc_cay",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_banh_can",
+      "defId": "gt_tang_bat_ho_khach_san",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_banh_can",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_khach_san",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_banh_can",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 0.6,
+   "hpMultiplier": 0.9,
    "balance": {
-    "randomWinWithExpectedGear": 0.5625,
+    "randomWinWithExpectedGear": 0.4166666666666667,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.55
@@ -2447,7 +2426,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.6
+        "hpScale": 0.9
        }
       ]
      },
@@ -2466,7 +2445,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.69
+        "hpScale": 1.03
        }
       ]
      },
@@ -2486,7 +2465,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.78
+        "hpScale": 1.17
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -2494,7 +2473,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 0.78
+        "hpScale": 1.17
        }
       ]
      },
@@ -2514,7 +2493,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.87
+        "hpScale": 1.31
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -2522,7 +2501,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 0.87
+        "hpScale": 1.31
        }
       ]
      },
@@ -2543,7 +2522,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.02
+        "hpScale": 1.53
        },
        {
         "enemyId": "ge_tang_bat_ho_2",
@@ -2551,7 +2530,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.02
+        "hpScale": 1.53
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -2559,7 +2538,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.02
+        "hpScale": 1.53
        }
       ]
      },
@@ -2580,7 +2559,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 1.8
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -2588,7 +2567,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 1.8
        },
        {
         "enemyId": "ge_tang_bat_ho_2",
@@ -2596,7 +2575,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 1.8
        }
       ]
      },
@@ -2617,7 +2596,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.44
+        "hpScale": 2.16
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -2625,7 +2604,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.44
+        "hpScale": 2.16
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -2633,7 +2612,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.44
+        "hpScale": 2.16
        }
       ]
      },
@@ -2654,7 +2633,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -2662,7 +2641,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -2670,40 +2649,36 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.68
+        "hpScale": 2.52
        }
       ]
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
+     "gt_tang_bat_ho_goc_cay",
      "gt_tang_bat_ho_banh_qua",
      "gt_tang_bat_ho_sua_nanh",
      "gt_tang_bat_ho_banh_can",
-     "gt_tang_bat_ho_goc_cay"
+     "gt_tang_bat_ho_khach_san",
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tang_bat_ho_bar_ham",
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_tang_bat_ho_an_vat",
+     "gt_tang_bat_ho_giat_say",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_tang_bat_ho_goc_cay",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tang_bat_ho_an_vat",
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_don_den_duong",
+     "gt_tang_bat_ho_banh_can"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -2788,12 +2763,12 @@
     "botPlan": [
      {
       "padId": "pad_1",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_2",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_an_vat",
       "preferredBranch": "B"
      },
      {
@@ -2803,53 +2778,53 @@
      },
      {
       "padId": "pad_4",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_an_vat",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_an_vat",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 1.3,
+   "hpMultiplier": 1.4,
    "balance": {
-    "randomWinWithExpectedGear": 0.5,
+    "randomWinWithExpectedGear": 0.5208333333333334,
     "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
+    "botLivesAvg": 18.333333333333332,
     "target": 0.5166666666666667
    },
    "stage": {
@@ -2960,7 +2935,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.4
        }
       ]
      },
@@ -2979,7 +2954,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.5
+        "hpScale": 1.61
        }
       ]
      },
@@ -2999,7 +2974,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.69
+        "hpScale": 1.82
        },
        {
         "enemyId": "ge_tang_bat_ho_2",
@@ -3007,7 +2982,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.69
+        "hpScale": 1.82
        }
       ]
      },
@@ -3027,7 +3002,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.89
+        "hpScale": 2.03
        },
        {
         "enemyId": "ge_tang_bat_ho_3",
@@ -3035,7 +3010,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.89
+        "hpScale": 2.03
        }
       ]
      },
@@ -3055,7 +3030,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.38
        },
        {
         "enemyId": "ge_tang_bat_ho_3",
@@ -3063,7 +3038,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.38
        }
       ]
      },
@@ -3083,7 +3058,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -3091,7 +3066,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 2.8
        }
       ]
      },
@@ -3111,7 +3086,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tang_bat_ho_1",
@@ -3119,7 +3094,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 3.36
        }
       ]
      },
@@ -3140,7 +3115,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_tang_bat_ho_2",
@@ -3148,7 +3123,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_tang_bat_ho_3",
@@ -3156,7 +3131,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -3164,41 +3139,36 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.92
        }
       ]
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
+     "gt_tang_bat_ho_khach_san",
      "gt_tang_bat_ho_banh_qua",
      "gt_tang_bat_ho_sua_nanh",
      "gt_tang_bat_ho_banh_can",
      "gt_tang_bat_ho_goc_cay",
-     "gt_tang_bat_ho_khach_san"
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tang_bat_ho_bar_ham",
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_tang_bat_ho_an_vat",
+     "gt_tang_bat_ho_giat_say",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_tang_bat_ho_khach_san",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_don_den_duong",
+     "gt_tang_bat_ho_banh_can"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -3288,52 +3258,52 @@
      },
      {
       "padId": "pad_2",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "fl_vent",
+      "defId": "gt_tang_bat_ho_goc_cay",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_khach_san",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_khach_san",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_khach_san",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_khach_san",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_khach_san",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      }
     ]
@@ -3342,9 +3312,9 @@
   {
    "hpMultiplier": 1.7,
    "balance": {
-    "randomWinWithExpectedGear": 0.4375,
+    "randomWinWithExpectedGear": 0.4791666666666667,
     "botWinRate": 1,
-    "botLivesAvg": 17.666666666666668,
+    "botLivesAvg": 15.333333333333334,
     "target": 0.4833333333333334
    },
    "stage": {
@@ -3674,36 +3644,30 @@
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
+     "gt_tang_bat_ho_thue_xe",
      "gt_tang_bat_ho_banh_qua",
      "gt_tang_bat_ho_sua_nanh",
      "gt_tang_bat_ho_banh_can",
      "gt_tang_bat_ho_goc_cay",
      "gt_tang_bat_ho_khach_san",
-     "gt_tang_bat_ho_thue_xe"
+     "gt_tang_bat_ho_bar_ham",
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_tang_bat_ho_an_vat",
+     "gt_tang_bat_ho_giat_say",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_tang_bat_ho_thue_xe",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_don_den_duong",
+     "gt_tang_bat_ho_banh_can"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -3793,52 +3757,52 @@
      },
      {
       "padId": "pad_2",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "fl_vent",
+      "defId": "gt_tang_bat_ho_goc_cay",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_thue_xe",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_thue_xe",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_thue_xe",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      }
     ]
@@ -3847,7 +3811,7 @@
   {
    "hpMultiplier": 1.3,
    "balance": {
-    "randomWinWithExpectedGear": 0.4375,
+    "randomWinWithExpectedGear": 0.4583333333333333,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.45000000000000007
@@ -4179,37 +4143,30 @@
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
+     "gt_tang_bat_ho_bar_ham",
      "gt_tang_bat_ho_banh_qua",
      "gt_tang_bat_ho_sua_nanh",
      "gt_tang_bat_ho_banh_can",
      "gt_tang_bat_ho_goc_cay",
      "gt_tang_bat_ho_khach_san",
      "gt_tang_bat_ho_thue_xe",
-     "gt_tang_bat_ho_bar_ham"
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_tang_bat_ho_an_vat",
+     "gt_tang_bat_ho_giat_say",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_tang_bat_ho_bar_ham",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_don_den_duong",
+     "gt_tang_bat_ho_banh_can"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -4299,63 +4256,63 @@
      },
      {
       "padId": "pad_2",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "fl_vent",
+      "defId": "gt_tang_bat_ho_goc_cay",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_bar_ham",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_bar_ham",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_bar_ham",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_bar_ham",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_bar_ham",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 1.2,
+   "hpMultiplier": 1.3,
    "balance": {
-    "randomWinWithExpectedGear": 0.5,
+    "randomWinWithExpectedGear": 0.4791666666666667,
     "botWinRate": 1,
-    "botLivesAvg": 17.333333333333332,
+    "botLivesAvg": 18.333333333333332,
     "target": 0.4166666666666667
    },
    "stage": {
@@ -4476,7 +4433,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 1.3
        }
       ]
      },
@@ -4495,7 +4452,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.38
+        "hpScale": 1.5
        }
       ]
      },
@@ -4515,7 +4472,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.56
+        "hpScale": 1.69
        },
        {
         "enemyId": "ge_tang_bat_ho_3",
@@ -4523,7 +4480,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 1.56
+        "hpScale": 1.69
        }
       ]
      },
@@ -4543,7 +4500,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.74
+        "hpScale": 1.89
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -4551,7 +4508,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.74
+        "hpScale": 1.89
        }
       ]
      },
@@ -4571,7 +4528,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.04
+        "hpScale": 2.21
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -4579,7 +4536,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.04
+        "hpScale": 2.21
        }
       ]
      },
@@ -4600,7 +4557,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 2.4
+        "hpScale": 2.6
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -4608,7 +4565,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.6
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -4616,7 +4573,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.4
+        "hpScale": 2.6
        }
       ]
      },
@@ -4637,7 +4594,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 3.12
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -4645,7 +4602,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.88
+        "hpScale": 3.12
        },
        {
         "enemyId": "ge_tang_bat_ho_1",
@@ -4653,7 +4610,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 3.12
        }
       ]
      },
@@ -4675,7 +4632,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 3.36
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_tang_bat_ho_3",
@@ -4683,7 +4640,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -4691,7 +4648,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 3.36
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -4699,7 +4656,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -4707,27 +4664,13 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 3.36
+        "hpScale": 3.64
        }
       ]
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
+     "gt_tang_bat_ho_cafe_xe_dap",
      "gt_tang_bat_ho_banh_qua",
      "gt_tang_bat_ho_sua_nanh",
      "gt_tang_bat_ho_banh_can",
@@ -4735,16 +4678,22 @@
      "gt_tang_bat_ho_khach_san",
      "gt_tang_bat_ho_thue_xe",
      "gt_tang_bat_ho_bar_ham",
-     "gt_tang_bat_ho_cafe_xe_dap"
+     "gt_tang_bat_ho_an_vat",
+     "gt_tang_bat_ho_giat_say",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_tang_bat_ho_cafe_xe_dap",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_don_den_duong",
+     "gt_tang_bat_ho_banh_can"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -4834,63 +4783,63 @@
      },
      {
       "padId": "pad_2",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "fl_vent",
+      "defId": "gt_tang_bat_ho_goc_cay",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_cafe_xe_dap",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_cafe_xe_dap",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_cafe_xe_dap",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_cafe_xe_dap",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 1.1,
+   "hpMultiplier": 1.2,
    "balance": {
-    "randomWinWithExpectedGear": 0.5208333333333334,
+    "randomWinWithExpectedGear": 0.4583333333333333,
     "botWinRate": 1,
-    "botLivesAvg": 19,
+    "botLivesAvg": 18.333333333333332,
     "target": 0.38333333333333336
    },
    "stage": {
@@ -5011,7 +4960,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.1
+        "hpScale": 1.2
        }
       ]
      },
@@ -5030,7 +4979,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.26
+        "hpScale": 1.38
        }
       ]
      },
@@ -5050,7 +4999,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.43
+        "hpScale": 1.56
        },
        {
         "enemyId": "ge_tang_bat_ho_2",
@@ -5058,7 +5007,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 1.43
+        "hpScale": 1.56
        }
       ]
      },
@@ -5078,7 +5027,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.6
+        "hpScale": 1.74
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -5086,7 +5035,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 1.74
        }
       ]
      },
@@ -5106,7 +5055,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.87
+        "hpScale": 2.04
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -5114,7 +5063,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 1.87
+        "hpScale": 2.04
        }
       ]
      },
@@ -5135,7 +5084,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 2.2
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -5143,7 +5092,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.2
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -5151,7 +5100,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.2
+        "hpScale": 2.4
        }
       ]
      },
@@ -5172,7 +5121,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.64
+        "hpScale": 2.88
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -5180,7 +5129,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.64
+        "hpScale": 2.88
        },
        {
         "enemyId": "ge_tang_bat_ho_1",
@@ -5188,7 +5137,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.64
+        "hpScale": 2.88
        }
       ]
      },
@@ -5211,7 +5160,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 3.08
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tang_bat_ho_2",
@@ -5219,7 +5168,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.08
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -5227,7 +5176,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 3.08
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -5235,7 +5184,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.08
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -5243,27 +5192,13 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 3.08
+        "hpScale": 3.36
        }
       ]
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
+     "gt_tang_bat_ho_an_vat",
      "gt_tang_bat_ho_banh_qua",
      "gt_tang_bat_ho_sua_nanh",
      "gt_tang_bat_ho_banh_can",
@@ -5272,16 +5207,21 @@
      "gt_tang_bat_ho_thue_xe",
      "gt_tang_bat_ho_bar_ham",
      "gt_tang_bat_ho_cafe_xe_dap",
-     "gt_tang_bat_ho_an_vat"
+     "gt_tang_bat_ho_giat_say",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_tang_bat_ho_an_vat",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_don_den_duong",
+     "gt_tang_bat_ho_banh_can"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -5371,52 +5311,52 @@
      },
      {
       "padId": "pad_2",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "fl_vent",
+      "defId": "gt_tang_bat_ho_goc_cay",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_an_vat",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_an_vat",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_an_vat",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_an_vat",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_an_vat",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      }
     ]
@@ -5425,7 +5365,7 @@
   {
    "hpMultiplier": 1.2,
    "balance": {
-    "randomWinWithExpectedGear": 0.3958333333333333,
+    "randomWinWithExpectedGear": 0.3541666666666667,
     "botWinRate": 1,
     "botLivesAvg": 19.333333333333332,
     "target": 0.35000000000000003
@@ -5788,21 +5728,7 @@
      }
     ],
     "towerIds": [
-     "wood_tower",
-     "metal_tower",
-     "water_tower",
-     "fire_tower",
-     "earth_tower",
-     "bk_swatter",
-     "bk_jar",
-     "bk_fan",
-     "bk_oven",
-     "bk_fridge",
-     "fl_can",
-     "fl_shears",
-     "fl_lime",
-     "fl_heater",
-     "fl_vent",
+     "gt_tang_bat_ho_giat_say",
      "gt_tang_bat_ho_banh_qua",
      "gt_tang_bat_ho_sua_nanh",
      "gt_tang_bat_ho_banh_can",
@@ -5812,16 +5738,20 @@
      "gt_tang_bat_ho_bar_ham",
      "gt_tang_bat_ho_cafe_xe_dap",
      "gt_tang_bat_ho_an_vat",
-     "gt_tang_bat_ho_giat_say"
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
     ],
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_tang_bat_ho_giat_say",
-     "metal_tower",
-     "fl_vent",
-     "bk_fridge",
-     "earth_tower",
-     "fire_tower"
+     "gt_tang_bat_ho_thue_xe",
+     "gt_tang_bat_ho_goc_cay",
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_don_den_duong",
+     "gt_tang_bat_ho_banh_can"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -5911,52 +5841,52 @@
      },
      {
       "padId": "pad_2",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "fl_vent",
+      "defId": "gt_tang_bat_ho_goc_cay",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_tang_bat_ho_giat_say",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_giat_say",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_giat_say",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_banh_can",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "fire_tower",
+      "defId": "gt_tang_bat_ho_giat_say",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_tang_bat_ho_giat_say",
+      "defId": "gt_tang_bat_ho_thue_xe",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "metal_tower",
+      "defId": "gt_tang_bat_ho_sua_nanh",
       "preferredBranch": "A"
      }
     ]
