@@ -554,6 +554,11 @@ export function statShort(st: GearStat): string {
   return `${STAT_ICON[st.kind]} ${STAT_NAME[st.kind]} ${statValueShort(st)}`;
 }
 
+/** Gọn nhất: chỉ biểu tượng + số (vd "🎯 8%") — câu đầy đủ xem bằng statText (anh Kha 24/11: bớt chữ) */
+export function statTiny(st: GearStat): string {
+  return `${STAT_ICON[st.kind]} ${statValueShort(st)}`;
+}
+
 /** Chip tổng sức mạnh gọn: [{icon, value, full}] — chỉ các mục khác 0 */
 export function bonusChips(b: GearBonus): { icon: string; value: string; full: string }[] {
   const out: { icon: string; value: string; full: string }[] = [];

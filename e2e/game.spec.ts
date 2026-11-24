@@ -577,8 +577,8 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     await page.getByTestId('gear-slot-glasses').click();
     const picker = page.getByTestId('td-gear-picker');
     await expect(picker).toBeVisible();
-    await expect(picker).toContainText('Chống lưng A');
-    await expect(picker).toContainText('Chống lưng B');
+    await expect(picker.locator('.td-sup-pill[title^="Chống lưng A"]')).toHaveCount(1);
+    await expect(picker.locator('.td-sup-pill[title^="Chống lưng B"]')).toHaveCount(1);
     await expect(picker).toContainText('Kính Râm Tròng Cam');
     await picker.scrollIntoViewIfNeeded();
     await page.waitForTimeout(180);
@@ -1081,7 +1081,7 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
 
     const gearBox = page.getByTestId('td-gear-box');
     await gearBox.scrollIntoViewIfNeeded();
-    await expect(gearBox).toContainText('Món chống lưng đúng hành sẽ sáng dòng ẩn');
+    await expect(page.locator('#td-gear-head')).toContainText('👕 2/10');
 
     // Nút ? mở bảng luật đầy đủ rồi đóng lại
     await page.locator('#btn-gear-rules').click();

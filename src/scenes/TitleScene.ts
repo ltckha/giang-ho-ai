@@ -9,6 +9,7 @@ import {
   previewEquip,
   RARITY_LABEL,
   statShort,
+  statTiny,
   statText,
   supporterSlots,
   type GearSlotId,
@@ -314,17 +315,11 @@ export class TitleScene extends Phaser.Scene {
             <button type="button" class="td-close-btn td-sheet-close" data-close-sheet aria-label="Đóng">✕</button>
         <div class="td-stage-tag-box td-gear-panel ${this.reduceMotion ? 'no-anim' : ''}" id="td-gear-box" data-testid="td-gear-box">
           <div class="td-gear-header-row">
-            <div>
-              <div class="td-stage-kicker">TRANG BỊ CHỦ TIỆM • 10 Ô NGŨ HÀNH</div>
-              <div class="td-gear-title" id="td-gear-head"></div>
-            </div>
+            <div class="td-gear-title" id="td-gear-head"></div>
             <div class="td-gear-header-right">
-              <div class="td-gear-bag-pill" id="td-gear-inv-count"></div>
+              <div class="td-gear-bag-pill" id="td-gear-inv-count" data-tip="Số món trong kho"></div>
+              <button type="button" class="td-gear-help-btn" id="btn-gear-rules" data-testid="btn-gear-rules" aria-expanded="false" title="Xem luật trang bị">?</button>
             </div>
-          </div>
-          <div class="td-gear-compact-hint">
-            <span>Món chống lưng đúng hành sẽ sáng dòng ẩn <strong>●</strong></span>
-            <button type="button" class="td-gear-help-btn" id="btn-gear-rules" data-testid="btn-gear-rules" aria-expanded="false" title="Xem luật trang bị đầy đủ">?</button>
           </div>
           <div id="td-gear-rules-wrap"></div>
           <div id="td-gear-fullring-banner"></div>
@@ -1100,14 +1095,15 @@ export class TitleScene extends Phaser.Scene {
 
       const head = root.querySelector<HTMLDivElement>('#td-gear-head');
       if (head) {
-        head.textContent = bonus.fullRing
-          ? `Ngũ Hành Viên Mãn! (${bonus.activeLines}/${bonus.totalHiddenLines} ●)`
-          : `Đang mặc ${wornCount}/10 • Sáng ${bonus.activeLines}/${bonus.totalHiddenLines} ●`;
+        // Gọn chữ (anh Kha 24/11): chỉ số + biểu tượng, chạm giữ xem tên
+        head.innerHTML = `<span class="td-gear-headchip" title="Đang mặc">👕 ${wornCount}/10</span>`
+          + `<span class="td-gear-headchip ${bonus.activeLines ? 'lit' : ''}" title="Dòng ẩn đang sáng">● ${bonus.activeLines}/${bonus.totalHiddenLines}</span>`
+          + (bonus.fullRing ? `<span class="td-gear-headchip lit" title="Ngũ hành viên mãn">✦</span>` : '');
       }
 
       const invBadge = root.querySelector<HTMLDivElement>('#td-gear-inv-count');
       if (invBadge) {
-        invBadge.textContent = `Kho: ${invLen}`;
+        invBadge.textContent = `🎒 ${invLen}`;
       }
 
       // 1. Nút "?" mở luật đầy đủ
@@ -1343,13 +1339,13 @@ export class TitleScene extends Phaser.Scene {
                   </span>`;
                 })
                 .join('')
-            : `<span class="td-set-compact-empty">Chưa mặc món theo bộ</span>`;
+            : '';
 
           setsWrap.innerHTML = `
             <div class="td-set-compact-bar">
               <div class="td-set-compact-pills">${compactPills}</div>
               <button type="button" class="td-set-toggle-btn" id="btn-toggle-gear-sets" data-testid="btn-toggle-gear-sets">
-                Đủ 4 bộ ▾
+                Bộ đồ ▾
               </button>
             </div>
           `;
@@ -1406,7 +1402,7 @@ export class TitleScene extends Phaser.Scene {
           selectedBonusChipIdx = null;
         }
         if (chipsData.length === 0) {
-          sum.innerHTML = `<div class="td-stage-sub">Chưa đeo trang bị. Chạm vào ô quanh chủ tiệm để mặc đồ!</div>`;
+          sum.innerHTML = '';
         } else {
           const chipsHtml = chipsData
             .map((chip, idx) => {
@@ -1440,7 +1436,6 @@ export class TitleScene extends Phaser.Scene {
 
           const activeChip = selectedBonusChipIdx !== null ? chipsData[selectedBonusChipIdx] : null;
           sum.innerHTML = `
-            <div class="td-gear-section-label">Tổng sức mạnh (chạm chip xem chi tiết)</div>
             <div class="td-sum-chips">${chipsHtml}</div>
             ${
               activeChip
@@ -1476,15 +1471,13 @@ export class TitleScene extends Phaser.Scene {
       const supLabel = (id: GearSlotId) => GEAR_SLOTS.find((x) => x.id === id)!.label;
       const needEl = currentItem ? getGeneratorElementFor(currentItem.element) : null;
 
+      // Gọn chữ: chỉ còn A●/B○ + hình hành cần (tên đầy đủ khi chạm giữ)
+      const needUrl = needEl ? getAtlasFrameDataUrl(this, `el_${needEl}`) : '';
       const supHintHtml = `
         <div class="td-sup-info-bar">
-          <span class="td-sup-pill ${supState.aActive ? 'lit' : ''}">
-            ${supState.aActive ? '●' : '○'} Chống lưng A: <strong>${supLabel(supState.supA)}</strong>${eq[supState.supA] ? ` (${ELEMENT_INFO[eq[supState.supA]!.element].label})` : ''}
-          </span>
-          <span class="td-sup-pill ${supState.bActive ? 'lit' : ''}">
-            ${supState.bActive ? '●' : '○'} Chống lưng B: <strong>${supLabel(supState.supB)}</strong>${eq[supState.supB] ? ` (${ELEMENT_INFO[eq[supState.supB]!.element].label})` : ''}
-          </span>
-          ${needEl ? `<span class="td-sup-need">Cần <strong>${ELEMENT_INFO[needEl].label}</strong></span>` : ''}
+          <span class="td-sup-pill ${supState.aActive ? 'lit' : ''}" title="Chống lưng A: ${supLabel(supState.supA)}">A ${supState.aActive ? '●' : '○'}</span>
+          <span class="td-sup-pill ${supState.bActive ? 'lit' : ''}" title="Chống lưng B: ${supLabel(supState.supB)}">B ${supState.bActive ? '●' : '○'}</span>
+          ${needEl ? `<span class="td-sup-need" title="Hai ô A, B cần mặc đồ hành ${ELEMENT_INFO[needEl].label}">⇢ ${needUrl ? `<img class="td-badge-el-icon" src="${needUrl}" alt="${ELEMENT_INFO[needEl].label}" />` : ELEMENT_INFO[needEl].label}</span>` : ''}
         </div>
       `;
 
@@ -1519,7 +1512,7 @@ export class TitleScene extends Phaser.Scene {
                       : prev.linesDelta < 0 || dmgPct < 0
                         ? 'bad'
                         : 'neutral';
-                  const cmpText = parts.length > 0 ? `Mặc vào: ${parts.join(' · ')}` : 'Mặc vào: ngang sức hiện tại';
+                  const cmpText = parts.length > 0 ? `${tone === 'bad' ? '▼' : '▲'} ${parts.join(' · ')}` : '＝';
                   previewHtml = `
                     <div class="td-gear-preview ${tone}" data-testid="gear-preview-${it.uid}">
                       <span>${cmpText}</span>
@@ -1533,7 +1526,7 @@ export class TitleScene extends Phaser.Scene {
                     const key = `${it.uid}:v:${sIdx}`;
                     const showFull = revealedStatKey === key;
                     return `<div class="td-gear-stat-row td-stat-compact" data-stat-key="${key}" title="Giữ hoặc chạm 2 lần xem chi tiết">
-                      <span>${showFull ? statText(st) : statShort(st)}</span>
+                      <span>${showFull ? statText(st) : statTiny(st)}</span>
                     </div>`;
                   })
                   .join('');
@@ -1546,7 +1539,7 @@ export class TitleScene extends Phaser.Scene {
                     return `
                       <div class="td-gear-stat-row td-stat-compact hidden ${isLit ? 'lit' : ''}" data-stat-key="${key}" title="Giữ hoặc chạm 2 lần xem chi tiết">
                         <span class="td-hidden-dot">${idx === 2 && isLit ? '✦' : isLit ? '●' : '○'}</span>
-                        <span>${showFull ? statText(st) : statShort(st)}</span>
+                        <span>${showFull ? statText(st) : statTiny(st)}</span>
                       </div>
                     `;
                   })
@@ -1566,13 +1559,12 @@ export class TitleScene extends Phaser.Scene {
                       <div class="td-gear-card-info">
                         <div class="td-gear-card-name-row">
                           <strong>${it.rarity === 'hieu' ? '★ ' : ''}${it.name}</strong>
-                          ${on ? '<span class="td-equipped-pill">Đang mặc</span>' : ''}
+                          ${on ? '<span class="td-equipped-pill" title="Đang mặc">✔</span>' : ''}
                         </div>
                         <div class="td-gear-card-badges">
-                          <span class="td-rarity-pill" style="background:${theme.badgeBg};color:${theme.badgeText}">${RARITY_LABEL[it.rarity]}</span>
-                          <span class="td-el-badge" style="background:${elInfo.colorHex}">
-                            ${elUrl ? `<img class="td-badge-el-icon" src="${elUrl}" alt="" />` : ''}
-                            ${elInfo.label}
+                          <span class="td-rarity-dot" style="background:${theme.badgeBg}" title="${RARITY_LABEL[it.rarity]}"></span>
+                          <span class="td-el-badge" style="background:${elInfo.colorHex}" title="Hành ${elInfo.label}">
+                            ${elUrl ? `<img class="td-badge-el-icon" src="${elUrl}" alt="${elInfo.label}" />` : elInfo.label}
                           </span>
                         </div>
                       </div>
@@ -1588,20 +1580,19 @@ export class TitleScene extends Phaser.Scene {
               .join('');
 
       const offBtn = currentItem
-        ? `<button type="button" class="td-gear-off-btn" data-gear-off="1">Cởi ${slotInfo.label}</button>`
+        ? `<button type="button" class="td-gear-off-btn" data-gear-off="1" title="Cởi ${slotInfo.label}">Cởi</button>`
         : '';
 
       pick.innerHTML = `
         <div class="td-gear-picker-drawer" data-testid="td-gear-picker">
           <div class="td-gear-picker-head">
-            <strong>Ô ${slotInfo.label}</strong>
+            <strong>${slotInfo.label}</strong>
             <div class="td-gear-picker-actions">
               ${offBtn}
               <button type="button" class="td-close-btn td-picker-close" id="btn-close-gear-pick" aria-label="Đóng">✕</button>
             </div>
           </div>
           ${supHintHtml}
-          <div class="td-gear-stat-tip">Giữ hoặc chạm 2 lần vào từng dòng để xem giải thích đầy đủ</div>
           <div class="td-gear-item-list">${listHtml}</div>
         </div>
       `;

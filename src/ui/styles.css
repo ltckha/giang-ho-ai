@@ -4051,3 +4051,18 @@ img.td-vehicle-ico { object-fit: contain; }
 @keyframes gpLiveIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 @keyframes gpLiveHeart { 0% { opacity: 0; transform: translateY(0) scale(0.6); } 15% { opacity: 1; } 100% { opacity: 0; transform: translateY(-240px) scale(1.2) rotate(-12deg); } }
 #gp-live.gp-live-clean { display: none; }
+
+/* Bảng trang bị gọn chữ (Claude 24/11) */
+.td-gear-title { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.td-gear-headchip { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 999px; background: #f3e6c8; color: #5a3a22; font-size: 14px; font-weight: 900; }
+.td-gear-headchip.lit { background: #ffe08a; color: #7a4a00; }
+.td-gear-header-right { display: flex; gap: 6px; align-items: center; }
+.td-rarity-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; border: 2px solid #2b1a12; }
+.td-gear-item-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.td-gear-item-list .td-gear-item-card { padding: 8px; }
+.td-gear-item-list .td-gear-card-name-row strong { font-size: 12px; line-height: 1.2; }
+.td-gear-item-list .td-compact-stats-grid { gap: 4px; }
+.td-gear-item-list .td-gear-stat-row { font-size: 12px; padding: 2px 6px; }
+.td-gear-item-list .td-gear-preview { font-size: 12px; padding: 2px 6px; }
+.td-gear-item-list .td-gear-empty-box { grid-column: 1 / -1; }
+.td-sup-need { display: inline-flex; align-items: center; gap: 4px; }
