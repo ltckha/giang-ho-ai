@@ -1,10 +1,10 @@
 {
  "generatedBy": "tools/level-maker/make-street.ts",
- "hpMultiplier": 1.6,
+ "hpMultiplier": 1.7,
  "balance": {
-  "randomWinWithExpectedGear": 0.3333333333333333,
+  "randomWinWithExpectedGear": 0.2708333333333333,
   "botWinRate": 1,
-  "botLivesAvg": 20,
+  "botLivesAvg": 18.666666666666668,
   "gearTier": "after_street_1"
  },
  "stage": {
@@ -217,7 +217,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 1.6
+      "hpScale": 1.7
      }
     ]
    },
@@ -236,7 +236,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 1,
-      "hpScale": 1.84
+      "hpScale": 1.95
      }
     ]
    },
@@ -256,7 +256,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 2.08
+      "hpScale": 2.21
      },
      {
       "enemyId": "ge_tang_bat_ho_p2",
@@ -264,7 +264,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 2.08
+      "hpScale": 2.21
      }
     ]
    },
@@ -284,7 +284,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 1,
-      "hpScale": 2.32
+      "hpScale": 2.47
      },
      {
       "enemyId": "ge_tang_bat_ho_p3",
@@ -292,7 +292,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.32
+      "hpScale": 2.47
      }
     ]
    },
@@ -312,7 +312,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 2.72
+      "hpScale": 2.89
      },
      {
       "enemyId": "ge_tang_bat_ho_p3",
@@ -320,7 +320,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 2.72
+      "hpScale": 2.89
      }
     ]
    },
@@ -341,7 +341,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 1,
-      "hpScale": 3.2
+      "hpScale": 3.4
      },
      {
       "enemyId": "ge_tang_bat_ho_p3",
@@ -349,7 +349,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.2
+      "hpScale": 3.4
      },
      {
       "enemyId": "ge_tang_bat_ho_p5",
@@ -357,7 +357,7 @@
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 3.2
+      "hpScale": 3.4
      }
     ]
    },
@@ -378,7 +378,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 3.84
+      "hpScale": 4.08
      },
      {
       "enemyId": "ge_tang_bat_ho_p4",
@@ -386,7 +386,7 @@
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 3.84
+      "hpScale": 4.08
      },
      {
       "enemyId": "ge_tang_bat_ho_p1",
@@ -394,7 +394,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.84
+      "hpScale": 4.08
      }
     ]
    },
@@ -415,7 +415,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 1,
-      "hpScale": 4.48
+      "hpScale": 4.76
      },
      {
       "enemyId": "ge_tang_bat_ho_p4",
@@ -423,7 +423,7 @@
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 4.48
+      "hpScale": 4.76
      },
      {
       "enemyId": "ge_tang_bat_ho_p6",
@@ -431,7 +431,7 @@
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 4.48
+      "hpScale": 4.76
      }
     ]
    },
@@ -452,7 +452,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 5.12
+      "hpScale": 5.44
      },
      {
       "enemyId": "ge_tang_bat_ho_p5",
@@ -460,7 +460,7 @@
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 5.12
+      "hpScale": 5.44
      },
      {
       "enemyId": "ge_tang_bat_ho_p1",
@@ -468,7 +468,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.12
+      "hpScale": 5.44
      }
     ]
    },
@@ -489,7 +489,7 @@
       "intervalSec": 1.2,
       "delayBeforeSec": 0,
       "pathIndex": 1,
-      "hpScale": 5.76
+      "hpScale": 6.12
      },
      {
       "enemyId": "ge_tang_bat_ho_p6",
@@ -497,7 +497,7 @@
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.76
+      "hpScale": 6.12
      },
      {
       "enemyId": "ge_tang_bat_ho_p2",
@@ -505,7 +505,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 5.76
+      "hpScale": 6.12
      }
     ]
    },
@@ -528,7 +528,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 6.4
+      "hpScale": 6.8
      },
      {
       "enemyId": "ge_tang_bat_ho_p2",
@@ -536,7 +536,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 6.4
+      "hpScale": 6.8
      },
      {
       "enemyId": "ge_tang_bat_ho_p3",
@@ -544,7 +544,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 6.4
+      "hpScale": 6.8
      },
      {
       "enemyId": "ge_tang_bat_ho_p4",
@@ -552,7 +552,7 @@
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 6.4
+      "hpScale": 6.8
      },
      {
       "enemyId": "ge_tang_bat_ho_p5",
@@ -560,7 +560,7 @@
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 6.4
+      "hpScale": 6.8
      },
      {
       "enemyId": "ge_tang_bat_ho_p6",
@@ -568,7 +568,7 @@
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 1,
-      "hpScale": 6.4
+      "hpScale": 6.8
      },
      {
       "enemyId": "ge_tang_bat_ho_trum",
@@ -576,7 +576,7 @@
       "intervalSec": 1,
       "delayBeforeSec": 3,
       "pathIndex": 0,
-      "hpScale": 0.96
+      "hpScale": 1.02
      }
     ]
    }
@@ -752,9 +752,9 @@
   {
    "hpMultiplier": 0.7,
    "balance": {
-    "randomWinWithExpectedGear": 0.625,
+    "randomWinWithExpectedGear": 0.5625,
     "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
+    "botLivesAvg": 20,
     "target": 0.65
    },
    "stage": {
@@ -1271,9 +1271,9 @@
   {
    "hpMultiplier": 1.2,
    "balance": {
-    "randomWinWithExpectedGear": 0.7291666666666666,
+    "randomWinWithExpectedGear": 0.5625,
     "botWinRate": 1,
-    "botLivesAvg": 20.333333333333332,
+    "botLivesAvg": 20.666666666666668,
     "target": 0.6166666666666667
    },
    "stage": {
@@ -1790,11 +1790,11 @@
    }
   },
   {
-   "hpMultiplier": 1.5,
+   "hpMultiplier": 1.4,
    "balance": {
-    "randomWinWithExpectedGear": 0.5,
+    "randomWinWithExpectedGear": 0.5208333333333334,
     "botWinRate": 1,
-    "botLivesAvg": 19.333333333333332,
+    "botLivesAvg": 15,
     "target": 0.5833333333333334
    },
    "stage": {
@@ -1917,7 +1917,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.5
+        "hpScale": 1.4
        }
       ]
      },
@@ -1936,7 +1936,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.73
+        "hpScale": 1.61
        }
       ]
      },
@@ -1956,7 +1956,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.95
+        "hpScale": 1.82
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -1964,7 +1964,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.95
+        "hpScale": 1.82
        }
       ]
      },
@@ -1984,7 +1984,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.17
+        "hpScale": 2.03
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -1992,7 +1992,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.17
+        "hpScale": 2.03
        }
       ]
      },
@@ -2013,7 +2013,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.55
+        "hpScale": 2.38
        },
        {
         "enemyId": "ge_tang_bat_ho_1",
@@ -2021,7 +2021,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.55
+        "hpScale": 2.38
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -2029,7 +2029,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.55
+        "hpScale": 2.38
        }
       ]
      },
@@ -2050,7 +2050,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -2058,7 +2058,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_tang_bat_ho_1",
@@ -2066,7 +2066,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3
+        "hpScale": 2.8
        }
       ]
      },
@@ -2087,7 +2087,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -2095,7 +2095,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -2103,7 +2103,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.36
        }
       ]
      },
@@ -2124,7 +2124,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -2132,7 +2132,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -2140,7 +2140,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 3.92
        }
       ]
      }
@@ -2311,9 +2311,9 @@
    }
   },
   {
-   "hpMultiplier": 0.9,
+   "hpMultiplier": 0.8,
    "balance": {
-    "randomWinWithExpectedGear": 0.4166666666666667,
+    "randomWinWithExpectedGear": 0.6041666666666666,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.55
@@ -2426,7 +2426,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.9
+        "hpScale": 0.8
        }
       ]
      },
@@ -2445,7 +2445,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.03
+        "hpScale": 0.92
        }
       ]
      },
@@ -2465,7 +2465,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.17
+        "hpScale": 1.04
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -2473,7 +2473,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.17
+        "hpScale": 1.04
        }
       ]
      },
@@ -2493,7 +2493,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.31
+        "hpScale": 1.16
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -2501,7 +2501,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.31
+        "hpScale": 1.16
        }
       ]
      },
@@ -2522,7 +2522,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.53
+        "hpScale": 1.36
        },
        {
         "enemyId": "ge_tang_bat_ho_2",
@@ -2530,7 +2530,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.53
+        "hpScale": 1.36
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -2538,7 +2538,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.53
+        "hpScale": 1.36
        }
       ]
      },
@@ -2559,7 +2559,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.8
+        "hpScale": 1.6
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -2567,7 +2567,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.8
+        "hpScale": 1.6
        },
        {
         "enemyId": "ge_tang_bat_ho_2",
@@ -2575,7 +2575,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.8
+        "hpScale": 1.6
        }
       ]
      },
@@ -2596,7 +2596,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.16
+        "hpScale": 1.92
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -2604,7 +2604,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.16
+        "hpScale": 1.92
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -2612,7 +2612,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.16
+        "hpScale": 1.92
        }
       ]
      },
@@ -2633,7 +2633,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.52
+        "hpScale": 2.24
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -2641,7 +2641,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.52
+        "hpScale": 2.24
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -2649,7 +2649,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.52
+        "hpScale": 2.24
        }
       ]
      }
@@ -2822,9 +2822,9 @@
   {
    "hpMultiplier": 1.4,
    "balance": {
-    "randomWinWithExpectedGear": 0.5208333333333334,
+    "randomWinWithExpectedGear": 0.5,
     "botWinRate": 1,
-    "botLivesAvg": 18.333333333333332,
+    "botLivesAvg": 17.666666666666668,
     "target": 0.5166666666666667
    },
    "stage": {
@@ -3312,9 +3312,9 @@
   {
    "hpMultiplier": 1.7,
    "balance": {
-    "randomWinWithExpectedGear": 0.4791666666666667,
+    "randomWinWithExpectedGear": 0.5,
     "botWinRate": 1,
-    "botLivesAvg": 15.333333333333334,
+    "botLivesAvg": 18.333333333333332,
     "target": 0.4833333333333334
    },
    "stage": {
@@ -3809,11 +3809,11 @@
    }
   },
   {
-   "hpMultiplier": 1.3,
+   "hpMultiplier": 1.2,
    "balance": {
-    "randomWinWithExpectedGear": 0.4583333333333333,
+    "randomWinWithExpectedGear": 0.5208333333333334,
     "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
+    "botLivesAvg": 19.333333333333332,
     "target": 0.45000000000000007
    },
    "stage": {
@@ -3932,7 +3932,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.2
        }
       ]
      },
@@ -3951,7 +3951,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.5
+        "hpScale": 1.38
        }
       ]
      },
@@ -3971,7 +3971,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.69
+        "hpScale": 1.56
        },
        {
         "enemyId": "ge_tang_bat_ho_3",
@@ -3979,7 +3979,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.69
+        "hpScale": 1.56
        }
       ]
      },
@@ -3999,7 +3999,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.89
+        "hpScale": 1.74
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -4007,7 +4007,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.89
+        "hpScale": 1.74
        }
       ]
      },
@@ -4027,7 +4027,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.04
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -4035,7 +4035,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.04
        }
       ]
      },
@@ -4055,7 +4055,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -4063,7 +4063,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 2.4
        }
       ]
      },
@@ -4083,7 +4083,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 2.88
        },
        {
         "enemyId": "ge_tang_bat_ho_2",
@@ -4091,7 +4091,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 2.88
        }
       ]
      },
@@ -4113,7 +4113,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tang_bat_ho_3",
@@ -4121,7 +4121,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -4129,7 +4129,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -4137,7 +4137,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.36
        }
       ]
      }
@@ -4308,11 +4308,11 @@
    }
   },
   {
-   "hpMultiplier": 1.3,
+   "hpMultiplier": 1.2,
    "balance": {
     "randomWinWithExpectedGear": 0.4791666666666667,
     "botWinRate": 1,
-    "botLivesAvg": 18.333333333333332,
+    "botLivesAvg": 18,
     "target": 0.4166666666666667
    },
    "stage": {
@@ -4433,7 +4433,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.2
        }
       ]
      },
@@ -4452,7 +4452,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.5
+        "hpScale": 1.38
        }
       ]
      },
@@ -4472,7 +4472,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.69
+        "hpScale": 1.56
        },
        {
         "enemyId": "ge_tang_bat_ho_3",
@@ -4480,7 +4480,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 1.69
+        "hpScale": 1.56
        }
       ]
      },
@@ -4500,7 +4500,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.89
+        "hpScale": 1.74
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -4508,7 +4508,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.89
+        "hpScale": 1.74
        }
       ]
      },
@@ -4528,7 +4528,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.04
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -4536,7 +4536,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.21
+        "hpScale": 2.04
        }
       ]
      },
@@ -4557,7 +4557,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 2.6
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -4565,7 +4565,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -4573,7 +4573,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.6
+        "hpScale": 2.4
        }
       ]
      },
@@ -4594,7 +4594,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 2.88
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -4602,7 +4602,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 3.12
+        "hpScale": 2.88
        },
        {
         "enemyId": "ge_tang_bat_ho_1",
@@ -4610,7 +4610,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 2.88
        }
       ]
      },
@@ -4632,7 +4632,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 3.64
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tang_bat_ho_3",
@@ -4640,7 +4640,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -4648,7 +4648,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 3.64
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -4656,7 +4656,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -4664,7 +4664,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 3.64
+        "hpScale": 3.36
        }
       ]
      }
@@ -4835,11 +4835,11 @@
    }
   },
   {
-   "hpMultiplier": 1.2,
+   "hpMultiplier": 1,
    "balance": {
-    "randomWinWithExpectedGear": 0.4583333333333333,
+    "randomWinWithExpectedGear": 0.4166666666666667,
     "botWinRate": 1,
-    "botLivesAvg": 18.333333333333332,
+    "botLivesAvg": 20.666666666666668,
     "target": 0.38333333333333336
    },
    "stage": {
@@ -4960,7 +4960,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 1
        }
       ]
      },
@@ -4979,7 +4979,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.38
+        "hpScale": 1.15
        }
       ]
      },
@@ -4999,7 +4999,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.56
+        "hpScale": 1.3
        },
        {
         "enemyId": "ge_tang_bat_ho_2",
@@ -5007,7 +5007,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 1.56
+        "hpScale": 1.3
        }
       ]
      },
@@ -5027,7 +5027,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.74
+        "hpScale": 1.45
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -5035,7 +5035,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.74
+        "hpScale": 1.45
        }
       ]
      },
@@ -5055,7 +5055,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.04
+        "hpScale": 1.7
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -5063,7 +5063,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.04
+        "hpScale": 1.7
        }
       ]
      },
@@ -5084,7 +5084,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 2.4
+        "hpScale": 2
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -5092,7 +5092,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -5100,7 +5100,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.4
+        "hpScale": 2
        }
       ]
      },
@@ -5121,7 +5121,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -5129,7 +5129,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.88
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_tang_bat_ho_1",
@@ -5137,7 +5137,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 2.4
        }
       ]
      },
@@ -5160,7 +5160,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 3.36
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_tang_bat_ho_2",
@@ -5168,7 +5168,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_tang_bat_ho_4",
@@ -5176,7 +5176,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 3.36
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_tang_bat_ho_5",
@@ -5184,7 +5184,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_tang_bat_ho_6",
@@ -5192,7 +5192,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 3.36
+        "hpScale": 2.8
        }
       ]
      }
@@ -5365,9 +5365,9 @@
   {
    "hpMultiplier": 1.2,
    "balance": {
-    "randomWinWithExpectedGear": 0.3541666666666667,
+    "randomWinWithExpectedGear": 0.2916666666666667,
     "botWinRate": 1,
-    "botLivesAvg": 19.333333333333332,
+    "botLivesAvg": 15.666666666666666,
     "target": 0.35000000000000003
    },
    "stage": {

@@ -1321,6 +1321,8 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     await expect(resultModal).toContainText('PHỐ SẠCH BÓNG!');
     await expect(page.getByTestId('td-result-badge')).toContainText('Giữ trọn phố');
     await expect(page.getByTestId('td-result-drops')).toContainText('Hàng hiệu');
+    // Thắng trùm → có nút vào tiệm đầu tiên của phố thật (kiểm tra thực tế 24/11)
+    await expect(page.getByTestId('btn-next-street-stage')).toBeVisible();
     await page.waitForTimeout(950);
     await page.screenshot({ path: 'docs/screenshots/v8_stage4_victory.png' });
 

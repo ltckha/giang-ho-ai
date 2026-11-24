@@ -4,7 +4,7 @@
  "balance": {
   "randomWinWithExpectedGear": 0.22916666666666666,
   "botWinRate": 1,
-  "botLivesAvg": 13.333333333333334,
+  "botLivesAvg": 13.666666666666666,
   "gearTier": "after_street_1"
  },
  "stage": {
@@ -702,11 +702,11 @@
  },
  "shops": [
   {
-   "hpMultiplier": 0.9,
+   "hpMultiplier": 0.8,
    "balance": {
-    "randomWinWithExpectedGear": 0.6458333333333334,
+    "randomWinWithExpectedGear": 0.5416666666666666,
     "botWinRate": 1,
-    "botLivesAvg": 18.333333333333332,
+    "botLivesAvg": 19.333333333333332,
     "target": 0.65
    },
    "stage": {
@@ -827,7 +827,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.9
+        "hpScale": 0.8
        }
       ]
      },
@@ -846,7 +846,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.03
+        "hpScale": 0.92
        }
       ]
      },
@@ -866,7 +866,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.17
+        "hpScale": 1.04
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -874,7 +874,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 1.17
+        "hpScale": 1.04
        }
       ]
      },
@@ -894,7 +894,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.31
+        "hpScale": 1.16
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -902,7 +902,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.31
+        "hpScale": 1.16
        }
       ]
      },
@@ -923,7 +923,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.53
+        "hpScale": 1.36
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -931,7 +931,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 1.53
+        "hpScale": 1.36
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -939,7 +939,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.53
+        "hpScale": 1.36
        }
       ]
      },
@@ -960,7 +960,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.8
+        "hpScale": 1.6
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -968,7 +968,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.8
+        "hpScale": 1.6
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -976,7 +976,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 1.8
+        "hpScale": 1.6
        }
       ]
      },
@@ -997,7 +997,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.16
+        "hpScale": 1.92
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -1005,7 +1005,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.16
+        "hpScale": 1.92
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -1013,7 +1013,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.16
+        "hpScale": 1.92
        }
       ]
      },
@@ -1034,7 +1034,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 2.52
+        "hpScale": 2.24
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -1042,7 +1042,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.52
+        "hpScale": 2.24
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -1050,7 +1050,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.52
+        "hpScale": 2.24
        }
       ]
      }
@@ -1205,9 +1205,9 @@
    }
   },
   {
-   "hpMultiplier": 1,
+   "hpMultiplier": 0.8,
    "balance": {
-    "randomWinWithExpectedGear": 0.5833333333333334,
+    "randomWinWithExpectedGear": 0.6666666666666666,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.6071428571428572
@@ -1330,7 +1330,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1
+        "hpScale": 0.8
        }
       ]
      },
@@ -1349,7 +1349,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.15
+        "hpScale": 0.92
        }
       ]
      },
@@ -1369,7 +1369,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.04
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -1377,7 +1377,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 1.3
+        "hpScale": 1.04
        }
       ]
      },
@@ -1397,7 +1397,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.45
+        "hpScale": 1.16
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -1405,7 +1405,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.45
+        "hpScale": 1.16
        }
       ]
      },
@@ -1426,7 +1426,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 1.36
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -1434,7 +1434,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 1.7
+        "hpScale": 1.36
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -1442,7 +1442,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 1.36
        }
       ]
      },
@@ -1463,7 +1463,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 2
+        "hpScale": 1.6
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -1471,7 +1471,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 1.6
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -1479,7 +1479,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2
+        "hpScale": 1.6
        }
       ]
      },
@@ -1500,7 +1500,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 1.92
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -1508,7 +1508,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.4
+        "hpScale": 1.92
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -1516,7 +1516,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 1.92
        }
       ]
      },
@@ -1537,7 +1537,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 2.8
+        "hpScale": 2.24
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -1545,7 +1545,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.24
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -1553,7 +1553,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.8
+        "hpScale": 2.24
        }
       ]
      }
@@ -1710,9 +1710,9 @@
   {
    "hpMultiplier": 1.2,
    "balance": {
-    "randomWinWithExpectedGear": 0.625,
+    "randomWinWithExpectedGear": 0.5625,
     "botWinRate": 1,
-    "botLivesAvg": 19.333333333333332,
+    "botLivesAvg": 20.333333333333332,
     "target": 0.5642857142857143
    },
    "stage": {
@@ -2213,11 +2213,11 @@
    }
   },
   {
-   "hpMultiplier": 1.2,
+   "hpMultiplier": 1.3,
    "balance": {
-    "randomWinWithExpectedGear": 0.5208333333333334,
+    "randomWinWithExpectedGear": 0.4583333333333333,
     "botWinRate": 1,
-    "botLivesAvg": 20,
+    "botLivesAvg": 16,
     "target": 0.5214285714285715
    },
    "stage": {
@@ -2340,7 +2340,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 1.3
        }
       ]
      },
@@ -2359,7 +2359,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.38
+        "hpScale": 1.5
        }
       ]
      },
@@ -2379,7 +2379,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.56
+        "hpScale": 1.69
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -2387,7 +2387,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.56
+        "hpScale": 1.69
        }
       ]
      },
@@ -2407,7 +2407,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.74
+        "hpScale": 1.89
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -2415,7 +2415,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.74
+        "hpScale": 1.89
        }
       ]
      },
@@ -2435,7 +2435,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.04
+        "hpScale": 2.21
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -2443,7 +2443,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.04
+        "hpScale": 2.21
        }
       ]
      },
@@ -2463,7 +2463,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.6
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -2471,7 +2471,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.6
        }
       ]
      },
@@ -2491,7 +2491,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 3.12
        },
        {
         "enemyId": "ge_pho_ca_phe_1",
@@ -2499,7 +2499,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 3.12
        }
       ]
      },
@@ -2521,7 +2521,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -2529,7 +2529,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -2537,7 +2537,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -2545,7 +2545,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.64
        }
       ]
      }
@@ -2700,11 +2700,11 @@
    }
   },
   {
-   "hpMultiplier": 1.8,
+   "hpMultiplier": 1.7,
    "balance": {
     "randomWinWithExpectedGear": 0.4583333333333333,
     "botWinRate": 1,
-    "botLivesAvg": 13.666666666666666,
+    "botLivesAvg": 14.333333333333334,
     "target": 0.4785714285714286
    },
    "stage": {
@@ -2815,7 +2815,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.8
+        "hpScale": 1.7
        }
       ]
      },
@@ -2834,7 +2834,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.07
+        "hpScale": 1.95
        }
       ]
      },
@@ -2854,7 +2854,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.34
+        "hpScale": 2.21
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -2862,7 +2862,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.34
+        "hpScale": 2.21
        }
       ]
      },
@@ -2882,7 +2882,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.61
+        "hpScale": 2.47
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -2890,7 +2890,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.61
+        "hpScale": 2.47
        }
       ]
      },
@@ -2910,7 +2910,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.06
+        "hpScale": 2.89
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -2918,7 +2918,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.06
+        "hpScale": 2.89
        }
       ]
      },
@@ -2938,7 +2938,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.4
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -2946,7 +2946,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.4
        }
       ]
      },
@@ -2966,7 +2966,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.32
+        "hpScale": 4.08
        },
        {
         "enemyId": "ge_pho_ca_phe_1",
@@ -2974,7 +2974,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.32
+        "hpScale": 4.08
        }
       ]
      },
@@ -2995,7 +2995,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -3003,7 +3003,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -3011,7 +3011,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -3019,7 +3019,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.76
        }
       ]
      }
@@ -3174,11 +3174,11 @@
    }
   },
   {
-   "hpMultiplier": 1.8,
+   "hpMultiplier": 1.6,
    "balance": {
-    "randomWinWithExpectedGear": 0.4166666666666667,
+    "randomWinWithExpectedGear": 0.375,
     "botWinRate": 1,
-    "botLivesAvg": 19.666666666666668,
+    "botLivesAvg": 17.666666666666668,
     "target": 0.4357142857142857
    },
    "stage": {
@@ -3289,7 +3289,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.8
+        "hpScale": 1.6
        }
       ]
      },
@@ -3308,7 +3308,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.07
+        "hpScale": 1.84
        }
       ]
      },
@@ -3328,7 +3328,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.34
+        "hpScale": 2.08
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -3336,7 +3336,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.34
+        "hpScale": 2.08
        }
       ]
      },
@@ -3356,7 +3356,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.61
+        "hpScale": 2.32
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -3364,7 +3364,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.61
+        "hpScale": 2.32
        }
       ]
      },
@@ -3384,7 +3384,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.06
+        "hpScale": 2.72
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -3392,7 +3392,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.06
+        "hpScale": 2.72
        }
       ]
      },
@@ -3412,7 +3412,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.2
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -3420,7 +3420,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.2
        }
       ]
      },
@@ -3440,7 +3440,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.32
+        "hpScale": 3.84
        },
        {
         "enemyId": "ge_pho_ca_phe_1",
@@ -3448,7 +3448,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.32
+        "hpScale": 3.84
        }
       ]
      },
@@ -3470,7 +3470,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -3478,7 +3478,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -3486,7 +3486,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -3494,7 +3494,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.48
        }
       ]
      }
@@ -3649,11 +3649,11 @@
    }
   },
   {
-   "hpMultiplier": 2.1,
+   "hpMultiplier": 1.8,
    "balance": {
     "randomWinWithExpectedGear": 0.375,
     "botWinRate": 1,
-    "botLivesAvg": 16.333333333333332,
+    "botLivesAvg": 16.666666666666668,
     "target": 0.3928571428571429
    },
    "stage": {
@@ -3772,7 +3772,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.1
+        "hpScale": 1.8
        }
       ]
      },
@@ -3791,7 +3791,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.42
+        "hpScale": 2.07
        }
       ]
      },
@@ -3811,7 +3811,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.73
+        "hpScale": 2.34
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -3819,7 +3819,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.73
+        "hpScale": 2.34
        }
       ]
      },
@@ -3839,7 +3839,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.05
+        "hpScale": 2.61
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -3847,7 +3847,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.05
+        "hpScale": 2.61
        }
       ]
      },
@@ -3867,7 +3867,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.57
+        "hpScale": 3.06
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -3875,7 +3875,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.57
+        "hpScale": 3.06
        }
       ]
      },
@@ -3896,7 +3896,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -3904,7 +3904,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -3912,7 +3912,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 3.6
        }
       ]
      },
@@ -3933,7 +3933,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.32
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -3941,7 +3941,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.32
        },
        {
         "enemyId": "ge_pho_ca_phe_1",
@@ -3949,7 +3949,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.32
        }
       ]
      },
@@ -3972,7 +3972,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.88
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -3980,7 +3980,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.88
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -3988,7 +3988,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.88
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -3996,7 +3996,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.88
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -4004,7 +4004,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.88
+        "hpScale": 5.04
        }
       ]
      }
@@ -4159,11 +4159,11 @@
    }
   },
   {
-   "hpMultiplier": 2.7,
+   "hpMultiplier": 2.3,
    "balance": {
     "randomWinWithExpectedGear": 0.3541666666666667,
     "botWinRate": 1,
-    "botLivesAvg": 19.333333333333332,
+    "botLivesAvg": 19.666666666666668,
     "target": 0.35000000000000003
    },
    "stage": {
@@ -4282,7 +4282,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.7
+        "hpScale": 2.3
        }
       ]
      },
@@ -4301,7 +4301,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.11
+        "hpScale": 2.64
        }
       ]
      },
@@ -4321,7 +4321,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.51
+        "hpScale": 2.99
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -4329,7 +4329,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.51
+        "hpScale": 2.99
        }
       ]
      },
@@ -4349,7 +4349,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.92
+        "hpScale": 3.33
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4357,7 +4357,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.92
+        "hpScale": 3.33
        }
       ]
      },
@@ -4377,7 +4377,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.59
+        "hpScale": 3.91
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4385,7 +4385,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.59
+        "hpScale": 3.91
        }
       ]
      },
@@ -4405,7 +4405,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.4
+        "hpScale": 4.6
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4413,7 +4413,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.4
+        "hpScale": 4.6
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -4421,7 +4421,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.4
+        "hpScale": 4.6
        }
       ]
      },
@@ -4442,7 +4442,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 6.48
+        "hpScale": 5.52
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -4450,7 +4450,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.48
+        "hpScale": 5.52
        },
        {
         "enemyId": "ge_pho_ca_phe_1",
@@ -4458,7 +4458,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.48
+        "hpScale": 5.52
        }
       ]
      },
@@ -4480,7 +4480,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 7.56
+        "hpScale": 6.44
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -4488,7 +4488,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 7.56
+        "hpScale": 6.44
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4496,7 +4496,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 7.56
+        "hpScale": 6.44
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -4504,7 +4504,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 7.56
+        "hpScale": 6.44
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -4512,7 +4512,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 7.56
+        "hpScale": 6.44
        }
       ]
      }

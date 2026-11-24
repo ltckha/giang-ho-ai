@@ -155,6 +155,22 @@ def kind_of(name):
         if re.search(k[1], t): return k
     return None
 
+def box_d(box, pt):
+    """Khoảng cách từ 1 điểm tới khung chữ nhật (0 nếu nằm trong)"""
+    x0, y0, x1, y1 = box
+    dx = max(x0 - pt[0], 0, pt[0] - x1); dy = max(y0 - pt[1], 0, pt[1] - y1)
+    return math.hypot(dx, dy)
+
+
+def dense(r, step=8):
+    """Các điểm dày dọc đường đi"""
+    out = []
+    for (ax, ay), (bx, by) in zip(r, r[1:]):
+        n = max(1, int(math.hypot(bx - ax, by - ay) / step))
+        out += [(ax + (bx - ax) * i / n, ay + (by - ay) * i / n) for i in range(n)]
+    return out + [r[-1]]
+
+
 def draw(stage, out):
     style = stage.get('roomStyle', 'tiem')
     kd = kind_of(stage.get('name', ''))
@@ -202,7 +218,13 @@ def draw(stage, out):
         d.line(pts, fill=tuple(max(0, c - 30) for c in st['rug']), width=6, joint='curve')
     # quầy ở cuối đường (nơi quái muốn tới)
     ex, ey = paths[0][-1]
-    ctr = nt(ctr_name or COUNTER[style], 84 * S)
+    # quầy nhỏ dần nếu đè lên ô đặt món (kiểm tra thực tế 24/11: quầy bar / lễ tân che ô)
+    ctr = None
+    for csz in (84, 76, 68, 60, 54):
+        ctr = nt(ctr_name or COUNTER[style], csz * S)
+        if ctr is None: break
+        cb = (ex - ctr.width / S / 2, ey - 6 - ctr.height / S * 0.85, ex + ctr.width / S / 2, ey - 6 + ctr.height / S * 0.15)
+        if all(box_d(cb, pd) >= 22 for pd in pads): break
     if ctr is not None:
         im.paste(ctr, (int(ex * S - ctr.width / 2), int((ey - 6) * S - ctr.height * 0.85)), ctr)
         d = ImageDraw.Draw(im)
@@ -229,16 +251,27 @@ def draw(stage, out):
     pool = furn[:]
     rnd.shuffle(pool)
     items = []
-    for _ in range(900):
+    for _ in range(3000):
         x, y = rnd.uniform(44, W - 44), rnd.uniform(78, H - 44)
         if min(seg_d((x, y), a, b) for a, b in segs) < 52: continue
         if any(math.hypot(x - px, y - py) < 42 for px, py in pads): continue
-        if any(math.hypot(x - qx, y - qy) < 86 for qx, qy in placed): continue
+        if any(math.hypot(x - qx, y - qy) < 70 for qx, qy in placed): continue
         if abs(x - ex) < 62 and -95 < y - ey < 30: continue   # chỗ quầy (vẽ phía trên điểm cuối)
-        placed.append((x, y))
         name = pool[len(items) % len(pool)]
-        size = 74 if name in BIG else 60
-        img = nt(name, size * S)
+        # Kiểm tra theo cả khung hình đồ đạc, không chỉ tâm: trước đây bàn ghế to vẫn đè lên ô đặt món / thảm đường (kiểm tra thực tế 24/11).
+        # Chỗ chật thì thử đồ nhỏ hơn (tới 40) để phòng không trống trơn.
+        img, fit = None, False
+        for size in ((74, 62, 52, 44) if name in BIG else (60, 52, 44, 38)):
+            img = nt(name, size * S)
+            if img is None: break
+            hw, top_, bot_ = img.width / S / 2, img.height / S * 0.7, img.height / S * 0.3
+            box = (x - hw, y - top_, x + hw, y + bot_)
+            if box[1] < 44 or box[0] < 10 or box[2] > W - 10 or box[3] > H - 4: continue
+            if any(box_d(box, (px, py)) < 22 for px, py in pads): continue
+            if any(box_d(box, pt) < 26 for r in paths for pt in dense(r)): continue
+            fit = True; break
+        if img is not None and not fit: continue
+        placed.append((x, y))
         if img is None:
             furniture(d, im, style, x, y, rnd, []); d = ImageDraw.Draw(im); continue
         items.append((x, y, img, decos[len(items) % len(decos)] if decos and name.startswith(TABLES) and name not in ('noi_ban_lau', 'noi_ban_nhoi_bot') else None))
@@ -253,7 +286,7 @@ def draw(stage, out):
     plant = nt('noi_chau_cay_lon', 40 * S)
     if plant:
         for x, y in [(24, 64), (W - 24, 64)]:
-            if all(math.hypot(x - px, y - py) > 30 for px, py in pads):
+            if all(math.hypot(x - px, y - py) > 46 for px, py in pads):
                 im.paste(plant, (int(x * S - plant.width / 2), int(y * S - plant.height / 2)), plant)
     if stage['_kind'] == 'bar':   # bar dưới hầm: tối hơn, ánh tím ấm
         im = Image.blend(im, Image.new('RGB', im.size, (40, 20, 60)), 0.28)

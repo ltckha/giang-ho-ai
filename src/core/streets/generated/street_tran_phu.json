@@ -1,10 +1,10 @@
 {
  "generatedBy": "tools/level-maker/make-street.ts",
- "hpMultiplier": 1.3,
+ "hpMultiplier": 1.4,
  "balance": {
-  "randomWinWithExpectedGear": 0.3125,
+  "randomWinWithExpectedGear": 0.22916666666666666,
   "botWinRate": 1,
-  "botLivesAvg": 17.333333333333332,
+  "botLivesAvg": 12.666666666666666,
   "gearTier": "after_street_1"
  },
  "stage": {
@@ -126,7 +126,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 1.3
+      "hpScale": 1.4
      }
     ]
    },
@@ -145,7 +145,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 1.5
+      "hpScale": 1.61
      }
     ]
    },
@@ -165,7 +165,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 1.69
+      "hpScale": 1.82
      },
      {
       "enemyId": "ge_tran_phu_p2",
@@ -173,7 +173,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 1.69
+      "hpScale": 1.82
      }
     ]
    },
@@ -193,7 +193,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 1.89
+      "hpScale": 2.03
      },
      {
       "enemyId": "ge_tran_phu_p3",
@@ -201,7 +201,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 1.89
+      "hpScale": 2.03
      }
     ]
    },
@@ -221,7 +221,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 2.21
+      "hpScale": 2.38
      },
      {
       "enemyId": "ge_tran_phu_p3",
@@ -229,7 +229,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.21
+      "hpScale": 2.38
      }
     ]
    },
@@ -250,7 +250,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 2.6
+      "hpScale": 2.8
      },
      {
       "enemyId": "ge_tran_phu_p3",
@@ -258,7 +258,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.6
+      "hpScale": 2.8
      },
      {
       "enemyId": "ge_tran_phu_p5",
@@ -266,7 +266,7 @@
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.6
+      "hpScale": 2.8
      }
     ]
    },
@@ -287,7 +287,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 3.12
+      "hpScale": 3.36
      },
      {
       "enemyId": "ge_tran_phu_p4",
@@ -295,7 +295,7 @@
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.12
+      "hpScale": 3.36
      },
      {
       "enemyId": "ge_tran_phu_p1",
@@ -303,7 +303,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.12
+      "hpScale": 3.36
      }
     ]
    },
@@ -324,7 +324,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 3.64
+      "hpScale": 3.92
      },
      {
       "enemyId": "ge_tran_phu_p4",
@@ -332,7 +332,7 @@
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.64
+      "hpScale": 3.92
      },
      {
       "enemyId": "ge_tran_phu_p6",
@@ -340,7 +340,7 @@
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.64
+      "hpScale": 3.92
      }
     ]
    },
@@ -361,7 +361,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 4.16
+      "hpScale": 4.48
      },
      {
       "enemyId": "ge_tran_phu_p5",
@@ -369,7 +369,7 @@
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 4.16
+      "hpScale": 4.48
      },
      {
       "enemyId": "ge_tran_phu_p1",
@@ -377,7 +377,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 4.16
+      "hpScale": 4.48
      }
     ]
    },
@@ -398,7 +398,7 @@
       "intervalSec": 1.2,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 4.68
+      "hpScale": 5.04
      },
      {
       "enemyId": "ge_tran_phu_p6",
@@ -406,7 +406,7 @@
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 4.68
+      "hpScale": 5.04
      },
      {
       "enemyId": "ge_tran_phu_p2",
@@ -414,7 +414,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 4.68
+      "hpScale": 5.04
      }
     ]
    },
@@ -435,7 +435,7 @@
       "intervalSec": 1.8,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 5.2
+      "hpScale": 5.6
      },
      {
       "enemyId": "ge_tran_phu_p1",
@@ -443,7 +443,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.2
+      "hpScale": 5.6
      },
      {
       "enemyId": "ge_tran_phu_p3",
@@ -451,7 +451,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.2
+      "hpScale": 5.6
      }
     ]
    },
@@ -474,7 +474,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 5.59
+      "hpScale": 6.02
      },
      {
       "enemyId": "ge_tran_phu_p2",
@@ -482,7 +482,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.59
+      "hpScale": 6.02
      },
      {
       "enemyId": "ge_tran_phu_p3",
@@ -490,7 +490,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.59
+      "hpScale": 6.02
      },
      {
       "enemyId": "ge_tran_phu_p4",
@@ -498,7 +498,7 @@
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.59
+      "hpScale": 6.02
      },
      {
       "enemyId": "ge_tran_phu_p5",
@@ -506,7 +506,7 @@
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.59
+      "hpScale": 6.02
      },
      {
       "enemyId": "ge_tran_phu_p6",
@@ -514,7 +514,7 @@
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.59
+      "hpScale": 6.02
      },
      {
       "enemyId": "ge_tran_phu_trum",
@@ -522,7 +522,7 @@
       "intervalSec": 1,
       "delayBeforeSec": 3,
       "pathIndex": 0,
-      "hpScale": 0.78
+      "hpScale": 0.84
      }
     ]
    }
@@ -675,9 +675,9 @@
  },
  "shops": [
   {
-   "hpMultiplier": 1.5,
+   "hpMultiplier": 1.4,
    "balance": {
-    "randomWinWithExpectedGear": 0.6666666666666666,
+    "randomWinWithExpectedGear": 0.625,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.65
@@ -800,7 +800,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.5
+        "hpScale": 1.4
        }
       ]
      },
@@ -819,7 +819,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.73
+        "hpScale": 1.61
        }
       ]
      },
@@ -839,7 +839,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.95
+        "hpScale": 1.82
        },
        {
         "enemyId": "ge_tran_phu_2",
@@ -847,7 +847,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 1.95
+        "hpScale": 1.82
        }
       ]
      },
@@ -866,7 +866,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 2.17
+        "hpScale": 2.03
        },
        {
         "enemyId": "ge_tran_phu_3",
@@ -874,7 +874,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.17
+        "hpScale": 2.03
        }
       ]
      },
@@ -894,7 +894,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.55
+        "hpScale": 2.38
        },
        {
         "enemyId": "ge_tran_phu_1",
@@ -902,7 +902,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.55
+        "hpScale": 2.38
        },
        {
         "enemyId": "ge_tran_phu_3",
@@ -910,7 +910,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.55
+        "hpScale": 2.38
        }
       ]
      },
@@ -930,7 +930,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 3
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_tran_phu_2",
@@ -938,7 +938,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_tran_phu_1",
@@ -946,7 +946,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 3
+        "hpScale": 2.8
        }
       ]
      },
@@ -966,7 +966,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tran_phu_3",
@@ -974,7 +974,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 3.6
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_tran_phu_2",
@@ -982,7 +982,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.36
        }
       ]
      },
@@ -1002,7 +1002,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 4.2
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_tran_phu_2",
@@ -1010,7 +1010,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_tran_phu_3",
@@ -1018,7 +1018,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 4.2
+        "hpScale": 3.92
        }
       ]
      }
@@ -1175,7 +1175,7 @@
   {
    "hpMultiplier": 1.4,
    "balance": {
-    "randomWinWithExpectedGear": 0.625,
+    "randomWinWithExpectedGear": 0.5416666666666666,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.6071428571428572
@@ -1678,11 +1678,11 @@
    }
   },
   {
-   "hpMultiplier": 1,
+   "hpMultiplier": 0.9,
    "balance": {
-    "randomWinWithExpectedGear": 0.6041666666666666,
+    "randomWinWithExpectedGear": 0.75,
     "botWinRate": 1,
-    "botLivesAvg": 20,
+    "botLivesAvg": 20.666666666666668,
     "target": 0.5642857142857143
    },
    "stage": {
@@ -1805,7 +1805,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1
+        "hpScale": 0.9
        }
       ]
      },
@@ -1824,7 +1824,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.15
+        "hpScale": 1.03
        }
       ]
      },
@@ -1844,7 +1844,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.17
        },
        {
         "enemyId": "ge_tran_phu_5",
@@ -1852,7 +1852,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.17
        }
       ]
      },
@@ -1872,7 +1872,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.45
+        "hpScale": 1.31
        },
        {
         "enemyId": "ge_tran_phu_6",
@@ -1880,7 +1880,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.45
+        "hpScale": 1.31
        }
       ]
      },
@@ -1901,7 +1901,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 1.53
        },
        {
         "enemyId": "ge_tran_phu_4",
@@ -1909,7 +1909,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 1.53
        },
        {
         "enemyId": "ge_tran_phu_6",
@@ -1917,7 +1917,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 1.53
        }
       ]
      },
@@ -1938,7 +1938,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 1.8
        },
        {
         "enemyId": "ge_tran_phu_5",
@@ -1946,7 +1946,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 1.8
        },
        {
         "enemyId": "ge_tran_phu_4",
@@ -1954,7 +1954,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 1.8
        }
       ]
      },
@@ -1975,7 +1975,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.16
        },
        {
         "enemyId": "ge_tran_phu_6",
@@ -1983,7 +1983,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.16
        },
        {
         "enemyId": "ge_tran_phu_5",
@@ -1991,7 +1991,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.16
        }
       ]
      },
@@ -2012,7 +2012,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_tran_phu_5",
@@ -2020,7 +2020,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_tran_phu_6",
@@ -2028,7 +2028,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.52
        }
       ]
      }
@@ -2185,9 +2185,9 @@
   {
    "hpMultiplier": 1.1,
    "balance": {
-    "randomWinWithExpectedGear": 0.5625,
+    "randomWinWithExpectedGear": 0.6041666666666666,
     "botWinRate": 1,
-    "botLivesAvg": 19.333333333333332,
+    "botLivesAvg": 20.666666666666668,
     "target": 0.5214285714285715
    },
    "stage": {
@@ -2658,11 +2658,11 @@
    }
   },
   {
-   "hpMultiplier": 2.1,
+   "hpMultiplier": 2,
    "balance": {
-    "randomWinWithExpectedGear": 0.4583333333333333,
+    "randomWinWithExpectedGear": 0.4791666666666667,
     "botWinRate": 1,
-    "botLivesAvg": 18.666666666666668,
+    "botLivesAvg": 20,
     "target": 0.4785714285714286
    },
    "stage": {
@@ -2773,7 +2773,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.1
+        "hpScale": 2
        }
       ]
      },
@@ -2792,7 +2792,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.42
+        "hpScale": 2.3
        }
       ]
      },
@@ -2812,7 +2812,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.73
+        "hpScale": 2.6
        },
        {
         "enemyId": "ge_tran_phu_2",
@@ -2820,7 +2820,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.73
+        "hpScale": 2.6
        }
       ]
      },
@@ -2839,7 +2839,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.05
+        "hpScale": 2.9
        },
        {
         "enemyId": "ge_tran_phu_3",
@@ -2847,7 +2847,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.05
+        "hpScale": 2.9
        }
       ]
      },
@@ -2866,7 +2866,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.57
+        "hpScale": 3.4
        },
        {
         "enemyId": "ge_tran_phu_3",
@@ -2874,7 +2874,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.57
+        "hpScale": 3.4
        }
       ]
      },
@@ -2894,7 +2894,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 4
        },
        {
         "enemyId": "ge_tran_phu_6",
@@ -2902,7 +2902,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 4
        }
       ]
      },
@@ -2921,7 +2921,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.8
        },
        {
         "enemyId": "ge_tran_phu_1",
@@ -2929,7 +2929,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.8
        }
       ]
      },
@@ -2950,7 +2950,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.88
+        "hpScale": 5.6
        },
        {
         "enemyId": "ge_tran_phu_2",
@@ -2958,7 +2958,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.88
+        "hpScale": 5.6
        },
        {
         "enemyId": "ge_tran_phu_3",
@@ -2966,7 +2966,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.88
+        "hpScale": 5.6
        },
        {
         "enemyId": "ge_tran_phu_6",
@@ -2974,7 +2974,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.88
+        "hpScale": 5.6
        }
       ]
      }
@@ -3129,11 +3129,11 @@
    }
   },
   {
-   "hpMultiplier": 2.6,
+   "hpMultiplier": 2.5,
    "balance": {
-    "randomWinWithExpectedGear": 0.3958333333333333,
+    "randomWinWithExpectedGear": 0.4166666666666667,
     "botWinRate": 1,
-    "botLivesAvg": 18.666666666666668,
+    "botLivesAvg": 20.333333333333332,
     "target": 0.4357142857142857
    },
    "stage": {
@@ -3252,7 +3252,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 2.5
        }
       ]
      },
@@ -3271,7 +3271,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.99
+        "hpScale": 2.88
        }
       ]
      },
@@ -3291,7 +3291,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.38
+        "hpScale": 3.25
        },
        {
         "enemyId": "ge_tran_phu_2",
@@ -3299,7 +3299,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.38
+        "hpScale": 3.25
        }
       ]
      },
@@ -3318,7 +3318,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.77
+        "hpScale": 3.63
        },
        {
         "enemyId": "ge_tran_phu_3",
@@ -3326,7 +3326,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.77
+        "hpScale": 3.63
        }
       ]
      },
@@ -3345,7 +3345,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.42
+        "hpScale": 4.25
        },
        {
         "enemyId": "ge_tran_phu_3",
@@ -3353,7 +3353,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.42
+        "hpScale": 4.25
        }
       ]
      },
@@ -3373,7 +3373,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.2
+        "hpScale": 5
        },
        {
         "enemyId": "ge_tran_phu_4",
@@ -3381,7 +3381,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.2
+        "hpScale": 5
        }
       ]
      },
@@ -3400,7 +3400,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 6.24
+        "hpScale": 6
        },
        {
         "enemyId": "ge_tran_phu_1",
@@ -3408,7 +3408,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.24
+        "hpScale": 6
        }
       ]
      },
@@ -3429,7 +3429,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 7.28
+        "hpScale": 7
        },
        {
         "enemyId": "ge_tran_phu_2",
@@ -3437,7 +3437,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 7.28
+        "hpScale": 7
        },
        {
         "enemyId": "ge_tran_phu_3",
@@ -3445,7 +3445,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 7.28
+        "hpScale": 7
        },
        {
         "enemyId": "ge_tran_phu_4",
@@ -3453,7 +3453,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 7.28
+        "hpScale": 7
        }
       ]
      }
@@ -3608,11 +3608,11 @@
    }
   },
   {
-   "hpMultiplier": 2.2,
+   "hpMultiplier": 1.9,
    "balance": {
-    "randomWinWithExpectedGear": 0.375,
+    "randomWinWithExpectedGear": 0.3958333333333333,
     "botWinRate": 1,
-    "botLivesAvg": 20,
+    "botLivesAvg": 19.333333333333332,
     "target": 0.3928571428571429
    },
    "stage": {
@@ -3731,7 +3731,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.2
+        "hpScale": 1.9
        }
       ]
      },
@@ -3750,7 +3750,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.53
+        "hpScale": 2.18
        }
       ]
      },
@@ -3770,7 +3770,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.86
+        "hpScale": 2.47
        },
        {
         "enemyId": "ge_tran_phu_3",
@@ -3778,7 +3778,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.86
+        "hpScale": 2.47
        }
       ]
      },
@@ -3798,7 +3798,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.19
+        "hpScale": 2.76
        },
        {
         "enemyId": "ge_tran_phu_4",
@@ -3806,7 +3806,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.19
+        "hpScale": 2.76
        }
       ]
      },
@@ -3826,7 +3826,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.74
+        "hpScale": 3.23
        },
        {
         "enemyId": "ge_tran_phu_4",
@@ -3834,7 +3834,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.74
+        "hpScale": 3.23
        }
       ]
      },
@@ -3855,7 +3855,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.4
+        "hpScale": 3.8
        },
        {
         "enemyId": "ge_tran_phu_4",
@@ -3863,7 +3863,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.4
+        "hpScale": 3.8
        },
        {
         "enemyId": "ge_tran_phu_6",
@@ -3871,7 +3871,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.4
+        "hpScale": 3.8
        }
       ]
      },
@@ -3892,7 +3892,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.28
+        "hpScale": 4.56
        },
        {
         "enemyId": "ge_tran_phu_5",
@@ -3900,7 +3900,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.28
+        "hpScale": 4.56
        },
        {
         "enemyId": "ge_tran_phu_2",
@@ -3908,7 +3908,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.28
+        "hpScale": 4.56
        }
       ]
      },
@@ -3931,7 +3931,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 5.32
        },
        {
         "enemyId": "ge_tran_phu_3",
@@ -3939,7 +3939,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 5.32
        },
        {
         "enemyId": "ge_tran_phu_4",
@@ -3947,7 +3947,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 5.32
        },
        {
         "enemyId": "ge_tran_phu_5",
@@ -3955,7 +3955,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 5.32
        },
        {
         "enemyId": "ge_tran_phu_6",
@@ -3963,7 +3963,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 5.32
        }
       ]
      }
@@ -4118,9 +4118,9 @@
    }
   },
   {
-   "hpMultiplier": 1.6,
+   "hpMultiplier": 1.5,
    "balance": {
-    "randomWinWithExpectedGear": 0.3541666666666667,
+    "randomWinWithExpectedGear": 0.2708333333333333,
     "botWinRate": 1,
     "botLivesAvg": 19.666666666666668,
     "target": 0.35000000000000003
@@ -4243,7 +4243,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 1.5
        }
       ]
      },
@@ -4262,7 +4262,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.84
+        "hpScale": 1.73
        }
       ]
      },
@@ -4282,7 +4282,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.08
+        "hpScale": 1.95
        },
        {
         "enemyId": "ge_tran_phu_3",
@@ -4290,7 +4290,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.08
+        "hpScale": 1.95
        }
       ]
      },
@@ -4310,7 +4310,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 2.32
+        "hpScale": 2.17
        },
        {
         "enemyId": "ge_tran_phu_4",
@@ -4318,7 +4318,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.32
+        "hpScale": 2.17
        }
       ]
      },
@@ -4338,7 +4338,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.72
+        "hpScale": 2.55
        },
        {
         "enemyId": "ge_tran_phu_4",
@@ -4346,7 +4346,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.72
+        "hpScale": 2.55
        }
       ]
      },
@@ -4367,7 +4367,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 3.2
+        "hpScale": 3
        },
        {
         "enemyId": "ge_tran_phu_4",
@@ -4375,7 +4375,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.2
+        "hpScale": 3
        },
        {
         "enemyId": "ge_tran_phu_6",
@@ -4383,7 +4383,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 3.2
+        "hpScale": 3
        }
       ]
      },
@@ -4403,7 +4403,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.84
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_tran_phu_5",
@@ -4411,7 +4411,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 3.84
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_tran_phu_1",
@@ -4419,7 +4419,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.84
+        "hpScale": 3.6
        }
       ]
      },
@@ -4441,7 +4441,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 4.48
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_tran_phu_3",
@@ -4449,7 +4449,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.48
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_tran_phu_4",
@@ -4457,7 +4457,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 4.48
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_tran_phu_5",
@@ -4465,7 +4465,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.48
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_tran_phu_6",
@@ -4473,7 +4473,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 4.48
+        "hpScale": 4.2
        }
       ]
      }

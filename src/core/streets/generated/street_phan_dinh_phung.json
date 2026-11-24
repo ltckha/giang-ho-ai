@@ -1,10 +1,10 @@
 {
  "generatedBy": "tools/level-maker/make-street.ts",
- "hpMultiplier": 1.6,
+ "hpMultiplier": 1.5,
  "balance": {
-  "randomWinWithExpectedGear": 0.2708333333333333,
+  "randomWinWithExpectedGear": 0.3333333333333333,
   "botWinRate": 1,
-  "botLivesAvg": 14,
+  "botLivesAvg": 16.666666666666668,
   "gearTier": "after_street_1"
  },
  "stage": {
@@ -147,7 +147,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 1.6
+      "hpScale": 1.5
      }
     ]
    },
@@ -166,7 +166,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 1.84
+      "hpScale": 1.73
      }
     ]
    },
@@ -186,7 +186,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 2.08
+      "hpScale": 1.95
      },
      {
       "enemyId": "ge_phan_dinh_phung_p2",
@@ -194,7 +194,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.08
+      "hpScale": 1.95
      }
     ]
    },
@@ -214,7 +214,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 2.32
+      "hpScale": 2.17
      },
      {
       "enemyId": "ge_phan_dinh_phung_p3",
@@ -222,7 +222,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.32
+      "hpScale": 2.17
      }
     ]
    },
@@ -242,7 +242,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 2.72
+      "hpScale": 2.55
      },
      {
       "enemyId": "ge_phan_dinh_phung_p3",
@@ -250,7 +250,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 2.72
+      "hpScale": 2.55
      }
     ]
    },
@@ -271,7 +271,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 3.2
+      "hpScale": 3
      },
      {
       "enemyId": "ge_phan_dinh_phung_p3",
@@ -279,7 +279,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.2
+      "hpScale": 3
      },
      {
       "enemyId": "ge_phan_dinh_phung_p5",
@@ -287,7 +287,7 @@
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.2
+      "hpScale": 3
      }
     ]
    },
@@ -308,7 +308,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 3.84
+      "hpScale": 3.6
      },
      {
       "enemyId": "ge_phan_dinh_phung_p4",
@@ -316,7 +316,7 @@
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.84
+      "hpScale": 3.6
      },
      {
       "enemyId": "ge_phan_dinh_phung_p1",
@@ -324,7 +324,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 3.84
+      "hpScale": 3.6
      }
     ]
    },
@@ -345,7 +345,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 4.48
+      "hpScale": 4.2
      },
      {
       "enemyId": "ge_phan_dinh_phung_p4",
@@ -353,7 +353,7 @@
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 4.48
+      "hpScale": 4.2
      },
      {
       "enemyId": "ge_phan_dinh_phung_p6",
@@ -361,7 +361,7 @@
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 4.48
+      "hpScale": 4.2
      }
     ]
    },
@@ -382,7 +382,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 5.12
+      "hpScale": 4.8
      },
      {
       "enemyId": "ge_phan_dinh_phung_p5",
@@ -390,7 +390,7 @@
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.12
+      "hpScale": 4.8
      },
      {
       "enemyId": "ge_phan_dinh_phung_p1",
@@ -398,7 +398,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.12
+      "hpScale": 4.8
      }
     ]
    },
@@ -419,7 +419,7 @@
       "intervalSec": 1.2,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 5.76
+      "hpScale": 5.4
      },
      {
       "enemyId": "ge_phan_dinh_phung_p6",
@@ -427,7 +427,7 @@
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.76
+      "hpScale": 5.4
      },
      {
       "enemyId": "ge_phan_dinh_phung_p2",
@@ -435,7 +435,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 5.76
+      "hpScale": 5.4
      }
     ]
    },
@@ -456,7 +456,7 @@
       "intervalSec": 1.8,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 6.4
+      "hpScale": 6
      },
      {
       "enemyId": "ge_phan_dinh_phung_p1",
@@ -464,7 +464,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 6.4
+      "hpScale": 6
      },
      {
       "enemyId": "ge_phan_dinh_phung_p3",
@@ -472,7 +472,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 6.4
+      "hpScale": 6
      }
     ]
    },
@@ -495,7 +495,7 @@
       "intervalSec": 0.6,
       "delayBeforeSec": 0,
       "pathIndex": 0,
-      "hpScale": 6.88
+      "hpScale": 6.45
      },
      {
       "enemyId": "ge_phan_dinh_phung_p2",
@@ -503,7 +503,7 @@
       "intervalSec": 1.6,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 6.88
+      "hpScale": 6.45
      },
      {
       "enemyId": "ge_phan_dinh_phung_p3",
@@ -511,7 +511,7 @@
       "intervalSec": 0.85,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 6.88
+      "hpScale": 6.45
      },
      {
       "enemyId": "ge_phan_dinh_phung_p4",
@@ -519,7 +519,7 @@
       "intervalSec": 1.2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 6.88
+      "hpScale": 6.45
      },
      {
       "enemyId": "ge_phan_dinh_phung_p5",
@@ -527,7 +527,7 @@
       "intervalSec": 1.8,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 6.88
+      "hpScale": 6.45
      },
      {
       "enemyId": "ge_phan_dinh_phung_p6",
@@ -535,7 +535,7 @@
       "intervalSec": 2,
       "delayBeforeSec": 0.4,
       "pathIndex": 0,
-      "hpScale": 6.88
+      "hpScale": 6.45
      },
      {
       "enemyId": "ge_phan_dinh_phung_trum",
@@ -543,7 +543,7 @@
       "intervalSec": 1,
       "delayBeforeSec": 3,
       "pathIndex": 0,
-      "hpScale": 0.96
+      "hpScale": 0.9
      }
     ]
    }
@@ -701,11 +701,11 @@
  },
  "shops": [
   {
-   "hpMultiplier": 1.4,
+   "hpMultiplier": 1.3,
    "balance": {
-    "randomWinWithExpectedGear": 0.6041666666666666,
+    "randomWinWithExpectedGear": 0.6666666666666666,
     "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
+    "botLivesAvg": 20,
     "target": 0.65
    },
    "stage": {
@@ -816,7 +816,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.4
+        "hpScale": 1.3
        }
       ]
      },
@@ -835,7 +835,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.61
+        "hpScale": 1.5
        }
       ]
      },
@@ -855,7 +855,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.82
+        "hpScale": 1.69
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -863,7 +863,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.82
+        "hpScale": 1.69
        }
       ]
      },
@@ -883,7 +883,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.03
+        "hpScale": 1.89
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -891,7 +891,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.03
+        "hpScale": 1.89
        }
       ]
      },
@@ -912,7 +912,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.38
+        "hpScale": 2.21
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -920,7 +920,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.38
+        "hpScale": 2.21
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -928,7 +928,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.38
+        "hpScale": 2.21
        }
       ]
      },
@@ -949,7 +949,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.6
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -957,7 +957,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.6
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -965,7 +965,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.6
        }
       ]
      },
@@ -986,7 +986,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.12
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -994,7 +994,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.12
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -1002,7 +1002,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.12
        }
       ]
      },
@@ -1023,7 +1023,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.92
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -1031,7 +1031,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.92
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1039,7 +1039,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.92
+        "hpScale": 3.64
        }
       ]
      }
@@ -1194,11 +1194,11 @@
    }
   },
   {
-   "hpMultiplier": 1.8,
+   "hpMultiplier": 1.6,
    "balance": {
-    "randomWinWithExpectedGear": 0.5625,
+    "randomWinWithExpectedGear": 0.6041666666666666,
     "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
+    "botLivesAvg": 20.333333333333332,
     "target": 0.6071428571428572
    },
    "stage": {
@@ -1317,7 +1317,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.8
+        "hpScale": 1.6
        }
       ]
      },
@@ -1336,7 +1336,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.07
+        "hpScale": 1.84
        }
       ]
      },
@@ -1356,7 +1356,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.34
+        "hpScale": 2.08
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1364,7 +1364,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.34
+        "hpScale": 2.08
        }
       ]
      },
@@ -1384,7 +1384,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.61
+        "hpScale": 2.32
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -1392,7 +1392,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.61
+        "hpScale": 2.32
        }
       ]
      },
@@ -1413,7 +1413,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.06
+        "hpScale": 2.72
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -1421,7 +1421,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.06
+        "hpScale": 2.72
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -1429,7 +1429,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.06
+        "hpScale": 2.72
        }
       ]
      },
@@ -1450,7 +1450,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.2
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1458,7 +1458,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.2
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -1466,7 +1466,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.2
        }
       ]
      },
@@ -1487,7 +1487,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.32
+        "hpScale": 3.84
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -1495,7 +1495,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.32
+        "hpScale": 3.84
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1503,7 +1503,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.32
+        "hpScale": 3.84
        }
       ]
      },
@@ -1524,7 +1524,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1532,7 +1532,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -1540,7 +1540,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.48
        }
       ]
      }
@@ -1695,11 +1695,11 @@
    }
   },
   {
-   "hpMultiplier": 1.4,
+   "hpMultiplier": 1.2,
    "balance": {
-    "randomWinWithExpectedGear": 0.5416666666666666,
+    "randomWinWithExpectedGear": 0.5625,
     "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
+    "botLivesAvg": 20.333333333333332,
     "target": 0.5642857142857143
    },
    "stage": {
@@ -1818,7 +1818,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.4
+        "hpScale": 1.2
        }
       ]
      },
@@ -1837,7 +1837,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.61
+        "hpScale": 1.38
        }
       ]
      },
@@ -1857,7 +1857,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.82
+        "hpScale": 1.56
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1865,7 +1865,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.82
+        "hpScale": 1.56
        }
       ]
      },
@@ -1885,7 +1885,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.03
+        "hpScale": 1.74
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -1893,7 +1893,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.03
+        "hpScale": 1.74
        }
       ]
      },
@@ -1914,7 +1914,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.38
+        "hpScale": 2.04
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -1922,7 +1922,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.38
+        "hpScale": 2.04
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -1930,7 +1930,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.38
+        "hpScale": 2.04
        }
       ]
      },
@@ -1951,7 +1951,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1959,7 +1959,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -1967,7 +1967,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.4
        }
       ]
      },
@@ -1988,7 +1988,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 2.88
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -1996,7 +1996,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 2.88
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -2004,7 +2004,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 2.88
        }
       ]
      },
@@ -2025,7 +2025,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.92
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -2033,7 +2033,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.92
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -2041,7 +2041,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.92
+        "hpScale": 3.36
        }
       ]
      }
@@ -2196,11 +2196,11 @@
    }
   },
   {
-   "hpMultiplier": 1,
+   "hpMultiplier": 0.9,
    "balance": {
     "randomWinWithExpectedGear": 0.6041666666666666,
     "botWinRate": 1,
-    "botLivesAvg": 20,
+    "botLivesAvg": 20.333333333333332,
     "target": 0.5214285714285715
    },
    "stage": {
@@ -2321,7 +2321,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1
+        "hpScale": 0.9
        }
       ]
      },
@@ -2340,7 +2340,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.15
+        "hpScale": 1.03
        }
       ]
      },
@@ -2360,7 +2360,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.17
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -2368,7 +2368,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 1.3
+        "hpScale": 1.17
        }
       ]
      },
@@ -2388,7 +2388,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.45
+        "hpScale": 1.31
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -2396,7 +2396,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.45
+        "hpScale": 1.31
        }
       ]
      },
@@ -2416,7 +2416,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 1.53
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -2424,7 +2424,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 1.7
+        "hpScale": 1.53
        }
       ]
      },
@@ -2444,7 +2444,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 2
+        "hpScale": 1.8
        },
        {
         "enemyId": "ge_phan_dinh_phung_6",
@@ -2452,7 +2452,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 1.8
        }
       ]
      },
@@ -2472,7 +2472,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.16
        },
        {
         "enemyId": "ge_phan_dinh_phung_1",
@@ -2480,7 +2480,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.4
+        "hpScale": 2.16
        }
       ]
      },
@@ -2502,7 +2502,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 2.8
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -2510,7 +2510,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -2518,7 +2518,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.8
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_phan_dinh_phung_6",
@@ -2526,7 +2526,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.52
        }
       ]
      }
@@ -2683,9 +2683,9 @@
   {
    "hpMultiplier": 0.9,
    "balance": {
-    "randomWinWithExpectedGear": 0.5416666666666666,
+    "randomWinWithExpectedGear": 0.5,
     "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
+    "botLivesAvg": 18.333333333333332,
     "target": 0.4785714285714286
    },
    "stage": {
@@ -3170,7 +3170,7 @@
    "balance": {
     "randomWinWithExpectedGear": 0.3958333333333333,
     "botWinRate": 1,
-    "botLivesAvg": 13.333333333333334,
+    "botLivesAvg": 14.333333333333334,
     "target": 0.4357142857142857
    },
    "stage": {
@@ -3655,9 +3655,9 @@
   {
    "hpMultiplier": 1.4,
    "balance": {
-    "randomWinWithExpectedGear": 0.3333333333333333,
+    "randomWinWithExpectedGear": 0.375,
     "botWinRate": 1,
-    "botLivesAvg": 17.666666666666668,
+    "botLivesAvg": 16.666666666666668,
     "target": 0.3928571428571429
    },
    "stage": {
@@ -4167,11 +4167,11 @@
    }
   },
   {
-   "hpMultiplier": 1.9,
+   "hpMultiplier": 1.8,
    "balance": {
-    "randomWinWithExpectedGear": 0.4166666666666667,
+    "randomWinWithExpectedGear": 0.3958333333333333,
     "botWinRate": 1,
-    "botLivesAvg": 15.666666666666666,
+    "botLivesAvg": 17,
     "target": 0.35000000000000003
    },
    "stage": {
@@ -4282,7 +4282,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.9
+        "hpScale": 1.8
        }
       ]
      },
@@ -4301,7 +4301,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.18
+        "hpScale": 2.07
        }
       ]
      },
@@ -4321,7 +4321,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.47
+        "hpScale": 2.34
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -4329,7 +4329,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.47
+        "hpScale": 2.34
        }
       ]
      },
@@ -4349,7 +4349,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.76
+        "hpScale": 2.61
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -4357,7 +4357,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.76
+        "hpScale": 2.61
        }
       ]
      },
@@ -4377,7 +4377,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.23
+        "hpScale": 3.06
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -4385,7 +4385,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.23
+        "hpScale": 3.06
        }
       ]
      },
@@ -4406,7 +4406,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.8
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -4414,7 +4414,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.8
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_phan_dinh_phung_6",
@@ -4422,7 +4422,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.8
+        "hpScale": 3.6
        }
       ]
      },
@@ -4443,7 +4443,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.56
+        "hpScale": 4.32
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -4451,7 +4451,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.56
+        "hpScale": 4.32
        },
        {
         "enemyId": "ge_phan_dinh_phung_1",
@@ -4459,7 +4459,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.56
+        "hpScale": 4.32
        }
       ]
      },
@@ -4481,7 +4481,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.32
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -4489,7 +4489,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.32
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -4497,7 +4497,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.32
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -4505,7 +4505,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.32
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_phan_dinh_phung_6",
@@ -4513,7 +4513,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.32
+        "hpScale": 5.04
        }
       ]
      }

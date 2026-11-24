@@ -20,6 +20,7 @@ import {
   getStageTowerList,
   getTowerTierStats,
   REAL_STREET_SHOPS,
+  REAL_STREET_STAGES,
   STAGES,
 } from '../core/tdDefinitions';
 import { calculateStarRating, TowerDefenseEngine } from '../core/tdEngine';
@@ -349,6 +350,7 @@ export class TdStageScene extends Phaser.Scene {
   }
 
   private lastCounterFxMs = 0;
+  private lastCounterLabelMs = -1000;
 
   /** Hiệu ứng chiêu xe (Spark đợt 31): hình lớn giữa sân + nhỏ trên từng quái + tên chiêu */
   public vehicleFx(): void {
@@ -1597,20 +1599,24 @@ export class TdStageScene extends Phaser.Scene {
       } else if (ev.type === 'hit') {
         sound.playHit(Boolean(ev.isCounter));
         if (ev.isCounter) {
+          // Chữ "Trúng tủ!" to chỉ hiện thưa (≥0,45 giây/lần); các phát khác chỉ hiện số vàng nhỏ
+          // — kiểm tra thực tế 24/11: nhiều phát cùng lúc chồng thành 1 cục chữ khó đọc, màn hình rung liên tục.
+          const nowMs = this.time.now;
+          const bigLabel = nowMs - this.lastCounterLabelMs > 450;
+          if (bigLabel) this.lastCounterLabelMs = nowMs;
           this.spawnFloatingLabel(
             sPos.x + Phaser.Math.Between(-8, 8),
-            sPos.y - 16,
-            `Trúng tủ! -${ev.damage}`,
+            sPos.y - (bigLabel ? 16 : 11),
+            bigLabel ? `Trúng tủ! -${ev.damage}` : `-${ev.damage}`,
             '#ffe066',
-            14,
-            true,
+            bigLabel ? 14 : 11,
+            bigLabel,
           );
-          const nowMs = this.time.now;
           if (nowMs - this.lastCounterFxMs > 140) {
             this.lastCounterFxMs = nowMs;
             this.fxPop('fx_trung_tu', sPos.x, sPos.y - 6, 40 * this.mapScale, { from: 0.5, dur: 380, spin: 25 });
           }
-          if (!this.reduceMotion) {
+          if (!this.reduceMotion && bigLabel) {
             this.cameras.main.shake(65, 0.0022);
           }
         } else {
@@ -2384,6 +2390,8 @@ export class TdStageScene extends Phaser.Scene {
     fontSizePx = 12,
     popScale = false,
   ): void {
+    // Chữ giống hệt vừa hiện gần đó thì bỏ (kiểm tra thực tế 24/11: "Chuột GặmChuột Gặm!" chồng nhau)
+    if (this.floatingLabels.some((fl) => fl.el.text === text && fl.life > fl.maxLife * 0.4 && Math.abs(fl.el.x - x) < 60 && Math.abs(fl.el.y - y) < 30)) return;
     while (this.floatingLabels.length >= 14) {
       const oldest = this.floatingLabels.shift();
       oldest?.el.destroy();
@@ -2400,6 +2408,9 @@ export class TdStageScene extends Phaser.Scene {
       })
       .setOrigin(0.5)
       .setDepth(32);
+    // Không cho chữ tràn ra mép màn hình (kiểm tra thực tế 24/11: "Trúng tủ!" bị cắt ở mép trái)
+    const halfW = label.width * (popScale ? 0.6 : 0.5) + 4;
+    label.x = Phaser.Math.Clamp(x, halfW, this.scale.width - halfW);
 
     this.floatingLabels.push({
       el: label,
@@ -4099,8 +4110,11 @@ export class TdStageScene extends Phaser.Scene {
       })
       .join('');
 
+    const isShopRoom = !!this.engine.stage.shopIndex; // màn tiệm phố thật: nói "tiệm", không nói "phố" (kiểm tra thực tế 24/11)
     const ribbonText = isWin
-      ? isStage4 || isRealStreet
+      ? isShopRoom
+        ? 'TIỆM SẠCH BÓNG!'
+        : isStage4 || isRealStreet
         ? 'PHỐ SẠCH BÓNG!'
         : isStage3
           ? 'TIỆM HOA RỰC RỠ!'
@@ -4109,7 +4123,9 @@ export class TdStageScene extends Phaser.Scene {
             : 'TIỆM SẠCH BÓNG!'
       : isStage4
         ? 'PHỐ BỊ BÃO CUỐN'
-        : isRealStreet
+        : isShopRoom
+          ? 'TIỆM BỊ QUÁI TRÀN'
+          : isRealStreet
           ? 'PHỐ BỊ QUÁI TRÀN'
           : isStage3
             ? 'GIÀN HOA BỊ HÉO'
@@ -4126,7 +4142,9 @@ export class TdStageScene extends Phaser.Scene {
         ? 'Phố Dốc Bị Bão Cuốn'
         : `${stageName} Thất Thủ`;
     const unitLabel =
-      isStage4 || isRealStreet
+      isShopRoom
+        ? 'điểm giữ tiệm'
+        : isStage4 || isRealStreet
         ? 'điểm giữ phố'
         : isStage3
           ? 'chậu hoa'
@@ -4258,12 +4276,24 @@ export class TdStageScene extends Phaser.Scene {
               : undefined;
           })()
         : undefined;
+    // Thắng Trùm Phố Dốc / trùm 1 phố → mời vào tiệm kế tiếp chưa giữ (kiểm tra thực tế 24/11: trước đây chỉ có Chơi lại / Về)
+    const nextOpenShop =
+      isWin && !this.liveMode && (isStage4 || (isRealStreet && !curStage.shopIndex))
+        ? (() => {
+            const sv = loadTdSave();
+            for (const street of REAL_STREET_STAGES) {
+              const shop = (REAL_STREET_SHOPS[street.id] ?? []).find((sh) => !((sv.starsByStage[sh.id] ?? 0) > 0));
+              if (shop && isStreetStageUnlocked(sv, shop.id)) return shop;
+            }
+            return undefined;
+          })()
+        : undefined;
     const nextStreetStage =
       isWin && curStage.shopIndex
         ? (bossNow ?? streetShops[curStage.shopIndex] ?? (curStage.streetId ? STAGES[curStage.streetId] : undefined))
         : isWin && PHO_DOC_NEXT[curStage.id]
           ? STAGES[PHO_DOC_NEXT[curStage.id]!]
-          : undefined;
+          : nextOpenShop;
 
     this.modalRoot.innerHTML = `
       <div class="td-result-modal td-shoebox-panel" data-testid="td-result-modal">

@@ -4166,3 +4166,8 @@ button.td-gear-bag-pill { cursor: pointer; border: 2px solid #2b1a12; font: inhe
 .td-drop-cmp.down { color: #9a3412; }
 .td-drop-equip { border: 2px solid #14532d; background: #22c55e; color: #fff; font-weight: 900; font-size: 12px; border-radius: 999px; padding: 2px 10px; cursor: pointer; }
 .td-drop-equip:disabled { background: #a7f3d0; color: #14532d; border-color: #86efac; }
+
+/* Kiểm tra thực tế 24/11: đợt có 3–5 loại quái thì chip cuối bị nút xe che — xuống dòng gọn thay vì cuộn ngang */
+.td-bottom-bar .td-up-elements { flex-wrap: wrap; overflow: hidden; row-gap: 2px; max-height: 54px; }
+.td-bottom-bar .td-up-elements .td-enemy-preview { padding: 1px 3px; }
+.td-bottom-bar .td-up-elements .td-mini-enemy { width: 18px; height: 18px; }

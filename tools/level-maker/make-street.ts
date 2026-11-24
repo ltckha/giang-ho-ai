@@ -18,6 +18,7 @@ import { ALL_ELEMENTS, ELEMENT_COUNTERS } from '../../src/core/elements';
 import { ALL_ENEMY_DEFINITIONS, ALL_TOWER_DEFINITIONS, ENEMY_DEFINITIONS, TOWER_DEFINITIONS } from '../../src/core/tdDefinitions';
 import { STREET_BOSS_ENEMIES } from '../../src/core/shops/streetBoss';
 import { TowerDefenseEngine } from '../../src/core/tdEngine';
+import { candidatePlans, simulatePlan } from '../../src/core/liveBot';
 import type { ElementType, EnemyDefinition, EnemyTrait, StageDefinition, TowerDefinition, TowerRole, WaveDefinition } from '../../src/core/types';
 
 const ROOT = process.cwd();
@@ -251,7 +252,6 @@ function evaluate(stage: StageDefinition, loadout: string[], gearSeeds: number[]
       }
       return e;
     };
-    const pads = stage.pads.map((p) => p.id);
     // "Người chơi tính kỹ": đặt theo kế hoạch (ô phủ đường nhiều nhất trước, món khắc quái, có hỗ trợ), nâng dần
     const plan = stage.botPlan ?? [];
     const order = plan.map((x) => x.padId);
@@ -266,22 +266,31 @@ function evaluate(stage: StageDefinition, loadout: string[], gearSeeds: number[]
       }
     });
     let bestLives = b.status === 'won' ? b.lives : 0;
+    // "Người mới": ưu tiên ô gần đường (lệch ngẫu nhiên), món + nhánh chọn bừa.
+    // Trước đây đặt theo thứ tự ô trong danh sách → kết quả lệch theo cách xếp ô, độ khó trong 1 phố lên xuống thất thường (kiểm tra thực tế 24/11).
+    const cover = (pd: { x: number; y: number }) => { let c = 0; for (const path of stage.paths) for (const pt of path) if (Math.hypot(pt.x - pd.x, pt.y - pd.y) <= 110) c++; return c; };
     for (let s = 1; s <= 16; s++) {
       const r = rng(s * 31 + gs);
       const m: Record<string, string> = {}; const br: Record<string, 'A' | 'B'> = {};
-      pads.forEach((p) => { m[p] = loadout[Math.floor(r() * loadout.length)]!; br[p] = r() < 0.5 ? 'A' : 'B'; });
+      const novice = stage.pads.map((pd) => ({ id: pd.id, w: cover(pd) * (0.5 + r()) })).sort((a, b) => b.w - a.w).map((x) => x.id);
+      novice.forEach((p) => { m[p] = loadout[Math.floor(r() * loadout.length)]!; br[p] = r() < 0.5 ? 'A' : 'B'; });
       const e = run((en) => {
         let acted = true;
         while (acted) {
           acted = false;
-          for (const p of pads) { if (!en.getTowerAtPad(p)) { if (en.essence >= en.getBuildCost(m[p] as never)) { en.buildTower(p, m[p] as never); acted = true; } break; } }
-          if (!acted) for (const p of pads) { const tw = en.getTowerAtPad(p); if (tw && tw.tier < 3) { const nt = (tw.tier + 1) as 2 | 3; if (en.essence >= en.getUpgradeCost(tw.defId, nt, br[p])) { en.upgradeTower(p, nt === 3 ? br[p] : undefined); acted = true; } break; } }
+          for (const p of novice) { if (!en.getTowerAtPad(p)) { if (en.essence >= en.getBuildCost(m[p] as never)) { en.buildTower(p, m[p] as never); acted = true; } break; } }
+          if (!acted) for (const p of novice) { const tw = en.getTowerAtPad(p); if (tw && tw.tier < 3) { const nt = (tw.tier + 1) as 2 | 3; if (en.essence >= en.getUpgradeCost(tw.defId, nt, br[p])) { en.upgradeTower(p, nt === 3 ? br[p] : undefined); acted = true; } break; } }
         }
       });
       randomTotal++;
       if (e.status === 'won') { randomWins++; bestLives = Math.max(bestLives, e.lives); }
     }
-    // "Người tính kỹ" = cách tốt nhất trong các cách đã thử (kế hoạch + 16 cách đặt)
+    // + các kế hoạch máy LIVE thử (src/core/liveBot.ts) — người tính kỹ không chỉ có 1 cách xếp
+    for (const plan of candidatePlans(stage, loadout as never, 8)) {
+      const res = simulatePlan(stage, { gear, loadout: loadout as never }, plan);
+      if (res.status === 'won') bestLives = Math.max(bestLives, res.lives);
+    }
+    // "Người tính kỹ" = cách tốt nhất trong các cách đã thử (kế hoạch + 16 cách đặt + kế hoạch máy LIVE)
     if (bestLives >= 6) { botWins++; botLives += bestLives; }
   }
   return { randomWin: randomWins / randomTotal, botWinRate: botWins / gearSeeds.length, botLives: botWins ? botLives / botWins : 0 };
@@ -291,10 +300,13 @@ function evaluate(stage: StageDefinition, loadout: string[], gearSeeds: number[]
 function tune(label: string, build: (k: number) => StageDefinition, loadout: string[], tier: StreetSpec['difficulty']['gearTier'], target: number, kStart: number) {
   const seeds = [1001, 2002, 3003];
   let best: { k: number; report: ReturnType<typeof evaluate> } | null = null;
+  let fails = 0;
   for (let k = kStart; k <= 3.0001; k += 0.1) {
     const kk = Math.round(k * 100) / 100;
     const ev = evaluate(build(kk), loadout, seeds, tier);
-    if (ev.botWinRate < 1 || ev.botLives < 6) break; // người tính kỹ bắt đầu thua → dừng
+    // người tính kỹ thua → bỏ mức này; thua 2 mức liền mới dừng (1 lần thua lẻ do cách xếp thử chưa tốt, kiểm tra thực tế 24/11)
+    if (ev.botWinRate < 1 || ev.botLives < 6) { if (++fails >= 2) break; continue; }
+    fails = 0;
     if (!best || Math.abs(ev.randomWin - target) < Math.abs(best.report.randomWin - target)) best = { k: kk, report: ev };
     if (ev.randomWin < target - 0.08) break;
   }

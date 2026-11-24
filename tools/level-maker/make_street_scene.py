@@ -59,6 +59,19 @@ def stroke_mask(paths, width):
     return m
 
 
+def box_d(box, pt):
+    x0, y0, x1, y1 = box
+    return math.hypot(max(x0 - pt[0], 0, pt[0] - x1), max(y0 - pt[1], 0, pt[1] - y1))
+
+
+def dense(r, step=8):
+    out = []
+    for (ax, ay), (bx, by) in zip(r, r[1:]):
+        n = max(1, int(math.hypot(bx - ax, by - ay) / step))
+        out += [(ax + (bx - ax) * i / n, ay + (by - ay) * i / n) for i in range(n)]
+    return out + [r[-1]]
+
+
 def draw(g, out):
     st = g['stage']
     rnd = random.Random(st['id'])
@@ -100,11 +113,19 @@ def draw(g, out):
 
     # 4. lối vào lát đá cuội
     cobble = tiled('nen_da_cuoi', size, 90)
-    for r in paths:
+    # lát đá cả lối vào lẫn điểm cuối (nơi quái muốn tới) — kiểm tra thực tế 24/11: cuối đường không có dấu gì
+    for r in paths + [[pp[-1]] for pp in paths]:
         sx, sy = min(max(r[0][0], 0), W), min(max(r[0][1], 0), H)
         m = Image.new('L', size, 0)
         ImageDraw.Draw(m).ellipse([(sx - 34) * S, (sy - 30) * S, (sx + 34) * S, (sy + 30) * S], fill=255)
         im.paste(cobble, (0, 0), m)
+
+    # 4b. đế đá dưới mỗi ô đặt món: trước đây chỉ có vòng trắng mảnh trên cỏ, khó thấy (kiểm tra thực tế 24/11)
+    for px_, py_ in pads:
+        R = 21 * S
+        d.ellipse([px_ * S - R - 3, py_ * S - R * 0.86 + 6, px_ * S + R + 3, py_ * S + R * 0.86 + 10], fill=(70, 56, 44))
+        d.ellipse([px_ * S - R, py_ * S - R * 0.86, px_ * S + R, py_ * S + R * 0.86], fill=(176, 160, 136), outline=INK, width=4)
+        d.ellipse([px_ * S - R + 7, py_ * S - R * 0.86 + 6, px_ * S + R - 7, py_ * S + R * 0.86 - 6], outline=(214, 200, 176), width=3)
 
     # 5. chỗ trống: không đè đường, ô đặt món, điểm cuối (trùm vào)
     ex, ey = paths[0][-1]
@@ -127,6 +148,17 @@ def draw(g, out):
             return False
         return math.hypot(x - ex, y - ey) > 40
 
+    road_pts = [pt for r in paths for pt in dense(r)]
+
+    def box_ok(x, y, img):
+        # Cả khung hình (nhà cao nhô lên trên) không được đè mặt đường / ô đặt món
+        # — kiểm tra thực tế 24/11: nhà che đường, quái đi khuất sau nhà.
+        hw, hh = img.width / S / 2, img.height / S
+        box = (x - hw * 0.8, y - hh * 0.9, x + hw * 0.8, y + hh * 0.1)
+        if any(box_d(box, pt) < ROAD_W / 2 + 2 for pt in road_pts):
+            return False
+        return all(box_d(box, pd) >= 22 for pd in pads)
+
     items = []
     # mặt tiền các tiệm của phố (sát vỉa hè)
     for sh in g.get('shops', []):
@@ -136,7 +168,7 @@ def draw(g, out):
             continue
         for _ in range(500):
             x, y = rnd.uniform(26, W - 26), rnd.uniform(40, H - 30)
-            if free(x, y, True, 40):
+            if free(x, y, True, 40) and box_ok(x, y, img):
                 taken.append((x, y, 40))
                 items.append((y, x, img))
                 break
@@ -147,7 +179,7 @@ def draw(g, out):
             continue
         for _ in range(300):
             x, y = rnd.uniform(20, W - 20), rnd.uniform(36, H - 20)
-            if free(x, y, need, px / 2):
+            if free(x, y, need, px / 2) and box_ok(x, y, img):
                 taken.append((x, y, px / 2))
                 items.append((y, x, img))
                 break
@@ -165,8 +197,12 @@ def draw(g, out):
     # 6. ghi nguồn bản đồ
     d = ImageDraw.Draw(im)
     txt = '© OpenStreetMap contributors'
-    d.rounded_rectangle([W * S - 250, H * S - 26, W * S - 6, H * S - 4], 8, fill=(20, 14, 10, 170))
-    d.text((W * S - 242, H * S - 22), txt, fill=(240, 230, 210))
+    # ghi nguồn ở góc dưới không vướng đầu/cuối đường
+    ends = [r[0] for r in paths] + [r[-1] for r in paths]
+    right_busy = any(x > W - 140 and y > H - 60 for x, y in ends)
+    x0 = 6 if right_busy else W * S - 250
+    d.rounded_rectangle([x0, H * S - 26, x0 + 244, H * S - 4], 8, fill=(20, 14, 10, 170))
+    d.text((x0 + 8, H * S - 22), txt, fill=(240, 230, 210))
     im.convert('RGB').save(out, 'WEBP', quality=84, method=6)
     return len(items)
 
