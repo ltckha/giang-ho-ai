@@ -224,8 +224,8 @@ def draw(stage, out):
         x, y = rnd.uniform(44, W - 44), rnd.uniform(78, H - 44)
         if min(seg_d((x, y), a, b) for a, b in segs) < 52: continue
         if any(math.hypot(x - px, y - py) < 42 for px, py in pads): continue
-        if any(math.hypot(x - qx, y - qy) < 70 for qx, qy in placed): continue
-        if math.hypot(x - ex, y - ey) < 60: continue
+        if any(math.hypot(x - qx, y - qy) < 86 for qx, qy in placed): continue
+        if abs(x - ex) < 62 and -95 < y - ey < 30: continue   # chỗ quầy (vẽ phía trên điểm cuối)
         placed.append((x, y))
         name = pool[len(items) % len(pool)]
         size = 74 if name in BIG else 60
