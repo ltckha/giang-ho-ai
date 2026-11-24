@@ -1,4 +1,4 @@
-# Lộ trình Gọn Phố (bản chép từ trang lộ trình, cập nhật 25/11/2026)
+# Lộ trình Gọn Phố (bản chép từ trang lộ trình, cập nhật 25/11/2026 (chiều))
 
 Game công khai: https://gon-pho.pages.dev · Kế hoạch chi tiết: docs/PLAN.md · Các lần rà: docs/REVIEW_LOG.md
 
@@ -46,6 +46,10 @@ _Nhìn vào là chơi ngay, ít chữ, cần thì bấm ?._
 - ✅ Xong — Bảng thắng / thua gọn (▶ tiệm kế, ↻, 🏠), chỉ số món bằng biểu tượng, nền phủ kín màn hình dài · Claude
 - ✅ Xong — Antigravity đánh giá lại game + lộ trình (7/10) — đã sửa 20 lỗi / chỗ chưa gọn · Anh Kha gửi khối
 - ✅ Xong — Mở game nhẹ hơn ~7 MB (nền màn tải khi vào màn) · Claude
+- ✅ Xong — Bảng chạm món chỉ hình + mức tăng + giá · Claude
+- ✅ Xong — Chiêu dùng chính hình món (bay / dội / toả theo vai) · Claude
+- ✅ Xong — Chế độ ★ Khó cho màn 3 sao (rơi thêm đồ) · Claude
+- ✅ Xong — Mặt tiền Spark 3 tiệm Phố Dốc + biểu tượng nút (đợt 32) · Spark + Claude
 
 ## Chặng 4: Người thật chơi thử
 _Có link công khai; người chơi đến dần qua video và LIVE, góp ý qua bình luận._
@@ -55,12 +59,14 @@ _Có link công khai; người chơi đến dần qua video và LIVE, góp ý qu
 - ✅ Xong — Góp ý lấy từ bình luận video và LIVE · Anh Kha chốt
 - ⏳ Chờ anh — Đếm người chơi ẩn danh · Anh Kha
 - ✅ Xong — 💾 Mã lưu chuyển máy + nhắc đưa ra màn hình chính · Claude
+- ✅ Xong — 🔑 QR chìa khoá: lưu 1 lần, tự đồng bộ nhiều máy (máy chủ Cloudflare + D1) · Claude + anh Kha gắn D1
+- ✅ Xong — Mã lưu có ảnh QR + gửi email / chia sẻ link · Claude
 
 ## Chặng 5: Video kênh Gọn
 _Làm sau khi game hoàn thiện (anh Kha chốt 24/11). Clip 15–30 giây máy tự chơi, anh duyệt từng bài._
 
 - ✅ Xong — Link chính gon-pho.pages.dev · Anh Kha làm (đã chốt)
-- ⏳ Chờ anh — Bật đếm người chơi ẩn danh Cloudflare · Anh Kha làm (đã chốt)
+- ✅ Xong — Bật đếm người chơi ẩn danh Cloudflare · Anh Kha làm (đã chốt)
 - ✅ Xong — Công cụ quay video máy tự chơi + 3 clip thử · Claude
 - ✅ Xong — Quay được mọi màn (62 màn), máy tự chơi thắng 62/62 · Claude
 - ⬜ Chưa làm — Clip có tiếng trong game · Claude
