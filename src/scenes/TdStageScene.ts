@@ -1,3 +1,4 @@
+import { pushProgress } from '../game/cloudSync';
 import { isStreetStageUnlocked } from '../core/streetProgress';
 import { TitleScene } from './TitleScene';
 import { FX_KEYS } from './BootScene';
@@ -2005,6 +2006,7 @@ export class TdStageScene extends Phaser.Scene {
           this.lastVehicleUnlocked = (after.lastVehicleUnlocked as VehicleId | undefined) ?? null;
           // Rơi trang bị theo số sao (Claude)
           this.lastDrops = grantStageDrops(this.engine.stage.stageNumber, stars);
+          void pushProgress(); // 🔑 có chìa khoá QR thì gửi tiến độ lên máy chủ
           // ★ Khó: ghi sao Khó + rơi thêm 1 lượt đồ
           if (this.hardMode) {
             saveHardWin(this.engine.stage.id, stars);

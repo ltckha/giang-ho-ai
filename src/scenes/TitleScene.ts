@@ -1,3 +1,4 @@
+import { getSyncKey, newSyncKey, setSyncKey, keyLink, keyFromLocation, pushProgress, pullProgress, lastSyncedAt } from '../game/cloudSync';
 import { exportSaveCode, importSaveCode, saveLink, saveQrPng, codeFromLocation, hasProgress, requestPersistentStorage, isInstalledApp, isIOS, canPromptInstall, promptInstall } from '../game/saveCode';
 import { isLiveActive, startLive, stopLive } from '../game/liveMode';
 import Phaser from 'phaser';
@@ -130,12 +131,38 @@ export class TitleScene extends Phaser.Scene {
   private static liveAutoStarted = false;
   /** Bảng thắng bấm ▶ Ra phố đánh trùm: mở sẵn bảng Chuẩn bị cho màn này */
   public static pendingLoadoutStage: StageId | null = null;
+  private static cloudPulled = false;
 
   constructor() {
     super({ key: SCENE_KEYS.TITLE });
   }
 
   public create(): void {
+    // 🔑 Quét QR chìa khoá (#khoa=…): nhận chìa khoá, lấy tiến độ mới nhất từ máy chủ
+    const scannedKey = keyFromLocation();
+    if (scannedKey) {
+      history.replaceState(null, '', location.pathname + location.search);
+      if (scannedKey !== getSyncKey() && (!hasProgress() || window.confirm('Dùng QR chìa khoá này? Tiến độ trên máy này sẽ được thay bằng tiến độ của chìa khoá.'))) {
+        setSyncKey(scannedKey);
+        void pullProgress(true).then((r) => {
+          window.alert(r === 'applied' ? '✔ Đã lấy tiến độ — từ giờ tự đồng bộ!' : r === 'none' ? '✔ Đã nhận chìa khoá (chưa có tiến độ trên máy chủ).' : '⚠️ Chưa lấy được tiến độ (mạng / máy chủ). Thử lại sau.');
+          this.unmountOverlay();
+          this.scene.restart();
+        });
+        return;
+      }
+    } else if (getSyncKey() && !TitleScene.cloudPulled) {
+      // Mở game: máy chủ có bản mới hơn (chơi ở máy khác) → tự tải về; rồi gửi bản máy này lên
+      TitleScene.cloudPulled = true;
+      void pullProgress().then((r) => {
+        if (r === 'applied') {
+          this.unmountOverlay();
+          this.scene.restart();
+        } else void pushProgress();
+      });
+    } else if (getSyncKey()) {
+      void pushProgress();
+    }
     // Mở từ link mã lưu (#ma=…): hỏi rồi chuyển tiến độ sang máy này (anh Kha 25/11)
     const linkCode = codeFromLocation();
     if (linkCode) {
@@ -352,7 +379,12 @@ export class TitleScene extends Phaser.Scene {
           <div class="td-sheet-panel">
             <button type="button" class="td-close-btn td-sheet-close" data-close-sheet aria-label="Đóng">✕</button>
             <div class="td-save-box" data-testid="td-save-box">
-              <div class="td-save-title">💾 Chơi tiếp ở máy khác</div>
+              <div class="td-save-title">🔑 Lưu 1 lần — tự đồng bộ</div>
+              <div class="td-save-row">
+                <button type="button" class="td-save-btn primary" id="btn-key-qr" data-testid="btn-key-qr">🔑 QR chìa khoá</button>
+              </div>
+              <div id="td-key-area"></div>
+              <div class="td-save-title td-save-sub">💾 Cách khác (không cần mạng)</div>
               <div class="td-save-row">
                 <button type="button" class="td-save-btn" id="btn-save-export" data-testid="btn-save-export">📤 Lấy mã</button>
                 <button type="button" class="td-save-btn" id="btn-save-import-open" data-testid="btn-save-import-open">📥 Dán mã</button>
@@ -620,6 +652,37 @@ export class TitleScene extends Phaser.Scene {
 
     /* ===== 💾 Mã lưu + nhắc đưa ra màn hình chính (Claude 24/11) ===== */
     requestPersistentStorage();
+    const keyArea = root.querySelector<HTMLDivElement>('#td-key-area');
+    const showKeyQr = (k: string, status: string): void => {
+      if (!keyArea) return;
+      const link = keyLink(k);
+      let png = '';
+      try {
+        png = saveQrPng(link);
+      } catch {
+        /* bỏ qua */
+      }
+      keyArea.innerHTML = `
+        ${png ? `<div class="td-save-qr-wrap"><img class="td-save-qr" data-testid="td-key-qr" src="${png}" alt="QR chìa khoá" /></div>
+        <div class="td-save-row"><a class="td-save-btn" href="${png}" download="gon-pho-chia-khoa.png" data-testid="btn-key-qr-save">🖼️ Lưu ảnh QR</a></div>` : ''}
+        <div class="td-save-msg" data-testid="td-key-status">${status}</div>
+        <div class="td-save-msg">Lưu ảnh QR này 1 lần. Máy khác quét là chơi tiếp, các máy tự đồng bộ. Đừng đăng ảnh QR lên mạng.</div>
+        <div class="td-save-row"><button type="button" class="td-save-btn" id="btn-key-new" data-testid="btn-key-new">♻️ Đổi chìa khoá mới</button></div>`;
+      keyArea.querySelector('#btn-key-new')?.addEventListener('click', async () => {
+        if (!window.confirm('Tạo chìa khoá mới? QR cũ sẽ không còn đồng bộ với máy này.')) return;
+        const nk = newSyncKey();
+        const r = await pushProgress();
+        showKeyQr(nk, r === 'ok' ? '✔ Đã đồng bộ' : r === 'off' ? '⚠️ Máy chủ chưa bật — tạm lưu trên máy này' : '⚠️ Chưa đồng bộ được (mạng)');
+      });
+    };
+    root.querySelector('#btn-key-qr')?.addEventListener('click', async () => {
+      sound.playUiClick();
+      const k = getSyncKey() ?? newSyncKey();
+      showKeyQr(k, '⏳ Đang đồng bộ…');
+      const r = await pushProgress();
+      const tt = lastSyncedAt();
+      showKeyQr(k, r === 'ok' ? `✔ Đã đồng bộ lúc ${new Date(tt).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}` : r === 'off' ? '⚠️ Máy chủ chưa bật — tạm lưu trên máy này' : '⚠️ Chưa đồng bộ được (mạng)');
+    });
     const saveArea = root.querySelector<HTMLDivElement>('#td-save-area');
     root.querySelector('#btn-save-export')?.addEventListener('click', async () => {
       sound.playUiClick();

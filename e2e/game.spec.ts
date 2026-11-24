@@ -1611,4 +1611,47 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     await expect.poll(() => pc.evaluate(() => localStorage.getItem('giang_ho_ai_thu_thanh_save_v1'))).toBe(saveA);
     await ctxC.close();
   });
+
+  test('Việc 12 — 🔑 QR chìa khoá: máy A tạo QR, máy B mở link chìa khoá là lấy tiến độ mới nhất (máy chủ giả)', async ({ page, browser }) => {
+    const server = new Map<string, { t: number; data: string }>();
+    const fakeApi = async (ctxPage: import('@playwright/test').Page) => {
+      await ctxPage.route('**/api/luu?k=*', async (route) => {
+        const url = new URL(route.request().url());
+        const k = url.searchParams.get('k')!;
+        if (route.request().method() === 'PUT') {
+          const b = JSON.parse(route.request().postData() ?? '{}') as { t: number; data: string };
+          const cur = server.get(k);
+          if (!cur || b.t > cur.t) server.set(k, b);
+          return route.fulfill({ status: 200, contentType: 'application/json', body: '{"ok":true}' });
+        }
+        const row = server.get(k);
+        return row
+          ? route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(row) })
+          : route.fulfill({ status: 404, contentType: 'application/json', body: '{"loi":"khong_co"}' });
+      });
+    };
+    await page.setViewportSize({ width: 390, height: 844 });
+    await fakeApi(page);
+    await page.goto('/');
+    await page.evaluate(() => {
+      localStorage.setItem('giang_ho_ai_thu_thanh_save_v1', JSON.stringify({ version: 1, unlockedStage: 3, starsByStage: { stage_1: 3, stage_2: 1 }, bestLivesByStage: {}, tutorialDone: true, updatedAt: 1 }));
+    });
+    await page.reload();
+    await page.getByTestId('btn-open-help').click();
+    await page.getByTestId('btn-key-qr').click();
+    await expect(page.getByTestId('td-key-status')).toContainText('Đã đồng bộ');
+    await expect(page.getByTestId('td-key-qr')).toBeVisible();
+    const key = await page.evaluate(() => localStorage.getItem('gonpho_khoa'));
+    expect(key).toMatch(/^[a-f0-9]{32}$/);
+    const saveA = await page.evaluate(() => localStorage.getItem('giang_ho_ai_thu_thanh_save_v1'));
+
+    const ctxB = await browser.newContext({ viewport: { width: 390, height: 844 } });
+    const pb = await ctxB.newPage();
+    await fakeApi(pb);
+    pb.on('dialog', (d) => d.accept());
+    await pb.goto(`${page.url().split('#')[0]}#khoa=${key}`);
+    await expect.poll(() => pb.evaluate(() => localStorage.getItem('giang_ho_ai_thu_thanh_save_v1'))).toBe(saveA);
+    expect(await pb.evaluate(() => localStorage.getItem('gonpho_khoa'))).toBe(key);
+    await ctxB.close();
+  });
 });

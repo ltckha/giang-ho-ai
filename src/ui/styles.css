@@ -4124,3 +4124,4 @@ a.td-save-btn { text-decoration: none; text-align: center; display: inline-flex;
 .td-shoprow-stars { font-size: 11px; }
 .td-save-qr-wrap { display: flex; justify-content: center; margin: 6px 0; }
 .td-save-qr { width: min(240px, 70vw); height: auto; border-radius: 10px; border: 2px solid #c9a96e; user-select: auto; -webkit-user-select: auto; -webkit-touch-callout: default; }
+.td-save-sub { margin-top: 10px; font-size: 13px; opacity: 0.85; }
