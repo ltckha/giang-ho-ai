@@ -1,6 +1,7 @@
 // Quay video máy tự chơi (dọc 9:16) để làm clip cho kênh Gọn.
 // Không phải code game: chỉ mở bản build trong dist/, bật bot, quay màn hình.
-// Cách chạy: npm run build && node tools/record_gameplay.cjs [số giây, mặc định 40] [thư mục ra, mặc định video_out] [màn 1|2|3]
+// Cách chạy: npm run build && node tools/record_gameplay.cjs [số giây, mặc định 40] [thư mục ra, mặc định video_out] [màn 1|2|3 hoặc mã màn vd street_tran_phu_t1]
+// Màn phố thật: dùng máy tự chơi của chế độ LIVE (?quay=<mã màn>), ẩn khung LIVE.
 // Cần: Playwright + Chromium (đã có trong máy phiên cloud), ffmpeg để đổi sang mp4.
 const http = require('http'), fs = require('fs'), path = require('path'), { execFileSync } = require('child_process');
 // Ưu tiên Playwright cài sẵn trong máy (khớp trình duyệt và ffmpeg quay video); không có thì dùng bản của dự án
@@ -10,7 +11,9 @@ catch { chromium = require('playwright').chromium; }
 const seconds = Number(process.argv[2] || 40);
 const outDir = path.resolve(process.argv[3] || 'video_out');
 const skipSec = Number(process.argv[5] || 3); // bỏ bớt mấy giây đầu (màn hình tải, chọn tiệm)
-const stageNo = ['2', '3'].includes(process.argv[4]) ? Number(process.argv[4]) : 1; // màn cần quay (1, 2 hoặc 3)
+const stageArg = process.argv[4] || '1';
+const stageCode = /^(street_|stage_)/.test(stageArg) ? stageArg : null; // mã màn bất kỳ → chế độ quay của LIVE
+const stageNo = ['2', '3'].includes(stageArg) ? Number(stageArg) : 1; // màn cần quay (1, 2 hoặc 3)
 const root = path.resolve(__dirname, '..', 'dist');
 const types = { '.js': 'text/javascript', '.css': 'text/css', '.html': 'text/html', '.png': 'image/png', '.webp': 'image/webp', '.json': 'application/json', '.woff2': 'font/woff2' };
 const srv = http.createServer((q, r) => { let p = path.join(root, decodeURIComponent(q.url.split('?')[0])); if (p.endsWith('/')) p += 'index.html'; fs.readFile(p, (e, d) => { if (e) { r.writeHead(404); return r.end(); } r.writeHead(200, { 'Content-Type': types[path.extname(p)] || 'application/octet-stream' }); r.end(d); }); }).listen(0);
@@ -37,16 +40,21 @@ const srv = http.createServer((q, r) => { let p = path.join(root, decodeURICompo
     } catch (e) {}
   });
   // ?video=1&bot=1: bot tự chơi, tốc độ x2, ẩn nút gỡ lỗi (Antigravity làm)
-  await page.goto(`http://localhost:${port}/?bot=1&video=1`);
-  await page.waitForTimeout(2500);
-  await page.getByTestId(`btn-start-stage-${stageNo}`).click();
-  await page.waitForTimeout(800);
-  await page.getByTestId('btn-call-wave').click().catch(() => {});
+  if (stageCode) {
+    await page.goto(`http://localhost:${port}/?quay=${encodeURIComponent(stageCode)}`);
+    await page.waitForTimeout(2500); // máy chơi nháp chọn cách đặt món
+  } else {
+    await page.goto(`http://localhost:${port}/?bot=1&video=1`);
+    await page.waitForTimeout(2500);
+    await page.getByTestId(`btn-start-stage-${stageNo}`).click();
+    await page.waitForTimeout(800);
+    await page.getByTestId('btn-call-wave').click().catch(() => {});
+  }
   await page.waitForTimeout(seconds * 1000);
   const video = page.video();
   await ctx.close(); await browser.close(); srv.close();
   const webm = await video.path();
-  const mp4 = path.join(outDir, `gameplay_man${stageNo}_${new Date().toISOString().replace(/[:.]/g, '-')}.mp4`);
+  const mp4 = path.join(outDir, `gameplay_${stageCode ?? 'man' + stageNo}_${new Date().toISOString().replace(/[:.]/g, '-')}.mp4`);
   // bỏ 2 giây đầu (màn hình tải), xuất mp4 H.264 dọc 1080x1920, 30 khung/giây
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(skipSec), '-i', webm, '-vf', 'fps=30,scale=1080:1920:flags=lanczos', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', mp4]);
   fs.unlinkSync(webm);

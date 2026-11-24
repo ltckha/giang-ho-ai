@@ -301,7 +301,11 @@ async function goToStage(scene: Phaser.Scenes.ScenePlugin): Promise<void> {
   scene.start(SCENE_KEYS.TD_STAGE, { stageId: id, loadout, live: { plan: choice.plan, gear } satisfies LiveStageData });
 }
 
-export function startLive(scene: Phaser.Scenes.ScenePlugin): void {
+/**
+ * opts.clean: quay clip cho kênh Gọn — máy vẫn tự chơi nối màn nhưng ẩn hết khung LIVE (?quay=<mã màn>).
+ * opts.stageId: bắt đầu từ màn này.
+ */
+export function startLive(scene: Phaser.Scenes.ScenePlugin, opts: { clean?: boolean; stageId?: string } = {}): void {
   state.active = true;
   state.machine = true;
   try {
@@ -309,7 +313,10 @@ export function startLive(scene: Phaser.Scenes.ScenePlugin): void {
   } catch {
     state.index = 0;
   }
+  const at = opts.stageId ? livePlaylist().indexOf(opts.stageId as StageId) : -1;
+  if (at >= 0) state.index = at;
   mountOverlay();
+  state.root?.classList.toggle('gp-live-clean', Boolean(opts.clean));
   const params = new URLSearchParams(window.location.search);
   const ws = params.get('ws');
   if (ws && /^wss?:\/\/(localhost|127\.0\.0\.1)(:\d+)?\//.test(ws.endsWith('/') ? ws : `${ws}/`)) connectWs(ws);

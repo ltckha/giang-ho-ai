@@ -106,6 +106,11 @@ Game hiện là **thủ thành Gọn Phố** (đặt món giữ tiệm, ngũ hà
 
 ### Tiến độ LIVE (Claude 24/11)
 - **Kênh phát: @gon.simpli** (anh Kha chốt 24/11) — cùng kênh đăng video game.
+- **Thứ tự (anh Kha chốt 24/11): chuẩn bị kỹ hết → đăng video một thời gian, kênh ổn → mới lên LIVE.** Chưa cài gì lên máy anh cho tới lúc đó.
+  1. Hoàn thiện game (nội thất Spark đợt 29, lỗi hình còn lại).
+  2. Link chơi công khai (chặng 3) — cần anh duyệt kế hoạch riêng.
+  3. Quay clip: `node tools/record_gameplay.cjs <giây> <thư mục> <mã màn>` (vd street_tran_phu_t1) — máy LIVE tự chơi, ẩn khung LIVE; đăng qua hệ thống đăng bài, anh duyệt từng clip.
+  4. Kênh ổn → Bước 2 (bộ đọc sự kiện, máy Mac của anh) + Bước 3 (LIVE Studio / OBS).
 - **Bước 1 xong** (commit 0a10154): chế độ LIVE trong game — máy tự chơi nối 62 màn (thắng 62/62 khi mặc đồ đúng giai đoạn), bảng "Bạn giữ tiệm", khung bình luận, tim → xu, quà → bùa làm chậm quái, nút Máy/Người, khán giả THỬ ghi rõ chữ THỬ. Vào bằng ?live=1 hoặc nút 📺 (chế độ chủ). Nhận sự kiện qua window.gonPhoLive.push hoặc ?ws=ws://localhost:….
 - Chưa làm: gợi ý hành qua bình luận, tên người xem trên món (mục 2 trên).
 - **Bước 2 (chờ anh "làm"):** bộ đọc chạy trên máy tính anh (thư viện không chính thức tiktok-live-connector 2.x), chỉ cần @gon.simpli, phát sự kiện sang game chạy tại localhost.

@@ -4050,3 +4050,4 @@ img.td-vehicle-ico { object-fit: contain; }
 #gp-live .gp-live-ctrl button { border: 0; border-radius: 10px; padding: 5px 9px; background: rgba(20, 12, 8, 0.8); color: #fff3d6; font-size: 12px; font-weight: 800; cursor: pointer; }
 @keyframes gpLiveIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 @keyframes gpLiveHeart { 0% { opacity: 0; transform: translateY(0) scale(0.6); } 15% { opacity: 1; } 100% { opacity: 0; transform: translateY(-240px) scale(1.2) rotate(-12deg); } }
+#gp-live.gp-live-clean { display: none; }

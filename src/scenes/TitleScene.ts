@@ -134,9 +134,11 @@ export class TitleScene extends Phaser.Scene {
   public create(): void {
     // LIVE TikTok (Claude): ?live=1 vào thẳng; về màn chính thì tắt LIVE
     if (isLiveActive()) stopLive();
-    if (typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('live') === '1' && !TitleScene.liveAutoStarted) {
+    const liveQ = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+    if (liveQ && (liveQ.get('live') === '1' || liveQ.get('quay')) && !TitleScene.liveAutoStarted) {
       TitleScene.liveAutoStarted = true;
-      startLive(this.scene);
+      // ?quay=<mã màn>: quay clip kênh Gọn — máy tự chơi, không hiện khung LIVE
+      startLive(this.scene, { clean: Boolean(liveQ.get('quay')), stageId: liveQ.get('quay') ?? liveQ.get('man') ?? undefined });
       return;
     }
     // Lối vào thử phố thật / trùm phố: thêm #<mã màn> vào link (vd #street_pho_ca_phe) — Claude
