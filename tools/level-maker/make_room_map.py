@@ -69,6 +69,7 @@ def furniture(d, im, style, x, y, rnd, decos):
         im.paste(dz, (int(X - dz.width / 2), int(Y - dz.height * 0.7)), dz)
 
 NT = os.path.join(ROOT, 'art', 'noi_that')
+SOFTEN = {'nen_gach_caro': 0.62, 'nen_gach_bong': 0.35}
 TILE = {'luu_tru': 'nen_san_tham', 'quan_an': 'nen_san_xi_mang', 'cafe': 'nen_san_go', 'tiem': 'nen_san_da'}
 WALL = {'luu_tru': 'nen_tuong_go', 'quan_an': 'nen_tuong_voi', 'cafe': 'nen_tuong_go', 'tiem': 'nen_tuong_voi'}
 COUNTER = {'luu_tru': 'noi_quay_le_tan', 'quan_an': 'noi_bep_quan', 'cafe': 'noi_quay_pha_che', 'tiem': 'noi_quay_thu_ngan'}
@@ -84,6 +85,8 @@ def tile_fill(im, name, box):
     f = os.path.join(NT, f'{name}.png')
     if not os.path.exists(f): return False
     t = Image.open(f).convert('RGB').resize((160, 160), Image.LANCZOS)
+    if name in SOFTEN:   # nền nhiều hoa văn: pha màu kem cho dịu, ô đặt món vẫn nổi
+        t = Image.blend(t, Image.new('RGB', t.size, (246, 236, 214)), SOFTEN[name])
     x0, y0, x1, y1 = box
     for y in range(y0, y1, 160):
         for x in range(x0, x1, 160):
