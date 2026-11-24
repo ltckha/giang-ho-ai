@@ -4086,3 +4086,23 @@ img.td-vehicle-ico { object-fit: contain; }
 .td-result-actions > button { flex: 1; white-space: nowrap; }
 .td-result-desc { text-align: center; font-weight: 700; }
 .td-cur-stats { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; justify-content: center; }
+
+/* Chuẩn bị: thẻ đã chọn đổi màu, tên dài cắt gọn, bảng nằm trên thẻ bản đồ (Antigravity rà 24/11) */
+.td-lo-tower-card.selected { background: #ecfdf5; border-color: #16a34a; box-shadow: 0 0 0 1.5px rgba(22, 163, 74, 0.35); }
+.td-lo-name, .td-lo-place { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.td-lo-meta { flex-wrap: wrap; row-gap: 2px; }
+.td-loadout-backdrop { z-index: 1000; }
+#td-loadout-modal-host { position: relative; z-index: 1000; }
+/* Nút xe gọn: hình xe + ⚡ (tên chiêu khi chạm giữ) — trả chỗ cho ô báo quái */
+.td-vehicle-btn .td-vehicle-zap { font-size: 16px; font-weight: 900; }
+/* Ký hiệu vai trò trên thẻ đặt món: ⚡ bắn nhanh · 💥 đánh nặng · ❄️ làm chậm · 🔥 đánh lan · ✨ hỗ trợ */
+.td-build-option { position: relative; }
+.td-opt-roleico { position: absolute; top: 4px; left: 5px; font-size: 13px; line-height: 1; filter: drop-shadow(0 1px 0 #fff); }
+/* Đầu trang không tràn khi có huy hiệu + nhiều nút */
+.td-home-head { flex-wrap: nowrap; min-width: 0; }
+.td-home-icons { flex-shrink: 1; min-width: 0; gap: 4px; }
+.td-home-head:has(.td-home-medal) .td-icon-btn, .td-home-icons:has(#btn-start-live) .td-icon-btn { width: 34px; height: 34px; font-size: 15px; }
+/* Bước hướng dẫn cuối: khi bảng đặt / nâng món đang mở thì đẩy bong bóng lên trên, không che bảng (Antigravity rà 24/11) */
+body:has(.td-sheet) .td-tut-dock.pos-above-bottom { top: 64px; bottom: auto; }
+/* Biểu tượng nút Spark vẽ (thay emoji hệ thống) */
+.td-icon-btn .td-ui-ico { width: 78%; height: 78%; object-fit: contain; pointer-events: none; }

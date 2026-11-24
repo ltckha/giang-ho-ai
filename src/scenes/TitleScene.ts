@@ -128,6 +128,8 @@ export class TitleScene extends Phaser.Scene {
   private reduceMotion = false;
   private hashChangeHandler: (() => void) | null = null;
   private static liveAutoStarted = false;
+  /** Bảng thắng bấm ▶ Ra phố đánh trùm: mở sẵn bảng Chuẩn bị cho màn này */
+  public static pendingLoadoutStage: StageId | null = null;
 
   constructor() {
     super({ key: SCENE_KEYS.TITLE });
@@ -294,10 +296,10 @@ export class TitleScene extends Phaser.Scene {
           <h1 class="td-title-heading">Gọn Phố</h1>
           ${hasStreetChampionBadge ? `<span class="td-home-medal" data-testid="badge-giu-tron-pho" data-tip="Huy hiệu Giữ trọn phố">${championBadgeUrl ? `<img src="${championBadgeUrl}" alt="" />` : '🏆'}</span>` : ''}
           <div class="td-home-icons" data-testid="td-audio-controls">
-            <button type="button" id="btn-toggle-music" data-testid="btn-toggle-music" class="td-icon-btn ${music.isMuted() ? 'muted' : ''}" aria-label="Nhạc">${music.isMuted() ? '🔇' : '🎵'}</button>
-            <button type="button" id="btn-toggle-sfx" data-testid="btn-toggle-sfx" class="td-icon-btn ${sound.isMuted() ? 'muted' : ''}" aria-label="Tiếng">${sound.isMuted() ? '🔕' : '🔊'}</button>
-            <button type="button" id="btn-open-gear" data-testid="btn-open-gear" class="td-icon-btn" aria-label="Trang bị">🎒</button>
-            <button type="button" id="btn-open-help" data-testid="btn-open-help" class="td-icon-btn" aria-label="Hướng dẫn">?</button>
+            <button type="button" id="btn-toggle-music" data-testid="btn-toggle-music" class="td-icon-btn ${music.isMuted() ? 'muted' : ''}" aria-label="Nhạc">${music.isMuted() ? '<img class="td-ui-ico" src="./assets/ui/ui_nhac_tat.webp" alt="" />' : '<img class="td-ui-ico" src="./assets/ui/ui_nhac_bat.webp" alt="" />'}</button>
+            <button type="button" id="btn-toggle-sfx" data-testid="btn-toggle-sfx" class="td-icon-btn ${sound.isMuted() ? 'muted' : ''}" aria-label="Tiếng">${sound.isMuted() ? '<img class="td-ui-ico" src="./assets/ui/ui_tieng_tat.webp" alt="" />' : '<img class="td-ui-ico" src="./assets/ui/ui_tieng_bat.webp" alt="" />'}</button>
+            <button type="button" id="btn-open-gear" data-testid="btn-open-gear" class="td-icon-btn" aria-label="Trang bị"><img class="td-ui-ico" src="./assets/ui/ui_trang_bi.webp" alt="" /></button>
+            <button type="button" id="btn-open-help" data-testid="btn-open-help" class="td-icon-btn" aria-label="Hướng dẫn"><img class="td-ui-ico" src="./assets/ui/ui_huong_dan.webp" alt="" /></button>
             ${ownerOpenAll ? `<button type="button" id="btn-start-live" data-testid="btn-start-live" class="td-icon-btn" aria-label="Phát LIVE: máy tự chơi">📺</button>` : ''}
           </div>
         </div>
@@ -454,7 +456,7 @@ export class TitleScene extends Phaser.Scene {
               `,
               ).join('')
             : `<div class="td-lo-group">
-                 <div class="td-lo-group-title">📍 ${allowed.length} địa điểm dọc ${stage.name}</div>
+                 <div class="td-lo-group-title">📍 ${allowed.length} món</div>
                  <div class="td-lo-grid">${allowed.map(renderTowerCard).join('')}</div>
                </div>`;
 
@@ -527,16 +529,17 @@ export class TitleScene extends Phaser.Scene {
               !stage.cleanTowerIds.includes(tid) &&
               chosen.filter((x) => !stage.cleanTowerIds!.includes(x)).length >= stage.maxShopTowers
             ) {
-              // Màn phố: đã đủ số món tiệm được mang
-              sound.playUiClick();
-              return;
+              // Màn phố: đã đủ món tiệm → thay món tiệm chọn sớm nhất (không đơ)
+              const oldest = chosen.find((x) => !stage.cleanTowerIds!.includes(x));
+              chosen = [...chosen.filter((x) => x !== oldest), tid];
+              sound.playBuildOrUpgrade();
             } else if (chosen.length < limit) {
               chosen = [...chosen, tid];
               sound.playBuildOrUpgrade();
             } else {
-              // Đã đủ 6 món: thay món chọn đầu tiên để người chơi dễ xoay chuyển nhanh
-              sound.playUiClick();
-              return;
+              // Đã đủ món: thay món chọn sớm nhất để xoay nhanh (Antigravity rà 24/11)
+              chosen = [...chosen.slice(1), tid];
+              sound.playBuildOrUpgrade();
             }
             renderModal();
           };
@@ -561,14 +564,14 @@ export class TitleScene extends Phaser.Scene {
       const mBtn = root.querySelector<HTMLButtonElement>('#btn-toggle-music');
       if (mBtn) {
         const mOff = music.isMuted();
-        mBtn.textContent = mOff ? '🔇' : '🎵';
+        mBtn.innerHTML = `<img class="td-ui-ico" src="./assets/ui/${mOff ? 'ui_nhac_tat' : 'ui_nhac_bat'}.webp" alt="" />`;
         mBtn.classList.toggle('muted', mOff);
         mBtn.setAttribute('aria-pressed', mOff ? 'false' : 'true');
       }
       const sBtn = root.querySelector<HTMLButtonElement>('#btn-toggle-sfx');
       if (sBtn) {
         const sOff = sound.isMuted();
-        sBtn.textContent = sOff ? '🔕' : '🔊';
+        sBtn.innerHTML = `<img class="td-ui-ico" src="./assets/ui/${sOff ? 'ui_tieng_tat' : 'ui_tieng_bat'}.webp" alt="" />`;
         sBtn.classList.toggle('muted', sOff);
         sBtn.setAttribute('aria-pressed', sOff ? 'false' : 'true');
       }
@@ -1749,6 +1752,9 @@ export class TitleScene extends Phaser.Scene {
 
     renderGear();
     this.overlayEl = root;
+    const pendingLo = TitleScene.pendingLoadoutStage;
+    TitleScene.pendingLoadoutStage = null;
+    if (pendingLo && STAGES[pendingLo]) openLoadoutPicker(STAGES[pendingLo]);
   }
 
   private unmountOverlay(): void {

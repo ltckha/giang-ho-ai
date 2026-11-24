@@ -92,6 +92,14 @@ function shortId(street: string) {
   return street.replace(/^street_/, '');
 }
 
+const BRANCH_TEXT: Record<TowerRole, [string, string]> = {
+  single_far: ['đánh liên hoàn rất nhanh, xuyên thêm 1 con phía sau.', 'phá 15% giáp, quái trúng mất máu thêm vài giây.'],
+  heavy_slow: ['đòn nặng làm choáng 0,6 giây, hợp quái máu dày.', 'quét thẳng một đường, trúng tối đa 3 con.'],
+  slow_aura: ['làm chậm 54%, cứ 3 lần đánh giữ chân quái 1 giây.', 'vùng làm chậm rộng 48% và đẩy lùi nhẹ cả bầy.'],
+  aoe_splash: ['để lại vùng rút máu 22 mỗi giây trong 3 giây.', 'nổ lan rất rộng, sát thương bùng phát cao.'],
+  support_buff: ['giữ món quanh không bị làm đứng im, +2 xu mỗi quái dọn được.', 'món cạnh bên mạnh thêm 40%, nhanh thêm 30%, xa thêm 16%.'],
+};
+
 function buildTowers(spec: StreetSpec): Record<string, TowerDefinition> {
   const out: Record<string, TowerDefinition> = {};
   for (const p of spec.places) {
@@ -108,8 +116,9 @@ function buildTowers(spec: StreetSpec): Record<string, TowerDefinition> {
       ultimateName: p.tower.ult,
       tier1: { ...t.tier1, name: n1, description: `${p.name}: ${p.trait}. Khắc ${khac}: ${p.tower.why}.` },
       tier2: { ...t.tier2, name: n2, description: `${n2}: mạnh hơn, xa hơn.` },
-      tier3A: { ...t.tier3A, name: n3a, description: t.tier3A.description },
-      tier3B: { ...t.tier3B, name: n3b, description: t.tier3B.description },
+      // Mô tả bậc 3 trung lập theo vai (không chép câu "dép văng / đinh sắt" của Tiệm Giày — Antigravity rà 24/11)
+      tier3A: { ...t.tier3A, name: n3a, description: `${n3a}: ${BRANCH_TEXT[p.tower.role][0]}` },
+      tier3B: { ...t.tier3B, name: n3b, description: `${n3b}: ${BRANCH_TEXT[p.tower.role][1]}` },
     };
   }
   return out;

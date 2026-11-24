@@ -208,6 +208,12 @@ def draw(stage, out):
         d = ImageDraw.Draw(im)
     else:
         d.rounded_rectangle([(ex - 44) * S, (ey - 20) * S, (ex + 44) * S, (ey + 4) * S], 10, fill=(126, 84, 52), outline=INK, width=5)
+    # đế gỗ dưới mỗi ô đặt món: ô nổi rõ trên mọi nền (gạch caro, gạch bông…) — Antigravity rà 24/11
+    for px_, py_ in pads:
+        R = 21 * S
+        d.ellipse([px_ * S - R - 3, py_ * S - R * 0.86 + 6, px_ * S + R + 3, py_ * S + R * 0.86 + 10], fill=(60, 40, 24))
+        d.ellipse([px_ * S - R, py_ * S - R * 0.86, px_ * S + R, py_ * S + R * 0.86], fill=(150, 104, 62), outline=INK, width=4)
+        d.ellipse([px_ * S - R + 7, py_ * S - R * 0.86 + 6, px_ * S + R - 7, py_ * S + R * 0.86 - 6], outline=(196, 150, 98), width=3)
     # thảm chùi chân ở cửa
     for r in paths:
         sx, sy = r[0]

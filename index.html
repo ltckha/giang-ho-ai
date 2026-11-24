@@ -18,7 +18,7 @@
       property="og:description"
       content="Giữ sạch Tiệm Giày, Tiệm Bánh, Tiệm Hoa dọc con phố dốc Đà Lạt mùa mưa! Chơi thủ thành Ngũ Hành miễn phí ngay trên điện thoại."
     />
-    <meta property="og:image" content="./og-image.png" />
+    <meta property="og:image" content="https://giang-ho-ai.pages.dev/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -27,7 +27,7 @@
       name="twitter:description"
       content="Thủ thành Ngũ Hành giữa phố nhỏ Đà Lạt mùa mưa — Trúng tủ ×1.75, Tương sinh & Trang bị chủ tiệm!"
     />
-    <meta name="twitter:image" content="./og-image.png" />
+    <meta name="twitter:image" content="https://giang-ho-ai.pages.dev/og-image.png" />
     <meta name="theme-color" content="#3c2618" />
     <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
@@ -38,7 +38,7 @@
     <script>
       // Claude: lưu sẵn game để chơi không cần mạng (bỏ qua khi chạy thử tự động, trừ khi có ?sw=1)
       if ('serviceWorker' in navigator && location.port !== '5173' && (!navigator.webdriver || location.search.indexOf('sw=1') >= 0)) {
-        window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js').catch(function () {}); });
+        window.addEventListener('load', function () { setTimeout(function () { navigator.serviceWorker.register('./sw.js').catch(function () {}); }, 20000); }); // chờ 20 giây sau khi mở game mới lưu sẵn để không giành mạng lúc mở
       }
     </script>
     <style>

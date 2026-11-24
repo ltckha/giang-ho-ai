@@ -118,7 +118,10 @@ def draw(g, out):
             return False
         if need_road and dd > WALK_W / 2 + rad + 16:
             return False
-        if any(math.hypot(x - px, y - py) < 26 + rad * 0.55 for px, py in pads):
+        # hình vẽ nhô lên trên điểm đặt (~2×rad): né ô theo tâm thân hình, không chỉ chân hình
+        if any(math.hypot(x - px, (y - rad * 0.9) - py) < 24 + rad * 0.95 for px, py in pads):
+            return False
+        if any(math.hypot(x - px, y - py) < 26 for px, py in pads):
             return False
         if any(math.hypot(x - qx, y - qy) < (rad + qr) * 0.62 for qx, qy, qr in taken):
             return False

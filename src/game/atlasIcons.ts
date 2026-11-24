@@ -28,6 +28,15 @@ export const SHOP_ROOM_MAP_KEYS: Record<string, string> = Object.fromEntries(
 
 const iconDataUrlCache = new Map<string, string>();
 
+/** Đường dẫn ảnh nền cho màn phố thật / phòng tiệm — tải lúc vào màn (không tải sẵn lúc mở game) */
+export function getStageMapUrl(stageId: StageId): string | undefined {
+  const key = getStageMapKey(stageId);
+  if (!key) return undefined;
+  const st = STAGES[stageId];
+  if (st?.shopIndex) return `./assets/rooms/${key}.webp`;
+  return key.startsWith('map_street_') ? `./assets/${key}.webp` : undefined;
+}
+
 export function getStageMapKey(stageId: StageId): string | undefined {
   if (stageId === 'stage_1') return STAGE1_MAP_KEY;
   if (stageId === 'stage_2') return STAGE2_MAP_KEY;

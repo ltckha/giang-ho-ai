@@ -5,7 +5,7 @@
  */
 import type { TowerDefenseEngine } from './tdEngine';
 import { TowerDefenseEngine as Engine, distance2D } from './tdEngine';
-import { ALL_ENEMY_DEFINITIONS, ALL_TOWER_DEFINITIONS } from './tdDefinitions';
+import { ALL_ENEMY_DEFINITIONS, ALL_TOWER_DEFINITIONS, getStageTowerList } from './tdDefinitions';
 import { computeGearBonus, rollStageDrops, starterGear, makeGearItem, GEAR_SLOTS, type Equipped, type GearBonus } from './equipment';
 import { ALL_ELEMENTS } from './elements';
 import { STAGE_1_PLAN } from './tdBot';
@@ -204,8 +204,8 @@ export async function pickBestPlan(
   tries = 24,
   yieldFn: () => Promise<void> = () => new Promise((r) => setTimeout(r, 0)),
 ): Promise<PlanChoice> {
-  const loadout = (opts.loadout ?? stage.towerIds ?? Object.keys(ALL_TOWER_DEFINITIONS)) as TowerId[];
-  const engineLoadout = stage.loadoutSize ? loadout : (stage.towerIds as TowerId[] | undefined) ?? loadout;
+  // Đúng bộ món của màn (Màn 1 không có towerIds → 5 món Tiệm Giày), không lấy món tiệm khác (Antigravity rà 24/11)
+  const engineLoadout = getStageTowerList(stage, opts.loadout).map((t) => t.id);
   let best: PlanChoice | null = null;
   for (const plan of candidatePlans(stage, engineLoadout, tries)) {
     const res = simulatePlan(stage, opts, plan);

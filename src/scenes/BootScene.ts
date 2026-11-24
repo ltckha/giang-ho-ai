@@ -7,7 +7,6 @@ import {
   STAGE2_MAP_KEY,
   STAGE3_MAP_KEY,
   STAGE4_MAP_KEY,
-  SHOP_ROOM_MAP_KEYS,
   STREET_MAP_KEYS,
   STREETS_ATLAS_KEY,
 } from '../game/atlasIcons';
@@ -84,7 +83,7 @@ const FILE_STATUS_LABELS: Record<string, string> = {
   [STREET_MAP_KEYS.street_phan_dinh_phung!]: 'Đang mở sớm Phố Phan Đình Phùng (Cầu Quẹo)...',
 };
 
-const FX_KEYS = [
+export const FX_KEYS = [
   'fx_tuyet_kim', 'fx_tuyet_moc', 'fx_tuyet_thuy', 'fx_tuyet_hoa', 'fx_tuyet_tho',
   'fx_no_kim', 'fx_no_moc', 'fx_no_thuy', 'fx_no_hoa', 'fx_no_tho',
   'fx_chuoi_sinh', 'fx_trung_tu', 'fx_nang_cap', 'fx_tim', 'fx_xu',
@@ -122,16 +121,7 @@ export class BootScene extends Phaser.Scene {
     this.load.image(STAGE2_MAP_KEY, './assets/map_man2_tiem_banh.webp');
     this.load.image(STAGE3_MAP_KEY, './assets/map_man3_tiem_hoa.webp');
     this.load.image(STAGE4_MAP_KEY, './assets/map_trum_pho.webp');
-    for (const mapKey of Object.values(STREET_MAP_KEYS)) {
-      this.load.image(mapKey, `./assets/${mapKey}.webp`);
-    }
-    for (const mapKey of Object.values(SHOP_ROOM_MAP_KEYS)) {
-      this.load.image(mapKey, `./assets/rooms/${mapKey}.webp`);
-    }
-    // Hiệu ứng Spark vẽ (chiêu thức, nổ theo hành, trúng tủ, nâng cấp, chuỗi tương sinh) — Claude
-    for (const fx of FX_KEYS) {
-      this.load.image(fx, `./assets/fx/${fx}.webp`);
-    }
+    // Nền phố thật / 52 phòng tiệm / hiệu ứng: tải khi vào màn (TdStageScene.preload) cho mở game nhanh — Claude 24/11
 
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.unmountSplashScreen();

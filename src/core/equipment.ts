@@ -543,6 +543,14 @@ export const STAT_ICON: Record<GearStatKind, string> = {
   boss_dmg: '👑',
 };
 
+/** 1 chữ nói rõ tác dụng (đi kèm biểu tượng) — Antigravity rà 24/11: ký hiệu trơn khó hiểu */
+export const STAT_WORD: Record<GearStatKind, string> = {
+  elem_dmg: 'Hành', all_dmg: 'Sức', range: 'Tầm', speed: 'Tốc', start_coins: 'Vốn', lives: 'Tim',
+  coin_pct: 'Xu', ult_cd: 'Chiêu', ult_cost: 'Bậc 4', upgrade_discount: 'Nâng rẻ', build_discount: 'Đặt rẻ',
+  sell_refund: 'Bán', counter_dmg: 'Khắc', synergy_bonus: 'Sinh', slow_dur: 'Chậm', weaken_thuy: 'Mưa',
+  weaken_moc: 'Côn trùng', extra_drop: 'Rơi đồ', boss_dmg: 'Trùm',
+};
+
 /** Giá trị ngắn: "12%", "+20", "+1" */
 export function statValueShort(st: GearStat): string {
   if (INT_KINDS.has(st.kind)) return st.kind === 'ult_cost' ? `-${st.value}` : `+${st.value}`;
@@ -556,7 +564,7 @@ export function statShort(st: GearStat): string {
 
 /** Gọn nhất: chỉ biểu tượng + số (vd "🎯 8%") — câu đầy đủ xem bằng statText (anh Kha 24/11: bớt chữ) */
 export function statTiny(st: GearStat): string {
-  return `${STAT_ICON[st.kind]} ${statValueShort(st)}`;
+  return `${STAT_ICON[st.kind]} ${STAT_WORD[st.kind] ?? ''} ${statValueShort(st)}`.replace(/\s+/g, ' ');
 }
 
 /** Chip tổng sức mạnh gọn: [{icon, value, full}] — chỉ các mục khác 0 */
@@ -569,7 +577,7 @@ export function bonusChips(b: GearBonus): { icon: string; value: string; full: s
   for (const k of Object.keys(b.stats) as GearStatKind[]) {
     const v = b.stats[k];
     if (!v) continue;
-    out.push({ icon: STAT_ICON[k], value: statValueShort({ kind: k, value: v }), full: statText({ kind: k, value: v }) });
+    out.push({ icon: STAT_ICON[k], value: `${STAT_WORD[k] ?? ''} ${statValueShort({ kind: k, value: v })}`.trim(), full: statText({ kind: k, value: v }) });
   }
   return out;
 }

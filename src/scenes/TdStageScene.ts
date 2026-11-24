@@ -1,3 +1,5 @@
+import { TitleScene } from './TitleScene';
+import { FX_KEYS } from './BootScene';
 import Phaser from 'phaser';
 import { ELEMENT_INFO } from '../core/elements';
 import { getGearBonus, getVehicle, grantStageDrops, loadTdSave, markTutorialDone, saveTdProgress, shouldShowTutorial } from '../core/saveSystem';
@@ -38,6 +40,7 @@ import {
   getGearAtlasFrameDataUrl,
   getGearIconFrameName,
   getStageMapKey,
+  getStageMapUrl,
   getTowerAtlasKey,
   getTowerFrameName,
   getTowerTierKey,
@@ -331,6 +334,17 @@ export class TdStageScene extends Phaser.Scene {
     this.spawnFloatingLabel(sp.x, sp.y - 26 * this.mapScale, text, '#fff3c4', 13, true);
   }
 
+  /** Tải nền màn + hiệu ứng ngay lúc vào màn (không tải sẵn lúc mở game) — Claude 24/11 */
+  public preload(): void {
+    const data = this.scene.settings.data as { stageId?: StageId } | undefined;
+    const q = typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('stage') : null;
+    const sid = (data?.stageId ?? (q === '2' ? 'stage_2' : q === '3' ? 'stage_3' : q === '4' ? 'stage_4' : 'stage_1')) as StageId;
+    const key = getStageMapKey(sid);
+    const url = getStageMapUrl(sid);
+    if (key && url && !this.textures.exists(key)) this.load.image(key, url);
+    for (const fx of FX_KEYS) if (!this.textures.exists(fx)) this.load.image(fx, `./assets/fx/${fx}.webp`);
+  }
+
   public create(data?: { stageId?: StageId; forceTutorial?: boolean; loadout?: TowerId[]; live?: LiveStageData }): void {
     // Chọn màn: từ nút ở màn hình đầu, hoặc thêm ?stage=2 / ?stage=3 / ?stage=4 vào link (để thử / quay video)
     const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
@@ -378,7 +392,15 @@ export class TdStageScene extends Phaser.Scene {
             : 'stage_2',
     );
     this.lastDrops = [];
-    this.speedMultiplier = isVideoMode ? 2 : 1;
+    // Nhớ tốc độ x2 giữa các màn (Antigravity rà 24/11)
+    const savedSpeed = (() => {
+      try {
+        return localStorage.getItem('gonpho_toc_do') === '2' ? 2 : 1;
+      } catch {
+        return 1;
+      }
+    })();
+    this.speedMultiplier = isVideoMode ? 2 : savedSpeed;
     this.paused = false;
     this.autoBotEnabled = isVideoMode && isBotQuery && !this.liveMode;
     this.livePlan = data?.live?.plan ?? null;
@@ -511,6 +533,7 @@ export class TdStageScene extends Phaser.Scene {
       }
       return;
     }
+    if (stageId.startsWith('street_') && this.engine.stage.shopIndex) return; // trong phòng tiệm: không mưa (Antigravity rà 24/11)
     if (stageId.startsWith('street_')) {
       const isNight = stageId === 'street_tang_bat_ho';
       for (let i = 0; i < (isNight ? 20 : 12); i += 1) {
@@ -761,7 +784,7 @@ export class TdStageScene extends Phaser.Scene {
           const name = act.defId ? getTowerTierStats(act.defId, 1).name ?? '' : '';
           if (act.padId) this.liveTapFx(act.padId, `${icon} ${name}`.trim());
           if (act.padId && (act.kind === 'upgrade' || act.kind === 'ult_unlock')) this.fxUpgrade(act.padId);
-          else this.vehicleFx();
+          if (act.kind === 'vehicle') this.vehicleFx();
         }
       }
     }
@@ -3062,7 +3085,7 @@ export class TdStageScene extends Phaser.Scene {
     const isStage2 = stageId === 'stage_2';
     const isStage3 = stageId === 'stage_3';
     const isStage4 = stageId === 'stage_4';
-    const isRealStreet = stageId.startsWith('street_');
+    const isRealStreet = stageId.startsWith('street_') && !this.engine.stage.shopIndex; // trong phòng tiệm: không mưa, không sương
 
     const path0 = this.engine.stage.paths[0];
     const lastPt = path0?.[path0.length - 1];
@@ -3263,7 +3286,7 @@ export class TdStageScene extends Phaser.Scene {
 
       <div class="td-bottom-bar">
         <div class="td-upcoming-box" id="td-upcoming-box" data-testid="td-upcoming-box"></div>
-        ${this.engine.vehicle ? `<button id="btn-vehicle" data-testid="btn-vehicle" class="td-vehicle-btn" title="${this.engine.vehicle.name}: ${this.engine.vehicle.activeText} (1 lần mỗi màn)">${vehicleIconHtml(this, this.engine.vehicle)}<span>${this.engine.vehicle.activeName}</span></button>` : ''}
+        ${this.engine.vehicle ? `<button id="btn-vehicle" data-testid="btn-vehicle" class="td-vehicle-btn" title="${this.engine.vehicle.name}: ${this.engine.vehicle.activeText} (1 lần mỗi màn)">${vehicleIconHtml(this, this.engine.vehicle)}<span class="td-vehicle-zap">⚡</span></button>` : ''}
         <button id="btn-call-wave" data-testid="btn-call-wave" class="td-call-wave-btn">
           Gọi Đợt 1
         </button>
@@ -3328,6 +3351,11 @@ export class TdStageScene extends Phaser.Scene {
     hud.querySelector<HTMLButtonElement>('#btn-speed-toggle')?.addEventListener('click', () => {
       sound.playUiClick();
       this.speedMultiplier = this.speedMultiplier === 1 ? 2 : 1;
+      try {
+        localStorage.setItem('gonpho_toc_do', String(this.speedMultiplier));
+      } catch {
+        /* bỏ qua */
+      }
       this.refreshHud();
     });
 
@@ -3595,6 +3623,7 @@ export class TdStageScene extends Phaser.Scene {
             data-tower-id="${def.id}"
             data-testid="build-${def.id}"
           >
+            <span class="td-opt-roleico" title="${def.roleLabel}">${({ single_far: '⚡', heavy_slow: '💥', slow_aura: '❄️', aoe_splash: '🔥', support_buff: '✨' } as Record<string, string>)[def.role] ?? ''}</span>
             ${spriteUrl ? `<img class="td-opt-sprite" src="${spriteUrl}" alt="${def.tier1.name}" />` : ''}
             <div class="td-opt-body">
               <div class="td-opt-head">
@@ -4056,10 +4085,14 @@ export class TdStageScene extends Phaser.Scene {
     // Phố thật (Claude): thắng màn tiệm → mời sang tiệm kế tiếp / ra phố đánh trùm
     const curStage = this.engine.stage;
     const streetShops = curStage.streetId ? REAL_STREET_SHOPS[curStage.streetId] ?? [] : [];
+    // Phố Dốc cũng nối thẳng Màn 1 → 2 → 3 → Trùm (Antigravity rà 24/11)
+    const PHO_DOC_NEXT: Record<string, StageId> = { stage_1: 'stage_2', stage_2: 'stage_3', stage_3: 'stage_4' };
     const nextStreetStage =
       isWin && curStage.shopIndex
         ? (streetShops[curStage.shopIndex] ?? (curStage.streetId ? STAGES[curStage.streetId] : undefined))
-        : undefined;
+        : isWin && PHO_DOC_NEXT[curStage.id]
+          ? STAGES[PHO_DOC_NEXT[curStage.id]!]
+          : undefined;
 
     this.modalRoot.innerHTML = `
       <div class="td-result-modal td-shoebox-panel" data-testid="td-result-modal">
@@ -4070,7 +4103,7 @@ export class TdStageScene extends Phaser.Scene {
         ${isWin && this.lastVehicleUnlocked ? `<div class="td-result-badge-card" data-testid="td-result-vehicle">${vehicleIconHtml(this, VEHICLES[this.lastVehicleUnlocked])}<div class="td-result-badge-text"><strong>Nhận xe mới: ${VEHICLES[this.lastVehicleUnlocked].name}</strong><span>${VEHICLES[this.lastVehicleUnlocked].passiveText} • Chiêu: ${VEHICLES[this.lastVehicleUnlocked].activeName}</span></div></div>` : ''}
         <p class="td-result-desc">${descText}</p>
         ${dropsHtml}
-        ${nextStreetStage ? `<button id="btn-next-street-stage" data-testid="btn-next-street-stage" class="td-btn-primary td-result-next">▶ ${nextStreetStage.shopIndex ? nextStreetStage.name : 'Ra phố đánh trùm 👹'}</button>` : ''}
+        ${nextStreetStage ? `<button id="btn-next-street-stage" data-testid="btn-next-street-stage" class="td-btn-primary td-result-next">▶ ${nextStreetStage.loadoutSize ? 'Ra phố đánh trùm 👹' : nextStreetStage.name}</button>` : ''}
         <div class="td-result-actions">
           <button id="btn-retry-stage" data-testid="btn-retry-stage" class="${nextStreetStage ? 'td-btn-secondary' : 'td-btn-primary'}" title="${retryLabel}">↻ Chơi lại</button>
           <button id="btn-back-title" data-testid="btn-back-title" class="td-btn-secondary" title="Về màn chính">🏠 Về</button>
@@ -4096,6 +4129,12 @@ export class TdStageScene extends Phaser.Scene {
     this.modalRoot.querySelector('#btn-next-street-stage')?.addEventListener('click', () => {
       if (!nextStreetStage) return;
       sound.playUiClick();
+      // Màn cần chọn món (trùm phố / Trùm Phố Dốc): về màn chính mở sẵn bảng Chuẩn bị, không nhảy cóc
+      if (nextStreetStage.loadoutSize) {
+        TitleScene.pendingLoadoutStage = nextStreetStage.id;
+        this.scene.start(SCENE_KEYS.TITLE);
+        return;
+      }
       this.scene.restart({ stageId: nextStreetStage.id });
     });
 
@@ -4216,7 +4255,7 @@ export class TdStageScene extends Phaser.Scene {
               🔄 Chơi lại màn này
             </button>
             <button type="button" id="btn-pause-title" data-testid="btn-pause-title" class="td-btn-secondary td-pause-btn">
-              🏘 Về Con phố dốc
+              🏠 Về màn chính
             </button>
           </div>
         </div>
@@ -4261,6 +4300,9 @@ export class TdStageScene extends Phaser.Scene {
 
     this.pauseMenuRoot.querySelector('#btn-replay-tutorial')?.addEventListener('click', () => {
       sound.playUiClick();
+      const freshStage1 = this.engine.stage.id === 'stage_1' && this.engine.towers.length === 0 && this.engine.currentWaveIndex < 0;
+      // Đang đánh dở: hỏi trước khi bỏ trận (Antigravity rà 24/11)
+      if (!freshStage1 && !window.confirm('Bỏ trận đang chơi để xem lại hướng dẫn ở Màn 1?')) return;
       this.closePauseMenu();
       this.paused = false;
       if (

@@ -83,7 +83,7 @@ def main() -> int:
         sheet.alpha_composite(frames[n], (x, y))
         meta[n] = {'frame': {'x': x, 'y': y, 'w': CELL, 'h': CELL}, 'rotated': False, 'trimmed': False,
                    'spriteSourceSize': {'x': 0, 'y': 0, 'w': CELL, 'h': CELL}, 'sourceSize': {'w': CELL, 'h': CELL}}
-    sheet.save(os.path.join(OUT, 'spark_atlas.webp'), 'WEBP', quality=90, method=6)
+    sheet.save(os.path.join(OUT, 'spark_atlas.webp'), 'WEBP', quality=80, method=6)
     with open(os.path.join(OUT, 'spark_atlas.json'), 'w') as fh:
         json.dump({'frames': meta, 'meta': {'image': 'spark_atlas.webp', 'size': {'w': sheet.width, 'h': sheet.height}, 'scale': '1',
                    'arts': {'towers': sorted(towers), 'enemies': sorted(enemies)}}}, fh, ensure_ascii=False)
