@@ -57,7 +57,7 @@ import { SCENE_KEYS } from '../game/sceneKeys';
 import { renderShopkeeperAvatarSvg } from '../game/shopkeeperAvatar';
 import { renderShopFacadeSvg } from '../game/shopStreetArt';
 import BIG_MAP_PINS from '../core/streets/bigMapPins.json';
-import { PROVINCES, REGION_NAME, STREET_INFO, streetBannerUrl, type Region } from '../core/cities';
+import { PROVINCES, PROVINCE_LANDMARK, REGION_NAME, STREET_INFO, streetBannerUrl, type Region } from '../core/cities';
 import { sound } from '../game/sound';
 
 const RING_SIZE = 340;
@@ -993,7 +993,13 @@ export class TitleScene extends Phaser.Scene {
     const renderCountry = (): void => {
       const box = root.querySelector<HTMLDivElement>('#td-country-list');
       if (!box) return;
-      box.innerHTML = (['bac', 'trung', 'nam'] as Region[]).map((rg) => `
+      // Bản đồ Việt Nam (Spark đợt 36): mốc tỉnh có hình, ghim xanh = đang chơi, ghim xám = sắp mở
+      const mapHtml = `<div class="td-vn-map"><img class="td-vn-img" src="./assets/ui/bd_viet_nam.webp" alt="Bản đồ Việt Nam" />
+        ${PROVINCES.map((p) => PROVINCE_LANDMARK.has(p.id)
+          ? `<button type="button" class="td-vn-moc ${p.open ? 'open' : 'locked'}" style="left:${p.x}%;top:${p.y}%" data-city="${p.id}" title="${p.name}"><img src="./assets/ui/moc_${p.id}.webp" alt="" /><span>${p.name}</span></button>`
+          : `<button type="button" class="td-vn-dot" style="left:${p.x}%;top:${p.y}%" data-city="${p.id}" title="${p.name}"><img src="./assets/ui/bd_ghim_tinh_${p.open ? 'mo' : 'khoa'}.webp" alt="" /></button>`).join('')}
+        <div class="td-vn-tip" id="td-vn-tip" hidden></div></div>`;
+      box.innerHTML = mapHtml + (['bac', 'trung', 'nam'] as Region[]).map((rg) => `
         <div class="td-region"><div class="td-region-name">${REGION_NAME[rg]}</div><div class="td-region-grid">
         ${PROVINCES.filter((p) => p.region === rg).map((p) => `
           <button type="button" class="td-city ${p.open ? 'open' : 'locked'}" data-city="${p.id}" ${p.open ? '' : 'disabled'}>
@@ -1002,6 +1008,22 @@ export class TitleScene extends Phaser.Scene {
         </div></div>`).join('');
       box.querySelectorAll<HTMLButtonElement>('.td-city.open').forEach((b) => {
         b.onclick = () => { sound.playUiClick(); root.querySelector('#td-country')?.setAttribute('hidden', ''); };
+      });
+      const tip = box.querySelector<HTMLDivElement>('#td-vn-tip');
+      box.querySelectorAll<HTMLButtonElement>('.td-vn-moc, .td-vn-dot').forEach((b) => {
+        b.onclick = () => {
+          sound.playUiClick();
+          const pv = PROVINCES.find((x) => x.id === b.dataset.city);
+          if (!pv) return;
+          if (pv.open) { root.querySelector('#td-country')?.setAttribute('hidden', ''); return; }
+          if (tip) {
+            tip.textContent = `${pv.name} · sắp mở`;
+            tip.style.left = `${pv.x}%`;
+            tip.style.top = `${pv.y}%`;
+            tip.removeAttribute('hidden');
+            window.setTimeout(() => tip.setAttribute('hidden', ''), 1600);
+          }
+        };
       });
     };
     const applyStreetTab = (): void => {

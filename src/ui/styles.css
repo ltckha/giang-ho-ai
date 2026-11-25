@@ -4271,3 +4271,19 @@ button.td-gear-bag-pill { cursor: pointer; border: 2px solid #2b1a12; font: inhe
 .td-city { padding: 6px 7px; }
 .td-city b { font-size: 12px; }
 .td-city span { font-size: 10px; }
+/* Bản đồ Việt Nam (Spark đợt 36) */
+.td-vn-map { position: relative; width: 100%; margin-bottom: 10px; border-radius: 12px; overflow: hidden; border: 2px solid #2b1a12; }
+.td-vn-img { display: block; width: 100%; height: auto; }
+.td-vn-moc { position: absolute; transform: translate(-50%, -70%); border: 0; padding: 0; background: none; display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+.td-vn-moc img { width: 46px; height: 46px; object-fit: contain; filter: drop-shadow(0 2px 2px rgba(0,0,0,.35)); }
+.td-vn-moc span { font: 800 9px var(--font-ui, system-ui); color: #2b1a12; background: rgba(255, 248, 228, 0.9); border-radius: 6px; padding: 0 4px; margin-top: -4px; white-space: nowrap; }
+.td-vn-moc.locked img { filter: grayscale(0.35) drop-shadow(0 2px 2px rgba(0,0,0,.35)); opacity: 0.9; }
+.td-vn-moc.open img { width: 58px; height: 58px; }
+.td-vn-moc.open span { background: #2f9e44; color: #fff; font-size: 10px; }
+.td-vn-dot { position: absolute; transform: translate(-50%, -80%); border: 0; padding: 0; background: none; cursor: pointer; }
+.td-vn-dot img { width: 18px; height: 18px; object-fit: contain; }
+.td-vn-tip { position: absolute; transform: translate(-50%, -190%); background: #2b1a12; color: #fff4d6; font: 800 11px var(--font-ui, system-ui); padding: 3px 8px; border-radius: 8px; white-space: nowrap; z-index: 2; pointer-events: none; }
+.td-vn-moc img { width: 38px; height: 38px; }
+.td-vn-moc.open { z-index: 3; }
+.td-vn-moc.open img { width: 56px; height: 56px; }
+.td-vn-moc span { font-size: 8.5px; }
