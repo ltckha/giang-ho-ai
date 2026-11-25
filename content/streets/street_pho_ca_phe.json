@@ -75,10 +75,9 @@
         "ult": "Mưa Kem Tuyết",
         "why": "Kem lạnh dập cái nóng khét"
       },
-      "sources": [
-        "https://ph.trip.com/restaurant/vietnam/dalat/detail/CH%E1%BA%A0M%20Cafe%20%26%20Kem%20B%C6%A1%20%C4%90%C3%A0%20L%E1%BA%A1t-151080579"
-      ],
-      "confidence": "nen_kiem"
+      "sources": [],
+      "confidence": "nen_kiem",
+      "ghi_chu": "Phiên Gọn Phố Việt rà 25/11/2026: link trip.com là quán CHẠM ở 8 Khu Hoà Bình (không trên Nguyễn Chí Thanh / Lê Đại Hành) → bỏ; chưa có nguồn, cần tìm lại."
     },
     {
       "key": "tra_sua",
@@ -140,10 +139,9 @@
         "ult": "Bơ Dầm Cả Mẻ",
         "why": "Trái bơ (Mộc) chặn bụi đất"
       },
-      "sources": [
-        "https://ph.trip.com/restaurant/vietnam/dalat/detail/CH%E1%BA%A0M%20Cafe%20%26%20Kem%20B%C6%A1%20%C4%90%C3%A0%20L%E1%BA%A1t-151080579"
-      ],
-      "confidence": "nen_kiem"
+      "sources": [],
+      "confidence": "nen_kiem",
+      "ghi_chu": "Phiên Gọn Phố Việt rà 25/11/2026: link trip.com là quán CHẠM ở 8 Khu Hoà Bình (không trên Nguyễn Chí Thanh / Lê Đại Hành) → bỏ; chưa có nguồn, cần tìm lại."
     },
     {
       "key": "cafe_xua",
@@ -188,10 +186,10 @@
       },
       "sources": [
         "https://vinwonders.com/vi/wonderpedia/news/quan-ca-phe-dep-o-da-lat/",
-        "https://wanderlog.com/place/details/7558830/windmills",
         "https://www.foody.vn/lam-dong/phuong-tim-cafe"
       ],
-      "confidence": "nen_kiem"
+      "confidence": "nen_kiem",
+      "ghi_chu": "Phiên Gọn Phố Việt rà 25/11/2026: link Wanderlog là Windmills 133A Phan Đình Phùng (đã đóng, không trên phố) → bỏ."
     }
   ],
   "pests": [

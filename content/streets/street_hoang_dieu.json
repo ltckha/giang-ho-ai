@@ -21,7 +21,8 @@
       "sources": [
         "https://news.tuoitre.vn/over-20-ba-toa-beef-hotpot-restaurants-line-this-300m-street-in-vietnams-da-lat-10326061223565753.htm",
         "https://mia.vn/cam-nang-du-lich/top-quan-lau-bo-ba-toa-da-lat-19503",
-        "https://mia.vn/cam-nang-du-lich/moi-ban-vao-team-miavn-de-cung-di-an-quan-lau-bo-ba-toa-nha-go-nuc-tieng-da-lat-1420"
+        "https://mia.vn/cam-nang-du-lich/moi-ban-vao-team-miavn-de-cung-di-an-quan-lau-bo-ba-toa-nha-go-nuc-tieng-da-lat-1420",
+        "https://www.foody.vn/lam-dong/lau-bo-ba-toa-hoang-dieu"
       ],
       "confidence": "chac",
       "tower": {
@@ -36,7 +37,8 @@
         "ult": "Lẩu Sôi Cả Phố",
         "why": "Hơi nóng nồi lẩu xua ruồi"
       },
-      "art": "lau_ga"
+      "art": "lau_ga",
+      "ghi_chu": "Phiên Gọn Phố Việt rà 25/11/2026: link Foody lau-bo-ba-toa-hoang-dieu (Quán Gỗ) chuyển về đây."
     },
     {
       "key": "lau_hem",
@@ -44,10 +46,9 @@
       "type": "Quán lẩu bò trong hẻm",
       "trait": "khách địa phương, đông 6–8 giờ tối",
       "sources": [
-        "https://mia.vn/cam-nang-du-lich/top-quan-lau-bo-ba-toa-da-lat-19503",
-        "https://www.foody.vn/lam-dong/lau-bo-ba-toa-hoang-dieu"
+        "https://mia.vn/cam-nang-du-lich/top-quan-lau-bo-ba-toa-da-lat-19503"
       ],
-      "confidence": "chac",
+      "confidence": "nen_kiem",
       "tower": {
         "element": "thuy",
         "role": "slow_aura",
@@ -60,7 +61,8 @@
         "ult": "Nước Dùng Ngập Hẻm",
         "why": "Nước dùng nóng dập than khét"
       },
-      "art": "lau_ga"
+      "art": "lau_ga",
+      "ghi_chu": "Phiên Gọn Phố Việt rà 25/11/2026: link Foody \"lau-bo-ba-toa-hoang-dieu\" là trang Quán Gỗ, không phải quán trong hẻm → bỏ; còn 1 nguồn."
     },
     {
       "key": "xiu_mai",
