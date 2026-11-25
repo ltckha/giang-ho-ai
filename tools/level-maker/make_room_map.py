@@ -202,6 +202,38 @@ def dense(r, step=8):
     return out + [r[-1]]
 
 
+FULL_ROOMS = [(r'phở', 'phong_pho'), (r'nhà thuốc', 'phong_nha_thuoc')]
+
+
+def full_room_of(stage):
+    import re
+    nm = stage.get('name', '').lower()
+    for pat, f in FULL_ROOMS:
+        path_ = os.path.join(ROOT, 'art', 'phong', f'{f}.png')
+        if re.search(pat, nm) and os.path.exists(path_):
+            return path_
+    return None
+
+
+def draw_path_and_pads(im, paths, pads, st):
+    """Thảm đường đi hơi trong (thấy sàn quán bên dưới) + đế gỗ dưới ô đặt món"""
+    lay = Image.new('RGBA', im.size, (0, 0, 0, 0))
+    ld = ImageDraw.Draw(lay)
+    rug = tuple(st['rug']) + (205,)
+    for r in paths:
+        pts = [(x * S, y * S) for x, y in r]
+        ld.line(pts, fill=INK + (230,), width=58, joint='curve')
+        ld.line(pts, fill=rug, width=50, joint='curve')
+        for q in pts: ld.ellipse([q[0] - 25, q[1] - 25, q[0] + 25, q[1] + 25], fill=rug)
+    im.paste(lay, (0, 0), lay)
+    d = ImageDraw.Draw(im)
+    for px_, py_ in pads:
+        R = 21 * S
+        d.ellipse([px_ * S - R - 3, py_ * S - R * 0.86 + 6, px_ * S + R + 3, py_ * S + R * 0.86 + 10], fill=(60, 40, 24))
+        d.ellipse([px_ * S - R, py_ * S - R * 0.86, px_ * S + R, py_ * S + R * 0.86], fill=(150, 104, 62), outline=INK, width=4)
+        d.ellipse([px_ * S - R + 7, py_ * S - R * 0.86 + 6, px_ * S + R - 7, py_ * S + R * 0.86 - 6], outline=(196, 150, 98), width=3)
+
+
 def draw(stage, out):
     global H
     H = stage.get('_H', 520)   # Phố Dốc Màn 1 cao 480
@@ -226,6 +258,15 @@ def draw(stage, out):
     pads = [(p['x'], p['y']) for p in stage['pads']]
     segs = [(r[i], r[i + 1]) for r in paths for i in range(len(r) - 1)]
     im = Image.new('RGB', (W * S, H * S), st['floor']); d = ImageDraw.Draw(im)
+    # NGUYÊN PHÒNG Spark vẽ (đợt 38, anh Kha chọn 26/11): quán thật nhìn từ trên xuống; game chỉ vẽ đường + ô lên trên
+    full = full_room_of(stage)
+    if full:
+        bg = Image.open(full).convert('RGB').resize((W * S, H * S), Image.LANCZOS)
+        im.paste(bg, (0, 0))
+        draw_path_and_pads(im, paths, pads, st)
+        im.save(out, 'WEBP', quality=82, method=6)
+        stage['_kind'] = 'phong_' + os.path.basename(full)[6:-4]
+        return
     if not tile_fill(im, tile_name or '', (0, 0, W * S, H * S)):
         floor(d, st, style)
     d = ImageDraw.Draw(im)
