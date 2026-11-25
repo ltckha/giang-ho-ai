@@ -1,4 +1,4 @@
-# Lộ trình Gọn Phố (bản chép từ trang lộ trình, cập nhật 26/11/2026)
+# Lộ trình Gọn Phố (bản chép từ trang lộ trình, cập nhật 26/11/2026 (tối))
 
 Game công khai: https://gon-pho.pages.dev · Kế hoạch chi tiết: docs/PLAN.md · Các lần rà: docs/REVIEW_LOG.md
 
@@ -59,6 +59,9 @@ _Nhìn vào là chơi ngay, ít chữ, cần thì bấm ?._
 - ✅ Xong — Trang riêng từng phố: tranh đầu phố, đường + phường (địa giới mới), câu giới thiệu đặc trưng · Claude + Spark
 - ✅ Xong — Bản đồ Việt Nam 34 tỉnh thành theo địa giới mới (từ 1/7/2025), đang mở Lâm Đồng · Claude + Spark (đợt 36)
 - ✅ Xong — Chiêu gọn: tên chiêu xuống thanh dưới, nút ★ nhỏ, đếm giờ thành chấm — không che quái · Claude
+- ✅ Xong — Sửa theo đánh giá độc lập (6/10): lưu / đồng bộ QR an toàn, chặn mã lạ, mở phố Đà Lạt sau 3 tiệm, 13 lỗi vừa · Claude (phiên đánh giá Fable 5.2 rà)
+- ✅ Xong — 52 tiệm dùng phòng Spark vẽ nguyên căn (38 kiểu), lối đi nhẹ, bố cục trong quán · Claude + Spark (đợt 37–40)
+- ⏳ Chờ anh — Bản đồ Việt Nam 34 tỉnh: tạm ẩn chờ người rành quy định bản đồ xem lại · Anh Kha
 
 ## Chặng 4: Người thật chơi thử
 _Có link công khai; người chơi đến dần qua video và LIVE, góp ý qua bình luận._
@@ -100,11 +103,11 @@ _Món là sản phẩm thật, nút Xem món này ra link Shopee của anh._
 ## Chặng 8: Mở rộng
 _Thành phố khác, màn theo thời sự, chợ ứng dụng._
 
+- ⬜ Chưa làm — Phát hành game cùng VNappmob: doanh nghiệp đứng tên giấy phép trò chơi (Nghị định 147/2024), đưa lên Google Play / App Store, giữ link web gon-pho.pages.dev · Anh Kha quyết + hỏi luật sư / Sở
 - ✅ Xong — Dừng thêm phố mới / màn sự kiện cho tới khi đăng video · Anh Kha chốt 25/11
 - ⏳ Chờ anh — Phố Chợ Bến Thành (Sài Gòn): làm xong, đang cất · Anh Kha mở lại khi muốn
 - ⬜ Chưa làm — Màn sự kiện theo thời sự (bão, ngập, nắng nóng, lễ hội) · Claude + Spark, anh duyệt
 - ⬜ Chưa làm — Chế độ Vô tận · Claude
-- ⬜ Chưa làm — Lên Google Play / App Store · Anh Kha quyết
 - ⬜ Chưa làm — Game online, tài khoản, trao đổi đồ — hỏi luật sư trước (Nghị định 147/2024 cấm mua bán vật phẩm ảo giữa người chơi; game online cần giấy phép) · Anh Kha quyết
 - ⬜ Chưa làm — Thẻ QR: trước tặng kèm đơn Hiệu giày Hải Nancy / Yen Handmade Leather (đếm lượt quét); sau làm đồ lưu niệm Đà Lạt (thẻ sưu tầm, móc khoá, sticker hình Spark) bán Shopee; thẻ kèm quà trong game chỉ làm sau khi hỏi luật sư · Anh Kha quyết khi có người chơi
 - ⬜ Chưa làm — Mở tỉnh thành mới trên bản đồ Việt Nam (mỗi tỉnh: bản đồ + phố + tiệm) · Claude + Spark, anh chọn tỉnh
