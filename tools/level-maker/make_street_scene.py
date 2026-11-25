@@ -197,6 +197,9 @@ def draw(g, out):
 
     # 6. ghi nguồn bản đồ
     d = ImageDraw.Draw(im)
+    if st.get('_no_osm'):      # phố tưởng tượng (Trùm Phố Dốc): không ghi nguồn bản đồ
+        im.convert('RGB').save(out, 'WEBP', quality=84, method=6)
+        return len(items)
     txt = '© OpenStreetMap contributors'
     # ghi nguồn ở góc dưới không vướng đầu/cuối đường
     ends = [r[0] for r in paths] + [r[-1] for r in paths]
@@ -210,6 +213,15 @@ def draw(g, out):
 
 def main():
     want = [a for a in sys.argv[1:] if a.startswith('street_')]
+    # Trùm Phố Dốc (stage_4): cùng cách vẽ, mặt tiền 3 tiệm Phố Dốc — kiểm tra thực tế 24/11: ô đặt món nằm trên mái sạp
+    if not want or 'stage_4' in sys.argv[1:]:
+        st = json.load(open(os.path.join(ROOT, 'content/scenes/stage_4.json'), encoding='utf-8'))
+        st['_no_osm'] = True
+        g = {'stage': st, 'shops': [{'stage': {'facadeKey': k}} for k in ('mat_tien_doc_giay', 'mat_tien_doc_banh', 'mat_tien_doc_hoa')]}
+        n = draw(g, os.path.join(ROOT, 'public/assets/map_trum_pho.webp'))
+        print(f'stage_4: {n} món trang trí')
+        if 'stage_4' in sys.argv[1:] and not want:
+            return
     for f in sorted(glob.glob(os.path.join(ROOT, 'src/core/streets/generated/*.json'))):
         g = json.load(open(f, encoding='utf-8'))
         sid = g['stage']['id']
