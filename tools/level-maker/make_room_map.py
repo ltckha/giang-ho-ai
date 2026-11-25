@@ -222,22 +222,33 @@ def full_room_of(stage):
 
 
 def draw_path_and_pads(im, paths, pads, st):
-    """Thảm đường đi hơi trong (thấy sàn quán bên dưới) + đế gỗ dưới ô đặt món"""
+    """Lối đi NHẸ (anh Kha 26/11): dải sáng mờ + viền chấm 2 bên + mũi tên chỉ hướng quái đi — vẫn thấy phòng bên dưới.
+    Chỗ đặt món: vòng kem mờ, viền chấm mảnh, dấu + nhỏ — không che bàn ghế / khách."""
     lay = Image.new('RGBA', im.size, (0, 0, 0, 0))
-    ld = ImageDraw.Draw(lay)
-    rug = tuple(st['rug']) + (205,)
+    d = ImageDraw.Draw(lay)
     for r in paths:
-        pts = [(x * S, y * S) for x, y in r]
-        ld.line(pts, fill=INK + (230,), width=58, joint='curve')
-        ld.line(pts, fill=rug, width=50, joint='curve')
-        for q in pts: ld.ellipse([q[0] - 25, q[1] - 25, q[0] + 25, q[1] + 25], fill=rug)
-    im.paste(lay, (0, 0), lay)
-    d = ImageDraw.Draw(im)
+        P = [(x * S, y * S) for x, y in r]
+        d.line(P, fill=(255, 248, 225, 95), width=46, joint='curve')
+        for q in P: d.ellipse([q[0] - 23, q[1] - 23, q[0] + 23, q[1] + 23], fill=(255, 248, 225, 95))
+        for (ax, ay), (bx, by) in zip(P, P[1:]):
+            L = math.hypot(bx - ax, by - ay) or 1
+            ux, uy = (bx - ax) / L, (by - ay) / L; nx, ny = -uy, ux
+            for k in range(0, int(L), 18):
+                cx, cy = ax + ux * k, ay + uy * k
+                for s_ in (-23, 23): d.ellipse([cx + nx * s_ - 3, cy + ny * s_ - 3, cx + nx * s_ + 3, cy + ny * s_ + 3], fill=(120, 80, 40, 200))
+            for k in range(30, int(L) - 10, 70):
+                cx, cy = ax + ux * k, ay + uy * k
+                d.polygon([(cx + ux * 9, cy + uy * 9), (cx - ux * 6 + nx * 7, cy - uy * 6 + ny * 7), (cx - ux * 6 - nx * 7, cy - uy * 6 - ny * 7)], fill=(150, 100, 50, 170))
     for px_, py_ in pads:
-        R = 21 * S
-        d.ellipse([px_ * S - R - 3, py_ * S - R * 0.86 + 6, px_ * S + R + 3, py_ * S + R * 0.86 + 10], fill=(60, 40, 24))
-        d.ellipse([px_ * S - R, py_ * S - R * 0.86, px_ * S + R, py_ * S + R * 0.86], fill=(150, 104, 62), outline=INK, width=4)
-        d.ellipse([px_ * S - R + 7, py_ * S - R * 0.86 + 6, px_ * S + R - 7, py_ * S + R * 0.86 - 6], outline=(196, 150, 98), width=3)
+        cx, cy, R = px_ * S, py_ * S, 20 * S
+        d.ellipse([cx - R, cy - R * 0.86, cx + R, cy + R * 0.86], fill=(255, 246, 220, 120))
+        for k in range(24):                           # viền chấm
+            t = k / 24 * 2 * math.pi
+            ex_, ey_ = cx + math.cos(t) * R, cy + math.sin(t) * R * 0.86
+            d.ellipse([ex_ - 3, ey_ - 3, ex_ + 3, ey_ + 3], fill=(110, 72, 36, 220))
+        d.line([cx - 9, cy, cx + 9, cy], fill=(110, 72, 36, 200), width=4)
+        d.line([cx, cy - 8, cx, cy + 8], fill=(110, 72, 36, 200), width=4)
+    im.paste(lay, (0, 0), lay)
 
 
 def draw(stage, out):
