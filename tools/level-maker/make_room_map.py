@@ -113,6 +113,10 @@ KINDS = [
         ['noi_ban_ghe_cao', 'noi_ke_hu_tra', 'noi_ban_ghe_cao', 'noi_ban_tra', 'noi_chau_cay_lon'], None),
     ('kem_che',    r'kem|chè|yaourt|sữa nóng',       'cafe',    'nen_gach_bong|nen_san_da', 'nen_tuong_giay_hoa|nen_tuong_voi', 'noi_tu_kem',
         ['noi_ban_tron_nho', 'noi_ban_tron_nho', 'noi_quay_che', 'noi_noi_sua_nong', 'noi_ban_tron_nho', 'noi_chau_cay_lon'], None),
+    ('san_thuong', r'sân thượng',                    'cafe',    'nen_san_thuong', 'nen_tuong_go_thong|nen_tuong_go', 'noi_quay_pha_che',
+        ['noi_du_san_thuong', 'noi_lan_can_san_thuong', 'noi_du_san_thuong', 'noi_chau_cay_lon', 'noi_du_san_thuong', 'noi_lan_can_san_thuong'], None),
+    ('ca_phe_coc', r'cóc',                           'cafe',    'nen_via_he_coc', 'nen_tuong_voi', 'noi_quay_phin',
+        ['noi_ghe_nhua_thap', 'noi_ghe_nhua_thap', 'noi_ghe_nhua_thap', 'noi_chau_cay_lon', 'noi_ghe_nhua_thap'], None),
     ('cafe_tre',   r'sân thượng|xe đạp|cóc',         'cafe',    'nen_san_go_thong|nen_san_go', 'nen_tuong_go_thong|nen_tuong_go', 'noi_quay_pha_che',
         ['noi_ban_ban_cong', 'noi_xe_dap_cu', 'noi_ban_ban_cong', 'noi_day_den', 'noi_chau_cay_lon', 'noi_ban_cafe'], None),
     ('cafe_xua',   r'cà phê',                        'cafe',    'nen_san_go_toi|nen_san_go', 'nen_tuong_gach_the|nen_tuong_go', 'noi_quay_phin',
@@ -158,6 +162,7 @@ WALL_BY_KIND = {
     'nha_sach': ['noi_tuong_ke_sach', 'noi_tuong_ke_sach'], 'studio_anh': ['noi_tuong_khung_anh', 'noi_tuong_khung_anh'],
     'sua_xe': ['noi_tuong_mu_bao_hiem', 'noi_dong_ho_tuong'], 'tap_hoa': ['noi_tuong_menu', 'noi_dong_ho_tuong'],
     'giat_say': ['noi_dong_ho_tuong', 'noi_tranh_tuong'],
+    'san_thuong': ['noi_tuong_den_long', 'noi_tuong_menu'], 'ca_phe_coc': ['noi_tuong_menu', 'noi_dong_ho_tuong'],
 }
 
 def pick(names):
@@ -253,6 +258,15 @@ def draw(stage, out):
         d = ImageDraw.Draw(im)
     else:
         d.rounded_rectangle([(ex - 44) * S, (ey - 20) * S, (ex + 44) * S, (ey + 4) * S], 10, fill=(126, 84, 52), outline=INK, width=5)
+    # Bảng cờ đích cạnh quầy (Spark đợt 35): người mới biết quái chạy về đâu
+    flag = nt('noi_bang_dich', 30 * S)
+    if flag is not None:
+        for fx_ in (ex + 46, ex - 46, ex + 30):
+            fb = (fx_ - 12, ey - 34, fx_ + 12, ey)
+            if 12 < fx_ < W - 12 and all(box_d(fb, pd) >= 20 for pd in pads):
+                im.paste(flag, (int(fx_ * S - flag.width / 2), int(ey * S - flag.height)), flag)
+                d = ImageDraw.Draw(im)
+                break
     # đế gỗ dưới mỗi ô đặt món: ô nổi rõ trên mọi nền (gạch caro, gạch bông…) — Antigravity rà 24/11
     for px_, py_ in pads:
         R = 21 * S
