@@ -4309,3 +4309,5 @@ button.td-gear-bag-pill { cursor: pointer; border: 2px solid #2b1a12; font: inhe
   padding: 1px 6px; border-radius: 99px; background: #2b1a12; color: #ffe8a3; font: 800 8.5px/1.3 var(--font-ui, system-ui); white-space: nowrap; text-shadow: none;
 }
 .td-bm-star { top: -22px; width: 26px; height: 26px; }
+/* Nhãn số tiệm dưới bảng: bỏ giới hạn bề rộng cũ (right:30%) — iPhone bị tràn "0/10" (anh Kha 25/11) */
+.td-bm-pin .td-bm-sub { right: auto; width: max-content; min-width: 28px; text-align: center; padding: 1px 7px; }
