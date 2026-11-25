@@ -10,7 +10,7 @@ Dùng sau khi thêm / sửa phố, phòng, độ khó. `<A>` là một thư mụ
    `npx esbuild tools/kiemtra/nguoimoi.ts --bundle --platform=node --outfile=node_modules/.cache/nguoimoi.cjs && node node_modules/.cache/nguoimoi.cjs <A>` → `<A>/nguoimoi.json`
    Mục tiêu: máy giỏi thắng mọi màn; người mới thắng tiệm đầu phố ~55–80%, tiệm cuối ~30–55%, trùm ~20–35%.
 3. Chơi trên trình duyệt thật + chụp ảnh (cần `npm run build` và `npx vite preview --port 4179`):
-   `mkdir -p <A>/anh; for i in 0 1 2 3; do node tools/kiemtra/play.js <A> $i 4 & done; wait` → ảnh vào/giữa/cuối từng màn + `<A>/ketqua_*.json` (thắng/thua, lỗi).
+   `mkdir -p <A>/anh; for i in 0 1 2 3; do node tools/kiemtra/play.cjs <A> $i 4 & done; wait` → ảnh vào/giữa/cuối từng màn + `<A>/ketqua_*.json` (thắng/thua, lỗi).
    `python3 tools/kiemtra/ghep.py <A> $(python3 -c "import json;print(' '.join(json.load(open('<A>/ids.json'))))")` → `<A>/to/<id>.jpg` (3 ảnh ghép).
    Rồi chia ảnh theo phố cho trợ lý soi: ô bị che, đồ không hợp tiệm, chữ tràn, đường mờ…
-4. Chụp nhanh 1 màn: `node tools/kiemtra/chup.js <A> <id>`; chụp lúc tung chiêu: `node tools/kiemtra/chup_chieu.js <A> <id>`.
+4. Chụp nhanh 1 màn: `node tools/kiemtra/chup.cjs <A> <id>`; chụp lúc tung chiêu: `node tools/kiemtra/chup_chieu.cjs <A> <id>`.
