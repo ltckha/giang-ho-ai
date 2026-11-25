@@ -35,3 +35,5 @@ Yêu cầu chung:
 - PNG vuông 512×512, một vật ở giữa, nền trong suốt; không chữ, không khung, không bóng nền.
 - Lưu vào My Drive/Spark/Inbox/Game_ve_thu/dot34_phong_rieng/ đúng tên file như trên (.png).
 ```
+
+Đã nhận đủ 18 hình 25/11/2026 → art/noi_that/; ráp vào tools/level-maker/make_room_map.py (Màn 1 tiệm giày: content/rooms/stage_1.json).

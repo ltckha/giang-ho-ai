@@ -97,6 +97,8 @@ def tile_fill(im, name, box):
 # Mỗi ô có thể ghi "a|b": dùng hình a, chưa có thì dùng b (chờ Spark vẽ đợt sau).
 KINDS = [
     # (mã, mẫu tên, kiểu gốc, nền, tường, quầy, đồ trong phòng, đồ treo tường trên)
+    ('tiem_giay',  r'tiệm giày|giày dép',           'tiem',    'nen_san_go', 'nen_tuong_giay_hoa|nen_tuong_go', 'noi_quay_tiem_giay',
+        ['noi_ke_giay', 'noi_ghe_thu_giay', 'noi_guong_dung', 'noi_ke_giay', 'noi_chong_hop_giay', 'noi_gio_dep'], None),
     ('bar',        r'bar|cocktail',                  'cafe',    'nen_san_go_toi|nen_san_go', 'nen_tuong_gach_the|nen_tuong_go', 'noi_quay_bar',
         ['noi_sofa_da', 'noi_sofa_da', 'noi_ke_chai', 'noi_ban_ghe_cao', 'noi_ban_cafe'], 'noi_den_neon'),
     ('khach_san',  r'khách sạn',                     'luu_tru', 'nen_san_tham', 'nen_tuong_giay_hoa|nen_tuong_go', 'noi_quay_le_tan',
@@ -140,8 +142,23 @@ BIG = {'noi_giuong_doi', 'noi_giuong_tang', 'noi_ban_go_dai', 'noi_sofa', 'noi_k
 TABLES = ('noi_ban_', 'noi_ke_hang', 'noi_tu_kinh', 'noi_ke_banh_mi')
 
 # Quầy riêng theo món chính của tiệm (đè quầy chung của kiểu phòng)
-COUNTER_BY_NAME = [(r'bánh căn', 'noi_bep_banh_can'), (r'bánh tráng', 'noi_bep_banh_trang'), (r'chè|sữa nóng', 'noi_quay_che'),
+COUNTER_BY_NAME = [(r'phở', 'noi_quay_pho_trong'), (r'cơm', 'noi_quay_com_trong'), (r'cháo', 'noi_quay_chao'), (r'lẩu', 'noi_quay_lau_trong'),
+                   (r'bánh căn', 'noi_bep_banh_can'), (r'bánh tráng', 'noi_bep_banh_trang'), (r'chè|sữa nóng', 'noi_quay_che'),
                    (r'quán nướng', 'noi_bep_nuong_than')]
+
+# Đồ treo tường riêng theo loại phòng (Spark đợt 34) — hết cảnh phòng nào cũng tranh + đồng hồ giống hệt
+WALL_BY_KIND = {
+    'tiem_giay': ['noi_tuong_khung_anh', 'noi_dong_ho_tuong'],
+    'lau_nuong': ['noi_tuong_den_long', 'noi_tuong_menu'], 'pho_com': ['noi_tuong_menu', 'noi_tuong_den_long'],
+    'an_sang': ['noi_tuong_menu', 'noi_dong_ho_tuong'], 'tiem_banh': ['noi_tuong_menu', 'noi_tranh_tuong'],
+    'kem_che': ['noi_tuong_menu', 'noi_tranh_tuong'], 'tra': ['noi_tuong_ke_sach', 'noi_tuong_menu'],
+    'cafe_xua': ['noi_tuong_ke_sach', 'noi_tranh_tuong'], 'cafe_tre': ['noi_tuong_ke_sach', 'noi_tuong_menu'],
+    'khach_san': ['noi_tuong_moc_khoa', 'noi_tranh_tuong'], 'homestay': ['noi_tuong_moc_khoa', 'noi_tuong_mu_bao_hiem'],
+    'nha_thuoc': ['noi_tuong_tu_thuoc', 'noi_dong_ho_tuong'], 'tiem_toc': ['noi_tuong_guong_salon', 'noi_tuong_guong_salon'],
+    'nha_sach': ['noi_tuong_ke_sach', 'noi_tuong_ke_sach'], 'studio_anh': ['noi_tuong_khung_anh', 'noi_tuong_khung_anh'],
+    'sua_xe': ['noi_tuong_mu_bao_hiem', 'noi_dong_ho_tuong'], 'tap_hoa': ['noi_tuong_menu', 'noi_dong_ho_tuong'],
+    'giat_say': ['noi_dong_ho_tuong', 'noi_tranh_tuong'],
+}
 
 def pick(names):
     for n in (names or '').split('|'):
@@ -172,6 +189,8 @@ def dense(r, step=8):
 
 
 def draw(stage, out):
+    global H
+    H = stage.get('_H', 520)   # Phố Dốc Màn 1 cao 480
     style = stage.get('roomStyle', 'tiem')
     kd = kind_of(stage.get('name', ''))
     if kd:
@@ -202,9 +221,13 @@ def draw(stage, out):
     d = ImageDraw.Draw(im)
     d.line([0, 40 * S, W * S, 40 * S], fill=INK, width=6)
     win = nt('noi_cua_so', 34 * S); pic = nt('noi_tranh_tuong', 26 * S); clk = nt('noi_dong_ho_tuong', 22 * S)
+    wall_items = [nt(n, 30 * S) for n in WALL_BY_KIND.get(kd[0] if kd else '', [])]
+    wall_items = [w for w in wall_items if w is not None]
     for i, x in enumerate(range(40, W - 20, 80)):
         it = [win, pic, win, clk][i % 4] or win
-        if top and i % 2 == 1:
+        if wall_items and i % 2 == 1:
+            it = wall_items[(i // 2) % len(wall_items)]
+        if top and i % 2 == 1 and i % 4 == 3:
             it = nt(top, 34 * S) or it
         if it is not None:
             im.paste(it, (int(x * S - it.width / 2), int(20 * S - it.height / 2)), it)
@@ -304,3 +327,9 @@ for f in sorted(glob.glob(os.path.join(ROOT, 'src/core/streets/generated/*.json'
         draw(st, os.path.join(ROOT, 'public/assets/rooms', f"map_{st['id']}.webp")); n += 1
         kinds_used[st['_kind']] = kinds_used.get(st['_kind'], 0) + 1
 print('vẽ phòng:', n, '· kiểu phòng:', len(kinds_used), kinds_used)
+
+# Phố Dốc Màn 1 Tiệm Giày (anh Kha "làm hết" 25/11): vẽ lại phòng tiệm giày bằng đồ Spark đợt 34 — hết bếp ga, cán bột
+for f in sorted(glob.glob(os.path.join(ROOT, 'content/rooms/*.json'))):
+    st = json.load(open(f, encoding='utf-8'))
+    draw(st, os.path.join(ROOT, st['_out']))
+    print('vẽ phòng Phố Dốc:', st['id'], st['_kind'])
