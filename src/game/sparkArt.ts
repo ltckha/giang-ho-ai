@@ -9,8 +9,54 @@ import { ALL_ENEMY_DEFINITIONS, ALL_TOWER_DEFINITIONS } from '../core/tdDefiniti
 export const SPARK_ATLAS_KEY = 'spark_atlas';
 /** Mặt tiền tiệm (tools/pack_facades.py) */
 export const FACADE_ATLAS_KEY = 'facade_atlas';
+/** = STREETS_ATLAS_KEY (atlasIcons.ts) — ghi lại ở đây để khỏi vòng import */
+const STREETS_ATLAS_KEY_LAZY = 'streets_atlas';
 
 const TIER_KEYS = ['t1', 't2', 't3a', 't3b'] as const;
+
+/**
+ * Hình phố Đà Lạt (món / quái Spark, mặt tiền, hình phố sinh tự động) — KHÔNG tải lúc mở game (đánh giá độc lập: lần tải đầu 6,5 MB).
+ * Gọi queueStreetAtlases trong preload của màn cần, hoặc loadStreetAtlasesInBackground ở màn chính.
+ */
+export function queueStreetAtlases(scene: Phaser.Scene): boolean {
+  let queued = false;
+  const add = (key: string, base: string) => {
+    if (!scene.textures.exists(key)) {
+      scene.load.atlas(key, `./assets/${base}.webp`, `./assets/${base}.json`);
+      queued = true;
+    }
+  };
+  add(SPARK_ATLAS_KEY, 'spark_atlas');
+  add(FACADE_ATLAS_KEY, 'facade_atlas');
+  add(STREETS_ATLAS_KEY_LAZY, 'streets_atlas');
+  return queued;
+}
+
+/** Sau khi có hình phố: ghép vào atlas chính + tạo hoạt ảnh (gọi nhiều lần cũng được) */
+export function applyStreetAtlases(scene: Phaser.Scene, mainKey: string): void {
+  mergeSparkAtlas(scene, mainKey);
+  registerSparkAnimations(scene, mainKey);
+}
+
+let bgLoading: Promise<void> | null = null;
+/** Màn chính: tải ngầm hình phố sau khi đã hiện, xong gọi onDone (vẽ lại thẻ tiệm / hình món) */
+export function loadStreetAtlasesInBackground(scene: Phaser.Scene, mainKey: string, onDone: () => void): void {
+  if (scene.textures.exists(SPARK_ATLAS_KEY) && scene.textures.exists(FACADE_ATLAS_KEY) && scene.textures.exists(STREETS_ATLAS_KEY_LAZY)) return;
+  if (!bgLoading) {
+    bgLoading = new Promise<void>((resolve) => {
+      if (!queueStreetAtlases(scene)) return resolve();
+      scene.load.once(Phaser.Loader.Events.COMPLETE, () => {
+        applyStreetAtlases(scene, mainKey);
+        resolve();
+      });
+      scene.load.start();
+    });
+  }
+  void bgLoading.then(() => {
+    bgLoading = null;
+    if (scene.sys.isActive()) onDone();
+  });
+}
 
 export function mergeSparkAtlas(scene: Phaser.Scene, mainKey: string): void {
   const tm = scene.textures;

@@ -26,7 +26,11 @@ function offlineServiceWorker(): Plugin {
       const hash = createHash('sha256');
       for (const f of files) hash.update(f).update(readFileSync(join(dist, f)));
       const version = hash.digest('hex').slice(0, 12);
-      const list = JSON.stringify(['./', ...files.map((f) => './' + f)]);
+      // Lưu sẵn khi cài: chỉ phần lõi + Phố Dốc (~3 MB). Phố thật, phòng tiệm, bản đồ lớn: lưu khi người chơi mở lần đầu
+      // (đánh giá độc lập V13: trước đây tải ngầm cả 20 MB, người dùng 4G không được hỏi).
+      const LAZY = /^assets\/(rooms\/|map_street_|map_dalat_lon|spark_atlas|facade_atlas|streets_atlas)/;
+      const core = files.filter((f) => !LAZY.test(f) && !f.startsWith('art/'));
+      const list = JSON.stringify(['./', ...core.map((f) => './' + f)]);
       const sw = `/* Tạo tự động khi build — đừng sửa tay */
 const CACHE = 'gon-tiem-${version}';
 const FILES = ${list};
@@ -55,9 +59,21 @@ self.addEventListener('fetch', (e) => {
     );
     return;
   }
-  // Hình, mã game (tên có mã băm, không đổi nội dung): dùng bản đã lưu cho nhanh
+  // Hình, mã game: dùng bản đã lưu cho nhanh; chưa có thì tải rồi lưu lại để lần sau chơi không cần mạng
   e.respondWith(
-    caches.match(e.request, { ignoreSearch: true }).then((hit) => hit || fetch(e.request).catch(() => caches.match('./'))),
+    caches.match(e.request, { ignoreSearch: true }).then(
+      (hit) =>
+        hit ||
+        fetch(e.request)
+          .then((res) => {
+            if (res.ok) {
+              const copy = res.clone();
+              caches.open(CACHE).then((c) => c.put(e.request, copy)).catch(() => {});
+            }
+            return res;
+          })
+          .catch(() => caches.match('./')),
+    ),
   );
 });
 `;

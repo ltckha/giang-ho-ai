@@ -12,7 +12,7 @@ import {
 } from '../game/atlasIcons';
 import { renderBrandLogoSvg } from '../game/brandLogo';
 import { SCENE_KEYS } from '../game/sceneKeys';
-import { FACADE_ATLAS_KEY, mergeSparkAtlas, registerSparkAnimations, SPARK_ATLAS_KEY } from '../game/sparkArt';
+import { mergeSparkAtlas, registerSparkAnimations, SPARK_ATLAS_KEY } from '../game/sparkArt';
 import { generateGameTextures } from '../game/textures';
 
 const CORE_TOWER_IDS = [
@@ -113,9 +113,7 @@ export class BootScene extends Phaser.Scene {
     });
 
     this.load.atlas(ATLAS_KEY, './assets/gon_tiem_atlas.webp', './assets/gon_tiem_atlas.json');
-    this.load.atlas(SPARK_ATLAS_KEY, './assets/spark_atlas.webp', './assets/spark_atlas.json');
-    this.load.atlas(FACADE_ATLAS_KEY, './assets/facade_atlas.webp', './assets/facade_atlas.json');
-    this.load.atlas(STREETS_ATLAS_KEY, './assets/streets_atlas.webp', './assets/streets_atlas.json');
+    // Hình phố Đà Lạt (spark / mặt tiền / phố sinh tự động, ~4,8 MB): tải ngầm ở màn chính và khi vào màn phố (sparkArt.queueStreetAtlases)
     this.load.atlas(GEAR_ATLAS_KEY, './assets/gear_atlas.webp', './assets/gear_atlas.json');
     this.load.image(STAGE1_MAP_KEY, './assets/map_man1_tiem_giay.webp');
     this.load.image(STAGE2_MAP_KEY, './assets/map_man2_tiem_banh.webp');
@@ -282,9 +280,17 @@ export class BootScene extends Phaser.Scene {
     this.registerTowerAnims(ATLAS_KEY, CORE_TOWER_IDS);
     this.registerEnemyAnims(ATLAS_KEY, CORE_ENEMY_IDS);
 
+    BootScene.registerStreetAnims(this);
+  }
+
+  /** Hoạt ảnh món / quái phố Đà Lạt — gọi lại được khi hình phố tải xong sau (màn chính tải ngầm, màn phố tải khi vào) */
+  public static registerStreetAnims(scene: Phaser.Scene): void {
+    if (!scene.textures.exists(STREETS_ATLAS_KEY)) return;
     const realStreetTowerIds = REAL_STREET_STAGES.flatMap((st) => st.towerIds ?? []);
     const realStreetEnemyIds = Object.keys(ALL_ENEMY_DEFINITIONS).filter((id) => id.startsWith('ge_'));
-    this.registerTowerAnims(STREETS_ATLAS_KEY, realStreetTowerIds);
-    this.registerEnemyAnims(STREETS_ATLAS_KEY, [...STREET_BOSS_VARIANTS, ...realStreetEnemyIds]);
+    const self = Object.create(BootScene.prototype) as BootScene;
+    Object.assign(self, { textures: scene.textures, anims: scene.anims });
+    self.registerTowerAnims(STREETS_ATLAS_KEY, realStreetTowerIds);
+    self.registerEnemyAnims(STREETS_ATLAS_KEY, [...STREET_BOSS_VARIANTS, ...realStreetEnemyIds]);
   }
 }

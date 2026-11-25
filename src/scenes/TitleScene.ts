@@ -23,7 +23,8 @@ import {
 import { chooseVehicle, equipGear, getEquipped, getGearBonus, getVehicle, loadTdSave, saveStreetLoadout } from '../core/saveSystem';
 import { vehicleAppliesTo, VEHICLES, type VehicleId } from '../core/vehicles';
 import { vehicleIconHtml } from '../game/vehicleUi';
-import { FACADE_ATLAS_KEY } from '../game/sparkArt';
+import { FACADE_ATLAS_KEY, loadStreetAtlasesInBackground } from '../game/sparkArt';
+import { BootScene } from './BootScene';
 import { getShopStage, isShopUnlocked, SHOP_STREET, shopStars, type ShopOnStreet } from '../core/shopStreet';
 import {
   ALL_ENEMY_DEFINITIONS,
@@ -44,6 +45,7 @@ import {
   getGearSetBadgeFrameName,
   getTowerFrameName,
   STAGE1_MAP_KEY,
+  ATLAS_KEY,
 } from '../game/atlasIcons';
 import {
   getEmptySlotSilhouetteSvg,
@@ -900,7 +902,7 @@ export class TitleScene extends Phaser.Scene {
       const { w, h } = BM._size;
       host.innerHTML = `
         <div class="td-bm-inner" style="width:${w}px;height:${h}px">
-          <img class="td-bm-img" src="./assets/map_dalat_lon.webp" alt="Bản đồ Đà Lạt" draggable="false" />
+          ${root.classList.contains('td-in-street') ? '' : '<img class="td-bm-img" src="./assets/map_dalat_lon.webp" alt="Bản đồ Đà Lạt" draggable="false" />'}
           ${pins.map((pp) => `
             <button type="button" class="td-bm-pin ${pp.open ? 'open' : 'locked'} ${playing === pp.id ? 'playing' : ''}"
               style="left:${pp.at.leftPct + (SIGN_NUDGE[pp.id] ?? 0)}%;top:${pp.at.topPct}%" data-street-tab="${pp.id}" data-testid="${pp.testid}" ${pp.extra}>
@@ -1447,6 +1449,17 @@ ${open && stars >= 3 && !(st.loadoutSize && !st.shopIndex) ? `<button type="butt
     }
     applyStreetTab();
     requestAnimationFrame(() => renderStreetTabs());
+    // Hình phố Đà Lạt tải ngầm sau khi màn chính đã hiện (đánh giá độc lập: lần tải đầu nặng); xong thì vẽ lại thẻ tiệm / hình món
+    // Người mới (chưa mở phố) không tải: chỉ Phố Dốc ~2 MB; hình phố tải khi đã mở phố hoặc khi vào màn phố
+    if (isRealStreetsUnlocked) window.setTimeout(() => {
+      loadStreetAtlasesInBackground(this, ATLAS_KEY, () => {
+        BootScene.registerStreetAnims(this);
+        renderStreet();
+        renderRealStreetsMap();
+        renderSelectedShopShowcase();
+        applyStreetTab();
+      });
+    }, 1200);
     root.querySelector<HTMLButtonElement>('[data-close-country]')?.addEventListener('click', () => root.querySelector('#td-country')?.setAttribute('hidden', ''));
 
     /* ==================== VIỆC 6: GỌN CHỮ BẢNG TRANG BỊ ==================== */

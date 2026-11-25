@@ -2,7 +2,7 @@ import { applyRoomPerk, roomPerkOf } from '../core/roomPerks';
 import { pushProgress } from '../game/cloudSync';
 import { isStreetStageUnlocked } from '../core/streetProgress';
 import { TitleScene } from './TitleScene';
-import { FX_KEYS } from './BootScene';
+import { BootScene, FX_KEYS } from './BootScene';
 import Phaser from 'phaser';
 import { ELEMENT_INFO } from '../core/elements';
 import { equipGear, getEquipped, getGearBonus, getVehicle, grantStageDrops, loadTdSave, markTutorialDone, saveHardWin, saveTdProgress, shouldShowTutorial } from '../core/saveSystem';
@@ -49,7 +49,7 @@ import {
   getTowerFrameName,
   getTowerTierKey,
 } from '../game/atlasIcons';
-import { FACADE_ATLAS_KEY } from '../game/sparkArt';
+import { FACADE_ATLAS_KEY, applyStreetAtlases, queueStreetAtlases } from '../game/sparkArt';
 import { getStatMiniIconSvg, RARITY_THEME } from '../game/gearUiHelpers';
 import { music } from '../game/music';
 import { getInitialReduceMotion, loadRealStreetLoadout, saveReduceMotion } from '../game/preferences';
@@ -388,12 +388,15 @@ export class TdStageScene extends Phaser.Scene {
     const url = getStageMapUrl(sid);
     if (key && url && !this.textures.exists(key)) this.load.image(key, url);
     for (const fx of FX_KEYS) if (!this.textures.exists(fx)) this.load.image(fx, `./assets/fx/${fx}.webp`);
+    queueStreetAtlases(this); // hình phố Đà Lạt: chưa tải ở màn chính thì tải ở đây
   }
 
   private hardMode = false;
 
   public create(data?: { stageId?: StageId; forceTutorial?: boolean; loadout?: TowerId[]; live?: LiveStageData; hard?: boolean }): void {
     this.simAcc = 0;
+    applyStreetAtlases(this, ATLAS_KEY);
+    BootScene.registerStreetAnims(this);
     this.hardMode = Boolean(data?.hard);
     // Chọn màn: từ nút ở màn hình đầu, hoặc thêm ?stage=2 / ?stage=3 / ?stage=4 vào link (để thử / quay video)
     const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
