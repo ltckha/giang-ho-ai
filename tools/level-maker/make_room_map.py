@@ -144,6 +144,10 @@ BIG = {'noi_giuong_doi', 'noi_giuong_tang', 'noi_ban_go_dai', 'noi_sofa', 'noi_k
        'noi_tham_do', 'noi_ke_sach_cao', 'noi_phong_chup', 'noi_xe_tren_bang', 'noi_may_giat_say', 'noi_ban_ban_cong', 'noi_ban_inox',
        'noi_ke_banh_mi', 'noi_ke_chai', 'noi_lo_suoi', 'noi_tu_khoa', 'noi_ban_ghe_dau'}
 TABLES = ('noi_ban_', 'noi_ke_hang', 'noi_tu_kinh', 'noi_ke_banh_mi')
+SHELVES = ('noi_ke_', 'noi_tu_', 'noi_quay_')
+# Bàn ghế / cây / thảm dùng chung mọi tiệm — chỉ để lấp chỗ trống
+GENERIC = {'noi_ban_quan', 'noi_ban_cafe', 'noi_ban_tron_nho', 'noi_ban_go_thap', 'noi_ban_go_dai', 'noi_ban_ghe_dau', 'noi_ban_ghe_cao',
+           'noi_ban_inox', 'noi_ban_tra', 'noi_chau_cay_lon', 'noi_tham_tron', 'noi_ban_ban_cong', 'noi_ghe_banh', 'noi_sofa', 'noi_tham_do'}
 
 # Quầy riêng theo món chính của tiệm (đè quầy chung của kiểu phòng)
 COUNTER_BY_NAME = [(r'phở', 'noi_quay_pho_trong'), (r'cơm', 'noi_quay_com_trong'), (r'cháo', 'noi_quay_chao'), (r'lẩu', 'noi_quay_lau_trong'),
@@ -220,15 +224,26 @@ def draw(stage, out):
     if not tile_fill(im, tile_name or '', (0, 0, W * S, H * S)):
         floor(d, st, style)
     d = ImageDraw.Draw(im)
-    # tường trên + 2 bên, cửa sổ
-    if not tile_fill(im, wall_name or '', (0, 0, W * S, 40 * S)):
+    # BỨC TƯỜNG SAU QUẦY bày đầy hàng đặc trưng (Spark đợt 37) — anh Kha 26/11: nhìn 1 giây biết tiệm gì
+    back = os.path.join(NT, f'tuong_{kd[0]}.png') if kd else ''
+    if back and os.path.exists(back):
+        bw = Image.open(back).convert('RGBA')
+        bh = int(W * S * bw.height / bw.width)
+        bw = bw.resize((W * S, bh), Image.LANCZOS)
+        y0 = 54 * S - bh                      # thấy phần dưới bức tường (quầy, kệ thấp), mép dưới ở y = 54
+        im.paste(bw, (0, y0), bw)
+        d = ImageDraw.Draw(im)
+        d.line([0, 54 * S, W * S, 54 * S], fill=INK, width=6)
+        stage['_backwall'] = True
+    elif not tile_fill(im, wall_name or '', (0, 0, W * S, 40 * S)):
         d.rectangle([0, 0, W * S, 40 * S], fill=st['wall'])
     d = ImageDraw.Draw(im)
-    d.line([0, 40 * S, W * S, 40 * S], fill=INK, width=6)
+    if not stage.get('_backwall'):
+        d.line([0, 40 * S, W * S, 40 * S], fill=INK, width=6)
     win = nt('noi_cua_so', 34 * S); pic = nt('noi_tranh_tuong', 26 * S); clk = nt('noi_dong_ho_tuong', 22 * S)
     wall_items = [nt(n, 30 * S) for n in WALL_BY_KIND.get(kd[0] if kd else '', [])]
     wall_items = [w for w in wall_items if w is not None]
-    for i, x in enumerate(range(40, W - 20, 80)):
+    for i, x in enumerate(range(40, W - 20, 80) if not stage.get('_backwall') else []):
         it = [win, pic, win, clk][i % 4] or win
         if wall_items and i % 2 == 1:
             it = wall_items[(i // 2) % len(wall_items)]
@@ -256,6 +271,12 @@ def draw(stage, out):
     if ctr is not None:
         im.paste(ctr, (int(ex * S - ctr.width / 2), int((ey - 6) * S - ctr.height * 0.85)), ctr)
         d = ImageDraw.Draw(im)
+        # bày món của tiệm lên mặt quầy
+        art0 = stage.get('_art')
+        prod = sprite(os.path.join(ROOT, 'art', 'spark', f'mon_{art0}_b2.png'), 26 * S) if art0 else None
+        if prod is not None:
+            im.paste(prod, (int(ex * S - prod.width / 2 + 14 * S), int((ey - 6) * S - ctr.height * 0.85 + 4 * S)), prod)
+            d = ImageDraw.Draw(im)
     else:
         d.rounded_rectangle([(ex - 44) * S, (ey - 20) * S, (ex + 44) * S, (ey + 4) * S], 10, fill=(126, 84, 52), outline=INK, width=5)
     # Bảng cờ đích cạnh quầy (Spark đợt 35): người mới biết quái chạy về đâu
@@ -288,35 +309,45 @@ def draw(stage, out):
         for t in ['b1', 'b2', 'b3a', 'b3b']:
             sp = sprite(os.path.join(ROOT, 'art', 'spark', f'mon_{art}_{t}.png'), 40 * S)
             if sp: decos.append(sp)
-    placed = []
-    pool = furn[:]
-    rnd.shuffle(pool)
-    items = []
-    for _ in range(3000):
-        x, y = rnd.uniform(44, W - 44), rnd.uniform(78, H - 44)
-        if min(seg_d((x, y), a, b) for a, b in segs) < 52: continue
-        if any(math.hypot(x - px, y - py) < 42 for px, py in pads): continue
-        if any(math.hypot(x - qx, y - qy) < 70 for qx, qy in placed): continue
-        if abs(x - ex) < 62 and -95 < y - ey < 30: continue   # chỗ quầy (vẽ phía trên điểm cuối)
-        name = pool[len(items) % len(pool)]
-        # Kiểm tra theo cả khung hình đồ đạc, không chỉ tâm: trước đây bàn ghế to vẫn đè lên ô đặt món / thảm đường (kiểm tra thực tế 24/11).
-        # Chỗ chật thì thử đồ nhỏ hơn (tới 40) để phòng không trống trơn.
-        img, fit = None, False
-        for size in ((74, 62, 52, 44) if name in BIG else (60, 52, 44, 38)):
+    # Bày phòng (anh Kha 26/11: "món hàng trong tiệm chưa rõ, chưa đặc trưng"):
+    # 1) ĐỒ ĐẶC TRƯNG của loại tiệm đặt trước, to, sát 2 bên tường (như tiệm thật), mỗi món tới 2 cái
+    # 2) bàn ghế chung chỉ lấp chỗ trống; 3) hàng của chính tiệm bày lên bàn, kệ, tủ
+    placed, items = [], []
+    sig = [n for n in dict.fromkeys(furn) if n not in GENERIC]
+    gen = [n for n in furn if n in GENERIC] or ['noi_chau_cay_lon']
+    cands = [(rnd.uniform(40, W - 40), rnd.uniform(74, H - 30)) for _ in range(5000)]
+    def fits(name, x, y, sizes, gap):
+        if any(math.hypot(x - qx, y - qy) < gap for qx, qy in placed): return None
+        if abs(x - ex) < 62 and -95 < y - ey < 30: return None   # chỗ quầy
+        for size in sizes:
             img = nt(name, size * S)
-            if img is None: break
+            if img is None: return None
             hw, top_, bot_ = img.width / S / 2, img.height / S * 0.7, img.height / S * 0.3
             box = (x - hw, y - top_, x + hw, y + bot_)
-            if box[1] < 44 or box[0] < 10 or box[2] > W - 10 or box[3] > H - 4: continue
+            if box[1] < (58 if stage.get('_backwall') else 44) or box[0] < 9 or box[2] > W - 9 or box[3] > H - 4: continue
             if any(box_d(box, (px, py)) < 22 for px, py in pads): continue
             if any(box_d(box, pt) < 26 for r in paths for pt in dense(r)): continue
-            fit = True; break
-        if img is not None and not fit: continue
+            return img
+        return None
+    def put(name, img, x, y, shelf):
         placed.append((x, y))
-        if img is None:
-            furniture(d, im, style, x, y, rnd, []); d = ImageDraw.Draw(im); continue
-        items.append((x, y, img, decos[len(items) % len(decos)] if decos and name.startswith(TABLES) and name not in ('noi_ban_lau', 'noi_ban_nhoi_bot') else None))
-        if len(placed) >= 8: break
+        holds = decos and (name.startswith(TABLES) or shelf) and name not in ('noi_ban_lau', 'noi_ban_nhoi_bot')
+        items.append((x, y, img, decos[len(items) % len(decos)] if holds else None))
+    wall = sorted(cands, key=lambda c: min(c[0], W - c[0]))          # sát tường trái / phải trước
+    for rep in range(2):
+        for name in sig:
+            for x, y in wall:
+                img = fits(name, x, y, (86, 76, 66, 58, 50) if name in BIG else (76, 66, 58, 50, 44), 64)
+                if img is not None:
+                    put(name, img, x, y, name.startswith(SHELVES)); break
+            if len(placed) >= 8: break
+    for k in range(40):
+        if len(placed) >= 11: break
+        name = gen[k % len(gen)]
+        for x, y in cands[k * 120:(k + 1) * 120]:
+            img = fits(name, x, y, (60, 52, 44, 38), 58)
+            if img is not None:
+                put(name, img, x, y, False); break
     for x, y, img, dz in sorted(items, key=lambda t: t[1]):
         im.paste(img, (int(x * S - img.width / 2), int(y * S - img.height * 0.7)), img)
         if dz is not None:
@@ -326,7 +357,7 @@ def draw(stage, out):
     # chậu cây góc phòng
     plant = nt('noi_chau_cay_lon', 40 * S)
     if plant:
-        for x, y in [(24, 64), (W - 24, 64)]:
+        for x, y in ([] if stage.get('_backwall') else [(24, 64), (W - 24, 64)]):
             if all(math.hypot(x - px, y - py) > 46 for px, py in pads):
                 im.paste(plant, (int(x * S - plant.width / 2), int(y * S - plant.height / 2)), plant)
     if stage['_kind'] == 'bar':   # bar dưới hầm: tối hơn, ánh tím ấm

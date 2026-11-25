@@ -701,9 +701,9 @@
  },
  "shops": [
   {
-   "hpMultiplier": 1.1,
+   "hpMultiplier": 1.2,
    "balance": {
-    "randomWinWithExpectedGear": 0.6666666666666666,
+    "randomWinWithExpectedGear": 0.6041666666666666,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.65
@@ -718,31 +718,31 @@
     "paths": [
      [
       {
-       "x": 0,
+       "x": 360,
        "y": 450
       },
       {
-       "x": 110,
+       "x": 250,
        "y": 450
       },
       {
-       "x": 110,
+       "x": 250,
        "y": 300
       },
       {
-       "x": 260,
+       "x": 100,
        "y": 300
       },
       {
-       "x": 260,
+       "x": 100,
        "y": 170
       },
       {
-       "x": 110,
+       "x": 250,
        "y": 170
       },
       {
-       "x": 110,
+       "x": 250,
        "y": 70
       }
      ]
@@ -750,58 +750,58 @@
     "pads": [
      {
       "id": "pad_1",
-      "x": 170,
+      "x": 180,
       "y": 230
      },
      {
       "id": "pad_2",
-      "x": 200,
+      "x": 160,
       "y": 130
      },
      {
       "id": "pad_3",
-      "x": 50,
+      "x": 290,
       "y": 360
      },
      {
       "id": "pad_4",
-      "x": 150,
-      "y": 370
+      "x": 190,
+      "y": 360
      },
      {
       "id": "pad_5",
-      "x": 110,
-      "y": 210
+      "x": 250,
+      "y": 220
      },
      {
       "id": "pad_6",
-      "x": 210,
-      "y": 340
+      "x": 200,
+      "y": 80
      },
      {
       "id": "pad_7",
-      "x": 150,
-      "y": 90
+      "x": 330,
+      "y": 410
      },
      {
       "id": "pad_8",
-      "x": 300,
+      "x": 60,
       "y": 210
      },
      {
       "id": "pad_9",
-      "x": 70,
-      "y": 130
+      "x": 210,
+      "y": 430
      },
      {
       "id": "pad_10",
-      "x": 80,
-      "y": 270
+      "x": 290,
+      "y": 130
      },
      {
       "id": "pad_11",
-      "x": 150,
-      "y": 440
+      "x": 60,
+      "y": 280
      }
     ],
     "waves": [
@@ -820,7 +820,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.1
+        "hpScale": 1.2
        }
       ]
      },
@@ -839,7 +839,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.26
+        "hpScale": 1.38
        }
       ]
      },
@@ -859,7 +859,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.43
+        "hpScale": 1.56
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -867,7 +867,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.43
+        "hpScale": 1.56
        }
       ]
      },
@@ -887,7 +887,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 1.74
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -895,7 +895,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 1.74
        }
       ]
      },
@@ -916,7 +916,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.87
+        "hpScale": 2.04
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -924,7 +924,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.87
+        "hpScale": 2.04
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -932,7 +932,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.87
+        "hpScale": 2.04
        }
       ]
      },
@@ -953,7 +953,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.2
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -961,7 +961,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.2
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -969,7 +969,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.2
+        "hpScale": 2.4
        }
       ]
      },
@@ -990,7 +990,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.64
+        "hpScale": 2.88
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -998,7 +998,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.64
+        "hpScale": 2.88
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -1006,7 +1006,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.64
+        "hpScale": 2.88
        }
       ]
      },
@@ -1027,7 +1027,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.08
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -1035,7 +1035,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.08
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1043,19 +1043,13 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.08
+        "hpScale": 3.36
        }
       ]
      }
     ],
     "towerIds": [
      "gt_phan_dinh_phung_nha_thuoc",
-     "gt_phan_dinh_phung_tiem_toc",
-     "gt_phan_dinh_phung_nha_sach",
-     "gt_phan_dinh_phung_studio",
-     "gt_phan_dinh_phung_xe_may",
-     "gt_phan_dinh_phung_tap_hoa",
-     "gt_tang_bat_ho_giat_say",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -1065,11 +1059,11 @@
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_phan_dinh_phung_nha_thuoc",
-     "gt_phan_dinh_phung_tiem_toc",
-     "gt_phan_dinh_phung_nha_sach",
-     "gt_tang_bat_ho_giat_say",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
      "gt_don_den_duong",
-     "gt_phan_dinh_phung_tap_hoa"
+     "gt_don_bao_cat"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -1136,16 +1130,16 @@
     "featuredTowerId": "gt_phan_dinh_phung_nha_thuoc",
     "facadeKey": "mat_tien_nha_thuoc",
     "roomStyle": "tiem",
-    "roomLayout": "cua_ben",
+    "roomLayout": "cua_ben_lat",
     "botPlan": [
      {
       "padId": "pad_1",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_don_kep_rac",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_2",
-      "defId": "gt_phan_dinh_phung_nha_sach",
+      "defId": "gt_don_choi_tre",
       "preferredBranch": "B"
      },
      {
@@ -1155,42 +1149,42 @@
      },
      {
       "padId": "pad_4",
-      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "defId": "gt_don_bao_cat",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_don_kep_rac",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "gt_phan_dinh_phung_nha_sach",
+      "defId": "gt_don_choi_tre",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_giat_say",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "defId": "gt_don_bao_cat",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_don_kep_rac",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_phan_dinh_phung_nha_sach",
+      "defId": "gt_don_choi_tre",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "gt_tang_bat_ho_giat_say",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "A"
      }
     ]
@@ -1199,7 +1193,7 @@
   {
    "hpMultiplier": 1.3,
    "balance": {
-    "randomWinWithExpectedGear": 0.6458333333333334,
+    "randomWinWithExpectedGear": 0.6666666666666666,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.6071428571428572
@@ -1554,12 +1548,6 @@
     ],
     "towerIds": [
      "gt_phan_dinh_phung_tiem_toc",
-     "gt_phan_dinh_phung_nha_thuoc",
-     "gt_phan_dinh_phung_nha_sach",
-     "gt_phan_dinh_phung_studio",
-     "gt_phan_dinh_phung_xe_may",
-     "gt_phan_dinh_phung_tap_hoa",
-     "gt_tang_bat_ho_giat_say",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -1569,11 +1557,11 @@
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_phan_dinh_phung_tiem_toc",
-     "gt_phan_dinh_phung_xe_may",
-     "gt_phan_dinh_phung_nha_thuoc",
-     "gt_tang_bat_ho_giat_say",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
      "gt_don_den_duong",
-     "gt_phan_dinh_phung_tap_hoa"
+     "gt_don_bao_cat"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -1649,61 +1637,61 @@
      },
      {
       "padId": "pad_2",
-      "defId": "gt_phan_dinh_phung_xe_may",
+      "defId": "gt_don_kep_rac",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "gt_phan_dinh_phung_nha_thuoc",
+      "defId": "gt_don_den_duong",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_don_bao_cat",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "gt_phan_dinh_phung_xe_may",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_giat_say",
+      "defId": "gt_don_kep_rac",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "defId": "gt_don_choi_tre",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_phan_dinh_phung_xe_may",
+      "defId": "gt_don_bao_cat",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "gt_tang_bat_ho_giat_say",
+      "defId": "gt_phan_dinh_phung_tiem_toc",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 0.9,
+   "hpMultiplier": 1,
    "balance": {
-    "randomWinWithExpectedGear": 0.6875,
+    "randomWinWithExpectedGear": 0.4791666666666667,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.5642857142857143
@@ -1718,23 +1706,23 @@
     "paths": [
      [
       {
-       "x": 50,
+       "x": 310,
        "y": 520
       },
       {
-       "x": 50,
+       "x": 310,
        "y": 450
       },
       {
-       "x": 310,
+       "x": 50,
        "y": 370
       },
       {
-       "x": 50,
+       "x": 310,
        "y": 270
       },
       {
-       "x": 310,
+       "x": 50,
        "y": 170
       },
       {
@@ -1746,58 +1734,58 @@
     "pads": [
      {
       "id": "pad_1",
-      "x": 130,
-      "y": 470
+      "x": 140,
+      "y": 160
      },
      {
       "id": "pad_2",
       "x": 210,
-      "y": 150
+      "y": 480
      },
      {
       "id": "pad_3",
-      "x": 90,
-      "y": 370
-     },
-     {
-      "id": "pad_4",
-      "x": 220,
-      "y": 290
-     },
-     {
-      "id": "pad_5",
-      "x": 30,
-      "y": 410
-     },
-     {
-      "id": "pad_6",
-      "x": 160,
+      "x": 250,
       "y": 360
      },
      {
-      "id": "pad_7",
-      "x": 280,
+      "id": "pad_4",
+      "x": 110,
+      "y": 280
+     },
+     {
+      "id": "pad_5",
+      "x": 80,
       "y": 90
      },
      {
+      "id": "pad_6",
+      "x": 180,
+      "y": 270
+     },
+     {
+      "id": "pad_7",
+      "x": 300,
+      "y": 400
+     },
+     {
       "id": "pad_8",
-      "x": 150,
+      "x": 210,
       "y": 170
      },
      {
       "id": "pad_9",
-      "x": 260,
-      "y": 240
-     },
-     {
-      "id": "pad_10",
-      "x": 230,
+      "x": 130,
       "y": 440
      },
      {
+      "id": "pad_10",
+      "x": 30,
+      "y": 130
+     },
+     {
       "id": "pad_11",
-      "x": 80,
-      "y": 210
+      "x": 50,
+      "y": 220
      }
     ],
     "waves": [
@@ -1816,7 +1804,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.9
+        "hpScale": 1
        }
       ]
      },
@@ -1835,7 +1823,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.03
+        "hpScale": 1.15
        }
       ]
      },
@@ -1855,7 +1843,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.17
+        "hpScale": 1.3
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1863,7 +1851,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.17
+        "hpScale": 1.3
        }
       ]
      },
@@ -1883,7 +1871,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.31
+        "hpScale": 1.45
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -1891,7 +1879,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.31
+        "hpScale": 1.45
        }
       ]
      },
@@ -1912,7 +1900,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.53
+        "hpScale": 1.7
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -1920,7 +1908,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.53
+        "hpScale": 1.7
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -1928,7 +1916,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.53
+        "hpScale": 1.7
        }
       ]
      },
@@ -1949,7 +1937,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.8
+        "hpScale": 2
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -1957,7 +1945,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.8
+        "hpScale": 2
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -1965,7 +1953,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.8
+        "hpScale": 2
        }
       ]
      },
@@ -1986,7 +1974,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.16
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -1994,7 +1982,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.16
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -2002,7 +1990,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.16
+        "hpScale": 2.4
        }
       ]
      },
@@ -2023,7 +2011,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.52
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -2031,7 +2019,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.52
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -2039,19 +2027,13 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.52
+        "hpScale": 2.8
        }
       ]
      }
     ],
     "towerIds": [
      "gt_phan_dinh_phung_nha_sach",
-     "gt_phan_dinh_phung_nha_thuoc",
-     "gt_phan_dinh_phung_tiem_toc",
-     "gt_phan_dinh_phung_studio",
-     "gt_phan_dinh_phung_xe_may",
-     "gt_phan_dinh_phung_tap_hoa",
-     "gt_tang_bat_ho_giat_say",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -2061,11 +2043,11 @@
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_phan_dinh_phung_nha_sach",
-     "gt_phan_dinh_phung_tiem_toc",
-     "gt_phan_dinh_phung_nha_thuoc",
-     "gt_tang_bat_ho_giat_say",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
      "gt_don_den_duong",
-     "gt_phan_dinh_phung_tap_hoa"
+     "gt_don_bao_cat"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -2132,7 +2114,7 @@
     "featuredTowerId": "gt_phan_dinh_phung_nha_sach",
     "facadeKey": "mat_tien_nha_sach",
     "roomStyle": "tiem",
-    "roomLayout": "rang_cua",
+    "roomLayout": "rang_cua_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -2141,63 +2123,63 @@
      },
      {
       "padId": "pad_2",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_don_kep_rac",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "gt_phan_dinh_phung_nha_thuoc",
+      "defId": "gt_don_den_duong",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "gt_phan_dinh_phung_nha_sach",
+      "defId": "gt_don_bao_cat",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_phan_dinh_phung_nha_sach",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_giat_say",
+      "defId": "gt_don_kep_rac",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "defId": "gt_don_choi_tre",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "gt_phan_dinh_phung_nha_sach",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_don_bao_cat",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "gt_tang_bat_ho_giat_say",
+      "defId": "gt_phan_dinh_phung_nha_sach",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 1.2,
+   "hpMultiplier": 1.3,
    "balance": {
-    "randomWinWithExpectedGear": 0.4375,
+    "randomWinWithExpectedGear": 0.5833333333333334,
     "botWinRate": 1,
-    "botLivesAvg": 16.666666666666668,
+    "botLivesAvg": 20,
     "target": 0.5214285714285715
    },
    "stage": {
@@ -2218,27 +2200,27 @@
        "y": 430
       },
       {
-       "x": 64,
+       "x": 296,
        "y": 430
       },
       {
+       "x": 296,
+       "y": 300
+      },
+      {
        "x": 64,
        "y": 300
-      },
-      {
-       "x": 296,
-       "y": 300
-      },
-      {
-       "x": 296,
-       "y": 170
       },
       {
        "x": 64,
        "y": 170
       },
       {
-       "x": 64,
+       "x": 296,
+       "y": 170
+      },
+      {
+       "x": 296,
        "y": 60
       },
       {
@@ -2250,58 +2232,58 @@
     "pads": [
      {
       "id": "pad_1",
-      "x": 130,
+      "x": 230,
       "y": 380
      },
      {
       "id": "pad_2",
-      "x": 130,
-      "y": 120
+      "x": 210,
+      "y": 110
      },
      {
       "id": "pad_3",
-      "x": 90,
+      "x": 270,
       "y": 470
      },
      {
       "id": "pad_4",
-      "x": 220,
-      "y": 230
+      "x": 130,
+      "y": 220
      },
      {
       "id": "pad_5",
-      "x": 200,
-      "y": 380
+      "x": 150,
+      "y": 390
      },
      {
       "id": "pad_6",
-      "x": 90,
+      "x": 230,
       "y": 220
      },
      {
       "id": "pad_7",
-      "x": 140,
+      "x": 280,
       "y": 260
      },
      {
       "id": "pad_8",
-      "x": 200,
-      "y": 120
+      "x": 130,
+      "y": 450
      },
      {
       "id": "pad_9",
-      "x": 220,
-      "y": 440
+      "x": 150,
+      "y": 130
      },
      {
       "id": "pad_10",
-      "x": 40,
-      "y": 260
+      "x": 320,
+      "y": 210
      },
      {
       "id": "pad_11",
-      "x": 250,
-      "y": 340
+      "x": 180,
+      "y": 260
      }
     ],
     "waves": [
@@ -2320,7 +2302,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 1.3
        }
       ]
      },
@@ -2339,7 +2321,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.38
+        "hpScale": 1.5
        }
       ]
      },
@@ -2359,7 +2341,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.56
+        "hpScale": 1.69
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -2367,7 +2349,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.56
+        "hpScale": 1.69
        }
       ]
      },
@@ -2387,7 +2369,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.74
+        "hpScale": 1.89
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -2395,7 +2377,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.74
+        "hpScale": 1.89
        }
       ]
      },
@@ -2415,7 +2397,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.04
+        "hpScale": 2.21
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -2423,7 +2405,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.04
+        "hpScale": 2.21
        }
       ]
      },
@@ -2443,7 +2425,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.6
        },
        {
         "enemyId": "ge_phan_dinh_phung_6",
@@ -2451,7 +2433,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.6
        }
       ]
      },
@@ -2471,7 +2453,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 3.12
        },
        {
         "enemyId": "ge_phan_dinh_phung_1",
@@ -2479,7 +2461,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 3.12
        }
       ]
      },
@@ -2501,7 +2483,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -2509,7 +2491,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -2517,7 +2499,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_phan_dinh_phung_6",
@@ -2525,19 +2507,13 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.64
        }
       ]
      }
     ],
     "towerIds": [
      "gt_phan_dinh_phung_studio",
-     "gt_phan_dinh_phung_nha_thuoc",
-     "gt_phan_dinh_phung_tiem_toc",
-     "gt_phan_dinh_phung_nha_sach",
-     "gt_phan_dinh_phung_xe_may",
-     "gt_phan_dinh_phung_tap_hoa",
-     "gt_tang_bat_ho_giat_say",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -2547,11 +2523,11 @@
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_phan_dinh_phung_studio",
-     "gt_phan_dinh_phung_tiem_toc",
-     "gt_phan_dinh_phung_nha_thuoc",
-     "gt_tang_bat_ho_giat_say",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
      "gt_don_den_duong",
-     "gt_phan_dinh_phung_tap_hoa"
+     "gt_don_bao_cat"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -2618,7 +2594,7 @@
     "featuredTowerId": "gt_phan_dinh_phung_studio",
     "facadeKey": "mat_tien_studio",
     "roomStyle": "tiem",
-    "roomLayout": "zigzag",
+    "roomLayout": "zigzag_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -2627,63 +2603,63 @@
      },
      {
       "padId": "pad_2",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_don_kep_rac",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "gt_phan_dinh_phung_nha_thuoc",
+      "defId": "gt_don_den_duong",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "gt_phan_dinh_phung_studio",
+      "defId": "gt_don_bao_cat",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_phan_dinh_phung_studio",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_giat_say",
+      "defId": "gt_don_kep_rac",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "defId": "gt_don_choi_tre",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "gt_phan_dinh_phung_studio",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_don_bao_cat",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "gt_tang_bat_ho_giat_say",
+      "defId": "gt_phan_dinh_phung_studio",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 1.2,
+   "hpMultiplier": 1.3,
    "balance": {
-    "randomWinWithExpectedGear": 0.4166666666666667,
+    "randomWinWithExpectedGear": 0.4583333333333333,
     "botWinRate": 1,
-    "botLivesAvg": 18.666666666666668,
+    "botLivesAvg": 20,
     "target": 0.4785714285714286
    },
    "stage": {
@@ -2794,7 +2770,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 1.3
        }
       ]
      },
@@ -2813,7 +2789,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.38
+        "hpScale": 1.5
        }
       ]
      },
@@ -2833,7 +2809,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.56
+        "hpScale": 1.69
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -2841,7 +2817,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.56
+        "hpScale": 1.69
        }
       ]
      },
@@ -2861,7 +2837,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.74
+        "hpScale": 1.89
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -2869,7 +2845,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.74
+        "hpScale": 1.89
        }
       ]
      },
@@ -2889,7 +2865,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.04
+        "hpScale": 2.21
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -2897,7 +2873,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.04
+        "hpScale": 2.21
        }
       ]
      },
@@ -2917,7 +2893,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.6
        },
        {
         "enemyId": "ge_phan_dinh_phung_6",
@@ -2925,7 +2901,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.6
        }
       ]
      },
@@ -2945,7 +2921,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 3.12
        },
        {
         "enemyId": "ge_phan_dinh_phung_1",
@@ -2953,7 +2929,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 3.12
        }
       ]
      },
@@ -2975,7 +2951,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -2983,7 +2959,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -2991,7 +2967,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.64
        },
        {
         "enemyId": "ge_phan_dinh_phung_6",
@@ -2999,7 +2975,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 3.64
        }
       ]
      }
@@ -3008,19 +2984,13 @@
      "gt_phan_dinh_phung_pho",
      "gt_hoang_dieu_lau_nha_go",
      "gt_hoang_dieu_lau_hem",
-     "gt_hoang_dieu_xiu_mai",
      "gt_hoang_dieu_banh_trang",
      "gt_hoang_dieu_com_ga",
-     "gt_hoang_dieu_chao_gang",
-     "gt_hoang_dieu_pizza",
      "gt_nguyen_van_troi_pho",
      "gt_nguyen_van_troi_lau_ga",
      "gt_nguyen_van_troi_nuong",
      "gt_nguyen_van_troi_com_tam",
-     "gt_tang_bat_ho_banh_can",
-     "gt_tang_bat_ho_goc_cay",
      "gt_tran_phu_pho",
-     "gt_tran_phu_banh_mi_ga",
      "gt_tran_phu_chao_dem",
      "gt_tran_phu_com_ga",
      "gt_don_kep_rac",
@@ -3033,10 +3003,10 @@
     "defaultLoadout": [
      "gt_phan_dinh_phung_pho",
      "gt_hoang_dieu_com_ga",
-     "gt_tang_bat_ho_goc_cay",
+     "gt_nguyen_van_troi_lau_ga",
      "gt_hoang_dieu_lau_hem",
      "gt_don_den_duong",
-     "gt_hoang_dieu_xiu_mai"
+     "gt_nguyen_van_troi_pho"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -3117,58 +3087,58 @@
      },
      {
       "padId": "pad_3",
-      "defId": "gt_tang_bat_ho_goc_cay",
+      "defId": "gt_don_den_duong",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_hoang_dieu_xiu_mai",
+      "defId": "gt_hoang_dieu_lau_hem",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "gt_phan_dinh_phung_pho",
+      "defId": "gt_nguyen_van_troi_pho",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "gt_hoang_dieu_com_ga",
+      "defId": "gt_phan_dinh_phung_pho",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_hoang_dieu_lau_hem",
+      "defId": "gt_hoang_dieu_com_ga",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "gt_hoang_dieu_xiu_mai",
+      "defId": "gt_nguyen_van_troi_lau_ga",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "gt_phan_dinh_phung_pho",
+      "defId": "gt_hoang_dieu_lau_hem",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_hoang_dieu_com_ga",
+      "defId": "gt_nguyen_van_troi_pho",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "gt_hoang_dieu_lau_hem",
+      "defId": "gt_phan_dinh_phung_pho",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 1.9,
+   "hpMultiplier": 2.2,
    "balance": {
-    "randomWinWithExpectedGear": 0.4791666666666667,
+    "randomWinWithExpectedGear": 0.4583333333333333,
     "botWinRate": 1,
-    "botLivesAvg": 14,
+    "botLivesAvg": 20.666666666666668,
     "target": 0.4357142857142857
    },
    "stage": {
@@ -3189,27 +3159,27 @@
        "y": 450
       },
       {
-       "x": 300,
+       "x": 60,
        "y": 450
       },
       {
+       "x": 60,
+       "y": 90
+      },
+      {
        "x": 300,
        "y": 90
       },
       {
-       "x": 60,
-       "y": 90
-      },
-      {
-       "x": 60,
+       "x": 300,
        "y": 330
       },
       {
-       "x": 200,
+       "x": 160,
        "y": 330
       },
       {
-       "x": 200,
+       "x": 160,
        "y": 210
       }
      ]
@@ -3217,58 +3187,58 @@
     "pads": [
      {
       "id": "pad_1",
-      "x": 200,
-      "y": 410
+      "x": 140,
+      "y": 390
      },
      {
       "id": "pad_2",
-      "x": 240,
-      "y": 360
+      "x": 210,
+      "y": 390
      },
      {
       "id": "pad_3",
-      "x": 110,
-      "y": 270
+      "x": 220,
+      "y": 260
      },
      {
       "id": "pad_4",
-      "x": 130,
-      "y": 410
-     },
-     {
-      "id": "pad_5",
-      "x": 160,
-      "y": 230
-     },
-     {
-      "id": "pad_6",
-      "x": 240,
+      "x": 120,
       "y": 290
      },
      {
-      "id": "pad_7",
-      "x": 240,
-      "y": 180
-     },
-     {
-      "id": "pad_8",
+      "id": "pad_5",
       "x": 120,
       "y": 180
      },
      {
-      "id": "pad_9",
-      "x": 140,
-      "y": 480
+      "id": "pad_6",
+      "x": 210,
+      "y": 150
      },
      {
-      "id": "pad_10",
-      "x": 160,
+      "id": "pad_7",
+      "x": 220,
+      "y": 450
+     },
+     {
+      "id": "pad_8",
+      "x": 260,
+      "y": 180
+     },
+     {
+      "id": "pad_9",
+      "x": 150,
       "y": 130
      },
      {
-      "id": "pad_11",
-      "x": 70,
+      "id": "pad_10",
+      "x": 270,
       "y": 370
+     },
+     {
+      "id": "pad_11",
+      "x": 30,
+      "y": 480
      }
     ],
     "waves": [
@@ -3287,7 +3257,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.9
+        "hpScale": 2.2
        }
       ]
      },
@@ -3306,7 +3276,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.18
+        "hpScale": 2.53
        }
       ]
      },
@@ -3326,7 +3296,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.47
+        "hpScale": 2.86
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -3334,7 +3304,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.47
+        "hpScale": 2.86
        }
       ]
      },
@@ -3354,7 +3324,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.76
+        "hpScale": 3.19
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -3362,7 +3332,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.76
+        "hpScale": 3.19
        }
       ]
      },
@@ -3382,7 +3352,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.23
+        "hpScale": 3.74
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -3390,7 +3360,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.23
+        "hpScale": 3.74
        }
       ]
      },
@@ -3410,7 +3380,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.8
+        "hpScale": 4.4
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -3418,7 +3388,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.8
+        "hpScale": 4.4
        }
       ]
      },
@@ -3438,7 +3408,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.56
+        "hpScale": 5.28
        },
        {
         "enemyId": "ge_phan_dinh_phung_1",
@@ -3446,7 +3416,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.56
+        "hpScale": 5.28
        }
       ]
      },
@@ -3468,7 +3438,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.32
+        "hpScale": 6.16
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -3476,7 +3446,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.32
+        "hpScale": 6.16
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -3484,7 +3454,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.32
+        "hpScale": 6.16
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -3492,19 +3462,13 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.32
+        "hpScale": 6.16
        }
       ]
      }
     ],
     "towerIds": [
      "gt_phan_dinh_phung_xe_may",
-     "gt_phan_dinh_phung_nha_thuoc",
-     "gt_phan_dinh_phung_tiem_toc",
-     "gt_phan_dinh_phung_nha_sach",
-     "gt_phan_dinh_phung_studio",
-     "gt_phan_dinh_phung_tap_hoa",
-     "gt_tang_bat_ho_giat_say",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -3514,11 +3478,11 @@
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_phan_dinh_phung_xe_may",
-     "gt_phan_dinh_phung_tiem_toc",
-     "gt_phan_dinh_phung_nha_thuoc",
-     "gt_tang_bat_ho_giat_say",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
      "gt_don_den_duong",
-     "gt_phan_dinh_phung_tap_hoa"
+     "gt_don_bao_cat"
     ],
     "enableSynergy": true,
     "attribution": "© OpenStreetMap contributors (ODbL)",
@@ -3585,7 +3549,7 @@
     "featuredTowerId": "gt_phan_dinh_phung_xe_may",
     "facadeKey": "mat_tien_xe_may",
     "roomStyle": "tiem",
-    "roomLayout": "xoan",
+    "roomLayout": "xoan_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -3594,61 +3558,61 @@
      },
      {
       "padId": "pad_2",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_don_kep_rac",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "gt_phan_dinh_phung_nha_thuoc",
+      "defId": "gt_don_den_duong",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "gt_phan_dinh_phung_xe_may",
+      "defId": "gt_don_bao_cat",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_phan_dinh_phung_xe_may",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_giat_say",
+      "defId": "gt_don_kep_rac",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "defId": "gt_don_choi_tre",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "gt_phan_dinh_phung_xe_may",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_don_bao_cat",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "gt_tang_bat_ho_giat_say",
+      "defId": "gt_phan_dinh_phung_xe_may",
       "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 1,
+   "hpMultiplier": 1.2,
    "balance": {
-    "randomWinWithExpectedGear": 0.4166666666666667,
+    "randomWinWithExpectedGear": 0.4375,
     "botWinRate": 1,
     "botLivesAvg": 18.666666666666668,
     "target": 0.3928571428571429
@@ -3771,7 +3735,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1
+        "hpScale": 1.2
        }
       ]
      },
@@ -3790,7 +3754,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.15
+        "hpScale": 1.38
        }
       ]
      },
@@ -3810,7 +3774,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.56
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -3818,7 +3782,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 1.3
+        "hpScale": 1.56
        }
       ]
      },
@@ -3838,7 +3802,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 1.45
+        "hpScale": 1.74
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -3846,7 +3810,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.45
+        "hpScale": 1.74
        }
       ]
      },
@@ -3866,7 +3830,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 2.04
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -3874,7 +3838,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 1.7
+        "hpScale": 2.04
        }
       ]
      },
@@ -3895,7 +3859,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 2
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -3903,7 +3867,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -3911,7 +3875,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2
+        "hpScale": 2.4
        }
       ]
      },
@@ -3932,7 +3896,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.88
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -3940,7 +3904,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.4
+        "hpScale": 2.88
        },
        {
         "enemyId": "ge_phan_dinh_phung_1",
@@ -3948,7 +3912,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.88
        }
       ]
      },
@@ -3971,7 +3935,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 1,
-        "hpScale": 2.8
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_phan_dinh_phung_2",
@@ -3979,7 +3943,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_phan_dinh_phung_3",
@@ -3987,7 +3951,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.8
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_phan_dinh_phung_4",
@@ -3995,7 +3959,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_phan_dinh_phung_5",
@@ -4003,19 +3967,13 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 1,
-        "hpScale": 2.8
+        "hpScale": 3.36
        }
       ]
      }
     ],
     "towerIds": [
      "gt_phan_dinh_phung_tap_hoa",
-     "gt_phan_dinh_phung_nha_thuoc",
-     "gt_phan_dinh_phung_tiem_toc",
-     "gt_phan_dinh_phung_nha_sach",
-     "gt_phan_dinh_phung_studio",
-     "gt_phan_dinh_phung_xe_may",
-     "gt_tang_bat_ho_giat_say",
      "gt_don_kep_rac",
      "gt_don_choi_tre",
      "gt_don_voi_xit",
@@ -4025,9 +3983,9 @@
     "loadoutSize": 6,
     "defaultLoadout": [
      "gt_phan_dinh_phung_tap_hoa",
-     "gt_phan_dinh_phung_tiem_toc",
-     "gt_phan_dinh_phung_nha_thuoc",
-     "gt_tang_bat_ho_giat_say",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
      "gt_don_den_duong",
      "gt_don_bao_cat"
     ],
@@ -4105,52 +4063,52 @@
      },
      {
       "padId": "pad_2",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_don_kep_rac",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_3",
-      "defId": "gt_phan_dinh_phung_nha_thuoc",
+      "defId": "gt_don_den_duong",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_4",
-      "defId": "gt_don_bao_cat",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_5",
-      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "defId": "gt_don_bao_cat",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_6",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_7",
-      "defId": "gt_tang_bat_ho_giat_say",
+      "defId": "gt_don_kep_rac",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_8",
-      "defId": "gt_don_bao_cat",
+      "defId": "gt_don_choi_tre",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_9",
-      "defId": "gt_phan_dinh_phung_tap_hoa",
+      "defId": "gt_don_voi_xit",
       "preferredBranch": "A"
      },
      {
       "padId": "pad_10",
-      "defId": "gt_phan_dinh_phung_tiem_toc",
+      "defId": "gt_don_bao_cat",
       "preferredBranch": "B"
      },
      {
       "padId": "pad_11",
-      "defId": "gt_tang_bat_ho_giat_say",
+      "defId": "gt_phan_dinh_phung_tap_hoa",
       "preferredBranch": "A"
      }
     ]

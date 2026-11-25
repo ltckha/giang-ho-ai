@@ -4311,3 +4311,24 @@ button.td-gear-bag-pill { cursor: pointer; border: 2px solid #2b1a12; font: inhe
 .td-bm-star { top: -22px; width: 26px; height: 26px; }
 /* Nhãn số tiệm dưới bảng: bỏ giới hạn bề rộng cũ (right:30%) — iPhone bị tràn "0/10" (anh Kha 25/11) */
 .td-bm-pin .td-bm-sub { right: auto; width: max-content; min-width: 28px; text-align: center; padding: 1px 7px; }
+
+/* ===== Máy tính bảng (anh Kha 26/11): phóng giao diện theo --hud-z (TdStageScene.hudZoom), điện thoại = 1 ===== */
+.td-top-bar, .td-bottom-bar, .td-modal-holder > *, .td-pause-holder > *, .td-first-tip, .td-boss-banner-holder > *, .td-ult-cast-banner, .td-floating-ult-btn { zoom: var(--hud-z, 1); }
+.td-floating-ult-btn { zoom: 1; transform-origin: center; }
+@media (min-width: 600px) {
+  /* Màn chính rộng ra trên máy tính bảng */
+  .td-title-card { max-width: min(94vw, 920px); max-height: 97%; }
+  .td-home-head .td-title-heading { font-size: 32px; }
+  .td-home-head .td-icon-btn { width: 46px; height: 46px; }
+  .td-street-banner { height: 220px; }
+  .td-street-banner-text b { font-size: 26px; }
+  .td-street-intro { font-size: 14px; }
+  #td-street-list, .td-real-shop-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .td-bm-country, .td-bm-zoom button { transform: scale(1.25); transform-origin: left top; }
+  .td-bm-zoom { right: 16px; bottom: 50px; }
+  .td-country-panel { max-width: 640px; }
+  .td-region-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (min-width: 900px) and (orientation: landscape) {
+  .td-title-card { max-width: min(96vw, 1200px); }
+}

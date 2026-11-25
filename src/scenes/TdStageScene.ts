@@ -687,14 +687,23 @@ export class TdStageScene extends Phaser.Scene {
   private computeViewportTransform(): void {
     const { width, height } = this.scale;
     const logicalH = this.getLogicalHeight();
-    const topHudH = 54;
-    const bottomHudH = 68;
+    // Máy tính bảng (anh Kha 26/11): thanh trên / dưới, bảng, chữ to theo màn hình — điện thoại giữ nguyên
+    const z = this.hudZoom();
+    document.documentElement.style.setProperty('--hud-z', String(z));
+    const topHudH = 54 * z;
+    const bottomHudH = 68 * z;
     const availW = Math.max(260, width - 8);
     const availH = Math.max(300, height - topHudH - bottomHudH);
 
     this.mapScale = Math.min(availW / LOGICAL_WIDTH, availH / logicalH);
     this.mapOffsetX = Math.round((width - LOGICAL_WIDTH * this.mapScale) * 0.5);
     this.mapOffsetY = Math.round(topHudH + (availH - logicalH * this.mapScale) * 0.5);
+  }
+
+  /** Hệ số phóng giao diện: 1 trên điện thoại, tới 1,6 trên máy tính bảng */
+  private hudZoom(): number {
+    const w = Math.min(this.scale.width, this.scale.height * 0.8);
+    return w >= 600 ? Math.min(1.6, Math.max(1, w / 480)) : 1;
   }
 
   public toScreen(lx: number, ly: number): { x: number; y: number } {
@@ -2405,7 +2414,7 @@ export class TdStageScene extends Phaser.Scene {
 
     const label = this.add
       .text(x, y, text, {
-        fontSize: `${fontSizePx}px`,
+        fontSize: `${Math.round(fontSizePx * this.hudZoom())}px`,
         fontStyle: 'bold',
         color,
         stroke: '#2b1a12',
