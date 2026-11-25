@@ -1,6 +1,6 @@
-# Lộ trình Gọn Phố (bản chép từ trang lộ trình, cập nhật 26/11/2026 (tối))
+# Lộ trình Gọn Phố (bản chép từ trang lộ trình, cập nhật 26/11/2026 (khuya))
 
-Game công khai: https://gon-pho.pages.dev · Kế hoạch chi tiết: docs/PLAN.md · Các lần rà: docs/REVIEW_LOG.md
+Game (khoá mã mời): https://gon-pho.pages.dev · Kế hoạch chi tiết: docs/PLAN.md · Các lần rà: docs/REVIEW_LOG.md
 
 
 ## Chặng 1: Nền tảng game
@@ -64,7 +64,7 @@ _Nhìn vào là chơi ngay, ít chữ, cần thì bấm ?._
 - ⏳ Chờ anh — Bản đồ Việt Nam 34 tỉnh: tạm ẩn chờ người rành quy định bản đồ xem lại · Anh Kha
 
 ## Chặng 4: Người thật chơi thử
-_Có link công khai; người chơi đến dần qua video và LIVE, góp ý qua bình luận._
+_Giai đoạn 1 chơi thử nội bộ: link web khoá bằng mã mời, người chơi thật góp ý trước khi mở rộng._
 
 - ✅ Xong — Đưa game lên Cloudflare Pages: giang-ho-ai.pages.dev (tài khoản Gọn) · Anh Kha + Claude
 - ✅ Xong — Chỉ phát hành khi anh nhắn "phát hành" (nhánh phat-hanh) · Claude
@@ -73,6 +73,9 @@ _Có link công khai; người chơi đến dần qua video và LIVE, góp ý qu
 - ✅ Xong — 💾 Mã lưu chuyển máy + nhắc đưa ra màn hình chính · Claude
 - ✅ Xong — 🔑 QR chìa khoá: lưu 1 lần, tự đồng bộ nhiều máy (máy chủ Cloudflare + D1) · Claude + anh Kha gắn D1
 - ✅ Xong — Mã lưu có ảnh QR + gửi email / chia sẻ link · Claude
+- ✅ Xong — Phát hành giai đoạn 1 (nội bộ): link web khoá bằng mã mời, cờ vùng VN (00+, cảnh báo 180 phút), chế độ quay sạch · Claude (anh Kha chốt 26/11)
+- ⬜ Chưa làm — Mời 5–10 người chơi thử thật bằng mã mời, gom góp ý · Anh Kha gửi mã
+- ⏳ Chờ anh — Đóng gói app chơi thử nội bộ (TestFlight / Google Play Internal Testing) · Chờ anh nói "làm"
 
 ## Chặng 5: Video kênh Gọn
 _Làm sau khi game hoàn thiện (anh Kha chốt 24/11). Clip 15–30 giây máy tự chơi, anh duyệt từng bài._
@@ -82,7 +85,7 @@ _Làm sau khi game hoàn thiện (anh Kha chốt 24/11). Clip 15–30 giây máy
 - ✅ Xong — Công cụ quay video máy tự chơi + 3 clip thử · Claude
 - ✅ Xong — Quay được mọi màn (62 màn), máy tự chơi thắng 62/62 · Claude
 - ⬜ Chưa làm — Clip có tiếng trong game · Claude
-- ⬜ Chưa làm — Bắt đầu đăng lên @gon.simpli (đã có link chơi công khai) · Anh Kha duyệt
+- ⬜ Chưa làm — Đăng clip lên @gon.simpli theo quy chuẩn (docs/VIDEO_QUY_CHUAN.md): không link tải công khai, khung có logo Gọn + @gon.simpli, giữ nhạc game tự viết · Anh Kha quay + duyệt
 
 ## Chặng 6: LIVE TikTok @gon.simpli
 _Sau khi đăng video một thời gian, kênh ổn mới lên LIVE. Luôn có người thật lúc LIVE._
