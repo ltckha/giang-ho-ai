@@ -202,17 +202,23 @@ def dense(r, step=8):
     return out + [r[-1]]
 
 
-FULL_ROOMS = [(r'phở', 'phong_pho'), (r'nhà thuốc', 'phong_nha_thuoc')]
-
-
 def full_room_of(stage):
-    import re
+    """Nguyên phòng Spark vẽ (đợt 38–39) theo loại tiệm; chưa có hình thì trả None (dùng cách ghép cũ)"""
+    if not str(stage.get('id', '')).startswith('street_'):   # Phố Dốc giữ bố cục riêng
+        return None
     nm = stage.get('name', '').lower()
-    for pat, f in FULL_ROOMS:
-        path_ = os.path.join(ROOT, 'art', 'phong', f'{f}.png')
-        if re.search(pat, nm) and os.path.exists(path_):
-            return path_
-    return None
+    kd = kind_of(stage.get('name', ''))
+    k = kd[0] if kd else None
+    if k == 'pho_com':
+        f = 'phong_pho' if 'phở' in nm else 'phong_com'
+    elif k == 'lau_nuong':
+        f = 'phong_lau'
+    elif k:
+        f = f'phong_{k}'
+    else:
+        return None
+    path_ = os.path.join(ROOT, 'art', 'phong', f'{f}.png')
+    return path_ if os.path.exists(path_) else None
 
 
 def draw_path_and_pads(im, paths, pads, st):
