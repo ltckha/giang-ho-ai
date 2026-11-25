@@ -57,7 +57,7 @@ import { SCENE_KEYS } from '../game/sceneKeys';
 import { renderShopkeeperAvatarSvg } from '../game/shopkeeperAvatar';
 import { renderShopFacadeSvg } from '../game/shopStreetArt';
 import BIG_MAP_PINS from '../core/streets/bigMapPins.json';
-import { CITIES, streetBannerUrl } from '../core/cities';
+import { PROVINCES, REGION_NAME, STREET_INFO, streetBannerUrl, type Region } from '../core/cities';
 import { sound } from '../game/sound';
 
 const RING_SIZE = 340;
@@ -358,7 +358,7 @@ export class TitleScene extends Phaser.Scene {
           <div class="td-country-panel">
             <button type="button" class="td-close-btn" data-close-country aria-label="Đóng">✕</button>
             <h3>Bản đồ Việt Nam</h3>
-            <p>Đà Lạt đang mở. Các thành phố khác sẽ mở dần.</p>
+            <p>34 tỉnh, thành theo địa giới mới (từ 1/7/2025). Đang mở: Lâm Đồng (Đà Lạt). ★ = thành phố trực thuộc trung ương.</p>
             <div class="td-country-list" id="td-country-list"></div>
           </div>
         </div>
@@ -879,12 +879,12 @@ export class TitleScene extends Phaser.Scene {
       const docStars = SHOP_STREET.reduce((n, sh) => n + shopStars(cur, sh), 0);
       type Pin = { id: string; at: { leftPct: number; topPct: number }; name: string; sub: string; open: boolean; testid: string; extra: string };
       const pins: Pin[] = [
-        { id: 'doc', at: BM.stage_1!, name: 'Phố Dốc', sub: `★${docStars}`, open: true, testid: 'street-tab-doc', extra: '' },
+        { id: 'doc', at: BM.stage_1!, name: STREET_INFO.doc!.road, sub: `★${docStars}`, open: true, testid: 'street-tab-doc', extra: '' },
         ...REAL_STREET_STAGES.map((st) => {
           const base = REAL_STREET_MAP_PINS[st.id] ?? { leftPct: 50, topPct: 50, shortName: st.name, tag: '' };
           const prog = streetProgress(cur, st.id);
           return {
-            id: st.id, at: BM[st.id] ?? { leftPct: base.leftPct, topPct: base.topPct }, name: base.shortName,
+            id: st.id, at: BM[st.id] ?? { leftPct: base.leftPct, topPct: base.topPct }, name: STREET_INFO[st.id]?.road ?? base.shortName,
             sub: isRealStreetsUnlocked ? `${prog.shopsCleared}/${prog.shopsTotal}` : '', open: isRealStreetsUnlocked,
             testid: `real-street-pin-${st.id}`, extra: `data-real-pin="${st.id}"`,
           };
@@ -905,7 +905,7 @@ export class TitleScene extends Phaser.Scene {
               ${pp.sub ? `<span class="td-bm-sub">${pp.sub}</span>` : ''}
             </button>`).join('')}
         </div>
-        <button type="button" class="td-bm-country" id="btn-open-country" data-testid="btn-open-country">🇻🇳 Đà Lạt</button>
+        <button type="button" class="td-bm-country" id="btn-open-country" data-testid="btn-open-country">🇻🇳 Lâm Đồng · Đà Lạt</button>
       `;
       const inner = host.querySelector<HTMLDivElement>('.td-bm-inner')!;
       const vw = host.clientWidth || 380;
@@ -977,7 +977,8 @@ export class TitleScene extends Phaser.Scene {
       const cur = loadTdSave();
       const isDoc = activeStreetTab === 'doc';
       const st = isDoc ? undefined : STAGES[activeStreetTab as StageId];
-      const name = isDoc ? 'Phố Dốc' : (REAL_STREET_MAP_PINS[activeStreetTab]?.shortName ?? st?.name ?? '');
+      const info = STREET_INFO[activeStreetTab];
+      const name = info?.gameName ?? (isDoc ? 'Phố Dốc' : (REAL_STREET_MAP_PINS[activeStreetTab]?.shortName ?? st?.name ?? ''));
       const sub = isDoc
         ? `${SHOP_STREET.reduce((n, sh) => n + (shopStars(cur, sh) > 0 ? 1 : 0), 0)}/${SHOP_STREET.length} tiệm đã giữ`
         : (() => { const pr = streetProgress(cur, activeStreetTab as StageId); return `${pr.shopsCleared}/${pr.shopsTotal} tiệm đã giữ${pr.streetWon ? ' · đã thắng trùm' : ''}`; })();
@@ -985,16 +986,20 @@ export class TitleScene extends Phaser.Scene {
         <div class="td-street-banner" style="background-image:url('${streetBannerUrl(activeStreetTab)}')">
           <button type="button" class="td-street-back" id="btn-street-back" data-testid="btn-street-back" aria-label="Về bản đồ">◀ Bản đồ</button>
           <div class="td-street-banner-text"><b>${name}</b><span>${sub}</span></div>
-        </div>`;
+        </div>
+        ${info ? `<div class="td-street-intro"><div class="td-street-road">📍 ${info.roads} · Phường ${info.ward}</div><div>${info.intro}</div></div>` : ''}`;
       head.querySelector<HTMLButtonElement>('#btn-street-back')!.onclick = () => { sound.playUiClick(); closeStreetPage(); };
     };
     const renderCountry = (): void => {
       const box = root.querySelector<HTMLDivElement>('#td-country-list');
       if (!box) return;
-      box.innerHTML = CITIES.map((c) => `
-        <button type="button" class="td-city ${c.open ? 'open' : 'locked'}" data-city="${c.id}" ${c.open ? '' : 'disabled'}>
-          <b>${c.open ? '' : '🔒 '}${c.name}</b><span>${c.tag}</span>
-        </button>`).join('');
+      box.innerHTML = (['bac', 'trung', 'nam'] as Region[]).map((rg) => `
+        <div class="td-region"><div class="td-region-name">${REGION_NAME[rg]}</div><div class="td-region-grid">
+        ${PROVINCES.filter((p) => p.region === rg).map((p) => `
+          <button type="button" class="td-city ${p.open ? 'open' : 'locked'}" data-city="${p.id}" ${p.open ? '' : 'disabled'}>
+            <b>${p.name}${p.tw ? ' ★' : ''}</b><span>${p.open ? `Đang chơi: ${p.playArea}` : 'Sắp mở'}</span>
+          </button>`).join('')}
+        </div></div>`).join('');
       box.querySelectorAll<HTMLButtonElement>('.td-city.open').forEach((b) => {
         b.onclick = () => { sound.playUiClick(); root.querySelector('#td-country')?.setAttribute('hidden', ''); };
       });

@@ -222,6 +222,61 @@ if cloud is not None:
 
 # 7. chữ Hồ Xuân Hương + ghi nguồn
 d = ImageDraw.Draw(im)
+# 6b. TÊN ĐƯỜNG THẬT dọc theo đường (anh Kha 25/11: "bản đồ thực tế, ghi đúng tên đường")
+try:
+    road_font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 15)
+    area_font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 24)
+except OSError:
+    road_font = area_font = ImageFont.load_default()
+named = {}
+for r in data['roads']:
+    if r.get('name'):
+        named.setdefault(r['name'], []).append([P(*p) for p in r['pts']])
+for n, pts in gw:
+    if n:
+        named.setdefault(n, []).append([P(*p) for p in pts])
+labels = []
+for name, lines in named.items():
+    if name.startswith('Bùng binh') or name.startswith('Công trường') or name == 'Khu Hòa Bình':
+        continue
+    # chỗ giữa theo chiều dài của nhánh dài nhất; góc lấy theo 2 điểm cách giữa ±45 điểm
+    q = max(lines, key=lambda z: sum(math.hypot(u[0] - v[0], u[1] - v[1]) for u, v in zip(z, z[1:])))
+    dens = []
+    for u, v in zip(q, q[1:]):
+        n_ = max(1, int(math.hypot(v[0] - u[0], v[1] - u[1]) / 4))
+        dens += [(u[0] + (v[0] - u[0]) * i / n_, u[1] + (v[1] - u[1]) * i / n_) for i in range(n_)]
+    if len(dens) < 40:
+        continue
+    L = len(dens) * 4
+    mid = len(dens) // 2
+    mx, my = dens[mid]
+    a = dens[max(0, mid - 11)]; b = dens[min(len(dens) - 1, mid + 11)]
+    if not (30 < mx < W - 30 and 30 < my < H - 30):
+        continue
+    if fm.getpixel((int(mx), int(my))) > 120:      # trong sương thì thôi
+        continue
+    if any(math.hypot(mx - q2[0], my - q2[1]) < 70 for q2 in pin_pts) or any(math.hypot(mx - q2[0], my - q2[1]) < 85 for q2 in lm_pts) or any(math.hypot(mx - q2[0], my - q2[1]) < 80 for q2 in labels):
+        continue
+    tw = int(d.textlength(name, font=road_font)) + 12
+    if tw > L * 1.2:
+        continue
+    t = Image.new('RGBA', (tw, 26), (0, 0, 0, 0))
+    ImageDraw.Draw(t).text((6, 3), name, font=road_font, fill=(58, 38, 22), stroke_width=3, stroke_fill=(255, 248, 228))
+    ang = math.degrees(math.atan2(b[1] - a[1], b[0] - a[0]))
+    if ang > 90: ang -= 180
+    if ang < -90: ang += 180
+    t = t.rotate(-ang, expand=True, resample=Image.BICUBIC)
+    im.alpha_composite(t, (int(mx - t.width / 2), int(my - t.height / 2)))
+    labels.append((mx, my))
+# tên phường mới (địa giới từ 1/7/2025, NQ 1671/NQ-UBTVQH15): chữ nhạt, lớp riêng để pha trong
+area = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+ad = ImageDraw.Draw(area)
+for txt_, (la, lo) in [('PHƯỜNG XUÂN HƯƠNG - ĐÀ LẠT', (11.9505, 108.4420)), ('PHƯỜNG CAM LY - ĐÀ LẠT', (11.9350, 108.4225))]:
+    x, y = P(la, lo)
+    tw = ad.textlength(txt_, font=area_font)
+    ad.text((x - tw / 2, y - 20), txt_, font=area_font, fill=(255, 250, 235, 120), stroke_width=2, stroke_fill=(70, 50, 30, 90))
+im.alpha_composite(area)
+d = ImageDraw.Draw(im)
 try:
     font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 30)
     small = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 18)

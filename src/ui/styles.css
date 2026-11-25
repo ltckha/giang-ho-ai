@@ -4262,3 +4262,12 @@ button.td-gear-bag-pill { cursor: pointer; border: 2px solid #2b1a12; font: inhe
 .td-city span { font-size: 11px; color: #7a5a3a; }
 .td-city.open { border-color: #2b1a12; box-shadow: 0 2px 0 #2b1a12; background: #fff4d6; }
 .td-city.locked { opacity: 0.6; }
+.td-street-intro { margin: -2px 0 8px; padding: 8px 10px; border-radius: 10px; background: #fff4d6; border: 1.5px solid #c9a97a; font-size: 12px; color: #4a3220; line-height: 1.35; }
+.td-street-road { font-weight: 800; font-size: 11px; color: #7a4a12; margin-bottom: 2px; }
+.td-region { margin-bottom: 10px; }
+.td-region-name { font: 800 12px var(--font-ui, system-ui); color: #7a4a12; margin: 0 0 4px; }
+.td-region-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+.td-country-list { display: block; }
+.td-city { padding: 6px 7px; }
+.td-city b { font-size: 12px; }
+.td-city span { font-size: 10px; }
