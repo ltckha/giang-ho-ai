@@ -1,0 +1,34 @@
+{
+ "street_tang_bat_ho": {
+  "leftPct": 42.21,
+  "topPct": 50.81
+ },
+ "street_pho_ca_phe": {
+  "leftPct": 44.65,
+  "topPct": 62.62
+ },
+ "street_phan_dinh_phung": {
+  "leftPct": 40.37,
+  "topPct": 40.47
+ },
+ "street_nguyen_van_troi": {
+  "leftPct": 47.16,
+  "topPct": 39.21
+ },
+ "street_hoang_dieu": {
+  "leftPct": 25.61,
+  "topPct": 56.54
+ },
+ "street_tran_phu": {
+  "leftPct": 40.2,
+  "topPct": 71.9
+ },
+ "stage_1": {
+  "leftPct": 54.52,
+  "topPct": 58.98
+ },
+ "_size": {
+  "w": 1742,
+  "h": 1291
+ }
+}

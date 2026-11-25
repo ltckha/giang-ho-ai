@@ -1,5 +1,14 @@
 import { expect, test } from '@playwright/test';
 
+/** Màn chính mới (25/11): bản đồ kéo được; đang ở trang phố thì bấm ◀ Bản đồ để về bản đồ */
+async function veBanDo(page: import('@playwright/test').Page) {
+  await page.locator('.td-title-heading').waitFor();
+  await page.waitForTimeout(400);
+  const back = page.getByTestId('btn-street-back');
+  if (await back.isVisible()) await back.click();
+  await page.waitForTimeout(200);
+}
+
 test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầm dọc 390×844)', () => {
   test('mặc định ẩn nút Bot và nút Giảm hiệu ứng hoạt động tốt', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
@@ -918,7 +927,8 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     const sfxBtn = page.getByTestId('btn-toggle-sfx');
     await expect(musicBtn).not.toHaveClass(/muted/);
     await expect(sfxBtn).not.toHaveClass(/muted/);
-    await expect(page.getByTestId('street-tab-doc')).toBeVisible();
+    // màn chính mới: người mới vào thẳng trang Phố Dốc, ghim nằm trên bản đồ (chưa bấm gì để giữ luật chặn tự phát)
+    await expect(page.getByTestId('street-tab-doc')).toBeAttached();
 
     const beforeTouch = await page.evaluate(() => {
       const a = (window as unknown as {
@@ -1216,8 +1226,10 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     await page.goto('/');
     await expect(page.getByTestId('btn-start-stage-4')).toBeDisabled();
     await expect(page.getByTestId('real-streets-status')).toContainText('Thắng Trùm Phố để mở');
+    await veBanDo(page);
     await page.getByTestId('real-street-pin-street_pho_ca_phe').click();
     await expect(page.getByTestId('btn-start-street_pho_ca_phe')).toBeDisabled();
+    await veBanDo(page);
     await page.getByTestId('real-street-pin-street_tang_bat_ho').click();
     await expect(page.getByTestId('btn-start-street_tang_bat_ho')).toBeDisabled();
 
@@ -1329,11 +1341,13 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     // Về Màn Chính -> thấy huy hiệu vàng "Giữ trọn phố" & các Phố Thật trên Bản đồ Đà Lạt đã mở khóa!
     await page.getByTestId('btn-back-title').click();
     await expect(page.getByTestId('real-streets-status')).toContainText('Đã mở khóa');
+    await veBanDo(page);
     await page.getByTestId('real-street-pin-street_pho_ca_phe').click();
     await expect(page.getByTestId('btn-start-street_pho_ca_phe')).toBeEnabled();
+    await veBanDo(page);
     await page.getByTestId('real-street-pin-street_tang_bat_ho').click();
     await expect(page.getByTestId('btn-start-street_tang_bat_ho')).toBeEnabled();
-    await page.getByTestId('real-street-pin-street_pho_ca_phe').scrollIntoViewIfNeeded();
+    await veBanDo(page);
     await page.waitForTimeout(200);
     await page.screenshot({ path: 'docs/screenshots/v8_title_dalat_unlocked.png' });
 
@@ -1563,6 +1577,7 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     // 3. Về Màn Chính kiểm tra ghim Phố 3 Phan Đình Phùng hiện trên Bản đồ Đà Lạt
     await page.getByTestId('btn-pause-toggle').click();
     await page.getByTestId('btn-pause-title').click();
+    await veBanDo(page);
     const pdpPin = page.getByTestId('real-street-pin-street_phan_dinh_phung');
     await expect(pdpPin).toBeVisible();
     await pdpPin.scrollIntoViewIfNeeded();

@@ -56,7 +56,8 @@ import { getInitialReduceMotion, loadRealStreetLoadout, saveRealStreetLoadout } 
 import { SCENE_KEYS } from '../game/sceneKeys';
 import { renderShopkeeperAvatarSvg } from '../game/shopkeeperAvatar';
 import { renderShopFacadeSvg } from '../game/shopStreetArt';
-import HOME_MAP_PINS from '../core/streets/homeMapPins.json';
+import BIG_MAP_PINS from '../core/streets/bigMapPins.json';
+import { CITIES, streetBannerUrl } from '../core/cities';
 import { sound } from '../game/sound';
 
 const RING_SIZE = 340;
@@ -135,6 +136,8 @@ export class TitleScene extends Phaser.Scene {
   private static liveAutoStarted = false;
   /** Bảng thắng bấm ▶ Ra phố đánh trùm: mở sẵn bảng Chuẩn bị cho màn này */
   public static pendingLoadoutStage: StageId | null = null;
+  /** Trang phố đang mở (về từ màn chơi thì mở lại đúng phố đó) */
+  public static lastStreetTab: string | null = null;
   private static cloudPulled = false;
 
   constructor() {
@@ -350,9 +353,18 @@ export class TitleScene extends Phaser.Scene {
           </div>
         </div>
         <div id="td-install-nudge"></div>
-        <div class="td-home-map td-dalat-map-stage" id="td-street-tabs" data-testid="street-tabs"></div>
+        <div class="td-home-map td-bigmap" id="td-street-tabs" data-testid="street-tabs"></div>
+        <div class="td-country" id="td-country" hidden>
+          <div class="td-country-panel">
+            <button type="button" class="td-close-btn" data-close-country aria-label="Đóng">✕</button>
+            <h3>Bản đồ Việt Nam</h3>
+            <p>Đà Lạt đang mở. Các thành phố khác sẽ mở dần.</p>
+            <div class="td-country-list" id="td-country-list"></div>
+          </div>
+        </div>
 
-        <section class="td-street-section ${this.reduceMotion ? 'no-anim' : ''}" data-testid="shop-street">
+        <section class="td-street-section td-street-page ${this.reduceMotion ? 'no-anim' : ''}" data-testid="shop-street">
+          <div id="td-street-head"></div>
           <div class="td-street-list" id="td-street-list"></div>
 
           <!-- Việc 9: Bản đồ Đà Lạt chọn 2 phố thật (khóa đến khi thắng Trận trùm phố) -->
@@ -856,82 +868,141 @@ export class TitleScene extends Phaser.Scene {
       tipTimer = window.setTimeout(() => bubble.setAttribute('hidden', ''), 2200);
     });
 
-    /* ===== Hàng thẻ chọn phố ===== */
+    /* ===== Bản đồ Đà Lạt lớn kéo được + trang riêng từng phố (anh Kha "làm bản đồ" 25/11) ===== */
     let activeStreetTab: string = 'doc';
+    const BM = BIG_MAP_PINS as unknown as Record<string, { leftPct: number; topPct: number }> & { _size: { w: number; h: number } };
+    const mapView = { x: NaN, y: NaN, s: 1 };
     const renderStreetTabs = (): void => {
       const host = root.querySelector<HTMLDivElement>('#td-street-tabs');
       if (!host) return;
       const cur = loadTdSave();
       const docStars = SHOP_STREET.reduce((n, sh) => n + shopStars(cur, sh), 0);
-      // Bản đồ Đà Lạt (Claude): chấm đỏ đúng vị trí phố thật, thẻ hình góc phố nối bằng đường chấm
-      const CARD_IMG: Record<string, string> = {
-        doc: 'the_pho_doc', street_tang_bat_ho: 'the_pho_tang_bat_ho', street_pho_ca_phe: 'the_pho_ca_phe', street_phan_dinh_phung: 'the_pho_phan_dinh_phung', street_nguyen_van_troi: 'the_pho_nguyen_van_troi', street_hoang_dieu: 'the_pho_hoang_dieu', street_tran_phu: 'the_pho_tran_phu',
+      type Pin = { id: string; at: { leftPct: number; topPct: number }; name: string; sub: string; open: boolean; testid: string; extra: string };
+      const pins: Pin[] = [
+        { id: 'doc', at: BM.stage_1!, name: 'Phố Dốc', sub: `★${docStars}`, open: true, testid: 'street-tab-doc', extra: '' },
+        ...REAL_STREET_STAGES.map((st) => {
+          const base = REAL_STREET_MAP_PINS[st.id] ?? { leftPct: 50, topPct: 50, shortName: st.name, tag: '' };
+          const prog = streetProgress(cur, st.id);
+          return {
+            id: st.id, at: BM[st.id] ?? { leftPct: base.leftPct, topPct: base.topPct }, name: base.shortName,
+            sub: isRealStreetsUnlocked ? `${prog.shopsCleared}/${prog.shopsTotal}` : '', open: isRealStreetsUnlocked,
+            testid: `real-street-pin-${st.id}`, extra: `data-real-pin="${st.id}"`,
+          };
+        }),
+      ];
+      // phố đang chơi: phố Dốc khi chưa mở phố thật, sau đó phố thật đầu tiên còn tiệm chưa giữ
+      const playing = !isRealStreetsUnlocked ? 'doc' : (REAL_STREET_STAGES.find((st) => !streetProgress(cur, st.id).streetWon)?.id ?? '');
+      const { w, h } = BM._size;
+      host.innerHTML = `
+        <div class="td-bm-inner" style="width:${w}px;height:${h}px">
+          <img class="td-bm-img" src="./assets/map_dalat_lon.webp" alt="Bản đồ Đà Lạt" draggable="false" />
+          ${pins.map((pp) => `
+            <button type="button" class="td-bm-pin ${pp.open ? 'open' : 'locked'} ${playing === pp.id ? 'playing' : ''}"
+              style="left:${pp.at.leftPct}%;top:${pp.at.topPct}%" data-street-tab="${pp.id}" data-testid="${pp.testid}" ${pp.extra}>
+              ${playing === pp.id ? '<img class="td-bm-star" src="./assets/ui/bd_ghim_sao.webp" alt="" />' : ''}
+              <img class="td-bm-board" src="./assets/ui/${pp.open ? 'bd_bang_pho' : 'bd_bang_pho_khoa'}.webp" alt="" />
+              <span class="td-bm-name">${pp.name}</span>
+              ${pp.sub ? `<span class="td-bm-sub">${pp.sub}</span>` : ''}
+            </button>`).join('')}
+        </div>
+        <button type="button" class="td-bm-country" id="btn-open-country" data-testid="btn-open-country">🇻🇳 Đà Lạt</button>
+      `;
+      const inner = host.querySelector<HTMLDivElement>('.td-bm-inner')!;
+      const vw = host.clientWidth || 380;
+      const vh = host.clientHeight || 640;
+      mapView.s = Math.max(vw / w, vh / h, 0.7);
+      const clamp = () => {
+        mapView.x = Math.min(0, Math.max(vw - w * mapView.s, mapView.x));
+        mapView.y = Math.min(0, Math.max(vh - h * mapView.s, mapView.y));
+        inner.style.transform = `translate(${mapView.x}px, ${mapView.y}px) scale(${mapView.s})`;
       };
-      type MapPin = { id: string; dot: [number, number] | null; card: [number, number]; name: string; sub: string; open: boolean; testid: string; extra: string };
-      const realPins: MapPin[] = REAL_STREET_STAGES.map((st) => {
-        const base = REAL_STREET_MAP_PINS[st.id] ?? { leftPct: 50, topPct: 50, shortName: st.name, tag: '' };
-        const real = (HOME_MAP_PINS as Record<string, { leftPct: number; topPct: number }>)[st.id];
-        const prog = streetProgress(cur, st.id);
-        const dot: [number, number] = real ? [real.leftPct, real.topPct] : [base.leftPct, base.topPct];
-        return { id: st.id, dot, card: [dot[0], dot[1]], name: base.shortName, sub: isRealStreetsUnlocked ? `${prog.shopsCleared}/${prog.shopsTotal}` : '', open: isRealStreetsUnlocked, testid: `real-street-pin-${st.id}`, extra: `data-real-pin="${st.id}"` };
-      });
-      // xếp thẻ thành cột bên phải chấm, cách nhau đủ để không chồng
-      // đặt thẻ gần chấm, tránh chồng nhau (thẻ ~24% rộng, ~26% cao)
-      const taken: [number, number][] = [[84, 10]];
-      const OFFS: [number, number][] = [[20, 0], [-20, 0], [20, -12], [20, 12], [-20, 12], [-20, -12], [0, 20], [0, -20], [30, 20], [-30, 20], [30, -20], [-30, -20], [40, 0], [-40, 0]];
-      realPins.sort((p1, p2) => p1.dot![1] - p2.dot![1]).forEach((pp) => {
-        const [dx, dy] = pp.dot!;
-        let best: [number, number] = [Math.min(86, Math.max(14, dx + 24)), Math.min(86, Math.max(14, dy))];
-        for (const [ox, oy] of OFFS) {
-          const c: [number, number] = [Math.min(86, Math.max(14, dx + ox)), Math.min(86, Math.max(14, dy + oy))];
-          if (taken.every(([tx, ty]) => Math.abs(tx - c[0]) >= 19 || Math.abs(ty - c[1]) >= 18)) { best = c; break; }
+      if (Number.isNaN(mapView.x)) {
+        // lần đầu: canh giữa phố đang chơi (hoặc giữa các phố)
+        const focus = pins.find((pp) => pp.id === playing) ?? pins[0]!;
+        mapView.x = vw / 2 - (focus.at.leftPct / 100) * w * mapView.s;
+        mapView.y = vh / 2 - (focus.at.topPct / 100) * h * mapView.s;
+      }
+      clamp();
+      // kéo bằng 1 ngón; kéo quá 6 điểm thì không tính là bấm
+      let drag: { id: number; x0: number; y0: number; mx: number; my: number; moved: boolean } | null = null;
+      host.onpointerdown = (ev) => {
+        drag = { id: ev.pointerId, x0: ev.clientX, y0: ev.clientY, mx: mapView.x, my: mapView.y, moved: false };
+      };
+      host.onpointermove = (ev) => {
+        if (!drag || ev.pointerId !== drag.id) return;
+        const dx = ev.clientX - drag.x0, dy = ev.clientY - drag.y0;
+        if (!drag.moved && Math.hypot(dx, dy) > 6) { drag.moved = true; host.setPointerCapture(ev.pointerId); host.classList.add('dragging'); }
+        if (drag.moved) { mapView.x = drag.mx + dx; mapView.y = drag.my + dy; clamp(); }
+      };
+      const endDrag = (ev: PointerEvent) => {
+        if (!drag || ev.pointerId !== drag.id) return;
+        const moved = drag.moved;
+        drag = null;
+        host.classList.remove('dragging');
+        if (moved) {
+          // nuốt cú bấm ngay sau khi kéo
+          const stop = (e: Event) => { e.stopPropagation(); e.preventDefault(); };
+          host.addEventListener('click', stop, { capture: true, once: true });
+          window.setTimeout(() => host.removeEventListener('click', stop, { capture: true }), 50);
         }
-        pp.card = best;
-        taken.push(best);
-      });
-      const allPins: MapPin[] = [
-        { id: 'doc', dot: null, card: [84, 10], name: 'Phố Dốc', sub: `★${docStars}`, open: true, testid: 'street-tab-doc', extra: '' },
-        ...realPins,
-      ];
-      const lines = allPins.filter((pp) => pp.dot).map((pp) => `<line x1="${pp.dot![0]}" y1="${pp.dot![1]}" x2="${pp.card[0]}" y2="${pp.card[1]}" />`).join('');
-      const dots = allPins.filter((pp) => pp.dot).map((pp) => `<span class="td-map-dot" style="left:${pp.dot![0]}%;top:${pp.dot![1]}%"></span>`).join('');
-      const cards = allPins.map((pp) => `
-        <button type="button" class="td-map-card ${pp.open ? 'open' : 'locked'} ${activeStreetTab === pp.id ? 'selected' : ''}"
-          style="left:${pp.card[0]}%;top:${pp.card[1]}%" data-street-tab="${pp.id}" data-testid="${pp.testid}" ${pp.extra}>
-          ${CARD_IMG[pp.id] ? `<img src="./assets/ui/${CARD_IMG[pp.id]}.webp" alt="" />` : (() => {
-            // phố chưa có hình thẻ: dùng mặt tiền tiệm đầu phố (Claude)
-            const first = REAL_STREET_SHOPS[pp.id]?.[0];
-            const art = first?.featuredTowerId ? ALL_TOWER_DEFINITIONS[first.featuredTowerId]?.art : undefined;
-            const tex = this.textures.exists(FACADE_ATLAS_KEY) ? this.textures.get(FACADE_ATLAS_KEY) : null;
-            const k = [first?.facadeKey, art ? `facade_${art}` : undefined].find((x) => x && tex?.has(x));
-            const u = k ? getAtlasFrameDataUrlFrom(this, FACADE_ATLAS_KEY, k) : '';
-            return u ? `<img src="${u}" alt="" />` : '';
-          })()}
-          <span class="td-map-card-name">${pp.open ? '' : '🔒 '}${pp.name}</span>
-          ${pp.sub ? `<span class="td-map-card-sub">${pp.sub}</span>` : ''}
-        </button>`).join('');
-      const tabs = [
-        `<img class="td-home-map-img" src="./assets/map_dalat_home.webp" alt="" />`,
-        `<svg class="td-map-lines" viewBox="0 0 100 100" preserveAspectRatio="none">${lines}</svg>`,
-        dots,
-        cards,
-      ];
-      host.innerHTML = tabs.join('');
+      };
+      host.onpointerup = endDrag;
+      host.onpointercancel = endDrag;
       host.querySelectorAll<HTMLButtonElement>('[data-street-tab]').forEach((btn) => {
-        btn.onclick = () => {
-          activeStreetTab = btn.dataset.streetTab!;
-          if (activeStreetTab !== 'doc') selectedRealStreetId = activeStreetTab as StageId;
-          sound.playUiClick();
-          applyStreetTab();
-          root.querySelector(activeStreetTab === 'doc' ? '#td-street-list' : '#td-dalat-real-streets')
-            ?.scrollIntoView({ behavior: this.reduceMotion ? 'auto' : 'smooth', block: 'start' });
-        };
+        btn.onclick = () => openStreetPage(btn.dataset.streetTab!);
+      });
+      host.querySelector<HTMLButtonElement>('#btn-open-country')!.onclick = () => {
+        sound.playUiClick();
+        renderCountry();
+        root.querySelector('#td-country')?.removeAttribute('hidden');
+      };
+    };
+    const openStreetPage = (tab: string): void => {
+      activeStreetTab = tab;
+      TitleScene.lastStreetTab = tab;
+      if (tab !== 'doc') selectedRealStreetId = tab as StageId;
+      sound.playUiClick();
+      root.classList.add('td-in-street');
+      applyStreetTab();
+      root.querySelector('.td-title-card')?.scrollTo({ top: 0 });
+    };
+    const closeStreetPage = (): void => {
+      TitleScene.lastStreetTab = null;
+      root.classList.remove('td-in-street');
+      renderStreetTabs();
+    };
+    const renderStreetHead = (): void => {
+      const head = root.querySelector<HTMLDivElement>('#td-street-head');
+      if (!head) return;
+      const cur = loadTdSave();
+      const isDoc = activeStreetTab === 'doc';
+      const st = isDoc ? undefined : STAGES[activeStreetTab as StageId];
+      const name = isDoc ? 'Phố Dốc' : (REAL_STREET_MAP_PINS[activeStreetTab]?.shortName ?? st?.name ?? '');
+      const sub = isDoc
+        ? `${SHOP_STREET.reduce((n, sh) => n + (shopStars(cur, sh) > 0 ? 1 : 0), 0)}/${SHOP_STREET.length} tiệm đã giữ`
+        : (() => { const pr = streetProgress(cur, activeStreetTab as StageId); return `${pr.shopsCleared}/${pr.shopsTotal} tiệm đã giữ${pr.streetWon ? ' · đã thắng trùm' : ''}`; })();
+      head.innerHTML = `
+        <div class="td-street-banner" style="background-image:url('${streetBannerUrl(activeStreetTab)}')">
+          <button type="button" class="td-street-back" id="btn-street-back" data-testid="btn-street-back" aria-label="Về bản đồ">◀ Bản đồ</button>
+          <div class="td-street-banner-text"><b>${name}</b><span>${sub}</span></div>
+        </div>`;
+      head.querySelector<HTMLButtonElement>('#btn-street-back')!.onclick = () => { sound.playUiClick(); closeStreetPage(); };
+    };
+    const renderCountry = (): void => {
+      const box = root.querySelector<HTMLDivElement>('#td-country-list');
+      if (!box) return;
+      box.innerHTML = CITIES.map((c) => `
+        <button type="button" class="td-city ${c.open ? 'open' : 'locked'}" data-city="${c.id}" ${c.open ? '' : 'disabled'}>
+          <b>${c.open ? '' : '🔒 '}${c.name}</b><span>${c.tag}</span>
+        </button>`).join('');
+      box.querySelectorAll<HTMLButtonElement>('.td-city.open').forEach((b) => {
+        b.onclick = () => { sound.playUiClick(); root.querySelector('#td-country')?.setAttribute('hidden', ''); };
       });
     };
     const applyStreetTab = (): void => {
       root.querySelector<HTMLElement>('#td-street-list')?.toggleAttribute('hidden', activeStreetTab !== 'doc');
       root.querySelector<HTMLElement>('#td-dalat-real-streets')?.toggleAttribute('hidden', activeStreetTab === 'doc');
-      renderStreetTabs();
+      renderStreetHead();
       if (activeStreetTab !== 'doc') renderRealStreetsMap();
     };
 
@@ -1281,7 +1352,16 @@ ${open && stars >= 3 && !(st.loadoutSize && !st.shopIndex) ? `<button type="butt
     renderStreet();
     renderRealStreetsMap();
     renderSelectedShopShowcase();
+    // Mở lại đúng trang phố vừa chơi; người mới (chưa mở phố thật) vào thẳng Phố Dốc để bấm chơi ngay
+    const startTab = TitleScene.lastStreetTab ?? (hasStreetChampionBadge || ownerOpenAll ? null : 'doc');
+    if (startTab) {
+      activeStreetTab = startTab;
+      if (startTab !== 'doc') selectedRealStreetId = startTab as StageId;
+      root.classList.add('td-in-street');
+    }
     applyStreetTab();
+    requestAnimationFrame(() => renderStreetTabs());
+    root.querySelector<HTMLButtonElement>('[data-close-country]')?.addEventListener('click', () => root.querySelector('#td-country')?.setAttribute('hidden', ''));
 
     /* ==================== VIỆC 6: GỌN CHỮ BẢNG TRANG BỊ ==================== */
     let pickSlot: GearSlotId | null = null;
