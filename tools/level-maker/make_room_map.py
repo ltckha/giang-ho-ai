@@ -79,8 +79,13 @@ FURN = {
     'cafe': ['noi_ban_cafe', 'noi_ban_cafe', 'noi_ban_cafe', 'noi_ghe_banh', 'noi_ke_ly', 'noi_chau_cay_lon', 'noi_tham_tron'],
     'tiem': ['noi_ke_hang', 'noi_ke_hang', 'noi_tu_kinh', 'noi_gio_hang', 'noi_thung_hang', 'noi_chau_cay_lon'],
 }
+_NT_CACHE = {}
 def nt(name, px):
-    return sprite(os.path.join(NT, f'{name}.png'), px)
+    # nhớ hình đã thu nhỏ: bày phòng thử hàng nghìn chỗ, không đọc lại file mỗi lần
+    k = (name, px)
+    if k not in _NT_CACHE:
+        _NT_CACHE[k] = sprite(os.path.join(NT, f'{name}.png'), px)
+    return _NT_CACHE[k]
 def tile_fill(im, name, box):
     f = os.path.join(NT, f'{name}.png')
     if not os.path.exists(f): return False
