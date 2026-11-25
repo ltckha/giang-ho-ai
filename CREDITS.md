@@ -1,6 +1,10 @@
 # CREDITS — Nguồn hình ảnh, âm thanh, phông chữ và công nghệ
 
-Toàn bộ tài nguyên trong **Gọn Tiệm, Sạch Phố — Ngũ hành giữ tiệm** đều tự tạo hoặc sử dụng giấy phép mở (OFL / MIT / Apache-2.0), đóng gói chạy **100% offline** trong `dist/`, không tải tài nguyên từ mạng ngoài khi chơi, không sử dụng tên thương hiệu hay hình ảnh của bất kỳ trò chơi / công ty nào có thật.
+**Gọn Phố — Ngũ hành giữ tiệm** (tên cũ: Gọn Tiệm, Sạch Phố). Cập nhật 26/11/2026 theo đánh giá độc lập.
+
+- **Hình ảnh do công cụ AI vẽ** (Antigravity `generate_image` cho bộ Phố Dốc, Spark / Gemini cho món, quái, phòng tiệm, phố, bản đồ; các đợt giao vẽ lưu ở `docs/spark/`), rồi Claude ghép, tách nền, đóng gói. Quyền với hình AI vẽ chưa có quy định rõ ràng ở Việt Nam; dự án KHÔNG ghi đây là hình tự vẽ tay và không dùng tên, biển hiệu, hình ảnh của quán hay thương hiệu có thật (trừ Hiệu giày Hải Nancy, Yen Handmade Leather của chủ dự án).
+- **Bản đồ:** đường phố, mặt hồ, mốc theo dữ liệu **© OpenStreetMap contributors** (ODbL). Ghi nguồn hiện trên bản đồ trong game.
+- **Mạng:** game chơi được không cần mạng sau lần mở đầu. Có kết nối ra ngoài ở 2 chỗ: đếm lượt người chơi ẩn danh của Cloudflare Web Analytics (không cookie, không thông tin cá nhân) và máy chủ lưu tiến độ khi người chơi tự bật **QR chìa khoá** (chỉ giữ tiến độ game theo khoá ngẫu nhiên).
 
 ---
 

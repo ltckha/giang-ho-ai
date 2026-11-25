@@ -4338,3 +4338,8 @@ button.td-gear-bag-pill { cursor: pointer; border: 2px solid #2b1a12; font: inhe
 .td-result-modal .td-result-drops-box { max-height: 30vh; overflow-y: auto; flex: 0 1 auto; }
 /* Tạm ẩn bản đồ Việt Nam (anh Kha 25/11) — chờ người rành quy định bản đồ xem lại */
 #btn-open-country { display: none !important; }
+/* Đánh giá độc lập T1/T2: vùng bấm tối thiểu ~40, chữ nhỏ nhất ~10 */
+.td-ctrl-btn { min-width: 40px; min-height: 40px; font-size: 13px; }
+.td-home-head .td-icon-btn { min-width: 38px; min-height: 38px; }
+.td-bm-pin .td-bm-sub { font-size: 10px; }
+.td-gear-help-btn { min-width: 32px; min-height: 32px; }

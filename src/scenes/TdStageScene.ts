@@ -6,7 +6,7 @@ import { BootScene, FX_KEYS } from './BootScene';
 import Phaser from 'phaser';
 import { ELEMENT_INFO } from '../core/elements';
 import { equipGear, getEquipped, getGearBonus, getVehicle, grantStageDrops, loadTdSave, markTutorialDone, saveHardWin, saveTdProgress, shouldShowTutorial } from '../core/saveSystem';
-import { vehicleAppliesTo, VEHICLES, type VehicleId } from '../core/vehicles';
+import { stageGrantsVehicle, vehicleAppliesTo, VEHICLES, type VehicleId } from '../core/vehicles';
 import { vehicleIconHtml } from '../game/vehicleUi';
 import { BETTER_MIN, itemScoreDelta, RARITY_LABEL, statText, type GearItem, type GearSlotId } from '../core/equipment';
 import { TutorialController } from '../core/tutorial';
@@ -2051,16 +2051,21 @@ export class TdStageScene extends Phaser.Scene {
         sound.playVictory();
         const stars = calculateStarRating(this.engine.lives, this.engine.maxLives);
         if (stars !== 0 && !this.liveMode) {
+          const firstWin = !((loadTdSave().starsByStage[this.engine.stage.id] ?? 0) > 0);
           const after = saveTdProgress(this.engine.stage.id, stars, this.engine.lives);
           this.lastVehicleUnlocked = (after.lastVehicleUnlocked as VehicleId | undefined) ?? null;
           // Rơi trang bị theo số sao (Claude)
           this.lastDrops = grantStageDrops(this.engine.stage.stageNumber, stars);
-          void pushProgress(); // 🔑 có chìa khoá QR thì gửi tiến độ lên máy chủ
+          // Hết xe để nhận (đã đủ 6 xe) mà màn này lẽ ra tặng xe → tặng thêm 1 món đồ (đánh giá độc lập T10)
+          if (firstWin && !this.lastVehicleUnlocked && stageGrantsVehicle(this.engine.stage)) {
+            this.lastDrops = [...this.lastDrops, ...grantStageDrops(this.engine.stage.stageNumber, 1)];
+          }
           // ★ Khó: ghi sao Khó + rơi thêm 1 lượt đồ
           if (this.hardMode) {
             saveHardWin(this.engine.stage.id, stars);
             this.lastDrops = [...this.lastDrops, ...grantStageDrops(this.engine.stage.stageNumber, stars)];
           }
+          void pushProgress(); // 🔑 có chìa khoá QR thì gửi tiến độ lên máy chủ (sau khi đã ghi đủ phần thưởng)
         }
       }
     }
@@ -3607,7 +3612,7 @@ export class TdStageScene extends Phaser.Scene {
 
     const rmBtn = this.hudRoot.querySelector<HTMLButtonElement>('#btn-reduce-motion');
     if (rmBtn) {
-      rmBtn.textContent = this.reduceMotion ? 'Nhẹ' : 'FX';
+      rmBtn.textContent = this.reduceMotion ? '🐢' : '✨'; // ✨ = hiệu ứng đầy đủ, 🐢 = nhẹ cho máy yếu (đánh giá độc lập T3: chữ FX khó hiểu)
       rmBtn.setAttribute('aria-pressed', this.reduceMotion ? 'true' : 'false');
       rmBtn.classList.toggle('active', this.reduceMotion);
     }

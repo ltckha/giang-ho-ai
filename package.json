@@ -2,7 +2,7 @@
   "name": "giang-ho-ai",
   "version": "0.1.0",
   "private": true,
-  "description": "Game kiem hiep 2D offline - Giai doan 1",
+  "description": "Gọn Phố — game thủ thành ngũ hành giữ tiệm trên phố thật Đà Lạt (Phaser 3 + TypeScript)",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -1,3 +1,5 @@
+> **Đọc trước (26/11/2026):** game hiện là **Gọn Phố** (thủ thành ngũ hành giữ tiệm trên phố thật Đà Lạt). Lộ trình đang dùng: `docs/LO_TRINH.md` (chép từ trang lộ trình). Các quyết định của anh Kha ở các mục "Đã chốt" phía dưới vẫn còn hiệu lực; phần "game kiếm hiệp có nhân vật AI" ở đầu file là kế hoạch ban đầu đã bỏ, giữ lại để tra lịch sử. Đánh giá độc lập 25/11: `docs/review/DANH_GIA_DOC_LAP.md` (nhánh `danh-gia-doc-lap`).
+
 # Kế hoạch: game kiếm hiệp có nhân vật AI, chơi offline (N73)
 Soạn: Điều phối, 22/11/2026. Anh Kha nói "làm" 22/11. Phiên cloud Giang Hồ AI giao Antigravity cloud và rà kết quả.
 

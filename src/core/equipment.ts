@@ -454,9 +454,12 @@ export function gearDamageFor(b: GearBonus, el: ElementType): number {
 /** Rơi đồ khi thắng màn: số món = số sao (+ "Khách quen"). Màn sau & nhiều sao dễ ra đồ hạng cao. */
 export function rollStageDrops(stageNumber: number, stars: 1 | 2 | 3, rng: () => number, uidPrefix: string, extra = 0): GearItem[] {
   const items: GearItem[] = [];
-  const hieu = 0.02 + 0.02 * (stageNumber - 1) + (stars === 3 ? 0.02 : 0);
-  const xin = 0.08 + 0.04 * (stageNumber - 1) + (stars === 3 ? 0.04 : 0);
-  const tot = 0.3 + 0.05 * (stageNumber - 1);
+  // Đánh giá độc lập 25/11 (V1): phố thật có số màn 11–21 nên trước đây rơi toàn đồ Xịn / Hàng hiệu (~44% Hàng hiệu ở trùm).
+  // Nay bậc rơi đồ chặn trần ở mức 6: Hàng hiệu tối đa ~10–12%, Xịn ~23–27%, vẫn còn Thường / Tốt để còn lý do chơi tiếp.
+  const L = Math.max(1, Math.min(6, stageNumber));
+  const hieu = 0.02 + 0.015 * (L - 1) + (stars === 3 ? 0.02 : 0);
+  const xin = 0.08 + 0.03 * (L - 1) + (stars === 3 ? 0.04 : 0);
+  const tot = 0.3 + 0.04 * (L - 1);
   for (let i = 0; i < stars + extra; i++) {
     const slot = GEAR_SLOTS[Math.floor(rng() * GEAR_SLOTS.length)]!.id;
     const element = ALL_ELEMENTS[Math.floor(rng() * ALL_ELEMENTS.length)]!;
