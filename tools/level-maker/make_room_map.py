@@ -202,11 +202,27 @@ def dense(r, step=8):
     return out + [r[-1]]
 
 
+ROOM_BY_NAME = [
+    (r'bánh căn', 'phong_banh_can'), (r'bánh tráng', 'phong_banh_trang'), (r'xíu mại', 'phong_banh_mi_xiu_mai'),
+    (r'ăn vặt', 'phong_an_vat'), (r'quán sáng', 'phong_quan_sang'), (r'chè', 'phong_che'), (r'yaourt', 'phong_yaourt'),
+    (r'sữa nóng', 'phong_sua_nong'), (r'khách sạn (cổ|bên hồ)', 'phong_khach_san_phap'), (r'khách sạn (mini|nhỏ)', 'phong_khach_san_mini'),
+    (r'nướng', 'phong_nuong'), (r'cháo', 'phong_chao'), (r'cơm tấm', 'phong_com_tam'), (r'pizza', 'phong_pizza'),
+    (r'bánh quà', 'phong_banh_qua'), (r'trà sữa', 'phong_tra_sua'), (r'hostel', 'phong_hostel'),
+    (r'ngắm hồ', 'phong_cafe_view_ho'), (r'hoài cổ', 'phong_cafe_retro'),
+]
+
+
 def full_room_of(stage):
     """Nguyên phòng Spark vẽ (đợt 38–39) theo loại tiệm; chưa có hình thì trả None (dùng cách ghép cũ)"""
     if not str(stage.get('id', '')).startswith('street_'):   # Phố Dốc giữ bố cục riêng
         return None
     nm = stage.get('name', '').lower()
+    import re
+    # phòng riêng theo đúng loại quán (Spark đợt 40) — có hình thì dùng trước phòng chung của nhóm
+    for pat, f in ROOM_BY_NAME:
+        pth = os.path.join(ROOT, 'art', 'phong', f'{f}.png')
+        if re.search(pat, nm) and os.path.exists(pth):
+            return pth
     kd = kind_of(stage.get('name', ''))
     k = kd[0] if kd else None
     if k == 'pho_com':

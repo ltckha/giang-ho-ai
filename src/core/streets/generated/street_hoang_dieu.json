@@ -685,9 +685,9 @@
  },
  "shops": [
   {
-   "hpMultiplier": 1.2,
+   "hpMultiplier": 0.8,
    "balance": {
-    "randomWinWithExpectedGear": 0.7291666666666666,
+    "randomWinWithExpectedGear": 0.5625,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.65
@@ -702,94 +702,96 @@
     "paths": [
      [
       {
-       "x": 180,
+       "x": 115,
        "y": 520
       },
       {
+       "x": 115,
+       "y": 340
+      },
+      {
        "x": 180,
-       "y": 450
+       "y": 290
       },
       {
-       "x": 300,
-       "y": 450
+       "x": 180,
+       "y": 105
+      }
+     ],
+     [
+      {
+       "x": 245,
+       "y": 520
       },
       {
-       "x": 300,
-       "y": 90
+       "x": 245,
+       "y": 340
       },
       {
-       "x": 60,
-       "y": 90
+       "x": 180,
+       "y": 290
       },
       {
-       "x": 60,
-       "y": 330
-      },
-      {
-       "x": 200,
-       "y": 330
-      },
-      {
-       "x": 200,
-       "y": 210
+       "x": 180,
+       "y": 105
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 200,
-      "y": 410
+      "x": 170,
+      "y": 355
      },
      {
       "id": "pad_2",
-      "x": 240,
-      "y": 360
+      "x": 130,
+      "y": 275
      },
      {
       "id": "pad_3",
-      "x": 110,
-      "y": 270
+      "x": 220,
+      "y": 235
      },
      {
       "id": "pad_4",
-      "x": 130,
-      "y": 410
+      "x": 190,
+      "y": 415
      },
      {
       "id": "pad_5",
-      "x": 160,
-      "y": 230
+      "x": 250,
+      "y": 295
      },
      {
       "id": "pad_6",
-      "x": 240,
-      "y": 290
+      "x": 140,
+      "y": 205
      },
      {
       "id": "pad_7",
-      "x": 240,
-      "y": 180
+      "x": 80,
+      "y": 315
      },
      {
       "id": "pad_8",
-      "x": 120,
-      "y": 180
+      "x": 220,
+      "y": 155
      },
      {
       "id": "pad_9",
-      "x": 140,
-      "y": 480
+      "x": 120,
+      "y": 145
      },
      {
       "id": "pad_10",
       "x": 160,
-      "y": 130
+      "y": 475
      },
      {
       "id": "pad_11",
       "x": 70,
-      "y": 370
+      "y": 385
      }
     ],
     "waves": [
@@ -808,7 +810,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.2
+        "hpScale": 0.8
        }
       ]
      },
@@ -826,8 +828,8 @@
         "count": 4,
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.38
+        "pathIndex": 1,
+        "hpScale": 0.92
        }
       ]
      },
@@ -847,15 +849,15 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.56
+        "hpScale": 1.04
        },
        {
         "enemyId": "ge_hoang_dieu_3",
         "count": 4,
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.56
+        "pathIndex": 1,
+        "hpScale": 1.04
        }
       ]
      },
@@ -874,8 +876,8 @@
         "count": 3,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.74
+        "pathIndex": 1,
+        "hpScale": 1.16
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -883,7 +885,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.74
+        "hpScale": 1.16
        }
       ]
      },
@@ -904,15 +906,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.04
+        "hpScale": 1.36
        },
        {
         "enemyId": "ge_hoang_dieu_2",
         "count": 3,
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.04
+        "pathIndex": 1,
+        "hpScale": 1.36
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -920,7 +922,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.04
+        "hpScale": 1.36
        }
       ]
      },
@@ -940,8 +942,8 @@
         "count": 3,
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.4
+        "pathIndex": 1,
+        "hpScale": 1.6
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -949,15 +951,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 1.6
        },
        {
         "enemyId": "ge_hoang_dieu_2",
         "count": 3,
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.4
+        "pathIndex": 1,
+        "hpScale": 1.6
        }
       ]
      },
@@ -978,15 +980,15 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 1.92
        },
        {
         "enemyId": "ge_hoang_dieu_5",
         "count": 3,
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.88
+        "pathIndex": 1,
+        "hpScale": 1.92
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -994,7 +996,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.88
+        "hpScale": 1.92
        }
       ]
      },
@@ -1014,8 +1016,8 @@
         "count": 4,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.36
+        "pathIndex": 1,
+        "hpScale": 2.24
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -1023,15 +1025,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 2.24
        },
        {
         "enemyId": "ge_hoang_dieu_5",
         "count": 3,
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.36
+        "pathIndex": 1,
+        "hpScale": 2.24
        }
       ]
      }
@@ -1135,7 +1137,7 @@
     "featuredTowerId": "gt_hoang_dieu_lau_nha_go",
     "facadeKey": "mat_tien_lau_nha_go",
     "roomStyle": "quan_an",
-    "roomLayout": "xoan",
+    "roomLayout": "hai_cua",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -1196,7 +1198,7 @@
    }
   },
   {
-   "hpMultiplier": 0.9,
+   "hpMultiplier": 1,
    "balance": {
     "randomWinWithExpectedGear": 0.5625,
     "botWinRate": 1,
@@ -1213,96 +1215,94 @@
     "paths": [
      [
       {
-       "x": 70,
+       "x": 110,
        "y": 520
       },
       {
-       "x": 70,
-       "y": 360
+       "x": 110,
+       "y": 410
+      },
+      {
+       "x": 250,
+       "y": 410
+      },
+      {
+       "x": 250,
+       "y": 290
+      },
+      {
+       "x": 110,
+       "y": 290
+      },
+      {
+       "x": 110,
+       "y": 175
       },
       {
        "x": 180,
-       "y": 300
+       "y": 175
       },
       {
        "x": 180,
-       "y": 70
-      }
-     ],
-     [
-      {
-       "x": 290,
-       "y": 520
-      },
-      {
-       "x": 290,
-       "y": 360
-      },
-      {
-       "x": 180,
-       "y": 300
-      },
-      {
-       "x": 180,
-       "y": 70
+       "y": 105
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 160,
-      "y": 360
+      "x": 180,
+      "y": 215
      },
      {
       "id": "pad_2",
-      "x": 130,
-      "y": 270
+      "x": 170,
+      "y": 335
      },
      {
       "id": "pad_3",
-      "x": 230,
-      "y": 270
+      "x": 80,
+      "y": 145
      },
      {
       "id": "pad_4",
-      "x": 220,
-      "y": 380
+      "x": 140,
+      "y": 125
      },
      {
       "id": "pad_5",
-      "x": 140,
-      "y": 200
+      "x": 180,
+      "y": 455
      },
      {
       "id": "pad_6",
-      "x": 220,
-      "y": 200
+      "x": 240,
+      "y": 195
      },
      {
       "id": "pad_7",
-      "x": 110,
-      "y": 410
+      "x": 70,
+      "y": 225
      },
      {
       "id": "pad_8",
-      "x": 70,
-      "y": 300
+      "x": 110,
+      "y": 355
      },
      {
       "id": "pad_9",
-      "x": 290,
-      "y": 300
+      "x": 220,
+      "y": 125
      },
      {
       "id": "pad_10",
-      "x": 120,
-      "y": 140
+      "x": 290,
+      "y": 325
      },
      {
       "id": "pad_11",
-      "x": 220,
-      "y": 130
+      "x": 60,
+      "y": 425
      }
     ],
     "waves": [
@@ -1321,7 +1321,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.9
+        "hpScale": 1
        }
       ]
      },
@@ -1339,8 +1339,8 @@
         "count": 3,
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 1.03
+        "pathIndex": 0,
+        "hpScale": 1.15
        }
       ]
      },
@@ -1360,15 +1360,15 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.17
+        "hpScale": 1.3
        },
        {
         "enemyId": "ge_hoang_dieu_4",
         "count": 3,
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 1.17
+        "pathIndex": 0,
+        "hpScale": 1.3
        }
       ]
      },
@@ -1387,8 +1387,8 @@
         "count": 5,
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 1.31
+        "pathIndex": 0,
+        "hpScale": 1.45
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -1396,7 +1396,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.31
+        "hpScale": 1.45
        }
       ]
      },
@@ -1417,15 +1417,15 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.53
+        "hpScale": 1.7
        },
        {
         "enemyId": "ge_hoang_dieu_3",
         "count": 5,
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 1.53
+        "pathIndex": 0,
+        "hpScale": 1.7
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -1433,7 +1433,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.53
+        "hpScale": 1.7
        }
       ]
      },
@@ -1453,8 +1453,8 @@
         "count": 3,
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 1.8
+        "pathIndex": 0,
+        "hpScale": 2
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -1462,15 +1462,15 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.8
+        "hpScale": 2
        },
        {
         "enemyId": "ge_hoang_dieu_3",
         "count": 5,
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 1.8
+        "pathIndex": 0,
+        "hpScale": 2
        }
       ]
      },
@@ -1491,15 +1491,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.16
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_hoang_dieu_5",
         "count": 3,
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 2.16
+        "pathIndex": 0,
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -1507,7 +1507,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.16
+        "hpScale": 2.4
        }
       ]
      },
@@ -1527,8 +1527,8 @@
         "count": 6,
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 2.52
+        "pathIndex": 0,
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -1536,15 +1536,15 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.52
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_hoang_dieu_5",
         "count": 3,
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 2.52
+        "pathIndex": 0,
+        "hpScale": 2.8
        }
       ]
      }
@@ -1648,7 +1648,7 @@
     "featuredTowerId": "gt_hoang_dieu_lau_hem",
     "facadeKey": "mat_tien_lau_hem",
     "roomStyle": "quan_an",
-    "roomLayout": "hai_cua",
+    "roomLayout": "bac_thang",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -1709,9 +1709,9 @@
    }
   },
   {
-   "hpMultiplier": 1,
+   "hpMultiplier": 1.1,
    "balance": {
-    "randomWinWithExpectedGear": 0.5625,
+    "randomWinWithExpectedGear": 0.6458333333333334,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.5750000000000001
@@ -1726,90 +1726,110 @@
     "paths": [
      [
       {
-       "x": 0,
-       "y": 450
+       "x": 180,
+       "y": 520
+      },
+      {
+       "x": 180,
+       "y": 482
       },
       {
        "x": 110,
-       "y": 450
+       "y": 482
       },
       {
        "x": 110,
-       "y": 300
+       "y": 405
       },
       {
-       "x": 260,
-       "y": 300
+       "x": 250,
+       "y": 405
       },
       {
-       "x": 260,
-       "y": 170
-      },
-      {
-       "x": 110,
-       "y": 170
+       "x": 250,
+       "y": 325
       },
       {
        "x": 110,
-       "y": 70
+       "y": 325
+      },
+      {
+       "x": 110,
+       "y": 245
+      },
+      {
+       "x": 250,
+       "y": 245
+      },
+      {
+       "x": 250,
+       "y": 165
+      },
+      {
+       "x": 180,
+       "y": 165
+      },
+      {
+       "x": 180,
+       "y": 105
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 170,
-      "y": 230
+      "x": 150,
+      "y": 205
      },
      {
       "id": "pad_2",
       "x": 200,
-      "y": 130
+      "y": 445
      },
      {
       "id": "pad_3",
-      "x": 50,
-      "y": 360
+      "x": 150,
+      "y": 365
      },
      {
       "id": "pad_4",
-      "x": 150,
-      "y": 370
+      "x": 200,
+      "y": 285
      },
      {
       "id": "pad_5",
-      "x": 110,
-      "y": 210
+      "x": 280,
+      "y": 135
      },
      {
       "id": "pad_6",
-      "x": 210,
-      "y": 340
+      "x": 80,
+      "y": 365
      },
      {
       "id": "pad_7",
-      "x": 150,
-      "y": 90
+      "x": 270,
+      "y": 285
      },
      {
       "id": "pad_8",
-      "x": 300,
-      "y": 210
+      "x": 260,
+      "y": 465
      },
      {
       "id": "pad_9",
-      "x": 70,
-      "y": 130
+      "x": 130,
+      "y": 145
      },
      {
       "id": "pad_10",
-      "x": 80,
-      "y": 270
+      "x": 70,
+      "y": 445
      },
      {
       "id": "pad_11",
-      "x": 150,
-      "y": 440
+      "x": 290,
+      "y": 225
      }
     ],
     "waves": [
@@ -1828,7 +1848,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1
+        "hpScale": 1.1
        }
       ]
      },
@@ -1847,7 +1867,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.15
+        "hpScale": 1.26
        }
       ]
      },
@@ -1867,7 +1887,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.43
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -1875,7 +1895,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.43
        }
       ]
      },
@@ -1895,7 +1915,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.45
+        "hpScale": 1.6
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -1903,7 +1923,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.45
+        "hpScale": 1.6
        }
       ]
      },
@@ -1924,7 +1944,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 1.87
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -1932,7 +1952,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 1.87
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -1940,7 +1960,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 1.87
        }
       ]
      },
@@ -1961,7 +1981,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 2.2
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -1969,7 +1989,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 2.2
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -1977,7 +1997,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 2.2
        }
       ]
      },
@@ -1998,7 +2018,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.64
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -2006,7 +2026,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.64
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -2014,7 +2034,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.64
        }
       ]
      },
@@ -2035,7 +2055,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 3.08
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -2043,7 +2063,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 3.08
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -2051,7 +2071,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 3.08
        }
       ]
      }
@@ -2151,7 +2171,7 @@
     "featuredTowerId": "gt_hoang_dieu_xiu_mai",
     "facadeKey": "mat_tien_xiu_mai",
     "roomStyle": "quan_an",
-    "roomLayout": "cua_ben",
+    "roomLayout": "zigzag4",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -2212,11 +2232,11 @@
    }
   },
   {
-   "hpMultiplier": 1.5,
+   "hpMultiplier": 1.2,
    "balance": {
-    "randomWinWithExpectedGear": 0.5625,
+    "randomWinWithExpectedGear": 0.5208333333333334,
     "botWinRate": 1,
-    "botLivesAvg": 20,
+    "botLivesAvg": 20.666666666666668,
     "target": 0.5375000000000001
    },
    "stage": {
@@ -2229,98 +2249,102 @@
     "paths": [
      [
       {
-       "x": 60,
+       "x": 180,
        "y": 520
       },
       {
-       "x": 60,
-       "y": 90
+       "x": 180,
+       "y": 455
       },
       {
-       "x": 300,
-       "y": 90
+       "x": 250,
+       "y": 455
       },
       {
-       "x": 300,
-       "y": 210
+       "x": 250,
+       "y": 350
       },
       {
-       "x": 150,
-       "y": 210
+       "x": 110,
+       "y": 350
       },
       {
-       "x": 150,
-       "y": 330
+       "x": 110,
+       "y": 250
       },
       {
-       "x": 300,
-       "y": 330
+       "x": 250,
+       "y": 250
       },
       {
-       "x": 300,
-       "y": 440
+       "x": 250,
+       "y": 165
       },
       {
-       "x": 200,
-       "y": 440
+       "x": 180,
+       "y": 165
+      },
+      {
+       "x": 180,
+       "y": 105
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 230,
-      "y": 270
+      "x": 150,
+      "y": 205
      },
      {
       "id": "pad_2",
-      "x": 210,
-      "y": 380
+      "x": 160,
+      "y": 395
      },
      {
       "id": "pad_3",
-      "x": 210,
-      "y": 150
+      "x": 200,
+      "y": 295
      },
      {
       "id": "pad_4",
-      "x": 110,
-      "y": 270
+      "x": 230,
+      "y": 125
      },
      {
       "id": "pad_5",
-      "x": 120,
-      "y": 180
+      "x": 280,
+      "y": 485
      },
      {
       "id": "pad_6",
-      "x": 290,
-      "y": 290
+      "x": 140,
+      "y": 455
      },
      {
       "id": "pad_7",
-      "x": 140,
-      "y": 370
+      "x": 270,
+      "y": 285
      },
      {
       "id": "pad_8",
-      "x": 280,
-      "y": 480
+      "x": 290,
+      "y": 165
      },
      {
       "id": "pad_9",
-      "x": 330,
-      "y": 240
+      "x": 130,
+      "y": 145
      },
      {
       "id": "pad_10",
-      "x": 160,
-      "y": 430
+      "x": 290,
+      "y": 395
      },
      {
       "id": "pad_11",
-      "x": 210,
-      "y": 480
+      "x": 70,
+      "y": 285
      }
     ],
     "waves": [
@@ -2339,7 +2363,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.5
+        "hpScale": 1.2
        }
       ]
      },
@@ -2358,7 +2382,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.73
+        "hpScale": 1.38
        }
       ]
      },
@@ -2378,7 +2402,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.95
+        "hpScale": 1.56
        },
        {
         "enemyId": "ge_hoang_dieu_2",
@@ -2386,7 +2410,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.95
+        "hpScale": 1.56
        }
       ]
      },
@@ -2406,7 +2430,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.17
+        "hpScale": 1.74
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -2414,7 +2438,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.17
+        "hpScale": 1.74
        }
       ]
      },
@@ -2434,7 +2458,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.55
+        "hpScale": 2.04
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -2442,7 +2466,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.55
+        "hpScale": 2.04
        }
       ]
      },
@@ -2462,7 +2486,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -2470,7 +2494,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3
+        "hpScale": 2.4
        }
       ]
      },
@@ -2490,7 +2514,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 2.88
        },
        {
         "enemyId": "ge_hoang_dieu_1",
@@ -2498,7 +2522,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 2.88
        }
       ]
      },
@@ -2520,7 +2544,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_hoang_dieu_2",
@@ -2528,7 +2552,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -2536,7 +2560,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -2544,7 +2568,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 3.36
        }
       ]
      }
@@ -2649,7 +2673,7 @@
     "featuredTowerId": "gt_hoang_dieu_banh_trang",
     "facadeKey": "mat_tien_banh_trang",
     "roomStyle": "quan_an",
-    "roomLayout": "chu_e",
+    "roomLayout": "zigzag3",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -2710,11 +2734,11 @@
    }
   },
   {
-   "hpMultiplier": 1.6,
+   "hpMultiplier": 1.5,
    "balance": {
-    "randomWinWithExpectedGear": 0.4791666666666667,
+    "randomWinWithExpectedGear": 0.4583333333333333,
     "botWinRate": 1,
-    "botLivesAvg": 18.333333333333332,
+    "botLivesAvg": 19.666666666666668,
     "target": 0.5
    },
    "stage": {
@@ -2727,579 +2751,94 @@
     "paths": [
      [
       {
-       "x": 50,
+       "x": 250,
        "y": 520
       },
       {
-       "x": 50,
-       "y": 450
+       "x": 250,
+       "y": 405
       },
       {
-       "x": 310,
-       "y": 370
+       "x": 110,
+       "y": 405
       },
       {
-       "x": 50,
-       "y": 270
+       "x": 110,
+       "y": 245
       },
       {
-       "x": 310,
-       "y": 170
+       "x": 250,
+       "y": 245
+      },
+      {
+       "x": 250,
+       "y": 160
       },
       {
        "x": 180,
-       "y": 70
+       "y": 160
+      },
+      {
+       "x": 180,
+       "y": 105
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 130,
-      "y": 470
-     },
-     {
-      "id": "pad_2",
-      "x": 210,
-      "y": 150
-     },
-     {
-      "id": "pad_3",
-      "x": 90,
-      "y": 370
-     },
-     {
-      "id": "pad_4",
-      "x": 220,
-      "y": 290
-     },
-     {
-      "id": "pad_5",
-      "x": 30,
-      "y": 410
-     },
-     {
-      "id": "pad_6",
-      "x": 160,
-      "y": 360
-     },
-     {
-      "id": "pad_7",
-      "x": 280,
-      "y": 90
-     },
-     {
-      "id": "pad_8",
       "x": 150,
-      "y": 170
-     },
-     {
-      "id": "pad_9",
-      "x": 260,
-      "y": 240
-     },
-     {
-      "id": "pad_10",
-      "x": 230,
-      "y": 440
-     },
-     {
-      "id": "pad_11",
-      "x": 80,
-      "y": 210
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
-      "title": "Đợt 1: Kiến Bu Đường",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_1",
-        "count": 6,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.6
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Bụi Bột",
-      "mainElements": [
-       "tho"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.84
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Ruồi Bếp & Bụi Bột",
-      "mainElements": [
-       "moc",
-       "tho"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.08
-       },
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.08
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Kiến Bu Đường & Ruồi Bếp",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_1",
-        "count": 7,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.32
-       },
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.32
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Kiến Bu Đường & Ruồi Bếp",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_1",
-        "count": 8,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.72
-       },
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.72
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Bụi Bột & Nước Đá Tan",
-      "mainElements": [
-       "tho",
-       "thuy"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.2
-       },
-       {
-        "enemyId": "ge_hoang_dieu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.2
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Ruồi Bếp & Kiến Bu Đường",
-      "mainElements": [
-       "moc"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.84
-       },
-       {
-        "enemyId": "ge_hoang_dieu_1",
-        "count": 9,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.84
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "moc",
-       "tho",
-       "thuy"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_hoang_dieu_1",
-        "count": 9,
-        "intervalSec": 0.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 4.48
-       },
-       {
-        "enemyId": "ge_hoang_dieu_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.48
-       },
-       {
-        "enemyId": "ge_hoang_dieu_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.48
-       },
-       {
-        "enemyId": "ge_hoang_dieu_6",
-        "count": 2,
-        "intervalSec": 2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.48
-       }
-      ]
-     }
-    ],
-    "towerIds": [
-     "gt_hoang_dieu_com_ga",
-     "gt_hoang_dieu_lau_nha_go",
-     "gt_hoang_dieu_lau_hem",
-     "gt_hoang_dieu_banh_trang",
-     "gt_nguyen_van_troi_pho",
-     "gt_nguyen_van_troi_lau_ga",
-     "gt_nguyen_van_troi_nuong",
-     "gt_nguyen_van_troi_com_tam",
-     "gt_phan_dinh_phung_pho",
-     "gt_tran_phu_chao_dem",
-     "gt_tran_phu_com_ga",
-     "gt_don_kep_rac",
-     "gt_don_choi_tre",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_don_bao_cat"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_hoang_dieu_com_ga",
-     "gt_nguyen_van_troi_com_tam",
-     "gt_nguyen_van_troi_lau_ga",
-     "gt_hoang_dieu_lau_hem",
-     "gt_don_den_duong",
-     "gt_nguyen_van_troi_pho"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "lau_nha_go",
-      "name": "Lẩu Bò Nhà Gỗ Sim Tím",
-      "type": "Quán lẩu bò nhà gỗ",
-      "trait": "nồi lẩu bò bốc hơi, gần như luôn kín khách",
-      "towerId": "gt_hoang_dieu_lau_nha_go"
-     },
-     {
-      "key": "lau_hem",
-      "name": "Lẩu Bò Hẻm Sương Mai",
-      "type": "Quán lẩu bò trong hẻm",
-      "trait": "khách địa phương, đông 6–8 giờ tối",
-      "towerId": "gt_hoang_dieu_lau_hem"
-     },
-     {
-      "key": "xiu_mai",
-      "name": "Bánh Mì Xíu Mại Hồ Sương",
-      "type": "Quán bánh mì xíu mại buổi sáng",
-      "trait": "chén xíu mại, ổ bánh nóng, hết hàng lúc 9 giờ",
-      "towerId": "gt_hoang_dieu_xiu_mai"
-     },
-     {
-      "key": "banh_trang",
-      "name": "Bánh Tráng Nướng Dã Quỳ",
-      "type": "Bánh tráng nướng bếp than buổi chiều",
-      "trait": "bếp than đỏ từ 2 giờ chiều",
-      "towerId": "gt_hoang_dieu_banh_trang"
-     },
-     {
-      "key": "com_ga",
-      "name": "Cơm Gà Lan Hài",
-      "type": "Quán cơm gà đầu phố",
-      "trait": "cơm gà xé, nước mắm gừng",
-      "towerId": "gt_hoang_dieu_com_ga"
-     },
-     {
-      "key": "chao_gang",
-      "name": "Bánh Mì Chảo Mây Ngàn",
-      "type": "Quán bánh mì chảo xíu mại",
-      "trait": "chảo gang nóng buổi sáng",
-      "towerId": "gt_hoang_dieu_chao_gang"
-     },
-     {
-      "key": "yaourt",
-      "name": "Yaourt Phô Mai Cỏ Hồng",
-      "type": "Quầy yaourt phô mai",
-      "trait": "yaourt phô mai không quá ngọt",
-      "towerId": "gt_hoang_dieu_yaourt"
-     },
-     {
-      "key": "pizza",
-      "name": "Tiệm Pizza Nhỏ Đồi Chè",
-      "type": "Tiệm pizza nhỏ đầu phố",
-      "trait": "lò nướng nhỏ",
-      "towerId": "gt_hoang_dieu_pizza"
-     },
-     {
-      "key": "khach_san",
-      "name": "Khách Sạn Phố Núi Mai Anh Đào",
-      "type": "Khách sạn mặt tiền",
-      "trait": "phòng nhìn ra phố lẩu",
-      "towerId": "gt_hoang_dieu_khach_san"
-     }
-    ],
-    "streetId": "street_hoang_dieu",
-    "shopIndex": 5,
-    "featuredTowerId": "gt_hoang_dieu_com_ga",
-    "facadeKey": "mat_tien_com_ga",
-    "roomStyle": "quan_an",
-    "roomLayout": "rang_cua",
-    "botPlan": [
-     {
-      "padId": "pad_1",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_2",
-      "defId": "gt_nguyen_van_troi_com_tam",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_don_den_duong",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "gt_hoang_dieu_lau_hem",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "gt_nguyen_van_troi_pho",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_nguyen_van_troi_com_tam",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_nguyen_van_troi_lau_ga",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_hoang_dieu_lau_hem",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_nguyen_van_troi_pho",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_hoang_dieu_com_ga",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 1.5,
-   "balance": {
-    "randomWinWithExpectedGear": 0.3958333333333333,
-    "botWinRate": 1,
-    "botLivesAvg": 18.666666666666668,
-    "target": 0.4625
-   },
-   "stage": {
-    "id": "street_hoang_dieu_t6",
-    "stageNumber": 16,
-    "name": "Bánh Mì Chảo Mây Ngàn",
-    "subtitle": "Phố Lẩu Bò Hoàng Diệu · tiệm 6/9: Quán bánh mì chảo xíu mại",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 180,
-       "y": 520
-      },
-      {
-       "x": 180,
-       "y": 430
-      },
-      {
-       "x": 64,
-       "y": 430
-      },
-      {
-       "x": 64,
-       "y": 300
-      },
-      {
-       "x": 296,
-       "y": 300
-      },
-      {
-       "x": 296,
-       "y": 170
-      },
-      {
-       "x": 64,
-       "y": 170
-      },
-      {
-       "x": 64,
-       "y": 60
-      },
-      {
-       "x": 180,
-       "y": 60
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 130,
-      "y": 380
+      "y": 205
      },
      {
       "id": "pad_2",
-      "x": 130,
-      "y": 120
+      "x": 170,
+      "y": 315
      },
      {
       "id": "pad_3",
-      "x": 90,
-      "y": 470
+      "x": 280,
+      "y": 135
      },
      {
       "id": "pad_4",
-      "x": 220,
-      "y": 230
+      "x": 130,
+      "y": 145
      },
      {
       "id": "pad_5",
-      "x": 200,
-      "y": 380
+      "x": 170,
+      "y": 445
      },
      {
       "id": "pad_6",
-      "x": 90,
-      "y": 220
+      "x": 290,
+      "y": 205
      },
      {
       "id": "pad_7",
-      "x": 140,
-      "y": 260
+      "x": 210,
+      "y": 365
      },
      {
       "id": "pad_8",
-      "x": 200,
-      "y": 120
+      "x": 240,
+      "y": 305
      },
      {
       "id": "pad_9",
-      "x": 220,
-      "y": 440
+      "x": 70,
+      "y": 315
      },
      {
       "id": "pad_10",
-      "x": 40,
-      "y": 260
+      "x": 290,
+      "y": 425
      },
      {
       "id": "pad_11",
-      "x": 250,
-      "y": 340
+      "x": 60,
+      "y": 385
      }
     ],
     "waves": [
@@ -3425,10 +2964,10 @@
      },
      {
       "waveNumber": 6,
-      "title": "Đợt 6: Bụi Bột & Than Nướng Bén Lửa",
+      "title": "Đợt 6: Bụi Bột & Nước Đá Tan",
       "mainElements": [
        "tho",
-       "hoa"
+       "thuy"
       ],
       "earlyBonusMax": 17,
       "clearReward": 16,
@@ -3442,9 +2981,9 @@
         "hpScale": 3
        },
        {
-        "enemyId": "ge_hoang_dieu_4",
-        "count": 4,
-        "intervalSec": 1.2,
+        "enemyId": "ge_hoang_dieu_6",
+        "count": 2,
+        "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
         "hpScale": 3
@@ -3484,7 +3023,7 @@
       "mainElements": [
        "moc",
        "tho",
-       "hoa"
+       "thuy"
       ],
       "earlyBonusMax": 0,
       "clearReward": 0,
@@ -3514,12 +3053,503 @@
         "hpScale": 4.2
        },
        {
+        "enemyId": "ge_hoang_dieu_6",
+        "count": 2,
+        "intervalSec": 2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 4.2
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "gt_hoang_dieu_com_ga",
+     "gt_hoang_dieu_lau_nha_go",
+     "gt_hoang_dieu_lau_hem",
+     "gt_hoang_dieu_banh_trang",
+     "gt_nguyen_van_troi_pho",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_nguyen_van_troi_nuong",
+     "gt_nguyen_van_troi_com_tam",
+     "gt_phan_dinh_phung_pho",
+     "gt_tran_phu_chao_dem",
+     "gt_tran_phu_com_ga",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_hoang_dieu_com_ga",
+     "gt_nguyen_van_troi_com_tam",
+     "gt_nguyen_van_troi_lau_ga",
+     "gt_hoang_dieu_lau_hem",
+     "gt_don_den_duong",
+     "gt_nguyen_van_troi_pho"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "lau_nha_go",
+      "name": "Lẩu Bò Nhà Gỗ Sim Tím",
+      "type": "Quán lẩu bò nhà gỗ",
+      "trait": "nồi lẩu bò bốc hơi, gần như luôn kín khách",
+      "towerId": "gt_hoang_dieu_lau_nha_go"
+     },
+     {
+      "key": "lau_hem",
+      "name": "Lẩu Bò Hẻm Sương Mai",
+      "type": "Quán lẩu bò trong hẻm",
+      "trait": "khách địa phương, đông 6–8 giờ tối",
+      "towerId": "gt_hoang_dieu_lau_hem"
+     },
+     {
+      "key": "xiu_mai",
+      "name": "Bánh Mì Xíu Mại Hồ Sương",
+      "type": "Quán bánh mì xíu mại buổi sáng",
+      "trait": "chén xíu mại, ổ bánh nóng, hết hàng lúc 9 giờ",
+      "towerId": "gt_hoang_dieu_xiu_mai"
+     },
+     {
+      "key": "banh_trang",
+      "name": "Bánh Tráng Nướng Dã Quỳ",
+      "type": "Bánh tráng nướng bếp than buổi chiều",
+      "trait": "bếp than đỏ từ 2 giờ chiều",
+      "towerId": "gt_hoang_dieu_banh_trang"
+     },
+     {
+      "key": "com_ga",
+      "name": "Cơm Gà Lan Hài",
+      "type": "Quán cơm gà đầu phố",
+      "trait": "cơm gà xé, nước mắm gừng",
+      "towerId": "gt_hoang_dieu_com_ga"
+     },
+     {
+      "key": "chao_gang",
+      "name": "Bánh Mì Chảo Mây Ngàn",
+      "type": "Quán bánh mì chảo xíu mại",
+      "trait": "chảo gang nóng buổi sáng",
+      "towerId": "gt_hoang_dieu_chao_gang"
+     },
+     {
+      "key": "yaourt",
+      "name": "Yaourt Phô Mai Cỏ Hồng",
+      "type": "Quầy yaourt phô mai",
+      "trait": "yaourt phô mai không quá ngọt",
+      "towerId": "gt_hoang_dieu_yaourt"
+     },
+     {
+      "key": "pizza",
+      "name": "Tiệm Pizza Nhỏ Đồi Chè",
+      "type": "Tiệm pizza nhỏ đầu phố",
+      "trait": "lò nướng nhỏ",
+      "towerId": "gt_hoang_dieu_pizza"
+     },
+     {
+      "key": "khach_san",
+      "name": "Khách Sạn Phố Núi Mai Anh Đào",
+      "type": "Khách sạn mặt tiền",
+      "trait": "phòng nhìn ra phố lẩu",
+      "towerId": "gt_hoang_dieu_khach_san"
+     }
+    ],
+    "streetId": "street_hoang_dieu",
+    "shopIndex": 5,
+    "featuredTowerId": "gt_hoang_dieu_com_ga",
+    "facadeKey": "mat_tien_com_ga",
+    "roomStyle": "quan_an",
+    "roomLayout": "zigzag2",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_nguyen_van_troi_com_tam",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_don_den_duong",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_hoang_dieu_lau_hem",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_nguyen_van_troi_pho",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_7",
+      "defId": "gt_nguyen_van_troi_com_tam",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_8",
+      "defId": "gt_nguyen_van_troi_lau_ga",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_9",
+      "defId": "gt_hoang_dieu_lau_hem",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_10",
+      "defId": "gt_nguyen_van_troi_pho",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_11",
+      "defId": "gt_hoang_dieu_com_ga",
+      "preferredBranch": "A"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.2,
+   "balance": {
+    "randomWinWithExpectedGear": 0.4791666666666667,
+    "botWinRate": 1,
+    "botLivesAvg": 20,
+    "target": 0.4625
+   },
+   "stage": {
+    "id": "street_hoang_dieu_t6",
+    "stageNumber": 16,
+    "name": "Bánh Mì Chảo Mây Ngàn",
+    "subtitle": "Phố Lẩu Bò Hoàng Diệu · tiệm 6/9: Quán bánh mì chảo xíu mại",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 245,
+       "y": 520
+      },
+      {
+       "x": 245,
+       "y": 340
+      },
+      {
+       "x": 180,
+       "y": 290
+      },
+      {
+       "x": 180,
+       "y": 105
+      }
+     ],
+     [
+      {
+       "x": 115,
+       "y": 520
+      },
+      {
+       "x": 115,
+       "y": 340
+      },
+      {
+       "x": 180,
+       "y": 290
+      },
+      {
+       "x": 180,
+       "y": 105
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 170,
+      "y": 355
+     },
+     {
+      "id": "pad_2",
+      "x": 130,
+      "y": 275
+     },
+     {
+      "id": "pad_3",
+      "x": 220,
+      "y": 235
+     },
+     {
+      "id": "pad_4",
+      "x": 190,
+      "y": 415
+     },
+     {
+      "id": "pad_5",
+      "x": 250,
+      "y": 295
+     },
+     {
+      "id": "pad_6",
+      "x": 140,
+      "y": 205
+     },
+     {
+      "id": "pad_7",
+      "x": 80,
+      "y": 315
+     },
+     {
+      "id": "pad_8",
+      "x": 220,
+      "y": 155
+     },
+     {
+      "id": "pad_9",
+      "x": 120,
+      "y": 145
+     },
+     {
+      "id": "pad_10",
+      "x": 160,
+      "y": 475
+     },
+     {
+      "id": "pad_11",
+      "x": 70,
+      "y": 385
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_1",
+        "count": 6,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Bụi Bột",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 1,
+        "hpScale": 1.38
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Ruồi Bếp & Bụi Bột",
+      "mainElements": [
+       "moc",
+       "tho"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.56
+       },
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 1,
+        "hpScale": 1.56
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Kiến Bu Đường & Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_1",
+        "count": 7,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 1,
+        "hpScale": 1.74
+       },
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.74
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Kiến Bu Đường & Ruồi Bếp",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_1",
+        "count": 8,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.04
+       },
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 1,
+        "hpScale": 2.04
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Bụi Bột & Than Nướng Bén Lửa",
+      "mainElements": [
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 1,
+        "hpScale": 2.4
+       },
+       {
+        "enemyId": "ge_hoang_dieu_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.4
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Ruồi Bếp & Kiến Bu Đường",
+      "mainElements": [
+       "moc"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.88
+       },
+       {
+        "enemyId": "ge_hoang_dieu_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 1,
+        "hpScale": 2.88
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "moc",
+       "tho",
+       "hoa"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_hoang_dieu_1",
+        "count": 9,
+        "intervalSec": 0.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 1,
+        "hpScale": 3.36
+       },
+       {
+        "enemyId": "ge_hoang_dieu_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.36
+       },
+       {
+        "enemyId": "ge_hoang_dieu_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 1,
+        "hpScale": 3.36
+       },
+       {
         "enemyId": "ge_hoang_dieu_4",
         "count": 5,
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 3.36
        }
       ]
      }
@@ -3618,7 +3648,7 @@
     "featuredTowerId": "gt_hoang_dieu_chao_gang",
     "facadeKey": "mat_tien_chao_gang",
     "roomStyle": "quan_an",
-    "roomLayout": "zigzag",
+    "roomLayout": "hai_cua_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -3679,11 +3709,11 @@
    }
   },
   {
-   "hpMultiplier": 1,
+   "hpMultiplier": 0.9,
    "balance": {
-    "randomWinWithExpectedGear": 0.4791666666666667,
+    "randomWinWithExpectedGear": 0.3958333333333333,
     "botWinRate": 1,
-    "botLivesAvg": 19.666666666666668,
+    "botLivesAvg": 20.666666666666668,
     "target": 0.42500000000000004
    },
    "stage": {
@@ -3696,86 +3726,94 @@
     "paths": [
      [
       {
-       "x": 60,
+       "x": 250,
        "y": 520
       },
       {
-       "x": 60,
-       "y": 120
+       "x": 250,
+       "y": 410
+      },
+      {
+       "x": 110,
+       "y": 410
+      },
+      {
+       "x": 110,
+       "y": 290
+      },
+      {
+       "x": 250,
+       "y": 290
+      },
+      {
+       "x": 250,
+       "y": 175
       },
       {
        "x": 180,
-       "y": 120
+       "y": 175
       },
       {
        "x": 180,
-       "y": 380
-      },
-      {
-       "x": 300,
-       "y": 380
-      },
-      {
-       "x": 300,
-       "y": 60
+       "y": 105
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 240,
-      "y": 290
+      "x": 170,
+      "y": 215
      },
      {
       "id": "pad_2",
-      "x": 120,
-      "y": 210
+      "x": 190,
+      "y": 335
      },
      {
       "id": "pad_3",
-      "x": 220,
-      "y": 150
+      "x": 240,
+      "y": 135
      },
      {
       "id": "pad_4",
-      "x": 120,
-      "y": 80
+      "x": 160,
+      "y": 455
      },
      {
       "id": "pad_5",
-      "x": 130,
-      "y": 320
+      "x": 250,
+      "y": 355
      },
      {
       "id": "pad_6",
-      "x": 220,
-      "y": 420
+      "x": 290,
+      "y": 205
      },
      {
       "id": "pad_7",
-      "x": 240,
-      "y": 210
+      "x": 140,
+      "y": 145
      },
      {
       "id": "pad_8",
-      "x": 120,
-      "y": 390
+      "x": 110,
+      "y": 235
      },
      {
       "id": "pad_9",
-      "x": 200,
-      "y": 80
+      "x": 70,
+      "y": 325
      },
      {
       "id": "pad_10",
       "x": 290,
-      "y": 420
+      "y": 275
      },
      {
       "id": "pad_11",
-      "x": 160,
-      "y": 440
+      "x": 290,
+      "y": 425
      }
     ],
     "waves": [
@@ -3794,7 +3832,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1
+        "hpScale": 0.9
        }
       ]
      },
@@ -3813,7 +3851,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.15
+        "hpScale": 1.03
        }
       ]
      },
@@ -3833,7 +3871,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.17
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -3841,7 +3879,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.17
        }
       ]
      },
@@ -3861,7 +3899,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.45
+        "hpScale": 1.31
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -3869,7 +3907,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.45
+        "hpScale": 1.31
        }
       ]
      },
@@ -3889,7 +3927,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 1.53
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -3897,7 +3935,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.7
+        "hpScale": 1.53
        }
       ]
      },
@@ -3918,7 +3956,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 1.8
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -3926,7 +3964,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 1.8
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -3934,7 +3972,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 1.8
        }
       ]
      },
@@ -3955,7 +3993,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.16
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -3963,7 +4001,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.16
        },
        {
         "enemyId": "ge_hoang_dieu_2",
@@ -3971,7 +4009,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.4
+        "hpScale": 2.16
        }
       ]
      },
@@ -3994,7 +4032,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -4002,7 +4040,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -4010,7 +4048,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -4018,7 +4056,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -4026,7 +4064,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 2.52
        }
       ]
      }
@@ -4136,7 +4174,7 @@
     "featuredTowerId": "gt_hoang_dieu_yaourt",
     "facadeKey": "mat_tien_yaourt",
     "roomStyle": "cafe",
-    "roomLayout": "chu_u",
+    "roomLayout": "bac_thang_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -4197,9 +4235,9 @@
    }
   },
   {
-   "hpMultiplier": 2.2,
+   "hpMultiplier": 1.8,
    "balance": {
-    "randomWinWithExpectedGear": 0.4166666666666667,
+    "randomWinWithExpectedGear": 0.3333333333333333,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.3875
@@ -4219,89 +4257,105 @@
       },
       {
        "x": 180,
-       "y": 450
+       "y": 482
       },
       {
-       "x": 60,
-       "y": 450
+       "x": 250,
+       "y": 482
       },
       {
-       "x": 60,
-       "y": 90
+       "x": 250,
+       "y": 405
       },
       {
-       "x": 300,
-       "y": 90
+       "x": 110,
+       "y": 405
       },
       {
-       "x": 300,
-       "y": 330
+       "x": 110,
+       "y": 325
       },
       {
-       "x": 160,
-       "y": 330
+       "x": 250,
+       "y": 325
       },
       {
-       "x": 160,
-       "y": 210
+       "x": 250,
+       "y": 245
+      },
+      {
+       "x": 110,
+       "y": 245
+      },
+      {
+       "x": 110,
+       "y": 165
+      },
+      {
+       "x": 180,
+       "y": 165
+      },
+      {
+       "x": 180,
+       "y": 105
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 140,
-      "y": 390
+      "x": 150,
+      "y": 445
      },
      {
       "id": "pad_2",
-      "x": 210,
-      "y": 390
+      "x": 200,
+      "y": 205
      },
      {
       "id": "pad_3",
-      "x": 220,
-      "y": 260
+      "x": 210,
+      "y": 365
      },
      {
       "id": "pad_4",
-      "x": 120,
-      "y": 290
+      "x": 150,
+      "y": 285
      },
      {
       "id": "pad_5",
-      "x": 120,
-      "y": 180
+      "x": 80,
+      "y": 135
      },
      {
       "id": "pad_6",
-      "x": 210,
-      "y": 150
+      "x": 80,
+      "y": 285
      },
      {
       "id": "pad_7",
-      "x": 220,
-      "y": 450
+      "x": 280,
+      "y": 365
      },
      {
       "id": "pad_8",
-      "x": 260,
-      "y": 180
+      "x": 220,
+      "y": 145
      },
      {
       "id": "pad_9",
-      "x": 150,
-      "y": 130
+      "x": 90,
+      "y": 465
      },
      {
       "id": "pad_10",
-      "x": 270,
-      "y": 370
+      "x": 290,
+      "y": 445
      },
      {
       "id": "pad_11",
-      "x": 30,
-      "y": 480
+      "x": 70,
+      "y": 205
      }
     ],
     "waves": [
@@ -4320,7 +4374,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.2
+        "hpScale": 1.8
        }
       ]
      },
@@ -4339,7 +4393,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.53
+        "hpScale": 2.07
        }
       ]
      },
@@ -4359,7 +4413,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.86
+        "hpScale": 2.34
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -4367,7 +4421,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.86
+        "hpScale": 2.34
        }
       ]
      },
@@ -4387,7 +4441,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.19
+        "hpScale": 2.61
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -4395,7 +4449,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.19
+        "hpScale": 2.61
        }
       ]
      },
@@ -4415,7 +4469,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.74
+        "hpScale": 3.06
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -4423,7 +4477,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.74
+        "hpScale": 3.06
        }
       ]
      },
@@ -4444,7 +4498,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.4
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -4452,7 +4506,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.4
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -4460,7 +4514,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.4
+        "hpScale": 3.6
        }
       ]
      },
@@ -4480,7 +4534,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.28
+        "hpScale": 4.32
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -4488,7 +4542,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.28
+        "hpScale": 4.32
        },
        {
         "enemyId": "ge_hoang_dieu_1",
@@ -4496,7 +4550,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.28
+        "hpScale": 4.32
        }
       ]
      },
@@ -4518,7 +4572,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_hoang_dieu_3",
@@ -4526,7 +4580,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -4534,7 +4588,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -4542,7 +4596,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_hoang_dieu_6",
@@ -4550,7 +4604,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 5.04
        }
       ]
      }
@@ -4649,7 +4703,7 @@
     "featuredTowerId": "gt_hoang_dieu_pizza",
     "facadeKey": "mat_tien_pizza",
     "roomStyle": "cafe",
-    "roomLayout": "xoan_lat",
+    "roomLayout": "zigzag4_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -4710,11 +4764,11 @@
    }
   },
   {
-   "hpMultiplier": 1.4,
+   "hpMultiplier": 1.8,
    "balance": {
-    "randomWinWithExpectedGear": 0.3125,
+    "randomWinWithExpectedGear": 0.375,
     "botWinRate": 1,
-    "botLivesAvg": 20,
+    "botLivesAvg": 20.666666666666668,
     "target": 0.35000000000000003
    },
    "stage": {
@@ -4727,96 +4781,102 @@
     "paths": [
      [
       {
-       "x": 290,
+       "x": 180,
        "y": 520
       },
       {
-       "x": 290,
-       "y": 360
+       "x": 180,
+       "y": 455
+      },
+      {
+       "x": 110,
+       "y": 455
+      },
+      {
+       "x": 110,
+       "y": 350
+      },
+      {
+       "x": 250,
+       "y": 350
+      },
+      {
+       "x": 250,
+       "y": 250
+      },
+      {
+       "x": 110,
+       "y": 250
+      },
+      {
+       "x": 110,
+       "y": 165
       },
       {
        "x": 180,
-       "y": 300
+       "y": 165
       },
       {
        "x": 180,
-       "y": 70
-      }
-     ],
-     [
-      {
-       "x": 70,
-       "y": 520
-      },
-      {
-       "x": 70,
-       "y": 360
-      },
-      {
-       "x": 180,
-       "y": 300
-      },
-      {
-       "x": 180,
-       "y": 70
+       "y": 105
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 160,
-      "y": 360
+      "x": 200,
+      "y": 205
      },
      {
       "id": "pad_2",
-      "x": 130,
-      "y": 270
+      "x": 190,
+      "y": 405
      },
      {
       "id": "pad_3",
-      "x": 230,
-      "y": 270
+      "x": 160,
+      "y": 295
      },
      {
       "id": "pad_4",
-      "x": 220,
-      "y": 380
+      "x": 80,
+      "y": 135
      },
      {
       "id": "pad_5",
-      "x": 140,
-      "y": 200
+      "x": 80,
+      "y": 485
      },
      {
       "id": "pad_6",
       "x": 220,
-      "y": 200
+      "y": 145
      },
      {
       "id": "pad_7",
-      "x": 110,
-      "y": 410
+      "x": 90,
+      "y": 285
      },
      {
       "id": "pad_8",
-      "x": 70,
-      "y": 300
+      "x": 240,
+      "y": 445
      },
      {
       "id": "pad_9",
-      "x": 290,
-      "y": 300
+      "x": 70,
+      "y": 205
      },
      {
       "id": "pad_10",
-      "x": 120,
-      "y": 140
+      "x": 70,
+      "y": 395
      },
      {
       "id": "pad_11",
-      "x": 220,
-      "y": 130
+      "x": 270,
+      "y": 195
      }
     ],
     "waves": [
@@ -4835,7 +4895,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.4
+        "hpScale": 1.8
        }
       ]
      },
@@ -4853,8 +4913,8 @@
         "count": 2,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 1.61
+        "pathIndex": 0,
+        "hpScale": 2.07
        }
       ]
      },
@@ -4874,15 +4934,15 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.82
+        "hpScale": 2.34
        },
        {
         "enemyId": "ge_hoang_dieu_2",
         "count": 2,
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 1.82
+        "pathIndex": 0,
+        "hpScale": 2.34
        }
       ]
      },
@@ -4901,8 +4961,8 @@
         "count": 7,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 2.03
+        "pathIndex": 0,
+        "hpScale": 2.61
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -4910,7 +4970,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.03
+        "hpScale": 2.61
        }
       ]
      },
@@ -4930,15 +4990,15 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.38
+        "hpScale": 3.06
        },
        {
         "enemyId": "ge_hoang_dieu_4",
         "count": 4,
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 2.38
+        "pathIndex": 0,
+        "hpScale": 3.06
        }
       ]
      },
@@ -4958,8 +5018,8 @@
         "count": 8,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 2.8
+        "pathIndex": 0,
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_hoang_dieu_4",
@@ -4967,15 +5027,15 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.8
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_hoang_dieu_6",
         "count": 2,
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 2.8
+        "pathIndex": 0,
+        "hpScale": 3.6
        }
       ]
      },
@@ -4996,15 +5056,15 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 4.32
        },
        {
         "enemyId": "ge_hoang_dieu_5",
         "count": 3,
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 3.36
+        "pathIndex": 0,
+        "hpScale": 4.32
        },
        {
         "enemyId": "ge_hoang_dieu_1",
@@ -5012,7 +5072,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.36
+        "hpScale": 4.32
        }
       ]
      },
@@ -5034,8 +5094,8 @@
         "count": 9,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 3.92
+        "pathIndex": 0,
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_hoang_dieu_2",
@@ -5043,15 +5103,15 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.92
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_hoang_dieu_4",
         "count": 5,
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 3.92
+        "pathIndex": 0,
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_hoang_dieu_5",
@@ -5059,15 +5119,15 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.92
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_hoang_dieu_6",
         "count": 2,
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 3.92
+        "pathIndex": 0,
+        "hpScale": 5.04
        }
       ]
      }
@@ -5167,7 +5227,7 @@
     "featuredTowerId": "gt_hoang_dieu_khach_san",
     "facadeKey": "mat_tien_khach_san",
     "roomStyle": "luu_tru",
-    "roomLayout": "hai_cua_lat",
+    "roomLayout": "zigzag3_lat",
     "botPlan": [
      {
       "padId": "pad_1",

@@ -825,9 +825,9 @@
   {
    "hpMultiplier": 1.3,
    "balance": {
-    "randomWinWithExpectedGear": 0.7083333333333334,
+    "randomWinWithExpectedGear": 0.6041666666666666,
     "botWinRate": 1,
-    "botLivesAvg": 19.666666666666668,
+    "botLivesAvg": 20.666666666666668,
     "target": 0.65
    },
    "stage": {
@@ -840,98 +840,110 @@
     "paths": [
      [
       {
-       "x": 300,
+       "x": 180,
        "y": 520
       },
       {
-       "x": 300,
-       "y": 90
+       "x": 180,
+       "y": 482
       },
       {
-       "x": 60,
-       "y": 90
+       "x": 250,
+       "y": 482
       },
       {
-       "x": 60,
-       "y": 210
+       "x": 250,
+       "y": 405
       },
       {
-       "x": 210,
-       "y": 210
+       "x": 110,
+       "y": 405
       },
       {
-       "x": 210,
-       "y": 330
+       "x": 110,
+       "y": 325
       },
       {
-       "x": 60,
-       "y": 330
+       "x": 250,
+       "y": 325
       },
       {
-       "x": 60,
-       "y": 440
+       "x": 250,
+       "y": 245
       },
       {
-       "x": 160,
-       "y": 440
+       "x": 110,
+       "y": 245
+      },
+      {
+       "x": 110,
+       "y": 165
+      },
+      {
+       "x": 180,
+       "y": 165
+      },
+      {
+       "x": 180,
+       "y": 105
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 120,
-      "y": 270
+      "x": 150,
+      "y": 445
      },
      {
       "id": "pad_2",
-      "x": 140,
-      "y": 370
+      "x": 200,
+      "y": 205
      },
      {
       "id": "pad_3",
-      "x": 140,
-      "y": 150
+      "x": 210,
+      "y": 365
      },
      {
       "id": "pad_4",
-      "x": 240,
-      "y": 180
+      "x": 150,
+      "y": 285
      },
      {
       "id": "pad_5",
-      "x": 250,
-      "y": 270
+      "x": 80,
+      "y": 135
      },
      {
       "id": "pad_6",
-      "x": 60,
-      "y": 290
+      "x": 80,
+      "y": 285
      },
      {
       "id": "pad_7",
-      "x": 200,
-      "y": 390
+      "x": 280,
+      "y": 365
      },
      {
       "id": "pad_8",
-      "x": 200,
-      "y": 130
+      "x": 220,
+      "y": 145
      },
      {
       "id": "pad_9",
-      "x": 60,
-      "y": 480
+      "x": 90,
+      "y": 465
      },
      {
       "id": "pad_10",
-      "x": 250,
-      "y": 340
+      "x": 290,
+      "y": 445
      },
      {
       "id": "pad_11",
-      "x": 130,
-      "y": 480
+      "x": 70,
+      "y": 205
      }
     ],
     "waves": [
@@ -1283,7 +1295,7 @@
     "featuredTowerId": "gt_nguyen_van_troi_kem_bo",
     "facadeKey": "mat_tien_kem_bo",
     "roomStyle": "cafe",
-    "roomLayout": "chu_e_lat",
+    "roomLayout": "zigzag4_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -1344,9 +1356,9 @@
    }
   },
   {
-   "hpMultiplier": 0.9,
+   "hpMultiplier": 1,
    "balance": {
-    "randomWinWithExpectedGear": 0.6458333333333334,
+    "randomWinWithExpectedGear": 0.5208333333333334,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.6125
@@ -1361,86 +1373,102 @@
     "paths": [
      [
       {
-       "x": 310,
+       "x": 180,
        "y": 520
       },
       {
-       "x": 310,
-       "y": 450
+       "x": 180,
+       "y": 455
       },
       {
-       "x": 50,
-       "y": 370
+       "x": 110,
+       "y": 455
       },
       {
-       "x": 310,
-       "y": 270
+       "x": 110,
+       "y": 350
       },
       {
-       "x": 50,
-       "y": 170
+       "x": 250,
+       "y": 350
+      },
+      {
+       "x": 250,
+       "y": 250
+      },
+      {
+       "x": 110,
+       "y": 250
+      },
+      {
+       "x": 110,
+       "y": 165
       },
       {
        "x": 180,
-       "y": 70
+       "y": 165
+      },
+      {
+       "x": 180,
+       "y": 105
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 140,
-      "y": 160
+      "x": 200,
+      "y": 205
      },
      {
       "id": "pad_2",
-      "x": 210,
-      "y": 480
+      "x": 190,
+      "y": 405
      },
      {
       "id": "pad_3",
-      "x": 250,
-      "y": 360
+      "x": 160,
+      "y": 295
      },
      {
       "id": "pad_4",
-      "x": 110,
-      "y": 280
+      "x": 80,
+      "y": 135
      },
      {
       "id": "pad_5",
       "x": 80,
-      "y": 90
+      "y": 485
      },
      {
       "id": "pad_6",
-      "x": 180,
-      "y": 270
+      "x": 220,
+      "y": 145
      },
      {
       "id": "pad_7",
-      "x": 300,
-      "y": 400
+      "x": 90,
+      "y": 285
      },
      {
       "id": "pad_8",
-      "x": 210,
-      "y": 170
+      "x": 240,
+      "y": 445
      },
      {
       "id": "pad_9",
-      "x": 130,
-      "y": 440
+      "x": 70,
+      "y": 205
      },
      {
       "id": "pad_10",
-      "x": 30,
-      "y": 130
+      "x": 70,
+      "y": 395
      },
      {
       "id": "pad_11",
-      "x": 50,
-      "y": 220
+      "x": 270,
+      "y": 195
      }
     ],
     "waves": [
@@ -1459,7 +1487,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 0.9
+        "hpScale": 1
        }
       ]
      },
@@ -1478,7 +1506,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.03
+        "hpScale": 1.15
        }
       ]
      },
@@ -1498,7 +1526,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.17
+        "hpScale": 1.3
        },
        {
         "enemyId": "ge_nguyen_van_troi_3",
@@ -1506,7 +1534,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.17
+        "hpScale": 1.3
        }
       ]
      },
@@ -1526,7 +1554,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.31
+        "hpScale": 1.45
        },
        {
         "enemyId": "ge_nguyen_van_troi_4",
@@ -1534,7 +1562,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.31
+        "hpScale": 1.45
        }
       ]
      },
@@ -1555,7 +1583,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.53
+        "hpScale": 1.7
        },
        {
         "enemyId": "ge_nguyen_van_troi_2",
@@ -1563,7 +1591,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.53
+        "hpScale": 1.7
        },
        {
         "enemyId": "ge_nguyen_van_troi_4",
@@ -1571,7 +1599,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.53
+        "hpScale": 1.7
        }
       ]
      },
@@ -1592,7 +1620,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.8
+        "hpScale": 2
        },
        {
         "enemyId": "ge_nguyen_van_troi_3",
@@ -1600,7 +1628,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.8
+        "hpScale": 2
        },
        {
         "enemyId": "ge_nguyen_van_troi_2",
@@ -1608,7 +1636,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.8
+        "hpScale": 2
        }
       ]
      },
@@ -1629,7 +1657,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.16
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_nguyen_van_troi_4",
@@ -1637,7 +1665,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.16
+        "hpScale": 2.4
        },
        {
         "enemyId": "ge_nguyen_van_troi_3",
@@ -1645,7 +1673,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.16
+        "hpScale": 2.4
        }
       ]
      },
@@ -1666,7 +1694,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.52
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_nguyen_van_troi_3",
@@ -1674,7 +1702,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.52
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_nguyen_van_troi_4",
@@ -1682,7 +1710,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.52
+        "hpScale": 2.8
        }
       ]
      }
@@ -1792,7 +1820,7 @@
     "featuredTowerId": "gt_nguyen_van_troi_che",
     "facadeKey": "mat_tien_che",
     "roomStyle": "cafe",
-    "roomLayout": "rang_cua_lat",
+    "roomLayout": "zigzag3_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -1855,7 +1883,7 @@
   {
    "hpMultiplier": 1.1,
    "balance": {
-    "randomWinWithExpectedGear": 0.6041666666666666,
+    "randomWinWithExpectedGear": 0.5833333333333334,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.5750000000000001
@@ -1870,98 +1898,94 @@
     "paths": [
      [
       {
-       "x": 180,
+       "x": 110,
        "y": 520
       },
       {
-       "x": 180,
-       "y": 430
+       "x": 110,
+       "y": 405
       },
       {
-       "x": 296,
-       "y": 430
+       "x": 250,
+       "y": 405
       },
       {
-       "x": 296,
-       "y": 300
+       "x": 250,
+       "y": 245
       },
       {
-       "x": 64,
-       "y": 300
+       "x": 110,
+       "y": 245
       },
       {
-       "x": 64,
-       "y": 170
-      },
-      {
-       "x": 296,
-       "y": 170
-      },
-      {
-       "x": 296,
-       "y": 60
+       "x": 110,
+       "y": 160
       },
       {
        "x": 180,
-       "y": 60
+       "y": 160
+      },
+      {
+       "x": 180,
+       "y": 105
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 230,
-      "y": 380
+      "x": 190,
+      "y": 205
      },
      {
       "id": "pad_2",
-      "x": 210,
-      "y": 110
+      "x": 80,
+      "y": 135
      },
      {
       "id": "pad_3",
-      "x": 270,
-      "y": 470
+      "x": 190,
+      "y": 315
      },
      {
       "id": "pad_4",
-      "x": 130,
-      "y": 220
+      "x": 220,
+      "y": 145
      },
      {
       "id": "pad_5",
-      "x": 150,
-      "y": 390
+      "x": 190,
+      "y": 445
      },
      {
       "id": "pad_6",
-      "x": 230,
-      "y": 220
+      "x": 70,
+      "y": 205
      },
      {
       "id": "pad_7",
-      "x": 280,
-      "y": 260
+      "x": 150,
+      "y": 365
      },
      {
       "id": "pad_8",
-      "x": 130,
-      "y": 450
+      "x": 260,
+      "y": 195
      },
      {
       "id": "pad_9",
-      "x": 150,
-      "y": 130
+      "x": 120,
+      "y": 305
      },
      {
       "id": "pad_10",
-      "x": 320,
-      "y": 210
+      "x": 290,
+      "y": 315
      },
      {
       "id": "pad_11",
-      "x": 180,
-      "y": 260
+      "x": 60,
+      "y": 425
      }
     ],
     "waves": [
@@ -2308,7 +2332,7 @@
     "featuredTowerId": "gt_nguyen_van_troi_banh_trang",
     "facadeKey": "mat_tien_banh_trang",
     "roomStyle": "quan_an",
-    "roomLayout": "zigzag_lat",
+    "roomLayout": "zigzag2_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -2369,11 +2393,11 @@
    }
   },
   {
-   "hpMultiplier": 1.1,
+   "hpMultiplier": 0.9,
    "balance": {
     "randomWinWithExpectedGear": 0.5833333333333334,
     "botWinRate": 1,
-    "botLivesAvg": 20.666666666666668,
+    "botLivesAvg": 20.333333333333332,
     "target": 0.5375000000000001
    },
    "stage": {
@@ -2386,86 +2410,96 @@
     "paths": [
      [
       {
-       "x": 300,
+       "x": 245,
        "y": 520
       },
       {
-       "x": 300,
-       "y": 120
+       "x": 245,
+       "y": 340
       },
       {
        "x": 180,
-       "y": 120
+       "y": 290
       },
       {
        "x": 180,
-       "y": 380
+       "y": 105
+      }
+     ],
+     [
+      {
+       "x": 115,
+       "y": 520
       },
       {
-       "x": 60,
-       "y": 380
+       "x": 115,
+       "y": 340
       },
       {
-       "x": 60,
-       "y": 60
+       "x": 180,
+       "y": 290
+      },
+      {
+       "x": 180,
+       "y": 105
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 120,
-      "y": 290
+      "x": 170,
+      "y": 355
      },
      {
       "id": "pad_2",
-      "x": 240,
-      "y": 210
+      "x": 130,
+      "y": 275
      },
      {
       "id": "pad_3",
-      "x": 140,
-      "y": 150
+      "x": 220,
+      "y": 235
      },
      {
       "id": "pad_4",
-      "x": 120,
-      "y": 420
+      "x": 190,
+      "y": 415
      },
      {
       "id": "pad_5",
-      "x": 220,
-      "y": 340
+      "x": 250,
+      "y": 295
      },
      {
       "id": "pad_6",
-      "x": 230,
-      "y": 80
+      "x": 140,
+      "y": 205
      },
      {
       "id": "pad_7",
-      "x": 120,
-      "y": 210
+      "x": 80,
+      "y": 315
      },
      {
       "id": "pad_8",
-      "x": 210,
-      "y": 420
+      "x": 220,
+      "y": 155
      },
      {
       "id": "pad_9",
-      "x": 150,
-      "y": 80
+      "x": 120,
+      "y": 145
      },
      {
       "id": "pad_10",
-      "x": 220,
-      "y": 270
+      "x": 160,
+      "y": 475
      },
      {
       "id": "pad_11",
-      "x": 50,
-      "y": 420
+      "x": 70,
+      "y": 385
      }
     ],
     "waves": [
@@ -2484,7 +2518,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.1
+        "hpScale": 0.9
        }
       ]
      },
@@ -2502,8 +2536,8 @@
         "count": 2,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.26
+        "pathIndex": 1,
+        "hpScale": 1.03
        }
       ]
      },
@@ -2523,15 +2557,15 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.43
+        "hpScale": 1.17
        },
        {
         "enemyId": "ge_nguyen_van_troi_2",
         "count": 2,
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.43
+        "pathIndex": 1,
+        "hpScale": 1.17
        }
       ]
      },
@@ -2550,8 +2584,8 @@
         "count": 7,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.6
+        "pathIndex": 1,
+        "hpScale": 1.31
        },
        {
         "enemyId": "ge_nguyen_van_troi_5",
@@ -2559,7 +2593,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 1.31
        }
       ]
      },
@@ -2579,15 +2613,15 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.87
+        "hpScale": 1.53
        },
        {
         "enemyId": "ge_nguyen_van_troi_5",
         "count": 3,
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.87
+        "pathIndex": 1,
+        "hpScale": 1.53
        }
       ]
      },
@@ -2606,8 +2640,8 @@
         "count": 3,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.2
+        "pathIndex": 1,
+        "hpScale": 1.8
        },
        {
         "enemyId": "ge_nguyen_van_troi_6",
@@ -2615,7 +2649,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.2
+        "hpScale": 1.8
        }
       ]
      },
@@ -2635,15 +2669,15 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.64
+        "hpScale": 2.16
        },
        {
         "enemyId": "ge_nguyen_van_troi_1",
         "count": 9,
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.64
+        "pathIndex": 1,
+        "hpScale": 2.16
        }
       ]
      },
@@ -2664,8 +2698,8 @@
         "count": 9,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.08
+        "pathIndex": 1,
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_nguyen_van_troi_2",
@@ -2673,15 +2707,15 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.08
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_nguyen_van_troi_5",
         "count": 3,
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.08
+        "pathIndex": 1,
+        "hpScale": 2.52
        },
        {
         "enemyId": "ge_nguyen_van_troi_6",
@@ -2689,7 +2723,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.08
+        "hpScale": 2.52
        }
       ]
      }
@@ -2793,7 +2827,7 @@
     "featuredTowerId": "gt_nguyen_van_troi_pho",
     "facadeKey": "mat_tien_pho",
     "roomStyle": "quan_an",
-    "roomLayout": "chu_u_lat",
+    "roomLayout": "hai_cua_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -2854,11 +2888,11 @@
    }
   },
   {
-   "hpMultiplier": 2.2,
+   "hpMultiplier": 1.6,
    "balance": {
-    "randomWinWithExpectedGear": 0.4166666666666667,
+    "randomWinWithExpectedGear": 0.5416666666666666,
     "botWinRate": 1,
-    "botLivesAvg": 19.666666666666668,
+    "botLivesAvg": 20.666666666666668,
     "target": 0.5
    },
    "stage": {
@@ -2871,94 +2905,94 @@
     "paths": [
      [
       {
-       "x": 180,
+       "x": 250,
        "y": 520
       },
       {
+       "x": 250,
+       "y": 410
+      },
+      {
+       "x": 110,
+       "y": 410
+      },
+      {
+       "x": 110,
+       "y": 290
+      },
+      {
+       "x": 250,
+       "y": 290
+      },
+      {
+       "x": 250,
+       "y": 175
+      },
+      {
        "x": 180,
-       "y": 450
+       "y": 175
       },
       {
-       "x": 60,
-       "y": 450
-      },
-      {
-       "x": 60,
-       "y": 90
-      },
-      {
-       "x": 300,
-       "y": 90
-      },
-      {
-       "x": 300,
-       "y": 330
-      },
-      {
-       "x": 160,
-       "y": 330
-      },
-      {
-       "x": 160,
-       "y": 210
+       "x": 180,
+       "y": 105
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 140,
-      "y": 390
+      "x": 170,
+      "y": 215
      },
      {
       "id": "pad_2",
-      "x": 210,
-      "y": 390
+      "x": 190,
+      "y": 335
      },
      {
       "id": "pad_3",
-      "x": 220,
-      "y": 260
+      "x": 240,
+      "y": 135
      },
      {
       "id": "pad_4",
-      "x": 120,
-      "y": 290
+      "x": 160,
+      "y": 455
      },
      {
       "id": "pad_5",
-      "x": 120,
-      "y": 180
+      "x": 250,
+      "y": 355
      },
      {
       "id": "pad_6",
-      "x": 210,
-      "y": 150
+      "x": 290,
+      "y": 205
      },
      {
       "id": "pad_7",
-      "x": 220,
-      "y": 450
+      "x": 140,
+      "y": 145
      },
      {
       "id": "pad_8",
-      "x": 260,
-      "y": 180
+      "x": 110,
+      "y": 235
      },
      {
       "id": "pad_9",
-      "x": 150,
-      "y": 130
+      "x": 70,
+      "y": 325
      },
      {
       "id": "pad_10",
-      "x": 270,
-      "y": 370
+      "x": 290,
+      "y": 275
      },
      {
       "id": "pad_11",
-      "x": 30,
-      "y": 480
+      "x": 290,
+      "y": 425
      }
     ],
     "waves": [
@@ -2977,7 +3011,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.2
+        "hpScale": 1.6
        }
       ]
      },
@@ -2996,7 +3030,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.53
+        "hpScale": 1.84
        }
       ]
      },
@@ -3016,7 +3050,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.86
+        "hpScale": 2.08
        },
        {
         "enemyId": "ge_nguyen_van_troi_2",
@@ -3024,7 +3058,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.86
+        "hpScale": 2.08
        }
       ]
      },
@@ -3043,7 +3077,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.19
+        "hpScale": 2.32
        },
        {
         "enemyId": "ge_nguyen_van_troi_3",
@@ -3051,7 +3085,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.19
+        "hpScale": 2.32
        }
       ]
      },
@@ -3070,7 +3104,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.74
+        "hpScale": 2.72
        },
        {
         "enemyId": "ge_nguyen_van_troi_3",
@@ -3078,7 +3112,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.74
+        "hpScale": 2.72
        }
       ]
      },
@@ -3098,7 +3132,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.4
+        "hpScale": 3.2
        },
        {
         "enemyId": "ge_nguyen_van_troi_6",
@@ -3106,7 +3140,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.4
+        "hpScale": 3.2
        }
       ]
      },
@@ -3125,7 +3159,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.28
+        "hpScale": 3.84
        },
        {
         "enemyId": "ge_nguyen_van_troi_1",
@@ -3133,7 +3167,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.28
+        "hpScale": 3.84
        }
       ]
      },
@@ -3154,7 +3188,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_nguyen_van_troi_2",
@@ -3162,7 +3196,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_nguyen_van_troi_3",
@@ -3170,7 +3204,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 4.48
        },
        {
         "enemyId": "ge_nguyen_van_troi_6",
@@ -3178,7 +3212,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 4.48
        }
       ]
      }
@@ -3282,7 +3316,7 @@
     "featuredTowerId": "gt_nguyen_van_troi_lau_ga",
     "facadeKey": "mat_tien_lau_ga",
     "roomStyle": "cafe",
-    "roomLayout": "xoan_lat",
+    "roomLayout": "bac_thang_lat",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -3343,11 +3377,11 @@
    }
   },
   {
-   "hpMultiplier": 1.1,
+   "hpMultiplier": 1.4,
    "balance": {
-    "randomWinWithExpectedGear": 0.4166666666666667,
+    "randomWinWithExpectedGear": 0.5208333333333334,
     "botWinRate": 1,
-    "botLivesAvg": 15.333333333333334,
+    "botLivesAvg": 20.666666666666668,
     "target": 0.4625
    },
    "stage": {
@@ -3360,96 +3394,110 @@
     "paths": [
      [
       {
-       "x": 290,
+       "x": 180,
        "y": 520
       },
       {
-       "x": 290,
-       "y": 360
+       "x": 180,
+       "y": 482
+      },
+      {
+       "x": 110,
+       "y": 482
+      },
+      {
+       "x": 110,
+       "y": 405
+      },
+      {
+       "x": 250,
+       "y": 405
+      },
+      {
+       "x": 250,
+       "y": 325
+      },
+      {
+       "x": 110,
+       "y": 325
+      },
+      {
+       "x": 110,
+       "y": 245
+      },
+      {
+       "x": 250,
+       "y": 245
+      },
+      {
+       "x": 250,
+       "y": 165
       },
       {
        "x": 180,
-       "y": 300
+       "y": 165
       },
       {
        "x": 180,
-       "y": 70
-      }
-     ],
-     [
-      {
-       "x": 70,
-       "y": 520
-      },
-      {
-       "x": 70,
-       "y": 360
-      },
-      {
-       "x": 180,
-       "y": 300
-      },
-      {
-       "x": 180,
-       "y": 70
+       "y": 105
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 160,
-      "y": 360
+      "x": 150,
+      "y": 205
      },
      {
       "id": "pad_2",
-      "x": 130,
-      "y": 270
+      "x": 200,
+      "y": 445
      },
      {
       "id": "pad_3",
-      "x": 230,
-      "y": 270
+      "x": 150,
+      "y": 365
      },
      {
       "id": "pad_4",
-      "x": 220,
-      "y": 380
+      "x": 200,
+      "y": 285
      },
      {
       "id": "pad_5",
-      "x": 140,
-      "y": 200
+      "x": 280,
+      "y": 135
      },
      {
       "id": "pad_6",
-      "x": 220,
-      "y": 200
+      "x": 80,
+      "y": 365
      },
      {
       "id": "pad_7",
-      "x": 110,
-      "y": 410
+      "x": 270,
+      "y": 285
      },
      {
       "id": "pad_8",
-      "x": 70,
-      "y": 300
+      "x": 260,
+      "y": 465
      },
      {
       "id": "pad_9",
-      "x": 290,
-      "y": 300
+      "x": 130,
+      "y": 145
      },
      {
       "id": "pad_10",
-      "x": 120,
-      "y": 140
+      "x": 70,
+      "y": 445
      },
      {
       "id": "pad_11",
-      "x": 220,
-      "y": 130
+      "x": 290,
+      "y": 225
      }
     ],
     "waves": [
@@ -3468,7 +3516,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.1
+        "hpScale": 1.4
        }
       ]
      },
@@ -3486,8 +3534,8 @@
         "count": 2,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 1.26
+        "pathIndex": 0,
+        "hpScale": 1.61
        }
       ]
      },
@@ -3507,15 +3555,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.43
+        "hpScale": 1.82
        },
        {
         "enemyId": "ge_nguyen_van_troi_2",
         "count": 2,
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 1.43
+        "pathIndex": 0,
+        "hpScale": 1.82
        }
       ]
      },
@@ -3533,8 +3581,8 @@
         "count": 7,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 1.6
+        "pathIndex": 0,
+        "hpScale": 2.03
        },
        {
         "enemyId": "ge_nguyen_van_troi_3",
@@ -3542,7 +3590,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 2.03
        }
       ]
      },
@@ -3561,15 +3609,15 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.87
+        "hpScale": 2.38
        },
        {
         "enemyId": "ge_nguyen_van_troi_3",
         "count": 5,
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 1.87
+        "pathIndex": 0,
+        "hpScale": 2.38
        }
       ]
      },
@@ -3588,8 +3636,8 @@
         "count": 3,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 2.2
+        "pathIndex": 0,
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_nguyen_van_troi_5",
@@ -3597,7 +3645,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.2
+        "hpScale": 2.8
        }
       ]
      },
@@ -3616,15 +3664,15 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.64
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_nguyen_van_troi_1",
         "count": 9,
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 2.64
+        "pathIndex": 0,
+        "hpScale": 3.36
        }
       ]
      },
@@ -3644,8 +3692,8 @@
         "count": 9,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 1,
-        "hpScale": 3.08
+        "pathIndex": 0,
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_nguyen_van_troi_2",
@@ -3653,15 +3701,15 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.08
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_nguyen_van_troi_3",
         "count": 6,
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
-        "pathIndex": 1,
-        "hpScale": 3.08
+        "pathIndex": 0,
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_nguyen_van_troi_5",
@@ -3669,7 +3717,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.08
+        "hpScale": 3.92
        }
       ]
      }
@@ -3773,7 +3821,7 @@
     "featuredTowerId": "gt_nguyen_van_troi_nuong",
     "facadeKey": "mat_tien_nuong",
     "roomStyle": "quan_an",
-    "roomLayout": "hai_cua_lat",
+    "roomLayout": "zigzag4",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -3834,11 +3882,11 @@
    }
   },
   {
-   "hpMultiplier": 1.3,
+   "hpMultiplier": 1.4,
    "balance": {
     "randomWinWithExpectedGear": 0.375,
     "botWinRate": 1,
-    "botLivesAvg": 19,
+    "botLivesAvg": 20.333333333333332,
     "target": 0.42500000000000004
    },
    "stage": {
@@ -3851,90 +3899,102 @@
     "paths": [
      [
       {
-       "x": 360,
-       "y": 450
+       "x": 180,
+       "y": 520
+      },
+      {
+       "x": 180,
+       "y": 455
       },
       {
        "x": 250,
-       "y": 450
+       "y": 455
       },
       {
        "x": 250,
-       "y": 300
+       "y": 350
       },
       {
-       "x": 100,
-       "y": 300
+       "x": 110,
+       "y": 350
       },
       {
-       "x": 100,
-       "y": 170
-      },
-      {
-       "x": 250,
-       "y": 170
+       "x": 110,
+       "y": 250
       },
       {
        "x": 250,
-       "y": 70
+       "y": 250
+      },
+      {
+       "x": 250,
+       "y": 165
+      },
+      {
+       "x": 180,
+       "y": 165
+      },
+      {
+       "x": 180,
+       "y": 105
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 180,
-      "y": 230
+      "x": 150,
+      "y": 205
      },
      {
       "id": "pad_2",
       "x": 160,
-      "y": 130
+      "y": 395
      },
      {
       "id": "pad_3",
-      "x": 290,
-      "y": 360
+      "x": 200,
+      "y": 295
      },
      {
       "id": "pad_4",
-      "x": 190,
-      "y": 360
+      "x": 230,
+      "y": 125
      },
      {
       "id": "pad_5",
-      "x": 250,
-      "y": 220
+      "x": 280,
+      "y": 485
      },
      {
       "id": "pad_6",
-      "x": 200,
-      "y": 80
+      "x": 140,
+      "y": 455
      },
      {
       "id": "pad_7",
-      "x": 330,
-      "y": 410
+      "x": 270,
+      "y": 285
      },
      {
       "id": "pad_8",
-      "x": 60,
-      "y": 210
+      "x": 290,
+      "y": 165
      },
      {
       "id": "pad_9",
-      "x": 210,
-      "y": 430
+      "x": 130,
+      "y": 145
      },
      {
       "id": "pad_10",
       "x": 290,
-      "y": 130
+      "y": 395
      },
      {
       "id": "pad_11",
-      "x": 60,
-      "y": 280
+      "x": 70,
+      "y": 285
      }
     ],
     "waves": [
@@ -3953,7 +4013,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.3
+        "hpScale": 1.4
        }
       ]
      },
@@ -3972,7 +4032,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.5
+        "hpScale": 1.61
        }
       ]
      },
@@ -3992,7 +4052,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.69
+        "hpScale": 1.82
        },
        {
         "enemyId": "ge_nguyen_van_troi_2",
@@ -4000,7 +4060,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.69
+        "hpScale": 1.82
        }
       ]
      },
@@ -4019,7 +4079,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.89
+        "hpScale": 2.03
        },
        {
         "enemyId": "ge_nguyen_van_troi_3",
@@ -4027,7 +4087,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 1.89
+        "hpScale": 2.03
        }
       ]
      },
@@ -4046,7 +4106,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.38
        },
        {
         "enemyId": "ge_nguyen_van_troi_3",
@@ -4054,7 +4114,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.21
+        "hpScale": 2.38
        }
       ]
      },
@@ -4074,7 +4134,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_nguyen_van_troi_3",
@@ -4082,7 +4142,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_nguyen_van_troi_5",
@@ -4090,7 +4150,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 2.8
        }
       ]
      },
@@ -4111,7 +4171,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_nguyen_van_troi_4",
@@ -4119,7 +4179,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_nguyen_van_troi_1",
@@ -4127,7 +4187,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.12
+        "hpScale": 3.36
        }
       ]
      },
@@ -4149,7 +4209,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_nguyen_van_troi_2",
@@ -4157,7 +4217,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_nguyen_van_troi_3",
@@ -4165,7 +4225,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_nguyen_van_troi_4",
@@ -4173,7 +4233,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_nguyen_van_troi_5",
@@ -4181,7 +4241,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.64
+        "hpScale": 3.92
        }
       ]
      }
@@ -4285,7 +4345,7 @@
     "featuredTowerId": "gt_nguyen_van_troi_com_tam",
     "facadeKey": "mat_tien_com_tam",
     "roomStyle": "quan_an",
-    "roomLayout": "cua_ben_lat",
+    "roomLayout": "zigzag3",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -4346,11 +4406,11 @@
    }
   },
   {
-   "hpMultiplier": 2.1,
+   "hpMultiplier": 1.4,
    "balance": {
-    "randomWinWithExpectedGear": 0.3333333333333333,
+    "randomWinWithExpectedGear": 0.4375,
     "botWinRate": 1,
-    "botLivesAvg": 18.666666666666668,
+    "botLivesAvg": 20.666666666666668,
     "target": 0.3875
    },
    "stage": {
@@ -4363,98 +4423,94 @@
     "paths": [
      [
       {
-       "x": 60,
+       "x": 250,
        "y": 520
       },
       {
-       "x": 60,
-       "y": 90
+       "x": 250,
+       "y": 405
       },
       {
-       "x": 300,
-       "y": 90
+       "x": 110,
+       "y": 405
       },
       {
-       "x": 300,
-       "y": 210
+       "x": 110,
+       "y": 245
       },
       {
-       "x": 150,
-       "y": 210
+       "x": 250,
+       "y": 245
       },
       {
-       "x": 150,
-       "y": 330
+       "x": 250,
+       "y": 160
       },
       {
-       "x": 300,
-       "y": 330
+       "x": 180,
+       "y": 160
       },
       {
-       "x": 300,
-       "y": 440
-      },
-      {
-       "x": 200,
-       "y": 440
+       "x": 180,
+       "y": 105
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 230,
-      "y": 270
+      "x": 150,
+      "y": 205
      },
      {
       "id": "pad_2",
-      "x": 210,
-      "y": 380
+      "x": 170,
+      "y": 315
      },
      {
       "id": "pad_3",
-      "x": 210,
-      "y": 150
+      "x": 280,
+      "y": 135
      },
      {
       "id": "pad_4",
-      "x": 110,
-      "y": 270
+      "x": 130,
+      "y": 145
      },
      {
       "id": "pad_5",
-      "x": 120,
-      "y": 180
+      "x": 170,
+      "y": 445
      },
      {
       "id": "pad_6",
       "x": 290,
-      "y": 290
+      "y": 205
      },
      {
       "id": "pad_7",
-      "x": 140,
-      "y": 370
+      "x": 210,
+      "y": 365
      },
      {
       "id": "pad_8",
-      "x": 280,
-      "y": 480
+      "x": 240,
+      "y": 305
      },
      {
       "id": "pad_9",
-      "x": 330,
-      "y": 240
+      "x": 70,
+      "y": 315
      },
      {
       "id": "pad_10",
-      "x": 160,
-      "y": 430
+      "x": 290,
+      "y": 425
      },
      {
       "id": "pad_11",
-      "x": 210,
-      "y": 480
+      "x": 60,
+      "y": 385
      }
     ],
     "waves": [
@@ -4473,7 +4529,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.1
+        "hpScale": 1.4
        }
       ]
      },
@@ -4492,7 +4548,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.42
+        "hpScale": 1.61
        }
       ]
      },
@@ -4512,7 +4568,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.73
+        "hpScale": 1.82
        },
        {
         "enemyId": "ge_nguyen_van_troi_3",
@@ -4520,7 +4576,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.73
+        "hpScale": 1.82
        }
       ]
      },
@@ -4540,7 +4596,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.05
+        "hpScale": 2.03
        },
        {
         "enemyId": "ge_nguyen_van_troi_4",
@@ -4548,7 +4604,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.05
+        "hpScale": 2.03
        }
       ]
      },
@@ -4568,7 +4624,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.57
+        "hpScale": 2.38
        },
        {
         "enemyId": "ge_nguyen_van_troi_4",
@@ -4576,7 +4632,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.57
+        "hpScale": 2.38
        }
       ]
      },
@@ -4597,7 +4653,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_nguyen_van_troi_4",
@@ -4605,7 +4661,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 2.8
        },
        {
         "enemyId": "ge_nguyen_van_troi_6",
@@ -4613,7 +4669,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.2
+        "hpScale": 2.8
        }
       ]
      },
@@ -4633,7 +4689,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_nguyen_van_troi_5",
@@ -4641,7 +4697,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 3.36
        },
        {
         "enemyId": "ge_nguyen_van_troi_1",
@@ -4649,7 +4705,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 3.36
        }
       ]
      },
@@ -4671,7 +4727,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.88
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_nguyen_van_troi_3",
@@ -4679,7 +4735,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.88
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_nguyen_van_troi_4",
@@ -4687,7 +4743,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.88
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_nguyen_van_troi_5",
@@ -4695,7 +4751,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.88
+        "hpScale": 3.92
        },
        {
         "enemyId": "ge_nguyen_van_troi_6",
@@ -4703,7 +4759,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.88
+        "hpScale": 3.92
        }
       ]
      }
@@ -4803,7 +4859,7 @@
     "featuredTowerId": "gt_nguyen_van_troi_banh_mi",
     "facadeKey": "mat_tien_banh_mi",
     "roomStyle": "quan_an",
-    "roomLayout": "chu_e",
+    "roomLayout": "zigzag2",
     "botPlan": [
      {
       "padId": "pad_1",
@@ -4864,9 +4920,9 @@
    }
   },
   {
-   "hpMultiplier": 1.9,
+   "hpMultiplier": 1.5,
    "balance": {
-    "randomWinWithExpectedGear": 0.3541666666666667,
+    "randomWinWithExpectedGear": 0.3333333333333333,
     "botWinRate": 1,
     "botLivesAvg": 20.666666666666668,
     "target": 0.35000000000000003
@@ -4881,86 +4937,96 @@
     "paths": [
      [
       {
-       "x": 50,
+       "x": 115,
        "y": 520
       },
       {
-       "x": 50,
-       "y": 450
-      },
-      {
-       "x": 310,
-       "y": 370
-      },
-      {
-       "x": 50,
-       "y": 270
-      },
-      {
-       "x": 310,
-       "y": 170
+       "x": 115,
+       "y": 340
       },
       {
        "x": 180,
-       "y": 70
+       "y": 290
+      },
+      {
+       "x": 180,
+       "y": 105
+      }
+     ],
+     [
+      {
+       "x": 245,
+       "y": 520
+      },
+      {
+       "x": 245,
+       "y": 340
+      },
+      {
+       "x": 180,
+       "y": 290
+      },
+      {
+       "x": 180,
+       "y": 105
       }
      ]
     ],
     "pads": [
      {
       "id": "pad_1",
-      "x": 130,
-      "y": 470
+      "x": 170,
+      "y": 355
      },
      {
       "id": "pad_2",
-      "x": 210,
-      "y": 150
+      "x": 130,
+      "y": 275
      },
      {
       "id": "pad_3",
-      "x": 90,
-      "y": 370
+      "x": 220,
+      "y": 235
      },
      {
       "id": "pad_4",
-      "x": 220,
-      "y": 290
+      "x": 190,
+      "y": 415
      },
      {
       "id": "pad_5",
-      "x": 30,
-      "y": 410
+      "x": 250,
+      "y": 295
      },
      {
       "id": "pad_6",
-      "x": 160,
-      "y": 360
+      "x": 140,
+      "y": 205
      },
      {
       "id": "pad_7",
-      "x": 280,
-      "y": 90
+      "x": 80,
+      "y": 315
      },
      {
       "id": "pad_8",
-      "x": 150,
-      "y": 170
+      "x": 220,
+      "y": 155
      },
      {
       "id": "pad_9",
-      "x": 260,
-      "y": 240
+      "x": 120,
+      "y": 145
      },
      {
       "id": "pad_10",
-      "x": 230,
-      "y": 440
+      "x": 160,
+      "y": 475
      },
      {
       "id": "pad_11",
-      "x": 80,
-      "y": 210
+      "x": 70,
+      "y": 385
      }
     ],
     "waves": [
@@ -4979,7 +5045,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.9
+        "hpScale": 1.5
        }
       ]
      },
@@ -4997,8 +5063,8 @@
         "count": 2,
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.18
+        "pathIndex": 1,
+        "hpScale": 1.73
        }
       ]
      },
@@ -5018,15 +5084,15 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.47
+        "hpScale": 1.95
        },
        {
         "enemyId": "ge_nguyen_van_troi_2",
         "count": 2,
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.47
+        "pathIndex": 1,
+        "hpScale": 1.95
        }
       ]
      },
@@ -5045,8 +5111,8 @@
         "count": 7,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.76
+        "pathIndex": 1,
+        "hpScale": 2.17
        },
        {
         "enemyId": "ge_nguyen_van_troi_4",
@@ -5054,7 +5120,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.76
+        "hpScale": 2.17
        }
       ]
      },
@@ -5074,15 +5140,15 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.23
+        "hpScale": 2.55
        },
        {
         "enemyId": "ge_nguyen_van_troi_4",
         "count": 4,
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.23
+        "pathIndex": 1,
+        "hpScale": 2.55
        }
       ]
      },
@@ -5102,8 +5168,8 @@
         "count": 8,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.8
+        "pathIndex": 1,
+        "hpScale": 3
        },
        {
         "enemyId": "ge_nguyen_van_troi_4",
@@ -5111,15 +5177,15 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.8
+        "hpScale": 3
        },
        {
         "enemyId": "ge_nguyen_van_troi_6",
         "count": 2,
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.8
+        "pathIndex": 1,
+        "hpScale": 3
        }
       ]
      },
@@ -5140,15 +5206,15 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.56
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_nguyen_van_troi_5",
         "count": 3,
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.56
+        "pathIndex": 1,
+        "hpScale": 3.6
        },
        {
         "enemyId": "ge_nguyen_van_troi_1",
@@ -5156,7 +5222,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.56
+        "hpScale": 3.6
        }
       ]
      },
@@ -5178,8 +5244,8 @@
         "count": 9,
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 5.32
+        "pathIndex": 1,
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_nguyen_van_troi_2",
@@ -5187,15 +5253,15 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.32
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_nguyen_van_troi_4",
         "count": 5,
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 5.32
+        "pathIndex": 1,
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_nguyen_van_troi_5",
@@ -5203,15 +5269,15 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.32
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_nguyen_van_troi_6",
         "count": 2,
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 5.32
+        "pathIndex": 1,
+        "hpScale": 4.2
        }
       ]
      }
@@ -5311,7 +5377,7 @@
     "featuredTowerId": "gt_nguyen_van_troi_homestay",
     "facadeKey": "mat_tien_homestay",
     "roomStyle": "luu_tru",
-    "roomLayout": "rang_cua",
+    "roomLayout": "hai_cua",
     "botPlan": [
      {
       "padId": "pad_1",
