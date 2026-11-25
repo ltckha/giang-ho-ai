@@ -1,4 +1,4 @@
-# Lộ trình Gọn Phố (bản chép từ trang lộ trình, cập nhật 25/11/2026 (chiều))
+# Lộ trình Gọn Phố (bản chép từ trang lộ trình, cập nhật 26/11/2026)
 
 Game công khai: https://gon-pho.pages.dev · Kế hoạch chi tiết: docs/PLAN.md · Các lần rà: docs/REVIEW_LOG.md
 
@@ -29,6 +29,11 @@ _Mỗi phố: các màn tiệm rồi màn phố đánh trùm. Tập trung Đà L
 - ✅ Xong — Màn phố (đánh trùm) 6 phố đồng bộ nét Spark: đường liền mạch, mặt tiền chính các tiệm của phố dọc 2 bên · Claude + Spark (đợt 31)
 - ✅ Xong — Hiệu ứng chiêu xe (7 xe) · Spark đợt 31 + Claude
 - ✅ Xong — Mở trùm phố sau 4–5 tiệm (tiệm còn lại thành màn phụ) · Claude (anh chốt 25/11)
+- ✅ Xong — Kiểm tra thực tế 62 màn: máy chơi từng màn + trợ lý soi ảnh; bàn ghế không đè ô, nhà không che đường, độ khó tăng đều trong phố · Claude
+- ✅ Xong — Món trong tiệm theo loại tiệm (ăn / uống / lưu trú / dịch vụ) — hết kéo cắt tóc trong quán cà phê · Claude
+- ✅ Xong — 20 kiểu phòng, 7 kiểu đường đi; tiệm giày thật cho Màn 1, quầy quán ăn, tường theo loại tiệm, sân thượng, cà phê cóc, cờ đích · Claude + Spark (đợt 34–35)
+- ✅ Xong — Trùm Phố Dốc vẽ lại nền: ô đặt món không còn trên mái sạp · Claude
+- ✅ Xong — Rà nguồn (phiên Gọn Phố Việt): sửa 5 tiệm, đổi Cà Phê Kem thành Cà Phê Ngắm Hồ · Claude, anh chọn
 
 ## Chặng 3: Gọn giao diện cho người mới
 _Nhìn vào là chơi ngay, ít chữ, cần thì bấm ?._
@@ -50,6 +55,10 @@ _Nhìn vào là chơi ngay, ít chữ, cần thì bấm ?._
 - ✅ Xong — Chiêu dùng chính hình món (bay / dội / toả theo vai) · Claude
 - ✅ Xong — Chế độ ★ Khó cho màn 3 sao (rơi thêm đồ) · Claude
 - ✅ Xong — Mặt tiền Spark 3 tiệm Phố Dốc + biểu tượng nút (đợt 32) · Spark + Claude
+- ✅ Xong — Màn chính: bản đồ Đà Lạt lớn kéo được, phóng to / thu nhỏ, tên đường thật, bảng tên khắc trên ván · Claude + Spark (đợt 35)
+- ✅ Xong — Trang riêng từng phố: tranh đầu phố, đường + phường (địa giới mới), câu giới thiệu đặc trưng · Claude + Spark
+- ✅ Xong — Bản đồ Việt Nam 34 tỉnh thành theo địa giới mới (từ 1/7/2025), đang mở Lâm Đồng · Claude + Spark (đợt 36)
+- ✅ Xong — Chiêu gọn: tên chiêu xuống thanh dưới, nút ★ nhỏ, đếm giờ thành chấm — không che quái · Claude
 
 ## Chặng 4: Người thật chơi thử
 _Có link công khai; người chơi đến dần qua video và LIVE, góp ý qua bình luận._
@@ -57,7 +66,7 @@ _Có link công khai; người chơi đến dần qua video và LIVE, góp ý qu
 - ✅ Xong — Đưa game lên Cloudflare Pages: giang-ho-ai.pages.dev (tài khoản Gọn) · Anh Kha + Claude
 - ✅ Xong — Chỉ phát hành khi anh nhắn "phát hành" (nhánh phat-hanh) · Claude
 - ✅ Xong — Góp ý lấy từ bình luận video và LIVE · Anh Kha chốt
-- ⏳ Chờ anh — Đếm người chơi ẩn danh · Anh Kha
+- ✅ Xong — Đếm người chơi ẩn danh (Cloudflare Web Analytics) · Claude + anh bật
 - ✅ Xong — 💾 Mã lưu chuyển máy + nhắc đưa ra màn hình chính · Claude
 - ✅ Xong — 🔑 QR chìa khoá: lưu 1 lần, tự đồng bộ nhiều máy (máy chủ Cloudflare + D1) · Claude + anh Kha gắn D1
 - ✅ Xong — Mã lưu có ảnh QR + gửi email / chia sẻ link · Claude
@@ -98,3 +107,5 @@ _Thành phố khác, màn theo thời sự, chợ ứng dụng._
 - ⬜ Chưa làm — Lên Google Play / App Store · Anh Kha quyết
 - ⬜ Chưa làm — Game online, tài khoản, trao đổi đồ — hỏi luật sư trước (Nghị định 147/2024 cấm mua bán vật phẩm ảo giữa người chơi; game online cần giấy phép) · Anh Kha quyết
 - ⬜ Chưa làm — Thẻ QR: trước tặng kèm đơn Hiệu giày Hải Nancy / Yen Handmade Leather (đếm lượt quét); sau làm đồ lưu niệm Đà Lạt (thẻ sưu tầm, móc khoá, sticker hình Spark) bán Shopee; thẻ kèm quà trong game chỉ làm sau khi hỏi luật sư · Anh Kha quyết khi có người chơi
+- ⬜ Chưa làm — Mở tỉnh thành mới trên bản đồ Việt Nam (mỗi tỉnh: bản đồ + phố + tiệm) · Claude + Spark, anh chọn tỉnh
+- 🔄 Đang làm — Gọn Phố Việt: bản đồ phố Việt Nam thực tế (tên đường thật, giới thiệu phố) — phiên + kho riêng gon-pho-viet; game lấy bản đồ về sau · Phiên Gọn Phố Việt
