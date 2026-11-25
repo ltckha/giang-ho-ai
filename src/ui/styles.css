@@ -4343,3 +4343,17 @@ button.td-gear-bag-pill { cursor: pointer; border: 2px solid #2b1a12; font: inhe
 .td-home-head .td-icon-btn { min-width: 38px; min-height: 38px; }
 .td-bm-pin .td-bm-sub { font-size: 10px; }
 .td-gear-help-btn { min-width: 32px; min-height: 32px; }
+/* Ô nhập mã mời (Giai đoạn 1 thử nội bộ) */
+.td-invite { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 20px; background: #241811; }
+.td-invite-card { width: 100%; max-width: 360px; background: #fff8ea; border: 2px solid #2b1a12; border-radius: 16px; padding: 22px 18px; color: #3b2616; text-align: center; box-shadow: 0 4px 0 #2b1a12; }
+.td-invite-card h1 { font: 700 30px 'Noto Serif', Georgia, serif; margin-bottom: 8px; }
+.td-invite-card p { font-size: 14px; margin: 6px 0; line-height: 1.4; }
+.td-invite-card input { width: 100%; margin: 10px 0; padding: 12px; font-size: 18px; text-align: center; letter-spacing: 1px; border: 2px solid #8a5b32; border-radius: 10px; user-select: text; -webkit-user-select: text; }
+.td-invite-card button { width: 100%; padding: 12px; font-size: 16px; font-weight: 800; border-radius: 10px; border: 2px solid #2b1a12; background: #2f9e44; color: #fff; }
+.td-invite-msg { margin-top: 8px; min-height: 18px; color: #c92a2a; font-size: 13px; }
+/* Nhãn tuổi + khuyến cáo sức khoẻ (chỉ bản Việt Nam: VITE_REGION=vn / ?vung=vn) */
+.td-age-label { flex: none; padding: 2px 6px; border: 2px solid #2b1a12; border-radius: 6px; background: #2f9e44; color: #fff; font: 800 12px var(--font-ui, system-ui); }
+.td-health-warning { flex: none; margin: -4px 0 6px; font-size: 11px; color: #7a4a12; text-align: center; }
+/* Chữ "Gọn Phố" mờ ở góc khi quay clip (?quay=) — nhận diện kênh, hạn chế bị đăng lại */
+.gp-watermark { position: fixed; right: 10px; bottom: 84px; z-index: 60; pointer-events: none; display: flex; align-items: center; gap: 6px; opacity: 0.7; font: 700 13px var(--font-ui, system-ui); color: #fff8e6; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
+.gp-watermark img { width: 30px; height: 30px; border-radius: 8px; }

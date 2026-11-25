@@ -13,6 +13,7 @@ import type { GearBonus } from '../core/equipment';
 import type { TowerDefenseEngine } from '../core/tdEngine';
 import type { StageId, TowerId } from '../core/types';
 import { SCENE_KEYS } from './sceneKeys';
+import { music } from './music';
 
 export interface LiveEvent {
   type: 'comment' | 'like' | 'gift' | 'follow' | 'share';
@@ -318,6 +319,19 @@ export function startLive(scene: Phaser.Scenes.ScenePlugin, opts: { clean?: bool
   mountOverlay();
   state.root?.classList.toggle('gp-live-clean', Boolean(opts.clean));
   const params = new URLSearchParams(window.location.search);
+  // Quay clip (quy chuẩn video 26/11): logo Gọn + tên kênh @gon.simpli mờ ở góc. Nhạc nền game là nhạc tự soạn trong code (src/game/music.ts, không dùng file nhạc ngoài)
+  // nên giữ mặc định; muốn ghép nhạc của nền tảng thì thêm &nhac=0 để tắt nhạc game, vẫn giữ tiếng hiệu ứng.
+  if (opts.clean) {
+    if (params.get('nhac') === '0') music.muteForRecording();
+    if (!document.getElementById('gp-watermark')) {
+      const wm = document.createElement('div');
+      wm.id = 'gp-watermark';
+      wm.className = 'gp-watermark';
+      // Quảng bá hệ sinh thái Gọn (anh Kha 26/11): logo Gọn + tên kênh, không ghi tên game
+      wm.innerHTML = '<img src="./assets/ui/gon_logo.webp" alt="Gọn" /><span>@gon.simpli</span>';
+      document.body.appendChild(wm);
+    }
+  }
   const ws = params.get('ws');
   if (ws && /^wss?:\/\/(localhost|127\.0\.0\.1)(:\d+)?\//.test(ws.endsWith('/') ? ws : `${ws}/`)) connectWs(ws);
   if (params.get('thu') === '1') setDemo(true);

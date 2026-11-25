@@ -59,6 +59,7 @@ import { SCENE_KEYS } from '../game/sceneKeys';
 import { renderShopkeeperAvatarSvg } from '../game/shopkeeperAvatar';
 import { renderShopFacadeSvg } from '../game/shopStreetArt';
 import BIG_MAP_PINS from '../core/streets/bigMapPins.json';
+import { regionFlags } from '../game/region';
 import { PROVINCES, PROVINCE_LANDMARK, REGION_NAME, STREET_INFO, streetBannerUrl, type Region } from '../core/cities';
 import { sound } from '../game/sound';
 
@@ -348,6 +349,7 @@ export class TitleScene extends Phaser.Scene {
       <div class="td-title-card td-shoebox-panel">
         <div class="td-home-head">
           <h1 class="td-title-heading">Gọn Phố</h1>
+          ${regionFlags().ageLabel ? `<span class="td-age-label" data-testid="age-label" title="Phân loại độ tuổi">${regionFlags().ageLabel}</span>` : ''}
           ${hasStreetChampionBadge ? `<span class="td-home-medal" data-testid="badge-giu-tron-pho" data-tip="Huy hiệu Giữ trọn phố">${championBadgeUrl ? `<img src="${championBadgeUrl}" alt="" />` : '🏆'}</span>` : ''}
           <div class="td-home-icons" data-testid="td-audio-controls">
             <button type="button" id="btn-toggle-music" data-testid="btn-toggle-music" class="td-icon-btn ${music.isMuted() ? 'muted' : ''}" aria-label="Nhạc">${music.isMuted() ? '<img class="td-ui-ico" src="./assets/ui/ui_nhac_tat.webp" alt="" />' : '<img class="td-ui-ico" src="./assets/ui/ui_nhac_bat.webp" alt="" />'}</button>
@@ -358,6 +360,7 @@ export class TitleScene extends Phaser.Scene {
           </div>
         </div>
         <div id="td-install-nudge"></div>
+        ${regionFlags().healthWarning ? `<div class="td-health-warning" data-testid="health-warning">${regionFlags().healthWarning}</div>` : ''}
         <div class="td-home-map td-bigmap" id="td-street-tabs" data-testid="street-tabs"></div>
         <div class="td-country" id="td-country" hidden>
           <div class="td-country-panel">

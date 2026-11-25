@@ -253,6 +253,13 @@ class BgmManager {
     return id ? BGM_TRACKS[id].label : '';
   }
 
+  /** Quay video (?quay=): tắt nhạc nền trong phiên này, không ghi vào cài đặt của người chơi — giữ tiếng hiệu ứng (quy chuẩn video 26/11) */
+  public muteForRecording(): void {
+    this.muted = true;
+    if (this.masterGain && this.ctx) this.masterGain.gain.value = 0.0001;
+    this.stopScheduler();
+  }
+
   public setMuted(muted: boolean): void {
     this.muted = muted;
     saveMusicMuted(muted);
