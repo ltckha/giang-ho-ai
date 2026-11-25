@@ -4287,3 +4287,16 @@ button.td-gear-bag-pill { cursor: pointer; border: 2px solid #2b1a12; font: inhe
 .td-vn-moc.open { z-index: 3; }
 .td-vn-moc.open img { width: 56px; height: 56px; }
 .td-vn-moc span { font-size: 8.5px; }
+/* Bảng tên phố: khung đúng tỉ lệ hình bảng (103×160), chữ nằm trên tấm ván (anh Kha 25/11) */
+.td-bm-pin { width: 74px; height: 115px; transform: translate(-50%, -94%) scale(var(--pin-k, 1.75)); transform-origin: 50% 94%; display: block; }
+.td-bm-board { object-fit: fill; }
+.td-bm-name {
+  position: absolute; left: 4%; right: 4%; top: 12%; height: 22%; margin: 0; max-width: none;
+  display: flex; align-items: center; justify-content: center; font-size: 9.5px; line-height: 1.05; color: #fff8e6;
+  text-shadow: 0 1px 0 #3b2616, 0 0 2px #3b2616;
+}
+.td-bm-sub { position: absolute; left: 6%; right: 30%; top: 41%; margin: 0; text-align: center; font-size: 9px; color: #fff3c4; text-shadow: 0 1px 0 #3b2616, 0 0 2px #3b2616; }
+.td-bm-pin.locked .td-bm-name { top: 13%; height: 26%; left: 3%; right: 3%; color: #f3e6d0; }
+.td-bm-star { top: -24px; }
+.td-bm-zoom { position: absolute; right: 8px; bottom: 34px; z-index: 3; display: flex; flex-direction: column; gap: 6px; }
+.td-bm-zoom button { width: 36px; height: 36px; border-radius: 10px; border: 2px solid #2b1a12; background: #fff4d6; font: 900 20px/1 var(--font-ui, system-ui); color: #3b2616; box-shadow: 0 2px 0 #2b1a12; }

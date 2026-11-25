@@ -871,7 +871,7 @@ export class TitleScene extends Phaser.Scene {
     /* ===== Bản đồ Đà Lạt lớn kéo được + trang riêng từng phố (anh Kha "làm bản đồ" 25/11) ===== */
     let activeStreetTab: string = 'doc';
     const BM = BIG_MAP_PINS as unknown as Record<string, { leftPct: number; topPct: number }> & { _size: { w: number; h: number } };
-    const mapView = { x: NaN, y: NaN, s: 1 };
+    const mapView = { x: NaN, y: NaN, s: 0 };
     const renderStreetTabs = (): void => {
       const host = root.querySelector<HTMLDivElement>('#td-street-tabs');
       if (!host) return;
@@ -906,41 +906,82 @@ export class TitleScene extends Phaser.Scene {
             </button>`).join('')}
         </div>
         <button type="button" class="td-bm-country" id="btn-open-country" data-testid="btn-open-country">🇻🇳 Lâm Đồng · Đà Lạt</button>
+        <div class="td-bm-zoom"><button type="button" id="btn-map-zoom-in" data-testid="btn-map-zoom-in" aria-label="Phóng to">+</button><button type="button" id="btn-map-zoom-out" data-testid="btn-map-zoom-out" aria-label="Thu nhỏ">−</button></div>
       `;
       const inner = host.querySelector<HTMLDivElement>('.td-bm-inner')!;
       const vw = host.clientWidth || 380;
       const vh = host.clientHeight || 640;
-      mapView.s = Math.max(vw / w, vh / h, 0.7);
-      const clamp = () => {
+      // Phóng to / thu nhỏ (anh Kha 25/11): 2 ngón kéo giãn, con lăn chuột, nút + −
+      const sMin = Math.max(vw / w, vh / h);
+      const sMax = Math.max(1.6, sMin * 2.5);
+      if (!mapView.s || Number.isNaN(mapView.x)) mapView.s = Math.min(sMax, Math.max(sMin, 0.8));
+      const apply = () => {
+        mapView.s = Math.min(sMax, Math.max(sMin, mapView.s));
         mapView.x = Math.min(0, Math.max(vw - w * mapView.s, mapView.x));
         mapView.y = Math.min(0, Math.max(vh - h * mapView.s, mapView.y));
         inner.style.transform = `translate(${mapView.x}px, ${mapView.y}px) scale(${mapView.s})`;
+        // bảng tên giữ cỡ nhìn được dù phóng to hay thu nhỏ
+        inner.style.setProperty('--pin-k', String(Math.min(2.1, Math.max(0.8, 1.1 / mapView.s))));
+      };
+      const zoomAt = (k: number, cx: number, cy: number) => {
+        const s0 = mapView.s;
+        const s1 = Math.min(sMax, Math.max(sMin, s0 * k));
+        mapView.x = cx - ((cx - mapView.x) * s1) / s0;
+        mapView.y = cy - ((cy - mapView.y) * s1) / s0;
+        mapView.s = s1;
+        apply();
       };
       if (Number.isNaN(mapView.x)) {
-        // lần đầu: canh giữa phố đang chơi (hoặc giữa các phố)
-        const focus = pins.find((pp) => pp.id === playing) ?? pins[0]!;
-        mapView.x = vw / 2 - (focus.at.leftPct / 100) * w * mapView.s;
-        mapView.y = vh / 2 - (focus.at.topPct / 100) * h * mapView.s;
+        // lần đầu: canh giữa cụm phố để thấy nhiều phố cùng lúc
+        const cxp = pins.reduce((a, pp) => a + pp.at.leftPct, 0) / pins.length;
+        const cyp = pins.reduce((a, pp) => a + pp.at.topPct, 0) / pins.length;
+        mapView.x = vw / 2 - (cxp / 100) * w * mapView.s;
+        mapView.y = vh / 2 - (cyp / 100) * h * mapView.s;
       }
-      clamp();
-      // kéo bằng 1 ngón; kéo quá 6 điểm thì không tính là bấm
-      let drag: { id: number; x0: number; y0: number; mx: number; my: number; moved: boolean } | null = null;
+      apply();
+      const pts = new Map<number, { x: number; y: number }>();
+      let drag: { x0: number; y0: number; mx: number; my: number; moved: boolean } | null = null;
+      let pinch: { d0: number; s0: number } | null = null;
+      const rel = (ev: PointerEvent) => { const r = host.getBoundingClientRect(); return { x: ev.clientX - r.left, y: ev.clientY - r.top }; };
       host.onpointerdown = (ev) => {
-        drag = { id: ev.pointerId, x0: ev.clientX, y0: ev.clientY, mx: mapView.x, my: mapView.y, moved: false };
+        pts.set(ev.pointerId, rel(ev));
+        if (pts.size === 1) drag = { x0: ev.clientX, y0: ev.clientY, mx: mapView.x, my: mapView.y, moved: false };
+        if (pts.size === 2) {
+          const [p1, p2] = [...pts.values()];
+          pinch = { d0: Math.hypot(p1!.x - p2!.x, p1!.y - p2!.y) || 1, s0: mapView.s };
+          if (drag) drag.moved = true;
+          try { host.setPointerCapture(ev.pointerId); } catch { /* bỏ qua */ }
+        }
       };
       host.onpointermove = (ev) => {
-        if (!drag || ev.pointerId !== drag.id) return;
+        if (!pts.has(ev.pointerId)) return;
+        pts.set(ev.pointerId, rel(ev));
+        if (pinch && pts.size >= 2) {
+          const [p1, p2] = [...pts.values()];
+          const d = Math.hypot(p1!.x - p2!.x, p1!.y - p2!.y);
+          zoomAt((pinch.s0 * d) / pinch.d0 / mapView.s, (p1!.x + p2!.x) / 2, (p1!.y + p2!.y) / 2);
+          return;
+        }
+        if (!drag) return;
         const dx = ev.clientX - drag.x0, dy = ev.clientY - drag.y0;
-        if (!drag.moved && Math.hypot(dx, dy) > 6) { drag.moved = true; host.setPointerCapture(ev.pointerId); host.classList.add('dragging'); }
-        if (drag.moved) { mapView.x = drag.mx + dx; mapView.y = drag.my + dy; clamp(); }
+        if (!drag.moved && Math.hypot(dx, dy) > 6) { drag.moved = true; try { host.setPointerCapture(ev.pointerId); } catch { /* bỏ qua */ } host.classList.add('dragging'); }
+        if (drag.moved) { mapView.x = drag.mx + dx; mapView.y = drag.my + dy; apply(); }
       };
       const endDrag = (ev: PointerEvent) => {
-        if (!drag || ev.pointerId !== drag.id) return;
-        const moved = drag.moved;
+        if (!pts.has(ev.pointerId)) return;
+        pts.delete(ev.pointerId);
+        if (pts.size < 2) pinch = null;
+        if (pts.size === 1) {
+          // còn 1 ngón sau khi kéo giãn: tiếp tục kéo từ chỗ đó, không tính là bấm
+          const [p] = [...pts.values()];
+          const r = host.getBoundingClientRect();
+          drag = { x0: p!.x + r.left, y0: p!.y + r.top, mx: mapView.x, my: mapView.y, moved: true };
+          return;
+        }
+        const moved = drag?.moved;
         drag = null;
         host.classList.remove('dragging');
         if (moved) {
-          // nuốt cú bấm ngay sau khi kéo
           const stop = (e: Event) => { e.stopPropagation(); e.preventDefault(); };
           host.addEventListener('click', stop, { capture: true, once: true });
           window.setTimeout(() => host.removeEventListener('click', stop, { capture: true }), 50);
@@ -948,6 +989,13 @@ export class TitleScene extends Phaser.Scene {
       };
       host.onpointerup = endDrag;
       host.onpointercancel = endDrag;
+      host.onwheel = (ev) => {
+        ev.preventDefault();
+        const r = host.getBoundingClientRect();
+        zoomAt(ev.deltaY < 0 ? 1.15 : 1 / 1.15, ev.clientX - r.left, ev.clientY - r.top);
+      };
+      host.querySelector<HTMLButtonElement>('#btn-map-zoom-in')!.onclick = (e) => { e.stopPropagation(); zoomAt(1.3, vw / 2, vh / 2); };
+      host.querySelector<HTMLButtonElement>('#btn-map-zoom-out')!.onclick = (e) => { e.stopPropagation(); zoomAt(1 / 1.3, vw / 2, vh / 2); };
       host.querySelectorAll<HTMLButtonElement>('[data-street-tab]').forEach((btn) => {
         btn.onclick = () => openStreetPage(btn.dataset.streetTab!);
       });
