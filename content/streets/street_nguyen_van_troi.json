@@ -93,10 +93,11 @@
       "type": "Quán phở lâu năm ở dốc chùa",
       "trait": "phở bò, ăn kèm quẩy",
       "sources": [
-        "https://wanderlog.com/list/geoCategory/1820178",
-        "https://vinwonders.com/vi/wonderpedia/news/pho-da-lat/"
+        "https://vinwonders.com/?p=103293",
+        "https://mytour.vn/vi/blog/am-thuc/top-12-quan-pho-ngon-dinh-dam-tai-phuong-cam-ly-da-lat-lam-dong-mytour.html",
+        "https://toplist.vn/top-list/quan-pho-ngon-noi-tieng-nhat-tai-da-lat-33695.htm"
       ],
-      "confidence": "nen_kiem",
+      "confidence": "chac",
       "tower": {
         "element": "tho",
         "role": "heavy_slow",
@@ -110,7 +111,7 @@
         "why": "Thố đá giữ nóng, chắn hơi ẩm"
       },
       "art": "quan_pho",
-      "ghi_chu": "Phiên Gọn Phố Việt rà 25/11/2026: bài nguồn ghi quán phở ở đường khác → chưa chứng minh được quán phở nằm trên phố này; cần tìm nguồn ghi đúng địa chỉ."
+      "ghi_chu": "Tra lại 25/11/2026: quán phở lâu năm (mở từ 1979) ở 103 Nguyễn Văn Trỗi — 2 nguồn 2025–2026 ghi đúng; Foody cũ ghi địa chỉ trước đây ở Tăng Bạt Hổ (quán đã dời)."
     },
     {
       "key": "lau_ga",

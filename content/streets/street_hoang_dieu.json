@@ -38,7 +38,7 @@
         "why": "Hơi nóng nồi lẩu xua ruồi"
       },
       "art": "lau_ga",
-      "ghi_chu": "Phiên Gọn Phố Việt rà 25/11/2026: link Foody lau-bo-ba-toa-hoang-dieu (Quán Gỗ) chuyển về đây."
+      "ghi_chu": "Tra lại 25/11/2026: Quán Gỗ (Ba Toa Nhà Gỗ) ở hẻm 29 Hoàng Diệu, phường Cam Ly (nguồn ghi số nhà khác nhau: 29/1, 1/29…)."
     },
     {
       "key": "lau_hem",
@@ -46,6 +46,7 @@
       "type": "Quán lẩu bò trong hẻm",
       "trait": "khách địa phương, đông 6–8 giờ tối",
       "sources": [
+        "https://www.foody.vn/lam-dong/quan-din-batoa-lau-bo",
         "https://mia.vn/cam-nang-du-lich/top-quan-lau-bo-ba-toa-da-lat-19503"
       ],
       "confidence": "nen_kiem",
@@ -62,7 +63,7 @@
         "why": "Nước dùng nóng dập than khét"
       },
       "art": "lau_ga",
-      "ghi_chu": "Phiên Gọn Phố Việt rà 25/11/2026: link Foody \"lau-bo-ba-toa-hoang-dieu\" là trang Quán Gỗ, không phải quán trong hẻm → bỏ; còn 1 nguồn."
+      "ghi_chu": "Tra lại 25/11/2026: có thật quán lẩu bò trong hẻm: 8/1 Hoàng Diệu (hẻm 8, đối diện quán nhà gỗ) — 2 nguồn ghi đúng địa chỉ; Foody cũ (2019) nên để \"nên kiểm\". Link Foody Quán Gỗ đã chuyển sang tiệm nhà gỗ."
     },
     {
       "key": "xiu_mai",

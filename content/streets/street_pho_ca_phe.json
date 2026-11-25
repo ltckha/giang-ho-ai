@@ -77,7 +77,7 @@
       },
       "sources": [],
       "confidence": "nen_kiem",
-      "ghi_chu": "Phiên Gọn Phố Việt rà 25/11/2026: link trip.com là quán CHẠM ở 8 Khu Hoà Bình (không trên Nguyễn Chí Thanh / Lê Đại Hành) → bỏ; chưa có nguồn, cần tìm lại."
+      "ghi_chu": "Tra lại 25/11/2026: chưa tìm thấy quán cà phê bán kem ly có địa chỉ trên Nguyễn Chí Thanh / Lê Đại Hành (manh mối: 5–7 Nguyễn Chí Thanh, chưa kiểm). Trên Lê Đại Hành có thật quán cà phê ngắm phố (1, 2 Lê Đại Hành) — đề xuất đổi loại."
     },
     {
       "key": "tra_sua",
@@ -139,9 +139,11 @@
         "ult": "Bơ Dầm Cả Mẻ",
         "why": "Trái bơ (Mộc) chặn bụi đất"
       },
-      "sources": [],
+      "sources": [
+        "https://wanderlog.com/place/details/9788722/xe-dalato-ice-cream"
+      ],
       "confidence": "nen_kiem",
-      "ghi_chu": "Phiên Gọn Phố Việt rà 25/11/2026: link trip.com là quán CHẠM ở 8 Khu Hoà Bình (không trên Nguyễn Chí Thanh / Lê Đại Hành) → bỏ; chưa có nguồn, cần tìm lại."
+      "ghi_chu": "Tra lại 25/11/2026: xe kem bơ ở 42 Nguyễn Chí Thanh (1 nguồn; tiệm chính ở 16 Yersin) — chưa đủ 2 nguồn."
     },
     {
       "key": "cafe_xua",
