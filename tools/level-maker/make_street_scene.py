@@ -116,8 +116,10 @@ def draw(g, out):
     # lát đá cả lối vào lẫn điểm cuối (nơi quái muốn tới) — kiểm tra thực tế 24/11: cuối đường không có dấu gì
     for r in paths + [[pp[-1]] for pp in paths]:
         sx, sy = min(max(r[0][0], 0), W), min(max(r[0][1], 0), H)
+        # vòng đá nhỏ lại nếu có ô đặt món sát bên (kiểm tra 26/11: ô nằm trên vòng đá cuối đường)
+        rr = max(18, min(34, min((math.hypot(sx - px, sy - py) - 24 for px, py in pads), default=34)))
         m = Image.new('L', size, 0)
-        ImageDraw.Draw(m).ellipse([(sx - 34) * S, (sy - 30) * S, (sx + 34) * S, (sy + 30) * S], fill=255)
+        ImageDraw.Draw(m).ellipse([(sx - rr) * S, (sy - rr * 0.88) * S, (sx + rr) * S, (sy + rr * 0.88) * S], fill=255)
         im.paste(cobble, (0, 0), m)
 
     # 4b. đế đá dưới mỗi ô đặt món: trước đây chỉ có vòng trắng mảnh trên cỏ, khó thấy (kiểm tra thực tế 24/11)
@@ -194,6 +196,13 @@ def draw(g, out):
     im = Image.alpha_composite(im.convert('RGBA'), shadow)
     for y, x, img in sorted(items):
         im.paste(img, (int(x * S - img.width / 2), int(y * S - img.height * 0.9)), img)
+
+    # 5b. cờ đích ở cuối đường (nơi quái muốn tới) — kiểm tra 26/11: lối vào và đích cùng là vòng đá, khó phân biệt
+    flag = sprite(os.path.join(ROOT, 'art', 'noi_that', 'noi_bang_dich.png'), 40 * S)
+    if flag is not None:
+        fx_, fy_ = min(max(ex, 16), W - 16), min(max(ey, 30), H - 6)
+        im.paste(flag, (int(fx_ * S - flag.width / 2), int(fy_ * S - flag.height * 0.95)), flag)
+        d = ImageDraw.Draw(im)
 
     # 6. ghi nguồn bản đồ
     d = ImageDraw.Draw(im)

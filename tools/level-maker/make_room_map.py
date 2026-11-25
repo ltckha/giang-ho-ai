@@ -276,7 +276,11 @@ def draw(stage, out):
     # thảm chùi chân ở cửa
     for r in paths:
         sx, sy = r[0]
-        d.rounded_rectangle([(sx - 26) * S, (min(sy, H) - 14) * S, (sx + 26) * S, min(sy, H) * S], 6, fill=(110, 140, 90), outline=INK, width=4)
+        if sx <= 8 or sx >= W - 8:      # cửa bên (vào từ mép trái / phải) — kiểm tra 26/11: thiếu cửa
+            ex0 = 0 if sx <= 8 else W - 14
+            d.rounded_rectangle([ex0 * S, (sy - 26) * S, (ex0 + 14) * S, (sy + 26) * S], 6, fill=(110, 140, 90), outline=INK, width=4)
+        else:
+            d.rounded_rectangle([(sx - 26) * S, (min(sy, H) - 14) * S, (sx + 26) * S, min(sy, H) * S], 6, fill=(110, 140, 90), outline=INK, width=4)
     # món của tiệm làm đồ trang trí
     art = stage.get('_art')
     decos = []

@@ -1748,7 +1748,7 @@ export class TdStageScene extends Phaser.Scene {
               : ev.enemyDefId === 'fl_dust'
                 ? 'Vỡ 2 Bụi Nhỏ!'
                 : ev.enemyDefId?.startsWith('ge_')
-                  ? `Tách 2 ${ENEMY_DEFINITIONS[ev.enemyDefId]?.name ?? 'con nhỏ'}!`
+                  ? 'Tách đôi!'
                   : (ev.text ?? 'Tách 2 Gián!');
           const splitColor =
             ev.enemyDefId === 'bk_ember'
@@ -2390,7 +2390,14 @@ export class TdStageScene extends Phaser.Scene {
     popScale = false,
   ): void {
     // Chữ giống hệt vừa hiện gần đó thì bỏ (kiểm tra thực tế 24/11: "Chuột GặmChuột Gặm!" chồng nhau)
-    if (this.floatingLabels.some((fl) => fl.el.text === text && fl.life > fl.maxLife * 0.4 && Math.abs(fl.el.x - x) < 60 && Math.abs(fl.el.y - y) < 30)) return;
+    if (this.floatingLabels.some((fl) => fl.el.text === text && fl.life > fl.maxLife * 0.3 && Math.abs(fl.el.x - x) < 110 && Math.abs(fl.el.y - y) < 60)) return;
+    // Chỗ đông chữ (kiểm tra 26/11: trúng tủ, +xu, chuột gặm, tách đôi dồn cục): đẩy chữ mới lên trên;
+    // vẫn chật thì bỏ chữ phụ (số sát thương, +xu), chữ lớn tối đa 3 cái cùng lúc
+    const near = (yy: number) => this.floatingLabels.some((fl) => fl.life > fl.maxLife * 0.35 && Math.abs(fl.el.x - x) < 70 && Math.abs(fl.el.y - yy) < 15);
+    let tries = 0;
+    while (near(y) && tries < 2) { y -= 16; tries += 1; }
+    if (near(y) && !popScale) return;
+    if (popScale && this.floatingLabels.filter((fl) => fl.popScale && fl.life > fl.maxLife * 0.3).length >= 3) return;
     while (this.floatingLabels.length >= 14) {
       const oldest = this.floatingLabels.shift();
       oldest?.el.destroy();

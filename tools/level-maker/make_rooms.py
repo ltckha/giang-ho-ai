@@ -25,13 +25,16 @@ def seg_d(p, a, b):
 def pads_for(routes):
     segs = [(r[i], r[i + 1]) for r in routes for i in range(len(r) - 1)]
     dpath = lambda p: min(seg_d(p, a, b) for a, b in segs)
-    cands = [(x, y) for x in range(30, W - 29, 10) for y in range(40, H - 39, 10) if 40 <= dpath((x, y)) <= 66]
+    cands = [(x, y) for x in range(30, W - 29, 10) for y in range(70, H - 39, 10) if 40 <= dpath((x, y)) <= 66]   # y ≥ 70: ô không đè dải tường trên (kiểm tra 26/11)
     cover = lambda p: sum(1 for a, b in segs for t in range(11) if math.hypot(p[0] - (a[0] + (b[0] - a[0]) * t / 10), p[1] - (a[1] + (b[1] - a[1]) * t / 10)) <= 110)
     cands.sort(key=lambda p: -cover(p))
-    pads = []
-    for p in cands:
-        if all(math.hypot(p[0] - q[0], p[1] - q[1]) >= 62 for q in pads):
-            pads.append(p)
+    for gap in (62, 58, 54):          # đủ 11 ô; chật thì cho ô gần nhau hơn chút
+        pads = []
+        for p in cands:
+            if all(math.hypot(p[0] - q[0], p[1] - q[1]) >= gap for q in pads):
+                pads.append(p)
+            if len(pads) >= 11:
+                break
         if len(pads) >= 11:
             break
     return pads

@@ -367,16 +367,18 @@ function makeBoss(spec: StreetSpec, ids: string[], enemies: Record<string, Enemy
  * Loại tiệm → nhóm món (kiểm tra thực tế 24/11, anh Kha "làm hết"): tiệm dùng món của các tiệm CÙNG LOẠI ở mọi phố,
  * không lấy món hàng xóm khác loại (trước đây Kéo Cắt Tóc trong quán cà phê, Ly Chè trong quán lẩu…).
  */
-type ShopGroup = 'an' | 'uong' | 'o' | 'dich_vu';
+type ShopGroup = 'an_nong' | 'an_banh' | 'uong' | 'o' | 'dich_vu';
 function shopGroup(name: string, type: string): ShopGroup {
   // Xét loại hình (type) — tên tiệm có chữ địa danh dễ nhầm ("Đồi Chè" không phải quán chè)
   const t = (type || name).toLowerCase();
   if (/khách sạn|homestay|hostel|nhà nghỉ/.test(t)) return 'o';
   if (/thuốc|tóc|móng|sách|studio|ảnh cưới|xe máy|sửa xe|tạp ho|giặt/.test(t)) return 'dich_vu';
   if (/cà phê|cafe|trà|kem|chè|yaourt|sữa|bar|cocktail|tiệm bánh|bánh quà|bánh ngọt|ăn vặt|mứt/.test(t)) return 'uong';
-  return 'an';
+  // quán ăn tách 2 nhóm (kiểm tra 26/11: dao cắt bánh trong quán cơm gà, nồi cháo trong tiệm bánh mì)
+  if (/lẩu|nướng|phở|cơm|cháo|bún|hủ tiếu|mì quảng/.test(t)) return 'an_nong';
+  return 'an_banh';
 }
-const GROUP_TOWERS: Record<ShopGroup, { id: string; name: string; street: string }[]> = { an: [], uong: [], o: [], dich_vu: [] };
+const GROUP_TOWERS: Record<ShopGroup, { id: string; name: string; street: string }[]> = { an_nong: [], an_banh: [], uong: [], o: [], dich_vu: [] };
 for (const f of readdirSync(join(ROOT, 'content/streets')).filter((x) => x.endsWith('.json'))) {
   const sp: StreetSpec = JSON.parse(readFileSync(join(ROOT, 'content/streets', f), 'utf8'));
   const tw = buildTowers(sp);
@@ -385,6 +387,9 @@ for (const f of readdirSync(join(ROOT, 'content/streets')).filter((x) => x.endsW
 }
 /** Món cùng loại tiệm: ưu tiên món cùng phố, bỏ món trùng tên (2 phố cùng có "Ổ Bánh Mì") */
 function groupPool(group: ShopGroup, streetId: string, featured: string): string[] {
+  // Tiệm dịch vụ (nhà thuốc, tóc, sách, studio, xe, tạp hoá, giặt): mỗi loại 1 món riêng, không mượn món tiệm dịch vụ khác
+  // (kiểm tra 26/11: máy giặt trong nhà thuốc, cờ lê trong tiệm tóc) → món chính + đồ dọn chung
+  if (group === 'dich_vu') return [];
   const list = [...GROUP_TOWERS[group]].sort((a, b) => Number(b.street === streetId) - Number(a.street === streetId));
   const seen = new Set<string>([ALL_TOWER_DEFINITIONS[featured as never]?.name ?? '']);
   const out: string[] = [];
@@ -441,9 +446,11 @@ function make(id: string) {
     let hsh = 0;
     for (const ch of spec.id) hsh = (hsh * 31 + ch.charCodeAt(0)) % 997;
     // 2 tiệm cạnh nhau luôn khác mẫu đường đi (bản lật trái/phải nằm liền nhau trong ROOMS — kiểm tra thực tế 24/11)
+    // 7 mẫu × lật: tiệm 1–7 mỗi tiệm 1 mẫu, tiệm 8–14 dùng bản lật — trong 1 phố không tiệm nào trùng bố cục (kiểm tra 26/11)
     const shapes = ROOMS.length / 2;
     const shape = (idx - 1 + hsh) % shapes;
-    const room = ROOMS[shape * 2 + ((Math.floor((idx - 1 + hsh) / shapes) + idx) % 2)]!;
+    const flip = (Math.floor((idx - 1) / shapes) + hsh) % 2;
+    const room = ROOMS[shape * 2 + flip]!;
     const build = (k: number): StageDefinition => {
       const stage: StageDefinition = {
         id: `${spec.id}_t${idx}` as never, stageNumber: 10 + idx, name: p.name, subtitle: `${spec.name} · tiệm ${idx}/${n}: ${p.type}`,
