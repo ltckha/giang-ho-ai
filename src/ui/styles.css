@@ -4171,3 +4171,32 @@ button.td-gear-bag-pill { cursor: pointer; border: 2px solid #2b1a12; font: inhe
 .td-bottom-bar .td-up-elements { flex-wrap: wrap; overflow: hidden; row-gap: 2px; max-height: 54px; }
 .td-bottom-bar .td-up-elements .td-enemy-preview { padding: 1px 3px; }
 .td-bottom-bar .td-up-elements .td-mini-enemy { width: 18px; height: 18px; }
+
+/* Chiêu gọn (anh Kha 25/11: bảng tên chiêu che chỗ quái ra): dời xuống sát thanh dưới, 1 dòng nhỏ, hơi trong */
+.td-ult-cast-banner {
+  position: fixed;
+  left: 8px;
+  bottom: 14px;
+  transform: none;
+  padding: 6px 10px;
+  gap: 6px;
+  border-width: 2px;
+  border-radius: 99px;
+  background: rgba(34, 20, 12, 0.78) !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4) !important;
+  animation: none;
+  white-space: nowrap;
+  max-width: calc(100vw - 168px);
+  overflow: hidden;
+}
+.td-ult-cast-banner .td-boss-shift-icon { width: 18px; height: 18px; }
+.td-ult-cast-banner .td-boss-shift-text { flex-direction: row; align-items: baseline; gap: 6px; }
+.td-ult-cast-banner .td-boss-shift-title { font-size: 12.5px; }
+.td-ult-cast-banner .td-boss-shift-sub { display: none; }
+.td-ult-cast-banner .td-boss-shift-title { overflow: hidden; text-overflow: ellipsis; }
+/* Nút chiêu sẵn sàng: 1 ngôi sao tròn nhỏ ở góc món */
+.td-floating-ult-btn.ready { padding: 0; width: 24px; min-height: 24px; height: 24px; justify-content: center; border-radius: 50%; }
+.td-floating-ult-btn.ready .td-fult-star { font-size: 13px; }
+.td-floating-ult-btn.cooling { width: 22px; height: 22px; opacity: 0.85; }
+.td-floating-ult-btn.cooling .td-fult-ring { width: 22px; height: 22px; }
+.td-floating-ult-btn.cooling .td-fult-cd-num { font-size: 8px; }

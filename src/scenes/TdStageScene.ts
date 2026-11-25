@@ -1826,7 +1826,7 @@ export class TdStageScene extends Phaser.Scene {
           } else if (role === 'heavy_slow') {
             // món khổng lồ dội từ trên xuống giữa vùng
             this.flyItem(tex, up, up, 90 * this.mapScale, { dur: 380, drop: true, spin: 0, onHit: () => {
-              this.fxPop(burstKey, up.x, up.y, radiusPx * 1.4, { dur: 520 });
+              this.fxPop(burstKey, up.x, up.y, Math.min(radiusPx * 1.1, 120 * this.mapScale), { dur: 420, alpha: 0.75 });
               if (!this.reduceMotion) this.cameras.main.shake(180, 0.006);
             } });
           } else if (role === 'slow_aura') {
@@ -1867,19 +1867,19 @@ export class TdStageScene extends Phaser.Scene {
             this.fxPop(burst, ep.x, ep.y, 64 * this.mapScale, { from: 0.3, dur: 460, delay: 140 + k * 55 });
           });
         } else if (role === 'slow_aura') {
-          this.fxPop(ring, up.x, up.y, radiusPx * 2.1, { from: 0.15, dur: 950, spin: 120, alpha: 0.9 });
+          this.fxPop(ring, up.x, up.y, Math.min(radiusPx * 1.5, 150 * this.mapScale), { from: 0.15, dur: 700, spin: 120, alpha: 0.5 });
           inRange.forEach((e, k) => {
             const ep = this.toScreen(e.x, e.y);
             this.fxPop(ring, ep.x, ep.y, 46 * this.mapScale, { from: 0.6, dur: 900, spin: -90, delay: 200 + k * 40 });
           });
         } else if (role === 'aoe_splash') {
-          this.fxPop(ring, up.x, up.y, radiusPx * 1.9, { from: 0.2, dur: 700, spin: -160, alpha: 0.85 });
+          this.fxPop(ring, up.x, up.y, Math.min(radiusPx * 1.4, 140 * this.mapScale), { from: 0.2, dur: 560, spin: -160, alpha: 0.5 });
           inRange.forEach((e, k) => {
             const ep = this.toScreen(e.x, e.y);
             this.fxPop(burst, ep.x, ep.y, 84 * this.mapScale, { from: 0.25, dur: 560, delay: 180 + k * 70 });
           });
         } else {
-          this.fxPop('fx_chuoi_sinh', up.x, up.y, radiusPx * 1.15, { from: 0.2, dur: 900, spin: 140, alpha: 0.8 });
+          this.fxPop('fx_chuoi_sinh', up.x, up.y, Math.min(radiusPx * 1.1, 120 * this.mapScale), { from: 0.2, dur: 700, spin: 140, alpha: 0.5 });
           this.fxPop(ring, up.x, up.y, 90 * this.mapScale, { from: 0.3, dur: 600, delay: 150 });
         }
 
@@ -2014,7 +2014,6 @@ export class TdStageScene extends Phaser.Scene {
           this.spawnDustBurst(up.x, up.y, 0xffe066, this.reduceMotion ? 5 : 14);
         }
 
-        this.spawnFloatingLabel(up.x, up.y - 32 * this.mapScale, `★ ${ultTitle}!`, '#ffe066', 17, true);
         this.showUltimateCastBanner(ultTitle, role, el);
       } else if (ev.type === 'wave_clear') {
         this.spawnFloatingLabel(
@@ -2757,7 +2756,7 @@ export class TdStageScene extends Phaser.Scene {
       aoe_splash: 'Nổ cả tầm ×2,5 + Đốt 4 giây!',
       support_buff: 'Đồng đội quanh đây +60% tốc độ!',
     };
-    this.bossBannerTimer = 2.2;
+    this.bossBannerTimer = 1.5;
     this.bossBannerRoot.innerHTML = `
       <div
         class="td-boss-shift-banner td-ult-cast-banner ${this.reduceMotion ? 'no-anim' : ''}"
@@ -3669,7 +3668,8 @@ export class TdStageScene extends Phaser.Scene {
           this.floatingUltEls.set(tower.padId, btn);
         }
 
-        const sp = this.toScreen(tower.x, tower.y - 29);
+        // Nút chiêu nhỏ ở góc trên-phải món, không che đường quái đi (anh Kha 25/11: chiêu che mất quái)
+        const sp = this.toScreen(tower.x + 15, tower.y - 17);
         const clampedY = Math.max(66, sp.y);
         btn.style.left = `${Math.round(sp.x)}px`;
         btn.style.top = `${Math.round(clampedY)}px`;
@@ -3683,7 +3683,7 @@ export class TdStageScene extends Phaser.Scene {
           if (isReady) {
             btn.className = `td-floating-ult-btn ready ${this.reduceMotion ? 'no-anim' : ''}`;
             btn.disabled = false;
-            btn.innerHTML = `<span class="td-fult-star">★</span><span class="td-fult-txt">CHIÊU</span>`;
+            btn.innerHTML = `<span class="td-fult-star">★</span>`;
           } else {
             const circum = 69.12; // 2 * PI * 11
             const offset = (circum * (1 - ratio)).toFixed(1);
