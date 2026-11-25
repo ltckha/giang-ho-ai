@@ -155,12 +155,18 @@ export class TowerDefenseEngine {
     }
 
     let bonusEssence = 0;
+    // Gọi đợt mới khi đợt cũ chưa dọn xong: trả luôn thưởng dọn đợt cũ (trước đây mất — đánh giá độc lập V6)
+    if (this.waveInProgress && this.currentWaveIndex >= 0) {
+      bonusEssence += this.stage.waves[this.currentWaveIndex]?.clearReward ?? 0;
+      this.essence += this.stage.waves[this.currentWaveIndex]?.clearReward ?? 0;
+    }
     if (isEarlyCall && (this.waveInProgress || this.nextWaveCountdownSec > 0)) {
       const factor = this.waveInProgress
         ? 1.0
         : Math.min(1, Math.max(0.25, this.nextWaveCountdownSec / 8));
-      bonusEssence = Math.max(4, Math.round(waveDef.earlyBonusMax * factor * (1 + (this.vehicle?.passive.earlyBonusPct ?? 0))));
-      this.essence += bonusEssence;
+      const early = Math.max(4, Math.round(waveDef.earlyBonusMax * factor * (1 + (this.vehicle?.passive.earlyBonusPct ?? 0))));
+      bonusEssence += early;
+      this.essence += early;
     }
 
     this.currentWaveIndex = nextIdx;
@@ -271,16 +277,9 @@ export class TowerDefenseEngine {
   }
 
   public recalculateSupportBuffs(): void {
-    // Ngũ Hành Tương Sinh Trận: khi người chơi phối hợp đủ 5 hệ quân trên sân và có Thổ Trấn Khôi ở tâm trận (pad_4),
-    // toàn bộ quân nhận cộng hưởng Ngũ Hành (+34% công & +24% tốc đánh).
-    const activeElements = new Set(this.towers.filter((t) => t.disruptedRemaining <= 0).map((t) => t.element));
-    const hasCentralEarthAnchor = this.towers.some(
-      (t) =>
-        ALL_TOWER_DEFINITIONS[t.defId].role === 'support_buff' &&
-        t.disruptedRemaining <= 0 &&
-        t.padId === 'pad_4',
-    );
-    const fiveElementHarmony = activeElements.size >= 5 && hasCentralEarthAnchor;
+    // Đánh giá độc lập 25/11 (V4): bỏ luật ẩn cũ "món hỗ trợ ở đúng ô pad_4 + đủ 5 hành → +34% sức, +24% tốc"
+    // (không nơi nào nói cho người chơi, ô pad_4 mỗi màn một chỗ). Thưởng 5 hành công khai là "Ngũ hành viên mãn" theo chuỗi.
+    const fiveElementHarmony = false;
 
     for (const tower of this.towers) {
       tower.buffDamageMultiplier = fiveElementHarmony ? 1.34 : 1;

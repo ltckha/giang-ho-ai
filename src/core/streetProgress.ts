@@ -1,6 +1,7 @@
 /**
  * Tiến độ phố thật (Claude): mỗi phố = các màn tiệm (theo thứ tự) + 1 màn phố (trùm).
- * - Phố thật mở khi thắng Trận trùm phố đầu (huy hiệu "giu_tron_pho").
+ * - Phố thật mở khi giữ xong 3 tiệm Phố Dốc (anh Kha chốt 25/11 sau đánh giá độc lập: Trùm Phố Dốc chặn người mới,
+ *   nay thành thử thách phụ có thưởng — huy hiệu "giu_tron_pho" + đồ Hàng hiệu). Ai đã có huy hiệu vẫn mở như cũ.
  * - Tiệm 1 mở cùng phố; tiệm k mở khi đã thắng tiệm k-1.
  * - Màn phố (trùm) mở khi đã giữ được nửa số tiệm (8 tiệm → 4, 9–10 tiệm → 5) — anh Kha chốt 25/11;
  *   các tiệm còn lại thành màn phụ kiếm thêm sao / đồ / xe.
@@ -10,7 +11,8 @@ import { REAL_STREET_SHOPS, STAGES } from './tdDefinitions';
 import type { StageId, TdSaveData } from './types';
 
 export function realStreetsOpen(save: TdSaveData): boolean {
-  return (save.badges ?? []).includes('giu_tron_pho');
+  if ((save.badges ?? []).includes('giu_tron_pho')) return true;
+  return (['stage_1', 'stage_2', 'stage_3'] as const).every((id) => (save.starsByStage[id] ?? 0) > 0);
 }
 
 /** Số tiệm cần giữ để mở màn trùm phố */

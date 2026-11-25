@@ -60,6 +60,8 @@ import { TutorialOverlayView } from '../game/tutorialOverlay';
 
 const LOGICAL_WIDTH = 360;
 const LOGICAL_HEIGHT = 480;
+/** Bước tính trận cố định (giây) — cùng với máy tự chơi / máy đo độ khó (liveBot SIM_STEP) */
+const SIM_STEP = 1 / 60;
 const STAGE2_LOGICAL_HEIGHT = 520;
 const FIVE_EL_COLORS = [0xcbd5e1, 0x38bdf8, 0x59c173, 0xef4444, 0xd97706] as const;
 
@@ -350,6 +352,7 @@ export class TdStageScene extends Phaser.Scene {
   }
 
   private lastCounterFxMs = 0;
+  private simAcc = 0;
   private lastCounterLabelMs = -1000;
 
   /** Hiệu ứng chiêu xe (Spark đợt 31): hình lớn giữa sân + nhỏ trên từng quái + tên chiêu */
@@ -390,6 +393,7 @@ export class TdStageScene extends Phaser.Scene {
   private hardMode = false;
 
   public create(data?: { stageId?: StageId; forceTutorial?: boolean; loadout?: TowerId[]; live?: LiveStageData; hard?: boolean }): void {
+    this.simAcc = 0;
     this.hardMode = Boolean(data?.hard);
     // Chọn màn: từ nút ở màn hình đầu, hoặc thêm ?stage=2 / ?stage=3 / ?stage=4 vào link (để thử / quay video)
     const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
@@ -539,13 +543,16 @@ export class TdStageScene extends Phaser.Scene {
       this.startTutorial();
     }
 
-    this.scale.on('resize', () => {
+    const onResize = () => {
       this.computeViewportTransform();
       this.layoutMapImage();
       this.syncAllSpritePositions();
       this.refreshHud();
       this.syncTutorialOverlay();
-    });
+    };
+    this.scale.on('resize', onResize);
+    // gỡ khi rời màn (đánh giá độc lập T9: mỗi lần vào màn gắn thêm 1 bộ nghe)
+    this.events.once('shutdown', () => this.scale.off('resize', onResize));
 
     this.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
       this.handleCanvasTap(pointer.x, pointer.y);
@@ -857,12 +864,16 @@ export class TdStageScene extends Phaser.Scene {
         }
       }
     }
-    const subSteps = Math.max(1, Math.ceil(simDt / 0.05));
-    const stepDt = simDt / subSteps;
-    for (let i = 0; i < subSteps; i += 1) {
-      const events = this.engine.step(stepDt);
+    // Bước tính cố định 1/60 giây (đánh giá độc lập V5): máy 30 / 60 / 120 Hz chơi ra cùng một kết quả
+    this.simAcc += simDt;
+    let n = 0;
+    while (this.simAcc >= SIM_STEP && n < 60) {
+      const events = this.engine.step(SIM_STEP);
       this.processCombatEvents(events);
+      this.simAcc -= SIM_STEP;
+      n += 1;
     }
+    if (n >= 60) this.simAcc = 0;
   }
 
   public update(_time: number, deltaMs: number): void {
@@ -2543,6 +2554,36 @@ export class TdStageScene extends Phaser.Scene {
     const og = this.overlayGraphics;
     og.clear();
 
+    // Trước đợt 1: đường quái đi sáng nhấp nháy + chấm chạy dọc đường cho người mới thấy rõ lối (đánh giá độc lập V11)
+    if (this.engine.currentWaveIndex < 0 && this.engine.status === 'playing') {
+      const a = 0.35 + 0.25 * Math.sin(this.animTimeSec * 4);
+      for (const path of this.engine.stage.paths) {
+        og.lineStyle(10 * this.mapScale, 0xffe8a0, a);
+        og.beginPath();
+        path.forEach((pt, i) => {
+          const sp = this.toScreen(pt.x, pt.y);
+          if (i === 0) og.moveTo(sp.x, sp.y);
+          else og.lineTo(sp.x, sp.y);
+        });
+        og.strokePath();
+        // chấm chạy từ cửa vào tới quầy
+        let total = 0;
+        const segs = path.slice(1).map((pt, i) => { const p0 = path[i]!; const L = Math.hypot(pt.x - p0.x, pt.y - p0.y); total += L; return { p0, pt, L }; });
+        for (let k = 0; k < 4; k++) {
+          let d = ((this.animTimeSec * 90 + (k * total) / 4) % total);
+          for (const sg of segs) {
+            if (d <= sg.L) {
+              const sp = this.toScreen(sg.p0.x + ((sg.pt.x - sg.p0.x) * d) / sg.L, sg.p0.y + ((sg.pt.y - sg.p0.y) * d) / sg.L);
+              og.fillStyle(0xfff3c4, 0.95);
+              og.fillCircle(sp.x, sp.y, 4.5 * this.mapScale);
+              break;
+            }
+            d -= sg.L;
+          }
+        }
+      }
+    }
+
     // 1. Khung nhấn ô đặt món & tầm bắn của món đang chọn
     for (const pad of this.engine.stage.pads) {
       const sp = this.toScreen(pad.x, pad.y);
@@ -4029,7 +4070,7 @@ export class TdStageScene extends Phaser.Scene {
           </div>
           ${upgradeSectionHtml}
           <button class="td-sell-btn" id="btn-sell-tower" data-testid="btn-sell-tower">
-            <img class="td-ui-ico-sm" src="./assets/ui/ui_ban_mon.webp" alt="" /> +${refund}
+            <img class="td-ui-ico-sm" src="./assets/ui/ui_ban_mon.webp" alt="" /> Bán +${refund}
           </button>
         </div>
       `;
@@ -4078,7 +4119,17 @@ export class TdStageScene extends Phaser.Scene {
         }
       });
 
-      this.modalRoot.querySelector('#btn-sell-tower')?.addEventListener('click', () => {
+      // Bấm lần 1 hỏi lại, lần 2 mới bán (đánh giá độc lập V9: người mới tưởng là "nhận xu")
+      let sellArmed = false;
+      this.modalRoot.querySelector('#btn-sell-tower')?.addEventListener('click', (ev) => {
+        const btn = ev.currentTarget as HTMLButtonElement;
+        if (!sellArmed) {
+          sellArmed = true;
+          btn.classList.add('armed');
+          btn.innerHTML = `Bấm lần nữa để bán (+${refund})`;
+          window.setTimeout(() => { sellArmed = false; if (btn.isConnected) { btn.classList.remove('armed'); btn.innerHTML = `<img class="td-ui-ico-sm" src="./assets/ui/ui_ban_mon.webp" alt="" /> Bán +${refund}`; } }, 3000);
+          return;
+        }
         const got = this.engine.sellTower(padId);
         if (got > 0) {
           sound.playSell();
@@ -4171,8 +4222,8 @@ export class TdStageScene extends Phaser.Scene {
     const descText = isWin
       ? `${stageName} • ${this.engine.getTotalWaves()} đợt • còn lành ${this.engine.lives}/${this.engine.maxLives} ${unitLabel}`
       : isStage4 || isRealStreet
-        ? '💡 Chọn món khắc hành quái + ghép chuỗi tương sinh'
-        : '💡 Xem hành đợt sắp tới, đặt món khắc chế'
+        ? '💡 Mở 🎒 mặc đồ mới · chọn món khắc hành quái'
+        : '💡 Đặt món gần cửa quái vào · mở 🎒 mặc đồ mới'
     ;
 
     const badgeIconUrl = getAtlasFrameDataUrl(this, 'icon_badge_giu_tron_pho');
@@ -4183,7 +4234,7 @@ export class TdStageScene extends Phaser.Scene {
             ${badgeIconUrl ? `<img class="td-result-badge-ico" src="${badgeIconUrl}" alt="Giữ trọn phố" />` : `<span aria-hidden="true">🏆</span>`}
             <div class="td-result-badge-text">
               <strong>Huy hiệu vàng: Giữ trọn phố</strong>
-              <span>Đã mở 2 Phố Thật trên Bản đồ Đà Lạt • Rơi chắc chắn 1 món Hàng hiệu ★</span>
+              <span>Huy hiệu Giữ trọn phố • Rơi chắc chắn 1 món Hàng hiệu ★</span>
             </div>
           </div>
         `
@@ -4281,7 +4332,8 @@ export class TdStageScene extends Phaser.Scene {
     const curStage = this.engine.stage;
     const streetShops = curStage.streetId ? REAL_STREET_SHOPS[curStage.streetId] ?? [] : [];
     // Phố Dốc cũng nối thẳng Màn 1 → 2 → 3 → Trùm (Antigravity rà 24/11)
-    const PHO_DOC_NEXT: Record<string, StageId> = { stage_1: 'stage_2', stage_2: 'stage_3', stage_3: 'stage_4' };
+    // Giữ xong 3 tiệm là mở phố Đà Lạt (anh Kha 25/11): thắng Tiệm Hoa → mời vào tiệm đầu phố thật; Trùm Phố Dốc thành thử thách phụ
+    const PHO_DOC_NEXT: Record<string, StageId> = { stage_1: 'stage_2', stage_2: 'stage_3' };
     // Vừa đủ số tiệm mở trùm (nửa số tiệm) mà chưa thắng trùm → mời ra phố đánh trùm luôn
     const bossNow =
       isWin && curStage.shopIndex && curStage.streetId && !this.liveMode
@@ -4294,7 +4346,7 @@ export class TdStageScene extends Phaser.Scene {
         : undefined;
     // Thắng Trùm Phố Dốc / trùm 1 phố → mời vào tiệm kế tiếp chưa giữ (kiểm tra thực tế 24/11: trước đây chỉ có Chơi lại / Về)
     const nextOpenShop =
-      isWin && !this.liveMode && (isStage4 || (isRealStreet && !curStage.shopIndex))
+      isWin && !this.liveMode && (isStage4 || curStage.id === 'stage_3' || (isRealStreet && !curStage.shopIndex))
         ? (() => {
             const sv = loadTdSave();
             for (const street of REAL_STREET_STAGES) {
@@ -4546,7 +4598,7 @@ export class TdStageScene extends Phaser.Scene {
 
     this.pauseMenuRoot.querySelector('#btn-pause-restart')?.addEventListener('click', () => {
       sound.playUiClick();
-      this.scene.restart({ stageId: this.engine.stage.id });
+      this.scene.restart({ stageId: this.engine.stage.id, hard: this.hardMode }); // giữ chế độ ★ Khó (đánh giá độc lập V14)
     });
 
     this.pauseMenuRoot.querySelector('#btn-pause-title')?.addEventListener('click', () => {

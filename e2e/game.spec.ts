@@ -1225,7 +1225,7 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
     // 1. Khi mới chơi: Trùm Phố khóa & các Phố Thật trên bản đồ Đà Lạt khóa
     await page.goto('/');
     await expect(page.getByTestId('btn-start-stage-4')).toBeDisabled();
-    await expect(page.getByTestId('real-streets-status')).toContainText('Thắng Trùm Phố để mở');
+    await expect(page.getByTestId('real-streets-status')).toContainText('Giữ 3 tiệm Phố Dốc để mở');
     await veBanDo(page);
     await page.getByTestId('real-street-pin-street_pho_ca_phe').click();
     await expect(page.getByTestId('btn-start-street_pho_ca_phe')).toBeDisabled();
@@ -1248,6 +1248,8 @@ test.describe('Gọn Phố — Kiểm thử trình duyệt (Điện thoại cầ
       );
     });
     await page.goto('/');
+    // Giữ xong 3 tiệm là phố Đà Lạt đã mở → màn chính là bản đồ; vào trang Phố Dốc để chọn Trùm (thử thách phụ)
+    await page.getByTestId('street-tab-doc').click();
     const startStage4 = page.getByTestId('btn-start-stage-4');
     await expect(startStage4).toBeEnabled();
     await startStage4.scrollIntoViewIfNeeded();

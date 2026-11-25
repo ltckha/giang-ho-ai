@@ -119,29 +119,58 @@ export function codeFromLocation(): string | null {
 export type ImportResult = { ok: true; keys: number } | { ok: false; reason: 'format' | 'broken' | 'empty' };
 
 /** Đọc mã; chỉ ghi khi mã hợp lệ (ghi đè tiến độ máy này) */
-export async function importSaveCode(raw: string): Promise<ImportResult> {
+/** Giải mã lưu → các khoá tiến độ (không ghi vào máy). null nếu sai / hỏng */
+export async function decodeSaveCode(raw: string): Promise<Record<string, string> | null> {
   const code = raw.replace(/\s+/g, '');
-  if (!code.startsWith(PREFIX)) return { ok: false, reason: 'format' };
+  if (!code.startsWith(PREFIX)) return null;
   const rest = code.slice(PREFIX.length);
   const dot = rest.lastIndexOf('.');
-  if (dot < 2) return { ok: false, reason: 'format' };
+  if (dot < 2) return null;
   const body = rest.slice(0, dot);
-  if (check(body) !== rest.slice(dot + 1)) return { ok: false, reason: 'broken' };
+  if (check(body) !== rest.slice(dot + 1)) return null;
   try {
     let bytes = fromB64url(body.slice(1));
     if (body[0] === 'z') {
-      if (!canZip) return { ok: false, reason: 'broken' };
+      if (!canZip) return null;
       bytes = await pipe(bytes, new DecompressionStream('deflate-raw'));
     }
     const parsed = JSON.parse(new TextDecoder().decode(bytes)) as { v: number; d: Record<string, string> };
-    const entries = Object.entries(parsed.d ?? {}).filter(
-      ([k, v]) => typeof v === 'string' && (k === TD_SAVE_KEY || EXTRA_KEYS.includes(k) || k.startsWith(REAL_STREET_LOADOUT_PREFIX)),
-    );
-    if (!entries.some(([k]) => k === TD_SAVE_KEY)) return { ok: false, reason: 'empty' };
-    JSON.parse(parsed.d[TD_SAVE_KEY]!); // tiến độ chính phải đọc được
-    for (const k of progressKeys()) localStorage.removeItem(k);
-    for (const [k, v] of entries) localStorage.setItem(k, v);
-    return { ok: true, keys: entries.length };
+    const out: Record<string, string> = {};
+    for (const [k, v] of Object.entries(parsed.d ?? {})) {
+      if (typeof v === 'string' && (k === TD_SAVE_KEY || EXTRA_KEYS.includes(k) || k.startsWith(REAL_STREET_LOADOUT_PREFIX))) out[k] = v;
+    }
+    if (!out[TD_SAVE_KEY]) return null;
+    JSON.parse(out[TD_SAVE_KEY]); // tiến độ chính phải đọc được
+    return out;
+  } catch {
+    return null;
+  }
+}
+
+/** Các khoá tiến độ đang có trên máy */
+export function readLocalSaveMap(): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const k of progressKeys()) {
+    const v = localStorage.getItem(k);
+    if (v !== null) out[k] = v;
+  }
+  return out;
+}
+
+/** Thay toàn bộ tiến độ trên máy bằng bộ khoá này */
+export function writeLocalSaveMap(map: Record<string, string>): void {
+  for (const k of progressKeys()) localStorage.removeItem(k);
+  for (const [k, v] of Object.entries(map)) localStorage.setItem(k, v);
+}
+
+export async function importSaveCode(raw: string): Promise<ImportResult> {
+  const code = raw.replace(/\s+/g, '');
+  if (!code.startsWith(PREFIX)) return { ok: false, reason: 'format' };
+  const map = await decodeSaveCode(code);
+  if (!map) return { ok: false, reason: 'broken' };
+  try {
+    writeLocalSaveMap(map);
+    return { ok: true, keys: Object.keys(map).length };
   } catch {
     return { ok: false, reason: 'broken' };
   }

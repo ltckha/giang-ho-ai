@@ -42,6 +42,8 @@ export interface EngineOptions {
 
 /** Giây (trong game) giữa 2 lần máy "nghĩ" — như người bấm */
 export let LIVE_THINK_SEC = 0.8;
+/** Bước tính trận cố định, giống trong game (TdStageScene) — đánh giá độc lập V5 */
+export const SIM_STEP = 1 / 60;
 export function setLiveThinkSec(s: number) { LIVE_THINK_SEC = s; }
 
 function rng(seed: number) {
@@ -148,8 +150,8 @@ export function simulatePlan(stage: StageDefinition, opts: EngineOptions, plan: 
       liveBotAct(e, plan);
       nextThink = t + LIVE_THINK_SEC;
     }
-    e.step(0.05);
-    t += 0.05;
+    e.step(SIM_STEP);
+    t += SIM_STEP;
   }
   return { status: e.status, lives: e.lives, maxLives: e.maxLives, timeSec: t };
 }

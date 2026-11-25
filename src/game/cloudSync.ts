@@ -6,7 +6,8 @@
  * - App sau này (gói từ bản web) gọi cùng máy chủ qua API_BASE.
  * Không giữ thông tin cá nhân. Máy chủ chưa bật / mất mạng: game vẫn chơi bình thường, chỉ tạm không đồng bộ.
  */
-import { exportSaveCode, importSaveCode } from './saveCode';
+import { decodeSaveCode, exportSaveCode, readLocalSaveMap, writeLocalSaveMap } from './saveCode';
+import { mergeSaveMaps } from './saveMerge';
 
 const KEY = 'gonpho_khoa';
 const SYNCED_T = 'gonpho_khoa_t';
@@ -72,24 +73,48 @@ export function lastSyncedAt(): number {
 
 export type SyncResult = 'ok' | 'off' | 'loi';
 
-/** Gửi tiến độ máy này lên */
+/** Gộp bản trên máy chủ vào máy này (không đè). Trả về có thay đổi gì trên máy này không */
+async function mergeRemote(data: string): Promise<boolean | null> {
+  const remote = await decodeSaveCode(data);
+  if (!remote) return null;
+  const { merged, changed } = mergeSaveMaps(readLocalSaveMap(), remote);
+  if (changed) writeLocalSaveMap(merged);
+  return changed;
+}
+
+/**
+ * Gửi tiến độ máy này lên (đánh giá độc lập 25/11, C1+C2): kèm "base" = giờ máy chủ của lần đồng bộ trước.
+ * Máy chủ có bản khác (máy khác vừa chơi) → 409 kèm bản đó → gộp vào máy này rồi gửi lại 1 lần. Không bao giờ đè bản lạ.
+ */
 export async function pushProgress(): Promise<SyncResult> {
   const k = getSyncKey();
   if (!k) return 'off';
   try {
-    const t = Date.now();
-    const data = await exportSaveCode();
-    const r = await fetch(`${apiBase()}/api/luu?k=${k}`, { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ t, data }) });
-    if (r.status === 503 || r.status === 404) return 'off';
-    if (!r.ok) return 'loi';
-    lsSet(SYNCED_T, String(t));
-    return 'ok';
+    for (let attempt = 0; attempt < 2; attempt++) {
+      const data = await exportSaveCode();
+      const r = await fetch(`${apiBase()}/api/luu?k=${k}`, { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ base: lastSyncedAt(), data }) });
+      if (r.status === 503 || r.status === 404) return 'off';
+      if (r.status === 409) {
+        const cur = (await r.json()) as { t: number; data: string };
+        if ((await mergeRemote(cur.data)) === null) return 'loi';
+        lsSet(SYNCED_T, String(cur.t));
+        continue;
+      }
+      if (!r.ok) return 'loi';
+      const ok = (await r.json()) as { t?: number };
+      if (typeof ok.t === 'number') lsSet(SYNCED_T, String(ok.t));
+      return 'ok';
+    }
+    return 'loi';
   } catch {
     return 'loi';
   }
 }
 
-/** Tải bản trên máy chủ nếu mới hơn lần đồng bộ trước (force: lấy luôn, dùng khi vừa quét QR) */
+/**
+ * Lấy bản trên máy chủ. force (vừa quét QR, anh đã đồng ý thay): thay hẳn tiến độ máy này.
+ * Bình thường: có bản mới hơn lần đồng bộ trước thì GỘP vào máy này.
+ */
 export async function pullProgress(force = false): Promise<'applied' | 'same' | 'none' | SyncResult> {
   const k = getSyncKey();
   if (!k) return 'off';
@@ -99,11 +124,18 @@ export async function pullProgress(force = false): Promise<'applied' | 'same' | 
     if (r.status === 503) return 'off';
     if (!r.ok) return 'loi';
     const body = (await r.json()) as { t: number; data: string };
-    if (!force && body.t <= lastSyncedAt()) return 'same';
-    const res = await importSaveCode(body.data);
-    if (!res.ok) return 'loi';
+    if (force) {
+      const remote = await decodeSaveCode(body.data);
+      if (!remote) return 'loi';
+      writeLocalSaveMap(remote);
+      lsSet(SYNCED_T, String(body.t));
+      return 'applied';
+    }
+    if (body.t === lastSyncedAt()) return 'same';
+    const changed = await mergeRemote(body.data);
+    if (changed === null) return 'loi';
     lsSet(SYNCED_T, String(body.t));
-    return 'applied';
+    return changed ? 'applied' : 'same';
   } catch {
     return 'loi';
   }

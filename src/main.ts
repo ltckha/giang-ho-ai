@@ -33,3 +33,13 @@ if (typeof window !== 'undefined') {
     sound,
   };
 }
+
+// Lưu sẵn game để chơi không cần mạng (chuyển từ index.html sang đây để bật được chính sách chặn mã chèn — đánh giá độc lập C3/T12).
+// Bỏ qua khi chạy thử tự động (trừ khi có ?sw=1); chờ 20 giây sau khi mở để không giành mạng lúc mở.
+if ('serviceWorker' in navigator && location.port !== '5173' && (!navigator.webdriver || location.search.indexOf('sw=1') >= 0)) {
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    }, 20000);
+  });
+}

@@ -35,12 +35,6 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Gọn Phố" />
-    <script>
-      // Claude: lưu sẵn game để chơi không cần mạng (bỏ qua khi chạy thử tự động, trừ khi có ?sw=1)
-      if ('serviceWorker' in navigator && location.port !== '5173' && (!navigator.webdriver || location.search.indexOf('sw=1') >= 0)) {
-        window.addEventListener('load', function () { setTimeout(function () { navigator.serviceWorker.register('./sw.js').catch(function () {}); }, 20000); }); // chờ 20 giây sau khi mở game mới lưu sẵn để không giành mạng lúc mở
-      }
-    </script>
     <style>
       * {
         box-sizing: border-box;

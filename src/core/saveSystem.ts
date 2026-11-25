@@ -23,36 +23,63 @@ export function createDefaultTdSave(): TdSaveData {
   };
 }
 
+const ID_RE = /^[a-z0-9_]{1,64}$/;
+const ids = (v: unknown): string[] | undefined => (Array.isArray(v) ? v.filter((x): x is string => typeof x === 'string' && ID_RE.test(x)) : undefined);
+function numRec(v: unknown, min: number, max: number): Record<string, number> {
+  const out: Record<string, number> = {};
+  if (v && typeof v === 'object') for (const [k, n] of Object.entries(v as Record<string, unknown>)) if (ID_RE.test(k) && typeof n === 'number' && n >= min && n <= max) out[k] = Math.round(n);
+  return out;
+}
+
+/**
+ * Đọc tiến độ. Đánh giá độc lập 25/11 (C3, V3): kiểm TỪNG phần — phần nào hỏng thì bỏ phần đó (món đồ hỏng bỏ món đó),
+ * không bao giờ đổi cả bản lưu về mặc định chỉ vì 1 chỗ hỏng; mã màn / xe / huy hiệu chỉ nhận chữ thường, số, gạch dưới.
+ */
 export function loadTdSave(storage?: Pick<Storage, 'getItem'>): TdSaveData {
   const store = storage ?? (typeof window !== 'undefined' ? window.localStorage : undefined);
   if (!store) return createDefaultTdSave();
-
+  let parsed: Partial<TdSaveData>;
   try {
     const raw = store.getItem(TD_SAVE_KEY);
     if (!raw) return createDefaultTdSave();
-    const parsed = JSON.parse(raw) as Partial<TdSaveData>;
-    if (parsed.version !== 1) return createDefaultTdSave();
-    return {
-      version: 1,
-      unlockedStage:
-        parsed.unlockedStage === 2 || parsed.unlockedStage === 3 || parsed.unlockedStage === 4 ? parsed.unlockedStage : 1,
-      starsByStage: parsed.starsByStage ?? {},
-      bestLivesByStage: parsed.bestLivesByStage ?? {},
-      tutorialDone: parsed.tutorialDone === true,
-      badges: Array.isArray(parsed.badges) ? parsed.badges : [],
-      streetLoadout: Array.isArray(parsed.streetLoadout) ? parsed.streetLoadout : undefined,
-      vehicles: Array.isArray(parsed.vehicles) ? parsed.vehicles : ['di_bo'],
-      vehicle: typeof parsed.vehicle === 'string' ? parsed.vehicle : 'di_bo',
-      gearInventory: Array.isArray(parsed.gearInventory)
-        ? parsed.gearInventory.map(migrateGearItem).filter((x): x is GearItem => x !== null)
-        : starterGear(),
-      gearEquipped: parsed.gearEquipped ?? (Array.isArray(parsed.gearInventory) ? {} : { hat: 'starter_hat', glasses: 'starter_glasses' }),
-      hardStarsByStage: parsed.hardStarsByStage && typeof parsed.hardStarsByStage === 'object' ? parsed.hardStarsByStage : {},
-      updatedAt: typeof parsed.updatedAt === 'number' ? parsed.updatedAt : Date.now(),
-    };
+    parsed = JSON.parse(raw) as Partial<TdSaveData>;
+    if (!parsed || typeof parsed !== 'object' || parsed.version !== 1) return createDefaultTdSave();
   } catch {
     return createDefaultTdSave();
   }
+  const safe = <T,>(f: () => T, fb: T): T => {
+    try {
+      return f();
+    } catch {
+      return fb;
+    }
+  };
+  const inv = safe(
+    () => (Array.isArray(parsed.gearInventory) ? parsed.gearInventory.map((x) => safe(() => migrateGearItem(x), null)).filter((x): x is GearItem => x !== null) : starterGear()),
+    starterGear(),
+  );
+  const equipped = safe(() => {
+    const src = parsed.gearEquipped ?? (Array.isArray(parsed.gearInventory) ? {} : { hat: 'starter_hat', glasses: 'starter_glasses' });
+    const out: Record<string, string> = {};
+    for (const [slot, uid] of Object.entries(src)) if (ID_RE.test(slot) && typeof uid === 'string' && inv.some((g) => g.uid === uid)) out[slot] = uid;
+    return out;
+  }, {});
+  const vehicle = typeof parsed.vehicle === 'string' && ID_RE.test(parsed.vehicle) ? parsed.vehicle : 'di_bo';
+  return {
+    version: 1,
+    unlockedStage: parsed.unlockedStage === 2 || parsed.unlockedStage === 3 || parsed.unlockedStage === 4 ? parsed.unlockedStage : 1,
+    starsByStage: safe(() => numRec(parsed.starsByStage, 1, 3), {}) as TdSaveData['starsByStage'],
+    bestLivesByStage: safe(() => numRec(parsed.bestLivesByStage, 0, 999), {}) as TdSaveData['bestLivesByStage'],
+    tutorialDone: parsed.tutorialDone === true,
+    badges: safe(() => ids(parsed.badges) ?? [], []),
+    streetLoadout: safe(() => ids(parsed.streetLoadout) as TdSaveData['streetLoadout'], undefined),
+    vehicles: safe(() => ids(parsed.vehicles) ?? ['di_bo'], ['di_bo']),
+    vehicle,
+    gearInventory: inv,
+    gearEquipped: equipped as TdSaveData['gearEquipped'],
+    hardStarsByStage: safe(() => numRec(parsed.hardStarsByStage, 1, 3), {}),
+    updatedAt: typeof parsed.updatedAt === 'number' && Number.isFinite(parsed.updatedAt) ? parsed.updatedAt : Date.now(),
+  };
 }
 
 export function saveTdProgress(
@@ -177,10 +204,22 @@ export function grantStageDrops(
     const el = ELS[Math.floor(rng() * ELS.length)]!;
     drops.push(makeGear(slot, el, 'hieu', `${prefix}_hieu`, rng));
   }
-  cur.gearInventory = [...(cur.gearInventory ?? []), ...drops];
+  cur.gearInventory = capInventory([...(cur.gearInventory ?? []), ...drops], cur.gearEquipped ?? {});
   cur.updatedAt = Date.now();
   writeSave(store, cur);
   return drops;
+}
+
+/** Túi đồ tối đa 200 món (đánh giá độc lập V2): đầy thì bỏ món yếu nhất không đang mặc */
+export const MAX_INVENTORY = 200;
+const RARITY_RANK: Record<string, number> = { thuong: 0, tot: 1, xin: 2, hieu: 3 };
+export function capInventory(inv: GearItem[], equipped: Partial<Record<string, string>>): GearItem[] {
+  if (inv.length <= MAX_INVENTORY) return inv;
+  const worn = new Set(Object.values(equipped));
+  const power = (g: GearItem) => RARITY_RANK[g.rarity]! * 1000 + g.visible.reduce((a, v) => a + Math.abs(v.value), 0);
+  const drop = inv.filter((g) => !worn.has(g.uid)).sort((a, b) => power(a) - power(b)).slice(0, inv.length - MAX_INVENTORY);
+  const gone = new Set(drop.map((g) => g.uid));
+  return inv.filter((g) => !gone.has(g.uid));
 }
 
 /** Hướng dẫn chơi lần đầu: chỉ hiện khi chưa xem và chưa từng thắng màn nào */

@@ -474,21 +474,41 @@ export function starterGear(): GearItem[] {
   return [makeGearItem('hat', 'moc', 'tot', 'starter_hat', rng), makeGearItem('glasses', 'hoa', 'tot', 'starter_glasses', rng)];
 }
 
-/** Đổi đồ bản cũ (main + hidden) sang bản mới (visible + hidden) */
+const SAFE_ID = /^[A-Za-z0-9_-]{1,48}$/;
+function cleanStats(raw: unknown): GearStat[] {
+  if (!Array.isArray(raw)) return [];
+  return raw
+    .filter((x): x is GearStat => !!x && typeof x === 'object' && (x as GearStat).kind in STAT_NAME && Number.isFinite((x as GearStat).value))
+    .slice(0, 4)
+    .map((x) => ({ kind: x.kind, value: Math.max(-1000, Math.min(1000, x.value)) }));
+}
+
+/**
+ * Đọc 1 món đồ từ bản lưu (cả bản cũ main + hidden). Đánh giá độc lập 25/11 (C3): KHÔNG tin dữ liệu trong bản lưu —
+ * ô, hành, hạng, loại chỉ số phải nằm trong danh sách cho phép; tên món tạo lại từ bảng tên (không lấy chữ trong bản lưu),
+ * mã món chỉ gồm chữ / số / gạch. Món hỏng → bỏ món đó, không làm hỏng cả bản lưu.
+ */
 export function migrateGearItem(raw: unknown): GearItem | null {
   const it = raw as Partial<GearItem> & { main?: GearStat; rarity?: string };
-  if (!it || !it.slot || !it.element || !it.uid) return null;
-  if (Array.isArray(it.visible)) return it as GearItem;
+  if (!it || typeof it !== 'object') return null;
+  const slot = it.slot as GearSlotId;
+  if (!GEAR_SLOTS.some((g) => g.id === slot)) return null;
+  if (!ALL_ELEMENTS.includes(it.element as ElementType)) return null;
+  if (typeof it.uid !== 'string' || !SAFE_ID.test(it.uid)) return null;
+  const element = it.element as ElementType;
   const oldR = String(it.rarity);
   const rarity: GearRarity = oldR === 'quy' || oldR === 'xin' ? 'xin' : oldR === 'hieu' ? 'hieu' : oldR === 'tot' ? 'tot' : 'thuong';
+  let visible = cleanStats(it.visible);
+  if (!visible.length) visible = it.main ? cleanStats([it.main]) : [];
+  if (!visible.length) visible = [{ kind: SLOT_MAIN[slot], value: statValue(SLOT_MAIN[slot], rarity) }];
   return {
     uid: it.uid,
-    slot: it.slot,
-    name: it.name ?? GEAR_NAMES[it.slot][it.element],
-    element: it.element,
+    slot,
+    name: rarity === 'hieu' ? LEGEND_NAMES[slot] : GEAR_NAMES[slot][element],
+    element,
     rarity,
-    visible: it.main ? [it.main] : [{ kind: SLOT_MAIN[it.slot], value: statValue(SLOT_MAIN[it.slot], rarity) }],
-    hidden: Array.isArray(it.hidden) ? it.hidden : [],
+    visible,
+    hidden: cleanStats(it.hidden),
   };
 }
 

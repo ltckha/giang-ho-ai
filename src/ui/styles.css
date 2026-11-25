@@ -4332,3 +4332,9 @@ button.td-gear-bag-pill { cursor: pointer; border: 2px solid #2b1a12; font: inhe
 @media (min-width: 900px) and (orientation: landscape) {
   .td-title-card { max-width: min(96vw, 1200px); }
 }
+.td-sell-btn.armed { background: #c92a2a !important; color: #fff !important; }
+/* Bảng thắng: danh sách đồ rơi tự cuộn, nút tiệm kế / chơi lại / về luôn thấy (đánh giá độc lập V10) */
+.td-result-modal { max-height: calc(100dvh - 20px); display: flex; flex-direction: column; }
+.td-result-modal .td-result-drops-box { max-height: 30vh; overflow-y: auto; flex: 0 1 auto; }
+/* Tạm ẩn bản đồ Việt Nam (anh Kha 25/11) — chờ người rành quy định bản đồ xem lại */
+#btn-open-country { display: none !important; }

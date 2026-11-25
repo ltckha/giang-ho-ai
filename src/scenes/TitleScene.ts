@@ -33,7 +33,7 @@ import {
   REAL_STREET_STAGES,
   STAGES,
 } from '../core/tdDefinitions';
-import { isStreetStageUnlocked, streetProgress } from '../core/streetProgress';
+import { isStreetStageUnlocked, realStreetsOpen, streetProgress } from '../core/streetProgress';
 import type { ElementType, EnemyId, StageDefinition, StageId, TowerId } from '../core/types';
 import {
   getAtlasFrameDataUrl,
@@ -149,7 +149,7 @@ export class TitleScene extends Phaser.Scene {
     const scannedKey = keyFromLocation();
     if (scannedKey) {
       history.replaceState(null, '', location.pathname + location.search);
-      if (scannedKey !== getSyncKey() && (!hasProgress() || window.confirm('Dùng QR chìa khoá này? Tiến độ trên máy này sẽ được thay bằng tiến độ của chìa khoá.'))) {
+      if (scannedKey !== getSyncKey() && window.confirm(hasProgress() ? 'Dùng QR chìa khoá này? Tiến độ trên máy này sẽ được thay bằng tiến độ của chìa khoá.' : 'Dùng QR chìa khoá này để lấy tiến độ? (chỉ dùng QR của chính bạn)')) {
         setSyncKey(scannedKey);
         void pullProgress(true).then((r) => {
           window.alert(r === 'applied' ? '✔ Đã lấy tiến độ — từ giờ tự đồng bộ!' : r === 'none' ? '✔ Đã nhận chìa khoá (chưa có tiến độ trên máy chủ).' : '⚠️ Chưa lấy được tiến độ (mạng / máy chủ). Thử lại sau.');
@@ -162,10 +162,12 @@ export class TitleScene extends Phaser.Scene {
       // Mở game: máy chủ có bản mới hơn (chơi ở máy khác) → tự tải về; rồi gửi bản máy này lên
       TitleScene.cloudPulled = true;
       void pullProgress().then((r) => {
+        // Chỉ gửi lên khi vừa đọc được máy chủ rõ ràng; mất mạng / lỗi thì KHÔNG gửi (đánh giá độc lập C1)
+        if (r === 'applied' || r === 'same' || r === 'none') void pushProgress();
         if (r === 'applied') {
           this.unmountOverlay();
           this.scene.restart();
-        } else void pushProgress();
+        }
       });
     } else if (getSyncKey()) {
       void pushProgress();
@@ -174,7 +176,8 @@ export class TitleScene extends Phaser.Scene {
     const linkCode = codeFromLocation();
     if (linkCode) {
       history.replaceState(null, '', location.pathname + location.search);
-      if (!hasProgress() || window.confirm('Chuyển tiến độ trong link vào máy này? (tiến độ đang có trên máy này sẽ được thay)')) {
+      // Luôn hỏi trước khi nạp link lưu (đánh giá độc lập C3)
+      if (window.confirm(hasProgress() ? 'Chuyển tiến độ trong link vào máy này? (tiến độ đang có trên máy này sẽ được thay)' : 'Nạp tiến độ từ link này? (chỉ dùng link của chính bạn)')) {
         void importSaveCode(linkCode).then((res) => {
           window.alert(res.ok ? '✔ Đã chuyển tiến độ — chơi tiếp nhé!' : '⚠️ Link lưu bị thiếu hoặc hỏng.');
           this.unmountOverlay();
@@ -302,7 +305,7 @@ export class TitleScene extends Phaser.Scene {
     const curHard = (loadTdSave().hardStarsByStage ?? {}) as Record<string, number>;
     const hasStreetChampionBadge =
       Boolean(save.badges?.includes('giu_tron_pho')) || (save.starsByStage.stage_4 ?? 0) > 0;
-    const isRealStreetsUnlocked = hasStreetChampionBadge || isBotBypass || ownerOpenAll;
+    const isRealStreetsUnlocked = realStreetsOpen(save) || isBotBypass || ownerOpenAll;
 
     const isUnlocked = (shop: ShopOnStreet): boolean =>
       isShopUnlocked(save, shop) || isBotBypass || ownerOpenAll || queryStage === String(shop.order);
@@ -914,16 +917,21 @@ export class TitleScene extends Phaser.Scene {
       const vw = host.clientWidth || 380;
       const vh = host.clientHeight || 640;
       // Phóng to / thu nhỏ (anh Kha 25/11): 2 ngón kéo giãn, con lăn chuột, nút + −
-      const sMin = Math.max(vw / w, vh / h);
+      const sMin = Math.max(vw / w, (vh / h) * 0.85);   // cho thu nhỏ thêm chút để thấy đủ các phố
       const sMax = Math.max(1.6, sMin * 2.5);
-      if (!mapView.s || Number.isNaN(mapView.x)) mapView.s = Math.min(sMax, Math.max(sMin, 0.8));
+      // Lúc mở: thu vừa đủ thấy cả các bảng tên phố (đánh giá độc lập V12: bảng nằm ngoài mép màn hình)
+      if (!mapView.s || Number.isNaN(mapView.x)) {
+        const xs = pins.map((pp) => (pp.at.leftPct / 100) * w), ys = pins.map((pp) => (pp.at.topPct / 100) * h);
+        const bw = Math.max(...xs) - Math.min(...xs) + 200, bh = Math.max(...ys) - Math.min(...ys) + 200;
+        mapView.s = Math.min(sMax, Math.max(sMin, Math.min(0.85, vw / bw, vh / bh)));
+      }
       const apply = () => {
         mapView.s = Math.min(sMax, Math.max(sMin, mapView.s));
-        mapView.x = Math.min(0, Math.max(vw - w * mapView.s, mapView.x));
-        mapView.y = Math.min(0, Math.max(vh - h * mapView.s, mapView.y));
+        mapView.x = w * mapView.s <= vw ? (vw - w * mapView.s) / 2 : Math.min(0, Math.max(vw - w * mapView.s, mapView.x));
+        mapView.y = h * mapView.s <= vh ? (vh - h * mapView.s) / 2 : Math.min(0, Math.max(vh - h * mapView.s, mapView.y));
         inner.style.transform = `translate(${mapView.x}px, ${mapView.y}px) scale(${mapView.s})`;
         // bảng tên giữ cỡ nhìn được dù phóng to hay thu nhỏ
-        inner.style.setProperty('--pin-k', String(Math.min(2.1, Math.max(0.8, 1.1 / mapView.s))));
+        inner.style.setProperty('--pin-k', String(Math.min(1.7, Math.max(0.8, 1.0 / mapView.s))));
       };
       const zoomAt = (k: number, cx: number, cy: number) => {
         const s0 = mapView.s;
@@ -935,8 +943,9 @@ export class TitleScene extends Phaser.Scene {
       };
       if (Number.isNaN(mapView.x)) {
         // lần đầu: canh giữa cụm phố để thấy nhiều phố cùng lúc
-        const cxp = pins.reduce((a, pp) => a + pp.at.leftPct, 0) / pins.length;
-        const cyp = pins.reduce((a, pp) => a + pp.at.topPct, 0) / pins.length;
+        const lx = pins.map((pp) => pp.at.leftPct), ly = pins.map((pp) => pp.at.topPct);
+        const cxp = (Math.min(...lx) + Math.max(...lx)) / 2;
+        const cyp = (Math.min(...ly) + Math.max(...ly)) / 2;
         mapView.x = vw / 2 - (cxp / 100) * w * mapView.s;
         mapView.y = vh / 2 - (cyp / 100) * h * mapView.s;
       }
@@ -1362,7 +1371,7 @@ ${open && stars >= 3 && !(st.loadoutSize && !st.shopIndex) ? `<button type="butt
 
       host.innerHTML = `
         <div class="td-dalat-map-card ${isRealStreetsUnlocked ? 'unlocked' : 'locked'}">
-          <span class="td-dalat-lock-pill ${isRealStreetsUnlocked ? 'open' : ''}" data-testid="real-streets-status" hidden>${isRealStreetsUnlocked ? 'Đã mở khóa' : 'Thắng Trùm Phố để mở'}</span>
+          <span class="td-dalat-lock-pill ${isRealStreetsUnlocked ? 'open' : ''}" data-testid="real-streets-status" hidden>${isRealStreetsUnlocked ? 'Đã mở khóa' : 'Giữ 3 tiệm Phố Dốc để mở'}</span>
           <div class="td-real-street-detail" data-testid="real-street-detail">
             <div class="td-real-detail-top">
               <div>
@@ -1430,7 +1439,7 @@ ${open && stars >= 3 && !(st.loadoutSize && !st.shopIndex) ? `<button type="butt
     renderRealStreetsMap();
     renderSelectedShopShowcase();
     // Mở lại đúng trang phố vừa chơi; người mới (chưa mở phố thật) vào thẳng Phố Dốc để bấm chơi ngay
-    const startTab = TitleScene.lastStreetTab ?? (hasStreetChampionBadge || ownerOpenAll ? null : 'doc');
+    const startTab = TitleScene.lastStreetTab ?? (realStreetsOpen(save) || ownerOpenAll ? null : 'doc');
     if (startTab) {
       activeStreetTab = startTab;
       if (startTab !== 'doc') selectedRealStreetId = startTab as StageId;
