@@ -1,6 +1,7 @@
 import sys,os
 from PIL import Image
 A=sys.argv[1]
+os.makedirs(f'{A}/to', exist_ok=True)
 for sid in sys.argv[2:]:
     ims=[Image.open(f'{A}/anh/{sid}_{n}.png') for n in ['1_vao','2_giua','3_cuoi'] if os.path.exists(f'{A}/anh/{sid}_{n}.png')]
     if len(ims)<3: continue
