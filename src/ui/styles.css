@@ -4300,3 +4300,12 @@ button.td-gear-bag-pill { cursor: pointer; border: 2px solid #2b1a12; font: inhe
 .td-bm-star { top: -24px; }
 .td-bm-zoom { position: absolute; right: 8px; bottom: 34px; z-index: 3; display: flex; flex-direction: column; gap: 6px; }
 .td-bm-zoom button { width: 36px; height: 36px; border-radius: 10px; border: 2px solid #2b1a12; background: #fff4d6; font: 900 20px/1 var(--font-ui, system-ui); color: #3b2616; box-shadow: 0 2px 0 #2b1a12; }
+/* Bảng tên khắc sẵn (tools/level-maker/make_street_signs.py) */
+.td-bm-pin { width: auto; height: auto; transform: translate(-50%, -100%) scale(var(--pin-k, 1.4)); transform-origin: 50% 100%; display: flex; flex-direction: column; align-items: center; }
+.td-bm-sign { display: block; height: 40px; width: auto; filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.4)); }
+.td-bm-pin.locked .td-bm-sign { filter: grayscale(0.55) brightness(0.92) drop-shadow(0 3px 3px rgba(0, 0, 0, 0.4)); }
+.td-bm-sub {
+  position: absolute; left: 50%; top: calc(100% - 4px); transform: translateX(-50%); margin: 0;
+  padding: 1px 6px; border-radius: 99px; background: #2b1a12; color: #ffe8a3; font: 800 8.5px/1.3 var(--font-ui, system-ui); white-space: nowrap; text-shadow: none;
+}
+.td-bm-star { top: -22px; width: 26px; height: 26px; }

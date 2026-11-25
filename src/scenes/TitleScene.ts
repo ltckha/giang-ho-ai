@@ -872,6 +872,8 @@ export class TitleScene extends Phaser.Scene {
     let activeStreetTab: string = 'doc';
     const BM = BIG_MAP_PINS as unknown as Record<string, { leftPct: number; topPct: number }> & { _size: { w: number; h: number } };
     const mapView = { x: NaN, y: NaN, s: 0 };
+    // 2 phố sát nhau (Phan Đình Phùng – Nguyễn Văn Trỗi): đẩy bảng tên ra 2 bên cho khỏi chồng
+    const SIGN_NUDGE: Record<string, number> = { street_phan_dinh_phung: -3.5, street_nguyen_van_troi: 3.5 };
     const renderStreetTabs = (): void => {
       const host = root.querySelector<HTMLDivElement>('#td-street-tabs');
       if (!host) return;
@@ -898,11 +900,11 @@ export class TitleScene extends Phaser.Scene {
           <img class="td-bm-img" src="./assets/map_dalat_lon.webp" alt="Bản đồ Đà Lạt" draggable="false" />
           ${pins.map((pp) => `
             <button type="button" class="td-bm-pin ${pp.open ? 'open' : 'locked'} ${playing === pp.id ? 'playing' : ''}"
-              style="left:${pp.at.leftPct}%;top:${pp.at.topPct}%" data-street-tab="${pp.id}" data-testid="${pp.testid}" ${pp.extra}>
+              style="left:${pp.at.leftPct + (SIGN_NUDGE[pp.id] ?? 0)}%;top:${pp.at.topPct}%" data-street-tab="${pp.id}" data-testid="${pp.testid}" ${pp.extra}>
               ${playing === pp.id ? '<img class="td-bm-star" src="./assets/ui/bd_ghim_sao.webp" alt="" />' : ''}
-              <img class="td-bm-board" src="./assets/ui/${pp.open ? 'bd_bang_pho' : 'bd_bang_pho_khoa'}.webp" alt="" />
-              <span class="td-bm-name">${pp.name}</span>
-              ${pp.sub ? `<span class="td-bm-sub">${pp.sub}</span>` : ''}
+              <img class="td-bm-sign" src="./assets/ui/bang_${pp.id}.webp" alt="${pp.name}" />
+              <span class="td-sr">${pp.name}</span>
+              ${pp.open ? (pp.sub ? `<span class="td-bm-sub">${pp.sub}</span>` : '') : '<span class="td-bm-sub">🔒</span>'}
             </button>`).join('')}
         </div>
         <button type="button" class="td-bm-country" id="btn-open-country" data-testid="btn-open-country">🇻🇳 Lâm Đồng · Đà Lạt</button>
