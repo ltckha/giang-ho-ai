@@ -204,7 +204,7 @@ def dense(r, step=8):
 
 ROOM_BY_NAME = [
     (r'bánh căn', 'phong_banh_can'), (r'bánh tráng', 'phong_banh_trang'), (r'xíu mại', 'phong_banh_mi_xiu_mai'),
-    (r'ăn vặt', 'phong_an_vat'), (r'quán sáng', 'phong_quan_sang'), (r'chè', 'phong_che'), (r'yaourt', 'phong_yaourt'),
+    (r'ăn vặt', 'phong_an_vat'), (r'quán sáng', 'phong_quan_sang'), (r'quán chè', 'phong_che'), (r'yaourt', 'phong_yaourt'),
     (r'sữa nóng', 'phong_sua_nong'), (r'khách sạn (cổ|bên hồ)', 'phong_khach_san_phap'), (r'khách sạn (mini|nhỏ)', 'phong_khach_san_mini'),
     (r'nướng', 'phong_nuong'), (r'cháo', 'phong_chao'), (r'cơm tấm', 'phong_com_tam'), (r'pizza', 'phong_pizza'),
     (r'bánh quà', 'phong_banh_qua'), (r'trà sữa', 'phong_tra_sua'), (r'hostel', 'phong_hostel'),
