@@ -4200,3 +4200,7 @@ button.td-gear-bag-pill { cursor: pointer; border: 2px solid #2b1a12; font: inhe
 .td-floating-ult-btn.cooling { width: 22px; height: 22px; opacity: 0.85; }
 .td-floating-ult-btn.cooling .td-fult-ring { width: 22px; height: 22px; }
 .td-floating-ult-btn.cooling .td-fult-cd-num { font-size: 8px; }
+/* Anh Kha 25/11: chiêu xong vòng đếm giờ che quái — chỉ còn chấm tiến độ 14px ở góc món, không số */
+.td-floating-ult-btn.cooling { width: 14px; height: 14px; opacity: 0.7; background: rgba(32, 19, 11, 0.6); box-shadow: none; }
+.td-floating-ult-btn.cooling .td-fult-ring { width: 14px; height: 14px; }
+.td-floating-ult-btn.cooling .td-fult-cd-num { display: none; }

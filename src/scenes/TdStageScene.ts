@@ -3669,7 +3669,7 @@ export class TdStageScene extends Phaser.Scene {
         }
 
         // Nút chiêu nhỏ ở góc trên-phải món, không che đường quái đi (anh Kha 25/11: chiêu che mất quái)
-        const sp = this.toScreen(tower.x + 15, tower.y - 17);
+        const sp = isReady ? this.toScreen(tower.x + 15, tower.y - 17) : this.toScreen(tower.x + 17, tower.y - 19);
         const clampedY = Math.max(66, sp.y);
         btn.style.left = `${Math.round(sp.x)}px`;
         btn.style.top = `${Math.round(clampedY)}px`;
