@@ -60,24 +60,28 @@
     },
     {
       "key": "kem_ly",
-      "name": "Cà Phê Kem Cỏ Hồng",
-      "type": "Quán cà phê, kem ly",
-      "trait": "ly kem nhiều tầng",
+      "name": "Cà Phê Ngắm Hồ Cỏ Hồng",
+      "type": "Quán cà phê ngắm hồ, ngắm phố",
+      "trait": "ban công nhìn xuống hồ Xuân Hương",
       "tower": {
         "element": "thuy",
         "role": "single_far",
         "names": [
-          "Muỗng Kem",
-          "Ly Kem Ba Tầng",
-          "Ly Kem Dừa",
-          "Que Kem Lạnh Buốt"
+          "Phin Ngắm Hồ",
+          "Phin Đôi Bên Hồ",
+          "Bình Cà Phê Ban Công",
+          "Ấm Rót Ngắm Mây"
         ],
-        "ult": "Mưa Kem Tuyết",
-        "why": "Kem lạnh dập cái nóng khét"
+        "ult": "Hơi Ấm Bên Hồ",
+        "why": "Hơi cà phê nóng xua khí lạnh ẩm từ hồ"
       },
-      "sources": [],
+      "sources": [
+        "https://vinwonders.com/vi/wonderpedia/news/quan-ca-phe-dep-o-da-lat/",
+        "https://www.foody.vn/lam-dong/veronica-cafe-le-dai-hanh"
+      ],
       "confidence": "nen_kiem",
-      "ghi_chu": "Tra lại 25/11/2026: chưa tìm thấy quán cà phê bán kem ly có địa chỉ trên Nguyễn Chí Thanh / Lê Đại Hành (manh mối: 5–7 Nguyễn Chí Thanh, chưa kiểm). Trên Lê Đại Hành có thật quán cà phê ngắm phố (1, 2 Lê Đại Hành) — đề xuất đổi loại."
+      "ghi_chu": "Anh Kha chọn 25/11/2026: đổi từ \"quán cà phê kem ly\" (không tìm thấy trên phố) sang quán cà phê ngắm hồ — có thật ở 1 và 2 Lê Đại Hành; Foody Veronica cũ, chưa kiểm quán số 1 còn mở → \"nên kiểm\".",
+      "art": "cafe"
     },
     {
       "key": "tra_sua",

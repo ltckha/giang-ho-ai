@@ -592,9 +592,9 @@
    },
    {
     "key": "kem_ly",
-    "name": "Cà Phê Kem Cỏ Hồng",
-    "type": "Quán cà phê, kem ly",
-    "trait": "ly kem nhiều tầng",
+    "name": "Cà Phê Ngắm Hồ Cỏ Hồng",
+    "type": "Quán cà phê ngắm hồ, ngắm phố",
+    "trait": "ban công nhìn xuống hồ Xuân Hương",
     "towerId": "gt_pho_ca_phe_kem_ly"
    },
    {
@@ -1110,9 +1110,9 @@
      },
      {
       "key": "kem_ly",
-      "name": "Cà Phê Kem Cỏ Hồng",
-      "type": "Quán cà phê, kem ly",
-      "trait": "ly kem nhiều tầng",
+      "name": "Cà Phê Ngắm Hồ Cỏ Hồng",
+      "type": "Quán cà phê ngắm hồ, ngắm phố",
+      "trait": "ban công nhìn xuống hồ Xuân Hương",
       "towerId": "gt_pho_ca_phe_kem_ly"
      },
      {
@@ -1612,9 +1612,9 @@
      },
      {
       "key": "kem_ly",
-      "name": "Cà Phê Kem Cỏ Hồng",
-      "type": "Quán cà phê, kem ly",
-      "trait": "ly kem nhiều tầng",
+      "name": "Cà Phê Ngắm Hồ Cỏ Hồng",
+      "type": "Quán cà phê ngắm hồ, ngắm phố",
+      "trait": "ban công nhìn xuống hồ Xuân Hương",
       "towerId": "gt_pho_ca_phe_kem_ly"
      },
      {
@@ -1729,8 +1729,8 @@
    "stage": {
     "id": "street_pho_ca_phe_t3",
     "stageNumber": 13,
-    "name": "Cà Phê Kem Cỏ Hồng",
-    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 3/8: Quán cà phê, kem ly",
+    "name": "Cà Phê Ngắm Hồ Cỏ Hồng",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 3/8: Quán cà phê ngắm hồ, ngắm phố",
     "startingEssence": 210,
     "startingLives": 20,
     "paths": [
@@ -2122,9 +2122,9 @@
      },
      {
       "key": "kem_ly",
-      "name": "Cà Phê Kem Cỏ Hồng",
-      "type": "Quán cà phê, kem ly",
-      "trait": "ly kem nhiều tầng",
+      "name": "Cà Phê Ngắm Hồ Cỏ Hồng",
+      "type": "Quán cà phê ngắm hồ, ngắm phố",
+      "trait": "ban công nhìn xuống hồ Xuân Hương",
       "towerId": "gt_pho_ca_phe_kem_ly"
      },
      {
@@ -2616,9 +2616,9 @@
      },
      {
       "key": "kem_ly",
-      "name": "Cà Phê Kem Cỏ Hồng",
-      "type": "Quán cà phê, kem ly",
-      "trait": "ly kem nhiều tầng",
+      "name": "Cà Phê Ngắm Hồ Cỏ Hồng",
+      "type": "Quán cà phê ngắm hồ, ngắm phố",
+      "trait": "ban công nhìn xuống hồ Xuân Hương",
       "towerId": "gt_pho_ca_phe_kem_ly"
      },
      {
@@ -3103,9 +3103,9 @@
      },
      {
       "key": "kem_ly",
-      "name": "Cà Phê Kem Cỏ Hồng",
-      "type": "Quán cà phê, kem ly",
-      "trait": "ly kem nhiều tầng",
+      "name": "Cà Phê Ngắm Hồ Cỏ Hồng",
+      "type": "Quán cà phê ngắm hồ, ngắm phố",
+      "trait": "ban công nhìn xuống hồ Xuân Hương",
       "towerId": "gt_pho_ca_phe_kem_ly"
      },
      {
@@ -3599,9 +3599,9 @@
      },
      {
       "key": "kem_ly",
-      "name": "Cà Phê Kem Cỏ Hồng",
-      "type": "Quán cà phê, kem ly",
-      "trait": "ly kem nhiều tầng",
+      "name": "Cà Phê Ngắm Hồ Cỏ Hồng",
+      "type": "Quán cà phê ngắm hồ, ngắm phố",
+      "trait": "ban công nhìn xuống hồ Xuân Hương",
       "towerId": "gt_pho_ca_phe_kem_ly"
      },
      {
@@ -4110,9 +4110,9 @@
      },
      {
       "key": "kem_ly",
-      "name": "Cà Phê Kem Cỏ Hồng",
-      "type": "Quán cà phê, kem ly",
-      "trait": "ly kem nhiều tầng",
+      "name": "Cà Phê Ngắm Hồ Cỏ Hồng",
+      "type": "Quán cà phê ngắm hồ, ngắm phố",
+      "trait": "ban công nhìn xuống hồ Xuân Hương",
       "towerId": "gt_pho_ca_phe_kem_ly"
      },
      {
@@ -4631,9 +4631,9 @@
      },
      {
       "key": "kem_ly",
-      "name": "Cà Phê Kem Cỏ Hồng",
-      "type": "Quán cà phê, kem ly",
-      "trait": "ly kem nhiều tầng",
+      "name": "Cà Phê Ngắm Hồ Cỏ Hồng",
+      "type": "Quán cà phê ngắm hồ, ngắm phố",
+      "trait": "ban công nhìn xuống hồ Xuân Hương",
       "towerId": "gt_pho_ca_phe_kem_ly"
      },
      {
@@ -4850,44 +4850,45 @@
   },
   "gt_pho_ca_phe_kem_ly": {
    "id": "gt_pho_ca_phe_kem_ly",
+   "art": "cafe",
    "element": "thuy",
    "role": "single_far",
    "roleLabel": "Ném nhanh 1 con tầm xa",
-   "ultimateName": "Mưa Kem Tuyết",
+   "ultimateName": "Hơi Ấm Bên Hồ",
    "tier1": {
-    "name": "Muỗng Kem",
+    "name": "Phin Ngắm Hồ",
     "cost": 55,
     "damage": 19,
     "range": 122,
     "cooldownSec": 0.74,
-    "description": "Cà Phê Kem Cỏ Hồng: ly kem nhiều tầng. Khắc Hỏa: Kem lạnh dập cái nóng khét."
+    "description": "Cà Phê Ngắm Hồ Cỏ Hồng: ban công nhìn xuống hồ Xuân Hương. Khắc Hỏa: Hơi cà phê nóng xua khí lạnh ẩm từ hồ."
    },
    "tier2": {
-    "name": "Ly Kem Ba Tầng",
+    "name": "Phin Đôi Bên Hồ",
     "cost": 70,
     "damage": 32,
     "range": 134,
     "cooldownSec": 0.62,
-    "description": "Ly Kem Ba Tầng: mạnh hơn, xa hơn."
+    "description": "Phin Đôi Bên Hồ: mạnh hơn, xa hơn."
    },
    "tier3A": {
-    "name": "Ly Kem Dừa",
+    "name": "Bình Cà Phê Ban Công",
     "cost": 105,
     "damage": 46,
     "range": 144,
     "cooldownSec": 0.48,
     "pierceCount": 2,
-    "description": "Ly Kem Dừa: đánh liên hoàn rất nhanh, xuyên thêm 1 con phía sau."
+    "description": "Bình Cà Phê Ban Công: đánh liên hoàn rất nhanh, xuyên thêm 1 con phía sau."
    },
    "tier3B": {
-    "name": "Que Kem Lạnh Buốt",
+    "name": "Ấm Rót Ngắm Mây",
     "cost": 105,
     "damage": 42,
     "range": 140,
     "cooldownSec": 0.54,
     "burnDps": 18,
     "burnDurationSec": 3,
-    "description": "Que Kem Lạnh Buốt: phá 15% giáp, quái trúng mất máu thêm vài giây."
+    "description": "Ấm Rót Ngắm Mây: phá 15% giáp, quái trúng mất máu thêm vài giây."
    }
   },
   "gt_pho_ca_phe_tra_sua": {
