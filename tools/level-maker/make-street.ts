@@ -300,7 +300,7 @@ function evaluate(stage: StageDefinition, loadout: string[], gearSeeds: number[]
 }
 
 /** Tìm mức máu quái cho "đặt bừa thắng" gần target nhất, người tính kỹ vẫn thắng thoải mái */
-function tune(label: string, build: (k: number) => StageDefinition, loadout: string[], tier: StreetSpec['difficulty']['gearTier'], target: number, kStart: number) {
+function tune(label: string, build: (k: number) => StageDefinition, loadout: string[], tier: StreetSpec['difficulty']['gearTier'], target: number, kStart: number, cap = 1) {
   const seeds = [1001, 2002, 3003];
   let best: { k: number; report: ReturnType<typeof evaluate> } | null = null;
   let fails = 0;
@@ -308,10 +308,21 @@ function tune(label: string, build: (k: number) => StageDefinition, loadout: str
     const kk = Math.round(k * 100) / 100;
     const ev = evaluate(build(kk), loadout, seeds, tier);
     // người tính kỹ thua → bỏ mức này; thua 2 mức liền mới dừng (1 lần thua lẻ do cách xếp thử chưa tốt, kiểm tra thực tế 24/11)
-    if (ev.botWinRate < 1 || ev.botLives < 6) { if (++fails >= 2) break; continue; }
+    if (ev.botWinRate < 1 || ev.botLives < 6) { if (++fails >= (best && best.report.randomWin > cap ? 5 : 2)) break; continue; }   // chưa đạt trần thì thử thêm vài mức
     fails = 0;
-    if (!best || Math.abs(ev.randomWin - target) < Math.abs(best.report.randomWin - target)) best = { k: kk, report: ev };
+    // mức vượt trần (màn phố: người đặt bừa thắng ≤ 35%) chỉ lấy khi chưa có mức nào dưới trần
+    const score = (r: number) => Math.abs(r - target) + (r > cap ? 1 : 0);
+    if (!best || score(ev.randomWin) < score(best.report.randomWin)) best = { k: kk, report: ev };
     if (ev.randomWin < target - 0.08) break;
+  }
+  // còn vượt trần: thử mức máu nhỏ giữa 2 bậc 0,1 (người tính kỹ vẫn phải thắng)
+  if (best && best.report.randomWin > cap) {
+    for (let kk = Math.round((best.k + 0.02) * 100) / 100; kk < best.k + 0.1; kk = Math.round((kk + 0.02) * 100) / 100) {
+      const ev = evaluate(build(kk), loadout, seeds, tier);
+      if (ev.botWinRate < 1 || ev.botLives < 6) break;
+      if (ev.randomWin <= cap || ev.randomWin < best.report.randomWin) best = { k: kk, report: ev };
+      if (ev.randomWin <= cap) break;
+    }
   }
   if (!best) best = { k: kStart, report: evaluate(build(kStart), loadout, seeds, tier) };
   console.log(`  ${label}: máu ×${best.k}, đặt bừa thắng ${(best.report.randomWin * 100).toFixed(0)}% (mục tiêu ${(target * 100).toFixed(0)}%), tính kỹ còn ${best.report.botLives.toFixed(1)}`);
@@ -495,7 +506,7 @@ function make(id: string) {
     stage.botPlan = makeBotPlan(stage, loadout, ALL_TOWER_DEFINITIONS as never) as never;
     return stage;
   };
-  const { k: chosenK, report } = tune(`màn phố (trùm ${boss.name})`, baseStage, loadout, spec.difficulty.gearTier, Math.min(0.3, spec.difficulty.targetRandomWin), 0.5);
+  const { k: chosenK, report } = tune(`màn phố (trùm ${boss.name})`, baseStage, loadout, spec.difficulty.gearTier, Math.min(0.3, spec.difficulty.targetRandomWin), 0.5, 0.35);
   const out = {
     generatedBy: 'tools/level-maker/make-street.ts',
     hpMultiplier: chosenK,

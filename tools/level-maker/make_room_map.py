@@ -252,7 +252,7 @@ def draw_path_and_pads(im, paths, pads, st, strong=False):
     d = ImageDraw.Draw(lay)
     for r in paths:
         P = [(x * S, y * S) for x, y in r]
-        al = 135 if strong else 95      # phòng theo khuôn: sàn gạch bông nhiều hoa văn → đường đậm hơn chút cho dễ thấy
+        al = 165 if strong else 95      # phòng theo khuôn: sàn gạch bông nhiều hoa văn → đường đậm hơn chút cho dễ thấy
         d.line(P, fill=(255, 248, 225, al), width=46, joint='curve')
         for q in P: d.ellipse([q[0] - 23, q[1] - 23, q[0] + 23, q[1] + 23], fill=(255, 248, 225, al))
         for (ax, ay), (bx, by) in zip(P, P[1:]):

@@ -27,6 +27,7 @@ FLOOR_FIX = {
     'phong_kem_che': (64, 150, 296, 478),
     'phong_sua_nong': (52, 128, 308, 438),
     'phong_khach_san_phap': (50, 162, 310, 486),
+    'phong_hostel': (106, 132, 266, 452),   # giường tầng màu gần giống sàn gỗ
 }
 
 
@@ -173,10 +174,12 @@ def layouts_for(png, room):
                 L = sum(math.hypot(a[0] - b[0], a[1] - b[1]) for a, b in zip(P, P[1:]))
                 res.append((len(pads) * 100 + L * 0.1, P, pads, flip))
     res.sort(key=lambda t: -t[0])
+    # phòng hẹp (sàn < 2/3 bề ngang) không đủ 7 chỗ: nhận bố cục ít chỗ hơn (máy cân độ khó bù lại)
+    need = 7 if any(len(t[2]) >= 7 for t in res) else 5
     out, seen = [], set()
     for sc, P, pads, flip in res:
         key = tuple(P)
-        if key in seen or len(pads) < 7:
+        if key in seen or len(pads) < need:
             continue
         seen.add(key)
         out.append({'paths': [[{'x': x, 'y': y} for x, y in P]],
