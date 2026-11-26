@@ -28,6 +28,7 @@ FLOOR_FIX = {
     'phong_sua_nong': (52, 128, 308, 438),
     'phong_khach_san_phap': (50, 162, 310, 486),
     'phong_hostel': (106, 132, 266, 452),   # giường tầng màu gần giống sàn gỗ
+    'phong_lau': (78, 140, 272, 470),       # bàn lẩu + khách sát tường phải lấn vào sàn
 }
 
 
