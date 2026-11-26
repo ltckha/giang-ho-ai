@@ -25,6 +25,8 @@ PAD_R = 20          # bán kính ô đặt món (đơn vị màn)
 # Phòng máy dò sàn sai (sàn quá nhạt / nhiều màu): khung sàn chỉnh tay (x0, y0, x1, y1)
 FLOOR_FIX = {
     'phong_kem_che': (64, 150, 296, 478),
+    'phong_sua_nong': (52, 128, 308, 438),
+    'phong_khach_san_phap': (50, 162, 310, 486),
 }
 
 
