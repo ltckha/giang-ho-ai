@@ -28,6 +28,7 @@ describe('Bản quốc tế (Little Shops of Dalat)', () => {
     expect(tr('Đợt 3/10')).toBe('Wave 3/10');
     expect(tr('Tiệm Giày đã giữ')).toBe('Shoe Shop saved');
     expect(tr('Chữ lạ chưa dịch')).toBe('Chữ lạ chưa dịch');
+    expect(tr('TIỆM GIÀY')).toBe('SHOE SHOP');
     expect(tr('English stays')).toBe('English stays');
     __setLangForTest('vi');
     expect(tr('Gọi đợt')).toBe('Gọi đợt');

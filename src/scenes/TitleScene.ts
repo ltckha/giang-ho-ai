@@ -63,6 +63,7 @@ import { regionFlags } from '../game/region';
 import { PROVINCES, PROVINCE_LANDMARK, REGION_NAME, STREET_INFO, streetBannerUrl, type Region } from '../core/cities';
 import { sound } from '../game/sound';
 import { tr, currentLang, switchLang } from '../game/i18n';
+import SIGNS_EN from '../core/streets/signsEn.json';
 
 const RING_SIZE = 340;
 const RING_CENTER = 170;
@@ -911,12 +912,12 @@ export class TitleScene extends Phaser.Scene {
       const { w, h } = BM._size;
       host.innerHTML = `
         <div class="td-bm-inner" style="width:${w}px;height:${h}px">
-          ${root.classList.contains('td-in-street') ? '' : '<img class="td-bm-img" src="./assets/map_dalat_lon.webp" alt="Bản đồ Đà Lạt" draggable="false" />'}
+          ${root.classList.contains('td-in-street') ? '' : `<img class="td-bm-img" src="./assets/map_dalat_lon${currentLang() === 'en' ? '_en' : ''}.webp" alt="Bản đồ Đà Lạt" draggable="false" />`}
           ${pins.map((pp) => `
             <button type="button" class="td-bm-pin ${pp.open ? 'open' : 'locked'} ${playing === pp.id ? 'playing' : ''}"
               style="left:${pp.at.leftPct + (SIGN_NUDGE[pp.id] ?? 0)}%;top:${pp.at.topPct}%" data-street-tab="${pp.id}" data-testid="${pp.testid}" ${pp.extra}>
               ${playing === pp.id ? '<img class="td-bm-star" src="./assets/ui/bd_ghim_sao.webp" alt="" />' : ''}
-              <img class="td-bm-sign" src="./assets/ui/bang_${pp.id}.webp" alt="${pp.name}" />
+              <img class="td-bm-sign" src="./assets/ui/bang_${pp.id}${currentLang() === 'en' && (SIGNS_EN as string[]).includes(pp.id) ? '_en' : ''}.webp" alt="${pp.name}" />
               <span class="td-sr">${pp.name}</span>
               ${pp.open ? (pp.sub ? `<span class="td-bm-sub">${pp.sub}</span>` : '') : '<span class="td-bm-sub">🔒</span>'}
             </button>`).join('')}

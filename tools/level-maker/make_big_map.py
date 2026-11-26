@@ -7,7 +7,10 @@ BẢN ĐỒ ĐÀ LẠT LỚN — kéo được ở màn chính (Claude, anh Kha 
 Ra: public/assets/map_dalat_lon.webp + src/core/streets/bigMapPins.json (ghim theo % khung).
 Chạy: python3 tools/level-maker/make_big_map.py
 """
-import json, math, os, random
+import json, math, os, random, sys
+
+# Bản tiếng Anh (Little Shops of Dalat): `python3 tools/level-maker/make_big_map.py en` → map_dalat_lon_en.webp
+EN = len(sys.argv) > 1 and sys.argv[1] == 'en'
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -271,7 +274,7 @@ for name, lines in named.items():
 # tên phường mới (địa giới từ 1/7/2025, NQ 1671/NQ-UBTVQH15): chữ nhạt, lớp riêng để pha trong
 area = Image.new('RGBA', (W, H), (0, 0, 0, 0))
 ad = ImageDraw.Draw(area)
-for txt_, (la, lo) in [('PHƯỜNG XUÂN HƯƠNG - ĐÀ LẠT', (11.9505, 108.4420)), ('PHƯỜNG CAM LY - ĐÀ LẠT', (11.9350, 108.4225))]:
+for txt_, (la, lo) in [('XUÂN HƯƠNG WARD - DALAT' if EN else 'PHƯỜNG XUÂN HƯƠNG - ĐÀ LẠT', (11.9505, 108.4420)), ('CAM LY WARD - DALAT' if EN else 'PHƯỜNG CAM LY - ĐÀ LẠT', (11.9350, 108.4225))]:
     x, y = P(la, lo)
     tw = ad.textlength(txt_, font=area_font)
     ad.text((x - tw / 2, y - 20), txt_, font=area_font, fill=(255, 250, 235, 120), stroke_width=2, stroke_fill=(70, 50, 30, 90))
@@ -286,14 +289,16 @@ for w in data['water']:
     if 'Xuân Hương' in (w.get('name') or ''):
         q = [P(*p) for p in w['pts']]
         lx = sum(p[0] for p in q) / len(q); ly = sum(p[1] for p in q) / len(q)
-        t = 'Hồ Xuân Hương'; tw = d.textlength(t, font=font)
+        t = 'Xuân Hương Lake' if EN else 'Hồ Xuân Hương'; tw = d.textlength(t, font=font)
         d.text((lx - tw / 2, ly - 16), t, fill=(255, 255, 255), font=font, stroke_width=4, stroke_fill=(40, 90, 130))
 txt = '© OpenStreetMap contributors'
 tw = d.textlength(txt, font=small)
 d.rounded_rectangle([W - tw - 26, H - 36, W - 6, H - 8], 8, fill=INK)
 d.text((W - tw - 16, H - 33), txt, fill=(250, 244, 226), font=small)
 
-im.convert('RGB').save(os.path.join(ROOT, 'public/assets/map_dalat_lon.webp'), 'WEBP', quality=78, method=6)
+im.convert('RGB').save(os.path.join(ROOT, 'public/assets/map_dalat_lon_en.webp' if EN else 'public/assets/map_dalat_lon.webp'), 'WEBP', quality=78, method=6)
+if EN:
+    sys.exit(0)  # ghim giữ nguyên theo bản tiếng Việt
 out = {k: {'leftPct': round(v[0] / W * 100, 2), 'topPct': round(v[1] / H * 100, 2)} for k, v in pins.items()}
 out['_size'] = {'w': W, 'h': H}
 json.dump(out, open(os.path.join(ROOT, 'src/core/streets/bigMapPins.json'), 'w'), ensure_ascii=False, indent=1)

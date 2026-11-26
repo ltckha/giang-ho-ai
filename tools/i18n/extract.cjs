@@ -18,7 +18,7 @@ const ts = require('typescript');
 const ROOT = path.resolve(__dirname, '../..');
 const VN = /[ạảãàáâầấậẩẫăằắặẳẵđèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹĐÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĨŨƠƯẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀẾỂỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴỶỸÝ]/;
 // Chữ Việt không dấu (giống ASCII_KEYS trong src/game/i18n.ts)
-const ASCII_VN = /(?:^|[^A-Za-z])(?:Kim|xu|Xu|tim|Tim|Sinh|Kem|Hoa|Atiso)(?:[^A-Za-z]|$)/;
+const ASCII_VN = /(?<!\p{L})(?:Kim|xu|Xu|tim|Tim|Sinh|Kem|Hoa|Atiso)(?!\p{L})/u;
 const isVn = (s) => VN.test(s) || ASCII_VN.test(s);
 // Tệp không có chữ cho người chơi (máy chủ, công cụ, kiểm thử)
 const SKIP = [/^src\/server\//, /\.test\.ts$/, /^src\/i18n\//, /^src\/assets\//];

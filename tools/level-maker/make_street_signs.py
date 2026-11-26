@@ -5,12 +5,19 @@ khắc sẵn tên đường lên tấm ván (hình Spark bd_bang_pho), ván tự
 Ra: public/assets/ui/bang_<id>.webp. Tên lấy từ STREET_INFO.road (src/core/cities.ts) — thêm phố thì thêm vào NAMES.
 Chạy: python3 tools/level-maker/make_street_signs.py
 """
-import os, re
+import json, os, re, sys
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 src = open(os.path.join(ROOT, 'src/core/cities.ts'), encoding='utf-8').read()
 NAMES = {k: v for k, v in re.findall(r"^\s+(\w+): \{ road: '([^']+)'", src, re.M)}
+# Bản tiếng Anh: `python3 tools/level-maker/make_street_signs.py en` → bang_<id>_en.webp cho tên được dịch khác
+# (tên đường thật giữ nguyên nên không cần bảng riêng) + src/core/streets/signsEn.json
+EN = len(sys.argv) > 1 and sys.argv[1] == 'en'
+if EN:
+    dict_en = json.load(open(os.path.join(ROOT, 'src/i18n/en.json'), encoding='utf-8'))
+    NAMES = {k: dict_en[v] for k, v in NAMES.items() if dict_en.get(v, v) != v}
+    json.dump(sorted(NAMES), open(os.path.join(ROOT, 'src/core/streets/signsEn.json'), 'w'), indent=1)
 art = Image.open(os.path.join(ROOT, 'art/ban_do/bd_bang_pho.png')).convert('RGBA')
 art = art.crop(art.getbbox())                      # 310×480
 plank = art.crop((0, 58, 310, 162))                # tấm ván trên (có đầu nhọn bên phải)
@@ -38,5 +45,5 @@ for key, name in NAMES.items():
     out.alpha_composite(board, (0, 0))
     out = out.resize((out.width // 2, out.height // 2), Image.LANCZOS)
     fid = 'doc' if key == 'doc' else key
-    out.save(os.path.join(ROOT, f'public/assets/ui/bang_{fid}.webp'), quality=88)
+    out.save(os.path.join(ROOT, f'public/assets/ui/bang_{fid}{"_en" if EN else ""}.webp'), quality=88)
     print(fid, out.size)

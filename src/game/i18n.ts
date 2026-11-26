@@ -21,12 +21,17 @@ export const EN_TITLE = 'Little Shops of Dalat';
 const VN_RE =
   /[ạảãàáâầấậẩẫăằắặẳẵđèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹĐÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĨŨƠƯẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀẾỂỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴỶỸÝ]/;
 /** Chữ Việt không dấu vẫn cần dịch (không bắt được bằng dấu) */
-const ASCII_KEYS = /(?:^|[^A-Za-z])(?:Kim|xu|Xu|tim|Tim|Sinh|Kem|Hoa|Atiso)(?:[^A-Za-z]|$)/;
+const ASCII_KEYS = /(?<!\p{L})(?:Kim|xu|Xu|tim|Tim|Sinh|Kem|Hoa|Atiso)(?!\p{L})/u;
 
 let lang: Lang = 'vi';
 let exact = new Map<string, string>();
+/** Chữ IN HOA (code tự viết hoa tên tiệm) → bản dịch IN HOA */
+let exactUpper = new Map<string, string>();
 let patterns: { re: RegExp; out: string; weight: number }[] = [];
 const memo = new Map<string, string>();
+/** Chữ dịch xong còn dấu tiếng Việt — xem bằng window.__i18nMiss khi kiểm tra */
+const misses = new Map<string, string>();
+if (typeof window !== 'undefined') (window as unknown as { __i18nMiss?: Map<string, string> }).__i18nMiss = misses;
 const produced = new WeakMap<Node, string>();
 const producedAttr = new WeakMap<Element, Map<string, string>>();
 
@@ -94,6 +99,7 @@ const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 export function loadDictionary(dict: Record<string, string>): void {
   exact = new Map();
+  exactUpper = new Map();
   patterns = [];
   memo.clear();
   for (const [k, v] of Object.entries(dict)) {
@@ -118,6 +124,8 @@ export function loadDictionary(dict: Record<string, string>): void {
       patterns.push({ re: new RegExp(`^${src}$`, 's'), out, weight: k.replace(/\{\d+\}/g, '').length });
     } else {
       exact.set(k, v);
+      const up = k.toUpperCase();
+      if (up !== k && !exactUpper.has(up)) exactUpper.set(up, v.toUpperCase());
     }
   }
   patterns.sort((a, b) => b.weight - a.weight);
@@ -136,6 +144,8 @@ export function tr(s: string): string {
   const tail = /\s*$/.exec(s)![0];
   const core = norm(s);
   const res = lead + translateCore(core, 0) + tail;
+  // Ghi lại chữ dịch xong vẫn còn dấu tiếng Việt (tên thật hoặc chữ sót) để kiểm tra tìm chỗ sót
+  if (VN_RE.test(res) && misses.size < 500) misses.set(core, res.trim());
   if (memo.size > 20000) memo.clear();
   memo.set(s, res);
   return res;
@@ -144,6 +154,8 @@ export function tr(s: string): string {
 function translateCore(core: string, depth: number): string {
   const ex = exact.get(core);
   if (ex !== undefined) return ex;
+  const exU = core === core.toUpperCase() ? exactUpper.get(core) : undefined;
+  if (exU !== undefined) return exU;
   if (depth > 6) return core;
   for (const p of patterns) {
     const m = p.re.exec(core);
