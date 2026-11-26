@@ -245,14 +245,56 @@ def room_png(f):
     return None
 
 
-def draw_path_and_pads(im, paths, pads, st, strong=False):
-    """Lối đi NHẸ (anh Kha 26/11): dải sáng mờ + viền chấm 2 bên + mũi tên chỉ hướng quái đi — vẫn thấy phòng bên dưới.
-    Chỗ đặt món: vòng kem mờ, viền chấm mảnh, dấu + nhỏ — không che bàn ghế / khách."""
+def _thick(d, P, w, fill):
+    """Đường dày có góc bo tròn"""
+    d.line(P, fill=fill, width=w, joint='curve')
+    for q in P:
+        d.ellipse([q[0] - w / 2, q[1] - w / 2, q[0] + w / 2, q[1] + w / 2], fill=fill)
+
+
+def draw_runner(im, paths):
+    """Đường quái RÕ (anh Kha 26/11: phòng theo khuôn không đụng đồ trong tiệm → vẽ đường rõ cho đẹp):
+    tấm thảm chạy màu kem có viền nâu, đổ bóng nhẹ, đường may 2 bên, vạch gạch ngang và mũi tên hướng quái đi."""
+    sh = Image.new('RGBA', im.size, (0, 0, 0, 0))
+    ds = ImageDraw.Draw(sh)
+    for r in paths:
+        _thick(ds, [(x * S + 3, y * S + 5) for x, y in r], 54, (35, 20, 10, 90))
+    sh = sh.filter(ImageFilter.GaussianBlur(3))
+    im.paste(sh, (0, 0), sh)
     lay = Image.new('RGBA', im.size, (0, 0, 0, 0))
     d = ImageDraw.Draw(lay)
     for r in paths:
         P = [(x * S, y * S) for x, y in r]
-        al = 165 if strong else 95      # phòng theo khuôn: sàn gạch bông nhiều hoa văn → đường đậm hơn chút cho dễ thấy
+        _thick(d, P, 52, (96, 60, 32, 255))          # viền nâu
+        _thick(d, P, 44, (244, 228, 192, 255))       # mặt thảm kem
+        for (ax, ay), (bx, by) in zip(P, P[1:]):
+            L = math.hypot(bx - ax, by - ay) or 1
+            ux, uy = (bx - ax) / L, (by - ay) / L; nx, ny = -uy, ux
+            for k in range(11, int(L) - 4, 22):        # vạch gạch ngang mờ
+                cx, cy = ax + ux * k, ay + uy * k
+                d.line([cx + nx * 19, cy + ny * 19, cx - nx * 19, cy - ny * 19], fill=(226, 204, 160, 255), width=2)
+            for k in range(0, int(L), 12):             # đường may 2 bên
+                cx, cy = ax + ux * k, ay + uy * k
+                for s_ in (-16, 16):
+                    d.line([cx + nx * s_, cy + ny * s_, cx + nx * s_ + ux * 6, cy + ny * s_ + uy * 6], fill=(176, 132, 84, 255), width=2)
+            for k in range(32, int(L) - 12, 64):       # mũi tên hướng đi
+                cx, cy = ax + ux * k, ay + uy * k
+                d.polygon([(cx + ux * 11, cy + uy * 11), (cx - ux * 7 + nx * 9, cy - uy * 7 + ny * 9), (cx - ux * 3, cy - uy * 3),
+                           (cx - ux * 7 - nx * 9, cy - uy * 7 - ny * 9)], fill=(150, 96, 48, 235))
+    im.paste(lay, (0, 0), lay)
+
+
+def draw_path_and_pads(im, paths, pads, st, strong=False):
+    """Lối đi NHẸ (anh Kha 26/11): dải sáng mờ + viền chấm 2 bên + mũi tên chỉ hướng quái đi — vẫn thấy phòng bên dưới.
+    Chỗ đặt món: vòng kem mờ, viền chấm mảnh, dấu + nhỏ — không che bàn ghế / khách."""
+    if strong:
+        draw_runner(im, paths)
+        paths = []
+    lay = Image.new('RGBA', im.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(lay)
+    for r in paths:
+        P = [(x * S, y * S) for x, y in r]
+        al = 95
         d.line(P, fill=(255, 248, 225, al), width=46, joint='curve')
         for q in P: d.ellipse([q[0] - 23, q[1] - 23, q[0] + 23, q[1] + 23], fill=(255, 248, 225, al))
         for (ax, ay), (bx, by) in zip(P, P[1:]):
@@ -266,6 +308,12 @@ def draw_path_and_pads(im, paths, pads, st, strong=False):
                 d.polygon([(cx + ux * 9, cy + uy * 9), (cx - ux * 6 + nx * 7, cy - uy * 6 + ny * 7), (cx - ux * 6 - nx * 7, cy - uy * 6 - ny * 7)], fill=(150, 100, 50, 170))
     for px_, py_ in pads:
         cx, cy, R = px_ * S, py_ * S, 20 * S
+        if strong:   # phòng theo khuôn: đế tròn rõ (bóng + viền nâu liền) cho hợp đường thảm
+            d.ellipse([cx - R + 3, cy - R * 0.86 + 6, cx + R + 3, cy + R * 0.86 + 6], fill=(35, 20, 10, 70))
+            d.ellipse([cx - R, cy - R * 0.86, cx + R, cy + R * 0.86], fill=(250, 238, 210, 215), outline=(96, 60, 32, 255), width=4)
+            d.line([cx - 12, cy, cx + 12, cy], fill=(96, 60, 32, 255), width=7)
+            d.line([cx, cy - 11, cx, cy + 11], fill=(96, 60, 32, 255), width=7)
+            continue
         d.ellipse([cx - R, cy - R * 0.86, cx + R, cy + R * 0.86], fill=(255, 246, 220, 120))
         for k in range(24):                           # viền chấm
             t = k / 24 * 2 * math.pi

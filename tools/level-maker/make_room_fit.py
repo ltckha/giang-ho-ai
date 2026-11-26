@@ -28,7 +28,8 @@ FLOOR_FIX = {
     'phong_sua_nong': (52, 128, 308, 438),
     'phong_khach_san_phap': (50, 162, 310, 486),
     'phong_hostel': (106, 132, 266, 452),   # giường tầng màu gần giống sàn gỗ
-    'phong_lau': (78, 140, 272, 470),       # bàn lẩu + khách sát tường phải lấn vào sàn
+    'phong_lau': (78, 140, 272, 470),
+    'phong_tiem_toc': (92, 135, 268, 458),  # ghế cắt tóc đặt lấn vào giữa sàn       # bàn lẩu + khách sát tường phải lấn vào sàn
 }
 
 
@@ -77,8 +78,8 @@ def mask_multi(b):
 def clamp(m):
     """Chỉ giữ sàn trong khuôn: giữa 2 dải đồ sát tường (mỗi dải ~1/6 bề ngang), dưới quầy"""
     m = m.copy()
-    m[:, :int(W / 6) - 14] = False
-    m[:, int(W * 5 / 6) + 14:] = False
+    m[:, :int(W / 6) + 4] = False          # khuôn: dãy đồ sát tường rộng 1/6 → sàn bắt đầu từ đó (soát 26/11: +14 bị lấn kệ, ghế)
+    m[:, int(W * 5 / 6) - 4:] = False
     m[:int(H * 0.17), :] = False
     return m
 
