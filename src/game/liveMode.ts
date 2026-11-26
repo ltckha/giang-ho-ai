@@ -14,6 +14,7 @@ import type { TowerDefenseEngine } from '../core/tdEngine';
 import type { StageId, TowerId } from '../core/types';
 import { SCENE_KEYS } from './sceneKeys';
 import { music } from './music';
+import { tr } from './i18n';
 
 export interface LiveEvent {
   type: 'comment' | 'like' | 'gift' | 'follow' | 'share';
@@ -170,7 +171,7 @@ function banner(text: string, ms = 2600): void {
   void b.offsetWidth;
   b.classList.add('show');
   window.setTimeout(() => {
-    if (b.textContent === text) b.classList.remove('show');
+    if (b.textContent === text || b.textContent === tr(text)) b.classList.remove('show');
   }, ms);
 }
 

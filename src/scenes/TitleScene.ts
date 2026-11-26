@@ -62,6 +62,7 @@ import BIG_MAP_PINS from '../core/streets/bigMapPins.json';
 import { regionFlags } from '../game/region';
 import { PROVINCES, PROVINCE_LANDMARK, REGION_NAME, STREET_INFO, streetBannerUrl, type Region } from '../core/cities';
 import { sound } from '../game/sound';
+import { tr, currentLang, switchLang } from '../game/i18n';
 
 const RING_SIZE = 340;
 const RING_CENTER = 170;
@@ -356,6 +357,7 @@ export class TitleScene extends Phaser.Scene {
             <button type="button" id="btn-toggle-sfx" data-testid="btn-toggle-sfx" class="td-icon-btn ${sound.isMuted() ? 'muted' : ''}" aria-label="Tiếng">${sound.isMuted() ? '<img class="td-ui-ico" src="./assets/ui/ui_tieng_tat.webp" alt="" />' : '<img class="td-ui-ico" src="./assets/ui/ui_tieng_bat.webp" alt="" />'}</button>
             <button type="button" id="btn-open-gear" data-testid="btn-open-gear" class="td-icon-btn" aria-label="Trang bị"><img class="td-ui-ico" src="./assets/ui/ui_trang_bi.webp" alt="" /></button>
             <button type="button" id="btn-open-help" data-testid="btn-open-help" class="td-icon-btn" aria-label="Hướng dẫn"><img class="td-ui-ico" src="./assets/ui/ui_huong_dan.webp" alt="" /></button>
+            <button type="button" id="btn-lang" data-testid="btn-lang" class="td-icon-btn td-lang-btn" aria-label="Đổi ngôn ngữ / Language">${currentLang() === 'en' ? 'VI' : 'EN'}</button>
             ${ownerOpenAll ? `<button type="button" id="btn-start-live" data-testid="btn-start-live" class="td-icon-btn" aria-label="Phát LIVE: máy tự chơi">📺</button>` : ''}
           </div>
         </div>
@@ -725,7 +727,7 @@ export class TitleScene extends Phaser.Scene {
       saveArea.innerHTML = `
         <div class="td-save-row">
           ${typeof navigator.share === 'function' ? `<button type="button" class="td-save-btn primary" id="btn-save-share" data-testid="btn-save-share"><img class="td-ui-ico-sm" src="./assets/ui/ui_gui.webp" alt="" /> Gửi</button>` : ''}
-          <a class="td-save-btn" id="btn-save-email" data-testid="btn-save-email" href="mailto:?subject=${encodeURIComponent('Mã lưu Gọn Phố')}&body=${encodeURIComponent(`Bấm link này trên máy khác để chơi tiếp Gọn Phố:\n${link}`)}"><img class="td-ui-ico-sm" src="./assets/ui/ui_email.webp" alt="" /> Email</a>
+          <a class="td-save-btn" id="btn-save-email" data-testid="btn-save-email" href="mailto:?subject=${encodeURIComponent(tr('Mã lưu Gọn Phố'))}&body=${encodeURIComponent(`${tr('Bấm link này trên máy khác để chơi tiếp Gọn Phố:')}\n${link}`)}"><img class="td-ui-ico-sm" src="./assets/ui/ui_email.webp" alt="" /> Email</a>
           <button type="button" class="td-save-btn" id="btn-save-copy">📋 Chép link</button>
         </div>
         <div class="td-save-qr-wrap"><img class="td-save-qr" id="td-save-qr" data-testid="td-save-qr" alt="Mã QR lưu tiến độ" /></div>
@@ -743,7 +745,7 @@ export class TitleScene extends Phaser.Scene {
         saveArea.querySelector('#btn-save-qr')?.remove();
       }
       saveArea.querySelector('#btn-save-share')?.addEventListener('click', () => {
-        void navigator.share({ title: 'Gọn Phố — chơi tiếp', text: 'Bấm link để chơi tiếp Gọn Phố:', url: link }).catch(() => {});
+        void navigator.share({ title: tr('Gọn Phố — chơi tiếp'), text: tr('Bấm link để chơi tiếp Gọn Phố:'), url: link }).catch(() => {});
       });
       saveArea.querySelector('#btn-save-copy')?.addEventListener('click', async () => {
         try {
@@ -812,6 +814,10 @@ export class TitleScene extends Phaser.Scene {
         nudge.innerHTML = '';
       });
     }
+    root.querySelector('#btn-lang')?.addEventListener('click', () => {
+      sound.playUiClick();
+      switchLang(currentLang() === 'en' ? 'vi' : 'en');
+    });
     root.querySelector('#btn-start-live')?.addEventListener('click', () => {
       sound.playUiClick();
       this.unmountOverlay();

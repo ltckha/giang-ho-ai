@@ -38,6 +38,7 @@ Em là người làm màn. Không vẽ (Spark vẽ), không sửa luật trong s
 - `npm run make:street -- street_<id>` (~3–5 phút/phố) → cân độ khó theo "người mới đặt gần đường": tiệm đầu dễ → tiệm cuối khó → trùm khó nhất; người tính kỹ (kế hoạch + các cách của máy LIVE) vẫn phải thắng. Xem cảnh báo thiếu nguồn.
 - `python3 tools/level-maker/make_room_map.py` (phòng tiệm, đồ đạc tự né ô đặt món + thảm đường) và `python3 tools/level-maker/make_street_scene.py street_<id>` (nền màn trùm: mặt tiền các tiệm, nhà không đè đường, ô có đế đá, cuối đường lát đá).
 - Kiểm thực tế theo tools/kiemtra/README.md: độ khó bằng số, máy chơi từng màn trên trình duyệt + chụp ảnh, trợ lý soi ảnh.
+- **Bản tiếng Anh (Little Shops of Dalat):** `node tools/i18n/extract.cjs` → dịch hết chữ trong `tools/i18n/missing.json` theo `tools/i18n/GLOSSARY.md` (tên đường / phường thật giữ tiếng Việt có dấu, tên tiệm tự đặt dịch sang tiếng Anh, cùng 1 tên luôn dịch giống nhau) → thêm vào `src/i18n/en.json`. Thiếu bản dịch thì `npx vitest run` báo lỗi. Xem thử: `?lang=en`.
 - `npx vitest run`, `npm run build`, `npx playwright test --trace off` (xong thì `git checkout -- docs/screenshots`). Xem kết quả kiểm tra TRƯỚC khi commit.
 
 ## 6. Báo anh Kha (1 tin ngắn)

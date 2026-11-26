@@ -57,6 +57,7 @@ import { SCENE_KEYS } from '../game/sceneKeys';
 import { sound } from '../game/sound';
 import { getSynergyChainBonusPct, getSynergyExplanation } from '../game/synergyText';
 import { TutorialOverlayView } from '../game/tutorialOverlay';
+import { tr } from '../game/i18n';
 
 const LOGICAL_WIDTH = 360;
 const LOGICAL_HEIGHT = 480;
@@ -2417,6 +2418,7 @@ export class TdStageScene extends Phaser.Scene {
     fontSizePx = 12,
     popScale = false,
   ): void {
+    text = tr(text); // bản tiếng Anh: chữ vẽ trên màn chơi không nằm trong trang nên dịch tay
     // Chữ giống hệt vừa hiện gần đó thì bỏ (kiểm tra thực tế 24/11: "Chuột GặmChuột Gặm!" chồng nhau)
     if (this.floatingLabels.some((fl) => fl.el.text === text && fl.life > fl.maxLife * 0.3 && Math.abs(fl.el.x - x) < 110 && Math.abs(fl.el.y - y) < 60)) return;
     // Chỗ đông chữ (kiểm tra 26/11: trúng tủ, +xu, chuột gặm, tách đôi dồn cục): đẩy chữ mới lên trên;

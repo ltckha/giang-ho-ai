@@ -6,6 +6,7 @@
 import qrcode from 'qrcode-generator';
 import { TD_SAVE_KEY } from '../core/saveSystem';
 import { REAL_STREET_LOADOUT_PREFIX } from './preferences';
+import { tr } from './i18n';
 
 const PREFIX = 'GP1.';
 const EXTRA_KEYS = ['gonpho_da_gap'];
@@ -96,7 +97,7 @@ export function saveQrPng(link: string): string {
   g.fillStyle = '#4a2e1a';
   g.font = 'bold 34px system-ui, sans-serif';
   g.textAlign = 'center';
-  g.fillText('Gọn Phố — chơi tiếp', W / 2, 52);
+  g.fillText(tr('Gọn Phố — chơi tiếp'), W / 2, 52);
   const ox = 20;
   const oy = 74;
   g.fillStyle = '#ffffff';
@@ -105,7 +106,7 @@ export function saveQrPng(link: string): string {
   for (let r = 0; r < n; r++) for (let col = 0; col < n; col++) if (qr.isDark(r, col)) g.fillRect(ox + (col + 4) * cell, oy + (r + 4) * cell, cell, cell);
   g.fillStyle = '#6b4a2e';
   g.font = '22px system-ui, sans-serif';
-  g.fillText('Quét bằng camera máy khác để chuyển tiến độ', W / 2, H - 22);
+  g.fillText(tr('Quét bằng camera máy khác để chuyển tiến độ'), W / 2, H - 22);
   return c.toDataURL('image/png');
 }
 
