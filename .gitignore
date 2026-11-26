@@ -7,3 +7,4 @@ test-results/
 playwright-report/
 video_out/
 tools/i18n/missing.json
+__pycache__/

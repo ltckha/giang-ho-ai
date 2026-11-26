@@ -220,8 +220,8 @@ def full_room_of(stage):
     import re
     # phòng riêng theo đúng loại quán (Spark đợt 40) — có hình thì dùng trước phòng chung của nhóm
     for pat, f in ROOM_BY_NAME:
-        pth = os.path.join(ROOT, 'art', 'phong', f'{f}.png')
-        if re.search(pat, nm) and os.path.exists(pth):
+        pth = room_png(f)
+        if re.search(pat, nm) and pth:
             return pth
     kd = kind_of(stage.get('name', ''))
     k = kd[0] if kd else None
@@ -233,19 +233,28 @@ def full_room_of(stage):
         f = f'phong_{k}'
     else:
         return None
-    path_ = os.path.join(ROOT, 'art', 'phong', f'{f}.png')
-    return path_ if os.path.exists(path_) else None
+    return room_png(f)
 
 
-def draw_path_and_pads(im, paths, pads, st):
+def room_png(f):
+    """Phòng vẽ theo khuôn (art/phong_khuon, đợt 41–43: sàn giữa trống 2/3) dùng trước phòng cũ (art/phong)"""
+    for d in ('phong_khuon', 'phong'):
+        p_ = os.path.join(ROOT, 'art', d, f'{f}.png')
+        if os.path.exists(p_):
+            return p_
+    return None
+
+
+def draw_path_and_pads(im, paths, pads, st, strong=False):
     """Lối đi NHẸ (anh Kha 26/11): dải sáng mờ + viền chấm 2 bên + mũi tên chỉ hướng quái đi — vẫn thấy phòng bên dưới.
     Chỗ đặt món: vòng kem mờ, viền chấm mảnh, dấu + nhỏ — không che bàn ghế / khách."""
     lay = Image.new('RGBA', im.size, (0, 0, 0, 0))
     d = ImageDraw.Draw(lay)
     for r in paths:
         P = [(x * S, y * S) for x, y in r]
-        d.line(P, fill=(255, 248, 225, 95), width=46, joint='curve')
-        for q in P: d.ellipse([q[0] - 23, q[1] - 23, q[0] + 23, q[1] + 23], fill=(255, 248, 225, 95))
+        al = 135 if strong else 95      # phòng theo khuôn: sàn gạch bông nhiều hoa văn → đường đậm hơn chút cho dễ thấy
+        d.line(P, fill=(255, 248, 225, al), width=46, joint='curve')
+        for q in P: d.ellipse([q[0] - 23, q[1] - 23, q[0] + 23, q[1] + 23], fill=(255, 248, 225, al))
         for (ax, ay), (bx, by) in zip(P, P[1:]):
             L = math.hypot(bx - ax, by - ay) or 1
             ux, uy = (bx - ax) / L, (by - ay) / L; nx, ny = -uy, ux
@@ -296,7 +305,7 @@ def draw(stage, out):
     if full:
         bg = Image.open(full).convert('RGB').resize((W * S, H * S), Image.LANCZOS)
         im.paste(bg, (0, 0))
-        draw_path_and_pads(im, paths, pads, st)
+        draw_path_and_pads(im, paths, pads, st, strong=os.sep + 'phong_khuon' + os.sep in full)
         im.save(out, 'WEBP', quality=82, method=6)
         stage['_kind'] = 'phong_' + os.path.basename(full)[6:-4]
         return
@@ -443,21 +452,26 @@ def draw(stage, out):
         im = Image.blend(im, Image.new('RGB', im.size, (40, 20, 60)), 0.28)
     im.save(out, 'WEBP', quality=80, method=6)
 
-os.makedirs(os.path.join(ROOT, 'public/assets/rooms'), exist_ok=True)
-n = 0
-kinds_used = {}
-for f in sorted(glob.glob(os.path.join(ROOT, 'src/core/streets/generated/*.json'))):
-    g = json.load(open(f, encoding='utf-8'))
-    for sh in g.get('shops', []):
-        st = sh['stage']
-        feat = g['towers'].get(st.get('featuredTowerId', ''), {})
-        st['_art'] = feat.get('art')
-        draw(st, os.path.join(ROOT, 'public/assets/rooms', f"map_{st['id']}.webp")); n += 1
-        kinds_used[st['_kind']] = kinds_used.get(st['_kind'], 0) + 1
-print('vẽ phòng:', n, '· kiểu phòng:', len(kinds_used), kinds_used)
+def main():
+    os.makedirs(os.path.join(ROOT, 'public/assets/rooms'), exist_ok=True)
+    n = 0
+    kinds_used = {}
+    for f in sorted(glob.glob(os.path.join(ROOT, 'src/core/streets/generated/*.json'))):
+        g = json.load(open(f, encoding='utf-8'))
+        for sh in g.get('shops', []):
+            st = sh['stage']
+            feat = g['towers'].get(st.get('featuredTowerId', ''), {})
+            st['_art'] = feat.get('art')
+            draw(st, os.path.join(ROOT, 'public/assets/rooms', f"map_{st['id']}.webp")); n += 1
+            kinds_used[st['_kind']] = kinds_used.get(st['_kind'], 0) + 1
+    print('vẽ phòng:', n, '· kiểu phòng:', len(kinds_used), kinds_used)
 
-# Phố Dốc Màn 1 Tiệm Giày (anh Kha "làm hết" 25/11): vẽ lại phòng tiệm giày bằng đồ Spark đợt 34 — hết bếp ga, cán bột
-for f in sorted(glob.glob(os.path.join(ROOT, 'content/rooms/*.json'))):
-    st = json.load(open(f, encoding='utf-8'))
-    draw(st, os.path.join(ROOT, st['_out']))
-    print('vẽ phòng Phố Dốc:', st['id'], st['_kind'])
+    # Phố Dốc Màn 1 Tiệm Giày (anh Kha "làm hết" 25/11): vẽ lại phòng tiệm giày bằng đồ Spark đợt 34 — hết bếp ga, cán bột
+    for f in sorted(glob.glob(os.path.join(ROOT, 'content/rooms/*.json'))):
+        st = json.load(open(f, encoding='utf-8'))
+        draw(st, os.path.join(ROOT, st['_out']))
+        print('vẽ phòng Phố Dốc:', st['id'], st['_kind'])
+
+
+if __name__ == '__main__':
+    main()

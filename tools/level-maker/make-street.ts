@@ -31,6 +31,9 @@ function buildCleanTowers(): Record<string, TowerDefinition> {
 const GEO = JSON.parse(readFileSync(join(ROOT, 'src/core/streets/realStreets.generated.json'), 'utf8'));
 /** Bố cục phòng trong tiệm (tools/level-maker/make_rooms.py) — màn tiệm chơi bên trong tiệm */
 const ROOMS = JSON.parse(readFileSync(join(ROOT, 'src/core/streets/rooms.generated.json'), 'utf8')) as { id: string; paths: { x: number; y: number }[][]; pads: { id: string; x: number; y: number }[] }[];
+// Bố cục khớp từng phòng Spark vẽ theo khuôn (tools/level-maker/make_room_fit.py, anh Kha 26/11): có thì dùng thay bố cục chung
+const ROOM_FIT_FILE = join(ROOT, 'src/core/streets/roomFit.generated.json');
+const ROOM_FIT = (existsSync(ROOM_FIT_FILE) ? JSON.parse(readFileSync(ROOM_FIT_FILE, 'utf8')) : {}) as Record<string, { room: string; paths: { x: number; y: number }[][]; pads: { id: string; x: number; y: number }[] }>;
 /** Kiểu nội thất theo loại địa điểm */
 function roomStyleOf(type: string, name: string): 'luu_tru' | 'quan_an' | 'cafe' | 'tiem' {
   const t = `${type} ${name}`.toLowerCase();
@@ -450,7 +453,8 @@ function make(id: string) {
     const shapes = ROOMS.length / 2;
     const shape = (idx - 1 + hsh) % shapes;
     const flip = (Math.floor((idx - 1) / shapes) + hsh) % 2;
-    const room = ROOMS[shape * 2 + flip]!;
+    const fit = ROOM_FIT[`${spec.id}_t${idx}`];
+    const room = fit ? { id: `khuon_${fit.room}`, paths: fit.paths, pads: fit.pads } : ROOMS[shape * 2 + flip]!;
     const build = (k: number): StageDefinition => {
       const stage: StageDefinition = {
         id: `${spec.id}_t${idx}` as never, stageNumber: 10 + idx, name: p.name, subtitle: `${spec.name} · tiệm ${idx}/${n}: ${p.type}`,
