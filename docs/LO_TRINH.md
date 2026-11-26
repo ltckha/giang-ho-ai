@@ -1,4 +1,4 @@
-# Lộ trình Gọn Phố (bản chép từ trang lộ trình, cập nhật 26/11/2026 (khuya))
+# Lộ trình Gọn Phố (bản chép từ trang lộ trình, cập nhật 27/11/2026)
 
 Game (khoá mã mời): https://gon-pho.pages.dev · Kế hoạch chi tiết: docs/PLAN.md · Các lần rà: docs/REVIEW_LOG.md
 
@@ -75,6 +75,8 @@ _Giai đoạn 1 chơi thử nội bộ: link web khoá bằng mã mời, ngườ
 - ✅ Xong — Mã lưu có ảnh QR + gửi email / chia sẻ link · Claude
 - ✅ Xong — Phát hành giai đoạn 1 (nội bộ): link web khoá bằng mã mời, cờ vùng VN (00+, cảnh báo 180 phút), chế độ quay sạch · Claude (anh Kha chốt 26/11)
 - ⬜ Chưa làm — Mời 5–10 người chơi thử thật bằng mã mời, gom góp ý · Anh Kha gửi mã
+- ✅ Xong — Bản quốc tế bước 1: Little Shops of Dalat — nút EN / VI, dịch toàn bộ chữ sang tiếng Anh (máy giờ Việt Nam vẫn ra tiếng Việt) · Claude (anh Kha chốt tên 26/11)
+- ⬜ Chưa làm — Bản quốc tế bước 2: 3–5 người nước ngoài chơi thử bằng mã mời · Anh Kha gửi mã
 - ⏳ Chờ anh — Đóng gói app chơi thử nội bộ (TestFlight / Google Play Internal Testing) · Chờ anh nói "làm"
 
 ## Chặng 5: Video kênh Gọn
