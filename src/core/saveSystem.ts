@@ -1,4 +1,4 @@
-import { computeGearBonus, migrateGearItem, rollStageDrops, starterGear, type Equipped, type GearBonus, type GearItem, type GearSlotId } from './equipment';
+import { computeGearBonus, migrateGearItem, rollWinDrops, starterGear, type Equipped, type GearBonus, type GearItem, type GearSlotId } from './equipment';
 import type { StageId, TdSaveData, TowerId } from './types';
 import { makeGearItem as makeGear, GEAR_SLOTS as SLOTS } from './equipment';
 import { ALL_ELEMENTS as ELS } from './elements';
@@ -192,18 +192,20 @@ export function grantStageDrops(
   stars: 1 | 2 | 3,
   storage?: Pick<Storage, 'getItem' | 'setItem'>,
   rng: () => number = Math.random,
+  opts: { firstWin?: boolean; boss?: boolean; hard?: boolean } = {},
 ): GearItem[] {
   const store = resolveStore(storage);
   const cur = loadTdSave(store);
   const extra = getGearBonus(cur).stats.extra_drop; // "Khách quen"
   const prefix = `g${Date.now().toString(36)}${Math.floor(rng() * 1e6).toString(36)}`;
-  const drops = rollStageDrops(stageNumber, stars, rng, prefix, extra);
-  if (stageNumber === 4) {
-    // Thắng trùm phố: chắc chắn 1 món Hàng hiệu
-    const slot = SLOTS[Math.floor(rng() * SLOTS.length)]!.id;
-    const el = ELS[Math.floor(rng() * ELS.length)]!;
-    drops.push(makeGear(slot, el, 'hieu', `${prefix}_hieu`, rng));
+  const firstWin = opts.firstWin ?? true;
+  const boss = opts.boss ?? stageNumber === 4;
+  const drops = rollWinDrops({ stageNumber, stars, firstWin, boss, hard: opts.hard, extra, equipped: getEquipped(cur) }, rng, prefix);
+  if (stageNumber === 4 && firstWin && !drops.some((d) => d.rarity === 'hieu')) {
+    // Thắng trùm Phố Dốc lần đầu: chắc chắn 1 món Hàng hiệu (món mở đầu cho phố thật)
+    drops[0] = makeGear(drops[0]?.slot ?? SLOTS[Math.floor(rng() * SLOTS.length)]!.id, drops[0]?.element ?? ELS[Math.floor(rng() * ELS.length)]!, 'hieu', `${prefix}_hieu`, rng);
   }
+  if (!drops.length) return drops;
   cur.gearInventory = capInventory([...(cur.gearInventory ?? []), ...drops], cur.gearEquipped ?? {});
   cur.updatedAt = Date.now();
   writeSave(store, cur);

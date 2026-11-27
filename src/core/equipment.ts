@@ -470,6 +470,69 @@ export function rollStageDrops(stageNumber: number, stars: 1 | 2 | 3, rng: () =>
   return items;
 }
 
+const RANK: Record<GearRarity, number> = { thuong: 0, tot: 1, xin: 2, hieu: 3 };
+
+/** Độ mạnh 1 món (so hạng trước, rồi tổng chỉ số) — dùng tìm ô đồ đang yếu nhất */
+export function gearPower(g: GearItem | undefined): number {
+  if (!g) return -1;
+  return RANK[g.rarity] * 1000 + g.visible.reduce((a, v) => a + Math.abs(v.value), 0);
+}
+
+/**
+ * RƠI ĐỒ "ÍT MÀ CHẤT" (anh Kha 27/11: "đồ rớt nhiều quá, cần hạn chế và tính toán kĩ để hấp dẫn hơn"):
+ * - Thắng màn LẦN ĐẦU: 1 món. 3 sao → bốc hạng 2 lần lấy cao hơn. Trùm phố → tối thiểu Xịn.
+ * - Chơi lại màn đã thắng: 1/4 cơ hội rơi 1 món.
+ * - Món rơi ưu tiên ô đồ đang yếu nhất (ô trống trước) → món nào cũng đáng mặc.
+ * - "Khách quen" (extra_drop): thêm món chỉ khi lần này có rơi.
+ * - ★ KHÓ (anh Kha 27/11: "thử thách màn khó sẽ ra đồ tốt hơn"): thắng Khó lần đầu → tối thiểu Tốt, bốc hạng 2 lần lấy cao;
+ *   trùm phố Khó → tối thiểu Xịn, 1/2 cơ hội Hàng hiệu; chơi lại Khó 2/5 cơ hội rơi (thường 1/4).
+ */
+export function rollWinDrops(
+  o: { stageNumber: number; stars: 1 | 2 | 3; firstWin: boolean; boss: boolean; hard?: boolean; extra?: number; equipped?: Equipped },
+  rng: () => number,
+  uidPrefix: string,
+): GearItem[] {
+  if (!o.firstWin && rng() >= (o.hard ? 0.4 : 0.25)) return [];
+  const L = Math.max(1, Math.min(6, o.stageNumber));
+  const hieu = 0.02 + 0.015 * (L - 1);
+  const xin = 0.08 + 0.03 * (L - 1);
+  const tot = 0.3 + 0.04 * (L - 1);
+  const rollRarity = (): GearRarity => {
+    const r = rng();
+    return r < hieu ? 'hieu' : r < hieu + xin ? 'xin' : r < hieu + xin + tot ? 'tot' : 'thuong';
+  };
+  const pickSlot = (taken: Set<GearSlotId>): GearSlotId => {
+    const eq = o.equipped ?? {};
+    if (rng() < 0.6) {
+      const free = GEAR_SLOTS.map((g) => g.id as GearSlotId).filter((id) => !taken.has(id));
+      const min = Math.min(...free.map((id) => gearPower(eq[id])));
+      const weakest = free.filter((id) => gearPower(eq[id]) === min);
+      if (weakest.length) return weakest[Math.floor(rng() * weakest.length)]!;
+    }
+    return GEAR_SLOTS[Math.floor(rng() * GEAR_SLOTS.length)]!.id as GearSlotId;
+  };
+  const n = 1 + Math.max(0, o.extra ?? 0);
+  const out: GearItem[] = [];
+  const taken = new Set<GearSlotId>();
+  for (let i = 0; i < n; i++) {
+    let rar = rollRarity();
+    if (o.stars === 3 && o.firstWin) {
+      const b = rollRarity();
+      if (RANK[b] > RANK[rar]) rar = b;
+    }
+    if (o.hard) {
+      const b2 = rollRarity();
+      if (RANK[b2] > RANK[rar]) rar = b2;
+      if (o.firstWin && RANK[rar] < RANK.tot) rar = 'tot';
+    }
+    if (o.boss && o.firstWin && i === 0 && RANK[rar] < RANK.xin) rar = rng() < (o.hard ? 0.5 : 0.25) ? 'hieu' : 'xin';
+    const slot = pickSlot(taken);
+    taken.add(slot);
+    out.push(makeGearItem(slot, ALL_ELEMENTS[Math.floor(rng() * ALL_ELEMENTS.length)]!, rar, `${uidPrefix}_${i}`, rng));
+  }
+  return out;
+}
+
 /** Bộ khởi đầu: Mũ (Mộc) + Kính (Hỏa): mũ là "chống lưng A" của kính, Mộc sinh Hỏa → kính sáng 1 dòng ẩn */
 export function starterGear(): GearItem[] {
   let s = 11;

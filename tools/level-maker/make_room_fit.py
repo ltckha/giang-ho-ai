@@ -149,12 +149,13 @@ def make(rect, m, flip, step):
     er = np.asarray(Image.fromarray((m * 255).astype('uint8')).filter(ImageFilter.MinFilter(2 * PAD_R + 1))) > 128
     dp = lambda p: min(seg_d(p, s0, s1) for s0, s1 in segs)
     cands = [(x, yy) for yy in range(y0 + PAD_R, y1 - 10, 5) for x in range(x0 + PAD_R, x1 - PAD_R + 1, 5)
-             if er[yy, x] and 44 <= dp((x, yy)) <= 90]
+             if er[yy, x] and 44 <= dp((x, yy)) <= 100]
     cover = lambda p: sum(1 for s0, s1 in segs for t in range(11)
                           if math.hypot(p[0] - (s0[0] + (s1[0] - s0[0]) * t / 10), p[1] - (s0[1] + (s1[1] - s0[1]) * t / 10)) <= 110)
     cands.sort(key=lambda p: (-cover(p), p[1], p[0]))
     pads = []
-    for gap in (52, 48, 46):
+    # anh Kha 27/11 "chỗ đặt món sát nhau quá dễ bị rối": 2 tâm cách ≥ 58 (đế rộng 40 → hở ≥ 18), chật lắm mới 54 (trước 46 → hở 6)
+    for gap in (58, 56, 54):
         pads = []
         for p in cands:
             if all(math.hypot(p[0] - q[0], p[1] - q[1]) >= gap for q in pads):
@@ -170,14 +171,22 @@ def layouts_for(png, room):
     """Các bố cục tốt nhất của 1 phòng (khác nhau), tốt nhất trước"""
     res = []
     for m, rect in floors(png, room):
-        for step in (84, 90, 96, 104):
+        for step in (84, 90, 96, 104, 112):
             for flip in (False, True):
                 P, pads = make(rect, m, flip, step)
                 L = sum(math.hypot(a[0] - b[0], a[1] - b[1]) for a, b in zip(P, P[1:]))
                 res.append((len(pads) * 100 + L * 0.1, P, pads, flip))
+    if not any(len(t[2]) >= 4 for t in res):
+        # phòng rất hẹp (hostel: xe máy + giường tầng 2 bên): đường thẳng giữa phòng, ô 2 bên đường
+        for m, rect in floors(png, room):
+            x0, y0, x1, y1 = rect
+            cx = (x0 + x1) // 2
+            P = [(cx, H), (cx, y0 - 2)]
+            pads = [(x, y) for y in range(y1 - 30, y0 + 20, -60) for x in (cx - 50, cx + 50) if x - PAD_R >= x0 and x + PAD_R <= x1]
+            res.append((len(pads) * 100, P, pads[:8], False))
     res.sort(key=lambda t: -t[0])
     # phòng hẹp (sàn < 2/3 bề ngang) không đủ 7 chỗ: nhận bố cục ít chỗ hơn (máy cân độ khó bù lại)
-    need = 7 if any(len(t[2]) >= 7 for t in res) else 5
+    need = 7 if any(len(t[2]) >= 7 for t in res) else 5 if any(len(t[2]) >= 5 for t in res) else 4
     out, seen = [], set()
     for sc, P, pads, flip in res:
         key = tuple(P)

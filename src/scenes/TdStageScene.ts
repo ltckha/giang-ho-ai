@@ -214,6 +214,7 @@ export class TdStageScene extends Phaser.Scene {
   private ultButtonsRoot: HTMLDivElement | null = null;
   private chainLabelsRoot: HTMLDivElement | null = null;
   private fullCycleBannerRoot: HTMLDivElement | null = null;
+  private fullCycleFxShown = false;
   private modalRoot: HTMLDivElement | null = null;
   private pauseMenuRoot: HTMLDivElement | null = null;
   private synergyTooltipRoot: HTMLDivElement | null = null;
@@ -459,6 +460,7 @@ export class TdStageScene extends Phaser.Scene {
             : 'stage_2',
     );
     this.lastDrops = [];
+    this.fullCycleFxShown = false;
     // Nhớ tốc độ x2 giữa các màn (Antigravity rà 24/11)
     const savedSpeed = (() => {
       try {
@@ -2052,19 +2054,23 @@ export class TdStageScene extends Phaser.Scene {
         sound.playVictory();
         const stars = calculateStarRating(this.engine.lives, this.engine.maxLives);
         if (stars !== 0 && !this.liveMode) {
-          const firstWin = !((loadTdSave().starsByStage[this.engine.stage.id] ?? 0) > 0);
-          const after = saveTdProgress(this.engine.stage.id, stars, this.engine.lives);
+          const st = this.engine.stage;
+          const save0 = loadTdSave();
+          const firstWin = !((save0.starsByStage[st.id] ?? 0) > 0);
+          const firstHardWin = this.hardMode && !((save0.hardStarsByStage?.[st.id] ?? 0) > 0);
+          const after = saveTdProgress(st.id, stars, this.engine.lives);
           this.lastVehicleUnlocked = (after.lastVehicleUnlocked as VehicleId | undefined) ?? null;
-          // Rơi trang bị theo số sao (Claude)
-          this.lastDrops = grantStageDrops(this.engine.stage.stageNumber, stars);
+          // Rơi đồ "ít mà chất" (anh Kha 27/11): lần đầu thắng 1 món, chơi lại 1/4 cơ hội; ★ Khó ra đồ hạng cao hơn
+          const boss = st.id === 'stage_4' || (!!st.streetId && !st.shopIndex);
+          if (this.hardMode) saveHardWin(st.id, stars);
+          this.lastDrops = grantStageDrops(st.stageNumber, stars, undefined, Math.random, {
+            firstWin: this.hardMode ? firstHardWin : firstWin,
+            boss,
+            hard: this.hardMode,
+          });
           // Hết xe để nhận (đã đủ 6 xe) mà màn này lẽ ra tặng xe → tặng thêm 1 món đồ (đánh giá độc lập T10)
-          if (firstWin && !this.lastVehicleUnlocked && stageGrantsVehicle(this.engine.stage)) {
-            this.lastDrops = [...this.lastDrops, ...grantStageDrops(this.engine.stage.stageNumber, 1)];
-          }
-          // ★ Khó: ghi sao Khó + rơi thêm 1 lượt đồ
-          if (this.hardMode) {
-            saveHardWin(this.engine.stage.id, stars);
-            this.lastDrops = [...this.lastDrops, ...grantStageDrops(this.engine.stage.stageNumber, stars)];
+          if (firstWin && !this.lastVehicleUnlocked && stageGrantsVehicle(st)) {
+            this.lastDrops = [...this.lastDrops, ...grantStageDrops(st.stageNumber, 1, undefined, Math.random, { firstWin: true, boss: false })];
           }
           void pushProgress(); // 🔑 có chìa khoá QR thì gửi tiến độ lên máy chủ (sau khi đã ghi đủ phần thưởng)
         }
@@ -2968,7 +2974,11 @@ export class TdStageScene extends Phaser.Scene {
       this.wasFullCycleActive = isFullCycle;
       if (isFullCycle) {
         const { width, height } = this.scale;
-        this.fxPop('fx_chuoi_sinh', width / 2, height * 0.45, Math.min(width, height) * 0.7, { from: 0.2, dur: 1300, spin: 220, alpha: 0.95, depth: 36 });
+        // anh Kha 27/11 "khi kích hoạt ngũ hành bị che mất món": hình xoáy nhỏ, mờ, nằm ở mép trên cạnh dòng chữ — không phủ giữa sân
+        if (!this.fullCycleFxShown) {
+          this.fullCycleFxShown = true;
+          this.fxPop('fx_chuoi_sinh', width / 2, 74, Math.min(width, height) * 0.26, { from: 0.3, dur: 900, spin: 180, alpha: 0.55, depth: 36 });
+        }
       }
       if (this.fullCycleBannerRoot) {
         this.fullCycleBannerRoot.innerHTML = isFullCycle

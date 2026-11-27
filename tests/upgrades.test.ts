@@ -133,7 +133,7 @@ describe('Trang bị chủ tiệm v2: 6 dòng, 2 món chống lưng, bộ đồ'
     expect(fresh.gearInventory?.length).toBe(2);
     expect(activatedHiddenCount(getEquipped(fresh)).glasses).toBe(1);
     const drops = grantStageDrops(2, 3, store, rng);
-    expect(drops.length).toBeGreaterThanOrEqual(3);
+    expect(drops.length).toBeGreaterThanOrEqual(1);
     equipGear(drops[0]!.slot, drops[0]!.uid, store);
     expect(getEquipped(loadTdSave(store))[drops[0]!.slot]?.uid).toBe(drops[0]!.uid);
   });
