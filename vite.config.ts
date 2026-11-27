@@ -7,6 +7,9 @@ import { defineConfig, type Plugin } from 'vite';
  * Claude: sau khi build, tạo dist/sw.js lưu sẵn toàn bộ file game để chơi không cần mạng
  * và cài ra màn hình điện thoại như app. Không dùng thư viện ngoài.
  */
+/** Mã bản build: game so với dist/version.json để biết có bản mới (anh Kha 27/11: ảnh phòng mới + mã cũ → chỗ đặt món lệch) */
+const BUILD_ID = Date.now().toString(36);
+
 function offlineServiceWorker(): Plugin {
   return {
     name: 'gon-tiem-offline-sw',
@@ -21,6 +24,7 @@ function offlineServiceWorker(): Plugin {
           else if (f !== 'sw.js') files.push(relative(dist, p).split('\\').join('/'));
         }
       };
+      writeFileSync(join(dist, 'version.json'), JSON.stringify({ v: BUILD_ID }));
       walk(dist);
       files.sort();
       const hash = createHash('sha256');
@@ -29,7 +33,7 @@ function offlineServiceWorker(): Plugin {
       // Lưu sẵn khi cài: chỉ phần lõi + Phố Dốc (~3 MB). Phố thật, phòng tiệm, bản đồ lớn: lưu khi người chơi mở lần đầu
       // (đánh giá độc lập V13: trước đây tải ngầm cả 20 MB, người dùng 4G không được hỏi).
       const LAZY = /^assets\/(rooms\/|map_street_|map_dalat_lon|spark_atlas|facade_atlas|streets_atlas)/;
-      const core = files.filter((f) => !LAZY.test(f) && !f.startsWith('art/'));
+      const core = files.filter((f) => !LAZY.test(f) && !f.startsWith('art/') && f !== 'version.json');
       const list = JSON.stringify(['./', ...core.map((f) => './' + f)]);
       const sw = `/* Tạo tự động khi build — đừng sửa tay */
 const CACHE = 'gon-tiem-${version}';
@@ -46,6 +50,7 @@ self.addEventListener('fetch', (e) => {
   const url = new URL(e.request.url);
   if (e.request.method !== 'GET' || url.origin !== self.location.origin) return;
   if (url.pathname.startsWith('/api/')) return; // máy chủ lưu QR chìa khoá: luôn hỏi mạng
+  if (url.pathname.endsWith('/version.json')) return; // mã bản mới nhất: luôn hỏi mạng
   // Mở game (trang chính): hỏi mạng trước để luôn có bản mới nhất; mất mạng mới dùng bản đã lưu (anh Kha 25/11)
   if (e.request.mode === 'navigate') {
     e.respondWith(
@@ -84,6 +89,7 @@ self.addEventListener('fetch', (e) => {
 
 export default defineConfig({
   base: './',
+  define: { __BUILD_ID__: JSON.stringify(BUILD_ID) },
   plugins: [offlineServiceWorker()],
   build: {
     outDir: 'dist',

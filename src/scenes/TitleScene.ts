@@ -64,6 +64,7 @@ import { PROVINCES, PROVINCE_LANDMARK, REGION_NAME, STREET_INFO, streetBannerUrl
 import { sound } from '../game/sound';
 import { tr, currentLang, switchLang } from '../game/i18n';
 import SIGNS_EN from '../core/streets/signsEn.json';
+import { checkForUpdate } from '../game/freshness';
 
 const RING_SIZE = 340;
 const RING_CENTER = 170;
@@ -150,6 +151,7 @@ export class TitleScene extends Phaser.Scene {
   }
 
   public create(): void {
+    void checkForUpdate(() => true); // về màn chính: có bản mới thì tải lại cho mã game và ảnh cùng 1 bản
     // 🔑 Quét QR chìa khoá (#khoa=…): nhận chìa khoá, lấy tiến độ mới nhất từ máy chủ
     const scannedKey = keyFromLocation();
     if (scannedKey) {

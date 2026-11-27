@@ -8,6 +8,7 @@ import { music } from './game/music';
 import { sound } from './game/sound';
 import { requireInvite } from './game/invite';
 import { initI18n } from './game/i18n';
+import { checkForUpdate, purgeStaleCaches } from './game/freshness';
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -28,7 +29,7 @@ const config: Phaser.Types.Core.GameConfig = {
 
 // Giai đoạn 1 thử nội bộ: người mới phải nhập mã mời (src/game/invite.ts)
 // Bản quốc tế: chọn tiếng trước khi hiện bất cứ chữ nào (src/game/i18n.ts)
-void initI18n().then(() => requireInvite(() => {
+void purgeStaleCaches().then(initI18n).then(() => requireInvite(() => {
   const game = new Phaser.Game(config);
   if (typeof window !== 'undefined') {
     (window as unknown as { __GIANG_HO_GAME__?: Phaser.Game }).__GIANG_HO_GAME__ = game;
@@ -48,3 +49,9 @@ if ('serviceWorker' in navigator && location.port !== '5173' && (!navigator.webd
     }, 20000);
   });
 }
+
+// Quay lại game sau khi để nền (điện thoại): có bản mới thì tải lại ngay khi đang ở màn chính (src/game/freshness.ts)
+const notInStage = () => !(window as unknown as { __GIANG_HO_GAME__?: Phaser.Game }).__GIANG_HO_GAME__?.scene.isActive('TdStageScene');
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') void checkForUpdate(notInStage);
+});
