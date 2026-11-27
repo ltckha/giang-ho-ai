@@ -702,9 +702,9 @@
  },
  "shops": [
   {
-   "hpMultiplier": 1.2,
+   "hpMultiplier": 1.1,
    "balance": {
-    "randomWinWithExpectedGear": 0.7083333333333334,
+    "randomWinWithExpectedGear": 0.6666666666666666,
     "botWinRate": 1,
     "botLivesAvg": 21,
     "target": 0.65
@@ -769,28 +769,503 @@
      },
      {
       "id": "pad_3",
-      "x": 243,
-      "y": 231
+      "x": 248,
+      "y": 226
      },
      {
       "id": "pad_4",
-      "x": 208,
-      "y": 346
+      "x": 123,
+      "y": 401
      },
      {
       "id": "pad_5",
-      "x": 138,
-      "y": 406
-     },
-     {
-      "id": "pad_6",
-      "x": 138,
+      "x": 128,
       "y": 346
      },
      {
+      "id": "pad_6",
+      "x": 118,
+      "y": 456
+     }
+    ],
+    "waves": [
+     {
+      "waveNumber": 1,
+      "title": "Đợt 1: Bụi Chợ Đêm",
+      "mainElements": [
+       "tho"
+      ],
+      "earlyBonusMax": 12,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 2,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.1
+       }
+      ]
+     },
+     {
+      "waveNumber": 2,
+      "title": "Đợt 2: Khói Rang Khét",
+      "mainElements": [
+       "hoa"
+      ],
+      "earlyBonusMax": 13,
+      "clearReward": 14,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.26
+       }
+      ]
+     },
+     {
+      "waveNumber": 3,
+      "title": "Đợt 3: Đàn Kiến Bu Đường & Khói Rang Khét",
+      "mainElements": [
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 14,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 3,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.43
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 4,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.43
+       }
+      ]
+     },
+     {
+      "waveNumber": 4,
+      "title": "Đợt 4: Bụi Chợ Đêm & Đàn Kiến Bu Đường",
+      "mainElements": [
+       "tho",
+       "moc"
+      ],
+      "earlyBonusMax": 15,
+      "clearReward": 15,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.6
+       }
+      ]
+     },
+     {
+      "waveNumber": 5,
+      "title": "Đợt 5: Khói Rang Khét & Bụi Chợ Đêm & Đàn Kiến Bu Đường",
+      "mainElements": [
+       "hoa",
+       "tho",
+       "moc"
+      ],
+      "earlyBonusMax": 16,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 1.87
+       }
+      ]
+     },
+     {
+      "waveNumber": 6,
+      "title": "Đợt 6: Đàn Kiến Bu Đường & Khói Rang Khét & Bụi Chợ Đêm",
+      "mainElements": [
+       "moc",
+       "hoa",
+       "tho"
+      ],
+      "earlyBonusMax": 17,
+      "clearReward": 16,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 4,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 5,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 3,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.2
+       }
+      ]
+     },
+     {
+      "waveNumber": 7,
+      "title": "Đợt 7: Bụi Chợ Đêm & Đàn Kiến Bu Đường & Khói Rang Khét",
+      "mainElements": [
+       "tho",
+       "moc",
+       "hoa"
+      ],
+      "earlyBonusMax": 18,
+      "clearReward": 17,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 2.64
+       }
+      ]
+     },
+     {
+      "waveNumber": 8,
+      "title": "Đợt 8: Giờ cao điểm cả phố",
+      "mainElements": [
+       "tho",
+       "hoa",
+       "moc"
+      ],
+      "earlyBonusMax": 0,
+      "clearReward": 0,
+      "groups": [
+       {
+        "enemyId": "ge_pho_ca_phe_2",
+        "count": 4,
+        "intervalSec": 1.6,
+        "delayBeforeSec": 0,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_3",
+        "count": 6,
+        "intervalSec": 0.85,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       },
+       {
+        "enemyId": "ge_pho_ca_phe_4",
+        "count": 5,
+        "intervalSec": 1.2,
+        "delayBeforeSec": 0.4,
+        "pathIndex": 0,
+        "hpScale": 3.08
+       }
+      ]
+     }
+    ],
+    "towerIds": [
+     "gt_pho_ca_phe_cafe_som",
+     "gt_pho_ca_phe_o_long",
+     "gt_pho_ca_phe_kem_ly",
+     "gt_pho_ca_phe_tra_sua",
+     "gt_pho_ca_phe_retro",
+     "gt_pho_ca_phe_kem_bo",
+     "gt_pho_ca_phe_cafe_xua",
+     "gt_pho_ca_phe_san_thuong",
+     "gt_hoang_dieu_yaourt",
+     "gt_nguyen_van_troi_kem_bo",
+     "gt_nguyen_van_troi_che",
+     "gt_phan_dinh_phung_cafe_coc",
+     "gt_tang_bat_ho_banh_qua",
+     "gt_tang_bat_ho_sua_nanh",
+     "gt_tang_bat_ho_bar_ham",
+     "gt_tang_bat_ho_cafe_xe_dap",
+     "gt_tang_bat_ho_an_vat",
+     "gt_tran_phu_tiem_banh",
+     "gt_don_kep_rac",
+     "gt_don_choi_tre",
+     "gt_don_voi_xit",
+     "gt_don_den_duong",
+     "gt_don_bao_cat"
+    ],
+    "loadoutSize": 6,
+    "defaultLoadout": [
+     "gt_pho_ca_phe_cafe_som",
+     "gt_pho_ca_phe_retro",
+     "gt_pho_ca_phe_o_long",
+     "gt_pho_ca_phe_kem_ly",
+     "gt_don_den_duong",
+     "gt_pho_ca_phe_cafe_xua"
+    ],
+    "enableSynergy": true,
+    "attribution": "© OpenStreetMap contributors (ODbL)",
+    "places": [
+     {
+      "key": "cafe_som",
+      "name": "Cà Phê Sớm Mai",
+      "type": "Quán cà phê truyền thống mở từ 5 giờ",
+      "trait": "vài bàn nhỏ, phin nhôm",
+      "towerId": "gt_pho_ca_phe_cafe_som"
+     },
+     {
+      "key": "o_long",
+      "name": "Tiệm Trà Đồi Chè",
+      "type": "Tiệm trà ô long ủ lạnh",
+      "trait": "trà ô long ủ lạnh",
+      "towerId": "gt_pho_ca_phe_o_long"
+     },
+     {
+      "key": "kem_ly",
+      "name": "Cà Phê Ngắm Hồ Cỏ Hồng",
+      "type": "Quán cà phê ngắm hồ, ngắm phố",
+      "trait": "ban công nhìn xuống hồ Xuân Hương",
+      "towerId": "gt_pho_ca_phe_kem_ly"
+     },
+     {
+      "key": "tra_sua",
+      "name": "Tiệm Trà Sữa Hồ Sương",
+      "type": "Tiệm trà sữa",
+      "trait": "nồi trân châu nấu nóng, ly trà sữa",
+      "towerId": "gt_pho_ca_phe_tra_sua"
+     },
+     {
+      "key": "retro",
+      "name": "Cà Phê Hoài Cổ Bằng Lăng",
+      "type": "Quán cà phê retro đồ cũ thập niên 90",
+      "trait": "máy hát, đồ cũ",
+      "towerId": "gt_pho_ca_phe_retro"
+     },
+     {
+      "key": "kem_bo",
+      "name": "Quán Kem Bơ Mai Anh Đào",
+      "type": "Quán cà phê, kem bơ",
+      "trait": "ly kem bơ, mở từ sáng sớm",
+      "towerId": "gt_pho_ca_phe_kem_bo"
+     },
+     {
+      "key": "cafe_xua",
+      "name": "Cà Phê Xưa Cúc Hoạ Mi",
+      "type": "Quán cà phê xưa, ghế gỗ, nhạc Trịnh",
+      "trait": "ghế gỗ cũ, nhạc Trịnh",
+      "towerId": "gt_pho_ca_phe_cafe_xua"
+     },
+     {
+      "key": "san_thuong",
+      "name": "Cà Phê Sân Thượng Thông Xanh",
+      "type": "Quán cà phê sân thượng nhìn xuống phố",
+      "trait": "nhìn xuống chợ và hồ",
+      "towerId": "gt_pho_ca_phe_san_thuong"
+     }
+    ],
+    "streetId": "street_pho_ca_phe",
+    "shopIndex": 1,
+    "featuredTowerId": "gt_pho_ca_phe_cafe_som",
+    "facadeKey": "mat_tien_cafe_som",
+    "roomStyle": "cafe",
+    "roomLayout": "khuon_phong_cafe_xua",
+    "botPlan": [
+     {
+      "padId": "pad_1",
+      "defId": "gt_pho_ca_phe_cafe_som",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_2",
+      "defId": "gt_pho_ca_phe_retro",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_3",
+      "defId": "gt_pho_ca_phe_o_long",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_4",
+      "defId": "gt_pho_ca_phe_cafe_xua",
+      "preferredBranch": "B"
+     },
+     {
+      "padId": "pad_5",
+      "defId": "gt_pho_ca_phe_cafe_som",
+      "preferredBranch": "A"
+     },
+     {
+      "padId": "pad_6",
+      "defId": "gt_pho_ca_phe_retro",
+      "preferredBranch": "B"
+     }
+    ]
+   }
+  },
+  {
+   "hpMultiplier": 1.2,
+   "balance": {
+    "randomWinWithExpectedGear": 0.6041666666666666,
+    "botWinRate": 1,
+    "botLivesAvg": 21,
+    "target": 0.6071428571428572
+   },
+   "stage": {
+    "id": "street_pho_ca_phe_t2",
+    "stageNumber": 12,
+    "name": "Tiệm Trà Đồi Chè",
+    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 2/8: Tiệm trà ô long ủ lạnh",
+    "startingEssence": 210,
+    "startingLives": 20,
+    "paths": [
+     [
+      {
+       "x": 179,
+       "y": 520
+      },
+      {
+       "x": 179,
+       "y": 436
+      },
+      {
+       "x": 271,
+       "y": 436
+      },
+      {
+       "x": 271,
+       "y": 294
+      },
+      {
+       "x": 88,
+       "y": 294
+      },
+      {
+       "x": 88,
+       "y": 153
+      },
+      {
+       "x": 271,
+       "y": 153
+      },
+      {
+       "x": 179,
+       "y": 153
+      },
+      {
+       "x": 179,
+       "y": 127
+      }
+     ]
+    ],
+    "pads": [
+     {
+      "id": "pad_1",
+      "x": 169,
+      "y": 224
+     },
+     {
+      "id": "pad_2",
+      "x": 224,
+      "y": 224
+     },
+     {
+      "id": "pad_3",
+      "x": 189,
+      "y": 364
+     },
+     {
+      "id": "pad_4",
+      "x": 274,
+      "y": 199
+     },
+     {
+      "id": "pad_5",
+      "x": 134,
+      "y": 379
+     },
+     {
+      "id": "pad_6",
+      "x": 134,
+      "y": 434
+     },
+     {
       "id": "pad_7",
-      "x": 123,
-      "y": 451
+      "x": 89,
+      "y": 464
+     },
+     {
+      "id": "pad_8",
+      "x": 84,
+      "y": 339
+     },
+     {
+      "id": "pad_9",
+      "x": 84,
+      "y": 409
      }
     ],
     "waves": [
@@ -1038,509 +1513,6 @@
      }
     ],
     "towerIds": [
-     "gt_pho_ca_phe_cafe_som",
-     "gt_pho_ca_phe_o_long",
-     "gt_pho_ca_phe_kem_ly",
-     "gt_pho_ca_phe_tra_sua",
-     "gt_pho_ca_phe_retro",
-     "gt_pho_ca_phe_kem_bo",
-     "gt_pho_ca_phe_cafe_xua",
-     "gt_pho_ca_phe_san_thuong",
-     "gt_hoang_dieu_yaourt",
-     "gt_nguyen_van_troi_kem_bo",
-     "gt_nguyen_van_troi_che",
-     "gt_phan_dinh_phung_cafe_coc",
-     "gt_tang_bat_ho_banh_qua",
-     "gt_tang_bat_ho_sua_nanh",
-     "gt_tang_bat_ho_bar_ham",
-     "gt_tang_bat_ho_cafe_xe_dap",
-     "gt_tang_bat_ho_an_vat",
-     "gt_tran_phu_tiem_banh",
-     "gt_don_kep_rac",
-     "gt_don_choi_tre",
-     "gt_don_voi_xit",
-     "gt_don_den_duong",
-     "gt_don_bao_cat"
-    ],
-    "loadoutSize": 6,
-    "defaultLoadout": [
-     "gt_pho_ca_phe_cafe_som",
-     "gt_pho_ca_phe_retro",
-     "gt_pho_ca_phe_o_long",
-     "gt_pho_ca_phe_kem_ly",
-     "gt_don_den_duong",
-     "gt_pho_ca_phe_cafe_xua"
-    ],
-    "enableSynergy": true,
-    "attribution": "© OpenStreetMap contributors (ODbL)",
-    "places": [
-     {
-      "key": "cafe_som",
-      "name": "Cà Phê Sớm Mai",
-      "type": "Quán cà phê truyền thống mở từ 5 giờ",
-      "trait": "vài bàn nhỏ, phin nhôm",
-      "towerId": "gt_pho_ca_phe_cafe_som"
-     },
-     {
-      "key": "o_long",
-      "name": "Tiệm Trà Đồi Chè",
-      "type": "Tiệm trà ô long ủ lạnh",
-      "trait": "trà ô long ủ lạnh",
-      "towerId": "gt_pho_ca_phe_o_long"
-     },
-     {
-      "key": "kem_ly",
-      "name": "Cà Phê Ngắm Hồ Cỏ Hồng",
-      "type": "Quán cà phê ngắm hồ, ngắm phố",
-      "trait": "ban công nhìn xuống hồ Xuân Hương",
-      "towerId": "gt_pho_ca_phe_kem_ly"
-     },
-     {
-      "key": "tra_sua",
-      "name": "Tiệm Trà Sữa Hồ Sương",
-      "type": "Tiệm trà sữa",
-      "trait": "nồi trân châu nấu nóng, ly trà sữa",
-      "towerId": "gt_pho_ca_phe_tra_sua"
-     },
-     {
-      "key": "retro",
-      "name": "Cà Phê Hoài Cổ Bằng Lăng",
-      "type": "Quán cà phê retro đồ cũ thập niên 90",
-      "trait": "máy hát, đồ cũ",
-      "towerId": "gt_pho_ca_phe_retro"
-     },
-     {
-      "key": "kem_bo",
-      "name": "Quán Kem Bơ Mai Anh Đào",
-      "type": "Quán cà phê, kem bơ",
-      "trait": "ly kem bơ, mở từ sáng sớm",
-      "towerId": "gt_pho_ca_phe_kem_bo"
-     },
-     {
-      "key": "cafe_xua",
-      "name": "Cà Phê Xưa Cúc Hoạ Mi",
-      "type": "Quán cà phê xưa, ghế gỗ, nhạc Trịnh",
-      "trait": "ghế gỗ cũ, nhạc Trịnh",
-      "towerId": "gt_pho_ca_phe_cafe_xua"
-     },
-     {
-      "key": "san_thuong",
-      "name": "Cà Phê Sân Thượng Thông Xanh",
-      "type": "Quán cà phê sân thượng nhìn xuống phố",
-      "trait": "nhìn xuống chợ và hồ",
-      "towerId": "gt_pho_ca_phe_san_thuong"
-     }
-    ],
-    "streetId": "street_pho_ca_phe",
-    "shopIndex": 1,
-    "featuredTowerId": "gt_pho_ca_phe_cafe_som",
-    "facadeKey": "mat_tien_cafe_som",
-    "roomStyle": "cafe",
-    "roomLayout": "khuon_phong_cafe_xua",
-    "botPlan": [
-     {
-      "padId": "pad_1",
-      "defId": "gt_pho_ca_phe_cafe_som",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_2",
-      "defId": "gt_pho_ca_phe_retro",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_3",
-      "defId": "gt_pho_ca_phe_o_long",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_4",
-      "defId": "gt_pho_ca_phe_cafe_xua",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_5",
-      "defId": "gt_pho_ca_phe_cafe_som",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_pho_ca_phe_retro",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_pho_ca_phe_kem_ly",
-      "preferredBranch": "A"
-     }
-    ]
-   }
-  },
-  {
-   "hpMultiplier": 1.5,
-   "balance": {
-    "randomWinWithExpectedGear": 0.5833333333333334,
-    "botWinRate": 1,
-    "botLivesAvg": 21,
-    "target": 0.6071428571428572
-   },
-   "stage": {
-    "id": "street_pho_ca_phe_t2",
-    "stageNumber": 12,
-    "name": "Tiệm Trà Đồi Chè",
-    "subtitle": "Phố Cà Phê Nguyễn Chí Thanh – Lê Đại Hành · tiệm 2/8: Tiệm trà ô long ủ lạnh",
-    "startingEssence": 210,
-    "startingLives": 20,
-    "paths": [
-     [
-      {
-       "x": 179,
-       "y": 520
-      },
-      {
-       "x": 179,
-       "y": 436
-      },
-      {
-       "x": 271,
-       "y": 436
-      },
-      {
-       "x": 271,
-       "y": 342
-      },
-      {
-       "x": 88,
-       "y": 342
-      },
-      {
-       "x": 88,
-       "y": 247
-      },
-      {
-       "x": 271,
-       "y": 247
-      },
-      {
-       "x": 271,
-       "y": 153
-      },
-      {
-       "x": 88,
-       "y": 153
-      },
-      {
-       "x": 179,
-       "y": 153
-      },
-      {
-       "x": 179,
-       "y": 127
-      }
-     ]
-    ],
-    "pads": [
-     {
-      "id": "pad_1",
-      "x": 174,
-      "y": 199
-     },
-     {
-      "id": "pad_2",
-      "x": 224,
-      "y": 199
-     },
-     {
-      "id": "pad_3",
-      "x": 119,
-      "y": 199
-     },
-     {
-      "id": "pad_4",
-      "x": 174,
-      "y": 389
-     },
-     {
-      "id": "pad_5",
-      "x": 184,
-      "y": 294
-     },
-     {
-      "id": "pad_6",
-      "x": 224,
-      "y": 389
-     },
-     {
-      "id": "pad_7",
-      "x": 239,
-      "y": 294
-     },
-     {
-      "id": "pad_8",
-      "x": 129,
-      "y": 409
-     },
-     {
-      "id": "pad_9",
-      "x": 134,
-      "y": 294
-     },
-     {
-      "id": "pad_10",
-      "x": 99,
-      "y": 449
-     },
-     {
-      "id": "pad_11",
-      "x": 84,
-      "y": 389
-     }
-    ],
-    "waves": [
-     {
-      "waveNumber": 1,
-      "title": "Đợt 1: Bụi Chợ Đêm",
-      "mainElements": [
-       "tho"
-      ],
-      "earlyBonusMax": 12,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_pho_ca_phe_2",
-        "count": 2,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.5
-       }
-      ]
-     },
-     {
-      "waveNumber": 2,
-      "title": "Đợt 2: Khói Rang Khét",
-      "mainElements": [
-       "hoa"
-      ],
-      "earlyBonusMax": 13,
-      "clearReward": 14,
-      "groups": [
-       {
-        "enemyId": "ge_pho_ca_phe_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.73
-       }
-      ]
-     },
-     {
-      "waveNumber": 3,
-      "title": "Đợt 3: Đàn Kiến Bu Đường & Khói Rang Khét",
-      "mainElements": [
-       "moc",
-       "hoa"
-      ],
-      "earlyBonusMax": 14,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_pho_ca_phe_4",
-        "count": 3,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 1.95
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_3",
-        "count": 4,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 1.95
-       }
-      ]
-     },
-     {
-      "waveNumber": 4,
-      "title": "Đợt 4: Bụi Chợ Đêm & Đàn Kiến Bu Đường",
-      "mainElements": [
-       "tho",
-       "moc"
-      ],
-      "earlyBonusMax": 15,
-      "clearReward": 15,
-      "groups": [
-       {
-        "enemyId": "ge_pho_ca_phe_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.17
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.17
-       }
-      ]
-     },
-     {
-      "waveNumber": 5,
-      "title": "Đợt 5: Khói Rang Khét & Bụi Chợ Đêm & Đàn Kiến Bu Đường",
-      "mainElements": [
-       "hoa",
-       "tho",
-       "moc"
-      ],
-      "earlyBonusMax": 16,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_pho_ca_phe_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 2.55
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.55
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 2.55
-       }
-      ]
-     },
-     {
-      "waveNumber": 6,
-      "title": "Đợt 6: Đàn Kiến Bu Đường & Khói Rang Khét & Bụi Chợ Đêm",
-      "mainElements": [
-       "moc",
-       "hoa",
-       "tho"
-      ],
-      "earlyBonusMax": 17,
-      "clearReward": 16,
-      "groups": [
-       {
-        "enemyId": "ge_pho_ca_phe_4",
-        "count": 4,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_3",
-        "count": 5,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_2",
-        "count": 3,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3
-       }
-      ]
-     },
-     {
-      "waveNumber": 7,
-      "title": "Đợt 7: Bụi Chợ Đêm & Đàn Kiến Bu Đường & Khói Rang Khét",
-      "mainElements": [
-       "tho",
-       "moc",
-       "hoa"
-      ],
-      "earlyBonusMax": 18,
-      "clearReward": 17,
-      "groups": [
-       {
-        "enemyId": "ge_pho_ca_phe_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 3.6
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.6
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 3.6
-       }
-      ]
-     },
-     {
-      "waveNumber": 8,
-      "title": "Đợt 8: Giờ cao điểm cả phố",
-      "mainElements": [
-       "tho",
-       "hoa",
-       "moc"
-      ],
-      "earlyBonusMax": 0,
-      "clearReward": 0,
-      "groups": [
-       {
-        "enemyId": "ge_pho_ca_phe_2",
-        "count": 4,
-        "intervalSec": 1.6,
-        "delayBeforeSec": 0,
-        "pathIndex": 0,
-        "hpScale": 4.2
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_3",
-        "count": 6,
-        "intervalSec": 0.85,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.2
-       },
-       {
-        "enemyId": "ge_pho_ca_phe_4",
-        "count": 5,
-        "intervalSec": 1.2,
-        "delayBeforeSec": 0.4,
-        "pathIndex": 0,
-        "hpScale": 4.2
-       }
-      ]
-     }
-    ],
-    "towerIds": [
      "gt_pho_ca_phe_o_long",
      "gt_pho_ca_phe_cafe_som",
      "gt_pho_ca_phe_kem_ly",
@@ -1684,16 +1656,6 @@
       "padId": "pad_9",
       "defId": "gt_pho_ca_phe_cafe_xua",
       "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_pho_ca_phe_retro",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_pho_ca_phe_cafe_som",
-      "preferredBranch": "A"
      }
     ]
    }
@@ -1701,9 +1663,9 @@
   {
    "hpMultiplier": 1.7,
    "balance": {
-    "randomWinWithExpectedGear": 0.4791666666666667,
+    "randomWinWithExpectedGear": 0.5625,
     "botWinRate": 1,
-    "botLivesAvg": 21,
+    "botLivesAvg": 19.333333333333332,
     "target": 0.5642857142857143
    },
    "stage": {
@@ -1724,23 +1686,23 @@
        "y": 439
       },
       {
-       "x": 88,
+       "x": 271,
        "y": 439
       },
       {
+       "x": 271,
+       "y": 318
+      },
+      {
        "x": 88,
        "y": 318
       },
       {
-       "x": 271,
-       "y": 318
-      },
-      {
-       "x": 271,
+       "x": 88,
        "y": 197
       },
       {
-       "x": 88,
+       "x": 271,
        "y": 197
       },
       {
@@ -1761,53 +1723,33 @@
      },
      {
       "id": "pad_2",
-      "x": 224,
-      "y": 243
+      "x": 234,
+      "y": 258
      },
      {
       "id": "pad_3",
-      "x": 134,
-      "y": 268
-     },
-     {
-      "id": "pad_4",
-      "x": 179,
-      "y": 378
-     },
-     {
-      "id": "pad_5",
-      "x": 134,
+      "x": 189,
       "y": 388
      },
      {
+      "id": "pad_4",
+      "x": 139,
+      "y": 413
+     },
+     {
+      "id": "pad_5",
+      "x": 129,
+      "y": 468
+     },
+     {
       "id": "pad_6",
-      "x": 94,
-      "y": 243
-     },
-     {
-      "id": "pad_7",
-      "x": 214,
-      "y": 408
-     },
-     {
-      "id": "pad_8",
-      "x": 224,
+      "x": 109,
       "y": 363
      },
      {
-      "id": "pad_9",
-      "x": 224,
-      "y": 453
-     },
-     {
-      "id": "pad_10",
-      "x": 259,
-      "y": 393
-     },
-     {
-      "id": "pad_11",
-      "x": 269,
-      "y": 463
+      "id": "pad_7",
+      "x": 84,
+      "y": 413
      }
     ],
     "waves": [
@@ -2188,36 +2130,16 @@
       "padId": "pad_7",
       "defId": "gt_pho_ca_phe_cafe_som",
       "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_pho_ca_phe_cafe_xua",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_pho_ca_phe_kem_ly",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_pho_ca_phe_retro",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_11",
-      "defId": "gt_pho_ca_phe_cafe_som",
-      "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 1.8,
+   "hpMultiplier": 1.7,
    "balance": {
-    "randomWinWithExpectedGear": 0.4791666666666667,
+    "randomWinWithExpectedGear": 0.5208333333333334,
     "botWinRate": 1,
-    "botLivesAvg": 19.333333333333332,
+    "botLivesAvg": 19.666666666666668,
     "target": 0.5214285714285715
    },
    "stage": {
@@ -2238,23 +2160,23 @@
        "y": 468
       },
       {
-       "x": 263,
+       "x": 88,
        "y": 468
       },
       {
+       "x": 88,
+       "y": 335
+      },
+      {
        "x": 263,
        "y": 335
       },
       {
-       "x": 88,
-       "y": 335
-      },
-      {
-       "x": 88,
+       "x": 263,
        "y": 202
       },
       {
-       "x": 263,
+       "x": 88,
        "y": 202
       },
       {
@@ -2270,53 +2192,38 @@
     "pads": [
      {
       "id": "pad_1",
-      "x": 169,
+      "x": 174,
       "y": 258
      },
      {
       "id": "pad_2",
-      "x": 214,
-      "y": 278
-     },
-     {
-      "id": "pad_3",
-      "x": 184,
+      "x": 164,
       "y": 408
      },
      {
+      "id": "pad_3",
+      "x": 119,
+      "y": 258
+     },
+     {
       "id": "pad_4",
-      "x": 134,
+      "x": 219,
       "y": 288
      },
      {
       "id": "pad_5",
-      "x": 249,
-      "y": 248
-     },
-     {
-      "id": "pad_6",
-      "x": 139,
+      "x": 219,
       "y": 418
      },
      {
+      "id": "pad_6",
+      "x": 219,
+      "y": 473
+     },
+     {
       "id": "pad_7",
-      "x": 129,
-      "y": 463
-     },
-     {
-      "id": "pad_8",
-      "x": 94,
-      "y": 433
-     },
-     {
-      "id": "pad_9",
-      "x": 109,
+      "x": 264,
       "y": 383
-     },
-     {
-      "id": "pad_10",
-      "x": 89,
-      "y": 488
      }
     ],
     "waves": [
@@ -2335,7 +2242,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.8
+        "hpScale": 1.7
        }
       ]
      },
@@ -2354,7 +2261,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.07
+        "hpScale": 1.95
        }
       ]
      },
@@ -2374,7 +2281,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.34
+        "hpScale": 2.21
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -2382,7 +2289,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.34
+        "hpScale": 2.21
        }
       ]
      },
@@ -2402,7 +2309,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.61
+        "hpScale": 2.47
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -2410,7 +2317,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.61
+        "hpScale": 2.47
        }
       ]
      },
@@ -2430,7 +2337,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.06
+        "hpScale": 2.89
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -2438,7 +2345,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.06
+        "hpScale": 2.89
        }
       ]
      },
@@ -2458,7 +2365,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.4
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -2466,7 +2373,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.6
+        "hpScale": 3.4
        }
       ]
      },
@@ -2486,7 +2393,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.32
+        "hpScale": 4.08
        },
        {
         "enemyId": "ge_pho_ca_phe_1",
@@ -2494,7 +2401,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.32
+        "hpScale": 4.08
        }
       ]
      },
@@ -2516,7 +2423,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -2524,7 +2431,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -2532,7 +2439,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -2540,7 +2447,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.04
+        "hpScale": 4.76
        }
       ]
      }
@@ -2679,31 +2586,16 @@
       "padId": "pad_7",
       "defId": "gt_pho_ca_phe_cafe_som",
       "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_pho_ca_phe_cafe_xua",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_pho_ca_phe_tra_sua",
-      "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_pho_ca_phe_retro",
-      "preferredBranch": "B"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 2.2,
+   "hpMultiplier": 2.1,
    "balance": {
-    "randomWinWithExpectedGear": 0.5208333333333334,
+    "randomWinWithExpectedGear": 0.4791666666666667,
     "botWinRate": 1,
-    "botLivesAvg": 16,
+    "botLivesAvg": 16.333333333333332,
     "target": 0.4785714285714286
    },
    "stage": {
@@ -2761,7 +2653,7 @@
      },
      {
       "id": "pad_2",
-      "x": 230,
+      "x": 235,
       "y": 251
      },
      {
@@ -2771,33 +2663,23 @@
      },
      {
       "id": "pad_4",
-      "x": 275,
-      "y": 231
-     },
-     {
-      "id": "pad_5",
-      "x": 165,
-      "y": 361
-     },
-     {
-      "id": "pad_6",
-      "x": 145,
-      "y": 406
-     },
-     {
-      "id": "pad_7",
-      "x": 130,
-      "y": 456
-     },
-     {
-      "id": "pad_8",
-      "x": 115,
+      "x": 155,
       "y": 366
      },
      {
-      "id": "pad_9",
-      "x": 95,
-      "y": 421
+      "id": "pad_5",
+      "x": 130,
+      "y": 416
+     },
+     {
+      "id": "pad_6",
+      "x": 105,
+      "y": 466
+     },
+     {
+      "id": "pad_7",
+      "x": 100,
+      "y": 371
      }
     ],
     "waves": [
@@ -2816,7 +2698,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.2
+        "hpScale": 2.1
        }
       ]
      },
@@ -2835,7 +2717,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.53
+        "hpScale": 2.42
        }
       ]
      },
@@ -2855,7 +2737,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.86
+        "hpScale": 2.73
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -2863,7 +2745,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.86
+        "hpScale": 2.73
        }
       ]
      },
@@ -2883,7 +2765,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.19
+        "hpScale": 3.05
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -2891,7 +2773,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.19
+        "hpScale": 3.05
        }
       ]
      },
@@ -2911,7 +2793,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.74
+        "hpScale": 3.57
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -2919,7 +2801,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.74
+        "hpScale": 3.57
        }
       ]
      },
@@ -2939,7 +2821,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.4
+        "hpScale": 4.2
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -2947,7 +2829,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.4
+        "hpScale": 4.2
        }
       ]
      },
@@ -2967,7 +2849,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.28
+        "hpScale": 5.04
        },
        {
         "enemyId": "ge_pho_ca_phe_1",
@@ -2975,7 +2857,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.28
+        "hpScale": 5.04
        }
       ]
      },
@@ -2996,7 +2878,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 5.88
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -3004,7 +2886,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 5.88
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -3012,7 +2894,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 5.88
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -3020,7 +2902,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.16
+        "hpScale": 5.88
        }
       ]
      }
@@ -3159,22 +3041,12 @@
       "padId": "pad_7",
       "defId": "gt_pho_ca_phe_cafe_som",
       "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_pho_ca_phe_cafe_xua",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_pho_ca_phe_retro",
-      "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 2,
+   "hpMultiplier": 1.9,
    "balance": {
     "randomWinWithExpectedGear": 0.4375,
     "botWinRate": 1,
@@ -3236,43 +3108,33 @@
      },
      {
       "id": "pad_2",
-      "x": 134,
-      "y": 220
+      "x": 239,
+      "y": 230
      },
      {
       "id": "pad_3",
-      "x": 234,
-      "y": 225
-     },
-     {
-      "id": "pad_4",
       "x": 189,
       "y": 370
      },
      {
-      "id": "pad_5",
+      "id": "pad_4",
       "x": 144,
       "y": 400
      },
      {
+      "id": "pad_5",
+      "x": 129,
+      "y": 455
+     },
+     {
       "id": "pad_6",
-      "x": 274,
-      "y": 260
-     },
-     {
-      "id": "pad_7",
-      "x": 129,
-      "y": 450
-     },
-     {
-      "id": "pad_8",
-      "x": 129,
+      "x": 119,
       "y": 350
      },
      {
-      "id": "pad_9",
+      "id": "pad_7",
       "x": 89,
-      "y": 385
+      "y": 395
      }
     ],
     "waves": [
@@ -3291,7 +3153,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2
+        "hpScale": 1.9
        }
       ]
      },
@@ -3310,7 +3172,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.3
+        "hpScale": 2.18
        }
       ]
      },
@@ -3330,7 +3192,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 2.47
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -3338,7 +3200,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 2.47
        }
       ]
      },
@@ -3358,7 +3220,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.9
+        "hpScale": 2.76
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -3366,7 +3228,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.9
+        "hpScale": 2.76
        }
       ]
      },
@@ -3386,7 +3248,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.4
+        "hpScale": 3.23
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -3394,7 +3256,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.4
+        "hpScale": 3.23
        }
       ]
      },
@@ -3414,7 +3276,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4
+        "hpScale": 3.8
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -3422,7 +3284,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4
+        "hpScale": 3.8
        }
       ]
      },
@@ -3442,7 +3304,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.8
+        "hpScale": 4.56
        },
        {
         "enemyId": "ge_pho_ca_phe_1",
@@ -3450,7 +3312,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.8
+        "hpScale": 4.56
        }
       ]
      },
@@ -3472,7 +3334,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.6
+        "hpScale": 5.32
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -3480,7 +3342,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.6
+        "hpScale": 5.32
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -3488,7 +3350,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.6
+        "hpScale": 5.32
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -3496,7 +3358,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.6
+        "hpScale": 5.32
        }
       ]
      }
@@ -3635,26 +3497,16 @@
       "padId": "pad_7",
       "defId": "gt_pho_ca_phe_cafe_som",
       "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_8",
-      "defId": "gt_pho_ca_phe_cafe_xua",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_9",
-      "defId": "gt_pho_ca_phe_kem_bo",
-      "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 1.6,
+   "hpMultiplier": 1.7,
    "balance": {
-    "randomWinWithExpectedGear": 0.3958333333333333,
+    "randomWinWithExpectedGear": 0.375,
     "botWinRate": 1,
-    "botLivesAvg": 20.333333333333332,
+    "botLivesAvg": 18.333333333333332,
     "target": 0.3928571428571429
    },
    "stage": {
@@ -3675,23 +3527,23 @@
        "y": 432
       },
       {
-       "x": 252,
+       "x": 112,
        "y": 432
       },
       {
+       "x": 112,
+       "y": 301
+      },
+      {
        "x": 252,
        "y": 301
       },
       {
-       "x": 112,
-       "y": 301
-      },
-      {
-       "x": 112,
+       "x": 252,
        "y": 170
       },
       {
-       "x": 252,
+       "x": 112,
        "y": 170
       },
       {
@@ -3707,38 +3559,28 @@
     "pads": [
      {
       "id": "pad_1",
-      "x": 193,
+      "x": 168,
       "y": 236
      },
      {
       "id": "pad_2",
-      "x": 173,
+      "x": 188,
       "y": 376
      },
      {
       "id": "pad_3",
-      "x": 243,
-      "y": 231
+      "x": 113,
+      "y": 221
      },
      {
       "id": "pad_4",
-      "x": 208,
-      "y": 346
+      "x": 238,
+      "y": 401
      },
      {
       "id": "pad_5",
-      "x": 138,
-      "y": 406
-     },
-     {
-      "id": "pad_6",
-      "x": 138,
+      "x": 233,
       "y": 346
-     },
-     {
-      "id": "pad_7",
-      "x": 123,
-      "y": 451
      }
     ],
     "waves": [
@@ -3757,7 +3599,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.6
+        "hpScale": 1.7
        }
       ]
      },
@@ -3776,7 +3618,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 1.84
+        "hpScale": 1.95
        }
       ]
      },
@@ -3796,7 +3638,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.08
+        "hpScale": 2.21
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -3804,7 +3646,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.08
+        "hpScale": 2.21
        }
       ]
      },
@@ -3824,7 +3666,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.32
+        "hpScale": 2.47
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -3832,7 +3674,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.32
+        "hpScale": 2.47
        }
       ]
      },
@@ -3852,7 +3694,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.72
+        "hpScale": 2.89
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -3860,7 +3702,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 2.72
+        "hpScale": 2.89
        }
       ]
      },
@@ -3881,7 +3723,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.2
+        "hpScale": 3.4
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -3889,7 +3731,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.2
+        "hpScale": 3.4
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -3897,7 +3739,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.2
+        "hpScale": 3.4
        }
       ]
      },
@@ -3918,7 +3760,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.84
+        "hpScale": 4.08
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -3926,7 +3768,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.84
+        "hpScale": 4.08
        },
        {
         "enemyId": "ge_pho_ca_phe_1",
@@ -3934,7 +3776,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.84
+        "hpScale": 4.08
        }
       ]
      },
@@ -3957,7 +3799,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.48
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_pho_ca_phe_2",
@@ -3965,7 +3807,7 @@
         "intervalSec": 1.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.48
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -3973,7 +3815,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.48
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -3981,7 +3823,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.48
+        "hpScale": 4.76
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -3989,7 +3831,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.48
+        "hpScale": 4.76
        }
       ]
      }
@@ -4118,26 +3960,16 @@
       "padId": "pad_5",
       "defId": "gt_pho_ca_phe_cafe_xua",
       "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_6",
-      "defId": "gt_pho_ca_phe_retro",
-      "preferredBranch": "B"
-     },
-     {
-      "padId": "pad_7",
-      "defId": "gt_pho_ca_phe_cafe_som",
-      "preferredBranch": "A"
      }
     ]
    }
   },
   {
-   "hpMultiplier": 2.6,
+   "hpMultiplier": 2.2,
    "balance": {
-    "randomWinWithExpectedGear": 0.3541666666666667,
+    "randomWinWithExpectedGear": 0.375,
     "botWinRate": 1,
-    "botLivesAvg": 20.333333333333332,
+    "botLivesAvg": 20.666666666666668,
     "target": 0.35000000000000003
    },
    "stage": {
@@ -4158,24 +3990,16 @@
        "y": 463
       },
       {
-       "x": 271,
+       "x": 88,
        "y": 463
       },
       {
-       "x": 271,
-       "y": 362
-      },
-      {
        "x": 88,
-       "y": 362
-      },
-      {
-       "x": 88,
-       "y": 260
+       "y": 311
       },
       {
        "x": 271,
-       "y": 260
+       "y": 311
       },
       {
        "x": 271,
@@ -4198,53 +4022,48 @@
     "pads": [
      {
       "id": "pad_1",
-      "x": 174,
-      "y": 210
+      "x": 189,
+      "y": 225
      },
      {
       "id": "pad_2",
-      "x": 224,
-      "y": 205
+      "x": 134,
+      "y": 230
      },
      {
       "id": "pad_3",
-      "x": 179,
-      "y": 410
+      "x": 159,
+      "y": 390
      },
      {
       "id": "pad_4",
-      "x": 119,
-      "y": 210
+      "x": 84,
+      "y": 205
      },
      {
       "id": "pad_5",
-      "x": 184,
-      "y": 310
+      "x": 214,
+      "y": 405
      },
      {
       "id": "pad_6",
-      "x": 134,
-      "y": 430
-     },
-     {
-      "id": "pad_7",
-      "x": 234,
-      "y": 310
-     },
-     {
-      "id": "pad_8",
-      "x": 134,
-      "y": 305
-     },
-     {
-      "id": "pad_9",
-      "x": 94,
+      "x": 224,
       "y": 460
      },
      {
-      "id": "pad_10",
-      "x": 89,
-      "y": 410
+      "id": "pad_7",
+      "x": 84,
+      "y": 260
+     },
+     {
+      "id": "pad_8",
+      "x": 239,
+      "y": 355
+     },
+     {
+      "id": "pad_9",
+      "x": 269,
+      "y": 400
      }
     ],
     "waves": [
@@ -4263,7 +4082,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.6
+        "hpScale": 2.2
        }
       ]
      },
@@ -4282,7 +4101,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 2.99
+        "hpScale": 2.53
        }
       ]
      },
@@ -4302,7 +4121,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.38
+        "hpScale": 2.86
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -4310,7 +4129,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.38
+        "hpScale": 2.86
        }
       ]
      },
@@ -4330,7 +4149,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 3.77
+        "hpScale": 3.19
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4338,7 +4157,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 3.77
+        "hpScale": 3.19
        }
       ]
      },
@@ -4358,7 +4177,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 4.42
+        "hpScale": 3.74
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4366,7 +4185,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 4.42
+        "hpScale": 3.74
        }
       ]
      },
@@ -4386,7 +4205,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 5.2
+        "hpScale": 4.4
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4394,7 +4213,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.2
+        "hpScale": 4.4
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -4402,7 +4221,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 5.2
+        "hpScale": 4.4
        }
       ]
      },
@@ -4423,7 +4242,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 6.24
+        "hpScale": 5.28
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -4431,7 +4250,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.24
+        "hpScale": 5.28
        },
        {
         "enemyId": "ge_pho_ca_phe_1",
@@ -4439,7 +4258,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 6.24
+        "hpScale": 5.28
        }
       ]
      },
@@ -4461,7 +4280,7 @@
         "intervalSec": 0.6,
         "delayBeforeSec": 0,
         "pathIndex": 0,
-        "hpScale": 7.28
+        "hpScale": 6.16
        },
        {
         "enemyId": "ge_pho_ca_phe_3",
@@ -4469,7 +4288,7 @@
         "intervalSec": 0.85,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 7.28
+        "hpScale": 6.16
        },
        {
         "enemyId": "ge_pho_ca_phe_4",
@@ -4477,7 +4296,7 @@
         "intervalSec": 1.2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 7.28
+        "hpScale": 6.16
        },
        {
         "enemyId": "ge_pho_ca_phe_5",
@@ -4485,7 +4304,7 @@
         "intervalSec": 1.8,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 7.28
+        "hpScale": 6.16
        },
        {
         "enemyId": "ge_pho_ca_phe_6",
@@ -4493,7 +4312,7 @@
         "intervalSec": 2,
         "delayBeforeSec": 0.4,
         "pathIndex": 0,
-        "hpScale": 7.28
+        "hpScale": 6.16
        }
       ]
      }
@@ -4642,11 +4461,6 @@
       "padId": "pad_9",
       "defId": "gt_pho_ca_phe_san_thuong",
       "preferredBranch": "A"
-     },
-     {
-      "padId": "pad_10",
-      "defId": "gt_pho_ca_phe_retro",
-      "preferredBranch": "B"
      }
     ]
    }
